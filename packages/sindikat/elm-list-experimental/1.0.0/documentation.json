@@ -1,0 +1,51 @@
+[
+  {
+    "name": "List.Experimental",
+    "comment": "List.Experimental is a testing playground for various List related functions. It contains functions that are experimental, unidiomatic, controversial or downright silly. This is specifically to not clutter List and List.Extra, and also have an isolated place to test crazy ideas.\n\n*Do not* use this module in production code. Try your best to come up with equivalent functionality or solve your problem in a different way, and if you fail, consider contributing to List and List.Extra packages.\n\n*Do not* import functions from this module unqualified if you do use it.\n\nThis package has the lowest possible bar for inclusion of List related functions. If you have some code that you want to publish somewhere, but not necessarily contribute to core libraries, feel absolutely free to contribute here. Treat this package as a safe sandbox. The GitHub page for ideas, suggestions, discussions, and pull requests is:\n\nhttps://github.com/sindikat/elm-list-experimental\n\n# List functions\n@docs and, or, conjunction, disjunction, lookup, filter2, filterMap2, filterM",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "and",
+        "comment": "Return the conjunction of all `Bool`s in a list. In other words, return True if all elements are True, return False otherwise. `and` is equivalent to `all identity`. Return True on an empty list.",
+        "type": "List Bool -> Bool"
+      },
+      {
+        "name": "conjunction",
+        "comment": "Same as `and`.",
+        "type": "List Bool -> Bool"
+      },
+      {
+        "name": "disjunction",
+        "comment": "Same as `or`.",
+        "type": "List Bool -> Bool"
+      },
+      {
+        "name": "filter2",
+        "comment": "Filter over two lists simultaneously using a custom comparison function, return a list of pairs.",
+        "type": "(a -> b -> Bool) -> List a -> List b -> List ( a, b )"
+      },
+      {
+        "name": "filterM",
+        "comment": "Filter that exploits the behavior of `andThen`.\n\nReturn all subsequences of a list:\n\n    filterM (\\x -> [True, False]) [1,2,3] == [[1,2,3],[1,2],[1,3],[1],[2,3],[2],[3],[]]\n\nReturn all subsequences that contain 2:\n\n    filterM (\\x -> if x==2 then [True] else [True,False]) [1,2,3] == [[1,2,3],[1,2],[2,3],[2]]",
+        "type": "(a -> List Bool) -> List a -> List (List a)"
+      },
+      {
+        "name": "filterMap2",
+        "comment": "Remove all elements from both lists that don't satisfy the predicate, then apply the function.",
+        "type": "(a -> b -> c) -> (a -> b -> Bool) -> List a -> List b -> List c"
+      },
+      {
+        "name": "lookup",
+        "comment": "Look up a key in an association list, return corresponding value, wrapped in `Just`. If no value is found, return `Nothing`. If multiple values correspond to the same key, return the first found value.\n\n    lookup 'a' [('a',1),('b',2),('c',3)] == Just 1\n    lookup 'd' [('a',1),('b',2),('c',3)] == Nothing\n    lookup 3 [(1,\"John\"),(1,\"Paul\"),(2,\"Mary\")] == Just \"John\"",
+        "type": "a -> List ( a, b ) -> Maybe.Maybe b"
+      },
+      {
+        "name": "or",
+        "comment": "Return the disjunction of all `Bool`s in a list. In other words, return True if any element is True, return False otherwise. `or` is equivalent to `any identity`. Return False on an empty list.",
+        "type": "List Bool -> Bool"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

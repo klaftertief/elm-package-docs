@@ -1,0 +1,497 @@
+[
+  {
+    "name": "Material.Layout",
+    "comment": " From the\n[Material Design Lite documentation](https://www.getmdl.io/components/index.html#layout-section):\n\n> The Material Design Lite (MDL) layout component is a comprehensive approach to\n> page layout that uses MDL development tenets, allows for efficient use of MDL\n> components, and automatically adapts to different browsers, screen sizes, and\n> devices.\n>\n> Appropriate and accessible layout is a critical feature of all user interfaces,\n> regardless of a site's content or function. Page design and presentation is\n> therefore an important factor in the overall user experience. See the layout\n> component's\n> [Material Design specifications page](https://www.google.com/design/spec/layout/structure.html#structure-system-bars)\n> for details.\n>\n> Use of MDL layout principles simplifies the creation of scalable pages by\n> providing reusable components and encourages consistency across environments by\n> establishing recognizable visual elements, adhering to logical structural\n> grids, and maintaining appropriate spacing across multiple platforms and screen\n> sizes. MDL layout is extremely powerful and dynamic, allowing for great\n> consistency in outward appearance and behavior while maintaining development\n> flexibility and ease of use.\n\n# Model & Actions\n@docs Mode, Model, defaultLayoutModel, initState, Action, update\n\n# View\n@docs Contents, view\n\n## Sub-views\n@docs spacer, title, navigation, link\n\n# Setup\n@docs setupSizeChangeSignal\n",
+    "aliases": [
+      {
+        "name": "Contents",
+        "comment": " Content of the layout only (contents of main pane is set elsewhere). Every\npart is optional. If `header` is `Nothing`, tabs will not be shown.\n\nThe `header` and `drawer` contains the contents of the header row and drawer,\nrespectively.  Use `spacer`, `title`, `nav`, and\n`link`, as well as regular Html to construct these. The `tabs` contains\nthe title of each tab.\n",
+        "args": [],
+        "type": "{ header : Maybe.Maybe (List Html.Html) , drawer : Maybe.Maybe (List Html.Html) , tabs : Maybe.Maybe (List Html.Html) , main : List Html.Html }"
+      },
+      {
+        "name": "Model",
+        "comment": " Layout model. If your layout view has tabs, any tab with the same name as\n`selectedTab` will be highlighted as selected; otherwise, `selectedTab` has no\nsignificance. `isDrawerOpen` indicates whether the drawer, if the layout has\nsuch, is open; otherwise, it has no significance.\n\nThe header disappears on small devices unless\n`fixedHeader` is true. The drawer opens and closes with user interactions\nunless `fixedDrawer` is true, in which case it is permanently open on large\nscreens. Tabs scroll horisontally unless `fixedTabs` is true.\nFinally, the header respects `mode`\n\nThe `state` is the opaque\nlayout component state; use the function `initState` to construct it. If you\nchange the number of tabs, you must re-initialise this state.\n",
+        "args": [],
+        "type": "{ selectedTab : Int , isDrawerOpen : Bool , fixedHeader : Bool , fixedDrawer : Bool , fixedTabs : Bool , rippleTabs : Bool , mode : Material.Layout.Mode , state : Material.Layout.State }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Component actions.\nUse `SwitchTab` to request a switch of tabs. Use `ToggleDrawer` to toggle the\nopened/closed state of the drawer.\n",
+        "args": [],
+        "cases": [
+          [
+            "SwitchTab",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "ToggleDrawer",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Mode",
+        "comment": " Mode for the header.\n- A `Standard` header casts shadow, is permanently affixed to the top of the screen.\n- A `Seamed` header does not cast shadow, is permanently affixed to the top of the\n  screen.\n- A `Scroll`'ing header scrolls with contents.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultLayoutModel",
+        "comment": " Default configuration of the layout: Fixed header, non-fixed drawer,\nnon-fixed tabs, tabs do not ripple, tab 0 is selected, standard header\nbehaviour.\n",
+        "type": "Material.Layout.Model"
+      },
+      {
+        "name": "initState",
+        "comment": " Initialiser for Layout component state. Supply a number of tabs you\nuse in your layout. If you subsequently change the number of tabs, you\nmust re-initialise the state.\n",
+        "type": "Int -> Material.Layout.State"
+      },
+      {
+        "name": "link",
+        "comment": " Link.\n",
+        "type": "List Html.Attribute -> List Html.Html -> Html.Html"
+      },
+      {
+        "name": "navigation",
+        "comment": " Container for links.\n",
+        "type": "List Html.Html -> Html.Html"
+      },
+      {
+        "name": "setupSizeChangeSignal",
+        "comment": " Setup signal for registering changes in display size. Use with StartApp\nlike so, supposing you have a `LayoutAction` encapsulating actions of the\nlayout:\n\n    inputs : List (Signal.Signal Action)\n    inputs =\n      [ Layout.setupSizeChangeSignal LayoutAction\n      ]\n",
+        "type": "(Material.Layout.Action -> a) -> Signal.Signal a"
+      },
+      {
+        "name": "spacer",
+        "comment": " Push subsequent elements in header row or drawer column to the right/bottom.\n",
+        "type": "Html.Html"
+      },
+      {
+        "name": "title",
+        "comment": " Title in header row or drawer.\n",
+        "type": "String -> Html.Html"
+      },
+      {
+        "name": "update",
+        "comment": " Component update.\n",
+        "type": "Material.Layout.Action -> Material.Layout.Model -> ( Material.Layout.Model, Effects.Effects Material.Layout.Action )"
+      },
+      {
+        "name": "view",
+        "comment": " Main layout view.\n",
+        "type": "Material.Layout.Addr -> Material.Layout.Model -> Material.Layout.Contents -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Button",
+    "comment": " From the [Material Design Lite documentation](http://www.getmdl.io/components/#buttons-section):\n\n> The Material Design Lite (MDL) button component is an enhanced version of the\n> standard HTML `<button>` element. A button consists of text and/or an image that\n> clearly communicates what action will occur when the user clicks or touches it.\n> The MDL button component provides various types of buttons, and allows you to\n> add both display and click effects.\n>\n> Buttons are a ubiquitous feature of most user interfaces, regardless of a\n> site's content or function. Their design and use is therefore an important\n> factor in the overall user experience. See the button component's Material\n> Design specifications page for details.\n>\n> The available button display types are flat (default), raised, fab, mini-fab,\n> and icon; any of these types may be plain (light gray) or colored, and may be\n> initially or programmatically disabled. The fab, mini-fab, and icon button\n> types typically use a small image as their caption rather than text.\n\nSee also the\n[Material Design Specification]([https://www.google.com/design/spec/components/buttons.html).\n\n# Component\n@docs Model, model, Action, update\n\n# View\nRefer to the\n[Material Design Specification](https://www.google.com/design/spec/components/buttons.html)\nfor details about what type of buttons are appropriate for which situations.\n\n@docs Coloring, flat, raised, fab, minifab, icon\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Component action. The `Click` action fires when the button is clicked.\n",
+        "args": [],
+        "cases": [
+          [
+            "Click",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Coloring",
+        "comment": " Coloring of a button. `Plain` respectively `Colored` is the button's\nuncolored respectively colored defaults.\n`Primary` respectively `Accent` chooses a colored button with the indicated\ncolor.\n",
+        "args": [],
+        "cases": [
+          [
+            "Plain",
+            []
+          ],
+          [
+            "Colored",
+            []
+          ],
+          [
+            "Primary",
+            []
+          ],
+          [
+            "Accent",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Model",
+        "comment": " Model of the button; common to all kinds of button.\nUse `model` to initalise it.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "fab",
+        "comment": " Floating Action Button. From the\n[Material Design Specification](https://www.google.com/design/spec/components/buttons-floating-action-button.html):\n\n> Floating action buttons are used for a promoted action. They are distinguished\n> by a circled icon floating above the UI and have motion behaviors that include\n> morphing, launching, and a transferring anchor point.\n>\n> Floating action buttons come in two sizes:\n>\n>  - Default size: For most use cases\n>  - Mini size: Only used to create visual continuity with other screen elements\n\nThis constructor produces the default size, use `minifab` to get the mini-size.\n\nExample use (colored with a '+' icon):\n\n    import Material.Button as Button\n    import Material.Icon as Icon\n\n    fabButton : Html\n    fabButton = fab addr model Colored [Icon.i \"add\"]\n",
+        "type": "Signal.Address Material.Button.Action -> Material.Button.Model -> Material.Button.Coloring -> List Html.Html -> Html.Html"
+      },
+      {
+        "name": "flat",
+        "comment": " From the\n[Material Design Specification](https://www.google.com/design/spec/components/buttons.html#buttons-flat-buttons):\n\n> Flat buttons are printed on material. They do not lift, but fill with color on\n> press.\n>\n> Use flat buttons in the following locations:\n>\n>  - On toolbars\n>  - In dialogs, to unify the button action with the dialog content\n>  - Inline, with padding, so the user can easily find them\n\nExample use (uncolored flat button, assuming properly setup model):\n\n    import Material.Button as Button\n\n    flatButton : Html\n    flatButton = Button.flat addr model Button.Plain [text \"Click me!\"]\n\n",
+        "type": "Signal.Address Material.Button.Action -> Material.Button.Model -> Material.Button.Coloring -> List Html.Html -> Html.Html"
+      },
+      {
+        "name": "icon",
+        "comment": " The [Material Design Lite implementation](https://www.getmdl.io/components/index.html#buttons-section)\nalso offers an \"icon button\", which we\nre-implement here. See also\n[Material Design Specification](http://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons).\nExample use (no color, displaying a '+' icon):\n\n    import Material.Button as Button\n    import Material.Icon as Icon\n\n    iconButton : Html\n    iconButton = icon addr model Plain [Icon.i \"add\"]\n",
+        "type": "Signal.Address Material.Button.Action -> Material.Button.Model -> Material.Button.Coloring -> List Html.Html -> Html.Html"
+      },
+      {
+        "name": "minifab",
+        "comment": " Mini-sized variant of a Floating Action Button; refer to `fab`.\n",
+        "type": "Signal.Address Material.Button.Action -> Material.Button.Model -> Material.Button.Coloring -> List Html.Html -> Html.Html"
+      },
+      {
+        "name": "model",
+        "comment": " Model initialiser. Call with `True` if the button should ripple when\nclicked, `False` otherwise.\n",
+        "type": "Bool -> Material.Button.Model"
+      },
+      {
+        "name": "raised",
+        "comment": " From the\n[Material Design Specification](https://www.google.com/design/spec/components/buttons.html#buttons-raised-buttons):\n\n> Raised buttons add dimension to mostly flat layouts. They emphasize functions\n> on busy or wide spaces.\n>\n> Raised buttons behave like a piece of material resting on another sheet –\n> they lift and fill with color on press.\n\nExample use (colored raised button, assuming properly setup model):\n\n    import Material.Button as Button\n\n    raisedButton : Html\n    raisedButton = Button.raised addr model Button.Colored [text \"Click me!\"]\n\n",
+        "type": "Signal.Address Material.Button.Action -> Material.Button.Model -> Material.Button.Coloring -> List Html.Html -> Html.Html"
+      },
+      {
+        "name": "update",
+        "comment": " Component update.\n",
+        "type": "Material.Button.Action -> Material.Button.Model -> ( Material.Button.Model, Effects.Effects Material.Button.Action )"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material",
+    "comment": " Material Design component library for Elm based on Google's\n[Material Design Lite](https://www.getmdl.io/).\n\nThis file contains CSS loaders only.\n\n@docs Color, topWithColors, top\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Color",
+        "comment": " Possible colors for color scheme.\n",
+        "args": [],
+        "cases": [
+          [
+            "Indigo",
+            []
+          ],
+          [
+            "Blue",
+            []
+          ],
+          [
+            "LightBlue",
+            []
+          ],
+          [
+            "Cyan",
+            []
+          ],
+          [
+            "Teal",
+            []
+          ],
+          [
+            "Green",
+            []
+          ],
+          [
+            "LightGreen",
+            []
+          ],
+          [
+            "Lime",
+            []
+          ],
+          [
+            "Yellow",
+            []
+          ],
+          [
+            "Amber",
+            []
+          ],
+          [
+            "Orange",
+            []
+          ],
+          [
+            "Brown",
+            []
+          ],
+          [
+            "BlueGrey",
+            []
+          ],
+          [
+            "Grey",
+            []
+          ],
+          [
+            "DeepOrange",
+            []
+          ],
+          [
+            "Red",
+            []
+          ],
+          [
+            "Pink",
+            []
+          ],
+          [
+            "Purple",
+            []
+          ],
+          [
+            "DeepPurple",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "top",
+        "comment": " Top-level container with default color scheme.\n",
+        "type": "Html.Html -> Html.Html"
+      },
+      {
+        "name": "topWithColors",
+        "comment": " Top-level container for Material components. This will force loading of\nMaterial Design Lite CSS files. Any component you use must be contained\nin this container, OR you must manually add something like the following to\nyour .html file:\n\n    <!-- MDL -->\n    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Roboto+Mono|Roboto+Condensed:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Material+Icons\">\n    <link rel=\"stylesheet\" href=\"https://code.getmdl.io/1.1.1/material.min.css\" />\n\nSupply primary and accent colors as parameters. Refer to the\nMaterial Design Lite [Custom CSS theme builder](https://www.getmdl.io/customize/index.html)\nto preview combinations.\n\nPlease be aware that Grey, Blue Grey, and Brown cannot be secondary colors. If\nyou choose them as such anyway, you will get the default theme.\n\nUsing this top-level container is not recommended, as most browsers will load\ncss concurrently with rendering the initial page, which will produce a flicker\non page load. The container is included only to provide an option to get started\nquickly and for use with elm-reactor. \n\n",
+        "type": "Material.Color -> Material.Color -> Html.Html -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Grid",
+    "comment": " From the\n[Material Design Lite documentation](http://www.getmdl.io/components/#layout-section/grid):\n\n> The Material Design Lite (MDL) grid component is a simplified method for laying\n> out content for multiple screen sizes. It reduces the usual coding burden\n> required to correctly display blocks of content in a variety of display\n> conditions.\n>\n> The MDL grid is defined and enclosed by a container element. A grid has 12\n> columns in the desktop screen size, 8 in the tablet size, and 4 in the phone\n> size, each size having predefined margins and gutters. Cells are laid out\n> sequentially in a row, in the order they are defined, with some exceptions:\n>\n>   - If a cell doesn't fit in the row in one of the screen sizes, it flows\n>     into the following line.\n>   - If a cell has a specified column size equal to or larger than the number\n>     of columns for the current screen size, it takes up the entirety of its\n>     row.\"\n\nExample use:\n\n    import Material.Grid exposing (grid, cell, size, Device(..))\n\n    top : Html\n    top =\n      grid\n        [ cell [ size All 4 ]\n            [ h4 [] [text \"Cell 1\"]\n            ]\n        , cell [ offset All 2, size All 4 ]\n            [ h4 [] [text \"Cell 2\"]\n            , p [] [text \"This cell is offset by 2\"]\n            ]\n        , cell [ size All 6 ]\n            [ h4 [] [text \"Cell 3\"]\n            ]\n        , cell [ size Tablet 6, size Desktop 12, size Phone 2 ]\n            [ h4 [] [text \"Cell 4\"]\n            , p [] [text \"Size varies with device\"]\n            ]\n        ]\n\n# Grid container\n@docs grid, Options, gridWithOptions\n\n# Cells\n\nCells are configured with a `List CellConfig`; this configuration dictates the\nsize, offset, and alignment behaviour of the cell. Construct\nindividual `CellConfig` elements using `size`, `offset`, and `align`.\n\n@docs cell, Device, size, offset, Align, align, hide, order\n",
+    "aliases": [
+      {
+        "name": "Options",
+        "comment": " The `spacing` parameter indicates whether or not the grid should have\nspacing between cells. The `maxWidth` parameter, which must be a valid CSS\ndimension, indicates the maximum\nwidth of the grid; if the grid is in a larger container, it stays centered with\npadding on either side.\n",
+        "args": [],
+        "type": "{ spacing : Bool, maxWidth : Maybe.Maybe String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Align",
+        "comment": " Vertical alignment of cells; use with `align`.\n",
+        "args": [],
+        "cases": [
+          [
+            "Top",
+            []
+          ],
+          [
+            "Middle",
+            []
+          ],
+          [
+            "Bottom",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Device",
+        "comment": " Device specifiers, used with `size` and `offset`. (A `Device` really\nencapsulates a screen size.)\n",
+        "args": [],
+        "cases": [
+          [
+            "All",
+            []
+          ],
+          [
+            "Desktop",
+            []
+          ],
+          [
+            "Tablet",
+            []
+          ],
+          [
+            "Phone",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "align",
+        "comment": " Specify vertical cell alignment. See `Align`.\n",
+        "type": "Material.Grid.Align -> Material.Grid.CellConfig"
+      },
+      {
+        "name": "cell",
+        "comment": " Construct a cell for use in the argument list for `grid`.\nConstruct the cell configuration (first argument) using `size`, `offset`, and\n`align`. Supply contents for the cell as the second argument.\n",
+        "type": "List Material.Grid.CellConfig -> List Html.Html -> Material.Grid.Cell"
+      },
+      {
+        "name": "grid",
+        "comment": " Construct a grid with default options (i.e., default spacing, no\nmaximum width.) Use `cell` some number of times to construct the argument\nlist.\n",
+        "type": "List Material.Grid.Cell -> Html.Html"
+      },
+      {
+        "name": "gridWithOptions",
+        "comment": " Construct a grid with options.\n",
+        "type": "Material.Grid.Options -> List Material.Grid.Cell -> Html.Html"
+      },
+      {
+        "name": "hide",
+        "comment": " Specify that a cell should be hidden on given `Device`.\n",
+        "type": "Material.Grid.Device -> Material.Grid.CellConfig"
+      },
+      {
+        "name": "offset",
+        "comment": " Specify cell offset, i.e., empty number of empty cells before the present\none. On devices of type `Device`, leave `Int` columns blank before the present\none begins.\n",
+        "type": "Material.Grid.Device -> Int -> Material.Grid.CellConfig"
+      },
+      {
+        "name": "order",
+        "comment": " Specify that a cell should re-order itself to position 'Int' on `Device`.\n",
+        "type": "Material.Grid.Device -> Int -> Material.Grid.CellConfig"
+      },
+      {
+        "name": "size",
+        "comment": " Specify cell size. On devices of type `Device`, the\ncell being specified spans `Int` columns.\n",
+        "type": "Material.Grid.Device -> Int -> Material.Grid.CellConfig"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Textfield",
+    "comment": " From the [Material Design Lite documentation](http://www.getmdl.io/components/#textfields-section):\n\n> The Material Design Lite (MDL) text field component is an enhanced version of\n> the standard HTML `<input type=\"text\">` and `<input type=\"textarea\">` elements.\n> A text field consists of a horizontal line indicating where keyboard input\n> can occur and, typically, text that clearly communicates the intended\n> contents of the text field. The MDL text field component provides various\n> types of text fields, and allows you to add both display and click effects.\n>\n> Text fields are a common feature of most user interfaces, regardless of a\n> site's content or function. Their design and use is therefore an important\n> factor in the overall user experience. See the text field component's\n> [Material  Design specifications page](https://www.google.com/design/spec/components/text-fields.html)\n> for details.\n>\n> The enhanced text field component has a more vivid visual look than a standard\n> text field, and may be initially or programmatically disabled. There are three\n> main types of text fields in the text field component, each with its own basic\n> coding requirements. The types are single-line, multi-line, and expandable.\n\nThis implementation provides only single-line.\n\n\n# Configuration\n@docs Kind, Label\n\n# Component\n@docs Action, Model, model, update, view\n",
+    "aliases": [
+      {
+        "name": "Label",
+        "comment": " Label configuration. The `text` is the text of the label;\nthe label floats if `float` is True.\n",
+        "args": [],
+        "type": "{ text : String, float : Bool }"
+      },
+      {
+        "name": "Model",
+        "comment": " Model. The textfield is in its error-state if `error` is not `Nothing`.\nThe contents of the field is `value`.\n",
+        "args": [],
+        "type": "{ label : Maybe.Maybe Material.Textfield.Label , error : Maybe.Maybe String , kind : Material.Textfield.Kind , isDisabled : Bool , isFocused : Bool , value : String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Component actions. `Input` carries the new value of the field.\n",
+        "args": [],
+        "cases": [
+          [
+            "Input",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Blur",
+            []
+          ],
+          [
+            "Focus",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Kind",
+        "comment": " Kind of textfield. Currently supports only single-line inputs.\n",
+        "args": [],
+        "cases": [
+          [
+            "SingleLine",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "model",
+        "comment": " Default model. No label, error, or value.\n",
+        "type": "Material.Textfield.Model"
+      },
+      {
+        "name": "update",
+        "comment": " Component update.\n",
+        "type": "Material.Textfield.Action -> Material.Textfield.Model -> Material.Textfield.Model"
+      },
+      {
+        "name": "view",
+        "comment": " Component view.\n",
+        "type": "Signal.Address Material.Textfield.Action -> Material.Textfield.Model -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Icon",
+    "comment": " Convenience functions for producing Material Design Icons. Refer to\n[the Material Design Icons page](https://google.github.io/material-design-icons),\nor skip straight to the [Material Icons Library](https://design.google.com/icons/).\n\nThis implementation assumes that you have\n\n    <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\"\n      rel=\"stylesheet\">\n\nor an equivalent means of loading the icons in your HTML header.\n\n@docs i, Size, view\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Size",
+        "comment": " Size of an icon. Constructors indicate their pixel size, i.e.,\n`S18` is 18px. The constructor `S` gives you the default size, 24px.\n",
+        "args": [],
+        "cases": [
+          [
+            "S18",
+            []
+          ],
+          [
+            "S24",
+            []
+          ],
+          [
+            "S36",
+            []
+          ],
+          [
+            "S48",
+            []
+          ],
+          [
+            "S",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "i",
+        "comment": " Render a default-sized icon with no behaviour. The\n`String` argument must be the name of a [Material Icon](https://design.google.com/icons/)\n(replace spaces with underscores).\n\nI.e., to produce a default size (24xp) \"trending flat\" icon:\n\n    import Material.Icon as Icon\n\n    icon : Html\n    icon = Icon.i \"trending_flat\"\n",
+        "type": "String -> Html.Html"
+      },
+      {
+        "name": "view",
+        "comment": " View function for icons. Supply the\n[Material Icons Library](https://design.google.com/icons/) name as\nthe first argument (replace spaces with underscores); and the size of the icon\nas the second. Do not use this function to produce clickable icons; use\nicon buttons in Material.Button for that.\n\nI.e., to produce a 48px\n[\"trending flat\"](https://design.google.com/icons/#ic_trending_flat) icon with\nno attributes:\n\n    import Material.Icon as Icon\n\n    icon : Html\n    icon = Icon.view \"trending_flat\" Icon.S48 []\n\nThis function will override any `class` set in `List Attribute`.\n",
+        "type": "String -> Material.Icon.Size -> List Html.Attribute -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

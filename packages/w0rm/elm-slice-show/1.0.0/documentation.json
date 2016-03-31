@@ -1,0 +1,96 @@
+[
+  {
+    "name": "SliceShow",
+    "comment": " This module helps you start your SliceShow application.\n# Start your Application\n@docs SliceShow, Model, init, show, setDimensions, setHash\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " Slideshow Model type ",
+        "args": [],
+        "type": "SliceShow.Protected.Protected SliceShow.Model.Model"
+      },
+      {
+        "name": "SliceShow",
+        "comment": " SliceShow app, exposes html signal and tasks signal ",
+        "args": [],
+        "type": "{ html : Signal.Signal Html.Html , tasks : Signal.Signal (Task.Task Effects.Never ()) }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Init Model from list of slides ",
+        "type": "List SliceShow.Slide.Slide -> SliceShow.Model"
+      },
+      {
+        "name": "setDimensions",
+        "comment": " Set initial dimensions taken from port ",
+        "type": "( Int, Int ) -> SliceShow.Model -> SliceShow.Model"
+      },
+      {
+        "name": "setHash",
+        "comment": " Set initial hash taken from port ",
+        "type": "String -> SliceShow.Model -> SliceShow.Model"
+      },
+      {
+        "name": "show",
+        "comment": " Start the SliceShow with your `slides`:\n    app = show (init slides)\n    main = app.html\n    port tasks : Signal (Task.Task Never ())\n    port tasks = app.tasks\n",
+        "type": "SliceShow.Model -> SliceShow.SliceShow"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "SliceShow.Slide",
+    "comment": " This module helps you define a slide\n@docs Slide, slide\n",
+    "aliases": [
+      {
+        "name": "Slide",
+        "comment": " Slide type ",
+        "args": [],
+        "type": "SliceShow.Protected.Protected SliceShow.SlideData.SlideData"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "slide",
+        "comment": " Create new slide from a list of content items ",
+        "type": "List SliceShow.Content.Content -> SliceShow.Slide.Slide"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "SliceShow.Content",
+    "comment": " This module helps you define Slide content\n@docs Content, item, container, hide\n",
+    "aliases": [
+      {
+        "name": "Content",
+        "comment": " Content type ",
+        "args": [],
+        "type": "SliceShow.ContentData.ContentData"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "container",
+        "comment": " A group of content items ",
+        "type": "(List Html.Html -> Html.Html) -> List SliceShow.Content.Content -> SliceShow.Content.Content"
+      },
+      {
+        "name": "hide",
+        "comment": " Hide content ",
+        "type": "SliceShow.Content.Content -> SliceShow.Content.Content"
+      },
+      {
+        "name": "item",
+        "comment": " Single content item ",
+        "type": "Html.Html -> SliceShow.Content.Content"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

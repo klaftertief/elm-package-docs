@@ -1,0 +1,219 @@
+[
+  {
+    "name": "Parser.Char",
+    "comment": "Parsing characters\n\n@docs upper, lower, between, parenthesized, bracketed, braced, quoted, singleQuoted",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "between",
+        "comment": "Parse a parser between two `Chars`",
+        "type": "Char -> Char -> Parser.Parser result -> Parser.Parser result"
+      },
+      {
+        "name": "braced",
+        "comment": "Parses a parser between braces `{` and `}`",
+        "type": "Parser.Parser result -> Parser.Parser result"
+      },
+      {
+        "name": "bracketed",
+        "comment": "Parses a parser between brackets `[` and `]`",
+        "type": "Parser.Parser result -> Parser.Parser result"
+      },
+      {
+        "name": "lower",
+        "comment": "Parse a lower case character",
+        "type": "Parser.Parser Char"
+      },
+      {
+        "name": "parenthesized",
+        "comment": "Parse a parser between parentheses `(` and `)`",
+        "type": "Parser.Parser result -> Parser.Parser result"
+      },
+      {
+        "name": "quoted",
+        "comment": "Parses a parser between quotes `\"` and `\"`",
+        "type": "Parser.Parser result -> Parser.Parser result"
+      },
+      {
+        "name": "singleQuoted",
+        "comment": "Parses a parser between quotes `'` and `'`",
+        "type": "Parser.Parser result -> Parser.Parser result"
+      },
+      {
+        "name": "upper",
+        "comment": "Parse a upper case character",
+        "type": "Parser.Parser Char"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Parser.Number",
+    "comment": "Parsing numbers\n\n@docs digit, natural, integer, float, sign",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "digit",
+        "comment": "Parse a digit",
+        "type": "Parser.Parser Int"
+      },
+      {
+        "name": "float",
+        "comment": "Parse a float with optional sign",
+        "type": "Parser.Parser Float"
+      },
+      {
+        "name": "integer",
+        "comment": "Parse an integer with optional sign",
+        "type": "Parser.Parser Int"
+      },
+      {
+        "name": "natural",
+        "comment": "Parse a natural number",
+        "type": "Parser.Parser Int"
+      },
+      {
+        "name": "sign",
+        "comment": "Parse a optional sign, succeeds with a -1 if it matches a minus `Char`, otherwise it returns 1",
+        "type": "Parser.Parser Int"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  },
+  {
+    "name": "Parser",
+    "comment": "A simple parser combinator library.\r\n\r\n@docs Parser\r\n\r\n#Running the parser\r\n@docs parse, parseAll\r\n\r\n#Core functions\r\n@docs map, or, andMap, andThen, and\r\n\r\n#Combinators\r\n@docs succeed, satisfy, empty, symbol, token, choice, optional, many, some, separatedBy, end\r\n\r\n#Writing recursive grammars\r\n@docs recursively\r\n\r\n#Core functions (infix operators)\r\n@docs (<*), (*>), (<$)",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Parser",
+        "comment": "Parser type",
+        "args": [
+          "result"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "*>",
+        "comment": "Variant of `and` that ignores the result of the parser at the left",
+        "type": "Parser.Parser x -> Parser.Parser result -> Parser.Parser result"
+      },
+      {
+        "name": "<$",
+        "comment": "Variant of `map` that ignores the result of the parser",
+        "type": "result -> Parser.Parser x -> Parser.Parser result"
+      },
+      {
+        "name": "<*",
+        "comment": "Variant of `and` that ignores the result of the parser at the right",
+        "type": "Parser.Parser result -> Parser.Parser x -> Parser.Parser result"
+      },
+      {
+        "name": "and",
+        "comment": "Sequence two parsers (infix version)\r\n\r\n    type Date = Date Int Int Int\r\n    date = Date `map` year `and` month `and` day",
+        "type": "Parser.Parser (result -> result2) -> Parser.Parser result -> Parser.Parser result2",
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "andMap",
+        "comment": "Sequence two parsers\r\n\r\n    type Date = Date Int Int Int\r\n    date =\r\n        map Date year\r\n        |> andMap month\r\n        |> andMap day",
+        "type": "Parser.Parser result -> Parser.Parser (result -> result2) -> Parser.Parser result2"
+      },
+      {
+        "name": "andThen",
+        "comment": "Sequence two parsers, but pass the result of the first parser to the second parser.\r\n    This is useful for creating context sensitive parsers like XML.\r\n\r\n    tag = openTag\r\n        |> andThen (tagLiteral)",
+        "type": "Parser.Parser result -> (result -> Parser.Parser result2) -> Parser.Parser result2"
+      },
+      {
+        "name": "choice",
+        "comment": "Combine a list of parsers",
+        "type": "List (Parser.Parser result) -> Parser.Parser result"
+      },
+      {
+        "name": "empty",
+        "comment": "Parser that always fails",
+        "type": "Parser.Parser result"
+      },
+      {
+        "name": "end",
+        "comment": "Succeeds when input is empty",
+        "type": "Parser.Parser ()"
+      },
+      {
+        "name": "many",
+        "comment": "Parses zero or more occurences of a parser",
+        "type": "Parser.Parser result -> Parser.Parser (List result)"
+      },
+      {
+        "name": "map",
+        "comment": "Map a function over the result of the parser\r\n      -- Counts the amount of digits\r\n      count : Parser Int\r\n      count = map length (many digit)",
+        "type": "(result -> result2) -> Parser.Parser result -> Parser.Parser result2",
+        "associativity": "left",
+        "precedence": 4
+      },
+      {
+        "name": "optional",
+        "comment": "Parses an optional element",
+        "type": "Parser.Parser result -> result -> Parser.Parser result"
+      },
+      {
+        "name": "or",
+        "comment": "Choice between two parsers\r\n\r\n      oneOrTwo = symbol '1' `or` symbol '2'",
+        "type": "Parser.Parser result -> Parser.Parser result -> Parser.Parser result",
+        "associativity": "right",
+        "precedence": 3
+      },
+      {
+        "name": "parse",
+        "comment": "Parse a `String` using a parser, return first result",
+        "type": "Parser.Parser result -> String -> Result.Result String result"
+      },
+      {
+        "name": "parseAll",
+        "comment": "Parse a `String` using a parser, return list of results",
+        "type": "Parser.Parser result -> String -> Result.Result String (List result)"
+      },
+      {
+        "name": "recursively",
+        "comment": "For realizing otherwise inexpressible recursive grammars. For\r\nexample, while\r\n\r\n    bbbba = (symbol 'a') `or` (symbol 'b' *> bbbba)\r\n\r\nwill fail at runtime with a non-termination issue, the replacement\r\n\r\n    bbbba = (symbol 'a') `or` (symbol 'b' *> recursively (\\() -> bbbba))\r\n\r\nis safe.",
+        "type": "(() -> Parser.Parser result) -> Parser.Parser result"
+      },
+      {
+        "name": "satisfy",
+        "comment": "Parser that satisfies a given predicate",
+        "type": "(Char -> Bool) -> Parser.Parser Char"
+      },
+      {
+        "name": "separatedBy",
+        "comment": "Parses a sequence of the first parser, separated by the second parser\r\n```\r\nnaturals = separatedBy Number.natural (symbol ',')\r\n```",
+        "type": "Parser.Parser result -> Parser.Parser result2 -> Parser.Parser (List result)"
+      },
+      {
+        "name": "some",
+        "comment": "Parses one or more occurences of a parser",
+        "type": "Parser.Parser result -> Parser.Parser (List result)"
+      },
+      {
+        "name": "succeed",
+        "comment": "Parser that always succeeds without consuming input",
+        "type": "result -> Parser.Parser result"
+      },
+      {
+        "name": "symbol",
+        "comment": "Parses a symbol",
+        "type": "Char -> Parser.Parser Char"
+      },
+      {
+        "name": "token",
+        "comment": "Parses a token of symbols",
+        "type": "String -> Parser.Parser String"
+      }
+    ],
+    "generated-with-elm-version": "0.15.1"
+  }
+]

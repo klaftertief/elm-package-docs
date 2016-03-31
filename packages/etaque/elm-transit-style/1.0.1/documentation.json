@@ -1,0 +1,58 @@
+[
+  {
+    "name": "TransitStyle",
+    "comment": " Animations for elm-transit, to be used on elm-html `style` attribute.\n\n    div\n      [ style (fadeSlideLeft 100 model.transition) ]\n      [ text \"Some content\" ]\n\n# Combinations\n@docs fadeSlideLeft\n\n# Slide left\n@docs slideLeft, slideOutLeft, slideInLeft\n\n# Fade\n@docs fade, fadeOut, fadeIn\n\n# Tooling to create animations\n@docs compose, Style\n",
+    "aliases": [
+      {
+        "name": "Style",
+        "comment": " Just an alias for elm-html style value ",
+        "args": [],
+        "type": "List ( String, String )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "compose",
+        "comment": " Compose an animation with `exit` and `enter` phases. ",
+        "type": "(Float -> TransitStyle.Style) -> (Float -> TransitStyle.Style) -> Transit.Transition -> TransitStyle.Style"
+      },
+      {
+        "name": "fade",
+        "comment": " Fade animation ",
+        "type": "Transit.Transition -> TransitStyle.Style"
+      },
+      {
+        "name": "fadeIn",
+        "comment": " Fade in ",
+        "type": "Float -> TransitStyle.Style"
+      },
+      {
+        "name": "fadeOut",
+        "comment": " Fade out ",
+        "type": "Float -> TransitStyle.Style"
+      },
+      {
+        "name": "fadeSlideLeft",
+        "comment": " Combine fade and slideLeft with the specified offset ",
+        "type": "Float -> Transit.Transition -> TransitStyle.Style"
+      },
+      {
+        "name": "slideInLeft",
+        "comment": " Slide in to left ",
+        "type": "Float -> Float -> TransitStyle.Style"
+      },
+      {
+        "name": "slideLeft",
+        "comment": " Slide left animation, with the specified offset ",
+        "type": "Float -> Transit.Transition -> TransitStyle.Style"
+      },
+      {
+        "name": "slideOutLeft",
+        "comment": " Slide out to left ",
+        "type": "Float -> Float -> TransitStyle.Style"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

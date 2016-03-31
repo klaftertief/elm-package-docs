@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Spec",
+    "comment": "Functions for writing simple unit tests.\n\n# Defining specs\n@docs describe, passes, shouldEqual, shouldEqualString, shouldContain",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Failure",
+        "comment": "",
+        "args": [],
+        "cases": [
+          [
+            "Message",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Diff",
+            [
+              "String",
+              "List Change"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Spec",
+        "comment": "",
+        "args": [],
+        "cases": [
+          [
+            "Group",
+            [
+              "String",
+              "List Spec"
+            ]
+          ],
+          [
+            "Pass",
+            []
+          ],
+          [
+            "Fail",
+            [
+              "Failure"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "describe",
+        "comment": "",
+        "type": "String -> List Spec -> Spec"
+      },
+      {
+        "name": "passes",
+        "comment": "",
+        "type": "Spec -> Bool"
+      },
+      {
+        "name": "shouldContain",
+        "comment": "",
+        "type": "String -> String -> Spec"
+      },
+      {
+        "name": "shouldEqual",
+        "comment": "",
+        "type": "a -> a -> Spec"
+      },
+      {
+        "name": "shouldEqualString",
+        "comment": "",
+        "type": "String -> String -> Spec"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Spec.Assertions",
+    "comment": "Assertions for testing assertions.  These functions are used for testing the `Spec`\npackage itself.  You probably will not need these unless you are writing custom\nassertions and want to write unit tests for your assertion functions.\n\n# Asserting failure\n@docs shouldFail, shouldFailWithMessage",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "shouldFail",
+        "comment": "",
+        "type": "Spec -> Spec"
+      },
+      {
+        "name": "shouldFailWithMessage",
+        "comment": "",
+        "type": "String -> Spec -> Spec"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  },
+  {
+    "name": "Spec.Runner.Console",
+    "comment": "Run a test suite as a command-line script.\n\n# Run\n@docs run",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "run",
+        "comment": "",
+        "type": "Spec -> IO ()"
+      }
+    ],
+    "generated-with-elm-version": "old"
+  }
+]

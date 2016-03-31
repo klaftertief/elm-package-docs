@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Transit",
+    "comment": " Styled transitions with minimal boilerplate, typically for page transitions in single page apps.\n\nSee README or [example](https://github.com/etaque/elm-transit/blob/master/example/src/Main.elm) for usage.\n\nUses elm-animations and Effects.tick for animation logic.\n\n# Model\n@docs Transition, WithTransition, initial\n\n# Timeline\n@docs Timeline, timeline, defaultTimeline, withExitDuration, withEnterDuration\n\n# Update\n@docs Action, init, update\n\n# View\n@docs getValue, getStatus, Status\n",
+    "aliases": [
+      {
+        "name": "Timeline",
+        "comment": " Timeline of the transition ",
+        "args": [
+          "a"
+        ],
+        "type": "{ exitDuration : Float, action : a, enterDuration : Float }"
+      },
+      {
+        "name": "WithTransition",
+        "comment": " Extended type for the target model holding the transition. ",
+        "args": [
+          "model"
+        ],
+        "type": "{ model | transition : Transit.Transition }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Transition action, to be wrapped in your own action type. ",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Status",
+        "comment": " Transition status. ",
+        "args": [],
+        "cases": [
+          [
+            "Exit",
+            []
+          ],
+          [
+            "Enter",
+            []
+          ],
+          [
+            "Done",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Transition",
+        "comment": " Opaque type for transition state storage. ",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultTimeline",
+        "comment": " Default timeline for this action: exit of 100ms then enter of 200ms. ",
+        "type": "a -> Transit.Timeline a"
+      },
+      {
+        "name": "getStatus",
+        "comment": " Extract current animation status. ",
+        "type": "Transit.Transition -> Transit.Status"
+      },
+      {
+        "name": "getValue",
+        "comment": " Extract current animation value (a float between 0 and 1). ",
+        "type": "Transit.Transition -> Float"
+      },
+      {
+        "name": "init",
+        "comment": " A shortcut to `update` that initialize the transition with the following parameters:\n* `actionWrapper` to wrap Transit's action into your app's Action type (saves you one `Effects.map`)\n* `timeline` to setup transition\n* `target` is the model storing the Transition, that will be updated with new transition state\nReturns a tuple that you can directly return from your `update`.\n ",
+        "type": "(Transit.Action a -> a) -> Transit.Timeline a -> Transit.WithTransition target -> ( Transit.WithTransition target, Effects.Effects a )"
+      },
+      {
+        "name": "initial",
+        "comment": " Empty transition state, as initial value in the model. ",
+        "type": "Transit.Transition"
+      },
+      {
+        "name": "timeline",
+        "comment": " Build the timeline:\n> exitDuration => action => enterDuration\n",
+        "type": "Float -> a -> Float -> Transit.Timeline a"
+      },
+      {
+        "name": "update",
+        "comment": " Where all the logic happens. Run transition steps, and triggers timeline's action when needed.\n* `actionWrapper` to wrap Transit's action into app's Action type (saves one `Effects.map`),\n* `action` is the Transit action to process,\n* `target` is the model storing the Transition, that will be updated with new transition state.\n ",
+        "type": "(Transit.Action a -> a) -> Transit.Action a -> Transit.WithTransition target -> ( Transit.WithTransition target, Effects.Effects a )"
+      },
+      {
+        "name": "withEnterDuration",
+        "comment": " Update enter duration of timeline. ",
+        "type": "Float -> Transit.Timeline a -> Transit.Timeline a"
+      },
+      {
+        "name": "withExitDuration",
+        "comment": " Update exit duration of timeline. ",
+        "type": "Float -> Transit.Timeline a -> Transit.Timeline a"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

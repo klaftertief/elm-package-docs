@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Response",
+    "comment": "\nResponse utilities for Elm Architecture. Build responses from tasks, pipe them, map over.\n\n# Construct\n@docs Response, res, taskRes, withEffects, withTask, withNone\n\n# Transform\n@docs mapModel, mapEffects, mapBoth\n",
+    "aliases": [
+      {
+        "name": "Response",
+        "comment": " A response is an updated model and some effects. ",
+        "args": [
+          "model",
+          "action"
+        ],
+        "type": "( model, Effects.Effects action )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "mapBoth",
+        "comment": " Map over model and effects. ",
+        "type": "(m -> m') -> (a -> a') -> Response.Response m a -> Response.Response m' a'"
+      },
+      {
+        "name": "mapEffects",
+        "comment": " Map over effects. ",
+        "type": "(a -> a') -> Response.Response m a -> Response.Response m a'"
+      },
+      {
+        "name": "mapModel",
+        "comment": " Map over model. ",
+        "type": "(m -> m') -> Response.Response m a -> Response.Response m' a"
+      },
+      {
+        "name": "res",
+        "comment": " Canonical usage: construct a result from model and effects. ",
+        "type": "m -> Effects.Effects a -> Response.Response m a"
+      },
+      {
+        "name": "taskRes",
+        "comment": " Construct a result from model and task. ",
+        "type": "m -> Task.Task Effects.Never a -> Response.Response m a"
+      },
+      {
+        "name": "withEffects",
+        "comment": " Construct a result from model and effects, flipped for piping:\n\n    { model | foo = bar }\n      |> withEffects someEffects\n ",
+        "type": "Effects.Effects a -> m -> Response.Response m a"
+      },
+      {
+        "name": "withNone",
+        "comment": " Construct a result from model without effects, flipped for piping:\n\n    { model | foo = bar }\n      |> withNone\n ",
+        "type": "m -> Response.Response m a"
+      },
+      {
+        "name": "withTask",
+        "comment": " Construct a result from model and task, flipped for piping:\n\n    { model | foo = bar }\n      |> withTask someTask\n ",
+        "type": "Task.Task Effects.Never a -> m -> Response.Response m a"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]
