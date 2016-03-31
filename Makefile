@@ -32,7 +32,7 @@ package-docs: all-packages
 	curl $(ELM_PACKAGE_URL)/$@ -o $(DOWNLOAD_DIR)/$@.json -f --retry 2 --create-dirs
 
 $(DOWNLOAD_DIR)/packages/%/documentation.json:
-	curl $(ELM_PACKAGE_URL)/$@ -o $@ -f --retry 2 --create-dirs -L
+	curl $(ELM_PACKAGE_URL)/$(subst $(DOWNLOAD_DIR)/,,$@) -o $@ -f --retry 2 --create-dirs -L
 
 bin:
 	mkdir -p $@
