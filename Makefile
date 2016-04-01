@@ -1,3 +1,5 @@
+.PHONY: install help all publish package-docs all-packages new-packages
+
 JQ_VERSION := 1.5
 OS := $(shell uname)
 
@@ -18,12 +20,14 @@ endif
 
 install: $(INSTALL_TARGETS) ## Installs prerequisites and generates file/folder structure
 
-
 help: ## Prints a help guide
 	@echo "Available tasks:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 all: all-packages new-packages package-docs ## Downloads everything
+
+publish: all ## Downloads updated packages, makes a new commit int the `gh-pages` branch and pushes it to GitHub
+	(cd $(DOWNLOAD_DIR); git commit -am "Update dosumentation"; git push origin gh-pages)
 
 package-docs: all-packages
 	@$(MAKE) $(PACKAGE_DOCS_TARGETS)
