@@ -1,0 +1,108 @@
+[
+  {
+    "name": "Data.Integer",
+    "comment": " Infinite digits integers\n@docs Integer\n@docs fromInt\n@docs fromString\n@docs toString\n@docs add\n@docs sub\n@docs opposite\n@docs mul\n@docs compare\n@docs gt\n@docs gte\n@docs lt\n@docs lte\n@docs eq\n@docs neq\n@docs max\n@docs min\n@docs test\n@docs testResult\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Integer",
+        "comment": " Integer type ",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "add",
+        "comment": " Adds two Integers ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Data.Integer.Integer"
+      },
+      {
+        "name": "compare",
+        "comment": " Compares two Integers ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Basics.Order"
+      },
+      {
+        "name": "eq",
+        "comment": " Equals ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Bool"
+      },
+      {
+        "name": "fromInt",
+        "comment": " Makes an Integer from an Int ",
+        "type": "Int -> Data.Integer.Integer"
+      },
+      {
+        "name": "fromString",
+        "comment": " Makes an Integer from a String ",
+        "type": "String -> Maybe.Maybe Data.Integer.Integer"
+      },
+      {
+        "name": "gt",
+        "comment": " Greater than ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Bool"
+      },
+      {
+        "name": "gte",
+        "comment": " Greater than or equals ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Bool"
+      },
+      {
+        "name": "lt",
+        "comment": " Less than ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Bool"
+      },
+      {
+        "name": "lte",
+        "comment": " Less than or equals ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Bool"
+      },
+      {
+        "name": "max",
+        "comment": " Returns the largest of two Integers ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Data.Integer.Integer"
+      },
+      {
+        "name": "min",
+        "comment": " Returns the smallest of two Integers ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Data.Integer.Integer"
+      },
+      {
+        "name": "mul",
+        "comment": " Multiplies two Integers ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Data.Integer.Integer"
+      },
+      {
+        "name": "neq",
+        "comment": " Not equals ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Bool"
+      },
+      {
+        "name": "opposite",
+        "comment": " Changes the sign of an Integer ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer"
+      },
+      {
+        "name": "sub",
+        "comment": " Substracts the second Integer from the first ",
+        "type": "Data.Integer.Integer -> Data.Integer.Integer -> Data.Integer.Integer"
+      },
+      {
+        "name": "test",
+        "comment": " Testsuite list of (description, True iif the test has passed) ",
+        "type": "() -> List ( String, Bool )"
+      },
+      {
+        "name": "testResult",
+        "comment": " True if all the tests pass ",
+        "type": "() -> Bool"
+      },
+      {
+        "name": "toString",
+        "comment": " Converts the Integer to a String ",
+        "type": "Data.Integer.Integer -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

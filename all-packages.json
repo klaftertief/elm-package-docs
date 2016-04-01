@@ -479,6 +479,7 @@
         "name": "ThomasWeiser/elmfire-extra",
         "summary": "High-level API for ElmFire",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -1536,6 +1537,7 @@
         "name": "ggb/numeral-elm",
         "summary": "Elm module for (advanced) number formatting. Numeral.js port to Elm",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -1715,6 +1717,13 @@
         "versions": [
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "javcasas/elm-integer",
+        "summary": "Infinite-size integers for Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -1937,6 +1946,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "An opinionated collection of functions missing from the core.",
         "versions": [
+            "15.0.1",
             "15.0.0",
             "14.0.1",
             "14.0.0",
@@ -2020,6 +2030,7 @@
         "name": "lorenzo/elm-string-addons",
         "summary": "Additional string manipulation functions",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -2893,6 +2904,17 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "4.10.0",
+            "4.9.0",
+            "4.8.0",
+            "4.7.5",
+            "4.7.4",
+            "4.7.3",
+            "4.7.2",
+            "4.7.1",
+            "4.7.0",
+            "4.6.1",
+            "4.6.0",
             "4.5.0",
             "4.4.1",
             "4.4.0",
