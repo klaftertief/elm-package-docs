@@ -27,7 +27,7 @@ help: ## Prints a help guide
 all: all-packages new-packages package-docs ## Downloads everything
 
 publish: all ## Downloads updated packages, makes a new commit int the `gh-pages` branch and pushes it to GitHub
-	(cd $(DOWNLOAD_DIR); git commit -am "Update dosumentation"; git push origin gh-pages)
+	(cd $(DOWNLOAD_DIR); git commit -am "Update documentation"; git push origin gh-pages)
 
 package-docs: all-packages
 	@$(MAKE) $(PACKAGE_DOCS_TARGETS)
