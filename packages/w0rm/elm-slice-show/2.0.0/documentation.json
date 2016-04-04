@@ -1,0 +1,123 @@
+[
+  {
+    "name": "SliceShow",
+    "comment": " This module helps you start your SliceShow application.\n# Start your Application\n@docs SliceShow, Config, init, show, setDimensions, setHash, setView, setUpdate, setInputs\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " Slideshow Config type ",
+        "args": [
+          "a",
+          "b"
+        ],
+        "type": "SliceShow.Protected.Protected (SliceShow.PrivateConfig a b)"
+      },
+      {
+        "name": "SliceShow",
+        "comment": " SliceShow app, exposes html signal and tasks signal ",
+        "args": [],
+        "type": "{ html : Signal.Signal Html.Html , tasks : Signal.Signal (Task.Task Effects.Never ()) }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Init Model from the list of slides ",
+        "type": "List (SliceShow.Slide.Slide a) -> SliceShow.Config a b"
+      },
+      {
+        "name": "setDimensions",
+        "comment": " Set initial dimensions taken from port ",
+        "type": "( Int, Int ) -> SliceShow.Config a b -> SliceShow.Config a b"
+      },
+      {
+        "name": "setHash",
+        "comment": " Set initial hash taken from port ",
+        "type": "String -> SliceShow.Config a b -> SliceShow.Config a b"
+      },
+      {
+        "name": "setInputs",
+        "comment": " Set inputs for the custom content ",
+        "type": "List (Signal.Signal b) -> SliceShow.Config a b -> SliceShow.Config a b"
+      },
+      {
+        "name": "setUpdate",
+        "comment": " Set update for the custom content ",
+        "type": "(b -> a -> ( a, Effects.Effects b )) -> SliceShow.Config a b -> SliceShow.Config a b"
+      },
+      {
+        "name": "setView",
+        "comment": " Set view for the custom content ",
+        "type": "(Signal.Address b -> a -> Html.Html) -> SliceShow.Config a b -> SliceShow.Config a b"
+      },
+      {
+        "name": "show",
+        "comment": " Start the SliceShow with your `slides`:\n    app = show (init slides)\n    main = app.html\n    port tasks : Signal (Task.Task Never ())\n    port tasks = app.tasks\n",
+        "type": "SliceShow.Config a b -> SliceShow.SliceShow"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "SliceShow.Slide",
+    "comment": " This module helps you define a slide\n@docs Slide, slide\n",
+    "aliases": [
+      {
+        "name": "Slide",
+        "comment": " Slide type ",
+        "args": [
+          "a"
+        ],
+        "type": "SliceShow.Protected.Protected (SliceShow.SlideData.SlideData a)"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "slide",
+        "comment": " Create new slide from a list of content items ",
+        "type": "List (SliceShow.Content.Content a) -> SliceShow.Slide.Slide a"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "SliceShow.Content",
+    "comment": " This module helps you define Slide content\n@docs Content, item, container, custom, hide\n",
+    "aliases": [
+      {
+        "name": "Content",
+        "comment": " Content type ",
+        "args": [
+          "a"
+        ],
+        "type": "SliceShow.ContentData.ContentData a"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "container",
+        "comment": " A group of content items ",
+        "type": "(List Html.Html -> Html.Html) -> List (SliceShow.Content.Content a) -> SliceShow.Content.Content a"
+      },
+      {
+        "name": "custom",
+        "comment": " Custom content item ",
+        "type": "a -> SliceShow.Content.Content a"
+      },
+      {
+        "name": "hide",
+        "comment": " Hide content ",
+        "type": "SliceShow.Content.Content a -> SliceShow.Content.Content a"
+      },
+      {
+        "name": "item",
+        "comment": " Single content item ",
+        "type": "Html.Html -> SliceShow.Content.Content a"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]
