@@ -229,6 +229,13 @@
         ]
     },
     {
+        "name": "NoRedInk/elm-decode-pipeline",
+        "summary": "A pipeline-friendly library for building decoders.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "NoRedInk/elm-lazy-list",
         "summary": "Lazy list implementation in Elm",
         "versions": [
@@ -537,6 +544,8 @@
         "name": "agrafix/elm-bootforms",
         "summary": "Quickly create forms using bootstrap and elm",
         "versions": [
+            "10.0.0",
+            "9.0.0",
             "8.0.0",
             "7.0.0",
             "6.0.1",
@@ -2750,6 +2759,13 @@
         ]
     },
     {
+        "name": "thebritican/elm-autocomplete",
+        "summary": "A customizable autocomplete component",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "tomjkidd/elm-multiway-tree-zipper",
         "summary": "A library for navigating and updating immutable trees.",
         "versions": [
@@ -2866,6 +2882,7 @@
         "name": "w0rm/elm-slice-show",
         "summary": "Elm Slides",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -2904,6 +2921,10 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "4.13.1",
+            "4.13.0",
+            "4.12.0",
+            "4.11.0",
             "4.10.0",
             "4.9.0",
             "4.8.0",
