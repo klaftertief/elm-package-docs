@@ -1,11 +1,11 @@
-.PHONY: install help all publish package-docs all-packages new-packages
+.PHONY: install help all publish
 
 JQ_VERSION := 1.5
 OS := $(shell uname)
 
-DOWNLOAD_DIR = dist
+DOWNLOAD_DIR := dist
 
-ELM_PACKAGE_URL = http://package.elm-lang.org
+ELM_PACKAGE_URL := http://package.elm-lang.org
 
 INSTALL_TARGETS := bin bin/jq
 
@@ -27,7 +27,7 @@ help: ## Prints a help guide
 all: all-packages new-packages package-docs ## Downloads everything
 
 publish: all ## Downloads updated packages, makes a new commit int the `gh-pages` branch and pushes it to GitHub
-	(cd $(DOWNLOAD_DIR); git commit -am "Update documentation"; git push origin gh-pages)
+	(cd $(DOWNLOAD_DIR) && git commit -am "Update documentation" && git push origin gh-pages)
 
 package-docs: all-packages
 	@$(MAKE) $(PACKAGE_DOCS_TARGETS)
@@ -36,7 +36,7 @@ package-docs: all-packages
 	curl $(ELM_PACKAGE_URL)/$@ -o $(DOWNLOAD_DIR)/$@.json -f --retry 2 --create-dirs
 
 $(DOWNLOAD_DIR)/packages/%/documentation.json:
-	curl $(ELM_PACKAGE_URL)/$(subst $(DOWNLOAD_DIR)/,,$@) -o $@ -f --retry 2 --create-dirs -L
+	curl $(ELM_PACKAGE_URL)/$(@:$(DOWNLOAD_DIR)/%=%) -o $@ -f --retry 2 --create-dirs -L
 
 bin:
 	mkdir -p $@
