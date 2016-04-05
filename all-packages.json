@@ -1228,6 +1228,7 @@
         "name": "elm-community/elm-history",
         "summary": "History API in Elm",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -1546,6 +1547,7 @@
         "name": "ggb/numeral-elm",
         "summary": "Elm module for (advanced) number formatting. Numeral.js port to Elm",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]
@@ -2921,6 +2923,7 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "4.14.0",
             "4.13.1",
             "4.13.0",
             "4.12.0",
