@@ -140,6 +140,7 @@
     "jvoigtlaender/elm-drag",
     "jvoigtlaender/elm-drag-and-drop",
     "jvoigtlaender/elm-memo",
+    "jweir/elm-iso8601",
     "jwmerrill/elm-animation-frame",
     "jystic/elm-font-awesome",
     "kennib/elm-swipe",

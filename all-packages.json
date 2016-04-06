@@ -1155,6 +1155,7 @@
         "name": "dustinspecker/last",
         "summary": "Get the last element from a List",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1891,6 +1892,13 @@
             "2.0.2",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jweir/elm-iso8601",
+        "summary": "Parses IS8601 based time strings in to useful time records.",
+        "versions": [
             "1.0.0"
         ]
     },
