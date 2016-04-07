@@ -2513,6 +2513,7 @@
         "name": "rogeriochaves/elm-test-bdd-style",
         "summary": "BDD-style matchers for elm-test",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.1.0",
             "1.0.0"
@@ -2901,6 +2902,13 @@
         "summary": "A zipper for List",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "williamwhitacre/elm-encoding",
+        "summary": "Encoding utilities for web applications. URL encoding support and others.",
+        "versions": [
             "1.0.0"
         ]
     },
