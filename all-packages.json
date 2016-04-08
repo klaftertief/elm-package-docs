@@ -1072,6 +1072,7 @@
         "name": "danyx23/elm-mimetype",
         "summary": "Modelling the most common Mime Types as union types",
         "versions": [
+            "2.0.0",
             "1.1.1",
             "1.1.0",
             "1.0.2",
@@ -1229,6 +1230,7 @@
         "name": "elm-community/elm-history",
         "summary": "History API in Elm",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -2335,6 +2337,14 @@
         ]
     },
     {
+        "name": "pdamoc/elm-hashids",
+        "summary": "Elm port of the Hashids library",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "poying/elm-style",
         "summary": "A tiny library for generating CSS.",
         "versions": [
@@ -2802,6 +2812,15 @@
         "summary": "Base64 encoding and decoding",
         "versions": [
             "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "truqu/elm-dictset",
+        "summary": "Sets for any type",
+        "versions": [
             "1.0.2",
             "1.0.1",
             "1.0.0"
