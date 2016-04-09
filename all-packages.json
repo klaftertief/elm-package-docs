@@ -247,6 +247,7 @@
         "name": "NoRedInk/elm-rails",
         "summary": "Convenience functions for using Elm with Rails.",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.0.1",
             "2.0.0",
@@ -278,6 +279,7 @@
         "name": "NoRedInk/elm-string-extra",
         "summary": "Convenience functions for working with Strings in Elm.",
         "versions": [
+            "1.2.0",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -2958,6 +2960,7 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "4.16.0",
             "4.15.0",
             "4.14.0",
             "4.13.1",
