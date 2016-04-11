@@ -2960,6 +2960,13 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "6.1.0",
+            "6.0.1",
+            "6.0.0",
+            "5.1.0",
+            "5.0.0",
+            "4.18.0",
+            "4.17.0",
             "4.16.0",
             "4.15.0",
             "4.14.0",
