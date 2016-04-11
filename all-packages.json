@@ -1969,6 +1969,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "An opinionated collection of functions missing from the core.",
         "versions": [
+            "16.0.0",
             "15.0.1",
             "15.0.0",
             "14.0.1",
