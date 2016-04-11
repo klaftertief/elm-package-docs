@@ -192,6 +192,7 @@
     "rtfeldman/elm-css-helpers",
     "rtfeldman/elm-css-util",
     "rtfeldman/elm-validate",
+    "seanhess/elm-style",
     "sgraf812/elm-graph",
     "sgraf812/elm-intdict",
     "simonh1000/elm-charts",

@@ -2577,6 +2577,13 @@
         ]
     },
     {
+        "name": "seanhess/elm-style",
+        "summary": "Composable styles in Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "sgraf812/elm-access",
         "summary": "Generalized setters and getters - Lenses lite for Elm.",
         "versions": [
