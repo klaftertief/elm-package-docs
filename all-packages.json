@@ -1056,6 +1056,13 @@
         ]
     },
     {
+        "name": "damienklinnert/elm-hue",
+        "summary": "Control your Philips Hue devices with Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "danpalmer/elm-param-parsing",
         "summary": "Reupload for 0.16, original by jessitron, amitaibu, and andybalaam",
         "versions": [

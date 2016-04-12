@@ -68,6 +68,7 @@
     "circuithub/elm-result-extra",
     "circuithub/elm-string-split",
     "coreytrampe/elm-vendor",
+    "damienklinnert/elm-hue",
     "danpalmer/elm-param-parsing",
     "danyx23/elm-dropzone",
     "danyx23/elm-mimetype",
