@@ -247,6 +247,7 @@
         "name": "NoRedInk/elm-rails",
         "summary": "Convenience functions for using Elm with Rails.",
         "versions": [
+            "4.0.1",
             "4.0.0",
             "3.0.0",
             "2.0.1",
@@ -1232,6 +1233,7 @@
         "name": "elm-community/elm-history",
         "summary": "History API in Elm",
         "versions": [
+            "1.2.0",
             "1.1.1",
             "1.1.0",
             "1.0.1",
@@ -1903,6 +1905,7 @@
         "name": "jweir/elm-iso8601",
         "summary": "Parses IS8601 based time strings in to useful time records.",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -2968,6 +2971,12 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "6.5.2",
+            "6.5.1",
+            "6.5.0",
+            "6.4.0",
+            "6.3.0",
+            "6.2.0",
             "6.1.0",
             "6.0.1",
             "6.0.0",
