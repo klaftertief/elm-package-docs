@@ -1988,6 +1988,9 @@
         "name": "krisajenkins/elm-exts",
         "summary": "An opinionated collection of functions missing from the core.",
         "versions": [
+            "18.1.0",
+            "18.0.0",
+            "17.1.1",
             "17.1.0",
             "17.0.0",
             "16.0.0",
@@ -2565,6 +2568,7 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -2766,6 +2770,7 @@
         "name": "sporto/hop",
         "summary": "A router for SPAs in Elm",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.1.2",
             "2.1.1",
@@ -2822,6 +2827,7 @@
         "name": "thebritican/elm-autocomplete",
         "summary": "A customizable autocomplete component",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -2998,6 +3004,11 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "7.6.0",
+            "7.5.0",
+            "7.4.0",
+            "7.3.0",
+            "7.2.0",
             "7.1.0",
             "7.0.0",
             "6.10.0",

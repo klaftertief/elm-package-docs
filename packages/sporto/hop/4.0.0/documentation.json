@@ -1,0 +1,170 @@
+[
+  {
+    "name": "Hop.Navigate",
+    "comment": " Functions for changing the browser location\n\n@docs navigateTo, addQuery, removeQuery, setQuery, clearQuery\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "addQuery",
+        "comment": " Add query string values (patches any existing values)\n\n    addQuery config query location\n\n- config is the router Config record\n- query is a dictionary with keys to add\n- location is a record representing the current location\n\nExample use in update:\n\n    update action model =\n      case action of\n        ...\n        AddQuery query ->\n          (model, Effects.map HopAction (addQuery config query model.location))\n\nTo remove a value set the value to \"\"\n",
+        "type": "Hop.Types.Config route -> Hop.Types.Query -> Hop.Types.Location -> Effects.Effects ()"
+      },
+      {
+        "name": "clearQuery",
+        "comment": " Clear all query string values\n\n    clearQuery config location\n\nExample use in update:\n\n    update action model =\n      case action of\n        ...\n        ClearQuery ->\n          (model, Effects.map HopAction (clearQuery config model.location))\n",
+        "type": "Hop.Types.Config route -> Hop.Types.Location -> Effects.Effects ()"
+      },
+      {
+        "name": "navigateTo",
+        "comment": " Changes the location (hash and query)\n\n  navigateTo will append \"#/\" if necessary\n\n    navigateTo config \"/users\"\n\n  Example use in update:\n\n    update action model =\n      case action of\n        ...\n        NavigateTo path ->\n          (model, Effects.map HopAction (navigateTo config path))\n",
+        "type": "Hop.Types.Config route -> String -> Effects.Effects ()"
+      },
+      {
+        "name": "removeQuery",
+        "comment": " Remove one query string value\n\n    removeQuery config query location\n\nExample use in update:\n\n    update action model =\n      case action of\n        ...\n        RemoveQuery query ->\n          (model, Effects.map HopAction (removeQuery config key model.location))\n",
+        "type": "Hop.Types.Config route -> String -> Hop.Types.Location -> Effects.Effects ()"
+      },
+      {
+        "name": "setQuery",
+        "comment": " Set query string values (removes existing values)\n\n    setQuery config query location\n\nExample use in update:\n\n    update action model =\n      case action of\n        ...\n        SetQuery query ->\n          (model, Effects.map HopAction (setQuery config query model.location))\n",
+        "type": "Hop.Types.Config route -> Hop.Types.Query -> Hop.Types.Location -> Effects.Effects ()"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Hop",
+    "comment": " A router for single page applications. See [readme](https://github.com/sporto/hop) for usage.\n\n# Setup\n@docs new\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "new",
+        "comment": "\nCreate a Router\n\n    config =\n      { basePath = \"/app\"\n      , hash = False\n      , matchers = matchers\n      , notFound = NotFound\n      }\n\n    router =\n      Hop.new config\n",
+        "type": "Hop.Types.Config routeTag -> Hop.Types.Router routeTag"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Hop.Matchers",
+    "comment": "\nFunctions for building matchers and matching paths\n\n# Building matchers\n@docs match1, match2, match3, match4, nested1, nested2, int, str\n\n# Using matchers\n@docs matchPath, matchLocation, matcherToPath\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "int",
+        "comment": " Parameter matcher that matches an integer\n\n    match2 User \"/users/\" int\n",
+        "type": "Combine.Parser Int"
+      },
+      {
+        "name": "match1",
+        "comment": "\nCreate a matcher with one static segment.\n\n    type Route = Books\n\n    match1 Books \"/books\"\n\nThis will match exactly\n\n    \"/books\"\n",
+        "type": "route -> String -> Hop.Types.PathMatcher route"
+      },
+      {
+        "name": "match2",
+        "comment": "\nCreate a matcher with one static segment and one dynamic parameter.\n\n    type Route = Book Str\n\n    match2 Book \"/books/\" str\n\nThis will match a path like\n\n    \"/books/abc\"\n",
+        "type": "(param1 -> route) -> String -> Combine.Parser param1 -> Hop.Types.PathMatcher route"
+      },
+      {
+        "name": "match3",
+        "comment": " Create a matcher with three segments.\n\n    type Route = BookReviews Int\n\n    match3 BookReviews \"/books/\" int \"/reviews\"\n\nThis will match a path like\n\n    \"/books/1/reviews\"\n",
+        "type": "(param1 -> route) -> String -> Combine.Parser param1 -> String -> Hop.Types.PathMatcher route"
+      },
+      {
+        "name": "match4",
+        "comment": " Create a matcher with four segments.\n\n    type Route = BookChapter Int String\n\n    match4 BookChapter \"/books/\" int \"/chapters/\" str\n\nThis will match a path like\n\n    \"/books/1/chapters/abc\"\n\n",
+        "type": "(param1 -> param2 -> route) -> String -> Combine.Parser param1 -> String -> Combine.Parser param2 -> Hop.Types.PathMatcher route"
+      },
+      {
+        "name": "matchLocation",
+        "comment": "\nMatches a location record.\nReturns the matched route.\n\n    matchLocation config { path = [\"users\", \"1\"], query = [] }\n\n    ==\n\n    (User 1)\n",
+        "type": "Hop.Types.Config route -> Hop.Types.Location -> route"
+      },
+      {
+        "name": "matchPath",
+        "comment": "\nMatches a path.\nBasePath should already be removed.\ne.g. \"/users/1/comments/2\".\n\nReturns the matched route.\n\n    matchPath config \"/users/1/comments/2\"\n\n    ==\n\n    User 1 (Comment 2)\n",
+        "type": "Hop.Types.Config route -> String -> route"
+      },
+      {
+        "name": "matcherToPath",
+        "comment": "\nGenerates a path from a matcher. Use this for reverse routing.\n\nThe last parameters is a list of strings. You need to pass one string for each dynamic parameter that this route takes.\n\n    matcherToPath bookReviewMatcher [\"1\", \"2\"]\n\n    ==\n\n    \"/books/1/reviews/2\"\n",
+        "type": "Hop.Types.PathMatcher a -> List String -> String"
+      },
+      {
+        "name": "nested1",
+        "comment": " Create a matcher with two segments and nested routes\n\n    type CategoriesRoute = Games | Business | Product Int\n    type Route = ShopCategories CategoriesRoute\n\n    nested1 ShopCategories \"/shop\" categoriesRoutes\n\nThis could match paths like (depending on the nested routes)\n\n    \"/shop/games\"\n    \"/shop/business\"\n    \"/shop/product/1\"\n\n",
+        "type": "(subRoute -> route) -> String -> List (Hop.Types.PathMatcher subRoute) -> Hop.Types.PathMatcher route"
+      },
+      {
+        "name": "nested2",
+        "comment": " Create a matcher with two segments and nested routes\n\n    type ReviewsRoutes = Reviews | Review Int\n    type Route = BookReviews ReviewsRoutes\n\n    nested2 BookReviews \"/books/\" int reviewsRoutes\n\nThis could match paths like (depending on the nested routes)\n\n    \"/books/1/reviews\"\n    \"/books/1/reviews/3\"\n\n",
+        "type": "(param1 -> subRoute -> route) -> String -> Combine.Parser param1 -> List (Hop.Types.PathMatcher subRoute) -> Hop.Types.PathMatcher route"
+      },
+      {
+        "name": "str",
+        "comment": " Parameter matcher that matches a string, except /\n\n    match2 Token \"/token/\" str\n",
+        "type": "Combine.Parser String"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Hop.Types",
+    "comment": "\n\n# Types\n@docs Config, Router, PathMatcher, Query, Location\n\n# Create\n@docs newLocation, newQuery\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " Configuration input for Hop.new\n\n- basePath: Only for pushState routing (not hash). e.g. \"/app\". All routing and matching is done after this basepath.\n- hash: True for hash routing, False for pushState routing.\n- matchers: A List of route matchers.\n- notFound: Route that will match when a location is not found.\n\n",
+        "args": [
+          "route"
+        ],
+        "type": "{ basePath : String , hash : Bool , matchers : List (Hop.Types.PathMatcher route) , notFound : route }"
+      },
+      {
+        "name": "Location",
+        "comment": " A Record that represents the current location\nIncludes a `path` and a `query`\n\n    {\n      path: String,\n      query: Query\n    }\n",
+        "args": [],
+        "type": "{ path : List String, query : Hop.Types.Query }"
+      },
+      {
+        "name": "PathMatcher",
+        "comment": " A path matcher\n",
+        "args": [
+          "action"
+        ],
+        "type": "{ parser : Combine.Parser action, segments : List String }"
+      },
+      {
+        "name": "Query",
+        "comment": " A Dict that holds query parameters\n\n    Dict.Dict String String\n",
+        "args": [],
+        "type": "Dict.Dict String String"
+      },
+      {
+        "name": "Router",
+        "comment": " Router record created by Hop.new\n",
+        "args": [
+          "route"
+        ],
+        "type": "{ run : Task.Task () () , signal : Signal.Signal ( route, Hop.Types.Location ) }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "newLocation",
+        "comment": "\nCreate a empty Location record\n",
+        "type": "Hop.Types.Location"
+      },
+      {
+        "name": "newQuery",
+        "comment": "\nCreate an empty Query record\n",
+        "type": "Hop.Types.Query"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

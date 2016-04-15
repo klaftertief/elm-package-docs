@@ -1,0 +1,240 @@
+[
+  {
+    "name": "Autocomplete.Simple",
+    "comment": " A customizable Autocomplete component.\n\nThis Autocomplete has a static list of items. See the Autocomplete module for maintaining a dynamic list of items.\n\nThe Autocomplete consists of a menu, a list, the list's many items, and an input.\nAll of these views are styleable via css classes.\nSee the Styling module.\n\nThe currently selected item is preserved and styled with the aforementioned module.\n\nThis selection is modified by keyboard arrow input, mouse clicks, and API consumer defined keyCodes.\n\nCheck out how easy it is to plug into `StartApp`:\n```\nmain : Signal Html.Html\nmain =\n  StartApp.Simple.start\n    { model = Autocomplete.init [ \"elm\", \"makes\", \"coding\", \"life\", \"easy\" ]\n    , update = Autocomplete.update\n    , view = Autocomplete.view\n    }\n```\n\n# Definition\n@docs Autocomplete\n\n# Initialize\n@docs init, initWithConfig\n\n# Update\n@docs Action, update\n\n# Views\n@docs view\n\n# Helpers\n@docs getSelectedItemText, getCurrentValue\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " A description of a state change\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Autocomplete",
+        "comment": " The Autocomplete model.\n    It assumes filtering is based upon strings.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "getCurrentValue",
+        "comment": " Get the string currently entered by the user in the Autocomplete\n",
+        "type": "Autocomplete.Simple.Autocomplete -> String"
+      },
+      {
+        "name": "getSelectedItemText",
+        "comment": " Get the text of the currently selected item\n",
+        "type": "Autocomplete.Simple.Autocomplete -> Autocomplete.Config.Text"
+      },
+      {
+        "name": "init",
+        "comment": " Creates an Autocomplete from a list of items with a default `String.startsWith` filter\n",
+        "type": "List String -> Autocomplete.Simple.Autocomplete"
+      },
+      {
+        "name": "initWithConfig",
+        "comment": " Creates an Autocomplete with a custom configuration\n",
+        "type": "List String -> Autocomplete.Config.Config -> Autocomplete.Simple.Autocomplete"
+      },
+      {
+        "name": "update",
+        "comment": " The quintessential Elm Architecture reducer.\n",
+        "type": "Autocomplete.Simple.Action -> Autocomplete.Simple.Autocomplete -> Autocomplete.Simple.Autocomplete"
+      },
+      {
+        "name": "view",
+        "comment": " The full Autocomplete view, with menu and input.\n    Needs a Signal.Address and Autocomplete (typical of the Elm Architecture).\n",
+        "type": "Signal.Address Autocomplete.Simple.Action -> Autocomplete.Simple.Autocomplete -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Autocomplete",
+    "comment": " A customizable Autocomplete component.\n\nThis Autocomplete has a dynamic list of items.\nSee the `Autocomplete.Simple` module for using a simple, static list of items.\n\nThe Autocomplete consists of a menu, a list, the list's many items, and an input.\nAll of these views are styleable via css classes.\nSee the `Autocomplete.Styling` module.\n\nThe currently selected item is preserved and styled with the aforementioned module.\n\nThis selection is modified by keyboard arrow input, mouse clicks, and API consumer defined keyCodes.\n\nThis Autocomplete calls a API consumer-defined function that returns a refreshed list\nof items upon every input or selection change.\n\nAn example of plugging this into `StartApp`:\n```\nfetchMoreItems : String -> Task Effects.Never (List String)\nfetchMoreItems url =\n  Http.url url []\n    |> Http.getString\n    |> Task.toMaybe\n    |> Task.map responseToItems\n\n\nresponseToItems : Maybe String -> List String\nresponseToItems maybeString =\n  case maybeString of\n    Just string ->\n      String.lines string\n\n    Nothing ->\n      []\n\n\ngetItemsTask : String -> Int -> Task Effects.Never (List String)\ngetItemsTask value index =\n  fetchMoreItems \"https://raw.githubusercontent.com/first20hours/google-10000-english/master/20k.txt\"\n\n\napp =\n  let\n    config =\n      Autocomplete.Config.defaultConfig\n        |> Autocomplete.Config.setLoadingDisplay (img [ src \"assets/loading.svg\" ] [])\n  in\n    StartApp.start\n      { init = Autocomplete.initWithConfig [] getItemsTask config\n      , update = Autocomplete.update\n      , view = Autocomplete.view\n      , inputs = []\n      }\n\n\nmain =\n  app.html\n\n\nport tasks : Signal (Task.Task Never ())\nport tasks =\n  app.tasks\n```\n\nThe above example can be found in `example/src/RemoteExample.elm`.\n\n# Definition\n@docs Autocomplete, GetItemsTask\n\n# Initialize\n@docs init, initWithConfig\n\n# Update\n@docs Action, update\n\n# Views\n@docs view\n\n# Helpers\n@docs getSelectedItemText, getCurrentValue\n\n",
+    "aliases": [
+      {
+        "name": "GetItemsTask",
+        "comment": " Consumer defined function that is used to retrieve more items. Called when either\nthe input's value or selection index is changed.\n",
+        "args": [],
+        "type": "Autocomplete.Config.InputValue -> Autocomplete.Config.Index -> Task.Task Effects.Never (List String)"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " A description of a state change\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Autocomplete",
+        "comment": " The Autocomplete model.\n    It assumes filtering is based upon strings.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "getCurrentValue",
+        "comment": " Get the string currently entered by the user in the Autocomplete\n",
+        "type": "Autocomplete.Autocomplete -> String"
+      },
+      {
+        "name": "getSelectedItemText",
+        "comment": " Get the text of the currently selected item\n",
+        "type": "Autocomplete.Autocomplete -> Autocomplete.Config.Text"
+      },
+      {
+        "name": "init",
+        "comment": " Creates an Autocomplete from a list of items with a default `String.startsWith` filter\n",
+        "type": "List String -> Autocomplete.GetItemsTask -> ( Autocomplete.Autocomplete, Effects.Effects Autocomplete.Action )"
+      },
+      {
+        "name": "initWithConfig",
+        "comment": " Creates an Autocomplete with a custom configuration\n",
+        "type": "List String -> Autocomplete.GetItemsTask -> Autocomplete.Config.Config -> ( Autocomplete.Autocomplete, Effects.Effects Autocomplete.Action )"
+      },
+      {
+        "name": "update",
+        "comment": " The quintessential Elm Architecture reducer.\n",
+        "type": "Autocomplete.Action -> Autocomplete.Autocomplete -> ( Autocomplete.Autocomplete, Effects.Effects Autocomplete.Action )"
+      },
+      {
+        "name": "view",
+        "comment": " The full Autocomplete view, with menu and input.\n    Needs a Signal.Address and Autocomplete (typical of the Elm Architecture).\n",
+        "type": "Signal.Address Autocomplete.Action -> Autocomplete.Autocomplete -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Autocomplete.Config",
+    "comment": " Configuration module for the Autocomplete component.\n\n# Definition\n@docs Config, ItemHtmlFn, Text, InputValue, Index\n\n# Defaults\n@docs defaultConfig\n\n# Modifiers\n@docs setStyleViewFn, setCompletionKeyCodes, setItemHtml, setMaxListSize, setFilterFn, setCompareFn, setNoMatchesDisplay, setLoadingDisplay\n\n\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " The configuration record for an Autocomplete component.\n",
+        "args": [],
+        "type": "Autocomplete.Config.Model"
+      },
+      {
+        "name": "Index",
+        "comment": " Positive integer index of selected item in list\n",
+        "args": [],
+        "type": "Int"
+      },
+      {
+        "name": "InputValue",
+        "comment": " The value of the input\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "ItemHtmlFn",
+        "comment": " Given the text of an item, produce some HTML\n",
+        "args": [],
+        "type": "Autocomplete.Config.Text -> Html.Html"
+      },
+      {
+        "name": "Text",
+        "comment": " The text of an item\n",
+        "args": [],
+        "type": "String"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "defaultConfig",
+        "comment": " A simple Autocomplete configuration\n",
+        "type": "Autocomplete.Config.Config"
+      },
+      {
+        "name": "setCompareFn",
+        "comment": " Provide a custom comparison function to order the Autocomplete matches.\n",
+        "type": "(Autocomplete.Config.Text -> Autocomplete.Config.Text -> Basics.Order) -> Autocomplete.Config.Config -> Autocomplete.Config.Config"
+      },
+      {
+        "name": "setCompletionKeyCodes",
+        "comment": " Provide keycodes for autocompletion. By default, completion happens on tab press.\n",
+        "type": "List Char.KeyCode -> Autocomplete.Config.Config -> Autocomplete.Config.Config"
+      },
+      {
+        "name": "setFilterFn",
+        "comment": " Provide a custom filter function used to filter Autocomplete items.\n",
+        "type": "(Autocomplete.Config.Text -> Autocomplete.Config.InputValue -> Bool) -> Autocomplete.Config.Config -> Autocomplete.Config.Config"
+      },
+      {
+        "name": "setItemHtml",
+        "comment": " Provide a custom HTML view for an Autocomplete item's text\n",
+        "type": "Autocomplete.Config.ItemHtmlFn -> Autocomplete.Config.Config -> Autocomplete.Config.Config"
+      },
+      {
+        "name": "setLoadingDisplay",
+        "comment": " Provide a custom loading display for the case when more items are being fetched\n",
+        "type": "Html.Html -> Autocomplete.Config.Config -> Autocomplete.Config.Config"
+      },
+      {
+        "name": "setMaxListSize",
+        "comment": " Provide a maximum list size for the Autocomplete menu\n",
+        "type": "Int -> Autocomplete.Config.Config -> Autocomplete.Config.Config"
+      },
+      {
+        "name": "setNoMatchesDisplay",
+        "comment": " Provide a custom HTML display for the case that nothing matches.\n",
+        "type": "Html.Html -> Autocomplete.Config.Config -> Autocomplete.Config.Config"
+      },
+      {
+        "name": "setStyleViewFn",
+        "comment": " Provide a function that produces an attribute to style a particular View\n",
+        "type": "(Autocomplete.Styling.View -> Html.Attribute) -> Autocomplete.Config.Config -> Autocomplete.Config.Config"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Autocomplete.Styling",
+    "comment": " Styling module for the Autocomplete component.\n\nThe autocomplete consists of a menu, a list, list items, and an input.\nThis module includes functions to provide css class names for styling those\nchild views.\n\nStyling is easy as:\n```\ntestData : List String\ntestData =\n  [ \"elm\"\n  , \"makes\"\n  , \"coding\"\n  , \"life\"\n  , \"easy\"\n  ]\n\nstyleView : Styling.View -> Html.Attribute\nstyleView view =\n  case view of\n    Styling.Menu ->\n      class \"autocomplete-menu-default\"\n\n    Styling.List ->\n      class \"autocomplete-list-default\"\n\n    Styling.Item ->\n      class \"autocomplete-item-default\"\n\n    Styling.SelectedItem ->\n      class \"autocomplete-selected-item-default\"\n\n    Styling.Input ->\n      class \"autocomplete-input-default\"\n\nmain =\n  let\n    config =\n      Autocomplete.Config.defaultConfig\n        |> Autocomplete.Config.setStyleViewFn styleView\n  in\n    StartApp.Simple.start\n      { model = initWithConfig testData config\n      , update = update\n      , view = view\n      }\n```\n\n# Child Views\n@docs View\n\n# Defaults\n@docs defaultStyles\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "View",
+        "comment": " The stylable views of the Autocomplete component.\n",
+        "args": [],
+        "cases": [
+          [
+            "Menu",
+            []
+          ],
+          [
+            "List",
+            []
+          ],
+          [
+            "Item",
+            []
+          ],
+          [
+            "SelectedItem",
+            []
+          ],
+          [
+            "Input",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultStyles",
+        "comment": " Produces a style attribute for a View. Uses some pretty defaults.\n",
+        "type": "Autocomplete.Styling.View -> Html.Attribute"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]
