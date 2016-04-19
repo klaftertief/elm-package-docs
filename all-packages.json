@@ -2973,6 +2973,8 @@
         "name": "vito/elm-ansi",
         "summary": "Parsing streams of text with ANSI escape sequences",
         "versions": [
+            "7.0.1",
+            "7.0.0",
             "6.0.1",
             "6.0.0",
             "5.0.4",
@@ -3043,6 +3045,7 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "8.0.2",
             "8.0.1",
             "8.0.0",
             "7.6.0",
