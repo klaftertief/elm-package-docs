@@ -1,0 +1,1054 @@
+[
+  {
+    "name": "Material",
+    "comment": "\n\nMaterial Design component library for Elm based on Google's\n[Material Design Lite](https://www.getmdl.io/).\n\nClick \n[here](https://debois.github.io/elm-mdl/)\nfor a live demo. \n\n# Component model \n\nThe component model of the library is simply the Elm Architecture (TEA), i.e.,\neach component has types `Model` and `Action`, and values `view` and `update`. A\nminimal example using this library in plain TEA can be found\n  [here](https://github.com/debois/elm-mdl/blob/master/examples/Component-TEA.elm).\n\nUsing more than a few component in plain TEA is  unwieldy because of the large\namount of boilerplate one has to write. This library provides the \"component \nsupport\" for getting rid of most of that boilerplate. A minimal example using\ncomponent support is\n[here](http://github.com/debois/elm-mdl/blob/master/examples/Component.elm).\n\nIt is important to note that component support lives __within__ TEA; \nit is not an alternative architecture. \n\n# Getting started\n\nThe easiest way to get started is to start with one of the minimal examples above.\nWe recommend going with the one that uses \n[the one that uses](http://github.com/debois/elm-mdl/blob/master/examples/Component.elm)\nthe library's component support rather than working directly in plain Elm\nArchitecture.\n\n# Interfacing with CSS\n\nThis library depends on the CSS part of Google's Material Design Lite. Your app\nwill have to load that. See the\n[Scheme](http://package.elm-lang.org/packages/debois/elm-mdl/latest/Material-Scheme)\nmodule for details. (The starting point implementations above\nload CSS automatically.)\n\nThe view function of most components has this signature: \n\n    view : Signal.Address -> Model -> List Style -> Html \n\nThe address is standard, and `Model` is just the model type of the component. \nThe third argument, `List Style`, is a mechanism for you to specify additional\nclasses and CSS for the component. You need this, e.g., when you want to\nspecify the width of a button. See the\n[Style](http://package.elm-lang.org/packages/debois/elm-mdl/latest/Material-Style)\nmodule for details. \n\nMaterial Design defines a color palette. The \n[Color](http://package.elm-lang.org/packages/debois/elm-mdl/latest/Material-Color)\nmodule contains various `Style` values and helper functions for working with\nthis color palette.\n\n\n\n# Component Support\n\nThis module contains only convenience functions for working with nested \ncomponents in the Elm architecture. A minimal example using this library\nwith component support can be found \n[here](http://github.com/debois/elm-mdl/blob/master/examples/Component.elm).\nWe encourage you to use the library in this fashion.\n\nAll examples in this subsection is from the \n[above minimal example](http://github.com/debois/elm-mdl/blob/master/examples/Component.elm)\n\nHere is how you use component support in general.  First, boilerplate. \n\n 1. Include `Material`:\n\n    <!-- MDL -->\n    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Roboto+Mono|Roboto+Condensed:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Material+Icons\">\n    <link rel=\"stylesheet\" href=\"https://code.getmdl.io/1.1.3/material.min.css\" />\n\n 2. Add a model container Material components to your model:\n\n        type alias Model = \n          { ...\n          , mdl : Material.Model    \n          }\n\n        model : Model = \n          { ...\n          , mdl = Material.model\n          }\n\n 3. Add an action for Material components. \n\n        type Action = \n          ...\n          | MDL (Material.Action Action)\n\n 4. Handle that action in your update function as follows:\n\n        update action model = \n          case action of \n            ...\n            MDL action' -> \n              let (mdl', fx) = \n                Material.update MDL action' model.mdl \n              in \n                ( { model | mdl = mdl' } , fx )\n\nNext, make the component instances you need. Do this in the View section of your \nsource file. Let's say you need a textfield for name entry, and you'd like to\nbe notifed whenever the field changes value through your own NameChanged action: \n\n        import Material.Textfield as Textfield\n\n        ...\n\n        type Action = \n          ...\n          | NameChanged String\n\n        ... \n\n        update action model = \n          case action of \n            ...\n            NameChanged name -> \n              -- Do whatever you need to do. \n\n        ...\n\n        nameInput : Textfield.Instance Material.Model Action\n        nameInput = \n          Textfield.instance 2 MDL Textfield.model \n            [ Textfield.fwdInput NameChanged \n            ] \n        \n        view addr model = \n          ...\n          nameInput.view addr model.mdl \n\n\nThe win relative to using plain Elm Architecture is that adding a component\nneither requires you to update your model, your Actions, nor your update function. \n(As in the above example, you will frequently have to update the latter two anyway, \nbut now it's not boilerplate, its \"business logic\".)\n\n\n## Optimising for size\n\nUsing this module will force all elm-mdl components to be built and included in \nyour application. If this is unacceptable, you can custom-build a version of this\nmodule that uses only the components you need. To do so, you need to provide your\nown versions of the type `Model` and the value `model` of the present module. \nUse the corresponding definitions in this module as a starting point \n([source](https://github.com/debois/elm-mdl/blob/master/src/Material.elm)) \nand simply comment out the components you do not need. \n\n@docs Model, model, Action, update\n",
+    "aliases": [
+      {
+        "name": "Action",
+        "comment": " Action encompassing actions of all Material components. \n",
+        "args": [
+          "obs"
+        ],
+        "type": "Material.Component.Action Material.Model obs"
+      },
+      {
+        "name": "Model",
+        "comment": " Model encompassing all Material components. Since some components store\nuser actions in their model (notably Snackbar), the model is generic in the \ntype of such \"observations\". \n",
+        "args": [],
+        "type": "{ button : Material.Component.Indexed Material.Button.Model , textfield : Material.Component.Indexed Material.Textfield.Model , snackbar : Maybe.Maybe (Material.Snackbar.Model Int) }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "model",
+        "comment": " Initial model.\n",
+        "type": "Material.Model"
+      },
+      {
+        "name": "update",
+        "comment": " Update function for the above Action. Provide as the first \nargument a lifting function that embeds the generic MDL action in \nyour own Action type. \n",
+        "type": "(Material.Action obs -> obs) -> Material.Action obs -> Material.Model -> ( Material.Model, Effects.Effects obs )"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Layout",
+    "comment": " From the\n[Material Design Lite documentation](https://www.getmdl.io/components/index.html#layout-section):\n\n> The Material Design Lite (MDL) layout component is a comprehensive approach to\n> page layout that uses MDL development tenets, allows for efficient use of MDL\n> components, and automatically adapts to different browsers, screen sizes, and\n> devices.\n>\n> Appropriate and accessible layout is a critical feature of all user interfaces,\n> regardless of a site's content or function. Page design and presentation is\n> therefore an important factor in the overall user experience. See the layout\n> component's\n> [Material Design specifications page](https://www.google.com/design/spec/layout/structure.html#structure-system-bars)\n> for details.\n>\n> Use of MDL layout principles simplifies the creation of scalable pages by\n> providing reusable components and encourages consistency across environments by\n> establishing recognizable visual elements, adhering to logical structural\n> grids, and maintaining appropriate spacing across multiple platforms and screen\n> sizes. MDL layout is extremely powerful and dynamic, allowing for great\n> consistency in outward appearance and behavior while maintaining development\n> flexibility and ease of use.\n\n# Setup\n@docs setupSignals\n\n# Model & Actions\n@docs Mode, Model, defaultLayoutModel, initState, Action, update\n\n# View\n@docs Contents, view\n\n## Sub-views\n@docs row, spacer, title, navigation, link\n\n",
+    "aliases": [
+      {
+        "name": "Contents",
+        "comment": " Content of the layout only (contents of main pane is set elsewhere). Every\npart is optional; if you supply an empty list for either, the sub-component is \nomitted. \n\nThe `header` and `drawer` contains the contents of the header rows and drawer,\nrespectively. Use `row`, `spacer`, `title`, `nav`, and `link`, as well as\nregular Html to construct these. The `tabs` contains\nthe title of each tab.\n",
+        "args": [],
+        "type": "{ header : List Html.Html , drawer : List Html.Html , tabs : List Html.Html , main : List Html.Html }"
+      },
+      {
+        "name": "Model",
+        "comment": " Layout model. If your layout view has tabs, any tab with the same name as\n`selectedTab` will be highlighted as selected; otherwise, `selectedTab` has no\nsignificance. `isDrawerOpen` indicates whether the drawer, if the layout has\nsuch, is open; otherwise, it has no significance.\n\nThe header disappears on small devices unless\n`fixedHeader` is true. The drawer opens and closes with user interactions\nunless `fixedDrawer` is true, in which case it is permanently open on large\nscreens. Tabs scroll horisontally unless `fixedTabs` is true.\nFinally, the header respects `mode`\n\nThe `state` is the opaque\nlayout component state; use the function `initState` to construct it. If you\nchange the number of tabs, you must re-initialise this state.\n",
+        "args": [],
+        "type": "{ selectedTab : Int , isDrawerOpen : Bool , fixedHeader : Bool , fixedDrawer : Bool , fixedTabs : Bool , rippleTabs : Bool , mode : Material.Layout.Mode , state : Material.Layout.State }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Component actions.\nUse `SwitchTab` to request a switch of tabs. Use `ToggleDrawer` to toggle the\nopened/closed state of the drawer.\n",
+        "args": [],
+        "cases": [
+          [
+            "SwitchTab",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "ToggleDrawer",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Mode",
+        "comment": " Mode for the header.\n- A `Standard` header casts shadow, is permanently affixed to the top of the screen.\n- A `Seamed` header does not cast shadow, is permanently affixed to the top of the\n  screen.\n- A `Scroll`'ing header scrolls with contents.\n- A `Waterfall` header drops either the top (argument True) or bottom (argument False) \nheader-row when content scrolls. \n",
+        "args": [],
+        "cases": [
+          [
+            "Standard",
+            []
+          ],
+          [
+            "Seamed",
+            []
+          ],
+          [
+            "Scroll",
+            []
+          ],
+          [
+            "Waterfall",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultLayoutModel",
+        "comment": " Default configuration of the layout: Fixed header, non-fixed drawer,\nnon-fixed tabs, tabs do not ripple, tab 0 is selected, standard header\nbehaviour.\n",
+        "type": "Material.Layout.Model"
+      },
+      {
+        "name": "initState",
+        "comment": " Initialiser for Layout component state. Supply a number of tabs you\nuse in your layout. If you subsequently change the number of tabs, you\nmust re-initialise the state.\n",
+        "type": "Int -> Material.Layout.State"
+      },
+      {
+        "name": "link",
+        "comment": " Link.\n",
+        "type": "List Html.Attribute -> List Html.Html -> Html.Html"
+      },
+      {
+        "name": "navigation",
+        "comment": " Container for links.\n",
+        "type": "List Html.Html -> Html.Html"
+      },
+      {
+        "name": "row",
+        "comment": " Header row. \n",
+        "type": "List Html.Html -> Html.Html"
+      },
+      {
+        "name": "setupSignals",
+        "comment": " Setup various signals layout needs (viewport size changes, scrolling). Use\nwith StartApp like so, supposing you have a `LayoutAction` encapsulating\nactions of the\nlayout:\n\n    inputs : List (Signal.Signal Action)\n    inputs =\n      [ Layout.setupSignals LayoutAction\n      ]\n",
+        "type": "(Material.Layout.Action -> a) -> Signal.Signal a"
+      },
+      {
+        "name": "spacer",
+        "comment": " Push subsequent elements in header row or drawer column to the right/bottom.\n",
+        "type": "Html.Html"
+      },
+      {
+        "name": "title",
+        "comment": " Title in header row or drawer.\n",
+        "type": "String -> Html.Html"
+      },
+      {
+        "name": "update",
+        "comment": " Component update.\n",
+        "type": "Material.Layout.Action -> Material.Layout.Model -> ( Material.Layout.Model, Effects.Effects Material.Layout.Action )"
+      },
+      {
+        "name": "view",
+        "comment": " Main layout view.\n",
+        "type": "Material.Layout.Addr -> Material.Layout.Model -> Material.Layout.Contents -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Scheme",
+    "comment": " \nThe elm-mdl library depends on Google's MDL CSS implementation, and your\napplication must load this CSS in order for elm-mdl to function correctly.\nThere are two ways to accomplish this: \n\n1. Load CSS from HTML by adding suitable `<link ...>` directives to the\nHTML-file containing your app, or \n2. Load CSS from Elm (by inserting `style` elements into the DOM).\n\n\n# Load CSS from HTML \n\nTo load CSS manually, add the following to your main html file. \n\n    <!-- MDL -->\n    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Roboto+Mono|Roboto+Condensed:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Material+Icons\">\n    <link rel=\"stylesheet\" href=\"https://code.getmdl.io/1.1.3/material.min.css\" />\n\n# Loading CSS from Elm \n\n@docs topWithScheme, top\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "top",
+        "comment": " Top-level container with default color scheme. See `topWithScheme` above.\n",
+        "type": "Html.Html -> Html.Html"
+      },
+      {
+        "name": "topWithScheme",
+        "comment": " Top-level container for Material components. This will force loading of\nMaterial Design Lite CSS files by inserting an appropriate `style` element.\n\nSupply primary and accent colors as parameters. Refer to the Material Design\nLite [Custom CSS theme builder](https://www.getmdl.io/customize/index.html)\nto preview combinations.  Please be aware that Grey, Blue Grey, and Brown\ncannot be secondary colors. If you choose them as such anyway, you will get the\ndefault theme.\n\n**NB!** Using this top-level container is not recommended, as most browsers\nwill load CSS requested from `style` elements concurrently with rendering the\ninitial page, which will produce a flicker on page load. The container is\nincluded only to provide an option to get started quickly and for use with\nelm-reactor.\n\nTODO: Usage example\n",
+        "type": "Material.Color.Hue -> Material.Color.Hue -> Html.Html -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Textfield",
+    "comment": " From the [Material Design Lite documentation](http://www.getmdl.io/components/#textfields-section):\n\n> The Material Design Lite (MDL) text field component is an enhanced version of\n> the standard HTML `<input type=\"text\">` and `<input type=\"textarea\">` elements.\n> A text field consists of a horizontal line indicating where keyboard input\n> can occur and, typically, text that clearly communicates the intended\n> contents of the text field. The MDL text field component provides various\n> types of text fields, and allows you to add both display and click effects.\n>\n> Text fields are a common feature of most user interfaces, regardless of a\n> site's content or function. Their design and use is therefore an important\n> factor in the overall user experience. See the text field component's\n> [Material  Design specifications page](https://www.google.com/design/spec/components/text-fields.html)\n> for details.\n>\n> The enhanced text field component has a more vivid visual look than a standard\n> text field, and may be initially or programmatically disabled. There are three\n> main types of text fields in the text field component, each with its own basic\n> coding requirements. The types are single-line, multi-line, and expandable.\n\n\nRefer to \n[this site](https://debois.github.io/elm-mdl/#/textfields)\nfor a live demo.\n \nThis implementation provides only single-line.\n\n\n# Configuration\n@docs Kind, Label\n\n# Elm Architecture\n@docs Action, Model, model, update, view\n\n# Component\n@docs Container, Instance\n@docs instance, fwdInput, fwdBlur, fwdFocus\n\n",
+    "aliases": [
+      {
+        "name": "Container",
+        "comment": "\n",
+        "args": [
+          "c"
+        ],
+        "type": "{ c | textfield : Material.Component.Indexed Material.Textfield.Model }"
+      },
+      {
+        "name": "Instance",
+        "comment": " \n",
+        "args": [
+          "container",
+          "obs"
+        ],
+        "type": "Material.Component.Instance Material.Textfield.Model container Material.Textfield.Action obs (List Material.Style.Style -> Html.Html)"
+      },
+      {
+        "name": "Label",
+        "comment": " Label configuration. The `text` is the text of the label;\nthe label floats if `float` is True.\n",
+        "args": [],
+        "type": "{ text : String, float : Bool }"
+      },
+      {
+        "name": "Model",
+        "comment": " Model. The textfield is in its error-container if `error` is not `Nothing`.\nThe contents of the field is `value`.\n",
+        "args": [],
+        "type": "{ label : Maybe.Maybe Material.Textfield.Label , error : Maybe.Maybe String , kind : Material.Textfield.Kind , isDisabled : Bool , isFocused : Bool , value : String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Component actions. `Input` carries the new value of the field.\n",
+        "args": [],
+        "cases": [
+          [
+            "Input",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Blur",
+            []
+          ],
+          [
+            "Focus",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Kind",
+        "comment": " Kind of textfield. Currently supports only single-line inputs.\n",
+        "args": [],
+        "cases": [
+          [
+            "SingleLine",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "fwdBlur",
+        "comment": " Lift the Blur action to your own action. \n",
+        "type": "obs -> Material.Textfield.Action -> Maybe.Maybe obs"
+      },
+      {
+        "name": "fwdFocus",
+        "comment": " Lift the Focus action to your own action.\n",
+        "type": "obs -> Material.Textfield.Action -> Maybe.Maybe obs"
+      },
+      {
+        "name": "fwdInput",
+        "comment": " Lift the button Click action to your own action. E.g., \n",
+        "type": "(String -> obs) -> Material.Textfield.Action -> Maybe.Maybe obs"
+      },
+      {
+        "name": "instance",
+        "comment": " Component constructor. See module `Material`.\n",
+        "type": "Int -> (Material.Component.Action (Material.Textfield.Container c) obs -> obs) -> Material.Textfield.Model -> List (Material.Component.Observer Material.Textfield.Action obs) -> Material.Textfield.Instance (Material.Textfield.Container c) obs"
+      },
+      {
+        "name": "model",
+        "comment": " Default model. No label, error, or value.\n",
+        "type": "Material.Textfield.Model"
+      },
+      {
+        "name": "update",
+        "comment": " Component update.\n",
+        "type": "Material.Textfield.Action -> Material.Textfield.Model -> Material.Textfield.Model"
+      },
+      {
+        "name": "view",
+        "comment": " Component view.\n",
+        "type": "Signal.Address Material.Textfield.Action -> Material.Textfield.Model -> List Material.Style.Style -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Button",
+    "comment": " From the [Material Design Lite documentation](http://www.getmdl.io/components/#buttons-section):\n\n> The Material Design Lite (MDL) button component is an enhanced version of the\n> standard HTML `<button>` element. A button consists of text and/or an image that\n> clearly communicates what action will occur when the user clicks or touches it.\n> The MDL button component provides various types of buttons, and allows you to\n> add both display and click effects.\n>\n> Buttons are a ubiquitous feature of most user interfaces, regardless of a\n> site's content or function. Their design and use is therefore an important\n> factor in the overall user experience. See the button component's Material\n> Design specifications page for details.\n>\n> The available button display types are flat (default), raised, fab, mini-fab,\n> and icon; any of these types may be plain (light gray) or colored, and may be\n> initially or programmatically disabled. The fab, mini-fab, and icon button\n> types typically use a small image as their caption rather than text.\n\nSee also the\n[Material Design Specification]([https://www.google.com/design/spec/components/buttons.html).\n\nRefer to \n[this site](https://debois.github.io/elm-mdl/#/buttons) \nfor a live demo. \n\n \n# Elm architecture\n@docs Model, model, Action, update, View\n\n# Style\n@docs colored, primary, accent\n\n# View\nRefer to the\n[Material Design Specification](https://www.google.com/design/spec/components/buttons.html)\nfor details about what type of buttons are appropriate for which situations.\n\n@docs flat, raised, fab, minifab, icon\n\n# Component support\n@docs instance, fwdClick \n\n## Component instance types\n\n@docs Container, Observer, Instance\n\n",
+    "aliases": [
+      {
+        "name": "Container",
+        "comment": "\n",
+        "args": [
+          "c"
+        ],
+        "type": "{ c | button : Material.Component.Indexed Material.Button.Model }"
+      },
+      {
+        "name": "Instance",
+        "comment": "\n",
+        "args": [
+          "container",
+          "obs"
+        ],
+        "type": "Material.Component.Instance Material.Button.Model container Material.Button.Action obs (List Material.Style.Style -> List Html.Html -> Html.Html)"
+      },
+      {
+        "name": "Observer",
+        "comment": "\n",
+        "args": [
+          "obs"
+        ],
+        "type": "Material.Component.Observer Material.Button.Action obs"
+      },
+      {
+        "name": "View",
+        "comment": " Type of button views. \n",
+        "args": [],
+        "type": "Signal.Address Material.Button.Action -> Material.Button.Model -> List Material.Style.Style -> List Html.Html -> Html.Html"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Component action. The `Click` action fires when the button is clicked.\n",
+        "args": [],
+        "cases": [
+          [
+            "Click",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Model",
+        "comment": " Model of the button; common to all kinds of button.\nUse `model` to initalise it.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "accent",
+        "comment": " Color button with accent color. \n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "colored",
+        "comment": " Color button with primary or accent color depending on button type.\n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "fab",
+        "comment": " Floating Action Button. From the\n[Material Design Specification](https://www.google.com/design/spec/components/buttons-floating-action-button.html):\n\n> Floating action buttons are used for a promoted action. They are distinguished\n> by a circled icon floating above the UI and have motion behaviors that include\n> morphing, launching, and a transferring anchor point.\n>\n> Floating action buttons come in two sizes:\n>\n>  - Default size: For most use cases\n>  - Mini size: Only used to create visual continuity with other screen elements\n\nThis constructor produces the default size, use `minifab` to get the mini-size.\n\nExample use (colored with a '+' icon):\n\n    import Material.Button as Button\n    import Material.Icon as Icon\n\n    fabButton : Html\n    fabButton = fab addr model Colored [Icon.i \"add\"]\n",
+        "type": "Material.Button.View"
+      },
+      {
+        "name": "flat",
+        "comment": " From the\n[Material Design Specification](https://www.google.com/design/spec/components/buttons.html#buttons-flat-buttons):\n\n> Flat buttons are printed on material. They do not lift, but fill with color on\n> press.\n>\n> Use flat buttons in the following locations:\n>\n>  - On toolbars\n>  - In dialogs, to unify the button action with the dialog content\n>  - Inline, with padding, so the user can easily find them\n\nExample use (uncolored flat button, assuming properly setup model):\n\n    import Material.Button as Button\n\n    flatButton : Html\n    flatButton = Button.flat addr model Button.Plain [text \"Click me!\"]\n\n",
+        "type": "Material.Button.View"
+      },
+      {
+        "name": "fwdClick",
+        "comment": " Lift the button Click action to your own action. \n",
+        "type": "obs -> Material.Button.Observer obs"
+      },
+      {
+        "name": "icon",
+        "comment": " The [Material Design Lite implementation](https://www.getmdl.io/components/index.html#buttons-section)\nalso offers an \"icon button\", which we\nre-implement here. See also\n[Material Design Specification](http://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons).\nExample use (no color, displaying a '+' icon):\n\n    import Material.Button as Button\n    import Material.Icon as Icon\n\n    iconButton : Html\n    iconButton = icon addr model Plain [Icon.i \"add\"]\n",
+        "type": "Material.Button.View"
+      },
+      {
+        "name": "instance",
+        "comment": " Create a component instance. Example usage, assuming you have a type\n`Action` with a constructor `MyButtonAction : Action`, and that your \n`model` has a field `mdl : Material.Model`. \n\n    type alias Mdl = \n      Material.Model \n\n\n    myButton : Button.Instance Mdl Action \n    myButton = \n      Button.instance 0 MDL\n        Button.raised (Button.model True)\n        [ Button.fwdClick MyButtonAction ]\n\n\n    -- in your view:\n    ... \n      div \n        []\n        [ myButton.view addr model.mdl [ Button.colored ] [ text \"Click me!\" ]\n",
+        "type": "Int -> (Material.Component.Action (Material.Button.Container c) obs -> obs) -> Material.Button.View -> Material.Button.Model -> List (Material.Button.Observer obs) -> Material.Button.Instance (Material.Button.Container c) obs"
+      },
+      {
+        "name": "minifab",
+        "comment": " Mini-sized variant of a Floating Action Button; refer to `fab`.\n",
+        "type": "Material.Button.View"
+      },
+      {
+        "name": "model",
+        "comment": " Model initialiser. Call with `True` if the button should ripple when\nclicked, `False` otherwise.\n",
+        "type": "Bool -> Material.Button.Model"
+      },
+      {
+        "name": "primary",
+        "comment": " Color button with primary color.\n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "raised",
+        "comment": " From the\n[Material Design Specification](https://www.google.com/design/spec/components/buttons.html#buttons-raised-buttons):\n\n> Raised buttons add dimension to mostly flat layouts. They emphasize functions\n> on busy or wide spaces.\n>\n> Raised buttons behave like a piece of material resting on another sheet –\n> they lift and fill with color on press.\n\nExample use (colored raised button, assuming properly setup model):\n\n    import Material.Button as Button\n\n    raisedButton : Html\n    raisedButton = Button.raised addr model Button.Colored [text \"Click me!\"]\n\n",
+        "type": "Material.Button.View"
+      },
+      {
+        "name": "update",
+        "comment": " Component update.\n",
+        "type": "Material.Button.Action -> Material.Button.Model -> ( Material.Button.Model, Effects.Effects Material.Button.Action )"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Icon",
+    "comment": " Convenience functions for producing Material Design Icons. Refer to\n[the Material Design Icons page](https://google.github.io/material-design-icons),\nor skip straight to the [Material Icons Library](https://design.google.com/icons/).\n\nThis implementation assumes that you have\n\n    <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\"\n      rel=\"stylesheet\">\n\nor an equivalent means of loading the icons in your HTML header. \n(`Material.top` will do this for you.)\n\n@docs i, view, size18, size24, size36, size48\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "i",
+        "comment": " Render a default-sized icon with no behaviour. The\n`String` argument must be the name of a [Material Icon](https://design.google.com/icons/)\n(replace spaces with underscores).\n\nI.e., to produce a default size (24xp) \"trending flat\" icon:\n\n    import Material.Icon as Icon\n\n    icon : Html\n    icon = Icon.i \"trending_flat\"\n",
+        "type": "String -> Html.Html"
+      },
+      {
+        "name": "size18",
+        "comment": " Set icon to have size 18px. \n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "size24",
+        "comment": " Set icon to have size 24px. \n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "size36",
+        "comment": " Set icon to have size 36px. \n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "size48",
+        "comment": " Set icon to have size 48px. \n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "view",
+        "comment": " View function for icons. Supply the\n[Material Icons Library](https://design.google.com/icons/) name as\nthe first argument (replace spaces with underscores). Set the size of the\nicon with the `size..` Styles (default is 24px).  Do not use this function to\nproduce clickable icons; use icon buttons in Material.Button.icon for that.\n\n    import Material.Icon as Icon\n\n    icon : Html\n    icon = Icon.view \"trending_flat\" [Icon.size48] []\n",
+        "type": "String -> List Material.Style.Style -> List Html.Attribute -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Grid",
+    "comment": " From the\n[Material Design Lite documentation](http://www.getmdl.io/components/#layout-section/grid):\n\n> The Material Design Lite (MDL) grid component is a simplified method for laying\n> out content for multiple screen sizes. It reduces the usual coding burden\n> required to correctly display blocks of content in a variety of display\n> conditions.\n>\n> The MDL grid is defined and enclosed by a container element. A grid has 12\n> columns in the desktop screen size, 8 in the tablet size, and 4 in the phone\n> size, each size having predefined margins and gutters. Cells are laid out\n> sequentially in a row, in the order they are defined, with some exceptions:\n>\n>   - If a cell doesn't fit in the row in one of the screen sizes, it flows\n>     into the following line.\n>   - If a cell has a specified column size equal to or larger than the number\n>     of columns for the current screen size, it takes up the entirety of its\n>     row.\n\nRefer to \n[this site](https://debois.github.io/elm-mdl/#/grid)\nfor a live demo. \n\nExample use:\n\n    import Material.Grid exposing (grid, cell, size, Device(..))\n\n    top : Html\n    top =\n      grid []\n        [ cell [ size All 4 ]\n            [ h4 [] [text \"Cell 1\"]\n            ]\n        , cell [ offset All 2, size All 4 ]\n            [ h4 [] [text \"Cell 2\"]\n            , p [] [text \"This cell is offset by 2\"]\n            ]\n        , cell [ size All 6 ]\n            [ h4 [] [text \"Cell 3\"]\n            ]\n        , cell [ size Tablet 6, size Desktop 12, size Phone 2 ]\n            [ h4 [] [text \"Cell 4\"]\n            , p [] [text \"Size varies with device\"]\n            ]\n        ]\n\n# Grid container\n@docs grid, noSpacing, maxWidth\n\n# Cells\n\nCells are configured with a `List Style`; this configuration dictates the\nsize, offset, etc. of the cell. \n\n@docs cell, Cell, Device, size, offset, Align, align, hide, order\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Align",
+        "comment": " Alignment of cell contents; use with `align`.\n",
+        "args": [],
+        "cases": [
+          [
+            "Top",
+            []
+          ],
+          [
+            "Middle",
+            []
+          ],
+          [
+            "Bottom",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Cell",
+        "comment": " Opaque cell type.\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Device",
+        "comment": " Device specifiers, used with `size` and `offset`. (A `Device` really\nencapsulates a screen size.)\n",
+        "args": [],
+        "cases": [
+          [
+            "All",
+            []
+          ],
+          [
+            "Desktop",
+            []
+          ],
+          [
+            "Tablet",
+            []
+          ],
+          [
+            "Phone",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "align",
+        "comment": " Specify vertical cell alignment. See `Align`.\n",
+        "type": "Material.Grid.Align -> Material.Style.Style"
+      },
+      {
+        "name": "cell",
+        "comment": " Construct a cell for use in the argument list for `grid`. Note that this\nmodule defines various styles to set size, offset, etc. of the cell. \n",
+        "type": "List Material.Style.Style -> List Html.Html -> Material.Grid.Cell"
+      },
+      {
+        "name": "grid",
+        "comment": " Construct a grid with options.\n",
+        "type": "List Material.Style.Style -> List Material.Grid.Cell -> Html.Html"
+      },
+      {
+        "name": "hide",
+        "comment": " Specify that a cell should be hidden on given `Device`.\n",
+        "type": "Material.Grid.Device -> Material.Style.Style"
+      },
+      {
+        "name": "maxWidth",
+        "comment": " Set maximum grid width. If more space is available, the grid stays centered with\npadding on either side. Width must be a valid CSS dimension. \n",
+        "type": "String -> Material.Style.Style"
+      },
+      {
+        "name": "noSpacing",
+        "comment": " Set grid to have no spacing between cells. \n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "offset",
+        "comment": " Specify cell offset, i.e., empty number of empty cells before the present\none. On devices of type `Device`, leave `Int` columns blank before the present\none begins.\n",
+        "type": "Material.Grid.Device -> Int -> Material.Style.Style"
+      },
+      {
+        "name": "order",
+        "comment": " Specify that a cell should re-order itself to position 'Int' on `Device`.\n",
+        "type": "Material.Grid.Device -> Int -> Material.Style.Style"
+      },
+      {
+        "name": "size",
+        "comment": " Specify cell size. On devices of type `Device`, the\ncell being specified spans `Int` columns.\n",
+        "type": "Material.Grid.Device -> Int -> Material.Style.Style"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Elevation",
+    "comment": " From the [Material Design Lite documentation](https://github.com/google/material-design-lite/blob/master/src/shadow/README.md)\n\n> The Material Design Lite (MDL) shadow is not a component in the same sense as\n> an MDL card, menu, or textbox; it is a visual effect that can be assigned to a\n> user interface element. The effect simulates a three-dimensional positioning of\n> the element, as though it is slightly raised above the surface it rests upon —\n> a positive z-axis value, in user interface terms. The shadow starts at the\n> edges of the element and gradually fades outward, providing a realistic 3-D\n> effect.\n> \n> Shadows are a convenient and intuitive means of distinguishing an element from\n> its surroundings. A shadow can draw the user's eye to an object and emphasize\n> the object's importance, uniqueness, or immediacy.\n> \n> Shadows are a well-established feature in user interfaces, and provide users\n> with a visual clue to an object's intended use or value. Their design and use\n> is an important factor in the overall user experience.)\n\nThe [Material Design Specification](https://www.google.com/design/spec/what-is-material/elevation-shadows.html#elevation-shadows-elevation-android-)\npre-defines appropriate elevation for most UI elements; you need to manually\nassign shadows only to your own elements. \n\nYou are encouraged to visit the\n[Material Design specification](https://www.google.com/design/spec/what-is-material/elevation-shadows.html)\nfor details about appropriate use of shadows. \n\nRefer to \n[this site](https://debois.github.io/elm-mdl/#/elevation)\nfor a live demo. \n  \n\n# Elevations\nEach of the values below denote an elevation of a certain heigh, e.g., \n`e4` will cast a shadow indicating an elevation of 4dp. \n@docs e2, e3, e4, e6, e8, e16, e24\n@docs elevations\n\n# Transitions\n@docs transition\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "e16",
+        "comment": "\n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "e2",
+        "comment": "\n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "e24",
+        "comment": "\n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "e3",
+        "comment": "\n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "e4",
+        "comment": "\n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "e6",
+        "comment": "\n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "e8",
+        "comment": "\n",
+        "type": "Material.Style.Style"
+      },
+      {
+        "name": "elevations",
+        "comment": " List of all elevations and their depth in dp. \n",
+        "type": "List ( Material.Style.Style, Int )"
+      },
+      {
+        "name": "transition",
+        "comment": " Add a CSS-transition to changes in elevation. Supply a transition\nduration in milliseconds as argument. \n\nNB! This Style is dictated by neither MDL nor the Material Design\nSpecification. \n",
+        "type": "String -> Material.Style.Style"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Color",
+    "comment": " Material Design color palette.\n\n# Palette\n\nFrom the\n[Material Design Specification](https://www.google.com/design/spec/style/color.html#color-color-palette):\n\n> The color palette starts with primary colors and fills in the spectrum to\n> create a complete and usable palette for Android, Web, and iOS. Google suggests\n> using the 500 colors as the primary colors in your app and the other colors as\n> accents colors.\n\n@docs Color, white, black, Hue, Shade, color\n\n# Color Schemes\n\nFrom the\n[Material Design Specification](https://www.google.com/design/spec/style/color.html#color-color-palette):\n\n> [The Material Design] palette comprises primary and accent colors that can be\n> used for illustration or to develop your brand colors. They’ve been designed\n> to work harmoniously with each other.  [...] Apps that don’t have existing\n> color schemes may select colors from the material design color palette. Limit\n> your selection of colors to three hues from the primary palette and one\n> accent color from the secondary palette.\n\nThe Material Design Lite CSS supports this selection; you choose your primary\nand accent colors when loading MDL css; see\n`Material.top`. Many components can be instructed to take on one of the four hues\nmentioned above; below you'll find constructors for these scheme-dependent\ncolors.\n\n@docs primary, primaryDark, primaryContrast, accent, accentContrast\n\n# Styles\n@docs background, text\n\n# Misc\n@docs hues, shades, scheme\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Color",
+        "comment": " Type of colors.\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Hue",
+        "comment": " Color palette.\n",
+        "args": [],
+        "cases": [
+          [
+            "Indigo",
+            []
+          ],
+          [
+            "Blue",
+            []
+          ],
+          [
+            "LightBlue",
+            []
+          ],
+          [
+            "Cyan",
+            []
+          ],
+          [
+            "Teal",
+            []
+          ],
+          [
+            "Green",
+            []
+          ],
+          [
+            "LightGreen",
+            []
+          ],
+          [
+            "Lime",
+            []
+          ],
+          [
+            "Yellow",
+            []
+          ],
+          [
+            "Amber",
+            []
+          ],
+          [
+            "Orange",
+            []
+          ],
+          [
+            "Brown",
+            []
+          ],
+          [
+            "BlueGrey",
+            []
+          ],
+          [
+            "Grey",
+            []
+          ],
+          [
+            "DeepOrange",
+            []
+          ],
+          [
+            "Red",
+            []
+          ],
+          [
+            "Pink",
+            []
+          ],
+          [
+            "Purple",
+            []
+          ],
+          [
+            "DeepPurple",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Shade",
+        "comment": "\n",
+        "args": [],
+        "cases": [
+          [
+            "S50",
+            []
+          ],
+          [
+            "S100",
+            []
+          ],
+          [
+            "S200",
+            []
+          ],
+          [
+            "S300",
+            []
+          ],
+          [
+            "S400",
+            []
+          ],
+          [
+            "S500",
+            []
+          ],
+          [
+            "S600",
+            []
+          ],
+          [
+            "S700",
+            []
+          ],
+          [
+            "S800",
+            []
+          ],
+          [
+            "S900",
+            []
+          ],
+          [
+            "A100",
+            []
+          ],
+          [
+            "A200",
+            []
+          ],
+          [
+            "A400",
+            []
+          ],
+          [
+            "A700",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "accent",
+        "comment": " Accent color.\n",
+        "type": "Material.Color.Color"
+      },
+      {
+        "name": "accentContrast",
+        "comment": " Accent color, contrast variant.\n",
+        "type": "Material.Color.Color"
+      },
+      {
+        "name": "background",
+        "comment": " Background color.\n",
+        "type": "Material.Color.Color -> Material.Style.Style"
+      },
+      {
+        "name": "black",
+        "comment": " Black color.\n",
+        "type": "Material.Color.Color"
+      },
+      {
+        "name": "color",
+        "comment": " Construct a specific color given a palette base hue and a shade.\n",
+        "type": "Material.Color.Hue -> Material.Color.Shade -> Material.Color.Color"
+      },
+      {
+        "name": "hues",
+        "comment": " Hues as array. Mostly useful for demos.\n",
+        "type": "Array.Array Material.Color.Hue"
+      },
+      {
+        "name": "primary",
+        "comment": " Primary color of the theme.\n",
+        "type": "Material.Color.Color"
+      },
+      {
+        "name": "primaryContrast",
+        "comment": " Primary color, contrast variant.\n",
+        "type": "Material.Color.Color"
+      },
+      {
+        "name": "primaryDark",
+        "comment": " Primary color, dark variant.\n",
+        "type": "Material.Color.Color"
+      },
+      {
+        "name": "scheme",
+        "comment": " Given primary and accent base colors, compute name of appropriate MDL .css-file.\n(You are not likely to need to call this function.)\n",
+        "type": "Material.Color.Hue -> Material.Color.Hue -> String"
+      },
+      {
+        "name": "shades",
+        "comment": " Shades as array. Mostly useful for demos.\n",
+        "type": "Array.Array Material.Color.Shade"
+      },
+      {
+        "name": "text",
+        "comment": " Text or foreground color.\n",
+        "type": "Material.Color.Color -> Material.Style.Style"
+      },
+      {
+        "name": "white",
+        "comment": " White color.\n",
+        "type": "Material.Color.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Component",
+    "comment": " \n\nThe Elm Architecture is conceptually very nice, but it forces us to write large\namounts of boilerplate whenever we need to use a \"component\".  We must:\n\n  1. Retain the state of the component in our Model \n  2. Add the components actions to our Action \n  3. Dispatch those actions in our update\n\nNone of these things have anything to do with what we want from the component, \nnamely rendering it in our View function, and potentially reacting to some \n(but not all) of its actions---e.g., we want to react to a Click of a button, \nbut we don't care when it updates its animation state. \n\nThis module provides an extensible mechanism for collecting arbitrary\n(differently-typed) Elm Architecture components into a single component with\na single Action type and update function. The module is used internally to \nproduce `instance` functions; if you are using elm-mdl (and are not interested in\noptimising for compiled program size or writing your own components), you\nshould ignore this module and look instead at `Material`. \n\n\n# Embeddings \n@docs Indexed, Embedding, embed, embedIndexed\n\n# Instance construction\n@docs Action, Instance, Observer, instance, instance1\n\n# Instance consumption\n@docs update\n\n",
+    "aliases": [
+      {
+        "name": "Embedding",
+        "comment": " An __embedding__ of an Elm Architecture component is a variant in which\nview and update functions know how to extract and update their model \nfrom a larger master model. \n",
+        "args": [
+          "model",
+          "container",
+          "action",
+          "a"
+        ],
+        "type": "{ view : Material.Component.View container action a , update : Material.Helpers.Update container action , getModel : container -> model , setModel : model -> container -> container }"
+      },
+      {
+        "name": "Indexed",
+        "comment": " Indexed families of things.\n",
+        "args": [
+          "a"
+        ],
+        "type": "Dict.Dict Int a"
+      },
+      {
+        "name": "Instance",
+        "comment": " Type of component instances. A component instance contains a view, \nget/set/map for the inner model, and a forwarder lifting component \nactions to observations. \n",
+        "args": [
+          "model",
+          "container",
+          "action",
+          "obs",
+          "a"
+        ],
+        "type": "{ view : Material.Component.View container obs a , get : container -> model , set : model -> container -> container , map : (model -> model) -> container -> container , fwd : action -> obs }"
+      },
+      {
+        "name": "Observer",
+        "comment": " Type of observers, i.e., functions that take an actual action of the \nunderlying TEA component to an observation.  E.g., Button has an Observer for\nits `Click` action. \n",
+        "args": [
+          "action",
+          "obs"
+        ],
+        "type": "action -> Maybe.Maybe obs"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Similarly to how embeddings enable collecting models of different type\nin a single model container, we need to collect actions in a single \"master\naction\" type.  Obviously, actions need to be eventually executed by running\nthe corresponding update function. To avoid this master action type explicitly\nrepresenting the Action/update pairs of elm-mdl components, we represent an\naction of an individual component as a partially applied update function; that\nis, a function `container -> container`. E.g., the `Click` action of Button is\nconceptually represented as:\n\n    embeddedButton : Embedding Button.Model container action ...\n    embeddedButton = \n      embedIndexed \n        Button.view Button.update .button {\\m x -> {m|button=x} Button.model 0\n\n    clickAction : container -> container \n    clickAction = embeddedButton.update Button.click \n\nWhen all Material components are embedded in the same `container` model, we \nthen have a uniform update mechanism. \n\nWe lost the ability to inspect the action when we did this, though. To be \nable to react to some actions of a component, we add to our `container -> \ncontainer` type for actions a potential __observation__ of type `obs`. \nIn practice, this observation type `obs` will be the Action of the TEA\ncomponent __hosting__ MDL components. \n\nAltogether, accounting also for effects, we arrive at the following type. \n",
+        "args": [
+          "container",
+          "obs"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "embed",
+        "comment": " Embed a component. Third and fourth arguments are a getter (extract the \nlocal model from the container) and a setter (update local model in the \ncontainer). \n\nIt is instructive to compare the types of the view and update function in \nthe input and output:\n\n     {- Input -}                    {- Output -}\n     View model action a            View container action a\n     Update model action            Update container action \n\n",
+        "type": "Material.Component.View model action a -> Material.Helpers.Update model action -> (container -> model) -> (model -> container -> container) -> Material.Component.Embedding model container action a"
+      },
+      {
+        "name": "embedIndexed",
+        "comment": " We are interested in particular embeddings where components of the same\ntype all have their state living inside a shared `Dict`; the individual\ncomponent has a key used to look up its own state. \n",
+        "type": "Material.Component.View model action a -> Material.Helpers.Update model action -> (container -> Material.Component.Indexed model) -> (Material.Component.Indexed model -> container -> container) -> model -> Int -> Material.Component.Embedding model container action a"
+      },
+      {
+        "name": "instance",
+        "comment": " It is helpful to see parameter names: \n\n    instance view update get set id lift model0 observers = \n      ...\n\nConvert a regular Elm Architecture component (`view`, `update`) to a component\nwhich knows how to access its model inside a generic container model (`get`,\n`set`), and which dispatches generic `Action` updates, lifted to the consumers\naction type `obs` (`lift`). You can react to actions in custom way by providing\nobservers (`observers`). You must also provide an initial model (`model0`) and an\nidentifier for the instance (`id`). The identifier must be unique for all\ninstances of the same type stored in the same model (overapproximating rule of\nthumb: if they are in the same file, they need distinct ids.)\n\nIts instructive to compare the types of the input and output views:\n\n    {- Input -}                 {- Output -}\n    View model action a         View container obs a\n\nThat is, this function fully converts a view from its own `model` and `action`\nto the master `container` model and `observation` action. \n",
+        "type": "Material.Component.View model action a -> Material.Helpers.Update model action -> (container -> Material.Component.Indexed model) -> (Material.Component.Indexed model -> container -> container) -> Int -> (Material.Component.Action container obs -> obs) -> model -> List (Material.Component.Observer action obs) -> Material.Component.Instance model container action obs a"
+      },
+      {
+        "name": "instance1",
+        "comment": " Variant of `instance` for components that are naturally singletons \n(e.g., snackbar, layout).\n",
+        "type": "Material.Component.View model action a -> Material.Helpers.Update model action -> (container -> Maybe.Maybe model) -> (Maybe.Maybe model -> container -> container) -> (Material.Component.Action container obs -> obs) -> model -> List (Material.Component.Observer action obs) -> Material.Component.Instance model container action obs a"
+      },
+      {
+        "name": "update",
+        "comment": " Generic update function for Action. \n",
+        "type": "(Material.Component.Action container obs -> obs) -> Material.Helpers.Update' container (Material.Component.Action container obs) obs"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Snackbar",
+    "comment": " From the [Material Design Lite documentation](https://www.getmdl.io/components/index.html#snackbar-section):\n\n> The Material Design Lite (MDL) __snackbar__ component is a container used to\n> notify a user of an operation's status. It displays at the bottom of the\n> screen. A snackbar may contain an action button to execute a command for the\n> user. Actions should undo the committed action or retry it if it failed for\n> example. Actions should not be to close the snackbar. By not providing an\n> action, the snackbar becomes a __toast__ component.\n\nRefer to [this site](http://debois.github.io/elm-mdl#/snackbar)\nfor a live demo. \n\n# Generating messages\n@docs Contents, toast, snackbar, add\n\n# Elm Architecture\n\n@docs Model, model\n@docs Action, update\n@docs view\n\n# Component support\nSnackbar does not have component support. It must be used as a regular TEA\ncomponent. \n",
+    "aliases": [
+      {
+        "name": "Contents",
+        "comment": " Defines a single snackbar message. Usually, you would use either `toast`\nor `snackbar` to construct `Contents`.\n\n - `message` defines the (text) message displayed\n - `action` defines a label for the action-button in the snackbar. If \n    no action is provided, the snackbar is a message-only toast. \n - `payload` defines the data returned by Snackbar actions for this message. \n   You will usually choose this to be an Action of yours for later dispatch, \n   e.g., if your snackbar has an \"Undo\" action, you would store the\n   corresponding action as the payload. \n - `timeout` is the amount of time the snackbar should be visible\n - `fade` is the duration of the fading animation of the snackbar. \n\nIf you are satsified with the default timeout and fade, do not construct\nvalues of this type yourself; use `snackbar` and `toast` below instead. \n",
+        "args": [
+          "a"
+        ],
+        "type": "{ message : String , action : Maybe.Maybe String , payload : a , timeout : Time.Time , fade : Time.Time }"
+      },
+      {
+        "name": "Model",
+        "comment": " Do not construct this yourself; use `model` below.\n",
+        "args": [
+          "a"
+        ],
+        "type": "{ queue : List (Material.Snackbar.Contents a) , state : Material.Snackbar.State a , seq : Int }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Elm Architecture Action type.  \nThe following actions are observable to you: \n- `Begin a`. The snackbar is now displaying the message with payload `a`.\n- `End a`. The snackbar is done displaying the message with payload `a`.\n- `Click a`. The user clicked the action on the message with payload `a`.\nYou can consume these three actions without forwarding them to `Snackbar.update`.\n(You still need to forward other Snackbar actions.)\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Begin",
+            [
+              "a"
+            ]
+          ],
+          [
+            "End",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Click",
+            [
+              "a"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "add",
+        "comment": " Add a message to the snackbar. If another message is currently displayed, \nthe provided message will be queued. You will be able to observe a `Begin` action\n(see `Action` above) once the action begins displaying.\n\nYou must dispatch the returned effect for the Snackbar to begin displaying your\nmessage.\n",
+        "type": "Material.Snackbar.Contents a -> Material.Snackbar.Model a -> ( Material.Snackbar.Model a , Effects.Effects (Material.Snackbar.Action a) )"
+      },
+      {
+        "name": "model",
+        "comment": " Default snackbar model.\n",
+        "type": "Material.Snackbar.Model a"
+      },
+      {
+        "name": "snackbar",
+        "comment": " Generate snackbar with given payload, message and label. \nTimeout is 2750ms, fade 250ms.\n",
+        "type": "a -> String -> String -> Material.Snackbar.Contents a"
+      },
+      {
+        "name": "toast",
+        "comment": " Generate toast with given payload and message. Timeout is 2750ms, fade 250ms.\n",
+        "type": "a -> String -> Material.Snackbar.Contents a"
+      },
+      {
+        "name": "update",
+        "comment": " Elm Architecture update function. \n",
+        "type": "Material.Snackbar.Action a -> Material.Snackbar.Model a -> ( Material.Snackbar.Model a , Effects.Effects (Material.Snackbar.Action a) )"
+      },
+      {
+        "name": "view",
+        "comment": " Elm architecture update function. \n",
+        "type": "Signal.Address (Material.Snackbar.Action a) -> Material.Snackbar.Model a -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  },
+  {
+    "name": "Material.Style",
+    "comment": " Styling Material components.\n\nUse these to customize components and add your own classes and css to\nMaterial container elements.\n\n(This mechanism is necessary because Elm does not provide a good way to\nadd to or remove from the contents of an already constructed class Attribute.)\n\n@docs Style\n\n# Constructors\n@docs cs, cs', css, css', attribute, multiple\n\n# Application\n@docs styled, div, span\n\n# Convenience\n@docs stylesheet\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Style",
+        "comment": " Type of Style information. \n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "attribute",
+        "comment": " Add a custom attribute\n",
+        "type": "Html.Attribute -> Material.Style.Style"
+      },
+      {
+        "name": "cs",
+        "comment": " Add a HTML class to a component. (Name chosen to avoid clashing with\nHtml.Attributes.class.)\n",
+        "type": "String -> Material.Style.Style"
+      },
+      {
+        "name": "cs'",
+        "comment": " Conditionally add a HTML class to a component.\n",
+        "type": "String -> Bool -> Material.Style.Style"
+      },
+      {
+        "name": "css",
+        "comment": " Add a CSS style to a component.\n",
+        "type": "String -> String -> Material.Style.Style"
+      },
+      {
+        "name": "css'",
+        "comment": " Conditionally add a CSS style to a component\n",
+        "type": "String -> String -> Bool -> Material.Style.Style"
+      },
+      {
+        "name": "div",
+        "comment": " Convenience function for the ultra-common case of setting attributes of a\ndiv element. Use like this: \n\n    myDiv : Html \n    myDiv = \n      Style.div\n        [ Color.background Color.primary\n        , Color.text Color.accentContrast\n        ]\n        [ text \"I'm in color!\" ]\n\n",
+        "type": "List Material.Style.Style -> List Html.Html -> Html.Html"
+      },
+      {
+        "name": "multiple",
+        "comment": " Add a custom attribute\n",
+        "type": "List Material.Style.Style -> Material.Style.Style"
+      },
+      {
+        "name": "span",
+        "comment": " Convenience function for the reasonably common case of setting attributes\nof a span element. See also `div`. \n",
+        "type": "List Material.Style.Style -> List Html.Html -> Html.Html"
+      },
+      {
+        "name": "styled",
+        "comment": " Handle the common case of setting attributes of a standard Html node\nfrom a List Style. Use like this:\n\n    import Material.Style exposing (..)\n\n    myDiv : Html\n    myDiv =\n      styled div\n        [ css \"classA\", css \"classB\" ]\n        [ {- onClick ... (*) -} ]\n        [ text \"This is my div with classes classA and classB!\" ]\n\nNote that if you do specify `style`, `class`, or `classList` attributes in\n(*), they will be discarded.\n",
+        "type": "(List Html.Attribute -> a) -> List Material.Style.Style -> List Html.Attribute -> a"
+      },
+      {
+        "name": "stylesheet",
+        "comment": " Construct an Html element contributing to the global stylesheet.\nThe resulting Html is a `<style>` element.  Remember to insert the resulting Html\nsomewhere. \n",
+        "type": "String -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

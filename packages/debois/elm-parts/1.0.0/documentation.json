@@ -1,0 +1,106 @@
+[
+  {
+    "name": "Parts",
+    "comment": " \n\n# Elm Architecture types\n@docs Update, View\n\n# Embeddings \n@docs Indexed, Embedding, embed, embedIndexed\n\n# Part construction\n@docs Action, Part, Observer, new, new1\n\n# Part consumption\n@docs update\n\n",
+    "aliases": [
+      {
+        "name": "Embedding",
+        "comment": " An __embedding__ of an Elm Architecture component is a variant in which\nview and update functions know how to extract and update their model \nfrom a larger master model. \n",
+        "args": [
+          "model",
+          "container",
+          "action",
+          "a"
+        ],
+        "type": "{ view : Parts.View container action a , update : Parts.Update container action , getModel : container -> model , setModel : model -> container -> container }"
+      },
+      {
+        "name": "Indexed",
+        "comment": " Indexed families of things.\n",
+        "args": [
+          "a"
+        ],
+        "type": "Dict.Dict Int a"
+      },
+      {
+        "name": "Observer",
+        "comment": " Type of observers, i.e., functions that take an actual action of the \nunderlying TEA component to an observation.  E.g., Button has an Observer for\nits `Click` action. \n",
+        "args": [
+          "action",
+          "obs"
+        ],
+        "type": "action -> Maybe.Maybe obs"
+      },
+      {
+        "name": "Part",
+        "comment": " Type of parts. A part contains a view, \nget/set/map for the inner model, and a forwarder lifting component \nactions to observations. \n",
+        "args": [
+          "model",
+          "container",
+          "action",
+          "obs",
+          "a"
+        ],
+        "type": "{ view : Parts.View container obs a , get : container -> model , set : model -> container -> container , map : (model -> model) -> container -> container , fwd : action -> obs }"
+      },
+      {
+        "name": "Update",
+        "comment": " Standard TEA update function type. \n",
+        "args": [
+          "model",
+          "action"
+        ],
+        "type": "action -> model -> ( model, Effects.Effects action )"
+      },
+      {
+        "name": "View",
+        "comment": " Standard TEA view function type. \n",
+        "args": [
+          "model",
+          "action",
+          "a"
+        ],
+        "type": "Signal.Address action -> model -> a"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Similarly to how embeddings enable collecting models of different type\nin a single model container, we need to collect actions in a single \"master\naction\" type.  Obviously, actions need to be eventually executed by running\nthe corresponding update function. To avoid this master action type explicitly\nrepresenting the Action/update pairs of elm-mdl components, we represent an\naction of an individual component as a partially applied update function; that\nis, a function `container -> container`. E.g., the `Click` action of Button is\nconceptually represented as:\n\n    embeddedButton : Embedding Button.Model container action ...\n    embeddedButton = \n      embedIndexed \n        Button.view Button.update .button {\\m x -> {m|button=x} Button.model 0\n\n    clickAction : container -> container \n    clickAction = embeddedButton.update Button.click \n\nWhen all components are embedded in the same `container` model, we \nthen have a uniform update mechanism. \n\nWe lost the ability to inspect the action when we did this, though. To be \nable to react to some actions of a component, we add to our `container -> \ncontainer` type for actions a potential __observation__ of type `obs`. \nIn practice, this observation type `obs` will be the Action of the TEA\ncomponent __hosting__ the sub-components. \n\nAltogether, accounting also for effects, we arrive at the following type. \n",
+        "args": [
+          "container",
+          "obs"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "embed",
+        "comment": " Embed a component. Third and fourth arguments are a getter (extract the \nlocal model from the container) and a setter (update local model in the \ncontainer). \n\nIt is instructive to compare the types of the view and update function in \nthe input and output:\n\n     {- Input -}                    {- Output -}\n     View model action a            View container action a\n     Update model action            Update container action \n\n",
+        "type": "Parts.View model action a -> Parts.Update model action -> (container -> model) -> (model -> container -> container) -> Parts.Embedding model container action a"
+      },
+      {
+        "name": "embedIndexed",
+        "comment": " We are interested in particular embeddings where components of the same\ntype all have their state living inside a shared `Dict`; the individual\ncomponent has a key used to look up its own state. \n",
+        "type": "Parts.View model action a -> Parts.Update model action -> (container -> Parts.Indexed model) -> (Parts.Indexed model -> container -> container) -> model -> Int -> Parts.Embedding model container action a"
+      },
+      {
+        "name": "new",
+        "comment": " It is helpful to see parameter names: \n\n    new view update get set id lift model0 observers = \n      ...\n\nConvert a regular Elm Architecture component (`view`, `update`) to a part, \ni.e., a component which knows how to access its model inside a generic\ncontainer model (`get`, `set`), and which dispatches generic `Action` updates,\nlifted to the consumers action type `obs` (`lift`). You can react to actions in\ncustom way by providing observers (`observers`). You must also provide an\ninitial model (`model0`) and an identifier for the part (`id`). The\nidentifier must be unique for all parts of the same type stored in the\nsame model (overapproximating rule of thumb: if they are in the same file,\nthey need distinct ids.)\n\nIts instructive to compare the types of the input and output views:\n\n    {- Input -}                 {- Output -}\n    View model action a         View container obs a\n\nThat is, this function fully converts a view from its own `model` and `action`\nto the master `container` model and `observation` action. \n",
+        "type": "Parts.View model action a -> Parts.Update model action -> (container -> Parts.Indexed model) -> (Parts.Indexed model -> container -> container) -> Int -> (Parts.Action container obs -> obs) -> model -> List (Parts.Observer action obs) -> Parts.Part model container action obs a"
+      },
+      {
+        "name": "new1",
+        "comment": " Variant of `new` for parts that will be used only once in any \nTEA component. \n",
+        "type": "Parts.View model action a -> Parts.Update model action -> (container -> Maybe.Maybe model) -> (Maybe.Maybe model -> container -> container) -> (Parts.Action container obs -> obs) -> model -> List (Parts.Observer action obs) -> Parts.Part model container action obs a"
+      },
+      {
+        "name": "update",
+        "comment": " Generic update function for Action. \n",
+        "type": "(Parts.Action container obs -> obs) -> Parts.Update' container (Parts.Action container obs) obs"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]

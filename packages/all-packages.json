@@ -1130,7 +1130,6 @@
         "name": "debois/elm-dom",
         "summary": "DOM traversal for Elm event-handlers",
         "versions": [
-            "1.1.0",
             "1.0.0"
         ]
     },
@@ -1768,8 +1767,6 @@
         "name": "javcasas/elm-integer",
         "summary": "Infinite-size integers for Elm",
         "versions": [
-            "2.0.1",
-            "2.0.0",
             "1.0.0"
         ]
     },
@@ -2007,8 +2004,6 @@
         "name": "krisajenkins/elm-exts",
         "summary": "An opinionated collection of functions missing from the core.",
         "versions": [
-            "19.1.0",
-            "19.0.0",
             "18.1.1",
             "18.1.0",
             "18.0.0",
@@ -2865,7 +2860,6 @@
         "name": "thebritican/elm-autocomplete",
         "summary": "A customizable autocomplete component",
         "versions": [
-            "2.0.1",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -3043,8 +3037,6 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
-            "8.0.1",
-            "8.0.0",
             "7.6.0",
             "7.5.0",
             "7.4.0",
