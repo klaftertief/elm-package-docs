@@ -2432,6 +2432,14 @@
         ]
     },
     {
+        "name": "prozacchiwawa/effmodel",
+        "summary": "Simple package to make dealing with model and effect pairs more composable.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "pukkamustard/elm-identicon",
         "summary": "Generate identicons",
         "versions": [
@@ -2607,6 +2615,8 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "2.1.1",
+            "2.1.0",
             "2.0.0",
             "1.1.0",
             "1.0.0"
@@ -3047,6 +3057,7 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "8.3.0",
             "8.2.0",
             "8.1.12",
             "8.1.11",
