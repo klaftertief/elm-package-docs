@@ -61,6 +61,16 @@
         ]
     },
     {
+        "name": "Bogdanp/elm-generate",
+        "summary": "Simple list generators in Elm.",
+        "versions": [
+            "1.2.0",
+            "1.1.1",
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Bogdanp/elm-route",
         "summary": "A route parsing library",
         "versions": [
@@ -219,6 +229,13 @@
         ]
     },
     {
+        "name": "NoRedInk/elm-api-components",
+        "summary": "API-based components",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "NoRedInk/elm-check",
         "summary": "Property-based testing in Elm",
         "versions": [
@@ -232,6 +249,7 @@
         "name": "NoRedInk/elm-decode-pipeline",
         "summary": "A pipeline-friendly library for building decoders.",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -291,6 +309,14 @@
         "summary": "Extra convenient functions for working with Tasks",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "NoRedInk/nri-elm-css",
+        "summary": "Helpers for working with NRI styling",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -2329,6 +2355,7 @@
         "name": "mgold/elm-socketio",
         "summary": "Socket.io (websockets) for bidirectional realtime messaging",
         "versions": [
+            "2.0.4",
             "2.0.3",
             "2.0.2",
             "2.0.1",
@@ -2354,6 +2381,13 @@
             "2.0.0",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ndr-qef/microkanren.elm",
+        "summary": "A minimal functional core for relational programming",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2615,6 +2649,7 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "2.2.0",
             "2.1.1",
             "2.1.0",
             "2.0.0",
@@ -2626,6 +2661,7 @@
         "name": "rtfeldman/elm-css-helpers",
         "summary": "Helper functions for using elm-css with elm-html",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -2711,6 +2747,13 @@
         "summary": "Runtime for elmrpcplus generated code.",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "simonewebdesign/elm-timer",
+        "summary": "A clock/timer/countdown",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3057,6 +3100,19 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "8.7.4",
+            "8.7.3",
+            "8.7.2",
+            "8.7.1",
+            "8.7.0",
+            "8.6.0",
+            "8.5.5",
+            "8.5.4",
+            "8.5.3",
+            "8.5.2",
+            "8.5.1",
+            "8.5.0",
+            "8.4.0",
             "8.3.0",
             "8.2.0",
             "8.1.12",
