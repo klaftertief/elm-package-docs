@@ -249,6 +249,7 @@
         "name": "NoRedInk/elm-decode-pipeline",
         "summary": "A pipeline-friendly library for building decoders.",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]
@@ -2772,6 +2773,7 @@
         "name": "simonh1000/elm-jwt",
         "summary": "Jwt token helper functions",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -3100,6 +3102,9 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "8.8.2",
+            "8.8.1",
+            "8.8.0",
             "8.7.4",
             "8.7.3",
             "8.7.2",
