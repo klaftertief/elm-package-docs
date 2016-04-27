@@ -231,6 +231,7 @@
     "w0rm/elm-slice-show",
     "wernerdegroot/listzipper",
     "williamwhitacre/elm-encoding",
+    "williamwhitacre/elm-lexer",
     "williamwhitacre/gigan",
     "williamwhitacre/pylon",
     "williamwhitacre/scaffold",

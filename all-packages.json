@@ -2865,6 +2865,8 @@
         "name": "sporto/hop",
         "summary": "A router for SPAs in Elm",
         "versions": [
+            "4.0.3",
+            "4.0.2",
             "4.0.1",
             "4.0.0",
             "3.0.0",
@@ -3073,6 +3075,16 @@
         "name": "williamwhitacre/elm-encoding",
         "summary": "Encoding utilities for web applications. URL encoding support and others.",
         "versions": [
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "williamwhitacre/elm-lexer",
+        "summary": "A lexer that provides contextual metadata with lexemes.",
+        "versions": [
+            "1.2.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
