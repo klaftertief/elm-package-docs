@@ -229,6 +229,16 @@
         ]
     },
     {
+        "name": "KtorZ/elm-notification",
+        "summary": "Display discardable notification toast messages on top of the window",
+        "versions": [
+            "1.1.1",
+            "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "NoRedInk/elm-api-components",
         "summary": "API-based components",
         "versions": [
@@ -708,6 +718,7 @@
         "name": "avh4/elm-testable",
         "summary": "Makes Tasks and Effects testable",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
