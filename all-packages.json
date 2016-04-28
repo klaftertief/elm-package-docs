@@ -705,6 +705,15 @@
         ]
     },
     {
+        "name": "avh4/elm-testable",
+        "summary": "Makes Tasks and Effects testable",
+        "versions": [
+            "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "avh4/elm-transducers",
         "summary": "Composable transformation of sequences using clojure-inspired transducers",
         "versions": [
