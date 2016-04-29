@@ -316,6 +316,13 @@
         ]
     },
     {
+        "name": "NoRedInk/elm-sweet-poll",
+        "summary": "HTTP polling with backoff when the server response doesn't change",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "NoRedInk/elm-task-extra",
         "summary": "Extra convenient functions for working with Tasks",
         "versions": [
@@ -718,6 +725,7 @@
         "name": "avh4/elm-testable",
         "summary": "Makes Tasks and Effects testable",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.1.0",
             "1.0.1",
