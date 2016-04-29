@@ -130,6 +130,7 @@
     "ggb/numeral-elm",
     "ggb/porterstemmer",
     "gummesson/elm-csv",
+    "hrldcpr/elm-cons",
     "imeckler/either",
     "imeckler/empty",
     "imeckler/iterator",
