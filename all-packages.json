@@ -319,6 +319,7 @@
         "name": "NoRedInk/elm-sweet-poll",
         "summary": "HTTP polling with backoff when the server response doesn't change",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -521,6 +522,7 @@
         "name": "ThomasWeiser/elmfire",
         "summary": "Firebase Bindings for Elm",
         "versions": [
+            "1.0.6",
             "1.0.5",
             "1.0.4",
             "1.0.3",
@@ -3153,6 +3155,9 @@
         "name": "williamwhitacre/pylon",
         "summary": "Pylon is a support library for Firebase applications using ElmFire.",
         "versions": [
+            "9.0.0",
+            "8.10.0",
+            "8.9.0",
             "8.8.2",
             "8.8.1",
             "8.8.0",
