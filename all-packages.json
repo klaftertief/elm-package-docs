@@ -522,6 +522,7 @@
         "name": "ThomasWeiser/elmfire",
         "summary": "Firebase Bindings for Elm",
         "versions": [
+            "1.0.7",
             "1.0.6",
             "1.0.5",
             "1.0.4",
@@ -1187,6 +1188,7 @@
         "name": "debois/elm-dom",
         "summary": "DOM traversal for Elm event-handlers",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -2072,9 +2074,25 @@
         ]
     },
     {
+        "name": "krisajenkins/elm-dialog",
+        "summary": "A dialog/modal widget for Elm.",
+        "versions": [
+            "2.0.0",
+            "1.0.6",
+            "1.0.5",
+            "1.0.4",
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "krisajenkins/elm-exts",
         "summary": "An opinionated collection of functions missing from the core.",
         "versions": [
+            "19.3.0",
+            "19.2.0",
             "19.1.0",
             "19.0.0",
             "18.1.1",

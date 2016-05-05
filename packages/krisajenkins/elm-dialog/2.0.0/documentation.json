@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Dialog",
+    "comment": " Elm Modal Dialogs.\n\n@docs view, Config\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " The configuration for the dialog you display. The `header`, `body`\nand `footer` are all `Maybe Html` blocks. Those `Html` blocks can\nbe as simple or as complex as any other view function.\n\nUse only the ones you want and set the others to `Nothing`.\n\nThe `closeMessage` is an optional `Signal.Message` we will send when the user\nclicks the 'X' in the top right. If you don't want that X displayed, use `Nothing`.\n",
+        "args": [],
+        "type": "{ closeMessage : Maybe.Maybe Signal.Message , header : Maybe.Maybe Html.Html , body : Maybe.Maybe Html.Html , footer : Maybe.Maybe Html.Html }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "view",
+        "comment": " Renders a modal dialog whenever you supply a `Config`.\n\nTo use this, include this view in your *top-level* view function,\nright at the top of the DOM tree, like so:\n\n    type Action\n      = ...\n      | ...\n      | AcknowledgeDialog\n\n\n    view : Address Action -> Model -> Html\n    view address model =\n      div\n        []\n        [ ...\n        , ...your regular view code....\n        , ...\n        , Dialog.view\n            (if model.shouldShowDialog then\n              Just { closeMessage = Just (Signal.message address AcknowledgeDialog)\n                   , header = Just (text \"Alert!\"\n                   , body = Just (p [] [text \"Let me tell you something important...\"])\n                   , footer = Nothing\n                   }\n             else\n              Nothing\n            )\n        ]\n\n\nIt's then up to you to replace `model.shouldShowDialog` with whatever\nlogic should cause the dialog to be displayed, and to handle an\n`AcknowledgeDialog` action with whatever logic should occur when the user\ncloses the dialog.\n\nSee the `examples/` directory for examples of how this works for apps\nlarge and small.\n\n",
+        "type": "Maybe.Maybe Dialog.Config -> Html.Html"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]
