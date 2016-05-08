@@ -1810,6 +1810,20 @@
         ]
     },
     {
+        "name": "jasonmahr/html-escape-sequences",
+        "summary": "Use HTML escape sequences with elm-html. Supports all Unicode characters.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jasonmahr/html-escaped-unicode",
+        "summary": "Allows use of HTML escape Unicode sequences with elm-html",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jastice/boxes-and-bubbles",
         "summary": "A simple-as-possible 2D rigid-body physics engine.",
         "versions": [

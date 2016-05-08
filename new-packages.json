@@ -141,6 +141,8 @@
     "izdi/junk",
     "jackfranklin/elm-statey",
     "janiczek/elm-task-extra",
+    "jasonmahr/html-escape-sequences",
+    "jasonmahr/html-escaped-unicode",
     "jastice/boxes-and-bubbles",
     "jastice/president",
     "javcasas/elm-decimal",

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Unicode",
+    "comment": " Use HTML escape sequences with elm-html. Supports all Unicode characters and\nrecognizes decimal, hexadecimal and non-digit escape sequences.\n@docs unEsc, text', txt\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "text'",
+        "comment": " unEsc >> Html.text\n\n    Html.text \"© &copy; &#169;\"  -- renders © &copy; &#169; to the page\n    text'     \"© &copy; &#169;\"  -- renders © © ©\n",
+        "type": "String -> Html.Html"
+      },
+      {
+        "name": "txt",
+        "comment": " An alternate name that avoids apostrophes.\n",
+        "type": "String -> Html.Html"
+      },
+      {
+        "name": "unEsc",
+        "comment": " Unescapes all valid HTML escape sequences within a string.\n\n    unEsc \"© &COPY; &copy; &#169; &#x000A9; &cpy;\" == \"© © © © © &cpy;\"\n",
+        "type": "String -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.16.0"
+  }
+]
