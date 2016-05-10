@@ -1,5 +1,7 @@
 [
     "ccapndave/elm-update-extra",
+    "eeue56/elm-all-dict",
+    "elm-community/elm-lazy-list",
     "elm-community/elm-test",
     "elm-lang/animation-frame",
     "elm-lang/core",
@@ -17,5 +19,7 @@
     "evancz/elm-graphics",
     "evancz/elm-http",
     "evancz/elm-markdown",
-    "jasonmahr/html-escape-sequences"
+    "jasonmahr/html-escape-sequences",
+    "lukewestby/elm-http-builder",
+    "pdamoc/elm-hashids"
 ]

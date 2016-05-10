@@ -1270,6 +1270,7 @@
         "name": "eeue56/elm-all-dict",
         "summary": "A Elm dict implementation that can store any type",
         "versions": [
+            "1.1.2",
             "1.1.1",
             "1.1.0",
             "1.0.1",
@@ -1325,6 +1326,13 @@
             "1.1.1",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/elm-lazy-list",
+        "summary": "Lazy list implementation in Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2329,6 +2337,13 @@
         ]
     },
     {
+        "name": "lukewestby/elm-http-builder",
+        "summary": "Extra functions for more easily building and handling Http requests",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lukewestby/elm-http-extra",
         "summary": "Extra functions for more easily building and handling Http requests",
         "versions": [
@@ -2627,6 +2642,7 @@
         "name": "pdamoc/elm-hashids",
         "summary": "Elm port of the Hashids library",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
