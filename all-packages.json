@@ -1197,6 +1197,7 @@
         "name": "debois/elm-dom",
         "summary": "DOM traversal for Elm event-handlers",
         "versions": [
+            "1.2.1",
             "1.2.0",
             "1.1.0",
             "1.0.0"
@@ -1555,6 +1556,7 @@
         "name": "etaque/elm-route-parser",
         "summary": "A friendly route parser based on parser combinators",
         "versions": [
+            "2.2.1",
             "2.2.0",
             "2.1.0",
             "2.0.0",
@@ -2250,6 +2252,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "An opinionated collection of functions missing from the core.",
         "versions": [
+            "20.0.0",
             "19.4.0",
             "19.4.0",
             "19.4.0",
@@ -2813,6 +2816,8 @@
         "name": "rluiten/mailcheck",
         "summary": "Mailcheck suggest corrections to errors in email addresses",
         "versions": [
+            "4.1.2",
+            "4.1.1",
             "4.1.0",
             "4.0.0",
             "3.0.2",
@@ -2842,6 +2847,7 @@
         "name": "rluiten/stringdistance",
         "summary": "Calculate a metric indicating the string distance between two strings",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]

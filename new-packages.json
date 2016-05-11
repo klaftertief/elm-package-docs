@@ -2,6 +2,7 @@
     "Bogdanp/elm-combine",
     "Bogdanp/elm-route",
     "ccapndave/elm-update-extra",
+    "debois/elm-dom",
     "eeue56/elm-all-dict",
     "elm-community/elm-json-extra",
     "elm-community/elm-lazy-list",
@@ -24,6 +25,7 @@
     "elm-lang/window",
     "etaque/elm-hexagons",
     "etaque/elm-response",
+    "etaque/elm-route-parser",
     "evancz/elm-graphics",
     "evancz/elm-http",
     "evancz/elm-markdown",
@@ -31,5 +33,7 @@
     "jweir/elm-iso8601",
     "lukewestby/elm-http-builder",
     "mgold/elm-random-pcg",
-    "pdamoc/elm-hashids"
+    "pdamoc/elm-hashids",
+    "rluiten/mailcheck",
+    "rluiten/stringdistance"
 ]
