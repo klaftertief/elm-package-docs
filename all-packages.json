@@ -549,6 +549,7 @@
         "name": "VerbalExpressions/elm-verbal-expressions",
         "summary": "Elm port of VerbalExpressions",
         "versions": [
+            "1.2.1",
             "1.2.0",
             "1.1.0",
             "1.0.0"
@@ -1119,6 +1120,7 @@
         "name": "cutsea110/elm-temperature",
         "summary": "handle something around temperature.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2409,6 +2411,7 @@
         "name": "lukewestby/elm-template",
         "summary": "Type-safe Elm string templating with records.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -2623,6 +2626,7 @@
         "name": "ndr-qef/microkanren.elm",
         "summary": "A minimal functional core for relational programming",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },

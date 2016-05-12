@@ -1,6 +1,7 @@
 [
     "Bogdanp/elm-combine",
     "Bogdanp/elm-route",
+    "VerbalExpressions/elm-verbal-expressions",
     "ccapndave/elm-update-extra",
     "debois/elm-dom",
     "eeue56/elm-all-dict",
@@ -32,7 +33,9 @@
     "jasonmahr/html-escape-sequences",
     "jweir/elm-iso8601",
     "lukewestby/elm-http-builder",
+    "lukewestby/elm-template",
     "mgold/elm-random-pcg",
+    "ndr-qef/microkanren.elm",
     "pdamoc/elm-hashids",
     "rluiten/mailcheck",
     "rluiten/stringdistance"
