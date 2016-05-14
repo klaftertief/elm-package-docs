@@ -1,0 +1,64 @@
+[
+  {
+    "name": "Every",
+    "comment": "\n\nThis component will continually issue / poll an action / message\nfor some given amount of time, determined by a function you provide\nthe system.\n\n\n## Polling State\n\n@docs Every\n\n@docs initEvery\n\n\n## Polling Invocation\n\n@docs EveryMsg\n\n\n## Polling Enactment\n\n@docs updateEvery\n\n@docs EveryResults\n\n@docs handleEveryResults\n\n",
+    "aliases": [
+      {
+        "name": "Every",
+        "comment": " The state of the poller\n",
+        "args": [
+          "b"
+        ],
+        "type": "{ elapsed : Maybe.Maybe ( Every.Elapsed, b ) }"
+      }
+    ],
+    "types": [
+      {
+        "name": "EveryMsg",
+        "comment": " The type of messages you can send to the poller -\n    either initialization (or new input data for the action\n    to be dispatched), or a cease-and-desist call.\n",
+        "args": [
+          "b"
+        ],
+        "cases": [
+          [
+            "Start",
+            [
+              "b"
+            ]
+          ],
+          [
+            "Stop",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "EveryResults",
+        "comment": " The type of results during update - either another `EveryMsg`,\n    or an actual action to be dispatched. This is all handled under-the-hood\n    with `handleEveryResults`.\n",
+        "args": [
+          "b",
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "handleEveryResults",
+        "comment": " Given a way to integrate an `EveryMsg` into your action type,\n    you can turn a `EveryResults` into your action type.\n",
+        "type": "(Every.EveryMsg b -> a) -> Every.EveryResults b a -> a"
+      },
+      {
+        "name": "initEvery",
+        "comment": " Initial state of the poller\n",
+        "type": "Every.Every b"
+      },
+      {
+        "name": "updateEvery",
+        "comment": " Given a method to compute the duration to wait until the next action is issued\n    (calculated from the total time elapsed `total -> delay`), and the main action to\n    issue, build an updating component.\n",
+        "type": "(Time.Time -> Time.Time) -> (b -> a) -> Every.EveryMsg b -> Every.Every b -> ( Every.Every b, Platform.Cmd.Cmd (Every.EveryResults b a) )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

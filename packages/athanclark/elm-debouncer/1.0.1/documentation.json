@@ -1,0 +1,60 @@
+[
+  {
+    "name": "Debounce",
+    "comment": "\n\nThis is a delay-based debouncer, where given a _minimum_ delay and an action\nto issue, we'll build a stateful component that will eventually issue the action\n_once_, after being given a slew of requests within the delay timeframe.\n\n\n## Debouncer State\n\n@docs Debouncer\n\n@docs initDebouncer\n\n\n## Starting the Debouncer\n\n@docs DebouncerMsg\n\n\n## Evaluating the Debouncer\n\n@docs updateDebouncer\n\n@docs DebouncerResults\n\n@docs handleDebouncerResults\n\n",
+    "aliases": [
+      {
+        "name": "Debouncer",
+        "comment": " The state of the debouncer\n",
+        "args": [
+          "b"
+        ],
+        "type": "{ since : Maybe.Maybe ( Time.Time, b ) }"
+      }
+    ],
+    "types": [
+      {
+        "name": "DebouncerMsg",
+        "comment": " To bounce the debouncer, just make multiple calls to `Bounce`.\n",
+        "args": [
+          "b"
+        ],
+        "cases": [
+          [
+            "Bounce",
+            [
+              "b"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "DebouncerResults",
+        "comment": " Representing either more messages needing to be handled in this component,\n    or the message you've been trying to debounce.\n",
+        "args": [
+          "b",
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "handleDebouncerResults",
+        "comment": " By being able to convert a `DebouncerMsg` to a message we understand, we\n    can turn a whole `DebouncerResults` to a message we understand.\n",
+        "type": "(Debounce.DebouncerMsg b -> a) -> Debounce.DebouncerResults b a -> a"
+      },
+      {
+        "name": "initDebouncer",
+        "comment": " The initial debouncer\n",
+        "type": "Debounce.Debouncer b"
+      },
+      {
+        "name": "updateDebouncer",
+        "comment": " The main logic of the debouncer.\n",
+        "type": "Time.Time -> (b -> a) -> Debounce.DebouncerMsg b -> Debounce.Debouncer b -> ( Debounce.Debouncer b , Platform.Cmd.Cmd (Debounce.DebouncerResults b a) )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

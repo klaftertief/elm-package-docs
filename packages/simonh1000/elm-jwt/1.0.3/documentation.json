@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Jwt",
+    "comment": " Helper functions for Jwt token authentication.\n\nA Jwt Token comprises 3 elements: a header and footer and the content. This package\nincludes a function to send an authentication request, a function to read the content of a token;\nand a function to send GET requests with the token attached.\n\n# API functions\n@docs authenticate, decodeToken, getWithJwt\n\n# Errors\n@docs JwtError\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "JwtError",
+        "comment": " The three errors that can emerge are:\n - network errors,\n - issues with processing (e.g. base 64 decoding) the token, and\n - problems decoding the json data within the content of the token\n\n",
+        "args": [],
+        "cases": [
+          [
+            "HttpError",
+            [
+              "String"
+            ]
+          ],
+          [
+            "TokenProcessingError",
+            [
+              "String"
+            ]
+          ],
+          [
+            "TokenDecodeError",
+            [
+              "String"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "authenticate",
+        "comment": " `authenticate` is a custom Http POST method that sends a stringified\nJson object containing the login credentials. It then extracts the token from the\njson response from the server and returns it.\n\n    authenticate\n        (\"token\" := Json.string)\n        \"http://localhost:5000/auth\"\n        (\"{\\\"username\\\":\\\"\" ++ model.uname ++ \"\\\",\\\"password\\\":\\\"\"++ model.pword ++ \"\\\"}\")\n            |> Task.map Token\n            |> Effects.task\n",
+        "type": "Json.Decode.Decoder String -> String -> String -> Task.Task never (Result.Result Jwt.JwtError String)"
+      },
+      {
+        "name": "decodeToken",
+        "comment": " decodeToken converts the token content to an Elm record structure.\n\n    decoderToken dec token\n\nIn the event of success, `decodeToken` returns an Elm record structure using the JSON Decoder.\n\n",
+        "type": "Json.Decode.Decoder a -> String -> Result.Result Jwt.JwtError a"
+      },
+      {
+        "name": "getWithJwt",
+        "comment": " getWithJwt is a replacement for `Http.get` that attaches a provided Jwt token\nto the headers of the GET request.\n\n    getWithJwt model.token \"http://localhost:5000/api/restos/test\"\n        |> Task.toResult\n        |> Task.map AuthData\n        |> Effects.tasks\n",
+        "type": "String -> Json.Decode.Decoder a -> String -> Task.Task Http.Error a"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
