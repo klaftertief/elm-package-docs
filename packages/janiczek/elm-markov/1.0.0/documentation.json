@@ -1,0 +1,71 @@
+[
+  {
+    "name": "Markov",
+    "comment": " We want to be able to randomly genererate a number <0..1> and assign a value to it.\n\nIf we have a transition table:\n\n    # TRANSITIONS\n    A -> B: 2x\n    A -> C: 10x\n    A -> D: 8x\n\nThen we can see that in the input data we've went from A to something 20 times in total.\nWe can normalize the counts for given end states into values (percentages) which sum to 1.0:\n\n    # PROBABILITIES\n    A -> B: 0.1  (=  2/20)\n    A -> C: 0.5  (= 10/20)\n    A -> D: 0.4  (=  8/20)\n\nWe \"lay\" these next to each other by summing them:\n\n    # INTERVALS\n    A -> B: 0.1\n    A -> C: 0.6  (= 0.1 + 0.5)\n    A -> D: 1.0  (= 0.1 + 0.5 + 0.4)\n\nAnd thus form intervals: which random number corresponds to which transition.\n\nAfter generating a random number <0..1>, we find the first transition that has higher percentage than that number.\n\n    randomNumber = 0.34\n\n    A -> B: too low (0.1 <= 0.34)\n    A -> C: enough! (0.6  > 0.34)\n\nThus we have chosen the transition to state `C`.\n\n# Input types\n@docs Input\n\n# Transitions types\n@docs Transitions, EndStateCounter, TransitionCount\n\n# Transitions\n@docs transitions, addToTransitions\n\n# Probabilities types\n@docs Probabilities, Probability\n\n# Probabilities\n@docs probabilities\n\n",
+    "aliases": [
+      {
+        "name": "EndStateCounter",
+        "comment": " How many times did we get to this state from some start state?\n",
+        "args": [
+          "comparable"
+        ],
+        "type": "Dict.Dict comparable Markov.TransitionCount"
+      },
+      {
+        "name": "Input",
+        "comment": " Input list from which we generate the Markov chain.\n\nGenerally we'll want a string which we'll split and transform, but that's too specific and just one of many possible usages. This is as general as can be.\n",
+        "args": [
+          "comparable"
+        ],
+        "type": "List comparable"
+      },
+      {
+        "name": "Probabilities",
+        "comment": " Probabilities for a given starting state.\n\nFrom the example above:\n\n    A -> B: 0.1  (=  2/20)\n    A -> C: 0.5  (= 10/20)\n    A -> D: 0.4  (=  8/20)\n\nWe represent this as:\n\n    [ (Ratio  2 20, B) -- actually all of these get normalized but here we don't care\n    , (Ratio 10 20, C)\n    , (Ratio  8 20, D)\n    ]\n\n",
+        "args": [
+          "comparable"
+        ],
+        "type": "List ( Markov.Probability, comparable )"
+      },
+      {
+        "name": "Probability",
+        "comment": " Probability of the transition.\n\n       how many times did this transition happen\n    ----------------------------------------------\n    number of all transitions for this start state\n",
+        "args": [],
+        "type": "Ratio.Rational"
+      },
+      {
+        "name": "TransitionCount",
+        "comment": " How many times did this transition happen?\n",
+        "args": [],
+        "type": "Int"
+      },
+      {
+        "name": "Transitions",
+        "comment": " All the possible transitions of a state machine.\n\nThese are kept in such form that it's easy to extend them after creation.\n\nFrom the example above:\n\n    A -> B: 2x\n    A -> C: 10x\n    A -> D: 8x\n    B -> A: 1x  -- thrown in for variety\n\nWe represent this as (pseudocode):\n\n    { A: { B: 2\n         , C: 10\n         , D: 8\n         }\n    , B: { A: 1 }\n    }\n\n",
+        "args": [
+          "comparable"
+        ],
+        "type": "Dict.Dict comparable (Markov.EndStateCounter comparable)"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "addToTransitions",
+        "comment": " Increment a counter for this (startState, endState) pair.\n",
+        "type": "( comparable, comparable ) -> Markov.Transitions comparable -> Markov.Transitions comparable"
+      },
+      {
+        "name": "probabilities",
+        "comment": " Get probabilities for a given starting state.\n",
+        "type": "Markov.Transitions comparable -> comparable -> Markov.Probabilities comparable"
+      },
+      {
+        "name": "transitions",
+        "comment": " Parse the input sequence into a \"transition matrix.\"\n",
+        "type": "Markov.Input comparable -> Markov.Transitions comparable"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
