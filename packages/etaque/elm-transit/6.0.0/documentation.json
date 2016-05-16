@@ -1,0 +1,113 @@
+[
+  {
+    "name": "Transit",
+    "comment": " Styled transitions with minimal boilerplate, typically for page transitions in single page apps.\n\nSee README or [example](https://github.com/etaque/elm-transit/blob/master/example/src/Main.elm) for usage.\n\nUses elm-animations and Cmd.tick for animation logic.\n\n# State\n@docs Transition, WithTransition, initial\n\n# Timeline\n@docs Timeline, timeline, defaultTimeline, withExitDuration, withEnterDuration\n\n# Update\n@docs Msg, start, tick, subscriptions\n\n# View\n@docs getValue, getStep, Step\n",
+    "aliases": [
+      {
+        "name": "Timeline",
+        "comment": " Timeline of the transition ",
+        "args": [
+          "msg"
+        ],
+        "type": "{ exitDuration : Float, msg : msg, enterDuration : Float }"
+      },
+      {
+        "name": "WithTransition",
+        "comment": " Extended type for the parent model holding the transition. ",
+        "args": [
+          "model",
+          "msg"
+        ],
+        "type": "{ model | transition : Transit.Transition msg }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Transition msg, to be wrapped in your own msg type. ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Step",
+        "comment": " Transition step: Exit -> *send message* -> Enter -> Done. ",
+        "args": [],
+        "cases": [
+          [
+            "Exit",
+            []
+          ],
+          [
+            "Enter",
+            []
+          ],
+          [
+            "Done",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Transition",
+        "comment": " Opaque type for transition state storage. ",
+        "args": [
+          "msg"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultTimeline",
+        "comment": " Default timeline for this transition: exit of 50ms then enter of 200ms. ",
+        "type": "msg -> Transit.Timeline msg"
+      },
+      {
+        "name": "getStep",
+        "comment": " Extract current animation step. ",
+        "type": "Transit.Transition msg -> Transit.Step"
+      },
+      {
+        "name": "getValue",
+        "comment": " Extract current animation value (a float between 0 and 1). ",
+        "type": "Transit.Transition msg -> Float"
+      },
+      {
+        "name": "initial",
+        "comment": " Empty transition state, as initial value in the model. ",
+        "type": "Transit.Transition msg"
+      },
+      {
+        "name": "start",
+        "comment": " Start the transition with the following parameters:\n\n* `tagger` to wrap Transit's Msg into your app's Msg type (consistent with `tick` signature, saves you one `Cmd.map`)\n* `timeline` to setup transition\n* `parent` is the model storing the Transition, to update with new transition state\n\nReturns a tuple that you can directly emit from your `update`.\n ",
+        "type": "(Transit.Msg -> msg) -> Transit.Timeline msg -> Transit.WithTransition parent msg -> ( Transit.WithTransition parent msg, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Animation frame subscription. Must be called by your component's subscription function. ",
+        "type": "(Transit.Msg -> msg) -> Transit.WithTransition parent msg -> Platform.Sub.Sub msg"
+      },
+      {
+        "name": "tick",
+        "comment": " Where all the logic happens. Run transition steps, and triggers timeline's parent message when needed.\n\n* `tagger` to wrap Transit's msg into app's Msg type, has to be same type of timeline.msg,\n* `msg` is the Transit message to process,\n* `parent` is the model storing the Transition, for transition state update.\n ",
+        "type": "(Transit.Msg -> msg) -> Transit.Msg -> Transit.WithTransition parent msg -> ( Transit.WithTransition parent msg, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "timeline",
+        "comment": " Build the timeline:\n> exitDuration => message => enterDuration\n",
+        "type": "Float -> msg -> Float -> Transit.Timeline msg"
+      },
+      {
+        "name": "withEnterDuration",
+        "comment": " Update enter duration of timeline. ",
+        "type": "Float -> Transit.Timeline msg -> Transit.Timeline msg"
+      },
+      {
+        "name": "withExitDuration",
+        "comment": " Update exit duration of timeline. ",
+        "type": "Float -> Transit.Timeline msg -> Transit.Timeline msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
