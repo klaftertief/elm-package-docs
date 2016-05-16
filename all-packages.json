@@ -1205,6 +1205,7 @@
         "name": "danyx23/elm-uuid",
         "summary": "Create UUIDs (Version 4) - 128 bit pseudo-random identifiers",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -1694,6 +1695,7 @@
         "name": "etaque/elm-transit-style",
         "summary": "CSS styles for animation on elm-transit.",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -1935,6 +1937,7 @@
         "name": "imeckler/either",
         "summary": "A simple Either type",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -2360,6 +2363,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "23.0.0",
             "22.0.0",
             "21.0.0",
             "20.0.0",
@@ -2470,6 +2474,16 @@
     {
         "name": "lorenzo/elm-string-addons",
         "summary": "Additional string manipulation functions",
+        "versions": [
+            "2.0.1",
+            "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "lovasoa/choices",
+        "summary": "HTML GUI for a choice between multiple values",
         "versions": [
             "2.0.1",
             "2.0.0",
