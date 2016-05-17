@@ -104,6 +104,8 @@
         "name": "Dandandan/parser",
         "summary": "Parser using parser combinators",
         "versions": [
+            "6.2.5",
+            "6.2.4",
             "6.2.3",
             "6.2.2",
             "6.2.1",
@@ -2492,6 +2494,7 @@
         "name": "lovasoa/choices",
         "summary": "HTML GUI for a choice between multiple values",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.1",
@@ -3123,6 +3126,13 @@
     {
         "name": "sgraf812/elm-stateful",
         "summary": "Library for conveniently working with stateful computations",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "shelakel/elm-validate",
+        "summary": "Validation library for elm supporting sync and async validation with state",
         "versions": [
             "1.0.0"
         ]

@@ -1,6 +1,7 @@
 [
     "Bogdanp/elm-combine",
     "Bogdanp/elm-route",
+    "Dandandan/parser",
     "NoRedInk/elm-decode-pipeline",
     "NoRedInk/elm-phoenix",
     "VerbalExpressions/elm-verbal-expressions",
@@ -87,6 +88,7 @@
     "rtfeldman/elm-css",
     "rtfeldman/elm-css-helpers",
     "rtfeldman/elm-css-util",
+    "shelakel/elm-validate",
     "simonh1000/elm-charts",
     "simonh1000/elm-jwt",
     "sporto/erl",
