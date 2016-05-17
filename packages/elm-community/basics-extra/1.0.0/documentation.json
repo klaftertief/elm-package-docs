@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Basics.Extra",
+    "comment": " Additional basic functions\n\n@docs never\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "never",
+        "comment": " The empty function.\nThis converts a value of type\n[`Never`](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics#Never)\ninto a value of any type, which is safe because there are no values of\ntype `Never`. Useful in certain situations as argument to\n[`Task.perform`](http://package.elm-lang.org/packages/elm-lang/core/latest/Task#perform),\n[`Cmd.map`](http://package.elm-lang.org/packages/elm-lang/core/latest/Platform-Cmd#map),\n[`Html.map`](http://package.elm-lang.org/packages/elm-lang/html/latest/Html-App#map).\n",
+        "type": "Basics.Never -> a"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

@@ -1,0 +1,265 @@
+[
+  {
+    "name": "Autocomplete",
+    "comment": " A customizable Autocomplete component.\n\nThe Autocomplete consists of a menu, a list, the list's many items, and an input.\nAll of these views are styleable via css classes.\nSee the Styling module.\n\nThe currently selected item is preserved and styled with the aforementioned module.\n\nThis selection is modified by keyboard arrow input, mouse clicks, and API consumer defined keyCodes.\n\nCheck out how easy it is to plug into a simple program:\n```\nmain =\n  let\n    updateAutocomplete msg autocomplete =\n      let\n        ( updatedAutocomplete, status ) = Autocomplete.update msg autocomplete\n        -- status communicates extra information the parent on every update\n        -- e.g. when the selection changes, the value changes, or the user has triggered a completion\n      in\n        updatedAutocomplete\n  in\n    Html.beginnerProgram\n      { model = Autocomplete.init [ \"elm\", \"makes\", \"coding\", \"life\", \"easy\" ]\n      , update = updateAutocomplete\n      , view = Autocomplete.view\n      }\n```\n\n# Definition\n@docs Autocomplete, Status\n\n# Initialize\n@docs init, initWithConfig\n\n# Update\n@docs Msg, update\n\n# Views\n@docs view\n\n# Helpers\n@docs getSelectedItem, getCurrentValue\n\n# Controlling Behavior\n\nIf you want the autocomplete to be completely controlled, with no `input` field, use the Config\nmodule's `isValueControlled` function to designate that the API consumer will control the autocomplete.\nThis is useful for mentions and other autocomplete examples inside textareas, contenteditable, etc.\n\nDefined below are functions to control:\n  the autocomplete's menu navigation, set its value, items, and whether its menu should be shown.\n\n@docs showMenu, setValue, setItems, setLoading, MenuNavigation, navigateMenu\n\n# Defaults\n@docs defaultStatus\n\n",
+    "aliases": [
+      {
+        "name": "Status",
+        "comment": " Information for parent components about the update of the Autocomplete ",
+        "args": [],
+        "type": "{ completed : Autocomplete.Config.Completed , valueChanged : Autocomplete.Config.ValueChanged , selectionChanged : Autocomplete.Config.SelectionChanged }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Autocomplete",
+        "comment": " The Autocomplete model.\n    It assumes filtering is based upon strings.\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "MenuNavigation",
+        "comment": " The possible actions to navigate the autocomplete menu\n",
+        "args": [],
+        "cases": [
+          [
+            "Previous",
+            []
+          ],
+          [
+            "Next",
+            []
+          ],
+          [
+            "Select",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Msg",
+        "comment": " A description of a state change\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultStatus",
+        "comment": " A status record where everything is False\n",
+        "type": "Autocomplete.Status"
+      },
+      {
+        "name": "getCurrentValue",
+        "comment": " Get the string currently entered by the user in the Autocomplete\n",
+        "type": "Autocomplete.Autocomplete -> String"
+      },
+      {
+        "name": "getSelectedItem",
+        "comment": " Get the text of the currently selected item\n",
+        "type": "Autocomplete.Autocomplete -> Autocomplete.Config.Text"
+      },
+      {
+        "name": "init",
+        "comment": " Creates an Autocomplete from a list of items with a default `String.startsWith` filter\n",
+        "type": "List String -> Autocomplete.Autocomplete"
+      },
+      {
+        "name": "initWithConfig",
+        "comment": " Creates an Autocomplete with a custom configuration\n",
+        "type": "List String -> Autocomplete.Config.Config Autocomplete.Msg -> Autocomplete.Autocomplete"
+      },
+      {
+        "name": "navigateMenu",
+        "comment": " When controlling the Autocomplete value, use this function\n    to provide a message for updating the menu selection.\n",
+        "type": "Autocomplete.MenuNavigation -> Autocomplete.Autocomplete -> Autocomplete.Msg"
+      },
+      {
+        "name": "setItems",
+        "comment": " Sets the Autocomplete's list of items ",
+        "type": "List String -> Autocomplete.Autocomplete -> Autocomplete.Autocomplete"
+      },
+      {
+        "name": "setLoading",
+        "comment": " Sets whether the Autocomplete shows its loading display or not. Useful for remote updates. ",
+        "type": "Bool -> Autocomplete.Autocomplete -> Autocomplete.Autocomplete"
+      },
+      {
+        "name": "setValue",
+        "comment": " Set current autocomplete value\n",
+        "type": "String -> Autocomplete.Autocomplete -> Autocomplete.Autocomplete"
+      },
+      {
+        "name": "showMenu",
+        "comment": " Set whether the menu should be shown\n",
+        "type": "Bool -> Autocomplete.Autocomplete -> Autocomplete.Autocomplete"
+      },
+      {
+        "name": "update",
+        "comment": " The quintessential Elm Architecture reducer.\n",
+        "type": "Autocomplete.Msg -> Autocomplete.Autocomplete -> ( Autocomplete.Autocomplete, Autocomplete.Status )"
+      },
+      {
+        "name": "view",
+        "comment": " The full Autocomplete view, with menu and input.\n",
+        "type": "Autocomplete.Autocomplete -> Html.Html Autocomplete.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "Autocomplete.Config",
+    "comment": " Configuration module for the Autocomplete component.\n\n# Definition\n@docs Config, ItemHtmlFn, Text, InputValue, Index, Completed, ValueChanged, SelectionChanged\n\n# Defaults\n@docs defaultConfig\n\n# Modifiers\n@docs isValueControlled, setClassesFn, setCompletionKeyCodes, setItemHtml, setMaxListSize, setFilterFn, setCompareFn, setNoMatchesDisplay, setLoadingDisplay\n\n\n",
+    "aliases": [
+      {
+        "name": "Completed",
+        "comment": " True if an update completed the autocomplete\n",
+        "args": [],
+        "type": "Bool"
+      },
+      {
+        "name": "Config",
+        "comment": " The configuration record for an Autocomplete component.\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Autocomplete.Config.Model msg"
+      },
+      {
+        "name": "Index",
+        "comment": " Positive integer index of selected item in list\n",
+        "args": [],
+        "type": "Int"
+      },
+      {
+        "name": "InputValue",
+        "comment": " The value of the input\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "ItemHtmlFn",
+        "comment": " Given the text of an item, produce some HTML\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Autocomplete.Config.Text -> Html.Html msg"
+      },
+      {
+        "name": "SelectionChanged",
+        "comment": " True if an update changed the autocomplete's selection\n",
+        "args": [],
+        "type": "Bool"
+      },
+      {
+        "name": "Text",
+        "comment": " The text of an item\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "ValueChanged",
+        "comment": " True if an update changed the autocomplete's value\n",
+        "args": [],
+        "type": "Bool"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "defaultConfig",
+        "comment": " A simple Autocomplete configuration\n",
+        "type": "Autocomplete.Config.Config msg"
+      },
+      {
+        "name": "isValueControlled",
+        "comment": " Provide True to control the autocomplete value,\n    False to let the component control the value via a stylable `input` field.\n\n    The default config provides False.\n",
+        "type": "Bool -> Autocomplete.Config.Config msg -> Autocomplete.Config.Config msg"
+      },
+      {
+        "name": "setClassesFn",
+        "comment": " Provide a function that produces an list of classes to style a particular View\n",
+        "type": "(Autocomplete.Styling.View -> Autocomplete.Styling.Classes) -> Autocomplete.Config.Config msg -> Autocomplete.Config.Config msg"
+      },
+      {
+        "name": "setCompareFn",
+        "comment": " Provide a custom comparison function to order the Autocomplete matches.\n",
+        "type": "(Autocomplete.Config.Text -> Autocomplete.Config.Text -> Basics.Order) -> Autocomplete.Config.Config msg -> Autocomplete.Config.Config msg"
+      },
+      {
+        "name": "setCompletionKeyCodes",
+        "comment": " Provide keycodes for autocompletion. By default, completion happens on tab press.\n",
+        "type": "List Char.KeyCode -> Autocomplete.Config.Config msg -> Autocomplete.Config.Config msg"
+      },
+      {
+        "name": "setFilterFn",
+        "comment": " Provide a custom filter function used to filter Autocomplete items.\n",
+        "type": "(Autocomplete.Config.Text -> Autocomplete.Config.InputValue -> Bool) -> Autocomplete.Config.Config msg -> Autocomplete.Config.Config msg"
+      },
+      {
+        "name": "setItemHtml",
+        "comment": " Provide a custom HTML view for an Autocomplete item's text\n",
+        "type": "Autocomplete.Config.ItemHtmlFn msg -> Autocomplete.Config.Config msg -> Autocomplete.Config.Config msg"
+      },
+      {
+        "name": "setLoadingDisplay",
+        "comment": " Provide a custom loading display for the case when more items are being fetched\n",
+        "type": "Html.Html msg -> Autocomplete.Config.Config msg -> Autocomplete.Config.Config msg"
+      },
+      {
+        "name": "setMaxListSize",
+        "comment": " Provide a maximum list size for the Autocomplete menu\n",
+        "type": "Int -> Autocomplete.Config.Config msg -> Autocomplete.Config.Config msg"
+      },
+      {
+        "name": "setNoMatchesDisplay",
+        "comment": " Provide a custom HTML display for the case that nothing matches.\n",
+        "type": "Html.Html msg -> Autocomplete.Config.Config msg -> Autocomplete.Config.Config msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "Autocomplete.Styling",
+    "comment": " Styling module for the Autocomplete component.\n\nThe autocomplete consists of a menu, a list, list items, and an input.\nThis module includes functions to provide css class names for styling those\nchild views.\n\nStyling is easy as:\n```\ntestData : List String\ntestData =\n  [ \"elm\"\n  , \"makes\"\n  , \"coding\"\n  , \"life\"\n  , \"easy\"\n  ]\n\ngetClasses : Styling.View -> Styling.Classes\ngetClasses view =\n  case view of\n    Styling.Menu ->\n      [ ( \"autocomplete-menu\", True ) ]\n\n    Styling.List ->\n      [ ( \"autocomplete-list\", True ) ]\n\n    Styling.Item ->\n      [ ( \"autocomplete-item\", True ) ]\n\n    Styling.SelectedItem ->\n      [ ( \"autocomplete-selected-item\", True ) ]\n\n    Styling.Input ->\n      [ ( \"autocomplete-input\", True ) ]\n\n\nmain : Program Never\nmain =\n  let\n    config =\n      Autocomplete.Config.defaultConfig\n        |> Autocomplete.Config.setClassesFn getClasses\n  in\n    Html.beginnerProgram\n      { model = initWithConfig testData config\n      , update = (\\act model -> fst (update act model))\n      , view = view\n      }\n```\n\n# Child Views\n@docs View\n\n# Definition\n@docs Classes\n\n",
+    "aliases": [
+      {
+        "name": "Classes",
+        "comment": " A list of class names and their associated status (added/removed) as a boolean value.\n",
+        "args": [],
+        "type": "List ( String, Bool )"
+      }
+    ],
+    "types": [
+      {
+        "name": "View",
+        "comment": " The stylable views of the Autocomplete component.\n",
+        "args": [],
+        "cases": [
+          [
+            "Menu",
+            []
+          ],
+          [
+            "List",
+            []
+          ],
+          [
+            "Item",
+            []
+          ],
+          [
+            "SelectedItem",
+            []
+          ],
+          [
+            "Input",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

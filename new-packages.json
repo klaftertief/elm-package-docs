@@ -20,6 +20,7 @@
     "debois/elm-dom",
     "eeue56/elm-all-dict",
     "eeue56/elm-flat-matrix",
+    "elm-community/basics-extra",
     "elm-community/easing-functions",
     "elm-community/elm-check",
     "elm-community/elm-json-extra",
@@ -89,6 +90,7 @@
     "simonh1000/elm-charts",
     "simonh1000/elm-jwt",
     "sporto/erl",
+    "thebritican/elm-autocomplete",
     "truqu/elm-base64",
     "truqu/elm-mustache",
     "vito/elm-ansi"

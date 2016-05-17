@@ -1368,6 +1368,13 @@
         ]
     },
     {
+        "name": "elm-community/basics-extra",
+        "summary": "Additional basic functions",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "elm-community/easing-functions",
         "summary": "Easing functions for animations.",
         "versions": [
@@ -3304,6 +3311,7 @@
         "name": "thebritican/elm-autocomplete",
         "summary": "A customizable autocomplete component",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.0.1",
