@@ -1474,6 +1474,13 @@
         ]
     },
     {
+        "name": "elm-community/maybe-extra",
+        "summary": "Convenience functions for working with Maybe",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "elm-community/shrink",
         "summary": "Library for authoring shrinking strategies",
         "versions": [
@@ -2494,6 +2501,7 @@
         "name": "lovasoa/choices",
         "summary": "HTML GUI for a choice between multiple values",
         "versions": [
+            "2.1.0",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -2613,6 +2621,14 @@
             "2.1.0",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "mdgriffith/elm-style-animation",
+        "summary": "Style Animations in Elm",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3321,6 +3337,7 @@
         "name": "thebritican/elm-autocomplete",
         "summary": "A customizable autocomplete component",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.0.1",
             "2.0.0",

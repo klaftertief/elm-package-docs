@@ -1,0 +1,891 @@
+[
+  {
+    "name": "Style",
+    "comment": " This library is for animating css properties and is meant to work well with elm-html.\n\nThe easiest way to get started with this library is to check out the examples that are included with the [source code](https://github.com/mdgriffith/elm-style-animation).\n\nOnce you have the basic structure of how to use this library, you can refer to this documentation to fill any gaps.\n\n\n# Base Definitions\n@docs Animation\n\n# Starting an animation\n@docs animate, queue\n\n# Creating animations\n@docs delay, spring, duration, easing, andThen\n\n# Animating Properties\n@docs to, set, update\n\n# Render a Animation into CSS or as SVG attributes\n@docs render, renderAttr\n\n# Set the starting style\n@docs init\n\n# Managing Commands\n@docs on, tick\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Animation",
+        "comment": " An Animation of CSS properties.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "andThen",
+        "comment": " Append another keyframe.  This is used for multistage animations.\n\nFor example, to cycle through colors, we'd use the following:\n\n      Style.animate\n          |> Style.to\n              [ BackgroundColor\n                    Style.toRGBA 100 100 100 1.0\n              ]\n          |> Style.andThen -- create a new keyframe\n          |> Style.duration (1*second)\n          |> Style.to\n              [ BackgroundColor\n                    Style.toRGBA 178 201 14 1.0\n              ]\n          |> Style.andThen\n          |> Style.to\n              [ BackgroundColor\n                    Style.toRGBA 58 40 69 1.0\n              ]\n          |> Style.on model.style\n",
+        "type": "Style.PreAction -> Style.PreAction"
+      },
+      {
+        "name": "animate",
+        "comment": " Begin describing an animation.  This animation will cleanly interrupt any animation that is currently running.\n\n      Style.animate\n         |> Style.duration (0.4*second)\n         |> Style.to\n             [ Left 0 Px\n             , Opacity 1\n             ]\n         |> Style.on model.style\n\n",
+        "type": "Style.PreAction"
+      },
+      {
+        "name": "delay",
+        "comment": " Specify a delay.\nIf not specified, the default is 0.\n\n     Style.animate\n         |> Style.duration (0.4*second)\n         |> Style.delay (0.5*second)\n         |> Style.to\n             [ Left 0 Px\n             , Opacity 1\n             ]\n         |> Style.on model.style\n",
+        "type": "Time.Time -> Style.PreAction -> Style.PreAction"
+      },
+      {
+        "name": "duration",
+        "comment": " Specify a duration.  This is ignored unless an easing is specified as well!  This is because spring functions (the default), have dynamically created durations.\n\nIf an easing is specified but no duration, the default duration is 350ms.\n\n     Style.animate\n         |> Style.easing (\\x -> x)  -- linear easing\n         |> Style.duration (0.4*second)\n         |> Style.to\n             [ Left 0 Px\n             , Opacity 1\n             ]\n         |> Style.on model.style\n",
+        "type": "Time.Time -> Style.PreAction -> Style.PreAction"
+      },
+      {
+        "name": "easing",
+        "comment": " Specify an easing function.  It is expected that values should match up at the beginning and end.  So, f 0 == 0 and f 1 == 1.  The default easing is sinusoidal in-out.\n\n",
+        "type": "(Float -> Float) -> Style.PreAction -> Style.PreAction"
+      },
+      {
+        "name": "init",
+        "comment": " Create an initial style for your init model.\n\n__Note__ All properties that you animate must be present in the init or else that property won't be animated.\n\n",
+        "type": "Style.PropertyHelpers.Style -> Style.Animation"
+      },
+      {
+        "name": "on",
+        "comment": " Apply an update to a Animation model.\n\n     Style.animate\n         |> Style.duration (0.4*second)\n         |> Style.to\n             [ Left 0 Px\n             , Opacity 1\n             ]\n         |> Style.on model.style\n\n",
+        "type": "Style.Animation -> Style.PreAction -> Style.Animation"
+      },
+      {
+        "name": "queue",
+        "comment": " The same as `animate` but instead of interrupting the current animation, this will queue up after the current animation is finished.\n\n      Style.queue\n         |> Style.duration (0.4*second)\n         |> Style.to\n             [ Left (Style.to 0) Px\n             , Opacity (Style.to 1)\n             ]\n         |> Style.on model.style\n\n",
+        "type": "Style.PreAction"
+      },
+      {
+        "name": "render",
+        "comment": " Render into concrete css that can be directly applied to 'style' in elm-html\n\n    div [ style Style.render widget.style) ] [ ]\n\n",
+        "type": "Style.Animation -> List ( String, String )"
+      },
+      {
+        "name": "renderAttr",
+        "comment": " Render into svg attributes.\n\n    polygon (Style.renderAttr widget.style) [ ]\n\n",
+        "type": "Style.Animation -> List (Svg.Attribute msg)"
+      },
+      {
+        "name": "set",
+        "comment": " Apply a style immediately.  This takes a list of static style properties, meaning the no `Style.to` functions, only concrete numbers and values.\n\n\n    Style.animate\n         |> Style.duration (0.4*second)\n         |> Style.to\n             [ Opacity (Style.to 1)\n             ]\n      |> Style.andThen\n         |> Style.set\n             [ Display None\n             ]\n         |> Style.on model.style\n\n",
+        "type": "Style.PropertyHelpers.Style -> Style.PreAction -> Style.PreAction"
+      },
+      {
+        "name": "spring",
+        "comment": " Animate based on spring physics.\n\nYou'll need to provide both a stiffness and a dampness to this function.\n\n__Note:__ This will cause both `duration` and `easing` to be ignored as they are now controlled by the spring.\n\n     Style.animate\n      -- |> Style.spring Style.noWobble -- set using a UI preset\n         |> Style.spring\n                { stiffness = 400\n                , damping = 28\n                }\n         |> Style.to\n             [ Left (Style.to 0) Px\n             , Opacity (Style.to 1)\n             ]\n         |> Style.on model.style\n",
+        "type": "Style.Spring.Presets.SpringProps -> Style.PreAction -> Style.PreAction"
+      },
+      {
+        "name": "tick",
+        "comment": " Step the animation\n",
+        "type": "Float -> Style.Animation -> Style.Animation"
+      },
+      {
+        "name": "to",
+        "comment": " Animate to a statically specified style.\n\n",
+        "type": "Style.PropertyHelpers.Style -> Style.PreAction -> Style.PreAction"
+      },
+      {
+        "name": "update",
+        "comment": " Update a style based on it's previous value.\n\n     Style.animate\n          |> Style.update\n              (\\index prev =\n                  case prev of\n                    Cx cx ->\n                        Cx (cx + 1)\n\n                    Cy cy ->\n                        Cy (cy + 1)\n\n                    _ -> prev\n              )\n          |> Style.on model.style\n\n`index` is the number of times that property has occurred in the stack.\nThis can be useful when stacking transforms and you only want to update the 2nd `Rotate` in the stack.\nRefer to the [stacking transforms example](https://github.com/mdgriffith/elm-style-animation) for more information.\n\n",
+        "type": "(Int -> Style.PropertyHelpers.Static -> Style.PropertyHelpers.Static) -> Style.PreAction -> Style.PreAction"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "Style.Spring.Presets",
+    "comment": "\n\n@docs SpringProps, noWobble, gentle, wobbly, stiff\n\n",
+    "aliases": [
+      {
+        "name": "SpringProps",
+        "comment": " A type for spring properties, stiffness and damping.\n",
+        "args": [],
+        "type": "{ stiffness : Float, damping : Float }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "gentle",
+        "comment": " A spring preset.\n",
+        "type": "Style.Spring.Presets.SpringProps"
+      },
+      {
+        "name": "noWobble",
+        "comment": " A spring preset.\n",
+        "type": "Style.Spring.Presets.SpringProps"
+      },
+      {
+        "name": "stiff",
+        "comment": " A spring preset.\n",
+        "type": "Style.Spring.Presets.SpringProps"
+      },
+      {
+        "name": "wobbly",
+        "comment": " A spring preset.\n",
+        "type": "Style.Spring.Presets.SpringProps"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "Style.Properties",
+    "comment": "\nAll animatable properties.\n\n@docs Property\n\n@docs Length, Angle, DisplayMode\n\n@docs PathCommand\n\n@docs alignStartingPoint\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Angle",
+        "comment": " Units representing angles.\n",
+        "args": [],
+        "cases": [
+          [
+            "Deg",
+            []
+          ],
+          [
+            "Grad",
+            []
+          ],
+          [
+            "Rad",
+            []
+          ],
+          [
+            "Turn",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "DisplayMode",
+        "comment": " A Display value used for the display property.\nA display mode is not animated but can be set using Html.Animation.set\n",
+        "args": [],
+        "cases": [
+          [
+            "None",
+            []
+          ],
+          [
+            "Inline",
+            []
+          ],
+          [
+            "InlineBlock",
+            []
+          ],
+          [
+            "Block",
+            []
+          ],
+          [
+            "Flex",
+            []
+          ],
+          [
+            "InlineFlex",
+            []
+          ],
+          [
+            "ListItem",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Length",
+        "comment": " Units representing length.\n",
+        "args": [],
+        "cases": [
+          [
+            "Px",
+            []
+          ],
+          [
+            "Percent",
+            []
+          ],
+          [
+            "Rem",
+            []
+          ],
+          [
+            "Em",
+            []
+          ],
+          [
+            "Ex",
+            []
+          ],
+          [
+            "Ch",
+            []
+          ],
+          [
+            "Vh",
+            []
+          ],
+          [
+            "Vw",
+            []
+          ],
+          [
+            "Vmin",
+            []
+          ],
+          [
+            "Vmax",
+            []
+          ],
+          [
+            "Mm",
+            []
+          ],
+          [
+            "Cm",
+            []
+          ],
+          [
+            "In",
+            []
+          ],
+          [
+            "Pt",
+            []
+          ],
+          [
+            "Pc",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "PathCommand",
+        "comment": " Describe a path.  To be used in conjunction with the D property for styling svg.\n\n`To` versions of the commands are absolute, while others are relative.\n\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Move",
+            [
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "MoveTo",
+            [
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "Line",
+            [
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "LineTo",
+            [
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "Horizontal",
+            [
+              "a"
+            ]
+          ],
+          [
+            "HorizontalTo",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Vertical",
+            [
+              "a"
+            ]
+          ],
+          [
+            "VerticalTo",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Curve",
+            [
+              "List ( a, a )"
+            ]
+          ],
+          [
+            "CurveTo",
+            [
+              "List ( a, a )"
+            ]
+          ],
+          [
+            "Quadratic",
+            [
+              "List ( a, a )"
+            ]
+          ],
+          [
+            "QuadraticTo",
+            [
+              "List ( a, a )"
+            ]
+          ],
+          [
+            "SmoothQuadratic",
+            [
+              "List ( a, a )"
+            ]
+          ],
+          [
+            "SmoothQuadraticTo",
+            [
+              "List ( a, a )"
+            ]
+          ],
+          [
+            "Smooth",
+            [
+              "List ( a, a )"
+            ]
+          ],
+          [
+            "SmoothTo",
+            [
+              "List ( a, a )"
+            ]
+          ],
+          [
+            "Arc",
+            [
+              "a",
+              "a",
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "ArcTo",
+            [
+              "a",
+              "a",
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "LargeArc",
+            [
+              "a",
+              "a",
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "LargeArcTo",
+            [
+              "a",
+              "a",
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "Close",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Property",
+        "comment": " All currently animatable properties.\n",
+        "args": [
+          "a",
+          "color"
+        ],
+        "cases": [
+          [
+            "Display",
+            [
+              "Style.Properties.DisplayMode"
+            ]
+          ],
+          [
+            "Opacity",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Height",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Width",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Left",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Top",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Right",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Bottom",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "MaxHeight",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "MaxWidth",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "MinHeight",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "MinWidth",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Padding",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "PaddingLeft",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "PaddingRight",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "PaddingTop",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "PaddingBottom",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Margin",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "MarginLeft",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "MarginRight",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "MarginTop",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "MarginBottom",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "BorderWidth",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "BorderRadius",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "BorderTopLeftRadius",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "BorderTopRightRadius",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "BorderBottomLeftRadius",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "BorderBottomRightRadius",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "LetterSpacing",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "LineHeight",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "BackgroundPosition",
+            [
+              "a",
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Color",
+            [
+              "color"
+            ]
+          ],
+          [
+            "BackgroundColor",
+            [
+              "color"
+            ]
+          ],
+          [
+            "BorderColor",
+            [
+              "color"
+            ]
+          ],
+          [
+            "TransformOrigin",
+            [
+              "a",
+              "a",
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Matrix",
+            [
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "Matrix3d",
+            [
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "Translate",
+            [
+              "a",
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Translate3d",
+            [
+              "a",
+              "a",
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "TranslateX",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "TranslateY",
+            [
+              "a",
+              "Style.Properties.Length"
+            ]
+          ],
+          [
+            "Scale",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Scale3d",
+            [
+              "a",
+              "a",
+              "a"
+            ]
+          ],
+          [
+            "ScaleX",
+            [
+              "a"
+            ]
+          ],
+          [
+            "ScaleY",
+            [
+              "a"
+            ]
+          ],
+          [
+            "ScaleZ",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Rotate",
+            [
+              "a",
+              "Style.Properties.Angle"
+            ]
+          ],
+          [
+            "Rotate3d",
+            [
+              "a",
+              "a",
+              "a",
+              "a",
+              "Style.Properties.Angle"
+            ]
+          ],
+          [
+            "RotateX",
+            [
+              "a",
+              "Style.Properties.Angle"
+            ]
+          ],
+          [
+            "RotateY",
+            [
+              "a",
+              "Style.Properties.Angle"
+            ]
+          ],
+          [
+            "Skew",
+            [
+              "a",
+              "a",
+              "Style.Properties.Angle"
+            ]
+          ],
+          [
+            "SkewX",
+            [
+              "a",
+              "Style.Properties.Angle"
+            ]
+          ],
+          [
+            "SkewY",
+            [
+              "a",
+              "Style.Properties.Angle"
+            ]
+          ],
+          [
+            "Perspective",
+            [
+              "a"
+            ]
+          ],
+          [
+            "X",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Y",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Cx",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Cy",
+            [
+              "a"
+            ]
+          ],
+          [
+            "R",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Rx",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Ry",
+            [
+              "a"
+            ]
+          ],
+          [
+            "D",
+            [
+              "List (Style.Properties.PathCommand a)"
+            ]
+          ],
+          [
+            "Points",
+            [
+              "List ( a, a )"
+            ]
+          ],
+          [
+            "Fill",
+            [
+              "color"
+            ]
+          ],
+          [
+            "Stroke",
+            [
+              "color"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "alignStartingPoint",
+        "comment": " Given two lists of coordinates, rotate the list so that the lowest coordinate is first.\n\nThis is useful to align polygon coordinates so that they can morph smoothely into each other.\n",
+        "type": "List ( Float, Float ) -> List ( Float, Float )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
