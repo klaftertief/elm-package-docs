@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Duration",
+    "comment": "\n\n## Duration State\n\n@docs Duration\n\n@docs initDuration\n\n## Duration Initialization\n\n@docs DurationMsg\n\n## Duration Evaluation\n\n@docs updateDuration\n\n@docs durationSubscriptions\n\n### Result Handling\n\n@docs DurationResults\n\n@docs handleDurationResults\n\n\n",
+    "aliases": [
+      {
+        "name": "Duration",
+        "comment": " The state of the duration ",
+        "args": [],
+        "type": "{ elapsed : Maybe.Maybe Time.Time }"
+      }
+    ],
+    "types": [
+      {
+        "name": "DurationMsg",
+        "comment": " Actions of the duration; just use `Start` to kick it off ",
+        "args": [],
+        "cases": [
+          [
+            "Start",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "DurationResults",
+        "comment": " Either another duration message, or the action you'd want issued ",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "durationSubscriptions",
+        "comment": " The subscriptions for the duration - attaching to the current time every\n    browser screen refresh.\n",
+        "type": "Duration.Duration -> Platform.Sub.Sub Duration.DurationMsg"
+      },
+      {
+        "name": "handleDurationResults",
+        "comment": " Given a way to handle duration messages, you can handle the results ",
+        "type": "(Duration.DurationMsg -> a) -> Duration.DurationResults a -> a"
+      },
+      {
+        "name": "initDuration",
+        "comment": " The initial state of the duration ",
+        "type": "Duration.Duration"
+      },
+      {
+        "name": "updateDuration",
+        "comment": " Given a set of _parallel_ animations and their actions to issue, and\n    a duration the animation should play over, create an update function.\n    Note that the `Float`s in this function **must** be between `0 <= x <= 1` -\n    just like [easing-functions](http://package.elm-lang.org/packages/elm-community/easing-functions/1.0.1).\n    Also note that there's an optional action called when the animation is completed.\n",
+        "type": "List ( Float -> Float, Float -> a ) -> Time.Time -> Maybe.Maybe a -> Duration.DurationMsg -> Duration.Duration -> ( Duration.Duration , Platform.Cmd.Cmd (Duration.DurationResults a) )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
