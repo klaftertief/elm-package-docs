@@ -1,0 +1,115 @@
+[
+  {
+    "name": "Parts",
+    "comment": " \n\nGiven a TEA component with model type `model` and message type `msg`, we construct\na variant component which knows how to extract its model from a c model\n`c` and produces generic messages `Msg c`. The consuming component is assumed\nto have message type `obs` (for \"observation\"). \n\n# Elm Architecture types\n@docs Update, View\n\n# Model embeddings \n@docs Get, Set, embedView, embedUpdate\n@docs accessors, Accessors\n\n## Indexed model embeddings\n@docs Index, Indexed, indexed\n\n# Message embeddings\n@docs Msg, update\n\n# Part construction\n@docs create, create1\n\n",
+    "aliases": [
+      {
+        "name": "Accessors",
+        "comment": " For components where consumers do care about the model of the \ncomponent, use the `accessors` function below to generate suitable, \nwell, accessors.\n",
+        "args": [
+          "model",
+          "c"
+        ],
+        "type": "{ get : Parts.Get model c , set : Parts.Set model c , map : (model -> model) -> c -> c , reset : c -> c }"
+      },
+      {
+        "name": "Get",
+        "comment": " Type of \"getter\": fetch component model `m` from c model `c`. \n",
+        "args": [
+          "model",
+          "c"
+        ],
+        "type": "c -> model"
+      },
+      {
+        "name": "Index",
+        "comment": " Type of indices. An index is a list of `Int` rather than just an `Int` to \nsupport nested dynamically constructed elements: Use indices `[0]`, `[1]`, ...\nfor statically known top-level components, then use `[0,0]`, `[0,1]`, ...\nfor a dynamically generated list of components. \n",
+        "args": [],
+        "type": "List Int"
+      },
+      {
+        "name": "Indexed",
+        "comment": " Indexed families of things.\n",
+        "args": [
+          "a"
+        ],
+        "type": "Dict.Dict Parts.Index a"
+      },
+      {
+        "name": "Set",
+        "comment": " Type of \"setter\": update component model `m` in c `c`. \n",
+        "args": [
+          "model",
+          "c"
+        ],
+        "type": "model -> c -> c"
+      },
+      {
+        "name": "Update",
+        "comment": " Standard TEA update function type. \n",
+        "args": [
+          "model",
+          "msg"
+        ],
+        "type": "msg -> model -> ( model, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "View",
+        "comment": " Standard TEA view function type. \n",
+        "args": [
+          "model",
+          "a"
+        ],
+        "type": "model -> a"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Similar to how embeddings enable collecting models of different type\nin a single model c, we collect messages in a single \"master\nmessage\" type. Messages exist exclusively to be dispatched by a corresponding\n`update` function; we can avoid distinguishing between different types of \nmessages by dispatching not the `Msg` itself, but a partially applied update\nfunction `update msg`. \n\nIt's instructive to compare `Msg` to the type of `update` partially applied to \nan actual carried message `m`:\n\n    update : m -> c -> (c, Cmd m)\n    (update m) : c -> (c, Cmd m)\n",
+        "args": [
+          "c"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "accessors",
+        "comment": " Generate accessors.\n",
+        "type": "Parts.Get (Parts.Indexed model) c -> Parts.Set (Parts.Indexed model) c -> model -> Parts.Index -> Parts.Accessors model c"
+      },
+      {
+        "name": "create",
+        "comment": " From `update` and `view` functions, produce a `view` function which (a) \nfetches its model from a `c` model, and (b) dispatches generic `Msg`\nmessages. \n\nIts instructive to compare the types of the input `view` and `update` for a \ntypical case. Notice that `create` transforms `model` -> `c` and\n`Html m` -> `Html (Msg c)`. \n\n  {- Input -}\n  view : (m -> obs) -> model -> List (Attributes m) -> List (Html m) -> Html m\n  update : m -> model -> (model, Cmd m)\n\n  {- Output -}\n  type alias m' = Msg c\n  view : c -> List (Attributes m') -> List (Html m') -> Html m'\n\nNote that the input `view` function is assumed to take a function lifting its\nmessages. \n\n",
+        "type": "((m -> obs) -> Parts.View model a) -> Parts.Update model m -> Parts.Get (Parts.Indexed model) c -> Parts.Set (Parts.Indexed model) c -> model -> (Parts.Msg c -> obs) -> Parts.Index -> Parts.View c a"
+      },
+      {
+        "name": "create1",
+        "comment": " Like `create`, but for components that are assumed to have only one\ninstance.\n",
+        "type": "((msg -> obs) -> Parts.View model a) -> Parts.Update model msg -> Parts.Get model c -> Parts.Set model c -> (Parts.Msg c -> obs) -> Parts.View c a"
+      },
+      {
+        "name": "embedUpdate",
+        "comment": " Lift an `update` from operating on `model` to a c model `c`. \n",
+        "type": "Parts.Get model c -> Parts.Set model c -> Parts.Update model msg -> Parts.Update c msg"
+      },
+      {
+        "name": "embedView",
+        "comment": " Lift a `view` to one which knows how to retrieve its `model` from \na c model `c`. \n",
+        "type": "Parts.Get model c -> Parts.View model a -> Parts.View c a"
+      },
+      {
+        "name": "indexed",
+        "comment": " Fix a getter and setter for an `Indexed model` to a particular `Index`.\n",
+        "type": "Parts.Get (Parts.Indexed model) c -> Parts.Set (Parts.Indexed model) c -> model -> Parts.Index -> ( Parts.Get model c, Parts.Set model c )"
+      },
+      {
+        "name": "update",
+        "comment": " Generic update function for Msg. \n",
+        "type": "(Parts.Msg c -> m) -> Parts.Msg c -> c -> ( c, Platform.Cmd.Cmd m )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

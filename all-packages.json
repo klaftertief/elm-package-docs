@@ -1266,6 +1266,7 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "4.0.0",
             "3.1.0",
             "3.0.0",
             "2.1.3",
@@ -1279,8 +1280,9 @@
     },
     {
         "name": "debois/elm-parts",
-        "summary": "Elm library to reduce Elm Architecture boilerplate",
+        "summary": "Reduce Elm Architecture boilerplate",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -1457,6 +1459,7 @@
         "name": "elm-community/elm-random-extra",
         "summary": "Extra functionality for the core Random library",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1488,6 +1491,13 @@
     {
         "name": "elm-community/maybe-extra",
         "summary": "Convenience functions for working with Maybe",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/result-extra",
+        "summary": "Convenience functions for working with Result",
         "versions": [
             "1.0.0"
         ]
@@ -2548,6 +2558,13 @@
         ]
     },
     {
+        "name": "lovasoa/elm-jsonpseudolist",
+        "summary": "Elm Json.Decoder for javascript Array-like objects",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lukewestby/elm-http-builder",
         "summary": "Extra functions for more easily building and handling Http requests",
         "versions": [
@@ -2690,6 +2707,7 @@
         "name": "mdgriffith/elm-style-animation-zero-sixteen",
         "summary": "HTML Animations in Elm 0.16.  Use elm-style-animation for updated versions.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3368,7 +3386,16 @@
         "name": "stil4m/elm-aui-css",
         "summary": "HTML helper functions to comply to Atlassian AUI css",
         "versions": [
+            "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "szabba/elm-timestamp",
+        "summary": "Lets you get timestamps along each message you receive.",
+        "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
