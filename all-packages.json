@@ -2419,6 +2419,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "23.1.0",
             "23.0.0",
             "22.0.0",
             "21.0.0",
