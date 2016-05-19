@@ -1617,6 +1617,13 @@
         ]
     },
     {
+        "name": "emtenet/elm-component-support",
+        "summary": "Support for building applications from Elm components,",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "eskimoblood/elm-color-extra",
         "summary": "Additional color handling for Elm",
         "versions": [

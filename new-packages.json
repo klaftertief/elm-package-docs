@@ -52,6 +52,7 @@
     "elm-lang/virtual-dom",
     "elm-lang/websocket",
     "elm-lang/window",
+    "emtenet/elm-component-support",
     "eskimoblood/elm-color-extra",
     "eskimoblood/elm-simplex-noise",
     "etaque/elm-hexagons",
