@@ -81,6 +81,7 @@
     "jweir/elm-iso8601",
     "krisajenkins/elm-dialog",
     "krisajenkins/elm-exts",
+    "krisajenkins/history",
     "lorenzo/elm-string-addons",
     "lovasoa/choices",
     "lovasoa/elm-component-list",

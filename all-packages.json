@@ -2546,6 +2546,14 @@
         ]
     },
     {
+        "name": "krisajenkins/history",
+        "summary": "Manage History URIs in Elm",
+        "versions": [
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "laszlopandy/elm-console",
         "summary": "Reading and writing from the console in Node",
         "versions": [
@@ -2686,6 +2694,7 @@
         "name": "massung/elm-css",
         "summary": "Create type-safe <style> tags for elm-lang/html.",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
