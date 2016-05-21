@@ -376,6 +376,14 @@
         ]
     },
     {
+        "name": "Skinney/murmur3",
+        "summary": "An implementation of the murmur3 hash function in elm",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "TheSeamau5/GraphicsEngine",
         "summary": "Graphics Engine: 3D Graphics Library",
         "versions": [
@@ -758,6 +766,7 @@
         "name": "avh4/elm-spec",
         "summary": "Experimental alternative for writing unit tests",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -3326,6 +3335,7 @@
         "name": "simonh1000/elm-jwt",
         "summary": "Jwt token helper functions",
         "versions": [
+            "2.0.0",
             "1.0.3",
             "1.0.2",
             "1.0.1",

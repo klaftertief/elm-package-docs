@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Hash",
+    "comment": " Murmur3 hash function for hashing strings\n\n@docs string\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "string",
+        "comment": " Takes a seed and a string. Produces a hash (integer).\nGiven the same seed and string, it will always produce the same hash.\nNot suitable for cryptographic applications (i.e. password hashing).\n\nstring 1234 \"Turn me into a hash\" == 4138100590\n",
+        "type": "Int -> String -> Int"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
