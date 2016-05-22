@@ -1,0 +1,187 @@
+[
+  {
+    "name": "Route",
+    "comment": " This module exposes combinators for creating route parsers.\n\n@docs Route, Router\n\n## Routing\n@docs route, (:=), router, child, match, reverse\n\n## Route combinators\n@docs prefix, (<//>), and, (</>), suffix, (<>), static, custom, string, int\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Route",
+        "comment": " Routes represent concrete parsers for paths. Routes can be combined\nand they keep track of their path components in order to provide\nautomatic reverse routing.\n ",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Router",
+        "comment": " A Router is, at its core, a List of Routes.\n\n    sitemap = router [routeA, routeB]\n\n ",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": ":=",
+        "comment": " A synonym for `route`.\n\n    type Sitemap\n      = HomeR ()\n\n    homeR : Route Sitemap\n    homeR = HomeR := static \"\"\n\n ",
+        "type": "(a -> res) -> Route.Route a -> Route.Route res",
+        "associativity": "left",
+        "precedence": 7
+      },
+      {
+        "name": "<//>",
+        "comment": " A synonym for `prefix`.\n\n    type Sitemap\n      = UserR Int\n\n    userR = UserR := \"users\" <//> int\n    sitemap = router [userR]\n\n    > match sitemap \"/users/\"\n    Nothing : Maybe.Maybe Sitemap\n\n    > match sitemap \"/users/1\"\n    Just (UserR 1) : Maybe.Maybe Sitemap\n\n ",
+        "type": "String -> Route.Route res -> Route.Route res",
+        "associativity": "right",
+        "precedence": 9
+      },
+      {
+        "name": "</>",
+        "comment": " A synonym for `and`.\n\n    type Sitemap\n      = AddR (Int, Int)\n\n    addR = AddR := int </> int\n    sitemap = router [addR]\n\n    > match sitemap \"/1/2\"\n    Just (AddR (1,2)) : Maybe.Maybe Sitemap\n\n ",
+        "type": "Route.Route a -> Route.Route b -> Route.Route ( a, b )",
+        "associativity": "left",
+        "precedence": 8
+      },
+      {
+        "name": "<>",
+        "comment": " A synonym for `suffix`.\n\n    type Sitemap\n      = UserEmailsR Int\n      = UserEmailsR' (Int, ())\n\n    userEmailsR = UserEmailsR := \"users\" <//> int <> \"emails\"\n    userEmailsR' = UserEmailsR' := \"users\" <//> int </> static \"emails\"\n    sitemap = router [userEmailsR, userEmailsR']\n\n    > match sitemap \"/users/1/emails\"\n    Just (UserEmailsR 1) : Maybe.Maybe Sitemap\n\n    > match sitemap \"/users/1/emails-static\"\n    Just (UserEmailsR' (1,())) : Maybe.Maybe Sitemap\n\n ",
+        "type": "Route.Route res -> String -> Route.Route res",
+        "associativity": "right",
+        "precedence": 9
+      },
+      {
+        "name": "and",
+        "comment": " Compose two Routes.\n\n    type Sitemap\n      = AddR (Int, Int)\n\n    addR = AddR := int `and` int\n    sitemap = router [addR]\n\n    > match sitemap \"/1/2\"\n    Just (AddR (1,2)) : Maybe.Maybe Sitemap\n\n ",
+        "type": "Route.Route a -> Route.Route b -> Route.Route ( a, b )"
+      },
+      {
+        "name": "child",
+        "comment": " Routers may be nested. This function is useful in situations\nwhere you want to split your routes into multiple types while still\nmaintaining a single top-level \"site map\".\n\n    type AdminSitemap\n      = AdminHomeR ()\n      | AdminUsersR ()\n\n    adminHomeR = AdminHomeR := static \"admin\"\n    adminUsersR = AdminHomeR := \"admin\" <//> static \"users\"\n    adminSitemap = router [adminHomeR, adminUsersR]\n\n    type Sitemap\n      = HomeR ()\n      | BlogR ()\n      | AdminR AdminSitemap\n\n    homeR = HomeR := static \"\"\n    blogR = BlogR := static \"blog\"\n    sitemap = router [homeR, blogR, child AdminR adminSitemap]\n\nSee `examples/Reuse.elm` for a more advanced use case of this.\n\n ",
+        "type": "(a -> b) -> Route.Router a -> Route.Route b"
+      },
+      {
+        "name": "custom",
+        "comment": " Create a Route with a custom Parser.\n\n    import Combine exposing (..)\n    import Combine.Infix exposing (..)\n\n    type Category\n      = Snippet\n      | Post\n\n    type Sitemap\n      = CategoryR Category\n\n    categoryR = CategoryR := \"categories\" <//> custom categoryParser\n    sitemap = router [categoryR]\n\n    > match sitemap \"/categories/a\"\n    Nothing : Maybe.Maybe Sitemap\n\n    > match sitemap \"/categories/Post\"\n    Just (CategoryR Post) : Maybe.Maybe Sitemap\n\n    > match sitemap \"/categories/Snippet\"\n    Just (CategoryR Snippet) : Maybe.Maybe Sitemap\n\nSee `examples/Custom.elm` for a complete example.\n\n ",
+        "type": "Combine.Parser a -> Route.Route a"
+      },
+      {
+        "name": "int",
+        "comment": " A Route that matches any integer.\n\n    type Sitemap\n      = UserR Int\n\n    userR = UserR := \"users\" <//> int\n    sitemap = router [userR]\n\n    > match sitemap \"/users/a\"\n    Nothing : Maybe.Maybe Sitemap\n\n    > match sitemap \"/users/1\"\n    Just (UserR 1) : Maybe.Maybe Sitemap\n\n    > match sitemap \"/users/-1\"\n    Just (UserR -1) : Maybe.Maybe Sitemap\n\n ",
+        "type": "Route.Route Int"
+      },
+      {
+        "name": "match",
+        "comment": " Given a Router and an arbitrary String representing a path, this\nfunction will return the first Route that matches that path.\n\n    type Sitemap\n      = HomeR ()\n      | UsersR ()\n      | UserR Int\n\n    homeR = HomeR := static \"\"\n    usersR = UsersR := static \"users\"\n    usersR = UserR := \"users\" <//> int\n    sitemap = router [homeR, userR, usersR]\n\n    > match siteMap \"/a\"\n    Nothing : Maybe.Maybe Sitemap\n\n    > match siteMap \"/\"\n    Just (HomeR ()) : Maybe.Maybe Sitemap\n\n    > match siteMap \"/users\"\n    Just (UsersR ()) : Maybe.Maybe Sitemap\n\n    > match siteMap \"/users/1\"\n    Just (UserR 1) : Maybe.Maybe Sitemap\n\n    > match siteMap \"/users/1\"\n    Just (UserR 1) : Maybe.Maybe Sitemap\n\n ",
+        "type": "Route.Router a -> String -> Maybe.Maybe a"
+      },
+      {
+        "name": "prefix",
+        "comment": " Prefix a `Route` with a string.\n\n    type Sitemap\n      = UserR Int\n\n    userR = UserR := prefix \"users\" int\n    sitemap = router [userR]\n\n    > match sitemap \"/users/\"\n    Nothing : Maybe.Maybe Sitemap\n\n    > match sitemap \"/users/1\"\n    Just (UserR 1) : Maybe.Maybe Sitemap\n\n ",
+        "type": "String -> Route.Route res -> Route.Route res"
+      },
+      {
+        "name": "reverse",
+        "comment": " Render a path given a route and a list of route components.\n\n    type Sitemap\n      = HomeR ()\n      | UsersR ()\n      | UserR Int\n\n    homeR = HomeR := static \"\"\n    usersR = UsersR := static \"users\"\n    usersR = UserR := \"users\" <//> int\n    sitemap = router [homeR, userR, usersR]\n\n    > reverse homeR []\n    \"/\"\n\n    > reverse usersR []\n    \"/users\"\n\n    > reverse userR [\"1\"]\n    \"/users/1\"\n\nIf you are willing to write some boilerplate, this function can be used\nto construct a reasonably-safe reverse routing function specific to your\napplication:\n\n    render : Sitemap -> String\n    render r =\n      case r of\n        HomeR () -> reverse homeR []\n        UsersR () -> reverse usersR []\n        UserR uid -> reverse userR [toString uid]\n\n    > render (HomeR ())\n    \"/\"\n\n    > render (UsersR ())\n    \"/users\"\n\n    > render (UserR 1)\n    \"/users/1\"\n\nThis function will crash at runtime if there is a mismatch between the\nroute and the list of arguments that is passed in. For example:\n\n    > reverse deepR []\n    Error: Ran into a `Debug.crash` in module `Route`\n\n    This was caused by the `case` expression between lines 145 and 175.\n    One of the branches ended with a crash and the following value got through:\n\n        ([],[CInt,CInt,CInt])\n\n    The message provided by the code author is:\n\n        'reverse' called with an unexpected number of arguments\n\n    > reverse deepR [\"a\"]\n    Error: Ran into a `Debug.crash` in module `Route`\n\n    This was caused by the `case` expression between lines 171 and 176.\n    One of the branches ended with a crash and the following value got through:\n\n        Err (\"could not convert string 'a' to an Int\")\n\n    The message provided by the code author is:\n\n        could not convert string 'a' to an Int in a call to 'reverse'\n\n ",
+        "type": "Route.Route a -> List String -> String"
+      },
+      {
+        "name": "route",
+        "comment": " Declare a Route.\n\n    type Sitemap\n      = HomeR ()\n\n    homeR : Route Sitemap\n    homeR = route HomeR (static \"\")\n\n ",
+        "type": "(a -> res) -> Route.Route a -> Route.Route res"
+      },
+      {
+        "name": "router",
+        "comment": " Construct a Router from a list of Routes.\n\n    type Sitemap\n      = HomeR ()\n      | BlogR ()\n\n    homeR = HomeR := static \"\"\n    blogR = BlogR := static \"blog\"\n    sitemap = router [homeR, blogR]\n\n ",
+        "type": "List (Route.Route a) -> Route.Router a"
+      },
+      {
+        "name": "static",
+        "comment": " Create a Route that matches a static String.\n\n    type Sitemap\n      = BlogR ()\n\n    blogR = BlogR := static \"blog\"\n    sitemap = router [blogR]\n\n    > match sitemap \"/blog\"\n    Just (BlogR ()) : Maybe.Maybe Sitemap\n\n ",
+        "type": "String -> Route.Route ()"
+      },
+      {
+        "name": "string",
+        "comment": " A Route that matches any string.\n\n    type Sitemap\n      = PostR String\n\n    postR = PostR := \"posts\" <//> string\n    sitemap = router [postR]\n\n    > match sitemap \"/posts/\"\n    Nothing : Maybe.Maybe Sitemap\n\n    > match sitemap \"/posts/hello-world/test\"\n    Nothing : Maybe.Maybe Sitemap\n\n    > match sitemap \"/posts/hello-world\"\n    Just (PostR \"hello-world\") : Maybe.Maybe Sitemap\n\n ",
+        "type": "Route.Route String"
+      },
+      {
+        "name": "suffix",
+        "comment": " Suffix a `Route` with a string. This can be used in place\nof `static` when there are static path components at the end of a\npath.\n\n    type Sitemap\n      = UserEmailsR Int\n      = UserEmailsR' (Int, ())\n\n    userEmailsR = UserEmailsR := suffix \"emails\" (prefix \"users\" int)\n    userEmailsR' = UserEmailsR' := prefix \"users\" int `and` static \"emails-static\"\n    sitemap = router [userEmailsR, userEmailsR']\n\n    > match sitemap \"/users/1/emails\"\n    Just (UserEmailsR 1) : Maybe.Maybe Sitemap\n\n    > match sitemap \"/users/1/emails-static\"\n    Just (UserEmailsR' (1,())) : Maybe.Maybe Sitemap\n\n ",
+        "type": "String -> Route.Route res -> Route.Route res"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "Route.QueryString",
+    "comment": " This module exposes functions for working with query strings.\n\nYou can manipulate query strings:\n\n    empty\n      |> add \"a\" \"hello\"\n      |> add \"a\" \"goodbye\"\n      |> add \"b\" \"1\"\n      |> render\n\nAnd you can parse and extract their parameters:\n\n    let\n      qs = parse \"?a=1&a=2&a=test&b=hello\"\n      a = many int qs\n      b = one string qs |> Maybe.withDefault \"goodbye\"\n    in\n      (a, b)\n\n## Types\n@docs QueryString\n\n## Constructing QueryStrings\n@docs parse, empty\n\n## Manipulating parameters\n@docs render, add, remove, filter\n\n## Extracting parameters\n@docs all, one, many\n\n### Parsers\n@docs string, int\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "QueryString",
+        "comment": " Represents a parsed query string. ",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "add",
+        "comment": " Add a value to a key.\n\n    > parse \"?a=1&b=a&a=c\" |> add \"a\" \"2\" |> render\n    \"?a=2&a=1&a=c&b=a\" : String\n\n    > parse \"?a=1&b=a&a=c\" |> add \"d\" \"hello\" |> render\n    \"?a=1&a=c&b=a&d=hello\" : String\n\n ",
+        "type": "String -> String -> Route.QueryString.QueryString -> Route.QueryString.QueryString"
+      },
+      {
+        "name": "all",
+        "comment": " Retrieve all of the values for a given key.\n\n    > parse \"?a=1&a=2\" |> all \"a\"\n    [\"1\",\"2\"] : List String\n\n    > parse \"?a=1&a=2\" |> all \"b\"\n    [] : List String\n\n ",
+        "type": "String -> Route.QueryString.QueryString -> List String"
+      },
+      {
+        "name": "empty",
+        "comment": " Construct an empty QueryString. ",
+        "type": "Route.QueryString.QueryString"
+      },
+      {
+        "name": "filter",
+        "comment": " Filter a key's values.\n\n    > parse \"?a=1&b=a&a=c\" |> filter \"a\" ((==) \"1\") |> render\n    \"?a=1&b=a\" : String\n\n ",
+        "type": "String -> (String -> Bool) -> Route.QueryString.QueryString -> Route.QueryString.QueryString"
+      },
+      {
+        "name": "int",
+        "comment": " A Parser that accepts any integer. ",
+        "type": "Combine.Parser Int"
+      },
+      {
+        "name": "many",
+        "comment": " Retrieve zero or more values for some key. Values are funneled\nthrough the given parser before being returned.\n\n    > parse \"?a=1&a=c&a=2\" |> many int \"a\"\n    [1,2] : List Int\n\n ",
+        "type": "Combine.Parser a -> String -> Route.QueryString.QueryString -> List a"
+      },
+      {
+        "name": "one",
+        "comment": " Retrieve a single value for a given key. Values are funneled through\nthe given parser before being returned.\n\n    > parse \"?a=1&a=2\" |> one string \"a\"\n    Just \"2\" : Maybe.Maybe String\n\n    > parse \"?a=1&a=2\" |> one int \"a\"\n    Just 2 : Maybe.Maybe Int\n\n    > parse \"?a=1&a=c\" |> one int \"a\"\n    Just 1 : Maybe.Maybe Int\n\n ",
+        "type": "Combine.Parser a -> String -> Route.QueryString.QueryString -> Maybe.Maybe a"
+      },
+      {
+        "name": "parse",
+        "comment": " Turn a String into a QueryString. The initial `?` is optional.\n\n    > parse \"\"\n    QueryString (Dict.fromList []) : Route.QueryString.QueryString\n\n    > parse \"?a=1&b=c&a=2\"\n    QueryString (Dict.fromList [(\"a\",[\"1\",\"2\"]),(\"b\",[\"c\"])])\n        : Route.QueryString.QueryString\n\n    > parse \"a=1&b=c&a=2\"\n    QueryString (Dict.fromList [(\"a\",[\"1\",\"2\"]),(\"b\",[\"c\"])])\n        : Route.QueryString.QueryString\n\n ",
+        "type": "String -> Route.QueryString.QueryString"
+      },
+      {
+        "name": "remove",
+        "comment": " Remove a key.\n\n    > parse \"?a=1&b=a&a=c\" |> remove \"a\" |> render\n    \"?b=a\" : String\n\n    > parse \"?a=1&b=a&a=c\" |> remove \"c\" |> render\n    \"?a=1&a=c&b=a\" : String\n\n ",
+        "type": "String -> Route.QueryString.QueryString -> Route.QueryString.QueryString"
+      },
+      {
+        "name": "render",
+        "comment": " Render a QueryString to a String.\n\n    > parse \"?a=1&b=a&a=c\" |> render\n    \"?a=1&a=c&b=a\" : String\n\n ",
+        "type": "Route.QueryString.QueryString -> String"
+      },
+      {
+        "name": "string",
+        "comment": " A Parser that accepts any string. ",
+        "type": "Combine.Parser String"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

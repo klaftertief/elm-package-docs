@@ -1,0 +1,116 @@
+[
+  {
+    "name": "Duration.Revert",
+    "comment": "\n\n## Duration State\n\n@docs Model\n\n@docs init\n\n## Duration Initialization\n\n@docs Msg\n\n## Duration Evaluation\n\n@docs update\n\n@docs subscriptions\n\n### Result Handling\n\n@docs handle\n\n\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " The state of the duration ",
+        "args": [
+          "a"
+        ],
+        "type": "{ elapsed : Maybe.Maybe Time.Time , revertTime : Maybe.Maybe Time.Time , onCompletion : Platform.Cmd.Cmd a }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Actions of the duration; use `Start` to initiate it, and `Revert` to reverse it, and\n    `Start` to continue it again. You can supply some\n    method for issuing actions upon completion of the duration: To make it _always_\n    issue some action when completed, use `Start <| always <| Task.perform xx identity <| Task.succeed SomeAction`.\n    To additively add more actions upon completion, use `Start <| \\x -> Cmd.batch [x, myCommand]`.\n    This is the same story for `Revert`.\n    Note that this will adjust the action _during_ the duration, and __is__ mutable and thus\n    may cause race conditions - _use wisely_. Both `Start` and `Revert` share the _same_\n    command to be issued when the duration is finished.\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Start",
+            [
+              "Platform.Cmd.Cmd a -> Platform.Cmd.Cmd a"
+            ]
+          ],
+          [
+            "Revert",
+            [
+              "Platform.Cmd.Cmd a -> Platform.Cmd.Cmd a"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "handle",
+        "comment": " Given a way to handle duration messages, you can handle the results ",
+        "type": "(Duration.Revert.Msg a -> a) -> Result.Result (Duration.Revert.Msg a) a -> a"
+      },
+      {
+        "name": "init",
+        "comment": " The initial state of the duration ",
+        "type": "Duration.Revert.Model a"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " The subscriptions for the duration - every time the browser screen refreshes. ",
+        "type": "Duration.Revert.Model a -> Platform.Sub.Sub (Duration.Revert.Msg a)"
+      },
+      {
+        "name": "update",
+        "comment": " Given a time-indexed command and the length of time the animation should play over, create an update function. ",
+        "type": "(Time.Time -> Platform.Cmd.Cmd a) -> Time.Time -> Duration.Revert.Msg a -> Duration.Revert.Model a -> ( Duration.Revert.Model a , Platform.Cmd.Cmd (Result.Result (Duration.Revert.Msg a) a) )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "Duration",
+    "comment": "\n\n## Duration State\n\n@docs Model\n\n@docs init\n\n## Duration Initialization\n\n@docs Msg\n\n## Duration Evaluation\n\n@docs update\n\n@docs subscriptions\n\n### Result Handling\n\n@docs handle\n\n\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " The state of the duration ",
+        "args": [
+          "a"
+        ],
+        "type": "{ elapsed : Maybe.Maybe Time.Time , onCompletion : Platform.Cmd.Cmd a }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Actions of the duration; just use `Start` to initiate it. You can supply some\n    method for issuing actions upon completion of the duration: To make it _always_\n    issue some action when completed, use `Start <| always <| Task.perform xx identity <| Task.succeed SomeAction`.\n    To additively add more actions upon completion, use `Start <| \\x -> Cmd.batch [x, myCommand]`.\n    Note that this will adjust the action _during_ the duration, and __is__ mutable and thus\n    may cause race conditions - _use wisely_.\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Start",
+            [
+              "Platform.Cmd.Cmd a -> Platform.Cmd.Cmd a"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "handle",
+        "comment": " Given a way to handle duration messages, you can handle the results ",
+        "type": "(Duration.Msg a -> a) -> Result.Result (Duration.Msg a) a -> a"
+      },
+      {
+        "name": "init",
+        "comment": " The initial state of the duration ",
+        "type": "Duration.Model a"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " The subscriptions for the duration - every time the browser screen refreshes. ",
+        "type": "Duration.Model a -> Platform.Sub.Sub (Duration.Msg a)"
+      },
+      {
+        "name": "update",
+        "comment": " Given a time-indexed command and the length of time the animation should play over, create an update function. ",
+        "type": "(Time.Time -> Platform.Cmd.Cmd a) -> Time.Time -> Duration.Msg a -> Duration.Model a -> ( Duration.Model a , Platform.Cmd.Cmd (Result.Result (Duration.Msg a) a) )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

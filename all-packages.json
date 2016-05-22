@@ -75,6 +75,7 @@
         "name": "Bogdanp/elm-route",
         "summary": "A route parsing library",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -577,8 +578,9 @@
     },
     {
         "name": "Voronchuk/hexagons",
-        "summary": "Hexagonal grids and tools",
+        "summary": "Hexagonal grids and tools to build hex maps and layouts",
         "versions": [
+            "2.0.0",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -695,6 +697,13 @@
         ]
     },
     {
+        "name": "aristidesstaffieri/elm-poisson",
+        "summary": "A function for calculating Poisson distributions.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "arturopala/elm-monocle",
         "summary": "Library providing functional tools to manipulate complex records",
         "versions": [
@@ -722,8 +731,9 @@
     },
     {
         "name": "athanclark/elm-duration",
-        "summary": "Issue messages in the browser's refresh rate, over a duration",
+        "summary": "Issue messages each frame over a duration of time",
         "versions": [
+            "3.0.0",
             "2.0.4",
             "2.0.3",
             "2.0.2",
@@ -3450,6 +3460,7 @@
         "name": "stil4m/elm-aui-css",
         "summary": "HTML helper functions to comply to Atlassian AUI css",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"

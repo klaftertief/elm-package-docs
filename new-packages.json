@@ -6,6 +6,8 @@
     "NoRedInk/elm-phoenix",
     "Skinney/murmur3",
     "VerbalExpressions/elm-verbal-expressions",
+    "Voronchuk/hexagons",
+    "aristidesstaffieri/elm-poisson",
     "athanclark/elm-debouncer",
     "athanclark/elm-duration",
     "athanclark/elm-every",
