@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Duration",
+    "comment": "\n\n## Duration State\n\n@docs Model\n\n@docs init\n\n## Duration Initialization\n\n@docs Msg\n\n## Duration Evaluation\n\n@docs update\n\n@docs subscriptions\n\n\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " The state of the duration ",
+        "args": [
+          "a"
+        ],
+        "type": "{ elapsed : Maybe.Maybe ( Time.Time, Duration.Direction ) , onCompletion : Platform.Cmd.Cmd a }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " \n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Forward",
+            [
+              "Platform.Cmd.Cmd a -> Platform.Cmd.Cmd a"
+            ]
+          ],
+          [
+            "Reverse",
+            [
+              "Platform.Cmd.Cmd a -> Platform.Cmd.Cmd a"
+            ]
+          ],
+          [
+            "Toggle",
+            [
+              "Platform.Cmd.Cmd a -> Platform.Cmd.Cmd a"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " The initial state of the duration ",
+        "type": "Duration.Model a"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " The subscriptions for the duration - every time the browser screen refreshes. ",
+        "type": "Duration.Model a -> Platform.Sub.Sub (Duration.Msg a)"
+      },
+      {
+        "name": "update",
+        "comment": " Given a time-indexed command and the length of time the animation should play over, create an update function. ",
+        "type": "(Time.Time -> Platform.Cmd.Cmd a) -> Time.Time -> Duration.Msg a -> Duration.Model a -> ( Duration.Model a, Platform.Cmd.Cmd a )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
