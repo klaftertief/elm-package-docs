@@ -1478,8 +1478,10 @@
     },
     {
         "name": "elm-community/elm-list-extra",
-        "summary": "Convenience functions for working with List",
+        "summary": "DEPRECATED: Renamed to http://package.elm-lang.org/elm-community/list-extra",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -1528,6 +1530,16 @@
         "name": "elm-community/html-extra",
         "summary": "Additional functions for working with Html",
         "versions": [
+            "2.0.0",
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/list-extra",
+        "summary": "Convenience functions for working with List",
+        "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -1542,6 +1554,7 @@
         "name": "elm-community/maybe-extra",
         "summary": "Convenience functions for working with Maybe",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -1771,6 +1784,7 @@
         "name": "etaque/elm-transit",
         "summary": "Simple transition animation for switching between pages in a single page app.",
         "versions": [
+            "7.0.2",
             "7.0.1",
             "7.0.0",
             "6.0.0",
@@ -2414,6 +2428,7 @@
         "name": "jystic/elm-font-awesome",
         "summary": "Font Awesome vector icons as Elm HTML components",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.5",
             "1.0.4",
@@ -2476,6 +2491,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "23.2.1",
             "23.2.0",
             "23.1.0",
             "23.0.0",
@@ -2642,6 +2658,7 @@
         "name": "lukewestby/elm-http-builder",
         "summary": "Extra functions for more easily building and handling Http requests",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -2984,6 +3001,7 @@
         "name": "ohanhi/keyboard-extra",
         "summary": "Convenience helpers for working with Keyboard",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
