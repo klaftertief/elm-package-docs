@@ -140,6 +140,15 @@
         "name": "Fresheyeball/elm-nearly-eq",
         "summary": "Tools for approximating equality",
         "versions": [
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Fresheyeball/elm-number-expanded",
+        "summary": "Expanded Numbers as a type (infinite allowed)",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -147,6 +156,7 @@
         "name": "Fresheyeball/elm-restrict-number",
         "summary": "Modules that enforce number restrictions",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -161,6 +171,8 @@
         "name": "Fresheyeball/elm-tuple-extra",
         "summary": "Some simple functions that work with Tuple",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -733,6 +745,7 @@
         "name": "athanclark/elm-duration",
         "summary": "Issue actions over a duration of time",
         "versions": [
+            "5.0.0",
             "4.0.0",
             "3.0.0",
             "2.0.4",
@@ -1478,8 +1491,9 @@
     },
     {
         "name": "elm-community/elm-list-extra",
-        "summary": "DEPRECATED: Renamed to http://package.elm-lang.org/elm-community/list-extra",
+        "summary": "DEPRECATED: Use http://package.elm-lang.org/packages/elm-community/list-extra",
         "versions": [
+            "2.0.0",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -1522,6 +1536,7 @@
         "name": "elm-community/elm-webgl",
         "summary": "A library for general 3D rendering with WebGL",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -1568,6 +1583,13 @@
     {
         "name": "elm-community/shrink",
         "summary": "Library for authoring shrinking strategies",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/svg-extra",
+        "summary": "Additional functions for working with Svg",
         "versions": [
             "1.0.0"
         ]
@@ -2604,6 +2626,14 @@
         ]
     },
     {
+        "name": "league/difference-list",
+        "summary": "`DList` is a representation of lists with an efficient append operation",
+        "versions": [
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "liamcurry/elm-media",
         "summary": "a small library for extracting social media references from text",
         "versions": [
@@ -2642,6 +2672,15 @@
             "1.0.5",
             "1.0.4",
             "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "lovasoa/elm-csv",
+        "summary": "A CSV parser.",
+        "versions": [
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3273,6 +3312,7 @@
         "name": "rtfeldman/elm-validate",
         "summary": "Convenience functions for validating data.",
         "versions": [
+            "1.1.2",
             "1.1.1",
             "1.1.0",
             "1.0.5",
