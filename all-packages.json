@@ -354,6 +354,7 @@
         "name": "NoRedInk/elm-task-extra",
         "summary": "Extra convenient functions for working with Tasks",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -737,6 +738,16 @@
         "name": "athanclark/elm-debouncer",
         "summary": "simple method for time-throttling action / message propogation",
         "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "athanclark/elm-discrete-transition",
+        "summary": "Transition between a set of discrete states",
+        "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -1436,6 +1447,7 @@
         "name": "elm-community/dict-extra",
         "summary": "Convenience functions for working with Dict",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2205,6 +2217,11 @@
         "name": "jasonmahr/html-escape-sequences",
         "summary": "Use decimal, hex and named escapes with elm-lang/html. Supports all of Unicode.",
         "versions": [
+            "2.0.5",
+            "1.0.5",
+            "1.0.4",
+            "2.0.4",
+            "1.0.3",
             "2.0.3",
             "2.0.2",
             "1.0.2",
@@ -2681,6 +2698,7 @@
         "name": "lovasoa/elm-csv",
         "summary": "A CSV parser.",
         "versions": [
+            "1.1.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3534,6 +3552,13 @@
             "2.0.0",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "szabba/elm-laws",
+        "summary": "A saner elm-check DSL",
+        "versions": [
             "1.0.0"
         ]
     },
