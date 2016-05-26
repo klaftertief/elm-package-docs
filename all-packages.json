@@ -1440,6 +1440,7 @@
         "name": "elm-community/basics-extra",
         "summary": "Additional basic functions",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1463,6 +1464,7 @@
         "name": "elm-community/elm-check",
         "summary": "Property-based testing in Elm",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1596,6 +1598,7 @@
         "name": "elm-community/shrink",
         "summary": "Library for authoring shrinking strategies",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1672,6 +1675,13 @@
         ]
     },
     {
+        "name": "elm-lang/navigation",
+        "summary": "Manage browser navigation yourself (a.k.a. SPA routing, browser history)",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "elm-lang/page-visibility",
         "summary": "Find out if the page is visible or not.",
         "versions": [
@@ -1696,6 +1706,7 @@
         "name": "elm-lang/virtual-dom",
         "summary": "Core virtual DOM implementation, basis for HTML and SVG libraries",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1951,6 +1962,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "evancz/url-parser",
+        "summary": "Parse URLs into nicely structured data, useful for navigation / \"SPA routing\"",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2530,6 +2548,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "23.3.0",
             "23.2.1",
             "23.2.0",
             "23.1.0",
