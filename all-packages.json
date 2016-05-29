@@ -1209,6 +1209,8 @@
         "name": "coreytrampe/elm-vendor",
         "summary": "detect browser vendor prefix",
         "versions": [
+            "2.0.2",
+            "2.0.1",
             "2.0.0",
             "1.0.2",
             "1.0.1",
@@ -1642,6 +1644,7 @@
         "name": "elm-lang/geolocation",
         "summary": "Geolocation, find your latitude and longitude.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1706,6 +1709,7 @@
         "name": "elm-lang/virtual-dom",
         "summary": "Core virtual DOM implementation, basis for HTML and SVG libraries",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1729,6 +1733,13 @@
     {
         "name": "emtenet/elm-component-support",
         "summary": "Support for building applications from Elm components,",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ersocon/creditcard-validation",
+        "summary": "CreditCard validation",
         "versions": [
             "1.0.0"
         ]
@@ -2183,6 +2194,14 @@
             "1.1.1",
             "1.1.0",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ingara/elm-asoiaf-api",
+        "summary": "API client library for working with https://anapioficeandfire.com/",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
@@ -3033,6 +3052,8 @@
         "name": "newlandsvalley/elm-comidi",
         "summary": "Experimental library for parsing MIDI files",
         "versions": [
+            "2.1.0",
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3077,6 +3098,7 @@
         "name": "ohanhi/keyboard-extra",
         "summary": "Convenience helpers for working with Keyboard",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -3126,6 +3148,7 @@
         "name": "pukkamustard/elm-identicon",
         "summary": "Generate identicons",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -3371,6 +3394,7 @@
         "name": "seanhess/elm-style",
         "summary": "Composable styles in Elm",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3575,6 +3599,13 @@
         ]
     },
     {
+        "name": "szabba/elm-animations",
+        "summary": "A package for animating arbitrary values",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "szabba/elm-laws",
         "summary": "A saner elm-check DSL",
         "versions": [
@@ -3676,6 +3707,7 @@
         "name": "truqu/elm-dictset",
         "summary": "Sets for any type",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"

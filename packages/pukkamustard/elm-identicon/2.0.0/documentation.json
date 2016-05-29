@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Identicon",
+    "comment": " Generate an identicon from a string.\n\n# Functions\n@docs identicon\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "identicon",
+        "comment": " Generate a identicon from a string\n\n    main =\n      identicon \"200px\" \"Hello identicon!\"\n",
+        "type": "String -> String -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
