@@ -62,6 +62,15 @@
         ]
     },
     {
+        "name": "Bogdanp/elm-datepicker",
+        "summary": "A reusable date picker component",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Bogdanp/elm-generate",
         "summary": "Simple list generators in Elm.",
         "versions": [
@@ -137,6 +146,13 @@
         ]
     },
     {
+        "name": "Fresheyeball/elm-guards",
+        "summary": "guards notation defined in user space",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Fresheyeball/elm-nearly-eq",
         "summary": "Tools for approximating equality",
         "versions": [
@@ -171,6 +187,7 @@
         "name": "Fresheyeball/elm-tuple-extra",
         "summary": "Some simple functions that work with Tuple",
         "versions": [
+            "2.1.0",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -391,8 +408,9 @@
     },
     {
         "name": "Skinney/murmur3",
-        "summary": "An implementation of the murmur3 hash function in elm",
+        "summary": "An implementation of the murmur 3 hash function in elm",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -601,6 +619,14 @@
         ]
     },
     {
+        "name": "abadi199/elm-creditcard",
+        "summary": "Pretty credit card form built with elm",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "abrykajlo/elm-scroll",
         "summary": "Make scrolling easy with Signals and event system",
         "versions": [
@@ -738,6 +764,7 @@
         "name": "athanclark/elm-debouncer",
         "summary": "simple method for time-throttling action / message propogation",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -771,6 +798,7 @@
         "name": "athanclark/elm-every",
         "summary": "simple method for repetitive action / message issuance",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -868,6 +896,14 @@
             "2.0.2",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "bardt/elm-rosetree",
+        "summary": "Rosetree implementation in Elm",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1525,8 +1561,9 @@
     },
     {
         "name": "elm-community/elm-random-extra",
-        "summary": "Extra functionality for the core Random library",
+        "summary": "[DEPRECATED] Extra functionality for the core Random library",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1586,6 +1623,13 @@
         "summary": "Convenience functions for working with Maybe",
         "versions": [
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/random-extra",
+        "summary": "Extra functions for the core Random library",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -1998,6 +2042,14 @@
         ]
     },
     {
+        "name": "fbonetti/elm-phoenix-socket",
+        "summary": "Pure Elm state manager for Phoenix channels",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "fredcy/elm-parseint",
         "summary": "Functions to convert String to Int or Int to String in various radixes",
         "versions": [
@@ -2161,6 +2213,7 @@
         "name": "imeckler/queue",
         "summary": "Just a simple queue type.",
         "versions": [
+            "1.1.3",
             "1.1.2",
             "1.1.1",
             "1.1.0",
@@ -2567,6 +2620,11 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "25.0.0",
+            "24.3.0",
+            "24.2.0",
+            "24.1.0",
+            "24.0.0",
             "23.3.0",
             "23.2.1",
             "23.2.0",
@@ -2685,6 +2743,13 @@
         "summary": "`DList` is a representation of lists with an efficient append operation",
         "versions": [
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "league/unique-id",
+        "summary": "Pure generation of unique identifiers in Elm.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2992,6 +3057,7 @@
         "name": "mgold/elm-random-pcg",
         "summary": "A better, splittable random number generator (easily replaces core/Random)",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.4.0",
             "1.3.0",
@@ -3098,6 +3164,7 @@
         "name": "ohanhi/keyboard-extra",
         "summary": "Convenience helpers for working with Keyboard",
         "versions": [
+            "1.1.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3148,6 +3215,7 @@
         "name": "pukkamustard/elm-identicon",
         "summary": "Generate identicons",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -3209,6 +3277,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "6.0.1",
             "6.0.0",
             "5.0.1",
             "5.0.0",
@@ -3419,6 +3488,7 @@
         "name": "sgraf812/elm-intdict",
         "summary": "Optimized dictionary specialization for Integers. Mirrors the dictionary API.",
         "versions": [
+            "1.4.3",
             "1.4.2",
             "1.4.1",
             "1.4.0",
@@ -3571,6 +3641,7 @@
         "name": "sporto/hop",
         "summary": "A router for SPAs in Elm",
         "versions": [
+            "5.0.0",
             "4.0.3",
             "4.0.2",
             "4.0.1",
@@ -3602,6 +3673,8 @@
         "name": "szabba/elm-animations",
         "summary": "A package for animating arbitrary values",
         "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3707,6 +3780,7 @@
         "name": "truqu/elm-dictset",
         "summary": "Sets for any type",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",

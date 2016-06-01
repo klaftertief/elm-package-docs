@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Debounce",
+    "comment": "\n\nThis is a delay-based debouncer, where given a _minimum_ delay and an action\nto issue, we'll build a stateful component that will eventually issue the action\n_once_, after being given a slew of requests within the delay timeframe.\n\n\n## Debouncer State\n\n@docs Model\n\n@docs init\n\n\n## Starting the Debouncer\n\n@docs Msg\n\n\n## Evaluating the Debouncer\n\n@docs update\n\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " The state of the debouncer\n",
+        "args": [
+          "b"
+        ],
+        "type": "{ elapsed : Maybe.Maybe (Debounce.Elapsed b) }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " To bounce the debouncer, just make multiple calls to `Bounce`.\n",
+        "args": [
+          "b"
+        ],
+        "cases": [
+          [
+            "Bounce",
+            [
+              "Maybe.Maybe b -> Maybe.Maybe b"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " The initial debouncer\n",
+        "type": "Debounce.Model b"
+      },
+      {
+        "name": "update",
+        "comment": " The main logic of the debouncer.\n",
+        "type": "Time.Time -> (Maybe.Maybe b -> Platform.Cmd.Cmd a) -> Debounce.Msg b -> Debounce.Model b -> ( Debounce.Model b , Platform.Cmd.Cmd (Result.Result a (Debounce.Msg b)) )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

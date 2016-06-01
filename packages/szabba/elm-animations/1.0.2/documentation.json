@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Animation",
+    "comment": "\n\n@docs Animation\n\n# Running\n@docs State, run, runState, isDone\n\n# Sampling and querying\n@docs sample, sampleState\n\n# Building\n@docs interval, map, immediately, append\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Animation",
+        "comment": " An animation describes how a value changes over a finite period of time.\n\n",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      },
+      {
+        "name": "State",
+        "comment": " A state is the result of running an animation for some time. An animation\nends eventually so we need a case for it's final state. It can also not be done\nafter the time we've run it for - then we'll just keep it going next time we get\nto.\n\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Done",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Continuing",
+            [
+              "Animation.Animation a"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "append",
+        "comment": " Glues two animations together.\n\n",
+        "type": "Animation.Animation a -> Animation.Animation a -> Animation.Animation a"
+      },
+      {
+        "name": "immediately",
+        "comment": " Creates an animation that takes no time and assumes the specified value.\n\n",
+        "type": "a -> Animation.Animation a"
+      },
+      {
+        "name": "interval",
+        "comment": " Builds an animation spanning from zero to the time specified, and whose\nvalue is the time that's passed since it's start.\n\nFor negative values you'll get the zero interval.\n\n",
+        "type": "Time.Time -> Animation.Animation Time.Time"
+      },
+      {
+        "name": "isDone",
+        "comment": " True when the animation is over. It can make code clearer when you want to\ndo things that don't depend on the final/current value.\n\n",
+        "type": "Animation.State a -> Bool"
+      },
+      {
+        "name": "map",
+        "comment": " Builds an animation with the values transformed by a function.\n\n",
+        "type": "(a -> b) -> Animation.Animation a -> Animation.Animation b"
+      },
+      {
+        "name": "run",
+        "comment": " Runs an animation for some time and returns a state.\n\n",
+        "type": "Time.Time -> Animation.Animation a -> Animation.State a"
+      },
+      {
+        "name": "runState",
+        "comment": " Like [`run`](#run) but accepts an animation state instead of an animation.\n\n",
+        "type": "Time.Time -> Animation.State a -> Animation.State a"
+      },
+      {
+        "name": "sample",
+        "comment": " Gets the current value of the animation.\n\n",
+        "type": "Animation.Animation a -> a"
+      },
+      {
+        "name": "sampleState",
+        "comment": " Like [`sample`](#sample) for animation states instead of animations. If the\nstate [`isDone`](#isDone), then this is the final state the animation has\nreached.\n\n",
+        "type": "Animation.State a -> a"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
