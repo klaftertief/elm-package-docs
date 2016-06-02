@@ -65,6 +65,7 @@
         "name": "Bogdanp/elm-datepicker",
         "summary": "A reusable date picker component",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -2387,6 +2388,13 @@
         ]
     },
     {
+        "name": "jergason/elm-hash",
+        "summary": "Hash functions for Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jessitron/elm-http-with-headers",
         "summary": "send and receive http requests with headers",
         "versions": [
@@ -2622,6 +2630,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "25.0.1",
             "25.0.0",
             "24.3.0",
             "24.2.0",
@@ -2866,6 +2875,13 @@
         ]
     },
     {
+        "name": "lukewestby/package-info",
+        "summary": "Types and helpers for dealing with the data found in an elm-package.json file",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lynn/elm-arithmetic",
         "summary": "Library for integer arithmetic: primes, bases, divisors, gcd...",
         "versions": [
@@ -3042,6 +3058,7 @@
         "name": "mgold/elm-nonempty-list",
         "summary": "head and tail without the Maybe",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.8.0",
             "1.7.1",
