@@ -16,6 +16,7 @@
     "VerbalExpressions/elm-verbal-expressions",
     "Voronchuk/hexagons",
     "abadi199/elm-creditcard",
+    "abadi199/elm-input-extra",
     "aristidesstaffieri/elm-poisson",
     "athanclark/elm-debouncer",
     "athanclark/elm-discrete-transition",
@@ -28,6 +29,7 @@
     "avh4/elm-transducers",
     "bardt/elm-rosetree",
     "bartavelle/json-helpers",
+    "besuikerd/elm-dictset",
     "camjc/elm-chart",
     "camjc/elm-quiz",
     "ccapndave/elm-update-extra",
@@ -92,6 +94,7 @@
     "evancz/elm-markdown",
     "evancz/focus",
     "evancz/url-parser",
+    "fbonetti/elm-geodesy",
     "fbonetti/elm-phoenix-socket",
     "fredcy/elm-parseint",
     "geekyme/elm-charts",
@@ -132,6 +135,7 @@
     "newlandsvalley/elm-comidi",
     "ohanhi/keyboard-extra",
     "pdamoc/elm-hashids",
+    "poying/elm-router",
     "prozacchiwawa/effmodel",
     "pukkamustard/elm-identicon",
     "rgrempel/elm-http-decorators",
@@ -149,6 +153,7 @@
     "rtfeldman/elm-css-util",
     "rtfeldman/elm-validate",
     "seanhess/elm-style",
+    "sgraf812/elm-graph",
     "sgraf812/elm-intdict",
     "shelakel/elm-validate",
     "simonh1000/elm-charts",
@@ -164,5 +169,6 @@
     "truqu/elm-base64",
     "truqu/elm-dictset",
     "truqu/elm-mustache",
-    "vito/elm-ansi"
+    "vito/elm-ansi",
+    "w0rm/elm-slice-show"
 ]

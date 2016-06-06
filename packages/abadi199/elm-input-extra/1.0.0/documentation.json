@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Number",
+    "comment": " Number input\n\n# Model\n@docs Model, init\n\n# View\n@docs input, Options\n\n# Update\n@docs update\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " (TEA) Model record\n",
+        "args": [],
+        "type": "{ value : String, hasFocus : Bool }"
+      },
+      {
+        "name": "Options",
+        "comment": " Options of the input component.\n\n * `id` is the id of the HTML element.\n * `maxLength` is the maximum number of character allowed in this input. Set to `Nothing` for no limit.\n * `maxValue` is the maximum number value allowed in this input. Set to `Nothing` for no limit.\n * `minValue` is the minimum number value allowed in this input. Set to `Nothing` for no limit.\n",
+        "args": [],
+        "type": "{ id : String , maxLength : Maybe.Maybe Int , maxValue : Maybe.Maybe Int , minValue : Maybe.Maybe Int }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "init",
+        "comment": " (TEA) Initial model constant\n",
+        "type": "Number.Model"
+      },
+      {
+        "name": "input",
+        "comment": " (TEA) View function\n",
+        "type": "Number.Options -> List (Html.Attribute Number.Msg) -> Number.Model -> Html.Html Number.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " (TEA) Update function\n",
+        "type": "Number.Msg -> Number.Model -> Number.Model"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
