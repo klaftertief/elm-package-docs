@@ -65,6 +65,7 @@
         "name": "Bogdanp/elm-datepicker",
         "summary": "A reusable date picker component",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.2",
             "1.0.1",
@@ -140,9 +141,24 @@
         ]
     },
     {
+        "name": "Fresheyeball/elm-animate-css",
+        "summary": "class helpers for animate.css",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Fresheyeball/elm-cardinal",
         "summary": "Cardinal Numbers as a type",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Fresheyeball/elm-font-awesome",
+        "summary": "Font Awesome CSS helpers",
+        "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -649,6 +665,7 @@
         "name": "abrykajlo/elm-scroll",
         "summary": "Make scrolling easy with Signals and event system",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -1380,6 +1397,7 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "5.0.0",
             "4.0.0",
             "3.1.0",
             "3.0.0",
@@ -1396,6 +1414,7 @@
         "name": "debois/elm-parts",
         "summary": "Reduce Elm Architecture boilerplate",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -1677,6 +1696,7 @@
         "name": "elm-community/shrink",
         "summary": "Library for authoring shrinking strategies",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -2459,6 +2479,13 @@
         ]
     },
     {
+        "name": "jinjor/elm-time-travel",
+        "summary": "A time travel debugger for Elm 0.17 (or above)",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jinjor/elm-transition",
         "summary": "A simple transition library for Elm",
         "versions": [
@@ -2534,6 +2561,14 @@
         "name": "joneshf/elm-",
         "summary": "Converts -- and --- to – and — respectively",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "joneshf/elm-constraint",
+        "summary": "Experimenting with constraints",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2661,6 +2696,7 @@
         "name": "krisajenkins/elm-dialog",
         "summary": "A dialog/modal widget for Elm.",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.0.0",
             "1.0.6",
