@@ -36,6 +36,8 @@
     "camjc/elm-chart",
     "camjc/elm-quiz",
     "ccapndave/elm-update-extra",
+    "chendrix/elm-matrix",
+    "circuithub/elm-html-shorthand",
     "coreytrampe/elm-vendor",
     "damienklinnert/elm-hue",
     "danyx23/elm-mimetype",
