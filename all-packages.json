@@ -835,6 +835,8 @@
         "name": "athanclark/elm-every",
         "summary": "simple method for repetitive action / message issuance",
         "versions": [
+            "7.0.0",
+            "6.0.0",
             "5.0.0",
             "4.0.1",
             "4.0.0",
@@ -2737,6 +2739,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "25.2.0",
             "25.1.0",
             "25.0.1",
             "25.0.0",
