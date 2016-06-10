@@ -647,6 +647,7 @@
         "name": "abadi199/elm-creditcard",
         "summary": "Pretty credit card form built with elm",
         "versions": [
+            "5.0.0",
             "4.0.0",
             "3.0.1",
             "3.0.0",
@@ -659,6 +660,9 @@
         "name": "abadi199/elm-input-extra",
         "summary": "Html input element with extra features",
         "versions": [
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -2739,6 +2743,8 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "25.4.0",
+            "25.3.0",
             "25.2.0",
             "25.1.0",
             "25.0.1",
@@ -3195,6 +3201,7 @@
         "name": "mgold/elm-random-pcg",
         "summary": "A better, splittable random number generator (easily replaces core/Random)",
         "versions": [
+            "2.1.1",
             "2.1.0",
             "2.0.0",
             "1.4.0",
@@ -3309,6 +3316,14 @@
         ]
     },
     {
+        "name": "ondras/elm-irc",
+        "summary": "Elm IRC client library",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "pdamoc/elm-hashids",
         "summary": "Elm port of the Hashids library",
         "versions": [
@@ -3416,6 +3431,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "6.1.0",
             "6.0.1",
             "6.0.0",
             "5.0.1",
@@ -3880,6 +3896,7 @@
         "name": "thebritican/elm-autocomplete",
         "summary": "A customizable autocomplete component",
         "versions": [
+            "3.2.0",
             "3.1.0",
             "3.0.1",
             "3.0.0",
