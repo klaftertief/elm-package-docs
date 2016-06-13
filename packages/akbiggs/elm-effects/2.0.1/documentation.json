@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Effects",
+    "comment": " This package contains several useful functions for operating on pairs\nof a value and a list of side-effects. Side-effects do not have to be external\nElm events - they can be internal app events, such as a message indicating that\nthe score of your game should increase, or that you want to navigate the app\nback to the home page.\n\nMore documentation coming soon!\n\n# Aliases\n@docs Effects, None\n\n# Constructors\n@docs init, return\n\n# Getters\n@docs getValue, getEffects\n\n# Adding Effects\n@docs add, addIf\n\n# Mapping\n@docs mapOverValue, mapOverEffects\n\n# Handling Effects\n@docs Handler, handle, ignoreUnused\n\n# Chaining Operations\n@docs andThen\n\n# Combining\n@docs batch\n\n# Conversion\n@docs toCmd\n",
+    "aliases": [
+      {
+        "name": "Effects",
+        "comment": " A value combining a value and a list of effects associated with that current\nvalue, e.g. resulting from an update or initialization.\n\nFor example, having the player jump might update the state of the player and have a\nside-effect of adding some dust particles into the scene.\n",
+        "args": [
+          "a",
+          "effect"
+        ],
+        "type": "( a, List effect )"
+      },
+      {
+        "name": "Handler",
+        "comment": " A `Handler` is a function that takes an effect and applies it to an object,\ngiving back the new state of that object and any resulting effects. This is useful\nwhen you want to take a child's side-effect and have the parent react to it. For example,\nif updating the child has an effect of `IncreaseScore 100`, the parent might update its\n`score` value by that amount and return an additional side-effect of `PlaySound \"scoreIncreased.wav\"`.\n",
+        "args": [
+          "effectA",
+          "a",
+          "effectB"
+        ],
+        "type": "effectA -> a -> Effects.Effects a effectB"
+      },
+      {
+        "name": "None",
+        "comment": " `None` is useful when updating a component shouldn't have any side effects on\nthe world. This way, you can still keep the structure of your component the same,\nmaking your code consistent and flexible.\n",
+        "args": [],
+        "type": "()"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "add",
+        "comment": " Add some additional side-effects to your value-and-effects result.\n",
+        "type": "List effect -> Effects.Effects a effect -> Effects.Effects a effect"
+      },
+      {
+        "name": "addIf",
+        "comment": " Same as `add`, but will only add the effects if the given condition is\nsatisfied. For example, you might only want to increase the score of the game\nif the enemy died:\n\n    Effects.return updatedEnemy\n        |> Effects.addIf updatedEnemy.isDead [IncreaseScore 100]\n",
+        "type": "Bool -> List effect -> Effects.Effects a effect -> Effects.Effects a effect"
+      },
+      {
+        "name": "andThen",
+        "comment": " If you have a bunch of operations that take a value and return a value-and-effects\npair, e.g. a value and a list of `Cmd`s to batch together, chaining them together\ncan be really annoying, because you constantly have to destructure the result\nand grab the value, bringing it into the next statement.\n`andThen` lets you take the value out of a value-and-effects pair, run a function\non it that returns a new value-and-effects pair, and batches the old effects together\nwith the new ones. For example, here are a bunch of actions chained together that\nmight generate sound effects and particles:\n\n    Effects.return newEnemy\n        `andThen` Enemy.move {x = 0, y = 1}\n        `andThen` Enemy.makeYelpingNoiseOccasionally\n",
+        "type": "Effects.Effects a effect -> (a -> Effects.Effects b effect) -> Effects.Effects b effect"
+      },
+      {
+        "name": "batch",
+        "comment": " Takes a list of results with the same type of effects and brings their\neffects together into one list. This is useful when you map a function that\nreturns a value and effects over a list of objects, e.g.\n\n    List.map (Enemy.update Enemy.TakeDamage) enemies\n",
+        "type": "List (Effects.Effects a effect) -> Effects.Effects (List a) effect"
+      },
+      {
+        "name": "getEffects",
+        "comment": " Gets the effects from a value-and-effects pair.\n",
+        "type": "Effects.Effects a effect -> List effect"
+      },
+      {
+        "name": "getValue",
+        "comment": " Gets the value from a value-and-effects pair.\n",
+        "type": "Effects.Effects a effect -> a"
+      },
+      {
+        "name": "handle",
+        "comment": " Perform a list of effects on an object, returning the new state of that\nobject and any side-effects that resulted from those effects occurring.\n",
+        "type": "Effects.Handler effectA a effectB -> List effectA -> a -> Effects.Effects a effectB"
+      },
+      {
+        "name": "ignoreUnused",
+        "comment": " If an object returned no side-effect, this function allows you to ignore it\nin a way that will fail to compile if the object's code is modified to return\nside-effects in the future.\n",
+        "type": "Effects.Handler Effects.None a effect"
+      },
+      {
+        "name": "init",
+        "comment": " Initialize an `Effects` wrapper from a value and a list of effects.\n",
+        "type": "a -> List effect -> Effects.Effects a effect"
+      },
+      {
+        "name": "mapOverEffects",
+        "comment": " Modify the effects of a value-and-effects pair, while still keeping the value\nthe same.\n",
+        "type": "(effectA -> effectB) -> Effects.Effects a effectA -> Effects.Effects a effectB"
+      },
+      {
+        "name": "mapOverValue",
+        "comment": " Modify the value of a value-and-effects pair, while still keeping the effects\n   the same.\n",
+        "type": "(a -> b) -> Effects.Effects a effect -> Effects.Effects b effect"
+      },
+      {
+        "name": "return",
+        "comment": " Take a value and wrap it with no `Effects`.\nThis is useful when you don't want to surround your value in parentheses because\nit will look messy, e.g. with updates to larger data structures.\n",
+        "type": "a -> Effects.Effects a effect"
+      },
+      {
+        "name": "toCmd",
+        "comment": " Takes a pair of a value and a list of commands,\nand turns it into a pair of a value and a single command by batching the commands\ntogether.\n",
+        "type": "Effects.Effects a (Platform.Cmd.Cmd msg) -> ( a, Platform.Cmd.Cmd msg )"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

@@ -726,6 +726,15 @@
         ]
     },
     {
+        "name": "akbiggs/elm-effects",
+        "summary": "Package for broadcasting messages to parent components and side-effects.",
+        "versions": [
+            "2.0.1",
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "alech/elm-calendarweeks",
         "summary": "Calendar weeks in different calendar systems",
         "versions": [
