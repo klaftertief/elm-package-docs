@@ -202,6 +202,13 @@
         ]
     },
     {
+        "name": "Fresheyeball/elm-return",
+        "summary": "Return as a Writer Monad",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Fresheyeball/elm-sprite",
         "summary": "Simple sprite rendering for elm-html",
         "versions": [
@@ -647,6 +654,7 @@
         "name": "abadi199/elm-creditcard",
         "summary": "Pretty credit card form built with elm",
         "versions": [
+            "5.0.1",
             "5.0.0",
             "4.0.0",
             "3.0.1",
@@ -660,6 +668,7 @@
         "name": "abadi199/elm-input-extra",
         "summary": "Html input element with extra features",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -1882,6 +1891,7 @@
         "name": "eskimoblood/elm-color-extra",
         "summary": "Additional color handling for Elm",
         "versions": [
+            "3.0.3",
             "3.0.2",
             "3.0.1",
             "3.0.0",
@@ -2512,6 +2522,9 @@
         "name": "jinjor/elm-time-travel",
         "summary": "A time travel debugger for Elm 0.17 (or above)",
         "versions": [
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2598,7 +2611,15 @@
         "name": "joneshf/elm-constraint",
         "summary": "Experimenting with constraints",
         "versions": [
+            "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "joneshf/elm-mom",
+        "summary": "Generalizes most computational effects.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3819,6 +3840,13 @@
         ]
     },
     {
+        "name": "stasdavydov/elm-cart",
+        "summary": "Elm lang shopping Cart",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "stil4m/elm-aui-css",
         "summary": "HTML helper functions to comply to Atlassian AUI css",
         "versions": [
@@ -3896,6 +3924,8 @@
         "name": "thebritican/elm-autocomplete",
         "summary": "A customizable autocomplete component",
         "versions": [
+            "3.3.0",
+            "3.2.1",
             "3.2.0",
             "3.1.0",
             "3.0.1",

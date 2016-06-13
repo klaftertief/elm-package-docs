@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Return",
+    "comment": "\n## Type\nModeling the `update` tuple as a Monad\n@docs Return\n\n## Basics\n@docs map, map2, map3, map4, map5, andMap, singleton, andThen, (|<), (>|), (>>|), (|<<)\n\n## Write `Cmd`s\n@docs writer, tell, listen, pass, censor\n\n## Read `Cmd`s\n@docs reader, ask\n\n## State\n@docs get, put\n",
+    "aliases": [
+      {
+        "name": "Return",
+        "comment": " ",
+        "args": [
+          "msg",
+          "model"
+        ],
+        "type": "( model, Platform.Cmd.Cmd msg )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": ">>|",
+        "comment": " ",
+        "type": "Return.Return msg a -> (a -> Return.Return msg b) -> Return.Return msg b",
+        "associativity": "left",
+        "precedence": 6
+      },
+      {
+        "name": ">|",
+        "comment": " ",
+        "type": "Return.Return msg model -> Return.Return msg model' -> Return.Return msg model'",
+        "associativity": "left",
+        "precedence": 7
+      },
+      {
+        "name": "andMap",
+        "comment": " ",
+        "type": "Return.Return msg (a -> b) -> Return.Return msg a -> Return.Return msg b"
+      },
+      {
+        "name": "andThen",
+        "comment": " ",
+        "type": "Return.Return msg a -> (a -> Return.Return msg b) -> Return.Return msg b"
+      },
+      {
+        "name": "ask",
+        "comment": " ",
+        "type": "Return.Return msg model -> Return.Return msg (Platform.Cmd.Cmd msg)"
+      },
+      {
+        "name": "censor",
+        "comment": " ",
+        "type": "(Platform.Cmd.Cmd msg -> Platform.Cmd.Cmd msg') -> Return.Return msg model -> Return.Return msg' model"
+      },
+      {
+        "name": "get",
+        "comment": " ",
+        "type": "Platform.Cmd.Cmd msg -> Return.Return msg (Platform.Cmd.Cmd msg)"
+      },
+      {
+        "name": "listen",
+        "comment": " ",
+        "type": "Return.Return msg a -> Return.Return msg (Return.Return msg a)"
+      },
+      {
+        "name": "map",
+        "comment": " ",
+        "type": "(a -> b) -> Return.Return msg a -> Return.Return msg b"
+      },
+      {
+        "name": "map2",
+        "comment": " ",
+        "type": "(a -> b -> c) -> Return.Return msg a -> Return.Return msg b -> Return.Return msg c"
+      },
+      {
+        "name": "map3",
+        "comment": " ",
+        "type": "(a -> b -> c -> d) -> Return.Return msg a -> Return.Return msg b -> Return.Return msg c -> Return.Return msg d"
+      },
+      {
+        "name": "map4",
+        "comment": " ",
+        "type": "(a -> b -> c -> d -> e) -> Return.Return msg a -> Return.Return msg b -> Return.Return msg c -> Return.Return msg d -> Return.Return msg e"
+      },
+      {
+        "name": "map5",
+        "comment": " ",
+        "type": "(a -> b -> c -> d -> e -> f) -> Return.Return msg a -> Return.Return msg b -> Return.Return msg c -> Return.Return msg d -> Return.Return msg e -> Return.Return msg f"
+      },
+      {
+        "name": "pass",
+        "comment": " ",
+        "type": "Return.Return msg ( model, Platform.Cmd.Cmd msg -> Platform.Cmd.Cmd msg' ) -> Return.Return msg' model"
+      },
+      {
+        "name": "put",
+        "comment": " ",
+        "type": "Platform.Cmd.Cmd msg -> model -> Return.Return msg ()"
+      },
+      {
+        "name": "reader",
+        "comment": " ",
+        "type": "(Platform.Cmd.Cmd msg -> Platform.Cmd.Cmd msg') -> Return.Return msg model -> Return.Return msg' model"
+      },
+      {
+        "name": "singleton",
+        "comment": " ",
+        "type": "model -> Return.Return msg model"
+      },
+      {
+        "name": "tell",
+        "comment": " ",
+        "type": "Platform.Cmd.Cmd msg -> Return.Return msg ()"
+      },
+      {
+        "name": "writer",
+        "comment": " ",
+        "type": "( model, Platform.Cmd.Cmd msg ) -> Return.Return msg model"
+      },
+      {
+        "name": "|<",
+        "comment": " ",
+        "type": "Return.Return msg model' -> Return.Return msg model -> Return.Return msg model'",
+        "associativity": "right",
+        "precedence": 7
+      },
+      {
+        "name": "|<<",
+        "comment": " ",
+        "type": "(a -> Return.Return msg b) -> Return.Return msg a -> Return.Return msg b",
+        "associativity": "right",
+        "precedence": 6
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
