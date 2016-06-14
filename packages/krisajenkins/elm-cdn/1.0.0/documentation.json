@@ -1,0 +1,26 @@
+[
+  {
+    "name": "CDN",
+    "comment": " CDN provides handly links to the web CSS frameworks you want at-hand.\n\nTo use, just put the stylesheet you want in your top-level view function, like so:\n\n    rootView : Model -> Html Msg\n    rootView model =\n        div []\n            [ CDN.bootstrap.css\n            , ...\n            ]\n\n@docs bootstrap, skeleton, reset\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "bootstrap",
+        "comment": " Bootstrap 3.\n",
+        "type": "{ css : Html.Html msg, theme : Html.Html msg, js : Html.Html msg }"
+      },
+      {
+        "name": "reset",
+        "comment": " Eric Meyer's CSS reset.\n",
+        "type": "{ css : Html.Html msg }"
+      },
+      {
+        "name": "skeleton",
+        "comment": " Skeleton 2.\n",
+        "type": "{ css : Html.Html msg }"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

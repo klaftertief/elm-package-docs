@@ -205,6 +205,8 @@
         "name": "Fresheyeball/elm-return",
         "summary": "Return as a Writer Monad",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -729,6 +731,8 @@
         "name": "akbiggs/elm-effects",
         "summary": "Package for broadcasting messages to parent components and side-effects.",
         "versions": [
+            "2.0.3",
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -2263,6 +2267,13 @@
         ]
     },
     {
+        "name": "hoelzro/elm-drag",
+        "summary": "Track dragging motions when the mouse is down",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "hrldcpr/elm-cons",
         "summary": "A non-empty list data structure.",
         "versions": [
@@ -2748,6 +2759,13 @@
     {
         "name": "koyachi/elm-sha",
         "summary": "sha.js wrapper for Elm.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "krisajenkins/elm-cdn",
+        "summary": "Provides quick access to the frameworks you want to grab from a CDN.",
         "versions": [
             "1.0.0"
         ]
