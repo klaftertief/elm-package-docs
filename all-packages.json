@@ -2181,6 +2181,13 @@
         ]
     },
     {
+        "name": "fredcy/elm-defer-command",
+        "summary": "Defer commands to run after next animation frame",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "fredcy/elm-parseint",
         "summary": "Functions to convert String to Int or Int to String in various radixes",
         "versions": [
@@ -3386,6 +3393,16 @@
         ]
     },
     {
+        "name": "pdamoc/elm-css",
+        "summary": "Functions to help you write CSS in Elm",
+        "versions": [
+            "2.1.0",
+            "2.0.0",
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "pdamoc/elm-hashids",
         "summary": "Elm port of the Hashids library",
         "versions": [
@@ -3897,6 +3914,7 @@
         "name": "stasdavydov/elm-cart",
         "summary": "Elm lang shopping Cart",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3994,6 +4012,7 @@
         "name": "tomjkidd/elm-multiway-tree-zipper",
         "summary": "A library for navigating and updating immutable trees.",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]
