@@ -731,10 +731,19 @@
         "name": "akbiggs/elm-effects",
         "summary": "Package for broadcasting messages to parent components and side-effects.",
         "versions": [
+            "2.0.4",
             "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "akbiggs/elm-game-update",
+        "summary": "Chain operations on game objects with side-effects + death",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1102,6 +1111,7 @@
         "name": "circuithub/elm-bootstrap-html",
         "summary": "Html shorthand for Bootstrap",
         "versions": [
+            "7.0.0",
             "6.3.4",
             "6.3.3",
             "6.3.2",
@@ -1685,6 +1695,7 @@
         "name": "elm-community/elm-webgl",
         "summary": "A library for general 3D rendering with WebGL",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.0.0",
             "1.0.0"
@@ -2542,6 +2553,7 @@
         "name": "jinjor/elm-time-travel",
         "summary": "A time travel debugger for Elm 0.17 (or above)",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -2767,6 +2779,8 @@
         "name": "krisajenkins/elm-cdn",
         "summary": "Provides quick access to the frameworks you want to grab from a CDN.",
         "versions": [
+            "1.1.0",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3453,6 +3467,19 @@
         "name": "rgrempel/elm-route-hash",
         "summary": "Router for single-page-apps in Elm",
         "versions": [
+            "1.0.5",
+            "1.0.4",
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "rgrempel/elm-route-url",
+        "summary": "Router for single-page-apps in Elm",
+        "versions": [
+            "2.0.0",
             "1.0.5",
             "1.0.4",
             "1.0.3",
