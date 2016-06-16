@@ -15,6 +15,7 @@
     "NoRedInk/elm-decode-pipeline",
     "NoRedInk/elm-phoenix",
     "NoRedInk/elm-task-extra",
+    "Skinney/collections-ng",
     "Skinney/murmur3",
     "VerbalExpressions/elm-verbal-expressions",
     "Voronchuk/hexagons",

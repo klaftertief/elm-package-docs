@@ -434,6 +434,13 @@
         ]
     },
     {
+        "name": "Skinney/collections-ng",
+        "summary": "Stable Array, Dict and Set implementations for Elm.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Skinney/elm-dict-extra",
         "summary": "Convenience functions for working with Dict",
         "versions": [
@@ -743,6 +750,7 @@
         "name": "akbiggs/elm-game-update",
         "summary": "Chain operations on game objects with side-effects + death",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
