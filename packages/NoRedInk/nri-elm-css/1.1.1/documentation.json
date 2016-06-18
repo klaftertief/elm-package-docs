@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Nri.Stylers",
+    "comment": " Helper module for working with fonts\n\n@docs makeFont\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "makeFont",
+        "comment": "\ntakes a size and a color and creates a font\n",
+        "type": "Css.FontSize a -> Css.ColorValue b -> Css.Mixin"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "Nri.Colors",
+    "comment": " Helper module for working with colors\n@docs grayDarker\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "grayDarker",
+        "comment": " Darkest gray\n",
+        "type": "Css.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "Nri",
+    "comment": " A collection of helpers for working with NoRedInk projects\n@docs name\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "name",
+        "comment": " NoRedInk's name!\n",
+        "type": "String"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
