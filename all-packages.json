@@ -2940,6 +2940,14 @@
         ]
     },
     {
+        "name": "krisajenkins/formatting",
+        "summary": "A type-safe string formatting library. printf: elm style.",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "krisajenkins/history",
         "summary": "Manage History URIs in Elm",
         "versions": [

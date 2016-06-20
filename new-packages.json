@@ -135,6 +135,7 @@
     "krisajenkins/elm-cdn",
     "krisajenkins/elm-dialog",
     "krisajenkins/elm-exts",
+    "krisajenkins/formatting",
     "krisajenkins/history",
     "league/difference-list",
     "league/unique-id",
