@@ -447,6 +447,7 @@
         "name": "Skinney/collections-ng",
         "summary": "Stable Array, Dict and Set implementations for Elm.",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -1598,6 +1599,7 @@
         "name": "elm-community/basics-extra",
         "summary": "Additional basic functions",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -3037,6 +3039,7 @@
         "name": "lukewestby/elm-http-builder",
         "summary": "Extra functions for more easily building and handling Http requests",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -3543,6 +3546,7 @@
         "name": "rgrempel/elm-route-url",
         "summary": "Router for single-page-apps in Elm",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.5",
             "1.0.4",
@@ -3816,6 +3820,13 @@
     {
         "name": "shelakel/elm-validate",
         "summary": "Validation library for elm supporting sync and async validation with state",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "shmookey/cmd-extra",
+        "summary": "Convenience functions for working with Cmd",
         "versions": [
             "1.0.0"
         ]
