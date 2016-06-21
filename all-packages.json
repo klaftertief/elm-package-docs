@@ -1078,6 +1078,7 @@
         "name": "ccapndave/elm-update-extra",
         "summary": "Convenience functions for working with update in Elm",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -2943,6 +2944,11 @@
         "name": "krisajenkins/formatting",
         "summary": "A type-safe string formatting library. printf: elm style.",
         "versions": [
+            "2.1.2",
+            "2.1.1",
+            "2.1.0",
+            "2.0.2",
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -3482,6 +3488,7 @@
         "name": "project-fuzzball/test",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -4086,6 +4093,8 @@
         "name": "tomjkidd/elm-multiway-tree-zipper",
         "summary": "A library for navigating and updating immutable trees.",
         "versions": [
+            "1.2.1",
+            "1.2.0",
             "1.1.1",
             "1.1.0",
             "1.0.0"
