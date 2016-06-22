@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Formatting",
+    "comment": " A type-safe string formatting library. It fulfils the need for\nstring-interpolation or a `printf` function, without sacrificing Elm's\nruntime guarantees or requiring any language-level changes. It also\ncomposes well, to make building up complex formatters easy.\n\nExample:\n\n    import Formatting exposing (..)\n\n    greeting =\n        s \"Hello \" <> string <> s \"!\"\n\n    print greeting \"Kris\"\n\n    --> \"Hello Kris!\"\n\n@docs Format, (<>), map, print, html, s, string, int, float\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Format",
+        "comment": " A string formatter. This type holds all the information we need to\ncreate a formatting function, wrapped up in a way that makes it easy\nto compose.\n\nBuild one of these up with primitives like `s`, `string` and `int`,\njoin them together with `<>`, and when you're done, generate the final\nprinting function with `print`.\n",
+        "args": [
+          "r",
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "<>",
+        "comment": " Compose two formatters together.\n",
+        "type": "Formatting.Format b a -> Formatting.Format c b -> Formatting.Format c a",
+        "associativity": "right",
+        "precedence": 8
+      },
+      {
+        "name": "float",
+        "comment": " A placeholder for a `Float` argument.\n",
+        "type": "Formatting.Format r (Float -> r)"
+      },
+      {
+        "name": "html",
+        "comment": " Convenience function. Like `print`, but returns an `Html.text`\nnode as its final result, instead of a `String`.\n",
+        "type": "Formatting.Format (Html.Html msg) a -> a"
+      },
+      {
+        "name": "int",
+        "comment": " A placeholder for an `Int` argument.\n",
+        "type": "Formatting.Format r (Int -> r)"
+      },
+      {
+        "name": "map",
+        "comment": " Create a new function by applying a function to the results of this formatter.\n",
+        "type": "(String -> String) -> Formatting.Format r a -> Formatting.Format r a"
+      },
+      {
+        "name": "print",
+        "comment": " Turn your formatter into a function that's just waiting for its arguments.\n\nGiven this format:\n\n\n    orderFormat =\n        s \"FREE: \" <> int <> s \" x \" <> string  <> s \"!\"\n\n\n...we can either use it immediately:\n\n\n    order : String\n    order = print orderFormat 2 \"Ice Cream\"\n\n    --> \"FREE: 2 x Ice Cream!\"\n\n\n...or turn it into an ordinary function to be used later:\n\n\n    orderFormatter : Int -> String -> String\n    orderFormatter =\n        print orderFormat\n\n\n    ...elsewhere...\n\n\n    order : String\n    order = orderFormatter 2 \"Ice Cream\"\n\n    --> \"FREE: 2 x Ice Cream!\"\n",
+        "type": "Formatting.Format String a -> a"
+      },
+      {
+        "name": "s",
+        "comment": " A boilerplate string.\n",
+        "type": "String -> Formatting.Format r r"
+      },
+      {
+        "name": "string",
+        "comment": " A placeholder for a `String` argument.\n",
+        "type": "Formatting.Format r (String -> r)"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

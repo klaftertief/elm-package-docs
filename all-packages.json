@@ -900,6 +900,13 @@
         ]
     },
     {
+        "name": "athanclark/elm-threading",
+        "summary": "Simple method for managing asynchronous ports",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "avh4/elm-diff",
         "summary": "Compute changes between strings",
         "versions": [
@@ -2837,6 +2844,9 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "25.6.2",
+            "25.6.1",
+            "25.6.0",
             "25.5.0",
             "25.4.0",
             "25.3.0",
@@ -2945,6 +2955,7 @@
         "name": "krisajenkins/formatting",
         "summary": "A type-safe string formatting library. printf: elm style.",
         "versions": [
+            "2.2.0",
             "2.1.2",
             "2.1.1",
             "2.1.0",
@@ -3706,6 +3717,7 @@
         "name": "robinpokorny/elm-brainfuck",
         "summary": "A brainfuck interpreter in Elm",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
