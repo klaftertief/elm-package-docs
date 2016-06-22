@@ -2955,6 +2955,7 @@
         "name": "krisajenkins/formatting",
         "summary": "A type-safe string formatting library. printf: elm style.",
         "versions": [
+            "2.3.0",
             "2.2.0",
             "2.1.2",
             "2.1.1",
@@ -3466,6 +3467,13 @@
         ]
     },
     {
+        "name": "pinx/elm-mdl",
+        "summary": "Material Design Lite port to Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "poying/elm-router",
         "summary": "Elm module for single page app routing",
         "versions": [
@@ -3717,6 +3725,7 @@
         "name": "robinpokorny/elm-brainfuck",
         "summary": "A brainfuck interpreter in Elm",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -4106,6 +4115,8 @@
         "name": "tomjkidd/elm-multiway-tree-zipper",
         "summary": "A library for navigating and updating immutable trees.",
         "versions": [
+            "1.5.0",
+            "1.4.0",
             "1.3.0",
             "1.2.1",
             "1.2.0",

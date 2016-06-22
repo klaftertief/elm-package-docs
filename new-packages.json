@@ -162,6 +162,7 @@
     "ohanhi/keyboard-extra",
     "ondras/elm-irc",
     "pdamoc/elm-hashids",
+    "pinx/elm-mdl",
     "poying/elm-router",
     "project-fuzzball/node",
     "project-fuzzball/test",
