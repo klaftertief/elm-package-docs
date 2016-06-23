@@ -2587,9 +2587,17 @@
         ]
     },
     {
+        "name": "jinjor/elm-inline-hover",
+        "summary": "An utility for using :hover by inline style",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jinjor/elm-time-travel",
         "summary": "A time travel debugger for Elm 0.17 (or above)",
         "versions": [
+            "1.0.7",
             "1.0.6",
             "1.0.5",
             "1.0.4",
@@ -4115,6 +4123,7 @@
         "name": "tomjkidd/elm-multiway-tree-zipper",
         "summary": "A library for navigating and updating immutable trees.",
         "versions": [
+            "1.7.0",
             "1.6.0",
             "1.5.0",
             "1.4.0",
