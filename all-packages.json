@@ -2963,6 +2963,8 @@
         "name": "krisajenkins/formatting",
         "summary": "A type-safe string formatting library. printf: elm style.",
         "versions": [
+            "2.4.1",
+            "2.4.0",
             "2.3.0",
             "2.2.0",
             "2.1.2",
@@ -3617,6 +3619,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "7.0.0",
             "6.1.0",
             "6.0.1",
             "6.0.0",
