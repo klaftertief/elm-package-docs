@@ -65,6 +65,7 @@
         "name": "Bogdanp/elm-datepicker",
         "summary": "A reusable date picker component",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.0.0",
             "1.0.2",
@@ -864,6 +865,7 @@
         "name": "athanclark/elm-discrete-transition",
         "summary": "Transition between a set of discrete states",
         "versions": [
+            "2.0.0",
             "1.1.1",
             "1.1.0",
             "1.0.1",
@@ -2591,6 +2593,7 @@
         "name": "jinjor/elm-inline-hover",
         "summary": "An utility for using :hover by inline style",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3512,6 +3515,7 @@
         "name": "project-fuzzball/node",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3521,6 +3525,7 @@
         "name": "project-fuzzball/test",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.2.0",
@@ -3532,6 +3537,7 @@
         "name": "project-fuzzball/test-runner",
         "summary": "Run elm-test tests.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -4132,6 +4138,7 @@
         "name": "tomjkidd/elm-multiway-tree-zipper",
         "summary": "A library for navigating and updating immutable trees.",
         "versions": [
+            "1.8.0",
             "1.7.0",
             "1.6.0",
             "1.5.0",
