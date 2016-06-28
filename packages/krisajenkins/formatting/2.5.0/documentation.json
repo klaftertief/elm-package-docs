@@ -1,0 +1,93 @@
+[
+  {
+    "name": "Formatting",
+    "comment": " A type-safe string formatting library. It fulfils the need for\nstring-interpolation or a `printf` function, without sacrificing Elm's\nruntime guarantees or requiring any language-level changes. It also\ncomposes well, to make building up complex formatters easy.\n\nExample:\n\n    import Formatting exposing (..)\n\n    greeting =\n        s \"Hello \" <> string <> s \"!\"\n\n    print greeting \"Kris\"\n\n    --> \"Hello Kris!\"\n\n@docs Format\n@docs (<>)\n@docs map\n@docs premap\n@docs print\n@docs html\n@docs s\n@docs string\n@docs int\n@docs float\n@docs any\n@docs pad\n@docs padLeft\n@docs padRight\n@docs dp\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Format",
+        "comment": " A string formatter. This type holds all the information we need to\ncreate a formatting function, wrapped up in a way that makes it easy\nto compose.\n\nBuild one of these up with primitives like `s`, `string` and `int`,\njoin them together with `<>`, and when you're done, generate the final\nprinting function with `print`.\n",
+        "args": [
+          "r",
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "<>",
+        "comment": " Compose two formatters together.\n",
+        "type": "Formatting.Format b a -> Formatting.Format c b -> Formatting.Format c a",
+        "associativity": "right",
+        "precedence": 8
+      },
+      {
+        "name": "any",
+        "comment": " A placeholder for any value that we can call `toString` on.\n\n\nEagle-eyed readers of the source will notice that we use this same\nfunction to define `int` and `float`, since `toString` gives us the\nright result for both of those types.\n\nThe sole difference is, `int` and `float` have more restrictive type\nsignatures.\n",
+        "type": "Formatting.Format r (a -> r)"
+      },
+      {
+        "name": "dp",
+        "comment": " Round to `n` decimal places.\n",
+        "type": "Int -> Formatting.Format r (Float -> a) -> Formatting.Format r (Float -> a)"
+      },
+      {
+        "name": "float",
+        "comment": " A placeholder for a `Float` argument.\n",
+        "type": "Formatting.Format r (Float -> r)"
+      },
+      {
+        "name": "html",
+        "comment": " Convenience function. Like `print`, but returns an `Html.text`\nnode as its final result, instead of a `String`.\n\nHint: If you're using any formatters where whitespace is sigificant,\nyou might well need one or both of these CSS rules:\n\n    font-family: monospace;\n    white-space: pre;\n",
+        "type": "Formatting.Format (Html.Html msg) a -> a"
+      },
+      {
+        "name": "int",
+        "comment": " A placeholder for an `Int` argument.\n",
+        "type": "Formatting.Format r (Int -> r)"
+      },
+      {
+        "name": "map",
+        "comment": " Create a new formatter by applying a function to the output of this formatter.\n\nFor example:\n\n    import String exposing (toUpper)\n\n    format = s \"Name: \" <> map toUpper string\n\n...produces a formatter that uppercases the name:\n\n    print format \"Kris\"\n\n    --> \"Name: KRIS\"\n\n",
+        "type": "(String -> String) -> Formatting.Format r a -> Formatting.Format r a"
+      },
+      {
+        "name": "pad",
+        "comment": " `String.pad` lifted into the world of Formatters.\n\nFor example:\n\n    print (pad 10 '-' string) \"KRIS\"\n\n    --> \"---KRIS---\"\n\n",
+        "type": "Int -> Char -> Formatting.Format r a -> Formatting.Format r a"
+      },
+      {
+        "name": "padLeft",
+        "comment": " `String.padLeft` lifted into the world of Formatters.\n\nFor example:\n\n    print (padLeft 10 '_' float) 1.72\n\n    --> \"______1.72\"\n\n",
+        "type": "Int -> Char -> Formatting.Format r a -> Formatting.Format r a"
+      },
+      {
+        "name": "padRight",
+        "comment": " `String.padRight` lifted into the world of Formatters.\n\nFor example:\n\n    print (padRight 10 '.' int) 789\n\n    --> \"789.......\"\n\n",
+        "type": "Int -> Char -> Formatting.Format r a -> Formatting.Format r a"
+      },
+      {
+        "name": "premap",
+        "comment": " Create a new formatter by applying a function to the input of this\nformatter. The dual of `map`.\n\nFor example:\n\n    format = s \"Height: \" <> premap .height float\n\n...produces a formatter that accesses a `.height` record field:\n\n    print format { height: 1.72 }\n\n    --> \"Height: 1.72\"\n\n",
+        "type": "(a -> b) -> Formatting.Format r (b -> v) -> Formatting.Format r (a -> v)"
+      },
+      {
+        "name": "print",
+        "comment": " Turn your formatter into a function that's just waiting for its arguments.\n\nGiven this format:\n\n\n    orderFormat =\n        s \"FREE: \" <> int <> s \" x \" <> string  <> s \"!\"\n\n\n...we can either use it immediately:\n\n\n    order : String\n    order = print orderFormat 2 \"Ice Cream\"\n\n    --> \"FREE: 2 x Ice Cream!\"\n\n\n...or turn it into an ordinary function to be used later:\n\n\n    orderFormatter : Int -> String -> String\n    orderFormatter =\n        print orderFormat\n\n\n    ...elsewhere...\n\n\n    order : String\n    order = orderFormatter 2 \"Ice Cream\"\n\n    --> \"FREE: 2 x Ice Cream!\"\n",
+        "type": "Formatting.Format String a -> a"
+      },
+      {
+        "name": "s",
+        "comment": " A boilerplate string.\n",
+        "type": "String -> Formatting.Format r r"
+      },
+      {
+        "name": "string",
+        "comment": " A placeholder for a `String` argument.\n",
+        "type": "Formatting.Format r (String -> r)"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]

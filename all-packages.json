@@ -1868,6 +1868,7 @@
         "name": "elm-lang/html",
         "summary": "Fast HTML, rendered with virtual DOM diffing",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -1911,6 +1912,7 @@
         "name": "elm-lang/svg",
         "summary": "Fast SVG, rendered with virtual DOM diffing",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -1925,6 +1927,7 @@
         "name": "elm-lang/virtual-dom",
         "summary": "Core virtual DOM implementation, basis for HTML and SVG libraries",
         "versions": [
+            "1.1.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -2985,8 +2988,9 @@
     },
     {
         "name": "krisajenkins/formatting",
-        "summary": "A type-safe string formatting library. printf: elm style.",
+        "summary": "A type-safe string formatting library - 'printf' for Elm.",
         "versions": [
+            "2.5.0",
             "2.4.1",
             "2.4.0",
             "2.3.0",
