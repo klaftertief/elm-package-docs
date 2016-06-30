@@ -1,0 +1,380 @@
+[
+  {
+    "name": "Test.Runner.Log",
+    "comment": " # Log Runner\n\nRuns a test and outputs its results using `Debug.log`, then calls `Debug.crash`\nif there are any failures.\n\nThis is not the prettiest runner, but it is simple and cross-platform. For\nexample, you can use it as a crude Node runner like so:\n\n    $ elm-make LogRunnerExample.elm --output=elm.js\n    $ node elm.js\n\nThis will log the test results to the console, then exit with exit code 0\nif the tests all passed, and 1 if any failed.\n\n@docs run, runWithOptions\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "run",
+        "comment": " Run the test using the default `Test.Runner.String` options.\n",
+        "type": "Test.Test -> a -> a"
+      },
+      {
+        "name": "runWithOptions",
+        "comment": " Run the test using the provided options.\n",
+        "type": "Int -> Random.Pcg.Seed -> Test.Test -> a -> a"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Test.Runner.String",
+    "comment": " # String Runner\n\nRun a test and present its results as a nicely-formatted String, along with\na count of how many tests passed and failed.\n\nThis is a quick way to get decent test outputs which can then be presented in\nvarious different environments. See `Test.Runner.Log` for an example.\n\n@docs Summary, run, runWithOptions\n",
+    "aliases": [
+      {
+        "name": "Summary",
+        "comment": " The output string, the number of passed tests,\nand the number of failed tests.\n",
+        "args": [],
+        "type": "{ output : String, passed : Int, failed : Int }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "run",
+        "comment": " Run a test and return a tuple of the output message and the number of\ntests that failed.\n\nFuzz tests use a default run count of 100, and a fixed initial seed.\n",
+        "type": "Test.Test -> Test.Runner.String.Summary"
+      },
+      {
+        "name": "runWithOptions",
+        "comment": " Run a test and return a tuple of the output message and the number of\ntests that failed.\n",
+        "type": "Int -> Random.Pcg.Seed -> Test.Test -> Test.Runner.String.Summary"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Test.Runner",
+    "comment": " Running tests.\n\n## Runner\n\n@docs Runner, fromTest\n\n## Runnable\n\n@docs Runnable, run\n\n## Formatting\n\n@docs formatLabels\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Runnable",
+        "comment": " An unevaluated test. Run it with [`run`](#run) to evaluate it into a\nlist of `Expectation`s.\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Runner",
+        "comment": " A structured test runner, incorporating:\n\n* The expectations to run\n* The hierarchy of description strings that describe the results\n",
+        "args": [],
+        "cases": [
+          [
+            "Runnable",
+            [
+              "Test.Runner.Runnable"
+            ]
+          ],
+          [
+            "Labeled",
+            [
+              "String",
+              "Test.Runner.Runner"
+            ]
+          ],
+          [
+            "Batch",
+            [
+              "List Test.Runner.Runner"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "formatLabels",
+        "comment": " A standard way to format descriptiona and test labels, to keep things\nconsistent across test runner implementations.\n\nThe HTML, Node, String, and Log runners all use this.\n\nWhat it does:\n\n* drop any labels that are empty strings\n* format the first label differently from the others\n* reverse the resulting list\n\n    [ \"the actual test that failed\"\n    , \"nested description failure\"\n    , \"top-level description failure\"\n    ]\n        |> formatLabels ((++) \"↓ \") ((++) \"✗ \")\n\n    {-\n        [ \"↓ top-level description failure\"\n        , \"↓ nested description failure\"\n        , \"✗ the actual test that failed\"\n        ]\n    -}\n\n",
+        "type": "(String -> format) -> (String -> format) -> List String -> List format"
+      },
+      {
+        "name": "fromTest",
+        "comment": " Convert a `Test` into a `Runner`. It requires a default run count as well\nas an initial `Random.Seed` in order to run any fuzz tests that the `Test` may\nhave.\n\nIt's customary to use `100` as the initial run count and the current system time\nto generate the initial seed.\n",
+        "type": "Int -> Random.Pcg.Seed -> Test.Test -> Test.Runner.Runner"
+      },
+      {
+        "name": "run",
+        "comment": " Evaluate a [`Runnable`](#Runnable) to get a list of `Expectation`s.\n",
+        "type": "Test.Runner.Runnable -> List Expect.Expectation"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Test",
+    "comment": " Writing tests.\n\n@docs Test, test\n\n## Grouping Tests\n\n@docs describe, batch\n\n## Fuzz Testing\n\n@docs fuzz, fuzz2, fuzz3, fuzz4, fuzz5, fuzzWith, FuzzOptions\n",
+    "aliases": [
+      {
+        "name": "FuzzOptions",
+        "comment": " Options [`fuzzWith`](#fuzzWith) accepts.\n\n### `runs`\n\nThe number of times to run each fuzz test. (Default is 100.)\n\n    import Test exposing (fuzzWith)\n    import Fuzz exposing (list, int)\n    import Expect\n\n\n    fuzzWith { runs = 350 } (list int) \"List.length should always be positive\" <|\n        -- This anonymous function will be run 350 times, each time with a\n        -- randomly-generated fuzzList value. (It will always be a list of ints\n        -- because of (list int) above.)\n        \\fuzzList ->\n            fuzzList\n                |> List.length\n                |> Expect.atLeast 0\n",
+        "args": [],
+        "type": "{ runs : Int }"
+      },
+      {
+        "name": "Test",
+        "comment": " A test which has yet to be evaluated. When evaluated, it produces one\nor more [`Expectation`](../Expect#Expectation)s.\n\nSee [`test`](#test) and [`fuzz`](#fuzz) for some ways to create a `Test`.\n",
+        "args": [],
+        "type": "Test.Test.Test"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "batch",
+        "comment": " Run all the given tests. (Execution order is not guaranteed.)\n\n    import Test exposing (batch)\n\n\n    batch [ testDecoder, testSorting ]\n",
+        "type": "List Test.Test -> Test.Test"
+      },
+      {
+        "name": "describe",
+        "comment": " Apply a description to a [`batch`](#batch) of tests.\n\n    import Test exposing (describe, test, fuzz)\n    import Fuzz expoing (int)\n    import Expect\n\n\n    describe \"List\"\n        [ describe \"reverse\"\n            [ test \"has no effect on an empty list\" <|\n                \\() ->\n                    List.reverse []\n                        |> Expect.toEqual []\n            , fuzz int \"has no effect on a one-item list\" <|\n                \\num ->\n                     List.reverse [ num ]\n                        |> Expect.toEqual [ num ]\n            ]\n        ]\n",
+        "type": "String -> List Test.Test -> Test.Test"
+      },
+      {
+        "name": "fuzz",
+        "comment": " Run the given test several times, using a randomly-generated input from a\n`Fuzzer` each time. By default, runs the test 100 times with different inputs,\nbut you can configure the run count using [`withRuns`](#withRuns).\n\nThese are called \"[fuzz tests](https://en.wikipedia.org/wiki/Fuzz_testing)\" because of the randomness.\nYou may find them elsewhere called [property-based tests](http://blog.jessitron.com/2013/04/property-based-testing-what-is-it.html),\n[generative tests](http://www.pivotaltracker.com/community/tracker-blog/generative-testing), or\n[QuickCheck-style tests](https://en.wikipedia.org/wiki/QuickCheck).\n\n    import Test exposing (fuzz)\n    import Fuzz exposing (list, int)\n    import Expect\n\n\n    fuzz (list int) \"List.length should always be positive\" <|\n        -- This anonymous function will be run 100 times, each time with a\n        -- randomly-generated fuzzList value. (You can configure the run count\n        -- using Fuzz.fuzzWith, or by giving your test runner a different default.)\n        \\fuzzList ->\n            fuzzList\n                |> List.length\n                |> Expect.atLeast 0\n",
+        "type": "Fuzz.Fuzzer a -> String -> (a -> Expect.Expectation) -> Test.Test"
+      },
+      {
+        "name": "fuzz2",
+        "comment": " Run a [fuzz test](#fuzz) using two random inputs.\n\nThis is a convenicence function that lets you skip calling [`Fuzz.tuple`](../Fuzz#tuple).\n\nSee [`fuzzWith`](#fuzzWith) for an example of writing this in tuple style.\n\n    import Test exposing (fuzz2)\n    import Fuzz exposing (list, int)\n\n\n    fuzz2 (list int) int \"List.reverse never influences List.member\" <|\n        \\nums target ->\n            List.member target (List.reverse nums)\n                |> Expect.toEqual (List.member target nums)\n",
+        "type": "Fuzz.Fuzzer a -> Fuzz.Fuzzer b -> String -> (a -> b -> Expect.Expectation) -> Test.Test"
+      },
+      {
+        "name": "fuzz3",
+        "comment": " Run a [fuzz test](#fuzz) using three random inputs.\n\nThis is a convenicence function that lets you skip calling [`Fuzz.tuple3`](../Fuzz#tuple3).\n",
+        "type": "Fuzz.Fuzzer a -> Fuzz.Fuzzer b -> Fuzz.Fuzzer c -> String -> (a -> b -> c -> Expect.Expectation) -> Test.Test"
+      },
+      {
+        "name": "fuzz4",
+        "comment": " Run a [fuzz test](#fuzz) using four random inputs.\n\nThis is a convenicence function that lets you skip calling [`Fuzz.tuple4`](../Fuzz#tuple4).\n",
+        "type": "Fuzz.Fuzzer a -> Fuzz.Fuzzer b -> Fuzz.Fuzzer c -> Fuzz.Fuzzer d -> String -> (a -> b -> c -> d -> Expect.Expectation) -> Test.Test"
+      },
+      {
+        "name": "fuzz5",
+        "comment": " Run a [fuzz test](#fuzz) using four random inputs.\n\nThis is a convenicence function that lets you skip calling [`Fuzz.tuple5`](../Fuzz#tuple5).\n",
+        "type": "Fuzz.Fuzzer a -> Fuzz.Fuzzer b -> Fuzz.Fuzzer c -> Fuzz.Fuzzer d -> Fuzz.Fuzzer e -> String -> (a -> b -> c -> d -> e -> Expect.Expectation) -> Test.Test"
+      },
+      {
+        "name": "fuzzWith",
+        "comment": " Run a [`fuzz`](#fuzz) test with the given [`FuzzOptions`](#FuzzOptions).\n\nNote that there is no `fuzzWith2`, but you can always pass more fuzz values in\nusing [`Fuzz.tuple`](../Fuzz#tuple), [`Fuzz.tuple3`](../Fuzz#tuple3),\nfor example like this:\n\n    import Test exposing (fuzzWith)\n    import Fuzz exposing (tuple, list, int)\n    import Expect\n\n\n    fuzzWith { runs = 4200 }\n        (tuple ( list int, int ))\n        \"List.reverse never influences List.member\" <|\n            \\(nums, target) ->\n                List.member target (List.reverse nums)\n                    |> Expect.toEqual (List.member target nums)\n",
+        "type": "Test.FuzzOptions -> Fuzz.Fuzzer a -> String -> (a -> Expect.Expectation) -> Test.Test"
+      },
+      {
+        "name": "test",
+        "comment": " Return a [`Test`](#Test) that evaluates a single\n[`Expectation`](../Expect#Expectation).\n\n    import Test exposing (fuzz)\n    import Expect\n\n\n    test \"the empty list has 0 length\" <|\n        \\() ->\n            List.length []\n                |> Expect.toEqual 0\n",
+        "type": "String -> (() -> Expect.Expectation) -> Test.Test"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Expect",
+    "comment": " Determining whether tests pass or fail.\n\n## Quick Reference\n\n* [`equal`](#equal) `(arg2 == arg1)`\n* [`notEqual`](#notEqual) `(arg2 /= arg1)`\n* [`lessThan`](#lessThan) `(arg2 < arg1)`\n* [`atMost`](#atMost) `(arg2 <= arg1)`\n* [`greaterThan`](#greaterThan) `(arg2 > arg1)`\n* [`atLeast`](#atLeast) `(arg2 >= arg1)`\n* [`true`](#true) `(arg == True)`\n* [`false`](#false) `(arg == False)`\n\n## Basic Expectations\n\n@docs Expectation, equal, notEqual\n\n## Comparisons\n\n@docs lessThan, atMost, greaterThan, atLeast\n\n## Booleans\n\n@docs true, false\n\n## Customizing\n\n@docs pass, fail, onFail, getFailure\n",
+    "aliases": [
+      {
+        "name": "Expectation",
+        "comment": " The result of a single test run: either a [`pass`](#pass) or a\n[`fail`](#fail).\n",
+        "args": [],
+        "type": "Test.Expectation.Expectation"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "atLeast",
+        "comment": " Passes if the second argument is greater than or equal to the first.\n\n    Expect.atLeast -2 (List.length [])\n\n    -- Passes because (0 >= -2) is True\n\nFailures resemble code written in pipeline style, so you can tell\nwhich argument is which:\n\n    -- Fails because (0 >= 3) is False\n    List.length []\n        |> Expect.atLeast 3\n\n    {-\n\n    0\n    ╷\n    │ Expect.atLeast\n    ╵\n    3\n\n    -}\n",
+        "type": "comparable -> comparable -> Expect.Expectation"
+      },
+      {
+        "name": "atMost",
+        "comment": " Passes if the second argument is less than or equal to the first.\n\n    Expect.atMost 1 (List.length [])\n\n    -- Passes because (0 <= 1) is True\n\nFailures resemble code written in pipeline style, so you can tell\nwhich argument is which:\n\n    -- Fails because (0 <= -3) is False\n    List.length []\n        |> Expect.atMost -3\n\n    {-\n\n    0\n    ╷\n    │ Expect.atMost\n    ╵\n    -3\n\n    -}\n",
+        "type": "comparable -> comparable -> Expect.Expectation"
+      },
+      {
+        "name": "equal",
+        "comment": " Passes if the arguments are equal.\n\n    Expect.equal 0 (List.length [])\n\n    -- Passes because (0 == 0) is True\n\nFailures resemble code written in pipeline style, so you can tell\nwhich argument is which:\n\n    -- Fails because (0 == 5) is False\n    List.length []\n        |> Expect.equal 5\n\n\n    {-\n\n    0\n    ╷\n    │ Expect.equal\n    ╵\n    5\n\n    -}\n",
+        "type": "a -> a -> Expect.Expectation"
+      },
+      {
+        "name": "fail",
+        "comment": " Fails with the given message.\n\n    import Json.Decode exposing (decodeString, int)\n    import Test exposing (test)\n    import Expect\n\n\n    test \"Json.Decode.int can decode the number 42.\" <|\n        \\() ->\n            case decodeString int \"42\" of\n                Ok _ ->\n                    Expect.pass\n\n                Err err ->\n                    Expect.fail err\n",
+        "type": "String -> Expect.Expectation"
+      },
+      {
+        "name": "false",
+        "comment": " Passes if the argument is 'False', and otherwise fails with the given message.\n\n    Expect.false \"Expected the list not to be empty.\" (List.isEmpty [ 42 ])\n\n    -- Passes because (List.isEmpty [ 42 ]) is False\n\nFailures resemble code written in pipeline style, so you can tell\nwhich argument is which:\n\n    -- Fails because (List.isEmpty []) is True\n    List.isEmpty []\n        |> Expect.false \"Expected the list not to be empty.\"\n\n    {-\n\n    Expected the list not to be empty.\n\n    -}\n",
+        "type": "String -> Bool -> Expect.Expectation"
+      },
+      {
+        "name": "getFailure",
+        "comment": " Return `Nothing` if the given [`Expectation`](#Expectation) is a [`pass`](#pass).\n\nIf it is a [`fail`](#fail), return a record containing the failure message,\nalong with the given inputs if it was a fuzz test. (If no inputs were involved,\nthe record's `given` field will be `\"\"`).\n\nFor example, if a fuzz test generates random integers, this might return\n`{ message = \"it was supposed to be positive\", given = \"-1\" }`\n\n    getFailure (Expect.fail \"this failed\")\n    -- Just { message = \"this failed\", given = \"\" }\n\n    getFailure (Expect.pass)\n    -- Nothing\n",
+        "type": "Expect.Expectation -> Maybe.Maybe { given : String, message : String }"
+      },
+      {
+        "name": "greaterThan",
+        "comment": " Passes if the second argument is greater than the first.\n\n    Expect.greaterThan -2 List.length []\n\n    -- Passes because (0 > -2) is True\n\nFailures resemble code written in pipeline style, so you can tell\nwhich argument is which:\n\n    -- Fails because (0 > 1) is False\n    List.length []\n        |> Expect.greaterThan 1\n\n    {-\n\n    0\n    ╷\n    │ Expect.greaterThan\n    ╵\n    1\n\n    -}\n",
+        "type": "comparable -> comparable -> Expect.Expectation"
+      },
+      {
+        "name": "lessThan",
+        "comment": " Passes if the second argument is less than the first.\n\n    Expect.lessThan 1 (List.length [])\n\n    -- Passes because (0 < 1) is True\n\nFailures resemble code written in pipeline style, so you can tell\nwhich argument is which:\n\n    -- Fails because (0 < -1) is False\n    List.length []\n        |> Expect.lessThan -1\n\n\n    {-\n\n    0\n    ╷\n    │ Expect.lessThan\n    ╵\n    -1\n\n    -}\n",
+        "type": "comparable -> comparable -> Expect.Expectation"
+      },
+      {
+        "name": "notEqual",
+        "comment": " Passes if the arguments are not equal.\n\n    Expect.notEqual 11 (90 + 10)\n\n    -- Passes because (11 /= 100) is True\n\nFailures only show one value, because the reason for the failure was that\nboth arguments were equal.\n\n    -- Fails because (100 /= 100) is False\n    (90 + 10)\n        |> Expect.notEqual 100\n\n    {-\n\n    100\n    ╷\n    │ Expect.notEqual\n    ╵\n    100\n\n    -}\n",
+        "type": "a -> a -> Expect.Expectation"
+      },
+      {
+        "name": "onFail",
+        "comment": " If the given expectation fails, replace its failure message with a custom one.\n\n    \"something\"\n        |> Expect.equal \"something else\"\n        |> Expect.onFail \"thought those two strings would be the same\"\n",
+        "type": "String -> Expect.Expectation -> Expect.Expectation"
+      },
+      {
+        "name": "pass",
+        "comment": " Always passes.\n\n    import Json.Decode exposing (decodeString, int)\n    import Test exposing (test)\n    import Expect\n\n\n    test \"Json.Decode.int can decode the number 42.\" <|\n        \\() ->\n            case decodeString int \"42\" of\n                Ok _ ->\n                    Expect.pass\n\n                Err err ->\n                    Expect.fail err\n",
+        "type": "Expect.Expectation"
+      },
+      {
+        "name": "true",
+        "comment": " Passes if the argument is 'True', and otherwise fails with the given message.\n\n    Expect.true \"Expected the list to be empty.\" (List.isEmpty [])\n\n    -- Passes because (List.isEmpty []) is True\n\nFailures resemble code written in pipeline style, so you can tell\nwhich argument is which:\n\n    -- Fails because List.isEmpty returns False, but we expect True.\n    List.isEmpty [ 42 ]\n        |> Expect.true \"Expected the list to be empty.\"\n\n    {-\n\n    Expected the list to be empty.\n\n    -}\n",
+        "type": "String -> Bool -> Expect.Expectation"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Fuzz",
+    "comment": " This is a library of `Fuzzer`s you can use to supply values to your fuzz tests.\nYou can typically pick out which ones you need according to their types.\n\nA `Fuzzer a` knows how to create values of type `a`. It can create them\nrandomly, and it can shrink them to more minimal values. Fuzzers can be\nfiltered and mapped over.\n\n## Common Fuzzers\n@docs bool, int, intRange, float, floatRange, percentage, string, maybe, result, list, array\n\n## Working with Fuzzers\n@docs Fuzzer, filter, convert, map, frequency, frequencyOrCrash\n\n## Tuple Fuzzers\nInstead of using a tuple, consider using `fuzzN`.\n@docs tuple, tuple3, tuple4, tuple5\n\n## Uncommon Fuzzers\n@docs char, unit, order\n\n",
+    "aliases": [
+      {
+        "name": "Fuzzer",
+        "comment": " A Fuzzer is a\n[Random](http://package.elm-lang.org/packages/elm-lang/core/latest/Random)\n`Generator` paired with a shrinking strategy, or `Shrinker`. Shrinkers are defined\nin [`elm-community/shrink`](http://package.elm-lang.org/packages/elm-community/shrink/latest/).\nYou will need to be familiar with both libraries to write custom fuzzers for your own types.\nHere is an example for a record:\n\n    type alias Position =\n        { x : Int, y : Int }\n\n\n    position : Fuzzer Position\n    position =\n        Fuzzer\n            (Random.map2 Position (Random.int 0 1919) (Random.int 0 1079))\n            (\\{ x, y } -> Shrink.map Position (Shrink.int x) `Shrink.andMap` (Shrink.int y))\n\nHere is an example for a union type:\n\n    type Question\n        = Name String\n        | Age Int\n\n\n    question =\n        let\n            generator =\n                Random.bool `Random.andThen` (\\b ->\n                    if b then\n                        Random.map Name string.generator\n                    else\n                        Random.map Age (Random.int 0 120)\n                 )\n\n            shrinker question =\n                case question of\n                    Name n ->\n                        Shrink.string n |> Shrink.map Name\n\n                    Age i ->\n                        Shrink.int i |> Shrink.map Age\n        in\n            Fuzzer generator shrinker\n",
+        "args": [
+          "a"
+        ],
+        "type": "{ generator : Random.Pcg.Generator a, shrinker : Shrink.Shrinker a }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "array",
+        "comment": " Given a fuzzer of a type, create a fuzzer of an array of that type.\nGenerates random arrays of varying length, favoring shorter arrays.\n",
+        "type": "Fuzz.Fuzzer a -> Fuzz.Fuzzer (Array.Array a)"
+      },
+      {
+        "name": "bool",
+        "comment": " A fuzzer for bool values.\n",
+        "type": "Fuzz.Fuzzer Bool"
+      },
+      {
+        "name": "char",
+        "comment": " A fuzzer for char values. Generates random ascii chars disregarding the control\ncharacters.\n",
+        "type": "Fuzz.Fuzzer Char"
+      },
+      {
+        "name": "convert",
+        "comment": " Convert the output of one fuzzer to another type. This is useful if\nyou're testing a function that expects a large model record, but you only need\nto randomize a few fields. You might do this several different ways for a single\nmodel, so you generate and shrink only the fields relevant to each test.\n\n    type alias Person =\n      { first : String, last : String, age : String }\n\n    spy : Fuzzer Person\n    spy = convert (\\age -> Person \"James\" \"Bond\" age) .age (intRange 0 120)\n\nIn order for shrinking to work, you need to pass an inverse function of the\nfunction being mapped.\n",
+        "type": "(a -> b) -> (b -> a) -> Fuzz.Fuzzer a -> Fuzz.Fuzzer b"
+      },
+      {
+        "name": "filter",
+        "comment": " Filter the values from a fuzzer. The resulting Fuzzer will only generate\nrandom test values or shrunken values that satisfy the predicate. The predicate\nmust be satisfiable.\n",
+        "type": "(a -> Bool) -> Fuzz.Fuzzer a -> Fuzz.Fuzzer a"
+      },
+      {
+        "name": "float",
+        "comment": " A fuzzer for float values. It will never fuzzuce `NaN`, `Infinity`, or `-Infinity`.\n",
+        "type": "Fuzz.Fuzzer Float"
+      },
+      {
+        "name": "floatRange",
+        "comment": " A fuzzer for float values within between a given minimum and maximum\nvalue, inclusive. Shrunken values will also be within the range.\n",
+        "type": "Float -> Float -> Fuzz.Fuzzer Float"
+      },
+      {
+        "name": "frequency",
+        "comment": " Create a new `Fuzzer` by providing a list of probabilistic weights to use\nwith other fuzzers.\n\nFor example, to create a `Fuzzer` that has a 1/4 chance of generating an int\nbetween -1 and -100, and a 3/4 chance of generating one between 1 and 100,\nyou could do this:\n\n    Fuzz.freuqency\n        [ (1, Fuzz.intRange (-100, -1))\n        , (3, Fuzz.intRange (1, 100))\n        ]\n\nThis returns a `Result` because it can fail in a few ways:\n\n* If you provide an empy list of frequencies\n* If any of the weights are less than 0\n* If the weights sum to 0\n\nAny of these will lead to a result of `Err`, with a `String` explaining what\nwent wrong.\n",
+        "type": "List ( Float, Fuzz.Fuzzer a ) -> Result.Result String (Fuzz.Fuzzer a)"
+      },
+      {
+        "name": "frequencyOrCrash",
+        "comment": " Calls `frequency` and handles `Err` results by crashing with the given\nerror message.\n\nThis is useful in tests, where a crash will simply cause the test run to fail.\nThere is no danger to a production system there.\n",
+        "type": "List ( Float, Fuzz.Fuzzer a ) -> Fuzz.Fuzzer a"
+      },
+      {
+        "name": "int",
+        "comment": " A fuzzer for int values.\n",
+        "type": "Fuzz.Fuzzer Int"
+      },
+      {
+        "name": "intRange",
+        "comment": " A fuzzer for int values within between a given minimum and maximum value,\ninclusive. Shrunken values will also be within the range.\n",
+        "type": "Int -> Int -> Fuzz.Fuzzer Int"
+      },
+      {
+        "name": "list",
+        "comment": " Given a fuzzer of a type, create a fuzzer of a list of that type.\nGenerates random lists of varying length, favoring shorter lists.\n",
+        "type": "Fuzz.Fuzzer a -> Fuzz.Fuzzer (List a)"
+      },
+      {
+        "name": "map",
+        "comment": " Map a function over a fuzzer. This works exactly like `convert`,\nexcept it does not require an inverse function, and consequently does no\nshrinking.\n",
+        "type": "(a -> b) -> Fuzz.Fuzzer a -> Fuzz.Fuzzer b"
+      },
+      {
+        "name": "maybe",
+        "comment": " Given a fuzzer of a type, create a fuzzer of a maybe for that type.\n",
+        "type": "Fuzz.Fuzzer a -> Fuzz.Fuzzer (Maybe.Maybe a)"
+      },
+      {
+        "name": "order",
+        "comment": " A fuzzer for order values.\n",
+        "type": "Fuzz.Fuzzer Basics.Order"
+      },
+      {
+        "name": "percentage",
+        "comment": " A fuzzer for percentage values. Generates random floats between `0.0` and\n`1.0`.\n",
+        "type": "Fuzz.Fuzzer Float"
+      },
+      {
+        "name": "result",
+        "comment": " Given fuzzers for an error type and a success type, create a fuzzer for\na result.\n",
+        "type": "Fuzz.Fuzzer error -> Fuzz.Fuzzer value -> Fuzz.Fuzzer (Result.Result error value)"
+      },
+      {
+        "name": "string",
+        "comment": " A fuzzer for string values. Generates random printable ascii strings whose\nlength is between 0 and 10.\n",
+        "type": "Fuzz.Fuzzer String"
+      },
+      {
+        "name": "tuple",
+        "comment": " Turn a tuple of fuzzers into a fuzzer of tuples.\n",
+        "type": "( Fuzz.Fuzzer a, Fuzz.Fuzzer b ) -> Fuzz.Fuzzer ( a, b )"
+      },
+      {
+        "name": "tuple3",
+        "comment": " Turn a 3-tuple of fuzzers into a fuzzer of 3-tuples.\n",
+        "type": "( Fuzz.Fuzzer a, Fuzz.Fuzzer b, Fuzz.Fuzzer c ) -> Fuzz.Fuzzer ( a, b, c )"
+      },
+      {
+        "name": "tuple4",
+        "comment": " Turn a 4-tuple of fuzzers into a fuzzer of 4-tuples.\n",
+        "type": "( Fuzz.Fuzzer a, Fuzz.Fuzzer b, Fuzz.Fuzzer c, Fuzz.Fuzzer d ) -> Fuzz.Fuzzer ( a, b, c, d )"
+      },
+      {
+        "name": "tuple5",
+        "comment": " Turn a 5-tuple of fuzzers into a fuzzer of 5-tuples.\n",
+        "type": "( Fuzz.Fuzzer a , Fuzz.Fuzzer b , Fuzz.Fuzzer c , Fuzz.Fuzzer d , Fuzz.Fuzzer e ) -> Fuzz.Fuzzer ( a, b, c, d, e )"
+      },
+      {
+        "name": "unit",
+        "comment": " A fuzzer for the unit value. Unit is a type with only one value, commonly\nused as a placeholder.\n",
+        "type": "Fuzz.Fuzzer ()"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]
