@@ -750,6 +750,9 @@
         "name": "akbiggs/elm-effects",
         "summary": "Package for broadcasting messages to parent components and side-effects.",
         "versions": [
+            "3.0.0",
+            "2.1.1",
+            "2.1.0",
             "2.0.4",
             "2.0.3",
             "2.0.2",
@@ -822,6 +825,7 @@
         "name": "apuchenkin/elm-nested-router",
         "summary": "A simple nested router for Elm SPA",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -2537,6 +2541,7 @@
         "name": "jastice/boxes-and-bubbles",
         "summary": "A simple-as-possible 2D rigid-body physics engine.",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -2624,6 +2629,8 @@
         "name": "jinjor/elm-time-travel",
         "summary": "A time travel debugger for Elm 0.17 (or above)",
         "versions": [
+            "1.0.11",
+            "1.0.10",
             "1.0.9",
             "1.0.8",
             "1.0.7",
@@ -4092,6 +4099,7 @@
         "name": "stil4m/elm-aui-css",
         "summary": "HTML helper functions to comply to Atlassian AUI css",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.1.0",
             "1.0.1",
