@@ -244,6 +244,14 @@
         ]
     },
     {
+        "name": "JasonGFitzpatrick/elm-router",
+        "summary": "Simple Routing Library in Elm",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "JoeyEremondi/LoadAssets",
         "summary": "Utilities for loading several remote assets",
         "versions": [
@@ -1734,6 +1742,7 @@
         "name": "elm-community/elm-webgl",
         "summary": "A library for general 3D rendering with WebGL",
         "versions": [
+            "3.0.2",
             "3.0.1",
             "3.0.0",
             "2.0.0",
@@ -1760,6 +1769,7 @@
         "name": "elm-community/intdict",
         "summary": "Optimized dictionary specialization for Integers. Mirrors the dictionary API.",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -3444,6 +3454,14 @@
     {
         "name": "nicklawls/elm-html-animation",
         "summary": "HTML Animations in Elm",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "nphollon/collision",
+        "summary": "3D collision detection using OBBTree algorithm",
         "versions": [
             "1.0.1",
             "1.0.0"
