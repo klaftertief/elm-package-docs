@@ -1982,6 +1982,7 @@
         "name": "eskimoblood/elm-color-extra",
         "summary": "Additional color handling for Elm",
         "versions": [
+            "3.0.4",
             "3.0.3",
             "3.0.2",
             "3.0.1",
@@ -2244,6 +2245,7 @@
         "name": "fbonetti/elm-phoenix-socket",
         "summary": "Pure Elm state manager for Phoenix channels",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
