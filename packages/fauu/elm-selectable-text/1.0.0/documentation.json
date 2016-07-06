@@ -1,0 +1,47 @@
+[
+  {
+    "name": "SelectableText",
+    "comment": " A selectable text component that renders provided text as a series\nof paragraphs and `span` tags containing single words and punctuation. It lets \nthe user select words using mouse. The model contains the selected phrase in \nform of a string as well as the previously selected one. That provides an easy \nway of detection of a selection change within the parent component.\n\n# Model\n@docs Model, initialModel\n\n# Messages\n@docs Msg\n\n# View function\n@docs view\n\n# Update function\n@docs update\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " The component model:\n  - **id** - Used as the HTML id attribute for the root tag\n",
+        "args": [],
+        "type": "{ id : String , text : SelectableText.Text , mouseOverWordNo : Maybe.Maybe Int , selecting : Bool , selection : Maybe.Maybe SelectableText.Selection , selectedPhrase : Maybe.Maybe String , previousSelectedPhrase : Maybe.Maybe String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " A type representing component messages. The `ParseText` message should be\nused to pass a string to be parsed and rendered by the component from the parent\ncomponent.\n\n\n    RawTextFetched rawText ->\n      model \n        ! [ message\n              <| SelectableTextMsg \n              <| SelectableText.ParseText rawText\n          ] \n\n",
+        "args": [],
+        "cases": [
+          [
+            "ParseText",
+            [
+              "String"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "initialModel",
+        "comment": " Initialize the component. Expects user to provide id and a placeholder text\nthat will be displayed until a text is provided by the parent using `ParseText`\nmessage.\n\n\n    selectableTextModel = SelectableText.initialModel \"my-text\" \"Loading...\"\n  \n",
+        "type": "String -> String -> SelectableText.Model"
+      },
+      {
+        "name": "update",
+        "comment": " The selectable text update function.\n",
+        "type": "SelectableText.Msg -> SelectableText.Model -> ( SelectableText.Model, Platform.Cmd.Cmd SelectableText.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " The selectable text view. Renders a `div` element containing the text.\n",
+        "type": "SelectableText.Model -> Html.Html SelectableText.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
