@@ -1586,6 +1586,7 @@
         "name": "eeue56/elm-default-dict",
         "summary": "A default dict implementation in elm",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -2400,6 +2401,7 @@
         "name": "hrldcpr/elm-cons",
         "summary": "A non-empty list data structure.",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3624,6 +3626,8 @@
         "name": "project-fuzzball/node",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "2.0.0",
+            "1.0.6",
             "1.0.5",
             "1.0.4",
             "1.0.3",
@@ -3636,6 +3640,11 @@
         "name": "project-fuzzball/test",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "5.0.4",
+            "5.0.3",
+            "5.0.2",
+            "5.0.1",
+            "5.0.0",
             "4.0.0",
             "3.1.0",
             "3.0.1",
@@ -3651,6 +3660,8 @@
         "name": "project-fuzzball/test-runner",
         "summary": "Run elm-test tests.",
         "versions": [
+            "2.0.0",
+            "1.0.6",
             "1.0.5",
             "1.0.4",
             "1.0.3",
