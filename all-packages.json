@@ -206,6 +206,7 @@
         "name": "Fresheyeball/elm-return",
         "summary": "Return as a Writer Monad",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -398,6 +399,7 @@
         "name": "NoRedInk/elm-string-extra",
         "summary": "Convenience functions for working with Strings in Elm.",
         "versions": [
+            "1.3.1",
             "1.3.0",
             "1.2.0",
             "1.1.1",
@@ -409,6 +411,7 @@
         "name": "NoRedInk/elm-sweet-poll",
         "summary": "HTTP polling with backoff when the server response doesn't change",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -1797,6 +1800,7 @@
         "name": "elm-community/list-extra",
         "summary": "Convenience functions for working with List",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -3769,6 +3773,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "7.2.0",
             "7.1.0",
             "7.0.0",
             "6.1.0",
@@ -4132,6 +4137,7 @@
         "name": "sporto/erl",
         "summary": "Parse and construct URLs",
         "versions": [
+            "10.0.0",
             "9.0.1",
             "9.0.0",
             "8.0.0",

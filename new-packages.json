@@ -17,6 +17,8 @@
     "NoRedInk/elm-decode-pipeline",
     "NoRedInk/elm-phoenix",
     "NoRedInk/elm-rails",
+    "NoRedInk/elm-string-extra",
+    "NoRedInk/elm-sweet-poll",
     "NoRedInk/elm-task-extra",
     "NoRedInk/nri-elm-css",
     "SamirTalwar/arborist",
