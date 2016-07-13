@@ -1695,6 +1695,7 @@
         "name": "elm-community/elm-lazy-list",
         "summary": "Lazy list implementation in Elm",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -2289,6 +2290,13 @@
     {
         "name": "folkertdev/elm-deque",
         "summary": "A deque (double-ended queue) ",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "fredcy/elm-debouncer",
+        "summary": "Yet another debouncer component for Elm",
         "versions": [
             "1.0.0"
         ]
@@ -2955,6 +2963,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "25.8.0",
             "25.7.0",
             "25.6.2",
             "25.6.1",
