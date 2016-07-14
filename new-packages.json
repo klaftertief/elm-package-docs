@@ -164,6 +164,7 @@
     "lukewestby/elm-http-builder",
     "lukewestby/elm-template",
     "lukewestby/package-info",
+    "lynn/elm-arithmetic",
     "marcosh/elm-html-to-unicode",
     "massung/elm-css",
     "mattjbray/elm-prismicio",
@@ -227,5 +228,6 @@
     "truqu/elm-dictset",
     "truqu/elm-mustache",
     "vito/elm-ansi",
-    "w0rm/elm-slice-show"
+    "w0rm/elm-slice-show",
+    "willnwhite/bigratio"
 ]

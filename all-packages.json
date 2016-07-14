@@ -460,6 +460,7 @@
         "name": "Skinney/collections-ng",
         "summary": "Stable Array, Dict and Set implementations for Elm.",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -2156,6 +2157,7 @@
         "name": "evancz/elm-html",
         "summary": "Fast HTML, rendered with virtual DOM diffing",
         "versions": [
+            "5.0.0",
             "4.0.2",
             "4.0.1",
             "4.0.0",
@@ -2195,6 +2197,7 @@
         "name": "evancz/elm-svg",
         "summary": "Fast SVG, rendered with virtual DOM diffing",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.0.2",
@@ -3248,6 +3251,8 @@
         "name": "lynn/elm-arithmetic",
         "summary": "Library for integer arithmetic: primes, bases, divisors, gcd...",
         "versions": [
+            "2.0.2",
+            "2.0.1",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -4465,6 +4470,7 @@
         "name": "w0rm/elm-slice-show",
         "summary": "Elm Slides",
         "versions": [
+            "3.0.4",
             "3.0.3",
             "3.0.2",
             "3.0.1",
@@ -4700,6 +4706,13 @@
             "1.2.0",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "willnwhite/bigratio",
+        "summary": "A ratio type for working with big rational numbers",
+        "versions": [
             "1.0.0"
         ]
     },
