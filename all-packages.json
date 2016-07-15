@@ -1496,6 +1496,7 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "6.0.1",
             "6.0.0",
             "5.0.0",
             "4.0.0",
@@ -1947,6 +1948,7 @@
         "name": "elm-lang/svg",
         "summary": "Fast SVG, rendered with virtual DOM diffing",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]
@@ -2293,6 +2295,13 @@
     {
         "name": "folkertdev/elm-deque",
         "summary": "A deque (double-ended queue) ",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "folkertdev/elm-state",
+        "summary": "Threading state through computation",
         "versions": [
             "1.0.0"
         ]

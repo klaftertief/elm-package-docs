@@ -124,6 +124,7 @@
     "fbonetti/elm-geodesy",
     "fbonetti/elm-phoenix-socket",
     "folkertdev/elm-deque",
+    "folkertdev/elm-state",
     "fredcy/elm-defer-command",
     "fredcy/elm-parseint",
     "geekyme/elm-charts",
