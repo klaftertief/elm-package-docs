@@ -484,6 +484,7 @@
         "name": "Skinney/murmur3",
         "summary": "An implementation of the murmur 3 hash function in elm",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.1",
@@ -1400,6 +1401,7 @@
         "name": "cobalamin/history-tree",
         "summary": "A multi-timeline history in the form of a tree structure",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -1840,6 +1842,7 @@
         "name": "elm-community/list-split",
         "summary": "Split lists into chunks",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2024,6 +2027,14 @@
         "name": "ersocon/creditcard-validation",
         "summary": "CreditCard validation",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "erwald/elm-edit-distance",
+        "summary": "A package for calculating between-list edit distances.",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -2337,6 +2348,7 @@
         "name": "folkertdev/outmessage",
         "summary": "Streamlining child-parent communication using The Elm Architecture with OutMsg",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2730,6 +2742,13 @@
         ]
     },
     {
+        "name": "jinjor/elm-diff",
+        "summary": "A diff implementation for Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jinjor/elm-inline-hover",
         "summary": "An utility for using :hover by inline style",
         "versions": [
@@ -2978,6 +2997,16 @@
         "name": "koyachi/elm-sha",
         "summary": "sha.js wrapper for Elm.",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "krisajenkins/elm-astar",
+        "summary": "The A* pathfinding algorithm.",
+        "versions": [
+            "2.0.1",
+            "2.0.0",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3853,6 +3882,7 @@
         "name": "rhofour/elm-pairing-heap",
         "summary": "A simple pairing heap implementation usable as a priority queue.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
