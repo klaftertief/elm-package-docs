@@ -24,6 +24,7 @@
     "NoRedInk/nri-elm-css",
     "SamirTalwar/arborist",
     "Skinney/collections-ng",
+    "Skinney/fnv",
     "Skinney/murmur3",
     "VerbalExpressions/elm-verbal-expressions",
     "Voronchuk/hexagons",
@@ -130,6 +131,7 @@
     "folkertdev/elm-deque",
     "folkertdev/elm-state",
     "folkertdev/outmessage",
+    "fredcy/elm-debouncer",
     "fredcy/elm-defer-command",
     "fredcy/elm-parseint",
     "geekyme/elm-charts",
@@ -241,5 +243,6 @@
     "truqu/elm-mustache",
     "vito/elm-ansi",
     "w0rm/elm-slice-show",
-    "willnwhite/bigratio"
+    "willnwhite/bigratio",
+    "xarvh/elm-slides"
 ]
