@@ -1409,6 +1409,7 @@
         "name": "cobalamin/history-tree",
         "summary": "A multi-timeline history in the form of a tree structure",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -1530,6 +1531,7 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "6.0.4",
             "6.0.3",
             "6.0.2",
             "6.0.1",
@@ -3190,6 +3192,7 @@
         "name": "krisajenkins/remotedata",
         "summary": "Tools for fetching data from remote sources (incl. HTTP).",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3656,6 +3659,7 @@
         "name": "nphollon/collision",
         "summary": "3D collision detection using OBBTree algorithm",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -4836,6 +4840,13 @@
     {
         "name": "willnwhite/bigratio",
         "summary": "A ratio type for working with big rational numbers",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "wuct/elm-charts",
+        "summary": "A pure Elm Chart library",
         "versions": [
             "1.0.0"
         ]

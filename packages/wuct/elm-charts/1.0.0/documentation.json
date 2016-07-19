@@ -1,0 +1,113 @@
+[
+  {
+    "name": "ScatterPlot",
+    "comment": "\n\n# Scatter Plot\n@docs scatterPlot\n\n# Attrs\n@docs size, color\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "color",
+        "comment": "",
+        "type": "String -> Svg.Attribute msg"
+      },
+      {
+        "name": "scatterPlot",
+        "comment": "",
+        "type": "List (Svg.Attribute msg) -> Chart.ChartProps msg -> Svg.Svg msg"
+      },
+      {
+        "name": "size",
+        "comment": "",
+        "type": "String -> Svg.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "BarChart",
+    "comment": "\n\n# Bar Chart\n@docs barChart\n\n# Attrs\n@docs width, color\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "barChart",
+        "comment": "",
+        "type": "List (Svg.Attribute msg) -> Chart.ChartProps msg -> Svg.Svg msg"
+      },
+      {
+        "name": "color",
+        "comment": "",
+        "type": "String -> Svg.Attribute msg"
+      },
+      {
+        "name": "width",
+        "comment": "",
+        "type": "String -> Svg.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "LineChart",
+    "comment": "\n\n# Line Chart\n@docs lineChart\n\n# Attrs\n@docs width, color\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "color",
+        "comment": "",
+        "type": "String -> Svg.Attribute msg"
+      },
+      {
+        "name": "lineChart",
+        "comment": "",
+        "type": "List (Svg.Attribute msg) -> Chart.ChartProps msg -> Svg.Svg msg"
+      },
+      {
+        "name": "width",
+        "comment": "",
+        "type": "String -> Svg.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  },
+  {
+    "name": "Chart",
+    "comment": "\n\n# Type\n@docs Datum, Data, Scale, ChartProps\n\n",
+    "aliases": [
+      {
+        "name": "ChartProps",
+        "comment": "",
+        "args": [
+          "msg"
+        ],
+        "type": "{ data : Chart.Data msg, xScale : Chart.Scale, yScale : Chart.Scale }"
+      },
+      {
+        "name": "Data",
+        "comment": "",
+        "args": [
+          "msg"
+        ],
+        "type": "List (Chart.Datum msg)"
+      },
+      {
+        "name": "Datum",
+        "comment": "",
+        "args": [
+          "msg"
+        ],
+        "type": "( Float, Float, List (Svg.Attribute msg) )"
+      },
+      {
+        "name": "Scale",
+        "comment": "",
+        "args": [],
+        "type": "Float -> Float"
+      }
+    ],
+    "types": [],
+    "values": [],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
