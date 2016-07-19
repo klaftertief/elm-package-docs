@@ -168,6 +168,7 @@
     "league/difference-list",
     "league/unique-id",
     "lorenzo/elm-string-addons",
+    "lorenzo/elm-tree-diagram",
     "lovasoa/choices",
     "lovasoa/elm-component-list",
     "lovasoa/elm-csv",

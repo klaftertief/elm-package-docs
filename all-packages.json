@@ -3238,6 +3238,13 @@
         ]
     },
     {
+        "name": "lorenzo/elm-tree-diagram",
+        "summary": "Library for drawing diagrams of trees",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lovasoa/choices",
         "summary": "HTML GUI for a choice between multiple values",
         "versions": [
