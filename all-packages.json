@@ -3350,6 +3350,15 @@
         ]
     },
     {
+        "name": "lynn/elm-ordinal",
+        "summary": "Elm library for making ordinal strings (1st 2nd 3rd)",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "marcosh/elm-html-to-unicode",
         "summary": "elm library to escape and unescape html",
         "versions": [
@@ -4828,6 +4837,8 @@
         "name": "xarvh/elm-slides",
         "summary": "Awesome presentation framework to create your slides in Elm",
         "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
