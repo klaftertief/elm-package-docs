@@ -2902,8 +2902,9 @@
     },
     {
         "name": "justinmimbs/elm-date-extra",
-        "summary": "Extra functions for working with Date values",
+        "summary": "Extra functions for working with Date",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
