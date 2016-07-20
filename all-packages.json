@@ -4849,6 +4849,7 @@
         "name": "wuct/elm-charts",
         "summary": "A pure Elm Chart library",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
