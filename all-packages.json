@@ -451,6 +451,13 @@
         ]
     },
     {
+        "name": "RobbieMcKinstry/stripe",
+        "summary": "Wrapper for the Stripe Checkout embedded form.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "SamirTalwar/arborist",
         "summary": "A test framework for asynchronous Elm code.",
         "versions": [
@@ -3620,6 +3627,13 @@
             "2.0.0",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "mukeshsoni/elm-rope",
+        "summary": "Rope data structure to store operate on large strings, implemented in elm",
+        "versions": [
             "1.0.0"
         ]
     },
