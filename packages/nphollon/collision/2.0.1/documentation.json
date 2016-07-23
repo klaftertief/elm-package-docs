@@ -1,0 +1,89 @@
+[
+  {
+    "name": "Collision",
+    "comment": " Detect collisions between rigid three-dimensional objects. The process goes like this:\n\n1. Start with a set of triangular faces that describe the shape of an object.\n\n2. Use `create` to convert the list of faces into a `Bounds` value. Creating the bounds can be time-consuming, so you will want to do this before you start the time loop.\n\n3. If you want to create your bounds ahead of time, you can `encode` them to JSON and `decode` them later.\n\n4. Once your simulation/game is running, test for collisions using `collide`.\n\nThis module will not work for 2D objects.\n\n# Geometry\n@docs Vector, vector, Quaternion, quaternion, axisAngleRotation, Face, face\n\n# Creating Bounds\n@docs Bounds, create, empty\n\n# Checking Collisions\n@docs Body, collide\n\n# Working with JSON\n@docs encode, decode\n",
+    "aliases": [
+      {
+        "name": "Body",
+        "comment": " An object that is positioned and oriented in three-dimensional space. The bounds of the object are given in the body's reference frame. Before testing for a collision, we use the position and orientation to move the bounds into the world's reference frame.\n\nThis way, we can move our objects through the world, but we don't have to re-compute the bounds (as long as the object does not change shape).\n",
+        "args": [
+          "a"
+        ],
+        "type": "{ a | position : Collision.Vector, orientation : Collision.Quaternion, bounds : Collision.Bounds }"
+      },
+      {
+        "name": "Bounds",
+        "comment": " The boundary data for an object, stored as an OBBTree.\n",
+        "args": [],
+        "type": "OBBTree.OBBTree"
+      },
+      {
+        "name": "Face",
+        "comment": " A triangle. The surface of your colliding objects is described by a collection of triangular faces.\n",
+        "args": [],
+        "type": "Face.Face"
+      },
+      {
+        "name": "Quaternion",
+        "comment": " Stores a three-dimensional rotation.\n",
+        "args": [],
+        "type": "Quaternion.Quaternion"
+      },
+      {
+        "name": "Vector",
+        "comment": " Stores a three-dimensional position.\n",
+        "args": [],
+        "type": "Vector.Vector"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "axisAngleRotation",
+        "comment": " Given an axis to rotate around and an angle of rotation, create a quaternion.\n",
+        "type": "Collision.Vector -> Float -> Collision.Quaternion"
+      },
+      {
+        "name": "collide",
+        "comment": " Determine whether two bodies collide.\n",
+        "type": "Collision.Body b -> Collision.Body b' -> Bool"
+      },
+      {
+        "name": "create",
+        "comment": " Generate the bounding tree for an object. The list of faces defines the surface.\n\nThe overall time to build the OBBTree is O(n log^2 n), where n is the number of faces.\n",
+        "type": "List Collision.Face -> Collision.Bounds"
+      },
+      {
+        "name": "decode",
+        "comment": " A JSON decoder for an OBBTree encoded with the above function.\n",
+        "type": "Json.Decode.Decoder Collision.Bounds"
+      },
+      {
+        "name": "empty",
+        "comment": " Create an empty bounding tree. This will not collide with anything.\n",
+        "type": "Collision.Bounds"
+      },
+      {
+        "name": "encode",
+        "comment": " Encode an OBBTree as JSON.\n",
+        "type": "Collision.Bounds -> Json.Encode.Value"
+      },
+      {
+        "name": "face",
+        "comment": " Create a triangular face, given the positions of its three vertexes. The vertexes can be given in any order.\n",
+        "type": "Collision.Vector -> Collision.Vector -> Collision.Vector -> Collision.Face"
+      },
+      {
+        "name": "quaternion",
+        "comment": " Create a quaternion from w, x, y, and z coordinates.\n",
+        "type": "Float -> Float -> Float -> Float -> Collision.Quaternion"
+      },
+      {
+        "name": "vector",
+        "comment": " Create a vector from x, y, and z coordinates.\n",
+        "type": "Float -> Float -> Float -> Collision.Vector"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
