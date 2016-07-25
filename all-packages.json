@@ -1906,6 +1906,15 @@
         ]
     },
     {
+        "name": "elm-community/string-extra",
+        "summary": "String helper functions for Elm",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "elm-community/svg-extra",
         "summary": "Additional functions for working with Svg",
         "versions": [
@@ -2781,6 +2790,7 @@
         "name": "jinjor/elm-diff",
         "summary": "A diff implementation for Elm",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3374,6 +3384,15 @@
         "name": "lukewestby/package-info",
         "summary": "Types and helpers for dealing with the data found in an elm-package.json file",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "lukewestby/worker",
+        "summary": "Start Elm applications without a view",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -4880,6 +4899,7 @@
         "name": "willnwhite/bigratio",
         "summary": "A ratio type for working with big rational numbers",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
