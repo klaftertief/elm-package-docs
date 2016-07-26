@@ -3078,8 +3078,9 @@
     },
     {
         "name": "krisajenkins/elm-cdn",
-        "summary": "Provides quick access to the frameworks you want to grab from a CDN.",
+        "summary": "Quick access to the CSS frameworks you need.",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
