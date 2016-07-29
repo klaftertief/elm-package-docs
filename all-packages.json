@@ -259,6 +259,7 @@
         "name": "JeremyBellows/elm-bootstrapify",
         "summary": "A collection of functions to use the bootstrap theme when designing html",
         "versions": [
+            "2.1.0",
             "2.0.1",
             "2.0.0",
             "1.0.0"
