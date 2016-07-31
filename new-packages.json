@@ -138,6 +138,7 @@
     "fredcy/elm-debouncer",
     "fredcy/elm-defer-command",
     "fredcy/elm-parseint",
+    "garetht/elm-dynamic-style",
     "geekyme/elm-charts",
     "ggb/elm-bloom",
     "ggb/elm-sentiment",

@@ -2455,6 +2455,7 @@
         "name": "garetht/elm-dynamic-style",
         "summary": "Simple dynamic styles for Elm (hover, focus, etc.)",
         "versions": [
+            "2.0.0",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -2825,6 +2826,7 @@
         "name": "jinjor/elm-time-travel",
         "summary": "A time travel debugger for Elm 0.17 (or above)",
         "versions": [
+            "1.0.17",
             "1.0.16",
             "1.0.15",
             "1.0.14",
