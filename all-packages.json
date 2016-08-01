@@ -3112,6 +3112,8 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "25.10.0",
+            "25.9.0",
             "25.8.1",
             "25.8.0",
             "25.7.0",
@@ -3253,6 +3255,7 @@
         "name": "krisajenkins/remotedata",
         "summary": "Tools for fetching data from remote sources (incl. HTTP).",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
