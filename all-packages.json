@@ -1578,6 +1578,7 @@
         "name": "debois/elm-parts",
         "summary": "Reduce Elm Architecture boilerplate",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.1.0",
             "2.0.0",
@@ -2408,6 +2409,7 @@
         "name": "fredcy/elm-debouncer",
         "summary": "Yet another debouncer component for Elm",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3646,8 +3648,9 @@
     },
     {
         "name": "mgold/elm-random-pcg",
-        "summary": "A better, splittable random number generator (easily replaces core/Random)",
+        "summary": "A faster, more featureful, statistically better, & compatible random generator",
         "versions": [
+            "3.0.0",
             "2.1.1",
             "2.1.0",
             "2.0.0",
