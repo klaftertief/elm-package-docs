@@ -1555,6 +1555,7 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "7.0.0",
             "6.1.0",
             "6.0.4",
             "6.0.3",
@@ -1947,6 +1948,7 @@
         "name": "elm-lang/core",
         "summary": "Elm's standard libraries",
         "versions": [
+            "4.0.4",
             "4.0.3",
             "4.0.2",
             "4.0.1",
@@ -3233,6 +3235,7 @@
         "name": "krisajenkins/formatting",
         "summary": "A type-safe string formatting library - 'printf' for Elm.",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.5.0",
             "2.4.1",
@@ -3871,6 +3874,7 @@
         "name": "project-fuzzball/node",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.6",
             "1.0.5",
@@ -3885,6 +3889,7 @@
         "name": "project-fuzzball/test",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "6.0.0",
             "5.0.4",
             "5.0.3",
             "5.0.2",
@@ -3905,6 +3910,7 @@
         "name": "project-fuzzball/test-runner",
         "summary": "Run elm-test tests.",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.6",
             "1.0.5",
