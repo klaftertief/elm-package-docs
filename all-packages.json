@@ -2520,6 +2520,13 @@
         ]
     },
     {
+        "name": "halfzebra/elm-sierpinski",
+        "summary": "Sierpinski triangle implementation in Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "hanshoglund/elm-interval",
         "summary": "Interval arithmetic",
         "versions": [
@@ -2817,6 +2824,7 @@
         "name": "jinjor/elm-diff",
         "summary": "A diff implementation for Elm",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -3367,6 +3375,7 @@
         "name": "lukewestby/elm-http-builder",
         "summary": "Extra functions for more easily building and handling Http requests",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.1.0",
             "1.0.0"
@@ -3874,6 +3883,7 @@
         "name": "project-fuzzball/node",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.0.0",
             "1.0.6",
@@ -4540,6 +4550,13 @@
             "2.0.1",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "tiziano88/elm-oauth",
+        "summary": "OAuth client",
+        "versions": [
             "1.0.0"
         ]
     },
