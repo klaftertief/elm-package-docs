@@ -1563,6 +1563,7 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "7.1.0",
             "7.0.0",
             "6.1.0",
             "6.0.4",
