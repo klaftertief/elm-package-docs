@@ -1085,6 +1085,14 @@
         ]
     },
     {
+        "name": "benthepoet/elm-purecss",
+        "summary": "A set of helpers for Pure CSS",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "besuikerd/elm-dictset",
         "summary": "Adds specialized sets built on top of Dict",
         "versions": [
@@ -1716,6 +1724,7 @@
         "name": "elm-community/dict-extra",
         "summary": "Convenience functions for working with Dict",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -4426,6 +4435,7 @@
         "name": "sporto/hop",
         "summary": "A router for SPAs in Elm",
         "versions": [
+            "5.1.0",
             "5.0.1",
             "5.0.0",
             "4.0.3",
@@ -4557,6 +4567,9 @@
         "name": "tiziano88/elm-oauth",
         "summary": "OAuth client",
         "versions": [
+            "1.2.1",
+            "1.2.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
