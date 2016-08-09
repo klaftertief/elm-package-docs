@@ -1,0 +1,57 @@
+[
+  {
+    "name": "ProgramEx",
+    "comment": "\n@docs programExBuilderWithFlags, programExBuilderWithFlagsAndNavigation\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "programExBuilderWithFlags",
+        "comment": "\nPass in the usual callbacks and it returns a built callback set.\n\nThis can be used via Html.App.programWithFlags like:\n\n    Html.App.programWithFlags\n      ( programExBuilderWithFlags\n        { init=init\n        , filter=filter\n        , update=update\n        , view=view\n        , subscriptions=subscriptions\n        }\n      )\n",
+        "type": "{ init : flags -> ( userModel, Platform.Cmd.Cmd userMsg ) , filters : userMsg -> userModel -> ( userMsg, ProgramEx.States.States ) , update : userMsg -> userModel -> ( userModel, Platform.Cmd.Cmd userMsg ) , view : userModel -> Html.Html userMsg , subscriptions : userModel -> Platform.Sub.Sub userMsg } -> { init : flags -> ( ProgramEx.Model userModel userMsg, Platform.Cmd.Cmd userMsg ) , update : userMsg -> ProgramEx.Model userModel userMsg -> ( ProgramEx.Model userModel userMsg, Platform.Cmd.Cmd userMsg ) , view : ProgramEx.Model userModel userMsg -> Html.Html userMsg , subscriptions : ProgramEx.Model userModel userMsg -> Platform.Sub.Sub userMsg }"
+      },
+      {
+        "name": "programExBuilderWithFlagsAndNavigation",
+        "comment": "\nPass in the usual callbacks and it returns a built callback set.\n\nThis can be used via Html.App.programWithFlags like:\n\n    Navigation.programWithFlags urlParser\n      { programExBuilderWithFlagsAndNavigation\n        { init=init\n        , filter=filter\n        , update=update\n        , view=view\n        , subscriptions=subscriptions\n        , urlUpdate=urlUpdate\n        }\n      }\n",
+        "type": "{ init : flags -> ( userModel, Platform.Cmd.Cmd userMsg ) , filters : userMsg -> userModel -> ( userMsg, ProgramEx.States.States ) , update : userMsg -> userModel -> ( userModel, Platform.Cmd.Cmd userMsg ) , view : userModel -> Html.Html userMsg , subscriptions : userModel -> Platform.Sub.Sub userMsg , urlUpdate : data -> userModel -> ( userModel, Platform.Cmd.Cmd userMsg ) } -> { init : flags -> ( ProgramEx.Model userModel userMsg, Platform.Cmd.Cmd userMsg ) , update : userMsg -> ProgramEx.Model userModel userMsg -> ( ProgramEx.Model userModel userMsg, Platform.Cmd.Cmd userMsg ) , view : ProgramEx.Model userModel userMsg -> Html.Html userMsg , subscriptions : ProgramEx.Model userModel userMsg -> Platform.Sub.Sub userMsg , urlUpdate : data -> userModel -> ( userModel, Platform.Cmd.Cmd userMsg ) }"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "ProgramEx.States",
+    "comment": "\n@docs States, default, doUpdate, doSubscriptions, doView\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "States",
+        "comment": " Holds the State information\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "default",
+        "comment": " Gets the default state set, everything is allowed\n",
+        "type": "ProgramEx.States.States"
+      },
+      {
+        "name": "doSubscriptions",
+        "comment": " Gets from the state if the subscriptions callback should be run\n",
+        "type": "ProgramEx.States.States -> Bool"
+      },
+      {
+        "name": "doUpdate",
+        "comment": " Gets from the state if the update callback should be run\n",
+        "type": "ProgramEx.States.States -> Bool"
+      },
+      {
+        "name": "doView",
+        "comment": " Gets from the state if the view callback should be run\n",
+        "type": "ProgramEx.States.States -> Bool"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]

@@ -1563,6 +1563,7 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "7.3.0",
             "7.2.0",
             "7.1.0",
             "7.0.0",
@@ -1782,6 +1783,7 @@
         "name": "elm-community/elm-linear-algebra",
         "summary": "A linear algebra library for fast vector and matrix math",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -1820,6 +1822,7 @@
         "name": "elm-community/elm-test",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -3830,6 +3833,13 @@
         ]
     },
     {
+        "name": "overminddl1/program-ex",
+        "summary": "ProgramEx adds filtering and conversion of messages and states",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "paramanders/elm-hexagon",
         "summary": "Create SVG hexagons with rounded corners",
         "versions": [
@@ -3892,8 +3902,9 @@
     },
     {
         "name": "project-fuzzball/node",
-        "summary": "Unit testing support with Console/Html/String outputs.",
+        "summary": "DEPRECATED - This has been replaced by rtfeldman/node-test-runner",
         "versions": [
+            "4.0.0",
             "3.1.0",
             "3.0.0",
             "2.0.0",
@@ -3929,8 +3940,9 @@
     },
     {
         "name": "project-fuzzball/test-runner",
-        "summary": "Run elm-test tests.",
+        "summary": "DEPRECATED - This has been replaced by rtfeldman/html-test-runner",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.0.0",
             "1.0.6",
@@ -4233,8 +4245,22 @@
         ]
     },
     {
+        "name": "rtfeldman/html-test-runner",
+        "summary": "Run elm-test tests in a browser.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "rtfeldman/legacy-elm-test",
         "summary": "Unit testing support with Console/Html/String outputs.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "rtfeldman/node-test-runner",
+        "summary": "Run elm-test suites in a Node.js CLI. Get it with npm install -g elm-test",
         "versions": [
             "1.0.0"
         ]
