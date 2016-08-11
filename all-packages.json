@@ -259,6 +259,7 @@
         "name": "JeremyBellows/elm-bootstrapify",
         "summary": "A collection of functions to use the bootstrap theme when designing html",
         "versions": [
+            "6.0.0",
             "5.0.0",
             "4.0.0",
             "3.0.0",
@@ -330,6 +331,13 @@
             "1.1.1",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Kwarrtz/render",
+        "summary": "a lightweight graphics library, similar to Graphics.Collage",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -1743,8 +1751,9 @@
     },
     {
         "name": "elm-community/elm-check",
-        "summary": "Property-based testing in Elm",
+        "summary": "[deprecated] Property-based testing in Elm",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -1962,6 +1971,7 @@
         "name": "elm-lang/core",
         "summary": "Elm's standard libraries",
         "versions": [
+            "4.0.5",
             "4.0.4",
             "4.0.3",
             "4.0.2",
@@ -3033,6 +3043,7 @@
         "name": "jweir/elm-iso8601",
         "summary": "Pure Elm time parsing and handling for IS8601 based time.",
         "versions": [
+            "3.0.0",
             "2.1.1",
             "2.1.0",
             "2.0.0",
@@ -3765,6 +3776,7 @@
         "name": "noahzgordon/elm-jsonapi",
         "summary": "Decoders and helper functions for working with JSONAPI payloads",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3836,6 +3848,10 @@
         "name": "overminddl1/program-ex",
         "summary": "ProgramEx adds filtering and conversion of messages and states",
         "versions": [
+            "2.0.3",
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -4255,6 +4271,7 @@
         "name": "rtfeldman/legacy-elm-test",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -4319,6 +4336,13 @@
     {
         "name": "sgraf812/elm-stateful",
         "summary": "Library for conveniently working with stateful computations",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "sh4r3m4n/elm-piano",
+        "summary": "A simple piano component for Elm",
         "versions": [
             "1.0.0"
         ]
