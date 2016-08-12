@@ -336,8 +336,9 @@
     },
     {
         "name": "Kwarrtz/render",
-        "summary": "a lightweight graphics library, similar to Graphics.Collage",
+        "summary": "Lightweight graphics similar to Graphics.Collage (backed by SVG)",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -370,8 +371,10 @@
     },
     {
         "name": "NoRedInk/elm-decode-pipeline",
-        "summary": "A pipeline-friendly library for building decoders.",
+        "summary": "A pipeline-friendly library for building JSON decoders.",
         "versions": [
+            "2.0.0",
+            "1.2.0",
             "1.1.2",
             "1.1.1",
             "1.1.0",
@@ -1561,6 +1564,7 @@
         "name": "debois/elm-dom",
         "summary": "DOM traversal for Elm event-handlers",
         "versions": [
+            "1.2.2",
             "1.2.1",
             "1.2.0",
             "1.1.0",
@@ -1571,6 +1575,7 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "7.4.0",
             "7.3.0",
             "7.2.0",
             "7.1.0",
@@ -1892,6 +1897,7 @@
         "name": "elm-community/list-extra",
         "summary": "Convenience functions for working with List",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.0.1",
             "2.0.0",
@@ -2976,6 +2982,20 @@
     {
         "name": "joneshf/elm-mom",
         "summary": "Generalizes most computational effects.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "joneshf/elm-proxy",
+        "summary": "A library to pass around type information without values",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "joneshf/elm-tagged",
+        "summary": "A library to help with compile time verification",
         "versions": [
             "1.0.0"
         ]
@@ -4626,6 +4646,13 @@
         ]
     },
     {
+        "name": "tiziano88/elm-tfl",
+        "summary": "A wrapper for the TfL (Transport for London) API",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "tomjkidd/elm-multiway-tree-zipper",
         "summary": "A library for navigating and updating immutable trees.",
         "versions": [
@@ -5047,6 +5074,13 @@
         "summary": "Like evancz/start-app, but with `update : action -> Time -> model -> model`.",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "zaidan/elm-collision",
+        "summary": "Fast collision detection for convex objects",
+        "versions": [
             "1.0.0"
         ]
     },

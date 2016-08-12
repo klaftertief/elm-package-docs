@@ -164,6 +164,8 @@
     "jinjor/elm-time-travel",
     "joneshf/elm-constraint",
     "joneshf/elm-mom",
+    "joneshf/elm-proxy",
+    "joneshf/elm-tagged",
     "justinmimbs/elm-date-extra",
     "jvoigtlaender/elm-memo",
     "jweir/elm-iso8601",
@@ -255,6 +257,7 @@
     "thaterikperson/elm-blackjack",
     "thebritican/elm-autocomplete",
     "tiziano88/elm-oauth",
+    "tiziano88/elm-tfl",
     "tomjkidd/elm-multiway-tree-zipper",
     "tripokey/elm-fuzzy",
     "truqu/elm-base64",
@@ -264,5 +267,6 @@
     "w0rm/elm-slice-show",
     "willnwhite/bigratio",
     "wuct/elm-charts",
-    "xarvh/elm-slides"
+    "xarvh/elm-slides",
+    "zaidan/elm-collision"
 ]
