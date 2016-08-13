@@ -1994,8 +1994,9 @@
     },
     {
         "name": "elm-lang/dom",
-        "summary": "Low-level DOM manipulation, not for general use.",
+        "summary": "DOM helpers for managing focus and scrolling.",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
