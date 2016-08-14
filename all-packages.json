@@ -928,6 +928,7 @@
         "name": "athanclark/elm-debouncer",
         "summary": "simple method for time-throttling action / message propogation",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -1482,6 +1483,15 @@
         "name": "damienklinnert/elm-hue",
         "summary": "Control your Philips Hue devices with Elm",
         "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "damienklinnert/elm-spinner",
+        "summary": "A highly configurable, efficiently rendered spinner component",
+        "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]

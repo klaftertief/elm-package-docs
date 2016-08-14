@@ -62,6 +62,7 @@
     "cobalamin/history-tree",
     "coreytrampe/elm-vendor",
     "damienklinnert/elm-hue",
+    "damienklinnert/elm-spinner",
     "danielnarey/elm-modular-design",
     "danyx23/elm-mimetype",
     "danyx23/elm-uuid",
