@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Don't.Worry.I.Know.What.I'm.Doing",
+    "comment": "\nSometimes you need to tell the compiler that everything will be alright.\n\nUsually this happens when you are case matching on something,\nyou can prove that certain cases cannot happen,\nbut elm still wants you to handle the cases that cannot happen anyway.\n\n@docs believe_me\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "believe_me",
+        "comment": "\nThis is just [`Debug.crash`](http://package.elm-lang.org/packages/elm-lang/core/latest/Debug#crash) with a prefixed error message.\n\nIf you use this, pass in a string of your module name and the name of the function where you think you're smarter than the compiler.\n",
+        "type": "String -> a"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Equality",
+    "comment": "\nA module providing primitives for proving type equalities.\n\nType equality is stronger than type equivalence.\nWith equivalence, we assert that there is some way to get from one type to the other (and back again).\nWith equality, we assert that there is exactly one type we're even talking about!\n\n@docs Equal, refl, symm, trans, inj, symmInj, cast, symmCast\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Equal",
+        "comment": "\nA type that expresses two types being equal.\n\nThe only reason this works is that the value constructor is not exposed from the module.\nIf the value constructor is exposed, we end up with only being able to express equivalence.\n",
+        "args": [
+          "a",
+          "b"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "cast",
+        "comment": "\nIf we know that `a` is equal to `b`, and we have an `a`,\nthen we can get a `b`.\n",
+        "type": "Equality.Equal a b -> a -> b"
+      },
+      {
+        "name": "inj",
+        "comment": "\nType equalities are injective.\n\nIf we know `a` is equal to `c`, and if we know `b` is equal to `c`,\nthen we also know `a` is equal to `b`.\n",
+        "type": "Equality.Equal a c -> Equality.Equal b c -> Equality.Equal a b"
+      },
+      {
+        "name": "refl",
+        "comment": "\nType equalities are reflexive.\n\nTrivially, every type is equal to itself.\n",
+        "type": "Equality.Equal a a"
+      },
+      {
+        "name": "symm",
+        "comment": "\nType equalities are symmetric.\n\nIf we know `a` is equal to `b`, then we also know `b` is equal to `a`.\n",
+        "type": "Equality.Equal a b -> Equality.Equal b a"
+      },
+      {
+        "name": "symmCast",
+        "comment": "\nIf we know that `a` is equal to `b`, and we have a `b`,\nthen we can get an `a`.\n",
+        "type": "Equality.Equal a b -> b -> a"
+      },
+      {
+        "name": "symmInj",
+        "comment": "\nType equalities are injective in a symmetric way.\n\nIf we know `a` is equal to `b`, and if we know `a` is equal to `c`,\nthen we also know `b` is equal to `c`.\n",
+        "type": "Equality.Equal a b -> Equality.Equal a c -> Equality.Equal b c"
+      },
+      {
+        "name": "trans",
+        "comment": "\nType equalities are transitive.\n\nIf we know `a` is equal to `b`, and if we know `b` is equal to `c`,\nthen we also know `a` is equal to `c`.\n",
+        "type": "Equality.Equal a b -> Equality.Equal b c -> Equality.Equal a c"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Equivalence",
+    "comment": "\nA module providing primitives for proving type equivalence.\n\n@docs Equiv, refl, symm, trans\n",
+    "aliases": [
+      {
+        "name": "Equiv",
+        "comment": "\nWe represent type equivalence by a type isomorphism.\n\nIf we want to say two types are equivalent,\nwe need to provide a way to convert between them.\n\nN.B. This is different from type equality in important ways.\nFor more information, see:\nParametricity, Type Equality and Higher-order Polymorphism (Vytiniotis, Weirich)\nhttp://repository.upenn.edu/cgi/viewcontent.cgi?article=1675&context=cis_papers\n",
+        "args": [
+          "a",
+          "b"
+        ],
+        "type": "( a -> b, b -> a )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "refl",
+        "comment": "\nType equivalences are reflexive.\n\nEvery type is equivalent to itself.\n\nThat is to say:\n`Int` is equivalent to `Int`,\n`Maybe a` is equivalent to `Maybe a`,\nand so on.\n",
+        "type": "Equivalence.Equiv a a"
+      },
+      {
+        "name": "symm",
+        "comment": "\nType equivalences are symmetric.\n\nIf we know `a` is equivalent to `b`, then we also know `b` is equivalent to `a`.\n",
+        "type": "Equivalence.Equiv a b -> Equivalence.Equiv b a"
+      },
+      {
+        "name": "trans",
+        "comment": "\nType equivalences are transitive.\n\nIf we know `a` is equivalent to `b`, and if we know `b` is equivalent to `c`,\nthen we also know `a` is equivalent to `c`.\n",
+        "type": "Equivalence.Equiv a b -> Equivalence.Equiv b c -> Equivalence.Equiv a c"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]
