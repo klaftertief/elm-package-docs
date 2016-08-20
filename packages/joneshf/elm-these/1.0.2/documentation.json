@@ -1,0 +1,61 @@
+[
+  {
+    "name": "These",
+    "comment": "\nA type that may be an `a`, a `b`, or both an `a` and a `b` at once.\n\n@docs These, these, mapBoth, mergeWith, merge\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "These",
+        "comment": "\nThis type is very closely related to [Result a b](http://package.elm-lang.org/packages/elm-lang/core/latest/Result#Result).\n\nWhile [Result a b](http://package.elm-lang.org/packages/elm-lang/core/latest/Result#Result)\nmodels exclusive-or, this type models inclusive-or.\n",
+        "args": [
+          "a",
+          "b"
+        ],
+        "cases": [
+          [
+            "This",
+            [
+              "a"
+            ]
+          ],
+          [
+            "That",
+            [
+              "b"
+            ]
+          ],
+          [
+            "These",
+            [
+              "a",
+              "b"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "mapBoth",
+        "comment": "\nThere is only one implementation of this function.\nIt is fully described by the type signature.\n\nReplace any `a`s with `c`s and replace any `b`s with `d`s.\n",
+        "type": "(a -> c) -> (b -> d) -> These.These a b -> These.These c d"
+      },
+      {
+        "name": "merge",
+        "comment": "\nA version of [mergeWith](#mergeWith) that does not modify the `This a` or `That a` values.\n",
+        "type": "(a -> a -> a) -> These.These a a -> a"
+      },
+      {
+        "name": "mergeWith",
+        "comment": "\nSimilar to [these](#these).\n\nThe difference is that in the `These a b` case\nwe apply the second and third functions and merge the results with the first function.\n",
+        "type": "(c -> c -> c) -> (a -> c) -> (b -> c) -> These.These a b -> c"
+      },
+      {
+        "name": "these",
+        "comment": "\nDestroy the structure of a [These a b](#These).\n\nThe first two functions are applied to the `This a` and `That b` values, respectively.\nThe third function is applied to the `These a b` value.\n",
+        "type": "(a -> c) -> (b -> c) -> (a -> b -> c) -> These.These a b -> c"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]

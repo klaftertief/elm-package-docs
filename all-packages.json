@@ -489,6 +489,8 @@
         "name": "SamirTalwar/arborist",
         "summary": "A test framework for asynchronous Elm code.",
         "versions": [
+            "2.1.0",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -936,6 +938,7 @@
         "name": "athanclark/elm-debouncer",
         "summary": "simple method for time-throttling action / message propogation",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.0.0",
             "1.0.1",
@@ -1143,6 +1146,13 @@
             "2.0.1",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "cacay/elm-void",
+        "summary": "The empty type in Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -1491,6 +1501,7 @@
         "name": "damienklinnert/elm-hue",
         "summary": "Control your Philips Hue devices with Elm",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -1596,6 +1607,7 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "7.5.0",
             "7.4.0",
             "7.3.0",
             "7.2.0",
@@ -2410,6 +2422,8 @@
         "name": "fapian/elm-html-aria",
         "summary": "Aria attributes for elm",
         "versions": [
+            "1.1.0",
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -3041,6 +3055,15 @@
         "name": "joneshf/elm-tagged",
         "summary": "A library to help with compile time verification",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "joneshf/elm-these",
+        "summary": "Values that can be one of two types or both at once",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3849,6 +3872,8 @@
         "name": "noahzgordon/elm-jsonapi",
         "summary": "Decoders and helper functions for working with JSONAPI payloads",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -4537,6 +4562,7 @@
         "name": "sporto/erl",
         "summary": "Parse and construct URLs",
         "versions": [
+            "10.0.1",
             "10.0.0",
             "9.0.1",
             "9.0.0",
