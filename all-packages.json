@@ -1108,6 +1108,13 @@
         ]
     },
     {
+        "name": "benansell/elm-geometric-transformation",
+        "summary": "Rotate, Scale, Translate and Shear shapes",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "benthepoet/elm-purecss",
         "summary": "A set of helpers for Pure CSS",
         "versions": [

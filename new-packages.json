@@ -52,6 +52,7 @@
     "avh4/elm-transducers",
     "bardt/elm-rosetree",
     "bartavelle/json-helpers",
+    "benansell/elm-geometric-transformation",
     "benthepoet/elm-purecss",
     "besuikerd/elm-dictset",
     "cacay/elm-void",
