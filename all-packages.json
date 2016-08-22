@@ -277,6 +277,13 @@
         ]
     },
     {
+        "name": "JoeyEremondi/array-multidim",
+        "summary": "Type-safe interface for multi-dimensional, immutable arrays",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "JoeyEremondi/elm-MultiDimArray",
         "summary": "Type-safe interface for multi-dimensional, immutable arrays",
         "versions": [
@@ -300,6 +307,22 @@
         "versions": [
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "JoeyEremondi/safelist",
+        "summary": "Lists which encode their length in the type",
+        "versions": [
+            "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "JoeyEremondi/typenats",
+        "summary": "Synonyms for type-level natural-numbers in Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -1111,6 +1134,7 @@
         "name": "benansell/elm-geometric-transformation",
         "summary": "Rotate, Scale, Translate and Shear shapes",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1801,6 +1825,13 @@
             "2.0.0",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/elm-function-extra",
+        "summary": "Higher-order helpers for working with functions",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3582,6 +3613,24 @@
         "summary": "Elm library for making ordinal strings (1st 2nd 3rd)",
         "versions": [
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "maksar/elm-function-extra",
+        "summary": "Higher-order helpers for working with functions",
+        "versions": [
+            "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "maksar/elm-workflow",
+        "summary": "Library to demonstrate one of the possible Workflow implementations.",
+        "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
