@@ -241,6 +241,14 @@
         ]
     },
     {
+        "name": "Fresheyeball/perspective",
+        "summary": "Tools for view function composition",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "JOEANDAVERDE/flex-html",
         "summary": "Flexbox layout for elm-html (TEMPORARY)",
         "versions": [
@@ -3080,6 +3088,7 @@
         "name": "joneshf/elm-proof",
         "summary": "Prove properties about elm programs at compile-time.",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.2",
             "1.0.1",
