@@ -1145,6 +1145,7 @@
         "name": "benansell/elm-geometric-transformation",
         "summary": "Rotate, Scale, Translate and Shear shapes",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
