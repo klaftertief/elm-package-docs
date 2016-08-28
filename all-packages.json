@@ -1020,6 +1020,13 @@
         ]
     },
     {
+        "name": "athanclark/elm-param-parsing-2",
+        "summary": "Alternative to elm-param-parsing",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "athanclark/elm-threading",
         "summary": "Simple method for managing asynchronous ports",
         "versions": [
@@ -1698,6 +1705,15 @@
         ]
     },
     {
+        "name": "doodledood/elm-split-pane",
+        "summary": "Split pane for elm.",
+        "versions": [
+            "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "dustinspecker/capitalize-word",
         "summary": "Capitalize a word",
         "versions": [
@@ -1807,6 +1823,7 @@
         "name": "elm-community/basics-extra",
         "summary": "Additional basic functions",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -4162,6 +4179,13 @@
         ]
     },
     {
+        "name": "r31gN/elm-dropdown",
+        "summary": "Elm dropdown component",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "rainteller/elm-capitalize",
         "summary": "Capitalize a string.",
         "versions": [
@@ -5217,6 +5241,15 @@
     {
         "name": "xarvh/elm-slides",
         "summary": "Awesome presentation framework to create your slides in Elm",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "yotamDvir/elm-pivot",
+        "summary": "Pivot: a list with a cursor pointing at the center, like a zipper.",
         "versions": [
             "1.0.2",
             "1.0.1",

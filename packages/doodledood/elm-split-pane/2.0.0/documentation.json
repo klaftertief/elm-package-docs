@@ -1,0 +1,192 @@
+[
+  {
+    "name": "SplitPane",
+    "comment": "\n\nThis is a split pane view library. Can be used to split views into multiple parts with a splitter between them.\n\nCheck out the [examples][] to see how it works.\n\n[examples]: https://github.com/doodledood/elm-split-pane/tree/master/examples\n\n# View\n\n@docs view\n\n# Model\n\n@docs Model, Orientation, Px, Size\n\n# Init\n\n@docs init\n\n# Update\n\n@docs update, WhatHappened, Msg\n\n# Subscriptions\n\n@docs subscriptions\n\n# Helpers\nThere are helper functions to help you with modifying and inspecting the state:\n\n## State modification\n\nUse these functions to modify the state of the pane\n\n@docs startAt, draggable, withFirstViewMinSize, withSecondViewMinSize, changeOrientationTo, changeWidth, changeHeight, moveSplitterTo\n\n## Inspecting the pane's state\n\nUse these functions to inspect the state\n\n@docs splitterPosition, width, height, orientation\n\n# Customization\n\nApart for the simple view, there is a way to provide your own custom splitter:\n\n@docs viewWithCustomSplitter, customSplitter, CustomSplitter, HtmlDetails\n\n",
+    "aliases": [
+      {
+        "name": "HtmlDetails",
+        "comment": " Lets you specify attributes such as style and children for the splitter element\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ attributes : List (Html.Attribute msg) , children : List (Html.Html msg) }"
+      },
+      {
+        "name": "Px",
+        "comment": " Size in pixels.\n",
+        "args": [],
+        "type": "Int"
+      }
+    ],
+    "types": [
+      {
+        "name": "CustomSplitter",
+        "comment": " Decribes a custom splitter\n",
+        "args": [
+          "msg"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Model",
+        "comment": " Tracks state of pane.\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Msg",
+        "comment": " Used to track SplitterMoves.\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Orientation",
+        "comment": " Orientation of pane.\n",
+        "args": [],
+        "cases": [
+          [
+            "Horizontal",
+            []
+          ],
+          [
+            "Vertical",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Size",
+        "comment": " Size in either pixels or percentage.\n",
+        "args": [],
+        "cases": [
+          [
+            "Px",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "Percentage",
+            [
+              "Float"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "WhatHappened",
+        "comment": " Describes what happened. (after update)\n",
+        "args": [],
+        "cases": [
+          [
+            "ResizeStarted",
+            []
+          ],
+          [
+            "Resized",
+            [
+              "SplitPane.Px"
+            ]
+          ],
+          [
+            "ResizeEnded",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "changeHeight",
+        "comment": " Change the height of the pane.\n\n        newModel = model.pane |> changeHeight 400\n",
+        "type": "SplitPane.Px -> SplitPane.Model -> SplitPane.Model"
+      },
+      {
+        "name": "changeOrientationTo",
+        "comment": " Set the orientation of the pane.\n\n        SplitPane.init\n            { paneWidth = 800\n            , paneHeight = 600\n            }\n            |> changeOrientationTo Vertical\n",
+        "type": "SplitPane.Orientation -> SplitPane.Model -> SplitPane.Model"
+      },
+      {
+        "name": "changeWidth",
+        "comment": " Change the width of the pane.\n\n        newModel = model.pane |> changeWidth 600\n",
+        "type": "SplitPane.Px -> SplitPane.Model -> SplitPane.Model"
+      },
+      {
+        "name": "customSplitter",
+        "comment": " Creates a custom splitter.\n\n        myCustomSplitter : CustomSplitter Msg\n        myCustomSplitter =\n            customSplitter PaneMsg\n                { attributes =\n                    [ style\n                        [ ( \"width\", \"20px\" )\n                        , ( \"height\", \"20px\" )\n                        ]\n                    ]\n                , children =\n                    []\n                }\n",
+        "type": "(SplitPane.Msg -> msg) -> SplitPane.HtmlDetails msg -> SplitPane.CustomSplitter msg"
+      },
+      {
+        "name": "draggable",
+        "comment": " Make pane splitter draggable or not\n\n        SplitPane.init\n            { paneWidth = 800\n            , paneHeight = 600\n            }\n            |> draggable False\n",
+        "type": "Bool -> SplitPane.Model -> SplitPane.Model"
+      },
+      {
+        "name": "height",
+        "comment": " Retrieves current height of the pane from the model.\n",
+        "type": "SplitPane.Model -> SplitPane.Px"
+      },
+      {
+        "name": "init",
+        "comment": " Initialize a new model.\n\n        init\n            { paneWidth = 600\n            , paneHeight = 600\n            }\n",
+        "type": "{ a | paneHeight : SplitPane.Px, paneWidth : SplitPane.Px } -> SplitPane.Model"
+      },
+      {
+        "name": "moveSplitterTo",
+        "comment": " Moves the splitter to the requested location (relative to the edge of the pane)\n\n        SplitPane.init\n            { paneWidth = 800\n            , paneHeight = 600\n            }\n            |> moveSplitterTo (Percentage 0.33)\n",
+        "type": "SplitPane.Size -> SplitPane.Model -> SplitPane.Model"
+      },
+      {
+        "name": "orientation",
+        "comment": " Retrieves current orientation of the pane from the model.\n",
+        "type": "SplitPane.Model -> SplitPane.Orientation"
+      },
+      {
+        "name": "splitterPosition",
+        "comment": " Retrieves current splitter position in pixels from the model (relative to the edge of the pane).\n",
+        "type": "SplitPane.Model -> SplitPane.Px"
+      },
+      {
+        "name": "startAt",
+        "comment": " Sets the starting position for the splitter (relative to the edge of the pane).\n\n        SplitPane.init\n            { paneWidth = 800\n            , paneHeight = 600\n            }\n            |> startAt 300\n",
+        "type": "SplitPane.Size -> SplitPane.Model -> SplitPane.Model"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Subscribes to relevant events for resizing\n",
+        "type": "SplitPane.Model -> Platform.Sub.Sub SplitPane.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " Updates internal model.\n",
+        "type": "SplitPane.Msg -> SplitPane.Model -> ( SplitPane.Model, Maybe.Maybe SplitPane.WhatHappened )"
+      },
+      {
+        "name": "view",
+        "comment": " Default pane with two views\n\n        view : Model -> Html Msg\n        view model =\n            SplitPane.view PaneMsg firstView secondView model.pane\n\n\n        firstView : Html a\n        firstView =\n            img [ src \"http://4.bp.blogspot.com/-s3sIvuCfg4o/VP-82RkCOGI/AAAAAAAALSY/509obByLvNw/s1600/baby-cat-wallpaper.jpg\" ] []\n\n\n        secondView : Html a\n        secondView =\n            img [ src \"http://2.bp.blogspot.com/-pATX0YgNSFs/VP-82AQKcuI/AAAAAAAALSU/Vet9e7Qsjjw/s1600/Cat-hd-wallpapers.jpg\" ] []\n",
+        "type": "(SplitPane.Msg -> msg) -> Html.Html msg -> Html.Html msg -> SplitPane.Model -> Html.Html msg"
+      },
+      {
+        "name": "viewWithCustomSplitter",
+        "comment": " A pane with custom splitter.\n\n        view : Model -> Html Msg\n        view =\n            SplitPane.viewWithCustomSplitter myCustomSplitter firstView secondView\n\n\n        myCustomSplitter : CustomSplitter Msg\n        myCustomSplitter =\n            customSplitter PaneMsg\n                { attributes =\n                    [ style\n                        [ ( \"width\", \"20px\" )\n                        , ( \"height\", \"20px\" )\n                        ]\n                    ]\n                , children =\n                    []\n                }\n\n        firstView : Html a\n        firstView =\n            img [ src \"http://4.bp.blogspot.com/-s3sIvuCfg4o/VP-82RkCOGI/AAAAAAAALSY/509obByLvNw/s1600/baby-cat-wallpaper.jpg\" ] []\n\n\n        secondView : Html a\n        secondView =\n            img [ src \"http://2.bp.blogspot.com/-pATX0YgNSFs/VP-82AQKcuI/AAAAAAAALSU/Vet9e7Qsjjw/s1600/Cat-hd-wallpapers.jpg\" ] []\n",
+        "type": "SplitPane.CustomSplitter msg -> Html.Html msg -> Html.Html msg -> SplitPane.Model -> Html.Html msg"
+      },
+      {
+        "name": "width",
+        "comment": " Retrieves current width of the pane from the model.\n",
+        "type": "SplitPane.Model -> SplitPane.Px"
+      },
+      {
+        "name": "withFirstViewMinSize",
+        "comment": " Set minimum size for the first view.\n    When the pane is horizontal, this is the left view.\n    When the pane is vertical, this is the top view.\n\n        SplitPane.init\n            { paneWidth = 800\n            , paneHeight = 600\n            }\n            |> withFirstViewMinSize (Percentage 0.2)\n",
+        "type": "SplitPane.Size -> SplitPane.Model -> SplitPane.Model"
+      },
+      {
+        "name": "withSecondViewMinSize",
+        "comment": " Set minimum size for the second view.\n    When the pane is horizontal, this is the right view.\n    When the pane is vertical, this is the bottom view.\n\n        SplitPane.init\n            { paneWidth = 800\n            , paneHeight = 600\n            }\n            |> withSecondViewMinSize (Px 100)\n",
+        "type": "SplitPane.Size -> SplitPane.Model -> SplitPane.Model"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]

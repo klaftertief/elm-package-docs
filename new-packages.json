@@ -48,6 +48,7 @@
     "athanclark/elm-discrete-transition",
     "athanclark/elm-duration",
     "athanclark/elm-every",
+    "athanclark/elm-param-parsing-2",
     "athanclark/elm-threading",
     "avh4/elm-diff",
     "avh4/elm-fifo",
@@ -77,6 +78,7 @@
     "debois/elm-mdl",
     "debois/elm-parts",
     "dhruvin2910/elm-css",
+    "doodledood/elm-split-pane",
     "eeue56/elm-all-dict",
     "eeue56/elm-default-dict",
     "eeue56/elm-flat-matrix",
@@ -233,6 +235,7 @@
     "project-fuzzball/test-runner",
     "prozacchiwawa/effmodel",
     "pukkamustard/elm-identicon",
+    "r31gN/elm-dropdown",
     "rainteller/elm-capitalize",
     "rgrempel/elm-http-decorators",
     "rgrempel/elm-route-url",
@@ -283,5 +286,6 @@
     "willnwhite/bigratio",
     "wuct/elm-charts",
     "xarvh/elm-slides",
+    "yotamDvir/elm-pivot",
     "zaidan/elm-collision"
 ]
