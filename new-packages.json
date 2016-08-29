@@ -222,6 +222,7 @@
     "ndr-qef/microkanren.elm",
     "newlandsvalley/elm-comidi",
     "noahzgordon/elm-jsonapi",
+    "noahzgordon/elm-jsonapi-http",
     "nphollon/collision",
     "ohanhi/keyboard-extra",
     "ondras/elm-irc",

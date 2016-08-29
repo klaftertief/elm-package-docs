@@ -3969,6 +3969,14 @@
         ]
     },
     {
+        "name": "noahzgordon/elm-jsonapi-http",
+        "summary": "HTTP server negotiation for JSON API-compliant servers.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "nphollon/collision",
         "summary": "3D collision detection using OBBTree algorithm",
         "versions": [
