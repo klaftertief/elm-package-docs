@@ -3030,6 +3030,14 @@
         ]
     },
     {
+        "name": "john-kelly/elm-rest",
+        "summary": "REST client library",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "johnpmayer/elm-linear-algebra",
         "summary": "A linear algebra library for fast vector and matrix math",
         "versions": [
@@ -3972,6 +3980,7 @@
         "name": "noahzgordon/elm-jsonapi-http",
         "summary": "HTTP server negotiation for JSON API-compliant servers.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -4854,6 +4863,13 @@
             "1.2.0",
             "1.1.1",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "tortus/elm-array-2d",
+        "summary": "2D Array library for Elm",
+        "versions": [
             "1.0.0"
         ]
     },
