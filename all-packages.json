@@ -3032,8 +3032,9 @@
     },
     {
         "name": "john-kelly/elm-rest",
-        "summary": "DEPRECATED: Renamed to http://package.elm-lang.org/john-kelly/query",
+        "summary": "DEPRECATED: Renamed to http://package.elm-lang.org/john-kelly/elm-query",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -3161,6 +3162,14 @@
         "versions": [
             "2.1.0",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jtojnar/elm-json-tape",
+        "summary": "Serialisation of directory trees into JSON.",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -4494,6 +4503,7 @@
         "name": "rtfeldman/node-test-runner",
         "summary": "Run elm-test suites in a Node.js CLI. Get it with npm install -g elm-test",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -4502,6 +4512,14 @@
         "name": "sawaken-experiment/elm-lisp-parser",
         "summary": "simple lisp-syntax parser",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "scottcorgan/elm-css-normalize",
+        "summary": "A port of normalize.css for elm-css",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -4855,6 +4873,7 @@
         "name": "toastal/either",
         "summary": "A more complete Either for representing a structure with two types",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -5262,6 +5281,7 @@
         "name": "willnwhite/bigratio",
         "summary": "A ratio type for working with big rational numbers",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.0"
         ]
