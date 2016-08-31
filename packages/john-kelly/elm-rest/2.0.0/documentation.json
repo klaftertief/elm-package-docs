@@ -1,0 +1,386 @@
+[
+  {
+    "name": "Rest.Adapters",
+    "comment": " Rest.Adapters\n# Adapters\n@docs postgRest\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "postgRest",
+        "comment": " ",
+        "type": "Rest.Types.RestRequest schema -> Http.Request"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Rest",
+    "comment": " DEPRECATED: Renamed to http://package.elm-lang.org/john-kelly/query\n# Types\n@docs Resource, Property, RestRequest, Filter, OrderBy\n# Functions\n@docs resource, property, nested, read, send, select, filter, like, eq, gte, gt, lte, lt, neq, ilike, in', notin, is, isnot, contains, not', order, asc, desc, paginate, offset, limit, singular, count\n",
+    "aliases": [
+      {
+        "name": "Filter",
+        "comment": " ",
+        "args": [],
+        "type": "Rest.Types.Filter"
+      },
+      {
+        "name": "OrderBy",
+        "comment": " ",
+        "args": [],
+        "type": "Rest.Types.OrderBy"
+      },
+      {
+        "name": "Property",
+        "comment": " ",
+        "args": [],
+        "type": "Rest.Types.Property"
+      },
+      {
+        "name": "Resource",
+        "comment": " ",
+        "args": [
+          "schema"
+        ],
+        "type": "Rest.Types.Resource schema"
+      },
+      {
+        "name": "RestRequest",
+        "comment": " ",
+        "args": [
+          "schema"
+        ],
+        "type": "Rest.Types.RestRequest schema"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "asc",
+        "comment": " ",
+        "type": "(schema -> Rest.Property) -> schema -> Rest.OrderBy"
+      },
+      {
+        "name": "contains",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "count",
+        "comment": " ",
+        "type": "Rest.RestRequest schema -> Rest.RestRequest schema"
+      },
+      {
+        "name": "desc",
+        "comment": " ",
+        "type": "(schema -> Rest.Property) -> schema -> Rest.OrderBy"
+      },
+      {
+        "name": "eq",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "filter",
+        "comment": " ",
+        "type": "List (schema -> Rest.Filter) -> Rest.RestRequest schema -> Rest.RestRequest schema"
+      },
+      {
+        "name": "gt",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "gte",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "ilike",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "in'",
+        "comment": " ",
+        "type": "List String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "is",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "isnot",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "like",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "limit",
+        "comment": " ",
+        "type": "List ( Rest.Resource schema, Int ) -> Rest.RestRequest schema -> Rest.RestRequest schema"
+      },
+      {
+        "name": "lt",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "lte",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "neq",
+        "comment": " ",
+        "type": "String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "nested",
+        "comment": " ",
+        "type": "Rest.Resource schema1 -> List (schema1 -> Rest.Property) -> schema2 -> Rest.Property"
+      },
+      {
+        "name": "not'",
+        "comment": " ",
+        "type": "(a -> (schema -> Rest.Property) -> schema -> Rest.Filter) -> a -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "notin",
+        "comment": " ",
+        "type": "List String -> (schema -> Rest.Property) -> schema -> Rest.Filter"
+      },
+      {
+        "name": "offset",
+        "comment": " ",
+        "type": "Int -> Rest.RestRequest schema -> Rest.RestRequest schema"
+      },
+      {
+        "name": "order",
+        "comment": " ",
+        "type": "List (schema -> Rest.OrderBy) -> Rest.RestRequest schema -> Rest.RestRequest schema"
+      },
+      {
+        "name": "paginate",
+        "comment": " ",
+        "type": "Int -> Int -> Rest.RestRequest schema -> Rest.RestRequest schema"
+      },
+      {
+        "name": "property",
+        "comment": " ",
+        "type": "String -> Rest.Property"
+      },
+      {
+        "name": "read",
+        "comment": " ",
+        "type": "String -> Rest.Resource schema -> Rest.RestRequest schema"
+      },
+      {
+        "name": "resource",
+        "comment": " ",
+        "type": "String -> schema -> Rest.Resource schema"
+      },
+      {
+        "name": "select",
+        "comment": " ",
+        "type": "List (schema -> Rest.Property) -> Rest.RestRequest schema -> Rest.RestRequest schema"
+      },
+      {
+        "name": "send",
+        "comment": " ",
+        "type": "(Rest.RestRequest schema -> Http.Request) -> Http.Settings -> Rest.RestRequest schema -> Task.Task Http.RawError Http.Response"
+      },
+      {
+        "name": "singular",
+        "comment": " ",
+        "type": "Rest.RestRequest schema -> Rest.RestRequest schema"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Rest.Types",
+    "comment": " Rest.Types\n# Types\n@docs Resource, Property, RestRequest, Condition, Filter, OrderBy\n# Functions\n@docs unwrapResource, unwrapRestRequest\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Condition",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "LikeFilter",
+            [
+              "Rest.Types.Property",
+              "String"
+            ]
+          ],
+          [
+            "ILikeFilter",
+            [
+              "Rest.Types.Property",
+              "String"
+            ]
+          ],
+          [
+            "EqFilter",
+            [
+              "Rest.Types.Property",
+              "String"
+            ]
+          ],
+          [
+            "GteFilter",
+            [
+              "Rest.Types.Property",
+              "String"
+            ]
+          ],
+          [
+            "GtFilter",
+            [
+              "Rest.Types.Property",
+              "String"
+            ]
+          ],
+          [
+            "LteFilter",
+            [
+              "Rest.Types.Property",
+              "String"
+            ]
+          ],
+          [
+            "LtFilter",
+            [
+              "Rest.Types.Property",
+              "String"
+            ]
+          ],
+          [
+            "InFilter",
+            [
+              "Rest.Types.Property",
+              "List String"
+            ]
+          ],
+          [
+            "IsFilter",
+            [
+              "Rest.Types.Property",
+              "String"
+            ]
+          ],
+          [
+            "ContainsFilter",
+            [
+              "Rest.Types.Property",
+              "String"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Filter",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Filter",
+            [
+              "Bool",
+              "Rest.Types.Condition"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "OrderBy",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Ascending",
+            [
+              "Rest.Types.Property"
+            ]
+          ],
+          [
+            "Descending",
+            [
+              "Rest.Types.Property"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Property",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "SimpleProperty",
+            [
+              "String"
+            ]
+          ],
+          [
+            "NestedResource",
+            [
+              "String",
+              "List Rest.Types.Property"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Resource",
+        "comment": " ",
+        "args": [
+          "schema"
+        ],
+        "cases": [
+          [
+            "Resource",
+            [
+              "String",
+              "schema"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "RestRequest",
+        "comment": " ",
+        "args": [
+          "schema"
+        ],
+        "cases": [
+          [
+            "RestRequest",
+            [
+              "{ properties : List Rest.Types.Property , filters : List Rest.Types.Filter , orders : List Rest.Types.OrderBy , limits : List ( Rest.Types.Resource schema, Int ) , offset : Int , singular : Bool , suppressCount : Bool , verb : String , resource : Rest.Types.Resource schema , url : String }"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "unwrapResource",
+        "comment": " helper to assist with opaque Resource type\n",
+        "type": "Rest.Types.Resource schema -> ( String, schema )"
+      },
+      {
+        "name": "unwrapRestRequest",
+        "comment": " helper to assist with opaque RestRequest type\n",
+        "type": "Rest.Types.RestRequest schema -> { properties : List Rest.Types.Property , filters : List Rest.Types.Filter , orders : List Rest.Types.OrderBy , limits : List ( Rest.Types.Resource schema, Int ) , offset : Int , singular : Bool , suppressCount : Bool , verb : String , resource : Rest.Types.Resource schema , url : String }"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]

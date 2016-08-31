@@ -2224,6 +2224,7 @@
         "name": "eskimoblood/elm-color-extra",
         "summary": "Additional color handling for Elm",
         "versions": [
+            "3.1.0",
             "3.0.4",
             "3.0.3",
             "3.0.2",
@@ -3031,8 +3032,9 @@
     },
     {
         "name": "john-kelly/elm-rest",
-        "summary": "REST client library",
+        "summary": "DEPRECATED: Renamed to http://package.elm-lang.org/john-kelly/query",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -3208,6 +3210,7 @@
         "name": "jweir/elm-iso8601",
         "summary": "Pure Elm time parsing and handling for IS8601 based time.",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.1.1",
             "2.1.0",
@@ -4849,6 +4852,14 @@
         ]
     },
     {
+        "name": "toastal/either",
+        "summary": "A more complete Either for representing a structure with two types",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "tomjkidd/elm-multiway-tree-zipper",
         "summary": "A library for navigating and updating immutable trees.",
         "versions": [
@@ -5276,6 +5287,7 @@
         "name": "yotamDvir/elm-pivot",
         "summary": "Pivot: a list with a cursor pointing at the center, like a zipper.",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
