@@ -184,6 +184,7 @@
     "jtojnar/elm-json-tape",
     "justinmimbs/elm-date-extra",
     "jvoigtlaender/elm-memo",
+    "jvoigtlaender/elm-warshall",
     "jweir/elm-iso8601",
     "jystic/elm-font-awesome",
     "knledg/touch-events",
