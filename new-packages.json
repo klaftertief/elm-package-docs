@@ -183,6 +183,7 @@
     "joneshf/elm-these",
     "jtojnar/elm-json-tape",
     "justinmimbs/elm-date-extra",
+    "jvoigtlaender/elm-gauss",
     "jvoigtlaender/elm-memo",
     "jvoigtlaender/elm-warshall",
     "jweir/elm-iso8601",

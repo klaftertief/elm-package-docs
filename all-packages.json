@@ -3211,6 +3211,13 @@
         ]
     },
     {
+        "name": "jvoigtlaender/elm-gauss",
+        "summary": "The Gauss and Gauss-Jordan Elimination Algorithms",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jvoigtlaender/elm-memo",
         "summary": "Most basic memoization functionality",
         "versions": [
