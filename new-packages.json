@@ -263,6 +263,8 @@
     "rtfeldman/legacy-elm-test",
     "rtfeldman/node-test-runner",
     "scottcorgan/elm-css-normalize",
+    "scottcorgan/elm-css-reset",
+    "scottcorgan/elm-html-template",
     "seanhess/elm-style",
     "sgraf812/elm-graph",
     "sgraf812/elm-intdict",
