@@ -172,6 +172,7 @@
     "javcasas/elm-integer",
     "jergason/elm-hash",
     "jinjor/elm-diff",
+    "jinjor/elm-html-parser",
     "jinjor/elm-inline-hover",
     "jinjor/elm-time-travel",
     "john-kelly/elm-rest",

@@ -2983,6 +2983,15 @@
         ]
     },
     {
+        "name": "jinjor/elm-html-parser",
+        "summary": "Parse HTML in Elm!",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jinjor/elm-inline-hover",
         "summary": "An utility for using :hover by inline style",
         "versions": [
