@@ -1614,6 +1614,7 @@
         "name": "danyx23/elm-uuid",
         "summary": "Create UUIDs (Version 4) - 128 bit pseudo-random identifiers",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.2",
             "1.0.1",
@@ -1943,8 +1944,9 @@
     },
     {
         "name": "elm-community/elm-test",
-        "summary": "Unit testing support with Console/Html/String outputs.",
+        "summary": "Unit and Fuzz testing support with Console/Html/String outputs.",
         "versions": [
+            "2.1.0",
             "2.0.1",
             "2.0.0",
             "1.1.0",
