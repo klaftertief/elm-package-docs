@@ -3532,6 +3532,13 @@
         ]
     },
     {
+        "name": "ktonon/elm-child-update",
+        "summary": "Delegates update messages to one or many children",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "laszlopandy/elm-console",
         "summary": "Reading and writing from the console in Node",
         "versions": [
@@ -4058,6 +4065,14 @@
         "versions": [
             "2.0.0",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "nphollon/geo3d",
+        "summary": "Vectors and Quaternions for 3D Geometry",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
