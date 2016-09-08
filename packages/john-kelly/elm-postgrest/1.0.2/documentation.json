@@ -1,0 +1,172 @@
+[
+  {
+    "name": "PostgRest.Infix",
+    "comment": " PostgREST Infix Operators\n@docs (.)\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": ".",
+        "comment": " ",
+        "type": "PostgRest.Query s -> a -> PostgRest.Field"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "PostgRest",
+    "comment": " PostgREST Query Builder!\n@docs Schema, Query, Field, OrderBy, Filter, Settings, defaultSettings, schema, field, query, subQuery, select, order, filter, like, eq, gte, gt, lte, lt, ilike, in', is, not', asc, desc, postgRest\n",
+    "aliases": [
+      {
+        "name": "Settings",
+        "comment": " ",
+        "args": [],
+        "type": "{ count : Bool , singular : Bool , limit : Maybe.Maybe Int , offset : Maybe.Maybe Int }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Field",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Filter",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "OrderBy",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Query",
+        "comment": " ",
+        "args": [
+          "s"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Schema",
+        "comment": " ",
+        "args": [
+          "s"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "asc",
+        "comment": " ",
+        "type": "(s -> PostgRest.Field) -> s -> PostgRest.OrderBy"
+      },
+      {
+        "name": "defaultSettings",
+        "comment": " ",
+        "type": "PostgRest.Settings"
+      },
+      {
+        "name": "desc",
+        "comment": " ",
+        "type": "(s -> PostgRest.Field) -> s -> PostgRest.OrderBy"
+      },
+      {
+        "name": "eq",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "field",
+        "comment": " ",
+        "type": "String -> PostgRest.Field"
+      },
+      {
+        "name": "filter",
+        "comment": " ",
+        "type": "List (s -> PostgRest.Filter) -> PostgRest.Query s -> PostgRest.Query s"
+      },
+      {
+        "name": "gt",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "gte",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "ilike",
+        "comment": " ",
+        "type": "String -> (s -> PostgRest.Field) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "in'",
+        "comment": " ",
+        "type": "List a -> (s -> PostgRest.Field) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "is",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "like",
+        "comment": " ",
+        "type": "String -> (s -> PostgRest.Field) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "lt",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "lte",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "not'",
+        "comment": " ",
+        "type": "(a -> (s -> PostgRest.Field) -> s -> PostgRest.Filter) -> a -> (s -> PostgRest.Field) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "order",
+        "comment": " ",
+        "type": "List (s -> PostgRest.OrderBy) -> PostgRest.Query s -> PostgRest.Query s"
+      },
+      {
+        "name": "postgRest",
+        "comment": " ",
+        "type": "String -> PostgRest.Settings -> PostgRest.Query s -> Http.Request"
+      },
+      {
+        "name": "query",
+        "comment": " ",
+        "type": "PostgRest.Schema s -> PostgRest.Query s"
+      },
+      {
+        "name": "schema",
+        "comment": " ",
+        "type": "String -> s -> PostgRest.Schema s"
+      },
+      {
+        "name": "select",
+        "comment": " ",
+        "type": "List (s -> PostgRest.Field) -> PostgRest.Query s -> PostgRest.Query s"
+      },
+      {
+        "name": "subQuery",
+        "comment": " ",
+        "type": "PostgRest.Query s -> a -> PostgRest.Field"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]
