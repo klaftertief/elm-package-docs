@@ -2588,8 +2588,9 @@
     },
     {
         "name": "freakingawesome/drunk-label",
-        "summary": "A component which types text to the screen with customizable sobriety.",
+        "summary": "Mistyping as a service",
         "versions": [
+            "2.0.0",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -3442,6 +3443,8 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "25.12.0",
+            "25.11.0",
             "25.10.0",
             "25.9.0",
             "25.8.1",

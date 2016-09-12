@@ -1,0 +1,99 @@
+[
+  {
+    "name": "DrunkLabel",
+    "comment": " Mistyping as a service\n\n# Model\n@docs Model, defaultModel, defaultTypoPool\n\n# Customization\n@docs Msg\n\n# Wiring\n@docs init, update, view, subscriptions\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " Contains the state of this component ",
+        "args": [],
+        "type": "DrunkTyper.Model"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " You can modify the settings and sobriety on the fly by passing these messages in from the parent component.\n\nMost of these messages will cause the typist to backspace all the way to the beginning to start over.\n\n* `SetValue` changes the target value.\n* `SetSobriety` changes the accuracy percentage. It expects a value between 0 and 1.\n* `SetBrashness` changes the confidence level of the typist. The higher the value, the less likely the\ntypist is to realize they made a mistake. It expects a value between 0 and 1.\n* `SetSpeed` changes the min and max delays between each key press.\n* `ShowCursor` changes whether the cursor is visible.\n* `SetCursorBlinkInterval` changes how fast the cursor blinks\n* `SetTypoPool` changes the pool of characters from which typos are pulled\n",
+        "args": [],
+        "cases": [
+          [
+            "SetValue",
+            [
+              "String"
+            ]
+          ],
+          [
+            "SetSobriety",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "SetBrashness",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "SetSpeed",
+            [
+              "Time.Time",
+              "Time.Time"
+            ]
+          ],
+          [
+            "ShowCursor",
+            [
+              "Bool"
+            ]
+          ],
+          [
+            "SetCursorBlinkInterval",
+            [
+              "Time.Time"
+            ]
+          ],
+          [
+            "SetTypoPool",
+            [
+              "Array.Array Char"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultModel",
+        "comment": " Sensible teetotaling defaults ",
+        "type": "DrunkLabel.Model"
+      },
+      {
+        "name": "defaultTypoPool",
+        "comment": " Numbers and basic symbols ",
+        "type": "Array.Array Char"
+      },
+      {
+        "name": "init",
+        "comment": " Wire `init` into the parent components initialization function. Takes a random seed ",
+        "type": "Random.Seed -> ( DrunkLabel.Model, Platform.Cmd.Cmd DrunkLabel.Msg )"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Wiring for the `subscriptions` function ",
+        "type": "DrunkLabel.Model -> Platform.Sub.Sub DrunkLabel.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " Wiring for the `update` function ",
+        "type": "DrunkLabel.Msg -> DrunkLabel.Model -> ( DrunkLabel.Model, Platform.Cmd.Cmd DrunkLabel.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Wiring for the `view` function ",
+        "type": "DrunkLabel.Model -> Html.Html DrunkLabel.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]
