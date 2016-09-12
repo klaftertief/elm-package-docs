@@ -1526,6 +1526,16 @@
         ]
     },
     {
+        "name": "cobalamin/elm-json-extra",
+        "summary": "DEPRECATED: Use http://package.elm-lang.org/elm-community/json-extra instead",
+        "versions": [
+            "2.0.1",
+            "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "cobalamin/history-tree",
         "summary": "A multi-timeline history in the form of a tree structure",
         "versions": [
@@ -1595,6 +1605,7 @@
         "name": "danyx23/elm-dropzone",
         "summary": "Easily allow users to drop files into the browser",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -2009,6 +2020,7 @@
         "name": "elm-community/json-extra",
         "summary": "Convenience functions for working with Json",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -2563,6 +2575,23 @@
         "versions": [
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "folkertdev/svg-path-dsl",
+        "summary": "SVG Path DSL - An Elm DSL for SVG Path elements",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "freakingawesome/drunk-label",
+        "summary": "A component which types text to the screen with customizable sobriety.",
+        "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -3230,6 +3259,13 @@
         "versions": [
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "justinmimbs/elm-date-selector",
+        "summary": "A user interface for selecting dates",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -4067,6 +4103,7 @@
         "name": "noahzgordon/elm-jsonapi",
         "summary": "Decoders and helper functions for working with JSONAPI payloads",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.1",
