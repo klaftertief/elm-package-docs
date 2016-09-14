@@ -4791,6 +4791,7 @@
         "name": "simonh1000/elm-charts",
         "summary": "Bar and pie charts",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.4",
             "1.0.3",
