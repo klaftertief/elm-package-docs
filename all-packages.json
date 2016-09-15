@@ -87,6 +87,7 @@
         "name": "Bogdanp/elm-route",
         "summary": "A route parsing library",
         "versions": [
+            "3.0.3",
             "3.0.2",
             "3.0.1",
             "3.0.0",
@@ -1152,6 +1153,14 @@
         "versions": [
             "1.1.1",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "bcardiff/elm-debounce",
+        "summary": "This modules allows easy usage of debounced events from the view.",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2600,6 +2609,7 @@
         "name": "freakingawesome/drunk-label",
         "summary": "Mistyping as a service",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.0.0",
             "1.1.1",
@@ -3250,6 +3260,14 @@
     {
         "name": "jsanchesleao/elm-assert",
         "summary": "Small assertion and report library",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jschomay/elm-narrative-engine",
+        "summary": "Interactive storytelling framework",
         "versions": [
             "1.0.1",
             "1.0.0"
