@@ -4191,6 +4191,7 @@
         "name": "nphollon/geo3d",
         "summary": "Vectors and Quaternions for 3D Geometry",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -4863,6 +4864,13 @@
     {
         "name": "sindikat/elm-maybe-experimental",
         "summary": "Testing ground for experimental Maybe functions",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "spect88/romkan-elm",
+        "summary": "Converter between Romaji and Kana",
         "versions": [
             "1.0.0"
         ]
