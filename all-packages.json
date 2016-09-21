@@ -381,6 +381,13 @@
         ]
     },
     {
+        "name": "MacCASOutreach/graphicsvg",
+        "summary": "Graphics library for McMaster University CAS Outreach and COMPSCI 1JC3",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "MatthewJohnHeath/elm-fingertree",
         "summary": "A fingertree, priority queue and deque. ",
         "versions": [
@@ -1272,6 +1279,7 @@
         "name": "ccapndave/elm-update-extra",
         "summary": "Convenience functions for working with update in Elm",
         "versions": [
+            "2.3.0",
             "2.2.0",
             "2.1.0",
             "2.0.0",
@@ -3484,6 +3492,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "25.13.0",
             "25.12.0",
             "25.11.0",
             "25.10.0",
