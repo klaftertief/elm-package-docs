@@ -1,0 +1,80 @@
+[
+  {
+    "name": "ChaeTree",
+    "comment": " This library implements [RoseTree](https://en.wikipedia.org/wiki/Rose_tree) related datastructure\nand essential functions for its manipulations. `ChaeTree` (name comes from [Chaenomeles](https://en.wikipedia.org/wiki/Chaenomeles))\ncan be essential structure **for building multi level navigation browser or anything with similar hierarchic structure**.\nUnlike `RoseTree` `ChaeTree` do not have single root node which makes it more *tree like* data structure rather then regular tree.\n`ChaeTree` itself is just list of Nodes where each node is it's own `RoseTree`.\nBeside this every `Node` has its `id` which makes some useful manipulations easier.\n\n# Types\n@docs Id, Node, Tree\n\n# Common Helpers\n@docs toId, createNode, getId, unpack, pushChild, getSubTree\n\n# Common Operations\n@docs push, fromList, subTreeFor\n\n# Examples\nPlease see [example](https://github.com/turboMaCk/ChaeTree/tree/master/examples) implementations to learn more.\n\n",
+    "aliases": [
+      {
+        "name": "Id",
+        "comment": " `Id` is just alias for `String` type\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Tree",
+        "comment": " Tree is just type alias for `List (Node a)`.\nTree is top level datastructure and is defined as:\n",
+        "args": [
+          "a"
+        ],
+        "type": "List (ChaeTree.Node a)"
+      }
+    ],
+    "types": [
+      {
+        "name": "Node",
+        "comment": " Node is single `RoseTree` like type. More `Node`s together create `ChaeTree`.\nThis is how node is defined:\n",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "createNode",
+        "comment": " Create `Node` for given values.\nFirst paramter is function which takes given value and return it's id.\n\n    createNode toId 1 == Node \"1\" 1 []\n    createNode toId { a = \"b\" } == Node \"{ a = \\\"b\\\" }\" { a = \"b\" } []\n    createNode (\\a -> .id a) { id = \"1\" } == Node \"1\" { id = \"1\" } []\n    createNode (\\a -> .id a |> toId ) { id = 1 } == Node \"1\" { id = 1 } []\n",
+        "type": "(a -> ChaeTree.Id) -> a -> ChaeTree.Node a"
+      },
+      {
+        "name": "fromList",
+        "comment": " Build `Tree` from given list of items.\nFirst argument is function from item to `Id/String`.\nSecond argument is function from item to `List Id/List String`.\n\n    items =\n        [ { id = 1, name = \"first\", parentIds = [] }\n        , { id = 2, name = \"child\", parentIds = [1] }\n        , { id = 3, name = \"dep categories\", parentIds = [2] }\n        ]\n\n     itemId item =\n         toId (.id item )\n\n     itemParentIds item =\n         .parentIds item |> List.map toId\n\n     fromList itemId itemParentIds items == [Node \"1\" { id = 1, name = \"first\", parentIds = [] } ([Node \"2\" { id = 2, name = \"child\", parentIds = [1] } ([Node \"3\" { id = 3, name = \"dep categories\", parentIds = [2] } []])])]\n",
+        "type": "(a -> ChaeTree.Id) -> (a -> List ChaeTree.Id) -> List a -> ChaeTree.Tree a"
+      },
+      {
+        "name": "getId",
+        "comment": " Get id of given `Node`.\n\n    getId (createNode toId 1) == \"1\"\n    getId (createNode (\\_ -> \"uid\") { a = \"a\"} ) == \"uid\"\n",
+        "type": "ChaeTree.Node a -> ChaeTree.Id"
+      },
+      {
+        "name": "getSubTree",
+        "comment": " Get child tree of `Node`.\nThis is common way to access sub tree of given node.\n\n    getSubTree (createNode toId 1) == []\n    getSubTree (pushChild toId 2 (createNode toId 1)) == [Node \"2\" 2 []]\n",
+        "type": "ChaeTree.Node a -> ChaeTree.Tree a"
+      },
+      {
+        "name": "push",
+        "comment": " Produce new tree with given item pushed under its parent.\nFirst argument is function from item to `Id/String`.\n\nSecond argument is `Maybe Id` is ether:\n\n- `Nothing` => push to root\n- `Just parentId` => push to sub Tree\n\n    push toId Nothing 1 [] == [Node \"1\" 1 []]\n    push toId (Just (toId 1)) 2 [ createNode toId 1 ] == [Node \"1\" 1 ([Node \"2\" 2 []])]\n",
+        "type": "(a -> ChaeTree.Id) -> Maybe.Maybe ChaeTree.Id -> a -> ChaeTree.Tree a -> ChaeTree.Tree a"
+      },
+      {
+        "name": "pushChild",
+        "comment": " Return `Node` with item add as sub `Node`.\nFirst argument is function from item to `Id/String`.\n\n    pushChild toId 2 (createNode toId 1) == Node \"1\" 1 ([Node \"2\" 2 []])\n    pushChild toId 3 (pushChild toId 2 (createNode toId 1)) == Node \"1\" 1 ([Node \"3\" 3 [],Node \"2\" 2 []])\n",
+        "type": "(a -> ChaeTree.Id) -> a -> ChaeTree.Node a -> ChaeTree.Node a"
+      },
+      {
+        "name": "subTreeFor",
+        "comment": " Returns sub `Tree` and ancestors for given `Id` and `Tree`.\nFirst argument is `Maybe Id` is ether:\n\n- `Nothing` => result is given tree (with empty ancestors `List`).\n- `Just parentId` => result is sub tree for node with `id == parentId`.\n\nReturns tuple containing sub tree and list of ancestors (paratenrs of root `Node`).\n\n    items =\n        [ { id = 1, name = \"first\", parentIds = [] }\n        , { id = 2, name = \"child\", parentIds = [1] }\n        , { id = 3, name = \"dep categories\", parentIds = [2] }\n        ]\n\n     itemId item =\n         toId (.id item )\n\n     itemParentIds item =\n         .parentIds item |> List.map toId\n\n     tree =\n        fromList itemId itemParentIds items\n\n     subtreeFor Nothing tree == ([Node \"1\" { id = 1, name = \"first\", parentIds = [] } ([Node \"2\" { id = 2, name = \"child\", parentIds = [1] } ([Node \"3\" { id = 3, name = \"dep categories\", parentIds = [2] } []])])],[])\n     subtreeFor (Just \"1\") tree == ([Node \"2\" { id = 2, name = \"child\", parentIds = [1] } ([Node \"3\" { id = 3, name = \"dep categories\", parentIds = [2] } []])],[{ id = 1, name = \"first\", parentIds = [] }])\n     subtreeFor (Just \"2\") tree == ([Node \"3\" { id = 3, name = \"dep categories\", parentIds = [2] } []],[{ id = 2, name = \"child\", parentIds = [1] },{ id = 1, name = \"first\", parentIds = [] }])\n",
+        "type": "Maybe.Maybe ChaeTree.Id -> ChaeTree.Tree a -> ( ChaeTree.Tree a, List a )"
+      },
+      {
+        "name": "toId",
+        "comment": " Convert any value to `Id` type.\nThis is just alias for `toString` function.\n\n    toId \"str\" = \"str\"\n    toId 1 = \"1\"\n    toId = \"{ a = \\\"a\\\" }\"\n",
+        "type": "a -> ChaeTree.Id"
+      },
+      {
+        "name": "unpack",
+        "comment": " Turns `Node` back to value it was created from.\n\nThis function provide recommended way to access user space data while working with tree.\n\n    unpack (createNode toId \"Elm\") == \"Elm\"\n    unpack (createNode (\\i -> .id i) { id = \"1\", name = \"Elm\" }) == { id = \"1\", name = \"Elm\" }\n",
+        "type": "ChaeTree.Node a -> a"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]

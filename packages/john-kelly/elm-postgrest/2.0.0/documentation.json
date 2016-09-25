@@ -1,0 +1,165 @@
+[
+  {
+    "name": "PostgRest",
+    "comment": " PostgREST Query Builder!\n@docs field, Field, Resource, Query, Select, OrderBy, Filter, resource, query, include, includeMany, select, order, filter, like, eq, gte, gt, lte, lt, ilike, in', is, not', asc, desc, list, retrieve\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Field",
+        "comment": " ",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Filter",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "OrderBy",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Query",
+        "comment": " ",
+        "args": [
+          "s",
+          "r"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Resource",
+        "comment": " ",
+        "args": [
+          "shape"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Select",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "asc",
+        "comment": " ",
+        "type": "(s -> PostgRest.Field a) -> s -> PostgRest.OrderBy"
+      },
+      {
+        "name": "desc",
+        "comment": " ",
+        "type": "(s -> PostgRest.Field a) -> s -> PostgRest.OrderBy"
+      },
+      {
+        "name": "eq",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field a) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "field",
+        "comment": " ",
+        "type": "String -> Json.Decode.Decoder a -> PostgRest.Field a"
+      },
+      {
+        "name": "filter",
+        "comment": " ",
+        "type": "List (s -> PostgRest.Filter) -> PostgRest.Query s r -> PostgRest.Query s r"
+      },
+      {
+        "name": "gt",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field a) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "gte",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field a) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "ilike",
+        "comment": " ",
+        "type": "String -> (s -> PostgRest.Field String) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "in'",
+        "comment": " ",
+        "type": "List a -> (s -> PostgRest.Field a) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "include",
+        "comment": " ",
+        "type": "PostgRest.Query s2 a -> PostgRest.Query s1 (a -> b) -> PostgRest.Query s1 b"
+      },
+      {
+        "name": "includeMany",
+        "comment": " ",
+        "type": "Maybe.Maybe Int -> PostgRest.Query s2 a -> PostgRest.Query s1 (List a -> b) -> PostgRest.Query s1 b"
+      },
+      {
+        "name": "is",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field a) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "like",
+        "comment": " ",
+        "type": "String -> (s -> PostgRest.Field String) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "list",
+        "comment": " ",
+        "type": "Maybe.Maybe Int -> String -> PostgRest.Query s r -> Task.Task Http.Error (List r)"
+      },
+      {
+        "name": "lt",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field a) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "lte",
+        "comment": " ",
+        "type": "a -> (s -> PostgRest.Field a) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "not'",
+        "comment": " ",
+        "type": "(a -> (s -> PostgRest.Field a) -> s -> PostgRest.Filter) -> a -> (s -> PostgRest.Field a) -> s -> PostgRest.Filter"
+      },
+      {
+        "name": "order",
+        "comment": " ",
+        "type": "List (s -> PostgRest.OrderBy) -> PostgRest.Query s r -> PostgRest.Query s r"
+      },
+      {
+        "name": "query",
+        "comment": " ",
+        "type": "PostgRest.Resource s -> (a -> r) -> PostgRest.Query s (a -> r)"
+      },
+      {
+        "name": "resource",
+        "comment": " ",
+        "type": "String -> s -> PostgRest.Resource s"
+      },
+      {
+        "name": "retrieve",
+        "comment": " ",
+        "type": "String -> PostgRest.Query s r -> Task.Task Http.Error r"
+      },
+      {
+        "name": "select",
+        "comment": " ",
+        "type": "(s -> PostgRest.Field a) -> PostgRest.Query s (a -> b) -> PostgRest.Query s b"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]

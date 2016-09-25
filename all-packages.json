@@ -253,6 +253,13 @@
         ]
     },
     {
+        "name": "Fresheyeball/sprite",
+        "summary": "Simple sprite rendering for elm-html",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "JOEANDAVERDE/flex-html",
         "summary": "Flexbox layout for elm-html (TEMPORARY)",
         "versions": [
@@ -1571,6 +1578,13 @@
             "2.1.0",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "cobalamin/safe-int",
+        "summary": "Explicitly representing invalid `Int` values in Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3143,6 +3157,7 @@
         "name": "john-kelly/elm-postgrest",
         "summary": "PostgREST Query Builder",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -4125,6 +4140,15 @@
         ]
     },
     {
+        "name": "mpizenberg/elm-image-collection",
+        "summary": "Managing a collection of images",
+        "versions": [
+            "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "mukeshsoni/elm-rope",
         "summary": "Rope data structure to store operate on large strings, implemented in elm",
         "versions": [
@@ -4204,6 +4228,10 @@
         "name": "nphollon/geo3d",
         "summary": "Vectors and Quaternions for 3D Geometry",
         "versions": [
+            "2.0.4",
+            "2.0.3",
+            "2.0.2",
+            "2.0.1",
             "2.0.0",
             "1.1.0",
             "1.0.1",
@@ -5099,6 +5127,7 @@
         "name": "toastal/either",
         "summary": "A more complete Either for representing a structure with two types",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -5135,6 +5164,7 @@
         "name": "tripokey/elm-fuzzy",
         "summary": "A library for fuzzy string matching",
         "versions": [
+            "5.0.2",
             "5.0.1",
             "5.0.0",
             "4.0.1",
@@ -5172,6 +5202,14 @@
         "summary": "Evaluating mustache templates",
         "versions": [
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "turbomack/chaetree",
+        "summary": "RoseTree like datastructure for building multi level menus",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
