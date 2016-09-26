@@ -3157,6 +3157,7 @@
         "name": "john-kelly/elm-postgrest",
         "summary": "PostgREST Query Builder",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.2",
             "1.0.1",
@@ -5042,6 +5043,13 @@
         ]
     },
     {
+        "name": "techanvil/key-constants",
+        "summary": "Constants refering to keycodes",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "teocollin1995/complex",
         "summary": "An elm module for working with complex numbers.",
         "versions": [
@@ -5324,6 +5332,7 @@
         "name": "wernerdegroot/listzipper",
         "summary": "A zipper for List",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
