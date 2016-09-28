@@ -391,6 +391,7 @@
         "name": "MacCASOutreach/graphicsvg",
         "summary": "Graphics library for McMaster University CAS Outreach and COMPSCI 1JC3",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -518,6 +519,7 @@
         "name": "NoRedInk/nri-elm-css",
         "summary": "Helpers for working with NRI styling",
         "versions": [
+            "1.2.0",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -2091,6 +2093,7 @@
         "name": "elm-community/maybe-extra",
         "summary": "Convenience functions for working with Maybe",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -2106,6 +2109,7 @@
         "name": "elm-community/result-extra",
         "summary": "Convenience functions for working with Result",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -4044,6 +4048,7 @@
         "name": "mgold/elm-date-format",
         "summary": "Format dates with ease",
         "versions": [
+            "1.1.6",
             "1.1.5",
             "1.1.4",
             "1.1.3",
@@ -4141,9 +4146,22 @@
         ]
     },
     {
+        "name": "mpizenberg/elm-image-annotation",
+        "summary": "Annotating collections of images",
+        "versions": [
+            "2.0.0",
+            "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "mpizenberg/elm-image-collection",
         "summary": "Managing a collection of images",
         "versions": [
+            "2.2.0",
+            "2.1.0",
+            "2.0.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -4152,6 +4170,13 @@
     {
         "name": "mukeshsoni/elm-rope",
         "summary": "Rope data structure to store operate on large strings, implemented in elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "mxgrn/elm-phoenix-socket",
+        "summary": "Pure Elm state manager for Phoenix channels",
         "versions": [
             "1.0.0"
         ]
@@ -4207,6 +4232,7 @@
         "name": "nphollon/collision",
         "summary": "3D collision detection using OBBTree algorithm",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.0.1",
             "2.0.0",
@@ -4229,6 +4255,7 @@
         "name": "nphollon/geo3d",
         "summary": "Vectors and Quaternions for 3D Geometry",
         "versions": [
+            "2.1.0",
             "2.0.5",
             "2.0.4",
             "2.0.3",
@@ -4327,6 +4354,13 @@
     {
         "name": "pinx/elm-mdl",
         "summary": "Material Design Lite port to Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "piotrdubiel/elm-art-in-pi",
+        "summary": "Gradually draws π as colourful lines. Experiment to learn Elm.",
         "versions": [
             "1.0.0"
         ]
