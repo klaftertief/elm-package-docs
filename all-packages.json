@@ -2851,6 +2851,16 @@
         ]
     },
     {
+        "name": "hugobessaa/elm-logoot",
+        "summary": "Simple Logoot implementation",
+        "versions": [
+            "1.2.0",
+            "1.1.1",
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "identicalsnowflake/elm-dynamic-style",
         "summary": "Simple dynamic styles for Elm (hover, focus, etc.)",
         "versions": [
