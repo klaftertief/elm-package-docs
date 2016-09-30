@@ -45,6 +45,13 @@
         ]
     },
     {
+        "name": "Bogdanp/elm-ast",
+        "summary": "A parser for Elm code",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Bogdanp/elm-combine",
         "summary": "A parser combinator library",
         "versions": [
@@ -590,6 +597,13 @@
             "2.0.1",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "TheDahv/doctari",
+        "summary": "An organizable, ordered document editor built with Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2380,6 +2394,7 @@
         "name": "etaque/elm-simple-form",
         "summary": "Simple forms made easy, for Elm",
         "versions": [
+            "5.0.0",
             "4.0.0",
             "3.0.2",
             "3.0.1",
@@ -2797,6 +2812,15 @@
         "summary": "Interval arithmetic",
         "versions": [
             "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "hendore/elm-adorable-avatars",
+        "summary": "Simple, elegant and adorable avatars provided by avatars.adorable.io",
+        "versions": [
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3975,6 +3999,7 @@
         "name": "mdgriffith/elm-style-animation",
         "summary": "Style Animations in Elm",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.0.0",
             "1.0.1",
@@ -4152,6 +4177,8 @@
         "name": "mpizenberg/elm-image-annotation",
         "summary": "Annotating collections of images",
         "versions": [
+            "2.1.1",
+            "2.1.0",
             "2.0.0",
             "1.1.0",
             "1.0.1",
@@ -4162,6 +4189,7 @@
         "name": "mpizenberg/elm-image-collection",
         "summary": "Managing a collection of images",
         "versions": [
+            "2.2.1",
             "2.2.0",
             "2.1.0",
             "2.0.0",
@@ -4554,6 +4582,8 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "8.1.1",
+            "8.1.0",
             "8.0.0",
             "7.2.1",
             "7.2.0",
@@ -4583,6 +4613,7 @@
         "name": "rluiten/elm-text-search",
         "summary": "Full text index engine in Elm language inspired by lunr.js.",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.1.2",
             "2.1.1",
@@ -5130,6 +5161,7 @@
         "name": "thaterikperson/elm-blackjack",
         "summary": "Library for comparing and testing hands of Blackjack.",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]

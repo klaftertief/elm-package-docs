@@ -1,4 +1,5 @@
 [
+    "Bogdanp/elm-ast",
     "Bogdanp/elm-combine",
     "Bogdanp/elm-datepicker",
     "Bogdanp/elm-route",
@@ -35,6 +36,7 @@
     "Skinney/collections-ng",
     "Skinney/fnv",
     "Skinney/murmur3",
+    "TheDahv/doctari",
     "VerbalExpressions/elm-verbal-expressions",
     "Voronchuk/hexagons",
     "abadi199/elm-creditcard",
@@ -172,6 +174,7 @@
     "ggb/porterstemmer",
     "gilesbowkett/html-escape-sequences",
     "halfzebra/elm-sierpinski",
+    "hendore/elm-adorable-avatars",
     "hoelzro/elm-drag",
     "hrldcpr/elm-cons",
     "imeckler/either",
