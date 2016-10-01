@@ -1792,6 +1792,7 @@
         "name": "doodledood/elm-split-pane",
         "summary": "Split pane for elm.",
         "versions": [
+            "3.0.3",
             "3.0.2",
             "3.0.1",
             "3.0.0",
@@ -2854,6 +2855,8 @@
         "name": "hugobessaa/elm-logoot",
         "summary": "Simple Logoot implementation",
         "versions": [
+            "1.2.2",
+            "1.2.1",
             "1.2.0",
             "1.1.1",
             "1.1.0",
@@ -3134,6 +3137,8 @@
         "name": "jinjor/elm-html-parser",
         "summary": "Parse HTML in Elm!",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -3372,6 +3377,7 @@
         "name": "justinmimbs/elm-date-selector",
         "summary": "A user interface for selecting dates",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5412,6 +5418,7 @@
         "name": "wernerdegroot/listzipper",
         "summary": "A zipper for List",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"

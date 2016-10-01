@@ -1,0 +1,161 @@
+[
+  {
+    "name": "Logoot",
+    "comment": " Simple Logoot implementation\n\nLogoot is a [Conflict-free Replicated Data Type][crdt] (CRDT) created to be used by\ndistributed systems that want to achieve Strong Eventual Consistency (SEC).\n\n[crdt]: https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type\n\nInsert and remove operations in Logoot are idempotent, commutative and associative.\nThis means two replicas can exchange operations made in their local Logoot over a\nnetwork without having to garantee the order of messages, enabling their use with\ndistributed networks such as P2P.\n\nThis is an implementation of [Logoot-undo][logoot] propose by Stéphane Weiss,\nPascal Urso and Pascal Molli. It still lacks support for undo operations.\n\n[logoot]: https://pdfs.semanticscholar.org/75e4/5cd9cae6d0da1faeae11732e39a4c1c7a17b.pdf\n\nThere are a lot of missing pieces here, help us sending PRs to the GitHub [repository]!\n\n[repository]: https://github.com/hugobessaa/elm-logoot\n\n## Types\n\n@docs Logoot, Pid, PidContent, Positions, Position, Line, Site, Clock\n\n## Build\n\n@docs empty, insert, remove, insertAfter, posBetween\n\n## Query\n\n@docs isEmpty, member, get, size\n\n## Dictionaries\n\n@docs toDict, fromDict\n\n## Lists\n\n@docs keys, values, toList, fromList, diffList, intersectList\n\n## Sort and compare\n\n@docs sortPids, comparePid, comparePos\n\n",
+    "aliases": [
+      {
+        "name": "Clock",
+        "comment": " ",
+        "args": [],
+        "type": "Int"
+      },
+      {
+        "name": "Line",
+        "comment": " ",
+        "args": [],
+        "type": "Int"
+      },
+      {
+        "name": "Pid",
+        "comment": " ",
+        "args": [],
+        "type": "( Logoot.Positions, Logoot.Clock )"
+      },
+      {
+        "name": "PidContent",
+        "comment": " ",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Position",
+        "comment": " ",
+        "args": [],
+        "type": "( Logoot.Line, Logoot.Site )"
+      },
+      {
+        "name": "Positions",
+        "comment": " ",
+        "args": [],
+        "type": "List Logoot.Position"
+      },
+      {
+        "name": "Site",
+        "comment": " ",
+        "args": [],
+        "type": "Int"
+      }
+    ],
+    "types": [
+      {
+        "name": "Logoot",
+        "comment": " A Logoot.\n\n`Logoot` implementation details are hidden from the public API.\n\nYou should use the provided functions to transform a `Logoot`.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "comparePid",
+        "comment": " Compare two `Pid`s ",
+        "type": "Logoot.Pid -> Logoot.Pid -> Basics.Order"
+      },
+      {
+        "name": "comparePos",
+        "comment": " Compare two `Positions`. ",
+        "type": "Logoot.Positions -> Logoot.Positions -> Basics.Order"
+      },
+      {
+        "name": "diffList",
+        "comment": " Returns an association list `List (Pid, PidContent)` of the pairs that does\nnot appear in the second `Logoot`.\n",
+        "type": "Logoot.Logoot -> Logoot.Logoot -> List ( Logoot.Pid, Logoot.PidContent )"
+      },
+      {
+        "name": "empty",
+        "comment": " Return an empty `Logoot`.\n\nAn empty `Logoot` come with the first and last `Pid` in place. They should not be removed.\n\n    toDict empty == Dict.fromList\n      [ (([(0,0)],0), \"\")\n      , (([(maxInt,0)],0), \"\") \n      ]\n",
+        "type": "Logoot.Logoot"
+      },
+      {
+        "name": "fromDict",
+        "comment": " Convert a `Dict Pid PidContent` into a `Logoot`.\n",
+        "type": "Dict.Dict Logoot.Pid Logoot.PidContent -> Logoot.Logoot"
+      },
+      {
+        "name": "fromList",
+        "comment": " Convert an association list `List (Pid, PidContent)` into a `Logoot`.\n",
+        "type": "List ( Logoot.Pid, Logoot.PidContent ) -> Logoot.Logoot"
+      },
+      {
+        "name": "get",
+        "comment": " Get the value associated with a key. Works as `Dict.get`.\n",
+        "type": "Logoot.Pid -> Logoot.Logoot -> Maybe.Maybe Logoot.PidContent"
+      },
+      {
+        "name": "insert",
+        "comment": " Insert a key in a `Logoot`.\n\nThis works like `Dict.insert` but with a `Logoot`.\n\n    empty |> insert ([(1, 3)], 15) \"it works\"\n\nUnlike `Dict.insert`, `insert` is commutative with `remove`,\nmaking it possible to insert and remove keys in any order and\nend up with the same `Logoot`.\n",
+        "type": "Logoot.Pid -> Logoot.PidContent -> Logoot.Logoot -> Logoot.Logoot"
+      },
+      {
+        "name": "insertAfter",
+        "comment": " Insert `PidContent` that will come after `Pid` when `Logoot` is sorted.\n",
+        "type": "Logoot.Site -> Logoot.Clock -> Logoot.PidContent -> Logoot.Pid -> Logoot.Logoot -> Logoot.Logoot"
+      },
+      {
+        "name": "intersectList",
+        "comment": " Returns an association list `List (Pid, PidContent)` of the pairs that appears\nin the second `Logoot`, preference is given to values in the first `Logoot`.\n",
+        "type": "Logoot.Logoot -> Logoot.Logoot -> List ( Logoot.Pid, Logoot.PidContent )"
+      },
+      {
+        "name": "isEmpty",
+        "comment": " Determine if a `Logoot` is empty. Works as `Dict.isEmpty`.\n",
+        "type": "Logoot.Logoot -> Bool"
+      },
+      {
+        "name": "keys",
+        "comment": " Get all of the keys in a `Logoot`, sorted from lowest to highest.\n",
+        "type": "Logoot.Logoot -> List Logoot.Pid"
+      },
+      {
+        "name": "member",
+        "comment": " Determine if a key is in a `Logoot`. Works as `Dict.member`.\n",
+        "type": "Logoot.Pid -> Logoot.Logoot -> Bool"
+      },
+      {
+        "name": "posBetween",
+        "comment": " Generate `Positions` between two `Positions`.\n",
+        "type": "Logoot.Site -> Logoot.Positions -> Logoot.Positions -> Logoot.Positions"
+      },
+      {
+        "name": "remove",
+        "comment": " Remove a key in a `Logoot`.\n\nThis works like `Dict.remove` but with a `Logoot`.\n\n    empty\n      |> insert ([(1, 3)], 15) \"it works\"\n      |> remove ([(1, 3)], 15) \"it works\"\n\nWhen you remove a key that isn't a member of `Logoot`, it will make sure\na future `insert` of that key will not add it to the `Logoot`.\n\nUnlike `Dict.remove`, `remove` is commutative with `insert`,\nmaking it possible to insert and remove keys in any order and\nend up with the same `Logoot`.\n",
+        "type": "Logoot.Pid -> Logoot.PidContent -> Logoot.Logoot -> Logoot.Logoot"
+      },
+      {
+        "name": "size",
+        "comment": " Determine the number of key-value pairs in the `Logoot`. Works as `Dict.size`.\n",
+        "type": "Logoot.Logoot -> Int"
+      },
+      {
+        "name": "sortPids",
+        "comment": " Sort a `List Pid` using `comparePid`. ",
+        "type": "List Logoot.Pid -> List Logoot.Pid"
+      },
+      {
+        "name": "toDict",
+        "comment": " Convert a `Logoot` into a `Dict Pid PidContent` for easier usage.\n",
+        "type": "Logoot.Logoot -> Dict.Dict Logoot.Pid Logoot.PidContent"
+      },
+      {
+        "name": "toList",
+        "comment": " Convert a `Logoot` into a sorted association list `List (Pid, PidContent)`.\n",
+        "type": "Logoot.Logoot -> List ( Logoot.Pid, Logoot.PidContent )"
+      },
+      {
+        "name": "values",
+        "comment": " Get all of the values in a `Logoot`, in the order of their keys.\n",
+        "type": "Logoot.Logoot -> List Logoot.PidContent"
+      }
+    ],
+    "generated-with-elm-version": "0.17.0"
+  }
+]
