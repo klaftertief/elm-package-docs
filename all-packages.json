@@ -3523,6 +3523,13 @@
         ]
     },
     {
+        "name": "knewter/elm-rfc5988-parser",
+        "summary": "A (woefully-incomplete) parser for RFC5988 Links",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "knledg/touch-events",
         "summary": "Touch event functions to help handle touch events",
         "versions": [
@@ -3702,6 +3709,7 @@
         "name": "krisajenkins/formatting",
         "summary": "A type-safe string formatting library - 'printf' for Elm.",
         "versions": [
+            "3.3.0",
             "3.2.0",
             "3.1.2",
             "3.1.1",

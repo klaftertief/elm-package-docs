@@ -212,6 +212,7 @@
     "jvoigtlaender/elm-warshall",
     "jweir/elm-iso8601",
     "jystic/elm-font-awesome",
+    "knewter/elm-rfc5988-parser",
     "knledg/touch-events",
     "krisajenkins/elm-astar",
     "krisajenkins/elm-cdn",
