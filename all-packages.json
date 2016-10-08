@@ -112,6 +112,8 @@
         "name": "Bogdanp/elm-time",
         "summary": "A pure Elm date and time library.",
         "versions": [
+            "1.0.5",
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -1682,6 +1684,7 @@
         "name": "danielnarey/elm-modular-design",
         "summary": "Assemble your UI from modular, modifiable HTML components",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -2173,6 +2176,7 @@
         "name": "elm-community/string-extra",
         "summary": "String helper functions for Elm",
         "versions": [
+            "1.1.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -5749,6 +5753,7 @@
         "name": "xarvh/elm-slides",
         "summary": "Awesome presentation framework to create your slides in Elm",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
