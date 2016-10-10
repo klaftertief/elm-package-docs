@@ -1,0 +1,181 @@
+[
+  {
+    "name": "Polymer.Events",
+    "comment": "\n@docs onIronSelect\n@docs onSelectedChanged\n@docs onTap\n@docs onValueChanged\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "onIronSelect",
+        "comment": " ",
+        "type": "(String -> Result.Result String a) -> (a -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onSelectedChanged",
+        "comment": " ",
+        "type": "(String -> Result.Result String a) -> (a -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onTap",
+        "comment": " ",
+        "type": "msg -> Html.Attribute msg"
+      },
+      {
+        "name": "onValueChanged",
+        "comment": " ",
+        "type": "(String -> msg) -> Html.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Polymer.Paper",
+    "comment": "\n@docs iconButton\n@docs item\n@docs input\n@docs itemBody\n@docs fab\n@docs menu\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "fab",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "iconButton",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "input",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "item",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "itemBody",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "menu",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Polymer.App",
+    "comment": "\n@docs drawer\n@docs drawerLayout\n@docs header\n@docs headerLayout\n@docs route\n@docs toolbar\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "drawer",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "drawerLayout",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "header",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "headerLayout",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "route",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "toolbar",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Polymer.Firebase",
+    "comment": "\n@docs app\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "app",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Polymer.Attributes",
+    "comment": "\n@docs attrForSelected\n@docs boolProperty\n@docs icon\n@docs label\n@docs path\n@docs selected\n@docs stringProperty\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "attrForSelected",
+        "comment": " ",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "boolProperty",
+        "comment": " ",
+        "type": "String -> Bool -> Html.Attribute msg"
+      },
+      {
+        "name": "icon",
+        "comment": " ",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "label",
+        "comment": " ",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "path",
+        "comment": " ",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "selected",
+        "comment": " ",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "stringProperty",
+        "comment": " ",
+        "type": "String -> String -> Html.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  },
+  {
+    "name": "Polymer.Iron",
+    "comment": "\n@docs selector\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "selector",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]
