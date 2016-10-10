@@ -323,6 +323,7 @@
     "tiziano88/elm-oauth",
     "tiziano88/elm-tfl",
     "toastal/either",
+    "toastal/trinary",
     "tomjkidd/elm-multiway-tree-zipper",
     "tortus/elm-array-2d",
     "tripokey/elm-fuzzy",

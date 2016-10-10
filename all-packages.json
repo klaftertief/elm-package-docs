@@ -1684,6 +1684,7 @@
         "name": "danielnarey/elm-modular-design",
         "summary": "Assemble your UI from modular, modifiable HTML components",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -2905,6 +2906,7 @@
         "name": "hugobessaa/elm-logoot",
         "summary": "Simple Logoot implementation",
         "versions": [
+            "1.2.3",
             "1.2.2",
             "1.2.1",
             "1.2.0",
@@ -4082,6 +4084,7 @@
         "name": "mdgriffith/elm-style-animation",
         "summary": "Style Animations in Elm",
         "versions": [
+            "3.2.0",
             "3.1.0",
             "3.0.0",
             "2.0.0",
@@ -5311,6 +5314,13 @@
             "2.0.0",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "toastal/trinary",
+        "summary": "Trinary logic operations",
+        "versions": [
             "1.0.0"
         ]
     },
