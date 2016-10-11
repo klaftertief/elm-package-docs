@@ -539,6 +539,7 @@
         "name": "NoRedInk/nri-elm-css",
         "summary": "Helpers for working with NRI styling",
         "versions": [
+            "1.5.1",
             "1.5.0",
             "1.4.1",
             "1.4.0",
@@ -823,6 +824,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Zinggi/elm-2d-game",
+        "summary": "A 2d rendering engine based on webgl",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -4846,6 +4854,7 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "6.1.0",
             "6.0.0",
             "5.0.0",
             "4.0.2",
