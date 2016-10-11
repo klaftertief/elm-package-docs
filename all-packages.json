@@ -3041,6 +3041,14 @@
         ]
     },
     {
+        "name": "ivanceras/svgbob",
+        "summary": "Transforms ascii diagram to SVG",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "izdi/junk",
         "summary": "test",
         "versions": [
