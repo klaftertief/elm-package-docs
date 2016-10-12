@@ -3814,6 +3814,13 @@
         ]
     },
     {
+        "name": "labzero/elm-google-geocoding",
+        "summary": "Elm interface to the Google Geocoding API",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "laszlopandy/elm-console",
         "summary": "Reading and writing from the console in Node",
         "versions": [
@@ -5110,6 +5117,13 @@
     {
         "name": "spect88/romkan-elm",
         "summary": "Converter between Romaji and Kana",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "spisemisu/elm-utf8",
+        "summary": "Encode/decode between multi-byte Unicode & UTF-8 multiple single-byte encoding",
         "versions": [
             "1.0.0"
         ]

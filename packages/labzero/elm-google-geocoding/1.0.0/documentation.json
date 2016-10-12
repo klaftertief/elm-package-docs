@@ -1,0 +1,297 @@
+[
+  {
+    "name": "Geocoding",
+    "comment": " This library is an interface to Google's geocoding service\n\nhttps://developers.google.com/maps/documentation/geocoding/intro\n\nIt provides a pipline friendly, builder-like API, and ADTs that map as closely as possible to the Google API\n\nYou can start building a request one of two ways:\n\n    Geocoding.requestForAddress \"77 Battery St.\" apiKey\n    Geocoding.requestForComponents [(\"Spain\", G.CountryComponent)] apiKey\n\nOnce you've built your request, calling send will return a Task, which you Perform to generate your own msg types\n\n# Types\n@docs GeocodingResult, Status, Viewport, ApiKey, Component, LocationType, ComponentType, Response\n\n# Building a request\n@docs requestForAddress, requestForComponents, withAddress, withComponent, withLanguage, withRegion, withBounds\n\n# Sending a request\n@docs send\n\n# Inspecting a request\n@docs requestUrl\n",
+    "aliases": [
+      {
+        "name": "ApiKey",
+        "comment": " alias for a Google API key\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "GeocodingResult",
+        "comment": " an individual result\nhttps://developers.google.com/maps/documentation/geocoding/intro#Results\n",
+        "args": [],
+        "type": "{ addressComponents : List Geocoding.AddressComponent , formattedAddress : String , geometry : Geocoding.Geometry , types : List Geocoding.ComponentType , placeId : String }"
+      },
+      {
+        "name": "Response",
+        "comment": " response status and a list of results (list will be empty if status is other than OK)\nhttps://developers.google.com/maps/documentation/geocoding/intro#GeocodingResponses\n",
+        "args": [],
+        "type": "{ status : Geocoding.Status , results : List Geocoding.GeocodingResult }"
+      },
+      {
+        "name": "Viewport",
+        "comment": " a bounding box\n   https://developers.google.com/maps/documentation/geocoding/intro#Viewports\n",
+        "args": [],
+        "type": "{ northeast : Geocoding.Location, southwest : Geocoding.Location }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Component",
+        "comment": " components for request filtering\n   https://developers.google.com/maps/documentation/geocoding/intro#ComponentFiltering\n",
+        "args": [],
+        "cases": [
+          [
+            "RouteComponent",
+            []
+          ],
+          [
+            "LocalityComponent",
+            []
+          ],
+          [
+            "AdministrativeAreaComponent",
+            []
+          ],
+          [
+            "PostalCodeComponent",
+            []
+          ],
+          [
+            "CountryComponent",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "ComponentType",
+        "comment": " address component types\n   https://developers.google.com/maps/documentation/geocoding/intro#Types\n",
+        "args": [],
+        "cases": [
+          [
+            "StreetAddress",
+            []
+          ],
+          [
+            "Route",
+            []
+          ],
+          [
+            "Intersection",
+            []
+          ],
+          [
+            "Political",
+            []
+          ],
+          [
+            "Country",
+            []
+          ],
+          [
+            "AdministrativeAreaLevel1",
+            []
+          ],
+          [
+            "AdministrativeAreaLevel2",
+            []
+          ],
+          [
+            "AdministrativeAreaLevel3",
+            []
+          ],
+          [
+            "AdministrativeAreaLevel4",
+            []
+          ],
+          [
+            "AdministrativeAreaLevel5",
+            []
+          ],
+          [
+            "ColloquialArea",
+            []
+          ],
+          [
+            "Locality",
+            []
+          ],
+          [
+            "Sublocality",
+            []
+          ],
+          [
+            "SublocalityLevel1",
+            []
+          ],
+          [
+            "SublocalityLevel2",
+            []
+          ],
+          [
+            "SublocalityLevel3",
+            []
+          ],
+          [
+            "SublocalityLevel4",
+            []
+          ],
+          [
+            "SublocalityLevel5",
+            []
+          ],
+          [
+            "Neighborhood",
+            []
+          ],
+          [
+            "Premise",
+            []
+          ],
+          [
+            "Subpremise",
+            []
+          ],
+          [
+            "PostalCode",
+            []
+          ],
+          [
+            "NaturalFeature",
+            []
+          ],
+          [
+            "Airport",
+            []
+          ],
+          [
+            "Park",
+            []
+          ],
+          [
+            "PostBox",
+            []
+          ],
+          [
+            "StreetNumber",
+            []
+          ],
+          [
+            "Floor",
+            []
+          ],
+          [
+            "Room",
+            []
+          ],
+          [
+            "Establishment",
+            []
+          ],
+          [
+            "PointOfInterest",
+            []
+          ],
+          [
+            "Parking",
+            []
+          ],
+          [
+            "PostalTown",
+            []
+          ],
+          [
+            "BusStation",
+            []
+          ],
+          [
+            "TrainStation",
+            []
+          ],
+          [
+            "TransitStation",
+            []
+          ],
+          [
+            "PostalCodeSuffix",
+            []
+          ],
+          [
+            "OtherComponent",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "LocationType",
+        "comment": " additional data about a location\n   https://developers.google.com/maps/documentation/geocoding/intro#Result\n",
+        "args": [],
+        "cases": [
+          [
+            "Rooftop",
+            []
+          ],
+          [
+            "RangeInterpolated",
+            []
+          ],
+          [
+            "GeometricCenter",
+            []
+          ],
+          [
+            "Approximate",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Status",
+        "comment": " mapping of Google API response statuses\nhttps://developers.google.com/maps/documentation/geocoding/intro#StatusCodes\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "requestForAddress",
+        "comment": " Build a request for an address\n\n    Geocoding.requestForAddress \"77 Battery St\" apiKey\n",
+        "type": "String -> Geocoding.ApiKey -> Geocoding.GeocodingRequest"
+      },
+      {
+        "name": "requestForComponents",
+        "comment": " Build a request for a list of component filters\n\n    Geocoding.requestForComponents [(\"Spain\", Geocoding.CountryComponent), (\"Toledo\", Geocoding.AdministrativeAreaComponent)] apiKey\n",
+        "type": "List ( String, Geocoding.Component ) -> Geocoding.ApiKey -> Geocoding.GeocodingRequest"
+      },
+      {
+        "name": "requestUrl",
+        "comment": " for inspecting the request URL for testing purposes\n",
+        "type": "Geocoding.GeocodingRequest -> String"
+      },
+      {
+        "name": "send",
+        "comment": " transform a request into a Task\n\n    Geocoding.requestForAddress \"77 Battery St\" apiKey\n      |> Geocoding.send\n      |> Task.perform MyFailureMsg MySuccessMsg\n",
+        "type": "Geocoding.GeocodingRequest -> Task.Task Http.Error Geocoding.Response"
+      },
+      {
+        "name": "withAddress",
+        "comment": " set the address to a request. If called more than once, the later call overwrites the earlier\n\n    Geocoding.requestForComponents [(\"Spain\", Geocoding.CountryComponent), (\"Toledo\", Geocoding.AdministrativeAreaComponent)] apiKey\n      |> Geocoding.withAddress \"Toledo\"\n",
+        "type": "String -> Geocoding.GeocodingRequest -> Geocoding.GeocodingRequest"
+      },
+      {
+        "name": "withBounds",
+        "comment": " Specify a viewport bias for the request\n\n    Geocoding.requestForAddress \"Belmont\" apiKey\n      |> Geocoding.withBounds (41, -74) (42, -70)\n",
+        "type": "( Float, Float ) -> ( Float, Float ) -> Geocoding.GeocodingRequest -> Geocoding.GeocodingRequest"
+      },
+      {
+        "name": "withComponent",
+        "comment": " add a component filter to a request (can be called more than once for a request)\n\n    Geocoding.requestForAddress \"Toledo\" apiKey\n      |> Geocoding.withComponent (\"Spain\", Geocoding.CountryComponent)\n",
+        "type": "( String, Geocoding.Component ) -> Geocoding.GeocodingRequest -> Geocoding.GeocodingRequest"
+      },
+      {
+        "name": "withLanguage",
+        "comment": " Specify the language for the request\n\n    Geocoding.requestForAddress \"77 Battery St\" apiKey\n      |> Geocoding.withLanguage(\"FR\")\n",
+        "type": "String -> Geocoding.GeocodingRequest -> Geocoding.GeocodingRequest"
+      },
+      {
+        "name": "withRegion",
+        "comment": " specify region biasing for request\n\n    Geocoding.requestForAddress \"Toledo\" apiKey\n      |> Geocoding.withRegion \"ES\"\n",
+        "type": "String -> Geocoding.GeocodingRequest -> Geocoding.GeocodingRequest"
+      }
+    ],
+    "generated-with-elm-version": "0.17.1"
+  }
+]
