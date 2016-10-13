@@ -474,6 +474,7 @@
         "name": "NoRedInk/elm-rails",
         "summary": "Convenience functions for using Elm with Rails.",
         "versions": [
+            "4.0.4",
             "4.0.3",
             "4.0.2",
             "4.0.1",
@@ -1239,6 +1240,13 @@
         ]
     },
     {
+        "name": "benansell/lobo-elm-test-extra",
+        "summary": "elm-test extensions for lobo with focus & skip",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "benthepoet/elm-purecss",
         "summary": "A set of helpers for Pure CSS",
         "versions": [
@@ -1671,6 +1679,7 @@
         "name": "damienklinnert/elm-hue",
         "summary": "Control your Philips Hue devices with Elm",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.0.0",
             "1.0.1",
@@ -3817,6 +3826,7 @@
         "name": "labzero/elm-google-geocoding",
         "summary": "Elm interface to the Google Geocoding API",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -4508,6 +4518,13 @@
         ]
     },
     {
+        "name": "pietro909/elm-sticky-header",
+        "summary": "Sticky header to handle scroll on mobile UI",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "pinx/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
@@ -4612,6 +4629,7 @@
         "name": "pukkamustard/elm-identicon",
         "summary": "Generate identicons",
         "versions": [
+            "2.1.0",
             "2.0.3",
             "2.0.2",
             "2.0.1",
@@ -5118,6 +5136,15 @@
         "name": "spect88/romkan-elm",
         "summary": "Converter between Romaji and Kana",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "spisemisu/elm-sha",
+        "summary": "An implementation of the SHA cryptographic hash functions in Elm",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
