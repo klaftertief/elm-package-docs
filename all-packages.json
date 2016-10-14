@@ -1262,6 +1262,22 @@
         ]
     },
     {
+        "name": "billstclair/elm-bitwise-infix",
+        "summary": "Infix versions of the Bitwise functions.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "billstclair/elm-sha256",
+        "summary": "SHA256 and SHA228 cryptographic hashes Elm.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "blacksheepmails/elm-set",
         "summary": "A Elm set implementation that can store any type",
         "versions": [
@@ -1901,6 +1917,11 @@
         "name": "edvail/elm-polymer",
         "summary": "Polymer Elements",
         "versions": [
+            "1.2.2",
+            "1.2.1",
+            "1.2.0",
+            "1.1.1",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -2932,6 +2953,8 @@
         "name": "hugobessaa/elm-logoot",
         "summary": "Simple Logoot implementation",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.2.3",
             "1.2.2",
             "1.2.1",
@@ -3826,6 +3849,7 @@
         "name": "labzero/elm-google-geocoding",
         "summary": "Elm interface to the Google Geocoding API",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -4344,6 +4368,14 @@
         "name": "mxgrn/elm-phoenix-socket",
         "summary": "Pure Elm state manager for Phoenix channels",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "nathanfox/elm-string-format",
+        "summary": "Provide format string functionality.",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5143,6 +5175,7 @@
         "name": "spisemisu/elm-sha",
         "summary": "An implementation of the SHA cryptographic hash functions in Elm",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
