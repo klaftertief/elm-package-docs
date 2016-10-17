@@ -5361,6 +5361,13 @@
         ]
     },
     {
+        "name": "tesk9/elm-html-textup",
+        "summary": "String to formatted Html library",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "thSoft/ElmCache",
         "summary": "Caching remote objects",
         "versions": [
