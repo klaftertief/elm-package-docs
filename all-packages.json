@@ -1273,6 +1273,8 @@
         "name": "billstclair/elm-sha256",
         "summary": "SHA256 and SHA228 cryptographic hashes Elm.",
         "versions": [
+            "1.0.3",
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1929,6 +1931,7 @@
         "name": "eeue56/elm-all-dict",
         "summary": "A Elm dict implementation that can store any type",
         "versions": [
+            "2.0.0",
             "1.1.2",
             "1.1.1",
             "1.1.0",
@@ -2953,6 +2956,8 @@
         "name": "hugobessaa/elm-logoot",
         "summary": "Simple Logoot implementation",
         "versions": [
+            "2.1.0",
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.2.3",
@@ -3110,6 +3115,13 @@
         "summary": "A simple state machine implementation in Elm",
         "versions": [
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jahewson/elm-graphql-module",
+        "summary": "Support module for elm-graphql",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3430,6 +3442,17 @@
         ]
     },
     {
+        "name": "joneshf/elm-tail-recursion",
+        "summary": "Package to help mitigate run-time exceptions from recursion",
+        "versions": [
+            "1.0.4",
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "joneshf/elm-these",
         "summary": "Values that can be one of two types or both at once",
         "versions": [
@@ -3615,6 +3638,7 @@
         "name": "knledg/touch-events",
         "summary": "Touch event functions to help handle touch events",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -4553,6 +4577,7 @@
         "name": "pietro909/elm-sticky-header",
         "summary": "Sticky header to handle scroll on mobile UI",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -5175,6 +5200,7 @@
         "name": "spisemisu/elm-sha",
         "summary": "An implementation of the SHA cryptographic hash functions in Elm",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -5379,6 +5405,7 @@
         "name": "thebritican/elm-autocomplete",
         "summary": "A customizable autocomplete component",
         "versions": [
+            "4.0.2",
             "4.0.1",
             "4.0.0",
             "3.3.0",
