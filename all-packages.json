@@ -2244,6 +2244,7 @@
         "name": "elm-community/undo-redo",
         "summary": "Easy undo in Elm",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -3246,6 +3247,13 @@
         ]
     },
     {
+        "name": "jinjor/elm-debounce",
+        "summary": "Yet another debouncer for Elm.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jinjor/elm-diff",
         "summary": "A diff implementation for Elm",
         "versions": [
@@ -3258,6 +3266,7 @@
         "name": "jinjor/elm-html-parser",
         "summary": "Parse HTML in Elm!",
         "versions": [
+            "1.1.2",
             "1.1.1",
             "1.1.0",
             "1.0.3",
@@ -5200,6 +5209,15 @@
         "name": "spect88/romkan-elm",
         "summary": "Converter between Romaji and Kana",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "spisemisu/elm-merkletree",
+        "summary": "An implementation of the Merkle tree data structure in Elm",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
