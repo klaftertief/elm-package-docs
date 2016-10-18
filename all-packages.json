@@ -4107,6 +4107,13 @@
         ]
     },
     {
+        "name": "matthewsj/elm-ordering",
+        "summary": "A library for writing custom comparison functions",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "mattjbray/elm-prismicio",
         "summary": "Elm SDK for prismic.io",
         "versions": [
