@@ -1726,6 +1726,15 @@
         ]
     },
     {
+        "name": "danielnarey/elm-toolkit",
+        "summary": "Generic helpers and custom operators that I use across other projects",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "danpalmer/elm-param-parsing",
         "summary": "Reupload for 0.16, original by jessitron, amitaibu, and andybalaam",
         "versions": [
@@ -3340,6 +3349,7 @@
         "name": "john-kelly/elm-postgrest",
         "summary": "PostgREST Query Builder",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.0.0",
             "1.0.2",
