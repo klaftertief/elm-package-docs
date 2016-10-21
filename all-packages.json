@@ -1022,6 +1022,13 @@
         ]
     },
     {
+        "name": "arowM/elm-time-machine",
+        "summary": "A module empowering any model to undo/redo in elm architecture way",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "arturopala/elm-monocle",
         "summary": "Library providing functional tools to manipulate complex records",
         "versions": [
@@ -1225,6 +1232,8 @@
         "name": "bcardiff/elm-debounce",
         "summary": "This modules allows easy usage of debounced events from the view.",
         "versions": [
+            "1.1.2",
+            "1.1.1",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -3900,6 +3909,7 @@
         "name": "labzero/elm-google-geocoding",
         "summary": "Elm interface to the Google Geocoding API",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -4802,6 +4812,7 @@
         "name": "rhofour/elm-pairing-heap",
         "summary": "A simple pairing heap implementation usable as a priority queue.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -5497,6 +5508,14 @@
         "versions": [
             "2.0.0",
             "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "toastal/return-optics",
+        "summary": "Extend Return with Monocle's Lenses for fun in the update function",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
