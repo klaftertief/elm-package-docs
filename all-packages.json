@@ -1738,6 +1738,7 @@
         "name": "danielnarey/elm-toolkit",
         "summary": "Generic helpers and custom operators that I use across other projects",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -5209,6 +5210,9 @@
         "name": "sindikat/elm-array-experimental",
         "summary": "Testing ground for experimental Array functions",
         "versions": [
+            "1.0.4",
+            "1.0.3",
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -5217,6 +5221,7 @@
         "name": "sindikat/elm-list-experimental",
         "summary": "Testing ground for experimental List functions",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
