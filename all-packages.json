@@ -407,6 +407,13 @@
         ]
     },
     {
+        "name": "Logiraptor/elm-bench",
+        "summary": "A benchmark tool inspired by go test",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "MacCASOutreach/graphicsvg",
         "summary": "Graphics library for McMaster University CAS Outreach and COMPSCI 1JC3",
         "versions": [
@@ -1022,6 +1029,13 @@
         ]
     },
     {
+        "name": "arowM/elm-monoid",
+        "summary": "A module to define generic functions for monoid.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "arowM/elm-time-machine",
         "summary": "A module empowering any model to undo/redo in elm architecture way",
         "versions": [
@@ -1406,6 +1420,15 @@
         "summary": "A scroll progress indicator",
         "versions": [
             "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "chrisbuttery/is-online",
+        "summary": "Check if you're online before working your magic",
+        "versions": [
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -4315,6 +4338,13 @@
         ]
     },
     {
+        "name": "mgold/elm-geojson",
+        "summary": "Decode GeoJSON (RFC 7946) into an Elm data structure",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "mgold/elm-join",
         "summary": "Data that enters, updates, and exits",
         "versions": [
@@ -4382,6 +4412,15 @@
     {
         "name": "mgold/elm-turtle-graphics",
         "summary": "LOGO-style turtle graphics",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "micktwomey/elmo-8",
+        "summary": "ELMO-8: A PICO-8 inspired fantasy 8-bit game library implemented in WebGL.",
         "versions": [
             "1.0.2",
             "1.0.1",
