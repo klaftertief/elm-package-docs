@@ -1435,6 +1435,14 @@
         ]
     },
     {
+        "name": "chrisbuttery/reading-time",
+        "summary": "Medium-esque reading stats in elm",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "circuithub/elm-array-extra",
         "summary": "Convenience functions for working with Array",
         "versions": [
