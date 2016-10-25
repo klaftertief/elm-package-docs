@@ -332,6 +332,7 @@
     "simonh1000/elm-jwt",
     "sindikat/elm-array-experimental",
     "sindikat/elm-list-experimental",
+    "sixty-north/elm-task-repeater",
     "spect88/romkan-elm",
     "spisemisu/elm-merkletree",
     "spisemisu/elm-sha",

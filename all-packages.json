@@ -1438,6 +1438,7 @@
         "name": "chrisbuttery/reading-time",
         "summary": "Medium-esque reading stats in elm",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -5285,6 +5286,14 @@
         "name": "sindikat/elm-maybe-experimental",
         "summary": "Testing ground for experimental Maybe functions",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "sixty-north/elm-task-repeater",
+        "summary": "A package for repeating a task",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
