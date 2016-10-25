@@ -481,6 +481,7 @@
         "name": "NoRedInk/elm-rails",
         "summary": "Convenience functions for using Elm with Rails.",
         "versions": [
+            "4.0.5",
             "4.0.4",
             "4.0.3",
             "4.0.2",
@@ -510,6 +511,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "NoRedInk/elm-simple-fuzzy",
+        "summary": "Fuzzy matching and filtering for strings",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -1770,6 +1778,7 @@
         "name": "danielnarey/elm-toolkit",
         "summary": "Generic helpers and custom operators that I use across other projects",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.0.2",
             "1.0.1",
@@ -2547,6 +2556,7 @@
         "name": "etaque/elm-simple-form",
         "summary": "Simple forms made easy, for Elm",
         "versions": [
+            "5.0.1",
             "5.0.0",
             "4.0.0",
             "3.0.2",
