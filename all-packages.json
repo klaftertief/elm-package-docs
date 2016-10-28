@@ -1331,6 +1331,13 @@
         ]
     },
     {
+        "name": "bruz/elm-simple-form-infix",
+        "summary": "Infix operators for elm-simple-form",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "burabure/elm-collision",
         "summary": "Detect collision of geometry in coordinate space, AKA: are objects overlapping?",
         "versions": [

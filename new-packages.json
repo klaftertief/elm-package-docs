@@ -76,6 +76,7 @@
     "billstclair/elm-bitwise-infix",
     "billstclair/elm-sha256",
     "brenden/elm-tree-diagram",
+    "bruz/elm-simple-form-infix",
     "cacay/elm-void",
     "camjc/elm-chart",
     "camjc/elm-quiz",
