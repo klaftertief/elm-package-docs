@@ -327,6 +327,8 @@
     "scottcorgan/elm-css-normalize",
     "scottcorgan/elm-css-reset",
     "scottcorgan/elm-html-template",
+    "scottcorgan/elm-keyboard-combo",
+    "scottcorgan/keyboard-combo",
     "seanhess/elm-style",
     "sgraf812/elm-graph",
     "sgraf812/elm-intdict",

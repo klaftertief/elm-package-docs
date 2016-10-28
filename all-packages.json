@@ -411,6 +411,7 @@
         "name": "Logiraptor/elm-bench",
         "summary": "A benchmark tool inspired by go test",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -1351,6 +1352,7 @@
         "name": "camjc/elm-chart",
         "summary": "An SVG chart library",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -5181,6 +5183,20 @@
     {
         "name": "scottcorgan/elm-html-template",
         "summary": "A large amount of html elements for showcasing styles on a single page",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "scottcorgan/elm-keyboard-combo",
+        "summary": "git@github.com:scottcorgan/elm-keyboard-combo.git",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "scottcorgan/keyboard-combo",
+        "summary": "Handle keyboard key combinations with type safety in Elm",
         "versions": [
             "1.0.0"
         ]
