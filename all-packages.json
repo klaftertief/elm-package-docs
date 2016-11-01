@@ -483,6 +483,7 @@
         "name": "NoRedInk/elm-rails",
         "summary": "Convenience functions for using Elm with Rails.",
         "versions": [
+            "4.0.6",
             "4.0.5",
             "4.0.4",
             "4.0.3",
@@ -1334,6 +1335,7 @@
         "name": "bruz/elm-simple-form-infix",
         "summary": "Infix operators for elm-simple-form",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1430,6 +1432,20 @@
         "summary": "Library exposing directional signals of numpad",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "chrisbuttery/elm-greeting",
+        "summary": "Include a random greeting message in your elm app.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "chrisbuttery/elm-parting",
+        "summary": "Include a random parting message in your elm app.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -1779,6 +1795,7 @@
         "name": "danielnarey/elm-css-basics",
         "summary": "Some basic helpers for generating CSS style declarations in Elm",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -1802,6 +1819,7 @@
         "name": "danielnarey/elm-stylesheet",
         "summary": "A CSS implementation with helpful constructors to generate a global stylesheet",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -3576,6 +3594,15 @@
         ]
     },
     {
+        "name": "jreut/elm-grid",
+        "summary": "Two-dimensional array",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jsanchesleao/elm-assert",
         "summary": "Small assertion and report library",
         "versions": [
@@ -4546,6 +4573,13 @@
         ]
     },
     {
+        "name": "myrho/elm-round",
+        "summary": "Round floats (mathematically/commercially) to a given number of decimal places",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "nathanfox/elm-string-format",
         "summary": "Provide format string functionality.",
         "versions": [
@@ -5192,6 +5226,7 @@
         "name": "scottcorgan/elm-css-reset",
         "summary": "Eric Meyer's famous CSS reset for elm-css",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -5632,6 +5667,13 @@
             "2.0.1",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "thomasloh/elm-phone",
+        "summary": "Format phone number by country",
+        "versions": [
             "1.0.0"
         ]
     },
