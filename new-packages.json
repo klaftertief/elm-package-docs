@@ -269,6 +269,7 @@
     "massung/elm-css",
     "matthewsj/elm-ordering",
     "mattjbray/elm-prismicio",
+    "mattrrichard/elm-disjoint-set",
     "mbr/elm-mouse-events",
     "mbylstra/elm-html-helpers",
     "mdgriffith/elm-color-mixing",
