@@ -3638,6 +3638,7 @@
         "name": "jschomay/elm-narrative-engine",
         "summary": "Interactive storytelling framework",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -6202,6 +6203,7 @@
         "name": "yotamDvir/elm-pivot",
         "summary": "Pivot: a list with a cursor pointing at the center, like a zipper.",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.3",
             "1.0.2",
