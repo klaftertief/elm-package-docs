@@ -1821,6 +1821,13 @@
         ]
     },
     {
+        "name": "danielnarey/elm-input-validation",
+        "summary": "Type-validation for user input from text, numeric, and custom fields",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "danielnarey/elm-modular-design",
         "summary": "DEPRECATED: Use danielnarey/elm-html-tree",
         "versions": [
@@ -4561,6 +4568,13 @@
         ]
     },
     {
+        "name": "mpdairy/elm-component-updater",
+        "summary": "Easily interface and organize nested components.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "mpizenberg/elm-image-annotation",
         "summary": "Annotating collections of images",
         "versions": [
@@ -4589,6 +4603,13 @@
             "2.0.0",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "mpizenberg/elm-touch-events",
+        "summary": "Handle multitouch events",
+        "versions": [
             "1.0.0"
         ]
     },
