@@ -885,6 +885,7 @@
         "name": "abadi199/elm-input-extra",
         "summary": "Html input element with extra features",
         "versions": [
+            "2.1.0",
             "2.0.4",
             "2.0.3",
             "2.0.2",
@@ -1809,6 +1810,13 @@
     {
         "name": "danielnarey/elm-font-import",
         "summary": "Helpers for importing fonts from Google Fonts API",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "danielnarey/elm-form-capture",
+        "summary": "Capture form input as a dictionary keyed by component id",
         "versions": [
             "1.0.0"
         ]
@@ -3801,6 +3809,15 @@
         ]
     },
     {
+        "name": "kintail/input-widget",
+        "summary": "Simpler and easier basic HTML input widgets",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "knewter/elm-rfc5988-parser",
         "summary": "A (woefully-incomplete) parser for RFC5988 Links",
         "versions": [
@@ -4080,6 +4097,13 @@
     {
         "name": "league/unique-id",
         "summary": "Pure generation of unique identifiers in Elm.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "lgastako/elm-select",
+        "summary": "Helpers for building Select inputs in Elm",
         "versions": [
             "1.0.0"
         ]
@@ -4753,6 +4777,13 @@
             "3.0.0",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "nphollon/update-clock",
+        "summary": "Fixed time-step update loop",
+        "versions": [
             "1.0.0"
         ]
     },
