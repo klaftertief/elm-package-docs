@@ -3810,8 +3810,11 @@
     },
     {
         "name": "kintail/input-widget",
-        "summary": "Simpler and easier basic HTML input widgets",
+        "summary": "Unified shorthand for <input>, <select> and <range> elements",
         "versions": [
+            "1.0.5",
+            "1.0.4",
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -4869,6 +4872,14 @@
         ]
     },
     {
+        "name": "powet/elm-funfolding",
+        "summary": "Folding (by Composing) a list of functions by means of an accumulator function.",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "poying/elm-router",
         "summary": "Elm module for single page app routing",
         "versions": [
@@ -5764,6 +5775,7 @@
         "name": "thomasloh/elm-phone",
         "summary": "Format phone number by country",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
