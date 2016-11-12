@@ -1169,6 +1169,13 @@
         ]
     },
     {
+        "name": "avh4/elm-meshes",
+        "summary": "3D meshes (useful for WebGL in Elm)",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "avh4/elm-spec",
         "summary": "Experimental alternative for writing unit tests",
         "versions": [
@@ -2869,6 +2876,13 @@
         ]
     },
     {
+        "name": "folkertdev/elm-bounding-box",
+        "summary": "bounding box operations",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "folkertdev/elm-deque",
         "summary": "A deque (double-ended queue) ",
         "versions": [
@@ -3410,6 +3424,7 @@
         "name": "jinjor/elm-debounce",
         "summary": "Yet another debouncer for Elm.",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -4646,6 +4661,13 @@
     {
         "name": "mukeshsoni/elm-rope",
         "summary": "Rope data structure to store operate on large strings, implemented in elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "mulander/diceware",
+        "summary": "Diceware password lookup for Elm",
         "versions": [
             "1.0.0"
         ]
