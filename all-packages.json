@@ -55,6 +55,7 @@
         "name": "Bogdanp/elm-combine",
         "summary": "A parser combinator library",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.2.1",
             "2.2.0",
@@ -73,6 +74,8 @@
         "name": "Bogdanp/elm-datepicker",
         "summary": "A reusable date picker component",
         "versions": [
+            "3.0.2",
+            "3.0.2",
             "3.0.1",
             "3.0.0",
             "2.0.0",
@@ -470,6 +473,7 @@
         "name": "NoRedInk/elm-decode-pipeline",
         "summary": "A pipeline-friendly library for building JSON decoders.",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.2.0",
             "1.1.2",
@@ -905,6 +909,7 @@
         "name": "abadi199/elm-input-extra",
         "summary": "Html input element with extra features",
         "versions": [
+            "3.0.0",
             "2.1.0",
             "2.0.4",
             "2.0.3",
@@ -1301,6 +1306,7 @@
         "name": "benansell/elm-geometric-transformation",
         "summary": "Rotate, Scale, Translate and Shear shapes",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -1310,6 +1316,7 @@
         "name": "benansell/lobo-elm-test-extra",
         "summary": "elm-test extensions for lobo with focus & skip",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1355,10 +1362,33 @@
         ]
     },
     {
+        "name": "billstclair/elm-versioned-json",
+        "summary": "Help with versioned JSON representations.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "blacksheepmails/elm-set",
         "summary": "A Elm set implementation that can store any type",
         "versions": [
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "bloom/elm-return",
+        "summary": "Return as a Writer Monad",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "bloom/remotedata",
+        "summary": "Tools for fetching data from remote sources (incl. HTTP).",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
@@ -2102,6 +2132,7 @@
         "name": "edvail/elm-polymer",
         "summary": "Polymer Elements",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.2.3",
             "1.2.2",
@@ -2180,6 +2211,7 @@
         "name": "elm-community/basics-extra",
         "summary": "Additional basic functions",
         "versions": [
+            "2.0.0",
             "1.2.0",
             "1.1.0",
             "1.0.1",
@@ -2296,6 +2328,7 @@
         "name": "elm-community/elm-test",
         "summary": "Unit and Fuzz testing support with Console/Html/String outputs.",
         "versions": [
+            "3.0.0",
             "2.1.0",
             "2.0.1",
             "2.0.0",
@@ -2335,6 +2368,7 @@
         "name": "elm-community/html-extra",
         "summary": "Additional functions for working with Html",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.1.0",
             "1.0.0"
@@ -2344,6 +2378,7 @@
         "name": "elm-community/intdict",
         "summary": "Optimized dictionary specialization for Integers. Mirrors the dictionary API.",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -2352,7 +2387,22 @@
         "name": "elm-community/json-extra",
         "summary": "Convenience functions for working with Json",
         "versions": [
+            "2.0.0",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/lazy-list",
+        "summary": "Lazy list implementation in Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/linear-algebra",
+        "summary": "A linear algebra library for fast vector and matrix math",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2360,6 +2410,7 @@
         "name": "elm-community/list-extra",
         "summary": "Convenience functions for working with List",
         "versions": [
+            "4.0.0",
             "3.1.0",
             "3.0.0",
             "2.0.1",
@@ -2379,6 +2430,7 @@
         "name": "elm-community/maybe-extra",
         "summary": "Convenience functions for working with Maybe",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.1.0",
             "1.0.0"
@@ -2395,6 +2447,7 @@
         "name": "elm-community/result-extra",
         "summary": "Convenience functions for working with Result",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -2403,6 +2456,7 @@
         "name": "elm-community/shrink",
         "summary": "Library for authoring shrinking strategies",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -2412,6 +2466,7 @@
         "name": "elm-community/string-extra",
         "summary": "String helper functions for Elm",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.2",
             "1.0.1",
@@ -2422,6 +2477,7 @@
         "name": "elm-community/svg-extra",
         "summary": "Additional functions for working with Svg",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2984,6 +3040,7 @@
         "name": "fredcy/elm-debouncer",
         "summary": "Yet another debouncer component for Elm",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -2992,6 +3049,7 @@
         "name": "fredcy/elm-defer-command",
         "summary": "Defer commands to run after next animation frame",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2999,6 +3057,7 @@
         "name": "fredcy/elm-parseint",
         "summary": "Functions to convert String to Int or Int to String in various radixes",
         "versions": [
+            "2.0.0",
             "1.3.0",
             "1.2.0",
             "1.1.2",
@@ -3082,6 +3141,7 @@
         "name": "ggb/numeral-elm",
         "summary": "Elm module for (advanced) number formatting. Numeral.js port to Elm",
         "versions": [
+            "1.2.3",
             "1.2.2",
             "1.2.1",
             "1.2.0",
@@ -3750,6 +3810,7 @@
         "name": "justinmimbs/elm-date-extra",
         "summary": "Extra functions for working with Date",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -3759,6 +3820,7 @@
         "name": "justinmimbs/elm-date-selector",
         "summary": "A user interface for selecting dates",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -3796,6 +3858,7 @@
         "name": "jvoigtlaender/elm-memo",
         "summary": "Most basic memoization functionality",
         "versions": [
+            "2.0.5",
             "2.0.4",
             "2.0.3",
             "2.0.2",
@@ -3917,6 +3980,7 @@
         "name": "krisajenkins/elm-astar",
         "summary": "The A* pathfinding algorithm.",
         "versions": [
+            "2.0.4",
             "2.0.3",
             "2.0.2",
             "2.0.1",
@@ -3929,6 +3993,7 @@
         "name": "krisajenkins/elm-cdn",
         "summary": "Quick access to the CSS frameworks you need.",
         "versions": [
+            "1.3.1",
             "1.3.0",
             "1.2.1",
             "1.2.0",
@@ -3960,6 +4025,8 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "26.1.0",
+            "26.0.0",
             "25.13.0",
             "25.12.0",
             "25.11.0",
@@ -4079,6 +4146,7 @@
         "name": "krisajenkins/formatting",
         "summary": "A type-safe string formatting library - 'printf' for Elm.",
         "versions": [
+            "4.0.6",
             "4.0.5",
             "4.0.4",
             "4.0.3",
@@ -4117,6 +4185,7 @@
         "name": "krisajenkins/remotedata",
         "summary": "Tools for fetching data from remote sources (incl. HTTP).",
         "versions": [
+            "3.0.0",
             "2.4.0",
             "2.3.0",
             "2.2.1",
@@ -4601,6 +4670,9 @@
         "name": "mgold/elm-random-pcg",
         "summary": "A faster, more featureful, statistically better, & compatible random generator",
         "versions": [
+            "4.0.2",
+            "4.0.1",
+            "4.0.0",
             "3.0.4",
             "3.0.3",
             "3.0.2",
@@ -4676,6 +4748,7 @@
         "name": "mpizenberg/elm-image-annotation",
         "summary": "Annotating collections of images",
         "versions": [
+            "5.0.0",
             "4.0.0",
             "3.0.1",
             "3.0.0",
@@ -4745,6 +4818,7 @@
         "name": "naddeoa/elm-simple-bootstrap",
         "summary": "Small library for easily generaing markup with bootstrap classes",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -5312,6 +5386,7 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "7.0.0",
             "6.1.0",
             "6.0.0",
             "5.0.0",
@@ -5334,6 +5409,7 @@
         "name": "rtfeldman/elm-css-helpers",
         "summary": "Helper functions for using elm-css with elm-html",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.2.0",
             "1.1.0",
@@ -5344,6 +5420,7 @@
         "name": "rtfeldman/elm-css-util",
         "summary": "Utility functions shared by elm-css and elm-css-helpers.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -5382,8 +5459,16 @@
         "name": "rtfeldman/node-test-runner",
         "summary": "Run elm-test suites in a Node.js CLI. Get it with npm install -g elm-test",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "sanichi/elm-md5",
+        "summary": "Compute MD5 message digests in pure Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -5724,6 +5809,7 @@
         "name": "stil4m/elm-aui-css",
         "summary": "HTML helper functions to comply to Atlassian AUI css",
         "versions": [
+            "4.0.0",
             "3.0.1",
             "3.0.0",
             "2.0.0",
@@ -5782,6 +5868,7 @@
         "name": "terezka/elm-plot",
         "summary": "Customizable svg ploting elements",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.3",
@@ -5886,6 +5973,7 @@
         "name": "toastal/either",
         "summary": "A more complete Either for representing a structure with two types",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.1.0",
             "1.0.1",
@@ -5904,6 +5992,7 @@
         "name": "toastal/trinary",
         "summary": "Trinary logic operations",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
