@@ -629,6 +629,13 @@
         ]
     },
     {
+        "name": "Skinney/elm-array-exploration",
+        "summary": "New Array implementation for Elm.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Skinney/elm-dict-extra",
         "summary": "Convenience functions for working with Dict",
         "versions": [
@@ -639,6 +646,7 @@
         "name": "Skinney/fnv",
         "summary": "An implementation of the fnv hash function in elm",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1188,6 +1196,7 @@
         "name": "avh4/elm-fifo",
         "summary": "First in, first out (FIFO) queue",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -1197,6 +1206,7 @@
         "name": "avh4/elm-meshes",
         "summary": "3D meshes (useful for WebGL in Elm)",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1231,6 +1241,7 @@
         "name": "avh4/elm-transducers",
         "summary": "Composable transformation of sequences using clojure-inspired transducers",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.0.1",
             "2.0.0",
@@ -1339,6 +1350,7 @@
         "name": "billstclair/elm-bitwise-infix",
         "summary": "Infix versions of the Bitwise functions.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1347,6 +1359,7 @@
         "name": "billstclair/elm-dynamodb",
         "summary": "Elm interface to Amazon's DynamoDB key/value store.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1365,6 +1378,8 @@
         "name": "billstclair/elm-versioned-json",
         "summary": "Help with versioned JSON representations.",
         "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1868,6 +1883,7 @@
         "name": "danielnarey/elm-css-basics",
         "summary": "Some basic helpers for generating CSS style declarations in Elm",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -1876,6 +1892,7 @@
         "name": "danielnarey/elm-font-import",
         "summary": "Helpers for importing fonts from Google Fonts API",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1883,6 +1900,7 @@
         "name": "danielnarey/elm-form-capture",
         "summary": "Capture form input as a dictionary keyed by component id",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1890,6 +1908,7 @@
         "name": "danielnarey/elm-html-tree",
         "summary": "An alternative syntax for generating HTML in Elm",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1898,6 +1917,7 @@
         "name": "danielnarey/elm-input-validation",
         "summary": "Type-validation for user input from text, numeric, and custom fields",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1916,6 +1936,7 @@
         "name": "danielnarey/elm-stylesheet",
         "summary": "A CSS implementation with helpful constructors to generate a global stylesheet",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -1924,6 +1945,7 @@
         "name": "danielnarey/elm-toolkit",
         "summary": "Generic helpers and custom operators that I use across other projects",
         "versions": [
+            "3.0.0",
             "2.1.0",
             "2.0.0",
             "1.0.2",
@@ -2168,6 +2190,7 @@
         "name": "eeue56/elm-flat-matrix",
         "summary": "A matrix implemention in Elm using flat-arrays",
         "versions": [
+            "3.0.2",
             "3.0.1",
             "3.0.0",
             "2.0.4",
@@ -2222,6 +2245,7 @@
         "name": "elm-community/dict-extra",
         "summary": "Convenience functions for working with Dict",
         "versions": [
+            "1.3.1",
             "1.3.0",
             "1.2.0",
             "1.1.0",
@@ -2233,6 +2257,7 @@
         "name": "elm-community/easing-functions",
         "summary": "Easing functions for animations.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -2241,6 +2266,7 @@
         "name": "elm-community/elm-check",
         "summary": "[deprecated] Property-based testing in Elm",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.2",
             "1.0.1",
@@ -2440,6 +2466,7 @@
         "name": "elm-community/random-extra",
         "summary": "Extra functions for the core Random library",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -2485,6 +2512,7 @@
         "name": "elm-community/undo-redo",
         "summary": "Easy undo in Elm",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -2674,6 +2702,7 @@
         "name": "eskimoblood/elm-color-extra",
         "summary": "Additional color handling for Elm",
         "versions": [
+            "3.2.3",
             "3.2.2",
             "3.2.1",
             "3.2.0",
@@ -2735,6 +2764,7 @@
         "name": "etaque/elm-response",
         "summary": "Response utilities for Elm Architecture",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -2973,6 +3003,7 @@
         "name": "fbonetti/elm-geodesy",
         "summary": "Calculate distance and bearing",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2980,6 +3011,7 @@
         "name": "fbonetti/elm-phoenix-socket",
         "summary": "Pure Elm state manager for Phoenix channels",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -3871,6 +3903,7 @@
         "name": "jvoigtlaender/elm-warshall",
         "summary": "The Warshall Algorithm",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -4006,6 +4039,7 @@
         "name": "krisajenkins/elm-dialog",
         "summary": "A modal dialog widget for Elm.",
         "versions": [
+            "4.0.2",
             "4.0.1",
             "4.0.0",
             "3.0.2",
@@ -4209,6 +4243,8 @@
         "name": "labzero/elm-google-geocoding",
         "summary": "Elm interface to the Google Geocoding API",
         "versions": [
+            "4.0.1",
+            "4.0.0",
             "3.0.0",
             "2.0.0",
             "1.0.1",
@@ -4319,8 +4355,9 @@
     },
     {
         "name": "lukewestby/elm-http-builder",
-        "summary": "Extra functions for more easily building and handling Http requests",
+        "summary": "Extra functions for more easily building HTTP requests",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.1.0",
             "2.0.0",
@@ -4609,6 +4646,7 @@
         "name": "mgold/elm-animation",
         "summary": "Easy but powerful animation of values over time",
         "versions": [
+            "1.0.5",
             "1.0.4",
             "1.0.3",
             "1.0.2",
@@ -4945,6 +4983,7 @@
         "name": "nphollon/update-clock",
         "summary": "Fixed time-step update loop",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5058,6 +5097,13 @@
         "summary": "A testing framework for Elm",
         "versions": [
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "prikhi/elm-http-builder",
+        "summary": "Extra functions for more easily building and handling Http requests",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -5451,6 +5497,7 @@
         "name": "rtfeldman/legacy-elm-test",
         "summary": "Unit testing support with Console/Html/String outputs.",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -5747,6 +5794,7 @@
         "name": "sporto/erl",
         "summary": "Parse and construct URLs",
         "versions": [
+            "10.0.2",
             "10.0.1",
             "10.0.0",
             "9.0.1",
@@ -5881,6 +5929,7 @@
         "name": "tesk9/elm-html-textup",
         "summary": "String to formatted Html library",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5948,6 +5997,7 @@
         "name": "thomasloh/elm-phone",
         "summary": "Format phone number by country",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -6019,6 +6069,7 @@
         "name": "tortus/elm-array-2d",
         "summary": "2D Array library for Elm",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
