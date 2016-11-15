@@ -4803,6 +4803,7 @@
         "name": "micktwomey/elmo-8",
         "summary": "ELMO-8: A PICO-8 inspired fantasy 8-bit game library implemented in WebGL.",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
