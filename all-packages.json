@@ -244,6 +244,7 @@
         "name": "Fresheyeball/elm-return",
         "summary": "Return as a Writer Monad",
         "versions": [
+            "6.0.0",
             "5.0.0",
             "4.0.0",
             "3.1.1",
@@ -647,6 +648,7 @@
         "name": "Skinney/fnv",
         "summary": "An implementation of the fnv hash function in elm",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -656,6 +658,8 @@
         "name": "Skinney/murmur3",
         "summary": "An implementation of the murmur 3 hash function in elm",
         "versions": [
+            "2.0.4",
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -2170,6 +2174,7 @@
         "name": "eeue56/elm-all-dict",
         "summary": "A Elm dict implementation that can store any type",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.1.2",
             "1.1.1",
@@ -2515,6 +2520,13 @@
         "versions": [
             "2.0.0",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/webgl",
+        "summary": "A library for general 3D rendering with WebGL",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2985,6 +2997,7 @@
         "name": "fapian/elm-html-aria",
         "summary": "Aria attributes for elm",
         "versions": [
+            "1.2.2",
             "1.2.1",
             "1.2.0",
             "1.1.0",
@@ -3024,6 +3037,7 @@
         "name": "folkertdev/elm-bounding-box",
         "summary": "bounding box operations",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3038,6 +3052,7 @@
         "name": "folkertdev/elm-state",
         "summary": "Threading state through computation",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -3045,6 +3060,7 @@
         "name": "folkertdev/outmessage",
         "summary": "Streamlining child-parent communication using The Elm Architecture with OutMsg",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3129,6 +3145,7 @@
         "name": "gampleman/elm-visualization",
         "summary": "A data visualization package for Elm",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -3168,6 +3185,7 @@
         "name": "ggb/elm-trend",
         "summary": "Regression and time series forecasting",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -3573,6 +3591,7 @@
         "name": "jinjor/elm-debounce",
         "summary": "Yet another debouncer for Elm.",
         "versions": [
+            "2.1.1",
             "2.1.0",
             "2.0.0",
             "1.0.0"
@@ -3582,6 +3601,7 @@
         "name": "jinjor/elm-diff",
         "summary": "A diff implementation for Elm",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3591,6 +3611,7 @@
         "name": "jinjor/elm-html-parser",
         "summary": "Parse HTML in Elm!",
         "versions": [
+            "1.1.3",
             "1.1.2",
             "1.1.1",
             "1.1.0",
@@ -3604,6 +3625,7 @@
         "name": "jinjor/elm-inline-hover",
         "summary": "An utility for using :hover by inline style",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -3773,6 +3795,8 @@
         "name": "joneshf/elm-tagged",
         "summary": "A library to help with compile time verification",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -3980,6 +4004,7 @@
         "name": "kintail/input-widget",
         "summary": "Unified shorthand for <input>, <select> and <range> elements",
         "versions": [
+            "1.0.6",
             "1.0.5",
             "1.0.4",
             "1.0.3",
@@ -3999,6 +4024,7 @@
         "name": "knledg/touch-events",
         "summary": "Touch event functions to help handle touch events",
         "versions": [
+            "2.1.1",
             "2.1.0",
             "2.0.0",
             "1.0.1",
@@ -4029,6 +4055,7 @@
         "name": "krisajenkins/elm-cdn",
         "summary": "Quick access to the CSS frameworks you need.",
         "versions": [
+            "1.4.0",
             "1.3.1",
             "1.3.0",
             "1.2.1",
@@ -4268,6 +4295,13 @@
         ]
     },
     {
+        "name": "lattenwald/elm-base64",
+        "summary": "Base64 encoding and decoding, cloned from truqu/elm-base64.git",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "league/difference-list",
         "summary": "`DList` is a representation of lists with an efficient append operation",
         "versions": [
@@ -4421,6 +4455,7 @@
         "name": "lukewestby/worker",
         "summary": "Start Elm applications without a view",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.2",
             "1.0.1",
@@ -4553,6 +4588,7 @@
         "name": "mdgriffith/elm-color-mixing",
         "summary": "Color Mixing Functions!",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -4576,8 +4612,9 @@
     },
     {
         "name": "mdgriffith/elm-style-animation",
-        "summary": "Style Animations in Elm",
+        "summary": "Style Animation in Elm",
         "versions": [
+            "3.3.0",
             "3.2.0",
             "3.1.0",
             "3.0.0",
@@ -4663,6 +4700,7 @@
         "name": "mgold/elm-date-format",
         "summary": "Format dates with ease",
         "versions": [
+            "1.1.7",
             "1.1.6",
             "1.1.5",
             "1.1.4",
@@ -4997,6 +5035,7 @@
         "name": "ohanhi/keyboard-extra",
         "summary": "Convenience helpers for working with Keyboard",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.2",
             "1.0.1",
@@ -5343,6 +5382,7 @@
         "name": "rluiten/mailcheck",
         "summary": "Mailcheck suggest corrections to errors in email addresses",
         "versions": [
+            "4.1.3",
             "4.1.2",
             "4.1.1",
             "4.1.0",
@@ -5524,6 +5564,9 @@
         "name": "sanichi/elm-md5",
         "summary": "Compute MD5 message digests in pure Elm",
         "versions": [
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5685,6 +5728,7 @@
         "name": "simonh1000/elm-jwt",
         "summary": "Jwt token helper functions",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.3",
             "1.0.2",
