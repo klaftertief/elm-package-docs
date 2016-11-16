@@ -883,6 +883,7 @@
         "name": "Zinggi/elm-2d-game",
         "summary": "A 2d rendering engine based on webgl",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -890,6 +891,7 @@
         "name": "Zinggi/elm-game-resources",
         "summary": "Manages game resources (currently only textures)",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -898,6 +900,8 @@
         "name": "Zinggi/elm-webgl-math",
         "summary": "Vector and matrix library for 3D and 2D math",
         "versions": [
+            "1.0.5",
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -1102,6 +1106,7 @@
         "name": "arturopala/elm-monocle",
         "summary": "Library providing functional tools to manipulate complex records",
         "versions": [
+            "1.3.1",
             "1.3.0",
             "1.2.1",
             "1.2.0",
@@ -1499,6 +1504,7 @@
         "name": "ccapndave/elm-update-extra",
         "summary": "Convenience functions for working with update in Elm",
         "versions": [
+            "2.3.1",
             "2.3.0",
             "2.2.0",
             "2.1.0",
@@ -1848,6 +1854,7 @@
         "name": "coreytrampe/elm-vendor",
         "summary": "detect browser vendor prefix",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -1953,6 +1960,8 @@
         "name": "danielnarey/elm-toolkit",
         "summary": "Generic helpers and custom operators that I use across other projects",
         "versions": [
+            "3.2.1",
+            "3.2.0",
             "3.1.0",
             "3.0.0",
             "2.1.0",
@@ -2191,6 +2200,7 @@
         "name": "eeue56/elm-default-dict",
         "summary": "A default dict implementation in elm",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -2706,6 +2716,7 @@
         "name": "ersocon/creditcard-validation",
         "summary": "CreditCard validation",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2783,6 +2794,7 @@
         "name": "etaque/elm-hexagons",
         "summary": "Hexagonal grids computing",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -2801,6 +2813,7 @@
         "name": "etaque/elm-route-parser",
         "summary": "A friendly route parser based on parser combinators",
         "versions": [
+            "3.0.0",
             "2.2.1",
             "2.2.0",
             "2.1.0",
@@ -2836,6 +2849,7 @@
         "name": "etaque/elm-transit",
         "summary": "Simple transition animation for switching between pages in a single page app.",
         "versions": [
+            "7.0.3",
             "7.0.2",
             "7.0.1",
             "7.0.0",
@@ -2860,6 +2874,7 @@
         "name": "etaque/elm-transit-style",
         "summary": "CSS styles for animation on elm-transit.",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.0.0",
             "1.0.1",
@@ -3223,6 +3238,7 @@
         "name": "ggb/porterstemmer",
         "summary": "Elm implementation of the classical Porter Stemming-algorithm.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -4264,6 +4280,7 @@
         "name": "krisajenkins/remotedata",
         "summary": "Tools for fetching data from remote sources (incl. HTTP).",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.4.0",
             "2.3.0",
@@ -4979,6 +4996,7 @@
         "name": "nphollon/collision",
         "summary": "3D collision detection using OBBTree algorithm",
         "versions": [
+            "3.0.2",
             "3.0.1",
             "3.0.0",
             "2.0.1",
@@ -5420,6 +5438,7 @@
         "name": "rluiten/sparsevector",
         "summary": "A simple sparse vector implementation",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -5544,6 +5563,7 @@
         "name": "rtfeldman/elm-validate",
         "summary": "Convenience functions for validating data.",
         "versions": [
+            "1.1.3",
             "1.1.2",
             "1.1.1",
             "1.1.0",
@@ -5639,6 +5659,8 @@
         "name": "scottcorgan/keyboard-combo",
         "summary": "Handle keyboard key combinations with type safety in Elm",
         "versions": [
+            "2.0.2",
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -6554,6 +6576,13 @@
     {
         "name": "wintvelt/elm-print-any",
         "summary": "a tiny library to print any record to DOM or to console",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "wittjosiah/elm-css",
+        "summary": "CSS Preprocessor for Elm",
         "versions": [
             "1.0.0"
         ]
