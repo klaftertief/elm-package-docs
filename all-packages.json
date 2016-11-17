@@ -2673,6 +2673,7 @@
         "name": "elm-lang/virtual-dom",
         "summary": "Core virtual DOM implementation, basis for HTML and SVG libraries",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.1.1",
             "1.1.0",
@@ -3202,6 +3203,7 @@
         "name": "ggb/elm-bloom",
         "summary": "Elm Bloom filter implementation using Murmur3",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5272,6 +5274,15 @@
         ]
     },
     {
+        "name": "pzingg/elm-navigation-extra",
+        "summary": "Router for single-page-apps in Elm",
+        "versions": [
+            "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "r31gN/elm-dropdown",
         "summary": "Elm dropdown component",
         "versions": [
@@ -5612,6 +5623,8 @@
         "name": "sanichi/elm-md5",
         "summary": "Compute MD5 message digests in pure Elm",
         "versions": [
+            "1.0.5",
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -6073,6 +6086,7 @@
         "name": "thaterikperson/elm-blackjack",
         "summary": "Library for comparing and testing hands of Blackjack.",
         "versions": [
+            "2.0.0",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -6176,6 +6190,14 @@
         "versions": [
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "trifectalabs/elm-geojson",
+        "summary": "Decode GeoJSON (RFC 7946) into an Elm data structure",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
