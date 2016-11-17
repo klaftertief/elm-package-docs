@@ -125,6 +125,7 @@
         "name": "Bogdanp/elm-time",
         "summary": "A pure Elm date and time library.",
         "versions": [
+            "1.2.1",
             "1.2.0",
             "1.1.0",
             "1.0.5",
@@ -5451,6 +5452,7 @@
         "name": "rluiten/stemmer",
         "summary": "Stemmer is an Elm language implementation of Porter Stemmer",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -6604,6 +6606,7 @@
         "name": "xarvh/elm-slides",
         "summary": "Awesome presentation framework to create your slides in Elm",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.2",
             "1.0.1",

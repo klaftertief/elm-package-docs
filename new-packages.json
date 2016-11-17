@@ -142,6 +142,7 @@
     "rluiten/elm-date-extra",
     "rluiten/mailcheck",
     "rluiten/sparsevector",
+    "rluiten/stemmer",
     "rluiten/stringdistance",
     "rtfeldman/elm-css",
     "rtfeldman/elm-css-helpers",
@@ -162,5 +163,6 @@
     "toastal/return-optics",
     "toastal/trinary",
     "tortus/elm-array-2d",
-    "w0rm/elm-slice-show"
+    "w0rm/elm-slice-show",
+    "xarvh/elm-slides"
 ]
