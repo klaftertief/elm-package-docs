@@ -4304,6 +4304,7 @@
         "name": "ktonon/elm-child-update",
         "summary": "Delegates update messages to one or many children",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -4772,6 +4773,7 @@
         "name": "mgold/elm-nonempty-list",
         "summary": "head and tail without the Maybe",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.8.0",
@@ -5277,6 +5279,8 @@
         "name": "pzingg/elm-navigation-extra",
         "summary": "Router for single-page-apps in Elm",
         "versions": [
+            "1.1.2",
+            "1.1.1",
             "1.1.0",
             "1.0.1",
             "1.0.0"
