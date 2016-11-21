@@ -1944,6 +1944,7 @@
         "name": "danielnarey/elm-css-math",
         "summary": "Arithmetic and unit conversions with CSS values",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1951,6 +1952,7 @@
         "name": "danielnarey/elm-font-import",
         "summary": "Helpers for importing fonts from Google Fonts API",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1959,6 +1961,7 @@
         "name": "danielnarey/elm-form-capture",
         "summary": "Capture form input as a dictionary keyed by component id",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1967,6 +1970,7 @@
         "name": "danielnarey/elm-html-tree",
         "summary": "An alternative syntax for generating HTML in Elm",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -1976,6 +1980,7 @@
         "name": "danielnarey/elm-input-validation",
         "summary": "Type-validation for user input from text, numeric, and custom fields",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1995,6 +2000,7 @@
         "name": "danielnarey/elm-stylesheet",
         "summary": "A CSS implementation with helpful constructors to generate a global stylesheet",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -2318,6 +2324,7 @@
         "name": "elm-community/array-extra",
         "summary": "Convenience functions for working with Array",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -2541,6 +2548,7 @@
         "name": "elm-community/list-split",
         "summary": "Split lists into chunks",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -5084,6 +5092,7 @@
         "name": "noahzgordon/elm-jsonapi",
         "summary": "Decoders and helper functions for working with JSONAPI payloads",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
