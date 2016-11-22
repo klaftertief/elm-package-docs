@@ -32,6 +32,7 @@
     "bloom/elm-return",
     "bloom/remotedata",
     "ccapndave/elm-update-extra",
+    "chendrix/elm-matrix",
     "coreytrampe/elm-vendor",
     "damienklinnert/elm-hue",
     "damienklinnert/elm-spinner",
@@ -161,6 +162,7 @@
     "myrho/elm-round",
     "newlandsvalley/elm-comidi",
     "noahzgordon/elm-jsonapi",
+    "noahzgordon/elm-jsonapi-http",
     "nphollon/collision",
     "nphollon/geo3d",
     "nphollon/update-clock",
@@ -168,6 +170,7 @@
     "omarroth/elm-dom",
     "omarroth/elm-parts",
     "pdamoc/elm-hashids",
+    "powet/elm-funfolding",
     "prikhi/elm-http-builder",
     "pzingg/elm-navigation-extra",
     "rgrempel/elm-http-decorators",
@@ -192,6 +195,7 @@
     "simonh1000/elm-jwt",
     "sporto/erl",
     "stil4m/elm-aui-css",
+    "tapeinosyne/elm-microkanren",
     "terezka/elm-plot",
     "tesk9/elm-html-textup",
     "thaterikperson/elm-blackjack",
@@ -203,6 +207,8 @@
     "tortus/elm-array-2d",
     "trifectalabs/elm-geojson",
     "tripokey/elm-fuzzy",
+    "truqu/elm-base64",
     "w0rm/elm-slice-show",
-    "xarvh/elm-slides"
+    "xarvh/elm-slides",
+    "zaboco/elm-draggable"
 ]
