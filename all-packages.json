@@ -184,6 +184,7 @@
         "name": "Fresheyeball/elm-animate-css",
         "summary": "class helpers for animate.css",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -198,6 +199,7 @@
         "name": "Fresheyeball/elm-font-awesome",
         "summary": "Font Awesome CSS helpers",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -207,6 +209,7 @@
         "name": "Fresheyeball/elm-function-extra",
         "summary": "Extra functions for working with functions",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -215,6 +218,7 @@
         "name": "Fresheyeball/elm-guards",
         "summary": "guards notation defined in user space",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -222,6 +226,7 @@
         "name": "Fresheyeball/elm-nearly-eq",
         "summary": "Tools for approximating equality",
         "versions": [
+            "1.0.1",
             "1.1.0",
             "1.0.0"
         ]
@@ -230,6 +235,7 @@
         "name": "Fresheyeball/elm-number-expanded",
         "summary": "Expanded Numbers as a type (infinite allowed)",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -238,6 +244,7 @@
         "name": "Fresheyeball/elm-restrict-number",
         "summary": "Modules that enforce number restrictions",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -268,6 +275,7 @@
         "name": "Fresheyeball/elm-tuple-extra",
         "summary": "Some simple functions that work with Tuple",
         "versions": [
+            "3.0.0",
             "2.2.0",
             "2.1.0",
             "2.0.1",
@@ -287,6 +295,7 @@
         "name": "Fresheyeball/perspective",
         "summary": "Tools for view function composition",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -295,6 +304,7 @@
         "name": "Fresheyeball/sprite",
         "summary": "Simple sprite rendering for elm-html",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5336,6 +5346,8 @@
         "name": "prikhi/elm-http-builder",
         "summary": "Extra functions for more easily building and handling Http requests",
         "versions": [
+            "2.1.0",
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -6538,6 +6550,7 @@
         "name": "wernerdegroot/listzipper",
         "summary": "A zipper for List",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.2",
             "1.0.1",
