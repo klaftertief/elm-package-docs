@@ -140,6 +140,7 @@
     "justinmimbs/elm-date-selector",
     "jvoigtlaender/elm-memo",
     "jvoigtlaender/elm-warshall",
+    "jweir/elm-iso8601",
     "jystic/elm-font-awesome",
     "kintail/input-widget",
     "knledg/touch-events",

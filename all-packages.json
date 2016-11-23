@@ -209,6 +209,7 @@
         "name": "Fresheyeball/elm-function-extra",
         "summary": "Extra functions for working with functions",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.1.0",
             "1.0.0"
@@ -253,6 +254,9 @@
         "name": "Fresheyeball/elm-return",
         "summary": "Return as a Writer Monad",
         "versions": [
+            "6.0.3",
+            "6.0.2",
+            "6.0.1",
             "6.0.0",
             "5.0.0",
             "4.0.0",
@@ -2468,6 +2472,7 @@
         "name": "elm-community/elm-test",
         "summary": "Unit and Fuzz testing support with Console/Html/String outputs.",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.1.0",
             "2.0.1",
@@ -2636,6 +2641,7 @@
         "name": "elm-community/webgl",
         "summary": "A library for general 3D rendering with WebGL",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -4083,6 +4089,7 @@
         "name": "jweir/elm-iso8601",
         "summary": "Pure Elm time parsing and handling for IS8601 based time.",
         "versions": [
+            "3.0.2",
             "3.0.1",
             "3.0.0",
             "2.1.1",
@@ -4395,6 +4402,7 @@
         "name": "krisajenkins/remotedata",
         "summary": "Tools for fetching data from remote sources (incl. HTTP).",
         "versions": [
+            "4.0.1",
             "4.0.0",
             "3.0.0",
             "2.4.0",
@@ -4965,6 +4973,7 @@
         "name": "micktwomey/elmo-8",
         "summary": "ELMO-8: A PICO-8 inspired fantasy 8-bit game library implemented in WebGL.",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.2",
@@ -5957,6 +5966,8 @@
         "name": "simonh1000/elm-jwt",
         "summary": "Jwt token helper functions",
         "versions": [
+            "4.0.3",
+            "4.0.2",
             "4.0.1",
             "4.0.0",
             "3.0.0",
@@ -6845,6 +6856,7 @@
         "name": "zaboco/elm-draggable",
         "summary": "easy way to make DOM elements draggable",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
