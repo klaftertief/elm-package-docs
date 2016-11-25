@@ -1015,6 +1015,14 @@
         ]
     },
     {
+        "name": "adeschamps/mdl-context",
+        "summary": "Helpers for working with elm-mdl render functions",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "agrafix/elm-bootforms",
         "summary": "Quickly create forms using bootstrap and elm",
         "versions": [
@@ -1132,6 +1140,13 @@
     {
         "name": "aristidesstaffieri/elm-poisson",
         "summary": "A function for calculating Poisson distributions.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "arowM/elm-chat-scenario",
+        "summary": "A type safe DSL for CLI or Conversational User Interface.",
         "versions": [
             "1.0.0"
         ]
@@ -1360,6 +1375,7 @@
         "name": "bartavelle/json-helpers",
         "summary": "Helpers for Json encoding and decoding of sum types",
         "versions": [
+            "1.2.0",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -1512,6 +1528,7 @@
         "name": "camjc/elm-chart",
         "summary": "An SVG chart library",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -1521,6 +1538,7 @@
         "name": "camjc/elm-quiz",
         "summary": "Quiz Game",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -5363,6 +5381,16 @@
         ]
     },
     {
+        "name": "prikhi/remote-status",
+        "summary": "A Library for Tracking the Status of Remote Requests",
+        "versions": [
+            "1.1.0",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "project-fuzzball/node",
         "summary": "DEPRECATED - This has been replaced by rtfeldman/node-test-runner",
         "versions": [
@@ -5420,6 +5448,7 @@
         "name": "prozacchiwawa/effmodel",
         "summary": "Simple package to make dealing with model and effect pairs more composable.",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -6449,6 +6478,9 @@
         "name": "turboMaCk/chae-tree",
         "summary": "Create multi-level navigation in elm easily.",
         "versions": [
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
