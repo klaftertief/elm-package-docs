@@ -427,6 +427,14 @@
         ]
     },
     {
+        "name": "Kinto/elm-kinto",
+        "summary": "A client to help making requests to a Kinto storage server",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "KtorZ/elm-notification",
         "summary": "Display discardable notification toast messages on top of the window",
         "versions": [
@@ -544,6 +552,7 @@
         "name": "NoRedInk/elm-rails",
         "summary": "Convenience functions for using Elm with Rails.",
         "versions": [
+            "5.0.0",
             "4.0.6",
             "4.0.5",
             "4.0.4",
@@ -926,6 +935,7 @@
         "name": "VerbalExpressions/elm-verbal-expressions",
         "summary": "Elm port of VerbalExpressions",
         "versions": [
+            "1.2.2",
             "1.2.1",
             "1.2.0",
             "1.1.0",
@@ -1445,6 +1455,7 @@
         "name": "besuikerd/elm-dictset",
         "summary": "Adds specialized sets built on top of Dict",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1452,6 +1463,8 @@
         "name": "billperegoy/elm-form-validations",
         "summary": "form validation library for Elm",
         "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2571,6 +2584,7 @@
         "name": "elm-community/graph",
         "summary": "Handling graphs the functional way.",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -2642,6 +2656,7 @@
         "name": "elm-community/maybe-extra",
         "summary": "Convenience functions for working with Maybe",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.0.0",
             "1.1.0",
@@ -2660,6 +2675,7 @@
         "name": "elm-community/ratio",
         "summary": "A ratio type for working with rational numbers",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -4165,6 +4181,7 @@
         "name": "jvoigtlaender/elm-gauss",
         "summary": "The Gauss and Gauss-Jordan Elimination Algorithms",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -4711,6 +4728,7 @@
         "name": "lukewestby/elm-template",
         "summary": "Type-safe Elm string templating with records.",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -4758,6 +4776,7 @@
         "name": "maksar/elm-function-extra",
         "summary": "Higher-order helpers for working with functions",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -4767,6 +4786,7 @@
         "name": "maksar/elm-workflow",
         "summary": "Library to demonstrate one of the possible Workflow implementations.",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -4916,6 +4936,7 @@
         "name": "mdgriffith/style-elements",
         "summary": "A different approach to creating and managing styles.",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -5108,6 +5129,14 @@
         ]
     },
     {
+        "name": "mpizenberg/elm-debounce",
+        "summary": "Control messages with debouncing and throttling",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "mpizenberg/elm-image-annotation",
         "summary": "Annotating collections of images",
         "versions": [
@@ -5205,6 +5234,14 @@
         "summary": "A minimal functional core for relational programming",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "newlandsvalley/elm-abc-parser",
+        "summary": "library for parsing ABC documents",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -5889,6 +5926,13 @@
         ]
     },
     {
+        "name": "rtfeldman/hex",
+        "summary": "Work with hexadecimal numbers in Elm.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "rtfeldman/html-test-runner",
         "summary": "Run elm-test tests in a browser.",
         "versions": [
@@ -6073,6 +6117,7 @@
         "name": "simonh1000/elm-charts",
         "summary": "Bar and pie charts",
         "versions": [
+            "3.0.4",
             "3.0.3",
             "3.0.2",
             "3.0.1",
@@ -6177,6 +6222,17 @@
         "name": "spisemisu/elm-utf8",
         "summary": "Encode/decode between multi-byte Unicode & UTF-8 multiple single-byte encoding",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "splodingsocks/elm-add-import",
+        "summary": "Add an import to an Elm file. That's it!",
+        "versions": [
+            "1.0.4",
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6589,6 +6645,7 @@
         "name": "turboMaCk/chae-tree",
         "summary": "Create multi-level navigation in elm easily.",
         "versions": [
+            "2.0.0",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -6599,6 +6656,7 @@
         "name": "turboMaCk/grid-solver",
         "summary": "Build awesome Grid layouts in Elm",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
