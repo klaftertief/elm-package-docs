@@ -349,6 +349,13 @@
         ]
     },
     {
+        "name": "JoelQ/elm-dollar",
+        "summary": "Dollar type that wraps Ints to give stronger type safety",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "JoeyEremondi/LoadAssets",
         "summary": "Utilities for loading several remote assets",
         "versions": [
@@ -705,6 +712,7 @@
         "name": "Skinney/elm-array-exploration",
         "summary": "New Array implementation for Elm.",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -1000,6 +1008,7 @@
         "name": "aardito2/realm",
         "summary": "Helper function for use with realm npm package",
         "versions": [
+            "1.0.6",
             "1.0.5",
             "1.0.4",
             "1.0.3",
@@ -2684,6 +2693,7 @@
         "name": "elm-community/json-extra",
         "summary": "Convenience functions for working with Json",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.1.0",
             "1.0.0"
@@ -2995,6 +3005,7 @@
         "name": "erwald/elm-edit-distance",
         "summary": "A package for calculating between-list edit distances.",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]
@@ -5293,10 +5304,25 @@
         ]
     },
     {
+        "name": "myrho/dive",
+        "summary": "Build visual presentations like Prezi's",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "myrho/elm-round",
         "summary": "Round floats (mathematically/commercially) to a given number of decimal places",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "myrho/elm-statistics",
+        "summary": "Utility functions for statistics",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -6358,6 +6384,13 @@
         ]
     },
     {
+        "name": "sporto/elm-select",
+        "summary": "A selection input with auto-completion",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "sporto/erl",
         "summary": "Parse and construct URLs",
         "versions": [
@@ -7183,6 +7216,7 @@
         "name": "zaidan/elm-collision",
         "summary": "Fast collision detection for convex objects",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },

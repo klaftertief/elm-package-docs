@@ -16,6 +16,7 @@
     "Fresheyeball/perspective",
     "Fresheyeball/sprite",
     "JeremyBellows/elm-bootstrapify",
+    "JoelQ/elm-dollar",
     "Kinto/elm-kinto",
     "MichaelCombs28/elm-dom",
     "MichaelCombs28/elm-mdl",
@@ -126,6 +127,7 @@
     "elm-lang/websocket",
     "elm-lang/window",
     "ersocon/creditcard-validation",
+    "erwald/elm-edit-distance",
     "eskimoblood/elm-color-extra",
     "eskimoblood/elm-simplex-noise",
     "eskimoblood/elm-wallpaper",
@@ -212,7 +214,9 @@
     "mpizenberg/elm-image-collection",
     "mpizenberg/elm-touch-events",
     "mulander/diceware",
+    "myrho/dive",
     "myrho/elm-round",
+    "myrho/elm-statistics",
     "newlandsvalley/elm-abc-parser",
     "newlandsvalley/elm-comidi",
     "noahzgordon/elm-jsonapi",
@@ -254,6 +258,7 @@
     "simonh1000/elm-charts",
     "simonh1000/elm-jwt",
     "splodingsocks/elm-add-import",
+    "sporto/elm-select",
     "sporto/erl",
     "stil4m/elm-aui-css",
     "swiftsnamesake/euclidean-space",
@@ -281,5 +286,6 @@
     "xarvh/elm-slides",
     "ydschneider/regex-builder",
     "yotamDvir/elm-pivot",
-    "zaboco/elm-draggable"
+    "zaboco/elm-draggable",
+    "zaidan/elm-collision"
 ]
