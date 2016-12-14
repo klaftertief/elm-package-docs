@@ -77,6 +77,8 @@
     "danielnarey/elm-toolkit",
     "danyx23/elm-mimetype",
     "danyx23/elm-uuid",
+    "debois/elm-dom",
+    "debois/elm-parts",
     "derekdreery/elm-die-faces",
     "edvail/elm-polymer",
     "eeue56/elm-all-dict",
