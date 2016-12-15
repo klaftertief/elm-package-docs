@@ -765,6 +765,14 @@
         ]
     },
     {
+        "name": "SwiftsNamesake/proper-keyboard",
+        "summary": "Introduces type-safe keys",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "TheDahv/doctari",
         "summary": "An organizable, ordered document editor built with Elm",
         "versions": [
@@ -6393,6 +6401,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.0"
         ]
