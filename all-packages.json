@@ -768,6 +768,7 @@
         "name": "SwiftsNamesake/proper-keyboard",
         "summary": "Introduces type-safe keys",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -976,6 +977,7 @@
         "name": "Voronchuk/hexagons",
         "summary": "Hexagonal grids and tools to build hex maps and layouts",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.3",
@@ -1027,6 +1029,17 @@
         ]
     },
     {
+        "name": "abadi199/datetimepicker",
+        "summary": "Reusable date and time picker view",
+        "versions": [
+            "1.0.4",
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "abadi199/elm-creditcard",
         "summary": "Pretty credit card form built with elm",
         "versions": [
@@ -1045,6 +1058,7 @@
         "name": "abadi199/elm-input-extra",
         "summary": "Commonly used Html element and date picker with extra functionality",
         "versions": [
+            "4.3.0",
             "4.2.2",
             "4.2.1",
             "4.2.0",
@@ -1155,6 +1169,13 @@
         ]
     },
     {
+        "name": "alepop/elm-google-url-shortener",
+        "summary": "Elm interface to the Google Url Shortener API",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "alexeisavca/keyframes.elm",
         "summary": "A truly functional animation library",
         "versions": [
@@ -1228,6 +1249,7 @@
         "name": "arowM/elm-chat-scenario",
         "summary": "A type safe DSL for CLI or Conversational User Interface.",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -1283,6 +1305,7 @@
         "name": "athanclark/elm-debouncer",
         "summary": "simple method for time-throttling action / message propogation",
         "versions": [
+            "3.0.2",
             "3.0.1",
             "3.0.0",
             "2.0.0",
@@ -1294,6 +1317,7 @@
         "name": "athanclark/elm-discrete-transition",
         "summary": "Transition between a set of discrete states",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.1.1",
             "1.1.0",
@@ -1305,6 +1329,8 @@
         "name": "athanclark/elm-duration",
         "summary": "Issue actions over a duration of time",
         "versions": [
+            "5.0.1",
+            "4.0.1",
             "5.0.0",
             "4.0.0",
             "3.0.0",
@@ -1320,6 +1346,7 @@
         "name": "athanclark/elm-every",
         "summary": "simple method for repetitive action / message issuance",
         "versions": [
+            "7.0.1",
             "7.0.0",
             "6.0.0",
             "5.0.0",
@@ -2061,6 +2088,14 @@
         ]
     },
     {
+        "name": "cuducos/elm-format-number",
+        "summary": "Format numbers as pretty strings",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "cutsea110/elm-temperature",
         "summary": "handle something around temperature.",
         "versions": [
@@ -2286,6 +2321,8 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "8.0.1",
+            "8.0.0",
             "7.6.0",
             "7.5.0",
             "7.4.0",
@@ -2728,6 +2765,7 @@
         "name": "elm-community/list-extra",
         "summary": "Convenience functions for working with List",
         "versions": [
+            "5.0.0",
             "4.0.0",
             "3.1.0",
             "3.0.0",
@@ -2742,6 +2780,13 @@
         "versions": [
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/material-icons",
+        "summary": "Material Icons Library",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3536,6 +3581,8 @@
         "name": "ggb/numeral-elm",
         "summary": "Elm module for (advanced) number formatting. Numeral.js port to Elm",
         "versions": [
+            "1.4.0",
+            "1.3.0",
             "1.2.3",
             "1.2.2",
             "1.2.1",
@@ -3609,6 +3656,7 @@
         "name": "hendore/elm-temperature",
         "summary": "Converting temperatures between celsius, fahrenheit and kelvin scales",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -3945,6 +3993,7 @@
         "name": "jinjor/elm-contextmenu",
         "summary": "Flexible context menu for Elm",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3974,6 +4023,7 @@
         "name": "jinjor/elm-html-parser",
         "summary": "Parse HTML in Elm!",
         "versions": [
+            "1.1.4",
             "1.1.3",
             "1.1.2",
             "1.1.1",
@@ -4232,6 +4282,13 @@
         ]
     },
     {
+        "name": "justinmimbs/elm-arc-diagram",
+        "summary": "An arc diagram for visualizing acyclic digraphs",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "justinmimbs/elm-date-extra",
         "summary": "Extra functions for working with Date",
         "versions": [
@@ -4344,6 +4401,13 @@
         ]
     },
     {
+        "name": "kallaspriit/elm-basic-auth",
+        "summary": "HTTP basic auth utility for generating the authentication header and token",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "karldray/elm-ref",
         "summary": "An experimental library for representing mutable values",
         "versions": [
@@ -4387,6 +4451,8 @@
         "name": "knewter/elm-rfc5988-parser",
         "summary": "A (woefully-incomplete) parser for RFC5988 Links",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -4459,6 +4525,8 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "26.3.0",
+            "26.2.0",
             "26.1.1",
             "26.1.0",
             "26.0.0",
@@ -4581,6 +4649,8 @@
         "name": "krisajenkins/formatting",
         "summary": "A type-safe string formatting library - 'printf' for Elm.",
         "versions": [
+            "4.1.0",
+            "4.0.7",
             "4.0.6",
             "4.0.5",
             "4.0.4",
@@ -4621,6 +4691,8 @@
         "name": "krisajenkins/remotedata",
         "summary": "Tools for fetching data from remote sources (incl. HTTP).",
         "versions": [
+            "4.2.0",
+            "4.1.0",
             "4.0.1",
             "4.0.0",
             "3.0.0",
@@ -4641,6 +4713,17 @@
         "versions": [
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ktonon/elm-english-dictionary",
+        "summary": "English language dictionary derived from WordNet 3.0",
+        "versions": [
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -4831,6 +4914,15 @@
         ]
     },
     {
+        "name": "lukewestby/lru-cache",
+        "summary": "A least recently used cache for Elm programs",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lukewestby/package-info",
         "summary": "Types and helpers for dealing with the data found in an elm-package.json file",
         "versions": [
@@ -4922,6 +5014,7 @@
         "name": "matthewsj/elm-ordering",
         "summary": "A library for writing custom comparison functions",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -5005,6 +5098,8 @@
         "name": "mdgriffith/elm-style-animation",
         "summary": "Style Animations in Elm",
         "versions": [
+            "3.5.1",
+            "3.5.0",
             "3.4.0",
             "3.3.0",
             "3.2.0",
@@ -5221,6 +5316,13 @@
         ]
     },
     {
+        "name": "mkovacs/quaternion",
+        "summary": "Quaternion module to be used with the linear-algebra package",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "mmetcalfe/elm-random-distributions",
         "summary": "Non-uniform distributions for the core Random library",
         "versions": [
@@ -5344,6 +5446,21 @@
         "name": "naddeoa/elm-simple-bootstrap",
         "summary": "Small library for easily generaing markup with bootstrap classes",
         "versions": [
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "naddeoa/stream",
+        "summary": "Functional, infinite streams of data that won't overflow the stack",
+        "versions": [
+            "2.1.0",
+            "2.0.0",
+            "1.5.0",
+            "1.4.0",
+            "1.3.0",
+            "1.2.0",
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]
@@ -5568,6 +5685,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "periodic/elm-csv",
+        "summary": "Parse CSV strings",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -6000,6 +6124,14 @@
         ]
     },
     {
+        "name": "rogeriochaves/elm-testable",
+        "summary": "Makes Tasks and Effects testable",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
@@ -6116,6 +6248,7 @@
         "name": "scottcorgan/elm-css-normalize",
         "summary": "A port of normalize.css for elm-css",
         "versions": [
+            "1.1.5",
             "1.1.4",
             "1.1.3",
             "1.1.2",
@@ -6128,6 +6261,7 @@
         "name": "scottcorgan/elm-css-reset",
         "summary": "Eric Meyer's famous CSS reset for elm-css",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -6138,6 +6272,7 @@
         "name": "scottcorgan/elm-html-template",
         "summary": "A large amount of html elements for showcasing styles on a single page",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6410,6 +6545,7 @@
         "name": "sporto/erl",
         "summary": "Parse and construct URLs",
         "versions": [
+            "11.1.0",
             "11.0.0",
             "10.0.2",
             "10.0.1",
@@ -6555,6 +6691,8 @@
         "name": "terezka/elm-plot",
         "summary": "Customizable svg ploting elements",
         "versions": [
+            "3.0.1",
+            "3.0.0",
             "2.2.0",
             "2.1.0",
             "2.0.3",
@@ -7219,6 +7357,8 @@
         "name": "zaboco/elm-draggable",
         "summary": "easy way to make DOM elements draggable",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.1.1",
             "1.1.0",
             "1.0.4",
