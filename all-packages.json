@@ -456,6 +456,7 @@
         "name": "Kwarrtz/render",
         "summary": "Lightweight graphics similar to Graphics.Collage (backed by SVG)",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -713,6 +714,7 @@
         "name": "Skinney/elm-array-exploration",
         "summary": "New Array implementation for Elm.",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -1032,6 +1034,9 @@
         "name": "abadi199/datetimepicker",
         "summary": "Reusable date and time picker view",
         "versions": [
+            "1.0.7",
+            "1.0.6",
+            "1.0.5",
             "1.0.4",
             "1.0.3",
             "1.0.2",
@@ -1043,6 +1048,8 @@
         "name": "abadi199/elm-creditcard",
         "summary": "Pretty credit card form built with elm",
         "versions": [
+            "6.1.0",
+            "6.0.0",
             "5.0.2",
             "5.0.1",
             "5.0.0",
@@ -1056,8 +1063,10 @@
     },
     {
         "name": "abadi199/elm-input-extra",
-        "summary": "Commonly used Html element and date picker with extra functionality",
+        "summary": "Commonly used Html element with extra functionality",
         "versions": [
+            "5.1.0",
+            "5.0.0",
             "4.3.0",
             "4.2.2",
             "4.2.1",
@@ -1624,6 +1633,14 @@
         ]
     },
     {
+        "name": "brainrape/elm-ast",
+        "summary": "A parser for Elm code",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "brenden/elm-tree-diagram",
         "summary": "Library for drawing diagrams of trees",
         "versions": [
@@ -1680,6 +1697,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "capitalist/elm-octicons",
+        "summary": "Octicons for Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2321,6 +2345,7 @@
         "name": "debois/elm-mdl",
         "summary": "Material Design Lite port to Elm",
         "versions": [
+            "8.1.0",
             "8.0.1",
             "8.0.0",
             "7.6.0",
@@ -2794,6 +2819,7 @@
         "name": "elm-community/maybe-extra",
         "summary": "Convenience functions for working with Maybe",
         "versions": [
+            "3.1.0",
             "3.0.1",
             "3.0.0",
             "2.0.0",
@@ -2868,6 +2894,7 @@
         "name": "elm-community/webgl",
         "summary": "A library for general 3D rendering with WebGL",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -2999,6 +3026,7 @@
         "name": "elm-lang/virtual-dom",
         "summary": "Core virtual DOM implementation, basis for HTML and SVG libraries",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -3990,6 +4018,13 @@
         ]
     },
     {
+        "name": "jfmengels/elm-ast",
+        "summary": "A parser for Elm code",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jinjor/elm-contextmenu",
         "summary": "Flexible context menu for Elm",
         "versions": [
@@ -4691,6 +4726,7 @@
         "name": "krisajenkins/remotedata",
         "summary": "Tools for fetching data from remote sources (incl. HTTP).",
         "versions": [
+            "4.2.1",
             "4.2.0",
             "4.1.0",
             "4.0.1",
@@ -5316,6 +5352,13 @@
         ]
     },
     {
+        "name": "mikaxyz/elm-cropper",
+        "summary": "Fluid width/responsive image cropper UI",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "mkovacs/quaternion",
         "summary": "Quaternion module to be used with the linear-algebra package",
         "versions": [
@@ -5469,6 +5512,7 @@
         "name": "nathanfox/elm-string-format",
         "summary": "Provide format string functionality.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -5613,6 +5657,16 @@
         ]
     },
     {
+        "name": "ohanhi/elm-web-data",
+        "summary": "Opinionated wrapper for JSON API connections in Elm",
+        "versions": [
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ohanhi/keyboard-extra",
         "summary": "Convenience helpers for working with Keyboard",
         "versions": [
@@ -5692,6 +5746,7 @@
         "name": "periodic/elm-csv",
         "summary": "Parse CSV strings",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6533,6 +6588,20 @@
         ]
     },
     {
+        "name": "sporto/elm-autocomplete",
+        "summary": "An input with auto-completion",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "sporto/elm-dropdown",
+        "summary": "A dropdown component",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
@@ -6545,6 +6614,7 @@
         "name": "sporto/erl",
         "summary": "Parse and construct URLs",
         "versions": [
+            "11.1.1",
             "11.1.0",
             "11.0.0",
             "10.0.2",
@@ -6757,6 +6827,13 @@
         ]
     },
     {
+        "name": "thaterikperson/elm-strftime",
+        "summary": "Format dates and times following http://strftime.org.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "thebritican/elm-autocomplete",
         "summary": "A customizable autocomplete component",
         "versions": [
@@ -6797,6 +6874,14 @@
         ]
     },
     {
+        "name": "tiziano88/elm-protobuf",
+        "summary": "Google Protocol Buffers runtime library",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "tiziano88/elm-tfl",
         "summary": "A wrapper for the TfL (Transport for London) API",
         "versions": [
@@ -6807,6 +6892,7 @@
         "name": "toastal/either",
         "summary": "A more complete Either for representing a structure with two types",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.0.0",
             "1.1.0",
@@ -6818,6 +6904,7 @@
         "name": "toastal/return-optics",
         "summary": "Extend Return with Monocle's Lenses for fun in the update function",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
