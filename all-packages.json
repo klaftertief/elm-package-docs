@@ -1526,6 +1526,13 @@
         ]
     },
     {
+        "name": "base-dev/elm-graphql-module",
+        "summary": "Support module for elm-graphql",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "bcardiff/elm-debounce",
         "summary": "This modules allows easy usage of debounced events from the view.",
         "versions": [
@@ -2261,6 +2268,7 @@
         "name": "danielnarey/elm-toolkit",
         "summary": "Generic helpers and custom operators that I use across other projects",
         "versions": [
+            "4.5.0",
             "4.4.0",
             "4.3.0",
             "4.2.0",
@@ -2810,6 +2818,7 @@
         "name": "elm-community/linear-algebra",
         "summary": "A linear algebra library for fast vector and matrix math",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -3127,6 +3136,7 @@
         "name": "eskimoblood/elm-color-extra",
         "summary": "Additional color handling for Elm",
         "versions": [
+            "4.0.0",
             "3.2.3",
             "3.2.2",
             "3.2.1",
@@ -3757,6 +3767,15 @@
             "1.2.2",
             "1.2.1",
             "1.2.0",
+            "1.1.1",
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ianp/elm-datepicker",
+        "summary": "A date range picker",
+        "versions": [
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -4544,6 +4563,9 @@
         "name": "krisajenkins/elm-astar",
         "summary": "The A* pathfinding algorithm.",
         "versions": [
+            "2.1.2",
+            "2.1.1",
+            "2.1.0",
             "2.0.4",
             "2.0.3",
             "2.0.2",
@@ -4591,6 +4613,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "26.5.0",
             "26.4.0",
             "26.3.0",
             "26.2.0",
@@ -4792,6 +4815,13 @@
             "2.0.1",
             "2.0.0",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ktonon/elm-serverless",
+        "summary": "Deploy an elm worker to AWS Lambda using serverless",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -5741,6 +5771,13 @@
             "2.0.2",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "pablohirafuji/elm-markdown",
+        "summary": "Pure Elm markdown.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -6745,6 +6782,14 @@
         ]
     },
     {
+        "name": "synbioz/elm-time-overlap",
+        "summary": "Elm module for non overlapping events",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "szabba/elm-animations",
         "summary": "A package for animating arbitrary values",
         "versions": [
@@ -6900,6 +6945,7 @@
         "name": "thomasloh/elm-phone",
         "summary": "Format phone number by country",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -6986,6 +7032,13 @@
         ]
     },
     {
+        "name": "torgeir/elm-github-events",
+        "summary": "Fetch github events for a list of users",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "tortus/elm-array-2d",
         "summary": "2D Array library for Elm",
         "versions": [
@@ -7038,6 +7091,7 @@
         "name": "truqu/elm-dictset",
         "summary": "Sets for any type",
         "versions": [
+            "1.0.5",
             "1.0.4",
             "1.0.3",
             "1.0.2",
