@@ -993,6 +993,7 @@
         "name": "Zinggi/elm-2d-game",
         "summary": "A 2d rendering engine based on webgl",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -1001,8 +1002,16 @@
         "name": "Zinggi/elm-game-resources",
         "summary": "Manages game resources (currently only textures)",
         "versions": [
+            "2.0.0",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Zinggi/elm-obj-loader",
+        "summary": "Load wavefront .obj files in your WebGL scene.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -1252,6 +1261,7 @@
         "name": "apuchenkin/elm-nested-router",
         "summary": "A simple nested router for Elm SPA",
         "versions": [
+            "4.0.0",
             "3.0.1",
             "3.0.0",
             "2.0.1",
@@ -2932,6 +2942,7 @@
         "name": "elm-community/webgl",
         "summary": "A library for general 3D rendering with WebGL",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.2",
             "1.0.1",
@@ -4739,6 +4750,7 @@
         "name": "krisajenkins/formatting",
         "summary": "A type-safe string formatting library - 'printf' for Elm.",
         "versions": [
+            "4.2.0",
             "4.1.0",
             "4.0.7",
             "4.0.6",
@@ -4781,6 +4793,7 @@
         "name": "krisajenkins/remotedata",
         "summary": "Tools for fetching data from remote sources (incl. HTTP).",
         "versions": [
+            "4.3.0",
             "4.2.1",
             "4.2.0",
             "4.1.0",
@@ -4822,6 +4835,8 @@
         "name": "ktonon/elm-serverless",
         "summary": "Deploy an elm worker to AWS Lambda using serverless",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -5196,6 +5211,7 @@
         "name": "mdgriffith/elm-style-animation",
         "summary": "Style Animations in Elm",
         "versions": [
+            "3.5.2",
             "3.5.1",
             "3.5.0",
             "3.4.0",
@@ -6254,6 +6270,7 @@
         "name": "rogeriochaves/elm-testable",
         "summary": "Makes Tasks and Effects testable",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -6586,6 +6603,25 @@
         ]
     },
     {
+        "name": "soenkehahn/elm-operational",
+        "summary": "declare elm components without using `Cmd` to facilitate testing",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "soenkehahn/elm-operational-mocks",
+        "summary": "test the side-effects of your elm applications",
+        "versions": [
+            "3.0.0",
+            "2.0.1",
+            "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "spect88/romkan-elm",
         "summary": "Converter between Romaji and Kana",
         "versions": [
@@ -6670,6 +6706,7 @@
         "name": "sporto/elm-dropdown",
         "summary": "A dropdown / select component",
         "versions": [
+            "1.2.2",
             "1.2.1",
             "1.2.0",
             "1.1.0",
@@ -6680,6 +6717,8 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.3.0",
+            "2.2.0",
             "2.1.0",
             "2.0.1",
             "2.0.0",
@@ -6847,6 +6886,7 @@
         "name": "terezka/elm-plot",
         "summary": "Customizable svg ploting elements",
         "versions": [
+            "4.1.0",
             "4.0.1",
             "4.0.0",
             "3.0.1",
@@ -6918,6 +6958,7 @@
         "name": "thaterikperson/elm-strftime",
         "summary": "Format dates and times following http://strftime.org.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6955,6 +6996,7 @@
         "name": "tiziano88/elm-oauth",
         "summary": "OAuth client",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.2.1",
@@ -6998,6 +7040,14 @@
             "1.0.4",
             "1.0.3",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "toastal/select-prism",
+        "summary": "Use a Monocle Prism to handle <select> conflict between ADTs and Strings",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
