@@ -725,6 +725,13 @@
         ]
     },
     {
+        "name": "SimplyNaOH/elm-searchable-menu",
+        "summary": "A searchable menu.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Skinney/collections-ng",
         "summary": "Stable Array, Dict and Set implementations for Elm.",
         "versions": [
@@ -1554,6 +1561,7 @@
         "name": "bartavelle/json-helpers",
         "summary": "Helpers for Json encoding and decoding of sum types",
         "versions": [
+            "1.3.0",
             "1.2.0",
             "1.1.1",
             "1.1.0",
@@ -2882,6 +2890,7 @@
         "name": "elm-community/list-extra",
         "summary": "Convenience functions for working with List",
         "versions": [
+            "6.0.0",
             "5.0.1",
             "5.0.0",
             "4.0.0",
@@ -3009,6 +3018,8 @@
         "name": "elm-lang/core",
         "summary": "Elm's standard libraries",
         "versions": [
+            "5.1.1",
+            "5.1.0",
             "5.0.0",
             "4.0.5",
             "4.0.4",
@@ -3123,6 +3134,7 @@
         "name": "elm-lang/virtual-dom",
         "summary": "Core virtual DOM implementation, basis for HTML and SVG libraries",
         "versions": [
+            "2.0.4",
             "2.0.3",
             "2.0.2",
             "2.0.1",
@@ -3149,6 +3161,27 @@
         "summary": "Get the dimensions of the window / screen size.",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-tools/documentation",
+        "summary": "Work with Elm documentation.json files in Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-tools/parser",
+        "summary": "a parsing library, focused on simplicity and great error messages",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-tools/parser-primitives",
+        "summary": "Fast (but safe) primitives for creating parsing packages",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3749,6 +3782,13 @@
         "summary": "A CSV parser.",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "halfzebra/elm-aframe",
+        "summary": "Elm integration for A-Frame",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -5033,6 +5073,14 @@
         ]
     },
     {
+        "name": "lovasoa/elm-format-number",
+        "summary": "Format numbers as pretty strings",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lovasoa/elm-jsonpseudolist",
         "summary": "Elm Json.Decoder for javascript Array-like objects",
         "versions": [
@@ -5770,6 +5818,8 @@
         "name": "nphollon/interpolate",
         "summary": "Cubic spline interpolation",
         "versions": [
+            "3.0.4",
+            "3.0.3",
             "3.0.2",
             "3.0.1",
             "3.0.0",
@@ -7665,6 +7715,7 @@
         "name": "zaboco/elm-draggable",
         "summary": "easy way to make DOM elements draggable",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.1.1",
