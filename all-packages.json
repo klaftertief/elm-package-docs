@@ -1089,6 +1089,7 @@
         "name": "abadi199/elm-creditcard",
         "summary": "Pretty credit card form built with elm",
         "versions": [
+            "7.0.1",
             "7.0.0",
             "6.1.0",
             "6.0.0",
@@ -1107,6 +1108,7 @@
         "name": "abadi199/elm-input-extra",
         "summary": "Commonly used Html element with extra functionality",
         "versions": [
+            "5.2.0",
             "5.1.0",
             "5.0.0",
             "4.3.0",
@@ -2189,6 +2191,13 @@
         ]
     },
     {
+        "name": "crazymykl/ex-em-elm",
+        "summary": "An xml parsing library for Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "cuducos/elm-format-number",
         "summary": "Format numbers as pretty strings",
         "versions": [
@@ -2663,6 +2672,14 @@
         ]
     },
     {
+        "name": "eeue56/elm-xml",
+        "summary": "XML parser, encoder/decoder and queries in Elm",
+        "versions": [
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "elm-community/array-extra",
         "summary": "Convenience functions for working with Array",
         "versions": [
@@ -3099,6 +3116,7 @@
         "name": "elm-lang/navigation",
         "summary": "Manage browser navigation yourself (a.k.a. SPA routing, browser history)",
         "versions": [
+            "2.1.0",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -3847,6 +3865,7 @@
         "name": "hrldcpr/elm-cons",
         "summary": "A non-empty list data structure.",
         "versions": [
+            "2.0.0",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -5076,6 +5095,9 @@
         "name": "lovasoa/elm-format-number",
         "summary": "Format numbers as pretty strings",
         "versions": [
+            "1.1.1",
+            "1.1.0",
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
