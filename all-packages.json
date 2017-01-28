@@ -654,6 +654,8 @@
         "name": "NoRedInk/nri-elm-css",
         "summary": "Helpers for working with NRI styling",
         "versions": [
+            "1.9.0",
+            "1.8.0",
             "1.7.1",
             "1.7.0",
             "1.6.1",
@@ -2194,6 +2196,9 @@
         "name": "crazymykl/ex-em-elm",
         "summary": "An xml parsing library for Elm",
         "versions": [
+            "1.2.0",
+            "1.1.0",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2233,6 +2238,17 @@
             "2.0.2",
             "2.0.1",
             "2.0.0",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "danielnarey/elm-bulma-classes",
+        "summary": "Bulma CSS classes organized into nested record sets",
+        "versions": [
+            "1.0.4",
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -2735,6 +2751,7 @@
         "name": "elm-community/elm-datepicker",
         "summary": "A reusable date picker component",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -2826,6 +2843,14 @@
             "2.0.1",
             "2.0.0",
             "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/elm-time",
+        "summary": "A pure Elm date and time library.",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
@@ -3589,6 +3614,7 @@
         "name": "folkertdev/elm-deque",
         "summary": "A deque (double-ended queue) ",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -4013,6 +4039,13 @@
         "summary": "Elm logger with support for log levels and colored console output",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "iosphere/elm-toast",
+        "summary": "Display toasts and other temporary UI notifications",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -4968,6 +5001,13 @@
         ]
     },
     {
+        "name": "ktonon/url-parser",
+        "summary": "Parse URLs into nicely structured data. Fork: without dom, html, navigation",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "labzero/elm-google-geocoding",
         "summary": "Elm interface to the Google Geocoding API",
         "versions": [
@@ -5095,6 +5135,7 @@
         "name": "lovasoa/elm-format-number",
         "summary": "Format numbers as pretty strings",
         "versions": [
+            "1.1.2",
             "1.1.1",
             "1.1.0",
             "1.0.2",
@@ -5151,6 +5192,7 @@
         "name": "lukewestby/elm-string-interpolate",
         "summary": "Inject values from a list into a template. Useful for i18n and templated copy.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5914,6 +5956,23 @@
     {
         "name": "ondras/elm-irc",
         "summary": "Elm IRC client library",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "opensolid/geometry",
+        "summary": "2D/3D geometric data types and operations",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "opensolid/svg",
+        "summary": "Render 2D OpenSolid types as SVG",
         "versions": [
             "1.0.1",
             "1.0.0"
@@ -7297,6 +7356,7 @@
         "name": "truqu/elm-mustache",
         "summary": "Evaluating mustache templates",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
