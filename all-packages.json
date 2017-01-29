@@ -654,6 +654,7 @@
         "name": "NoRedInk/nri-elm-css",
         "summary": "Helpers for working with NRI styling",
         "versions": [
+            "1.9.1",
             "1.9.0",
             "1.8.0",
             "1.7.1",
@@ -1077,6 +1078,7 @@
         "name": "abadi199/datetimepicker",
         "summary": "Reusable date and time picker view",
         "versions": [
+            "2.0.0",
             "1.0.7",
             "1.0.6",
             "1.0.5",
@@ -1769,6 +1771,14 @@
             "1.0.4",
             "1.0.3",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "canadaduane/elm-hccb",
+        "summary": "High Capacity Color Barcode (HCCB) displayed in SVG format",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
@@ -6480,6 +6490,7 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "8.0.0",
             "7.0.0",
             "6.1.0",
             "6.0.0",
@@ -6731,6 +6742,7 @@
         "name": "simonh1000/elm-charts",
         "summary": "Bar and pie charts",
         "versions": [
+            "3.1.0",
             "3.0.4",
             "3.0.3",
             "3.0.2",
