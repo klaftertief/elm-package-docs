@@ -3041,6 +3041,7 @@
         "name": "elm-community/linear-algebra",
         "summary": "A linear algebra library for fast vector and matrix math",
         "versions": [
+            "1.2.1",
             "1.2.0",
             "1.1.0",
             "1.0.0"
@@ -3415,6 +3416,7 @@
         "name": "eskimoblood/elm-color-extra",
         "summary": "Additional color handling for Elm",
         "versions": [
+            "5.0.0",
             "4.1.1",
             "4.1.0",
             "4.0.0",
@@ -4947,6 +4949,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "27.1.0",
             "27.0.0",
             "26.5.0",
             "26.4.0",
@@ -5612,6 +5615,7 @@
         "name": "mdgriffith/elm-style-animation",
         "summary": "Style Animations in Elm",
         "versions": [
+            "3.5.5",
             "3.5.4",
             "3.5.3",
             "3.5.2",
@@ -5881,6 +5885,7 @@
         "name": "mpizenberg/elm-image-annotation",
         "summary": "Annotating collections of images",
         "versions": [
+            "6.0.0",
             "5.0.2",
             "5.0.1",
             "5.0.0",
@@ -6069,6 +6074,8 @@
         "name": "norpan/elm-html5-drag-drop",
         "summary": "This library handles dragging and dropping using the HTML5 API",
         "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
