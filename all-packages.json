@@ -1374,6 +1374,13 @@
         ]
     },
     {
+        "name": "antivanov/eunit",
+        "summary": "eunit - minimalistic unit testing for Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "aphorisme/elm-oprocesso",
         "summary": "An eDSL for (asynchronous) actions.",
         "versions": [
@@ -1864,6 +1871,7 @@
         "name": "burabure/elm-collision",
         "summary": "Detect collision of geometry in coordinate space, AKA: are objects overlapping?",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -2784,6 +2792,13 @@
             "1.1.1",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "eeue56/elm-alternative-json",
+        "summary": "An alternative Json API",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3737,6 +3752,7 @@
         "name": "evancz/focus",
         "summary": "an experimental library for working with records",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.1",
@@ -4037,6 +4053,7 @@
         "name": "ghivert/elm-cloudinary",
         "summary": "Upload your photos to Cloudinary, without dealing with details.",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -6372,6 +6389,13 @@
         ]
     },
     {
+        "name": "pablohirafuji/elm-qrcode",
+        "summary": "QR Code encoder and renderer.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "paramanders/elm-hexagon",
         "summary": "Create SVG hexagons with rounded corners",
         "versions": [
@@ -6877,6 +6901,13 @@
         "versions": [
             "3.0.0",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "rogeriochaves/elm-testable-css-helpers",
+        "summary": "Wraper for elm-testable of helper functions for using elm-css with elm-html",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -7503,6 +7534,7 @@
         "name": "teepark/elmoji",
         "summary": "Seamlessly display emoji in Elm applications.",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
