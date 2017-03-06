@@ -154,6 +154,14 @@
         ]
     },
     {
+        "name": "Chadtech/elm-loop",
+        "summary": "Looping functions like while and until",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Dandandan/Easing",
         "summary": "Creating animations and transitions with easing functions.",
         "versions": [
@@ -1771,6 +1779,8 @@
         "name": "billstclair/elm-dev-random",
         "summary": "Cryptographically secure random-number generator.",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -2411,6 +2421,7 @@
         "name": "damukles/elm-dialog",
         "summary": "A Dialog UI module based on Material Design Lite",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -2897,6 +2908,14 @@
         ]
     },
     {
+        "name": "elm-bodybuilder/formbuilder",
+        "summary": "Generic form builder in Elm",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "elm-community/array-extra",
         "summary": "Convenience functions for working with Array",
         "versions": [
@@ -3128,6 +3147,7 @@
         "name": "elm-community/linear-algebra",
         "summary": "A linear algebra library for fast vector and matrix math",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.2.2",
             "1.2.1",
@@ -4783,6 +4803,8 @@
         "name": "jschomay/elm-paginate",
         "summary": "Simple and robust pagination in elm",
         "versions": [
+            "2.0.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -5492,6 +5514,16 @@
         ]
     },
     {
+        "name": "lovasoa/elm-nested-list",
+        "summary": "Nested lists and associated Json decoders and encoders for Elm.",
+        "versions": [
+            "1.2.1",
+            "1.2.0",
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lukewestby/elm-http-builder",
         "summary": "Extra functions for more easily building HTTP requests",
         "versions": [
@@ -5610,6 +5642,17 @@
         "name": "maksar/elm-workflow",
         "summary": "Library to demonstrate one of the possible Workflow implementations.",
         "versions": [
+            "2.0.0",
+            "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "maorleger/elm-infinite-zipper",
+        "summary": "An infinite Zipper.",
+        "versions": [
+            "2.0.1",
             "2.0.0",
             "1.1.0",
             "1.0.1",
@@ -5956,6 +5999,8 @@
         "name": "mhoare/elm-stack",
         "summary": "A package which implements a Stack",
         "versions": [
+            "3.1.0",
+            "3.0.2",
             "3.0.1",
             "3.0.0",
             "2.1.0",
@@ -6067,6 +6112,13 @@
         "versions": [
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "mthadley/elm-byte",
+        "summary": "Working with Bytes in Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -7534,6 +7586,7 @@
         "name": "teepark/elmoji",
         "summary": "Seamlessly display emoji in Elm applications.",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.0"
