@@ -2911,6 +2911,7 @@
         "name": "elm-bodybuilder/formbuilder",
         "summary": "Generic form builder in Elm",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -5078,6 +5079,7 @@
         "name": "krisajenkins/elm-dialog",
         "summary": "A modal dialog widget for Elm.",
         "versions": [
+            "4.0.3",
             "4.0.2",
             "4.0.1",
             "4.0.0",
@@ -5524,9 +5526,17 @@
         ]
     },
     {
+        "name": "lovasoa/elm-rolling-list",
+        "summary": "A circular buffer (infinite cyclic list)",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lukewestby/elm-http-builder",
         "summary": "Extra functions for more easily building HTTP requests",
         "versions": [
+            "5.1.0",
             "5.0.0",
             "4.0.0",
             "3.0.0",
@@ -6951,6 +6961,7 @@
         "name": "rogeriochaves/elm-testable",
         "summary": "Makes Tasks and Effects testable",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.0.0",
             "1.0.0"
@@ -6960,6 +6971,7 @@
         "name": "rogeriochaves/elm-testable-css-helpers",
         "summary": "Wraper for elm-testable of helper functions for using elm-css with elm-html",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -7069,6 +7081,7 @@
         "name": "rundis/elm-bootstrap",
         "summary": "Elm Bootstrap is a comprehensive library for working with Twitter Bootstrap 4",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },

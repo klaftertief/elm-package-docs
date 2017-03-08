@@ -290,6 +290,7 @@
     "lovasoa/elm-jsonpseudolist",
     "lovasoa/elm-median",
     "lovasoa/elm-nested-list",
+    "lovasoa/elm-rolling-list",
     "lukewestby/elm-http-builder",
     "lukewestby/elm-string-interpolate",
     "lukewestby/elm-template",
