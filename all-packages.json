@@ -45,6 +45,13 @@
         ]
     },
     {
+        "name": "Bernardoow/elm-alert-timer-message",
+        "summary": "Simple message alert library.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Bernardoow/elm-rating-component",
         "summary": "Simple rating component.",
         "versions": [
@@ -371,6 +378,7 @@
         "name": "JeremyBellows/elm-bootstrapify",
         "summary": "A collection of functions to use the bootstrap theme when designing html",
         "versions": [
+            "9.0.0",
             "8.0.2",
             "8.0.1",
             "8.0.0",
@@ -1180,6 +1188,7 @@
         "name": "abadi199/datetimepicker",
         "summary": "Reusable date and time picker view",
         "versions": [
+            "3.0.0",
             "2.0.3",
             "2.0.2",
             "2.0.1",
@@ -2803,6 +2812,14 @@
         ]
     },
     {
+        "name": "dwyl/elm-input-tables",
+        "summary": "Input tables, for tables with text and dropdown inputs",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "edvail/elm-polymer",
         "summary": "Polymer Elements",
         "versions": [
@@ -3477,6 +3494,7 @@
         "name": "elm-tools/documentation",
         "summary": "Work with Elm documentation.json files in Elm",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3484,6 +3502,8 @@
         "name": "elm-tools/parser",
         "summary": "a parsing library, focused on simplicity and great error messages",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -4127,6 +4147,13 @@
         ]
     },
     {
+        "name": "h0lyalg0rithm/elm-select",
+        "summary": "A simple dropdown library for elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "halfzebra/elm-aframe",
         "summary": "Elm integration for A-Frame",
         "versions": [
@@ -4348,6 +4375,8 @@
         "name": "iosphere/elm-network-graph",
         "summary": "Network graphs with nodes and edges.",
         "versions": [
+            "2.0.0",
+            "1.4.0",
             "1.3.0",
             "1.2.0",
             "1.1.0",
@@ -4849,6 +4878,7 @@
         "name": "jtanguy/moulin-rouge",
         "summary": "Slideshow library",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -5451,6 +5481,7 @@
         "name": "lgastako/elm-select",
         "summary": "Helpers for building Select inputs in Elm",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -6489,6 +6520,8 @@
         "name": "pablohirafuji/elm-char-codepoint",
         "summary": "Code point operations.",
         "versions": [
+            "1.1.2",
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]
@@ -6508,6 +6541,7 @@
         "name": "pablohirafuji/elm-qrcode",
         "summary": "QR Code encoder and renderer.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -7499,6 +7533,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.5.0",
             "2.4.0",
             "2.3.0",
             "2.2.0",
@@ -7798,6 +7833,7 @@
         "name": "tiziano88/elm-protobuf",
         "summary": "Google Protocol Buffers runtime library",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -7826,6 +7862,7 @@
         "name": "toastal/return-optics",
         "summary": "Extend Return with Monocle's Lenses for fun in the update function",
         "versions": [
+            "1.0.5",
             "1.0.4",
             "1.0.3",
             "1.0.2",

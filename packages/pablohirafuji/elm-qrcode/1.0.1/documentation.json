@@ -1,0 +1,70 @@
+[
+  {
+    "name": "QRCode",
+    "comment": " QR Code encoder and renderer.\n\n# Rendering\n@docs toSvg\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "toSvg",
+        "comment": " Transform a string into a result Error or svg element.\n\n```\nqrCode : Html msg\nqrCode =\n    let\n        resultQRCode = toSvg \"Hello world\"\n\n    in\n        case resultQRCode of\n            Result.Ok view -> view\n            Result.Err err -> Html.text (toString err)\n```\n\n**Tip**: You can determine the size of the generated svg setting \n`width` and `height` styles.\n",
+        "type": "String -> Result.Result QRCode.Error.Error (Html.Html msg)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "QRCode.Error",
+    "comment": " # Error\n\n@docs Error\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Error",
+        "comment": " Possible errors.\n",
+        "args": [],
+        "cases": [
+          [
+            "AlignmentPatternNotFound",
+            []
+          ],
+          [
+            "InvalidNumericChar",
+            []
+          ],
+          [
+            "InvalidAlphanumericChar",
+            []
+          ],
+          [
+            "InvalidUTF8Char",
+            []
+          ],
+          [
+            "InvalidBinaryConversion",
+            []
+          ],
+          [
+            "LogTableException",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "PolynomialMultiply",
+            []
+          ],
+          [
+            "PolynomialMod",
+            []
+          ],
+          [
+            "InputLengthOverflow",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
