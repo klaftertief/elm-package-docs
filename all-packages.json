@@ -782,6 +782,7 @@
         "name": "RoyalIcing/lofi-elm",
         "summary": "Format content using #hashtags",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -5173,6 +5174,7 @@
         "name": "krisajenkins/elm-exts",
         "summary": "A collection of functions missing from the core.",
         "versions": [
+            "27.3.0",
             "27.2.0",
             "27.1.0",
             "27.0.0",
@@ -6031,6 +6033,7 @@
         "name": "mgold/elm-random-pcg",
         "summary": "A faster, more featureful, statistically better, & compatible random generator",
         "versions": [
+            "5.0.0",
             "4.0.2",
             "4.0.1",
             "4.0.0",
@@ -6590,6 +6593,8 @@
         "name": "peterszerzo/elm-cms",
         "summary": "Simple CMS",
         "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -7533,6 +7538,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.5.1",
             "2.5.0",
             "2.4.0",
             "2.3.0",
@@ -8489,6 +8495,7 @@
         "name": "zwilias/elm-avl-dict-exploration",
         "summary": "Alternative Dict implementation backed by an AVL tree.",
         "versions": [
+            "1.2.1",
             "1.2.0",
             "1.1.1",
             "1.1.0",
