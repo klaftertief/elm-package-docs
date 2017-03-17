@@ -1,0 +1,84 @@
+[
+  {
+    "name": "FormBuilder.Autocomplete",
+    "comment": " View of the autocomplete field, used to render it in the browser.\n\n@docs default\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "default",
+        "comment": " Default field of the autocomplete.\n",
+        "type": "List (FormBuilder.FieldBuilder.Attributes.AttributesModifier (FormBuilder.Autocomplete.Attributes.AutocompleteAttributes a msg) msg) -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "FormBuilder.Autocomplete.Attributes",
+    "comment": " Attributes for the autocomplete field. Extends the common attributes of FormBuilder.\n\n# Type\n@docs AutocompleteAttributes\n\n# Attributes\n@docs defaultAttributes\n@docs selection\n@docs selectedElement\n@docs searchQuery\n",
+    "aliases": [
+      {
+        "name": "AutocompleteAttributes",
+        "comment": " Attributes of the autocomplete.\n",
+        "args": [
+          "a",
+          "msg"
+        ],
+        "type": "{ choices : Maybe.Maybe (List ( String, List a )) , choiceView : Maybe.Maybe (a -> String) , onSelect : Maybe.Maybe (a -> msg) , searchQuery : Maybe.Maybe String , focused : Bool , selectedElement : Maybe.Maybe a }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "defaultAttributes",
+        "comment": " Default attributes of the autocomplete field.\n",
+        "type": "FormBuilder.FieldBuilder.Attributes.FieldAttributes (FormBuilder.Autocomplete.Attributes.AutocompleteAttributes a msg) msg"
+      },
+      {
+        "name": "searchQuery",
+        "comment": " Set the searchQuery of the autocomplete.\n",
+        "type": "String -> FormBuilder.FieldBuilder.Attributes.FieldAttributes (FormBuilder.Autocomplete.Attributes.AutocompleteAttributes a msg) msg -> FormBuilder.FieldBuilder.Attributes.FieldAttributes (FormBuilder.Autocomplete.Attributes.AutocompleteAttributes a msg) msg"
+      },
+      {
+        "name": "selectedElement",
+        "comment": " Set the selected element of the attributes to the value of the autocomplete model.\n",
+        "type": "{ b | selectedElement : Maybe.Maybe Int, elements : List a } -> FormBuilder.FieldBuilder.Attributes.FieldAttributes (FormBuilder.Autocomplete.Attributes.AutocompleteAttributes a msg) msg -> FormBuilder.FieldBuilder.Attributes.FieldAttributes (FormBuilder.Autocomplete.Attributes.AutocompleteAttributes a msg) msg"
+      },
+      {
+        "name": "selection",
+        "comment": " Set the required data of the autocomplete.\n- choices are labelled list of the elements which have to be displayed.\n- choiceView is a function, turning and element to a string.\n- onSelect is the message which will be send after a selection in the autocomplete.\n- searchQuery is the query entered by the user.\n- focused is a bool, representing if the autocomplete is focused or not.\n- formAttributes are the attributes of the field.\n",
+        "type": "Maybe.Maybe (List ( String, List a )) -> (a -> String) -> (a -> msg) -> String -> Bool -> FormBuilder.FieldBuilder.Attributes.FieldAttributes (FormBuilder.Autocomplete.Attributes.AutocompleteAttributes a msg) msg -> FormBuilder.FieldBuilder.Attributes.FieldAttributes (FormBuilder.Autocomplete.Attributes.AutocompleteAttributes a msg) msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "FormBuilder.Autocomplete.Action",
+    "comment": " Create a new autocomplete form field.\n\n# Model Modifier\n@docs changeSelectedElement\n@docs selectElement\n@docs deselectElement\n@docs selectedElement\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "changeSelectedElement",
+        "comment": " Changes the selected element in the autocomplete.\n",
+        "type": "{ b | selectedElement : Maybe.Maybe Int, elements : List a } -> Int -> { b | selectedElement : Maybe.Maybe Int, elements : List a }"
+      },
+      {
+        "name": "deselectElement",
+        "comment": " Removes the selected element from the autocomplete.\n",
+        "type": "{ b | selectedElement : Maybe.Maybe Int } -> { b | selectedElement : Maybe.Maybe Int }"
+      },
+      {
+        "name": "selectElement",
+        "comment": " Selects an element in the elements, and puts it as selectedElement in autocomplete.\n",
+        "type": "a -> { b | selectedElement : Maybe.Maybe Int, elements : List a } -> { b | selectedElement : Maybe.Maybe Int, elements : List a }"
+      },
+      {
+        "name": "selectedElement",
+        "comment": " Returns the selected element from the autocomplete model.\n",
+        "type": "{ b | elements : List a, selectedElement : Maybe.Maybe Int } -> Maybe.Maybe a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
