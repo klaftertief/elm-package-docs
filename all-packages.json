@@ -1419,6 +1419,14 @@
         ]
     },
     {
+        "name": "andys8/elm-geohash",
+        "summary": "Geohash for Elm.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "antivanov/eunit",
         "summary": "eunit - minimalistic unit testing for Elm",
         "versions": [
@@ -4473,6 +4481,13 @@
         ]
     },
     {
+        "name": "jamesmacaulay/elm-graphql",
+        "summary": "A GraphQL request builder and HTTP client",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "janiczek/elm-markov",
         "summary": "Markov chain library for Elm",
         "versions": [
@@ -6467,6 +6482,15 @@
         ]
     },
     {
+        "name": "ohanhi/autoexpand",
+        "summary": "A pure Elm auto expanding textarea",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ohanhi/elm-web-data",
         "summary": "Opinionated wrapper for JSON API connections in Elm",
         "versions": [
@@ -6486,6 +6510,16 @@
             "1.2.0",
             "1.1.0",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ohanhi/remotedata-http",
+        "summary": "A collection of helper functions for server communication using RemoteData",
+        "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -7766,6 +7800,15 @@
         ]
     },
     {
+        "name": "tesk9/elm-html-a11y",
+        "summary": "view helpers enforcing accessible practices",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "tesk9/elm-html-textup",
         "summary": "String to formatted Html library",
         "versions": [
@@ -7978,6 +8021,13 @@
         ]
     },
     {
+        "name": "trifectalabs/elm-polyline",
+        "summary": "Polyline encoder/decoder",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "tripokey/elm-fuzzy",
         "summary": "A library for fuzzy string matching",
         "versions": [
@@ -8062,6 +8112,15 @@
         "name": "uehaj/IntRange",
         "summary": "Iterates consecutive range of int numbers avoiding consuming extra memory.",
         "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "vieiralucas/elm-collections",
+        "summary": "A package that implements a bunch of collections",
+        "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -8531,6 +8590,7 @@
         "name": "zwilias/elm-avl-dict-exploration",
         "summary": "Alternative Dict implementation backed by an AVL tree.",
         "versions": [
+            "1.2.2",
             "1.2.1",
             "1.2.0",
             "1.1.1",

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Geohash",
+    "comment": " This module is an Geohash Elm implementation.\n\nThanks to [Ning Sun](https://github.com/sunng87) for the [JavaScript implementation](https://github.com/sunng87/node-geohash).\n\n# Functions\n@docs encode\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "encode",
+        "comment": " Encodes latitude, longitude, precision to geohash.\n\n    encode 57.648 10.41 6 == \"u4pruy\"\n",
+        "type": "Float -> Float -> Int -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

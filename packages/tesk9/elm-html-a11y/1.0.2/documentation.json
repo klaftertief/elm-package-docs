@@ -1,0 +1,64 @@
+[
+  {
+    "name": "Html.A11y",
+    "comment": "\n@docs Input, textInput, radioInput, checkboxInput, leftLabeledInput, rightLabeledInput, invisibleLabeledInput\n",
+    "aliases": [
+      {
+        "name": "Input",
+        "comment": "\n    { label : Html msg\n    , typeAndValue : InputTypeAndValue\n    , attributes : List (Html.Attribute msg)\n    }\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ label : Html.Html msg , typeAndValue : Html.A11y.InputTypeAndValue , attributes : List (Html.Attribute msg) }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "checkboxInput",
+        "comment": " This will construct a checkbox input. THe first argument is the value of the checkbox.\nThe second is whether the radio is checked, unchecked, or indeterminate.\n    checkboxInput \"radio_name\" \"This is the actual value of the radio.\" True\n",
+        "type": "String -> Maybe.Maybe Bool -> Html.A11y.InputTypeAndValue"
+      },
+      {
+        "name": "invisibleLabeledInput",
+        "comment": " Produces a labeled input of a given label type.\nThis label is visibly hidden, but is still available for screen readers.\nE.g., use this input if your design asks that you convey information via placeholders\nrather than visible labels.\nRequires that you pass an id.\n",
+        "type": "Html.A11y.Input msg -> String -> Html.Html msg"
+      },
+      {
+        "name": "leftLabeledInput",
+        "comment": " Produces a labeled input of a given label type. The label appears on the left side on the input.\n",
+        "type": "Html.A11y.Input msg -> Html.Html msg"
+      },
+      {
+        "name": "radioInput",
+        "comment": " This will construct a radio input. The first argument is the radio group name\nin common across radio items. THe second argument is the value of the radio.\nThe third is whether the radio is checked or not.\n    radioInput \"radio_name\" \"This is the actual value of the radio.\" True\n",
+        "type": "String -> String -> Bool -> Html.A11y.InputTypeAndValue"
+      },
+      {
+        "name": "rightLabeledInput",
+        "comment": " Produces a labeled input of a given label type. The label appears on the right side on the input.\n",
+        "type": "Html.A11y.Input msg -> Html.Html msg"
+      },
+      {
+        "name": "textInput",
+        "comment": " This will construct a text input with the value passed in.\n    textInput \"This appears in the text input.\"\n",
+        "type": "String -> Html.A11y.InputTypeAndValue"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Html.Attributes.A11y",
+    "comment": "\n@docs invisible\n\nFor more information on hiding/semi-hiding elements, please see [the a11y project.](http://a11yproject.com/posts/how-to-hide-content/)\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "invisible",
+        "comment": " Makes content invisible without making it inaccessible.\n    label [ invisible ] [ text \"Screen readers can still read me!\" ]\n",
+        "type": "Html.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
