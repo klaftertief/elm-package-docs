@@ -7783,8 +7783,10 @@
     },
     {
         "name": "terezka/elm-plot",
-        "summary": "Customizable svg ploting elements",
+        "summary": "Tufte plots in SVG and Elm!",
         "versions": [
+            "5.0.1",
+            "5.0.0",
             "4.1.0",
             "4.0.1",
             "4.0.0",
@@ -8512,6 +8514,13 @@
             "2.0.0",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "xarvh/elm-styled-html",
+        "summary": "Composable classes with hashed names for Elm",
+        "versions": [
             "1.0.0"
         ]
     },
