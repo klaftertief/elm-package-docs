@@ -1985,6 +1985,13 @@
         ]
     },
     {
+        "name": "canadaduane/typed-svg",
+        "summary": "A Typed SVG (Scalable Vector Graphics) builder",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "capitalist/elm-octicons",
         "summary": "Octicons for Elm",
         "versions": [

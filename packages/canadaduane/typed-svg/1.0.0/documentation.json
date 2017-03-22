@@ -1,0 +1,3295 @@
+[
+  {
+    "name": "TypedSvg.Attributes",
+    "comment": " Typed SVG Attributes\n\nNOTE: For attributes pertaining to SVG filters, see Filters.Attributes\n\n# Other attributes\n@docs accelerate, accentHeight, accumulate, additive, alignmentBaseline,\n    allowReorder, alphabetic, amplitude, animateTransformType, animationValues,\n    arabicForm, ascent, attributeName, attributeType, autoReverse, baseProfile,\n    baselineShift, bbox, begin, by, calcMode, capHeight, class, clip, clipPath,\n    clipPathUnits, clipRule, color, colorInterpolation, colorProfile,\n    colorRendering, contentScriptType, contentStyleType, contentType, cursor,\n    cx, cy, d, decelerate, descent, direction, display, dominantBaseline, dur,\n    dx, dy, enableBackground, end, exponent, externalResourcesRequired,\n    fill, fillOpacity, fillRule, filter, fontFamily, fontSize, fontSizeAdjust,\n    fontStretch, fontStyle, fontVariant, fontWeight, format, from,\n    fx, fy, g1, g2, glyphName,\n    glyphOrientationHorizontal, glyphOrientationVertical, glyphRef,\n    gradientTransform, gradientUnits, hanging, height, horizAdvX,\n    horizOriginX, horizOriginY, ideographic, imageRendering, intercept, k,\n    kerning, keySplines, keyTimes, lang, lengthAdjust, letterSpacing,\n    lightingColor, local, markerEnd, markerHeight, markerMid, markerStart,\n    markerUnits, markerWidth, mask, maskContentUnits, maskUnits, max, media,\n    method, min, name, noFill, offset, opacity, orient, orientation, origin,\n    overflow, overlinePosition, overlineThickness, panose1, path, pathLength,\n    patternContentUnits, patternTransform, patternUnits, pointOrder,\n    pointerEvents, points, preserveAspectRatio, primitiveUnits, r, refX, refY,\n    renderingIntent, repeatCount, repeatDur, requiredExtensions,\n    requiredFeatures, restart, rotate, rx, ry, shapeRendering, slope, spacing,\n    specularConstant, specularExponent, speed, spreadMethod, startOffset,\n    stdDeviation, stemh, stemv, stitchTiles, stopColor, stopOpacity,\n    strikethroughPosition, strikethroughThickness, string, stroke,\n    strokeDasharray, strokeDashoffset, strokeLinecap, strokeLinejoin,\n    strokeMiterlimit, strokeOpacity, strokeWidth,\n    style, systemLanguage, tableValues, target, textAnchor, textDecoration,\n    textLength, textRendering, title, to, transform, u1, u2,\n    underlinePosition, underlineThickness, unicode, unicodeBidi, unicodeRange,\n    unitsPerEm, vAlphabetic, vHanging, vIdeographic, vMathematical,\n    version, vertAdvY, vertOriginX, vertOriginY,\n    viewBox, viewTarget, visibility, width, widths, wordSpacing, writingMode,\n    x, x1, x2, xChannelSelector, xHeight, xlinkActuate, xlinkArcrole, xlinkHref,\n    xlinkRole, xlinkShow, xlinkTitle, xlinkType, xmlBase, xmlLang, xmlSpace, y,\n    y1, y2, yChannelSelector, zoomAndPan\n\n# Presentation attributes\n@docs alignmentBaseline, baselineShift, clipPath, clipRule, clip,\n  colorInterpolation, colorProfile, colorRendering,\n  color, cursor, direction, display, dominantBaseline, enableBackground,\n  fillOpacity, fillRule, fill, filter, fontFamily,\n  fontSizeAdjust, fontSize, fontStretch, fontStyle, fontVariant, fontWeight,\n  glyphOrientationHorizontal, glyphOrientationVertical, imageRendering,\n  kerning, letterSpacing, lightingColor, markerEnd, markerMid, markerStart,\n  mask, opacity, overflow, pointerEvents, shapeRendering, stopColor,\n  stopOpacity, strokeDasharray, strokeDashoffset, strokeLinecap,\n  strokeLinejoin, strokeMiterlimit, strokeOpacity, strokeWidth, stroke,\n  textAnchor, textDecoration, textRendering, unicodeBidi, visibility,\n  wordSpacing, writingMode\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "accelerate",
+        "comment": " Defines a simple acceleration of time for the element. Element time will\n    accelerate from a rate of 0 at the beginning up to a run rate, over the\n    course of the specified proportion of the simple duration.\n\n    The default value is 0 (no acceleration).\n\n    Legal values for `rate` are floating point values between 0 and 1\n    (inclusive).\n\n    See https://www.w3.org/TR/smil/smil-timemanip.html#TimeManip-accelerateSyntax\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "accentHeight",
+        "comment": " Defines the distance from the origin to the top of accent characters,\n    measured by a distance within the font coordinate system.\n\n    Used by Elements: fontFace\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/accent-height\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "accumulate",
+        "comment": " This attribute controls whether or not the animation is cumulative.\n\n    It is useful for repeated animations to build upon the previous results,\n    accumulating with each iteration.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform\n\n    See https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/accumulate\n",
+        "type": "TypedSvg.Types.Accumulate -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "additive",
+        "comment": " This attribute controls whether or not the animation is additive.\n\n    It is frequently useful to define animation as an offset or delta to an\n    attribute's value, rather than as absolute values.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform\n\n    See https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/additive\n",
+        "type": "TypedSvg.Types.Additive -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "alignmentBaseline",
+        "comment": "\n    The `alignmentBaseline` attribute specifies how an object is aligned with\n    respect to its parent. This property specifies which baseline of this\n    element is to be aligned with the corresponding baseline of the parent. For\n    example, this allows alphabetic baselines in Roman text to stay aligned\n    across font size changes.\n\n    It defaults to the baseline with the same name as the computed value of the\n    alignmentBaseline property.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: altGlyph, tspan, tref, textPath\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/alignment-baseline\n",
+        "type": "TypedSvg.Types.AlignmentBaseline -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "allowReorder",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "alphabetic",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "amplitude",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "animateTransformType",
+        "comment": "\n    Defines the type of transformation, whose values change over time.\n\n    Used by Elements: animateTransform\n\n    NOTE: this is called `type_` in `elm-lang/svg` but is different here in\n          order to distinguish it from `contentType`\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/type_\n",
+        "type": "TypedSvg.Types.AnimateTransformType -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "animationValues",
+        "comment": "\n    Values will be applied in order over the course of the animation. If a list\n    of values is specified, any `from`, `to` and `by` attribute values are\n    ignored.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform,\n        discard, mpath, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/values\n",
+        "type": "List number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "arabicForm",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "ascent",
+        "comment": " This attribute defines the maximum unaccented depth of the font within the\n    font coordinate system.\n\n    If the attribute is not specified, the effect is as if the attribute were\n    set to the vert-origin-y value for the corresponding font.\n\n    Used by Elements: fontFace\n\n    See https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/ascent\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "attributeName",
+        "comment": " This attribute indicates the name of the attribute in the parent element\n    that is going to be changed during an animation.\n\n    Used by Elements: animate, animateColor, animateTransform, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/attributeName\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "attributeType",
+        "comment": " This attribute specifies the namespace in which the target attribute and its\n    associated values are defined.\n\n    Used by Elements: animate, animateColor, animateTransform, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/attributeType\n",
+        "type": "TypedSvg.Types.AttributeType -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "autoReverse",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "baseProfile",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "baselineShift",
+        "comment": "\n    The baselineShift attribute allows repositioning of the dominant-baseline\n    relative to the dominant-baseline of the parent text content element. The\n    shifted object might be a sub- or superscript.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet, see css baseline-shift for further information.\n\n    Used by Elements: altGlyph, tref, tspan, textPath\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/baseline-shift\n",
+        "type": "TypedSvg.Types.BaselineShift -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "bbox",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "begin",
+        "comment": "\n    This attribute defines when an animation should begin.\n\n    Each individual value can be one of the BeginValue types.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform,\n        discard, mpath, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/begin\n    See: https://www.w3.org/TR/2001/REC-smil-animation-20010904/#Timing-EvaluationOfBeginEndTimeLists\n",
+        "type": "List TypedSvg.Types.TimingValue -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "by",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "calcMode",
+        "comment": "\n    This attribute specifies the interpolation mode for an animation. The\n    default mode is linear, however if the attribute does not support linear\n    interpolation (e.g. for strings), the calcMode attribute is ignored and\n    discrete interpolation is used.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/calcMode\n",
+        "type": "TypedSvg.Types.CalcMode -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "capHeight",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "class",
+        "comment": "\n    Assigns a class name or set of class names to an element. You can use this\n    to style SVG content using CSS.\n\n    An element's class name serves two key roles:\n\n    - As a style sheet selector, for when an author assigns style information\n      to a set of elements.\n    - For general use by the browser.\n\n    Used by Elements: a, altGlyph, circle, clipPath, defs, desc, ellipse,\n        feBlend, feColorMatrix, feComponentTransfer, feComposite,\n        feConvolveMatrix, feDiffuseLighting, feDisplacementMap, feFlood,\n        feGaussianBlur, feImage, feMerge, feMorphology, feOffset,\n        feSpecularLighting, feTile, feTurbulence, filter, font, foreignObject,\n        g, glyph, glyphRef, image, line, linearGradient, marker, mask,\n        missingGlyph, path, pattern, polygon, polyline, radialGradient, rect,\n        stop, svg, switch, symbol, text, textPath, title, tref, tspan, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/class\n",
+        "type": "List String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "clip",
+        "comment": "\n    The clip attribute has the same parameter values as defined for the css clip\n    property. Unitless values, which indicate current user coordinates, are\n    permitted on the coordinate values on the <shape>. The value of auto defines\n    a clipping path along the bounds of the viewport created by the given\n    element.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: svg, symbol, image, foreignobject, pattern, marker\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip\n",
+        "type": "TypedSvg.Types.Clip -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "clipPath",
+        "comment": "\n    The `clipPath` attribute binds the element it is applied to with a given\n    `clipPath` element.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: a, circle, defs, ellipse, g, image, line, marker, mask,\n        mesh, missing-glyph, path, pattern, polygon, polyline, rect, svg,\n        switch, symbol, text, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-path\n",
+        "type": "TypedSvg.Types.ClipPath -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "clipPathUnits",
+        "comment": "\n    The clipPathUnits attribute defines the coordinate system for the contents\n    of the clipPath element.\n\n    If the clipPathUnits attribute is not specified, then the effect is as if\n    a value of userSpaceOnUse were specified.\n\n    Note that values defined as a percentage inside the content of the clipPath\n    are not affected by this attribute. It means that even if you set the value\n    of maskContentUnits to objectBoundingBox, percentage values will be\n    calculated as if the value of the attribute were userSpaceOnUse.\n\n    Used by Elements: clipPath\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clipPathUnits\n",
+        "type": "TypedSvg.Types.CoordinateSystem -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "clipRule",
+        "comment": "\n    The `clipRule` attribute only applies to graphics elements that are\n    contained within a `clipPath` element. The `clipRule` attribute basically\n    works as the `fillRule` attribute, except that it applies to `clipPath`\n    definitions.\n\n    Used by Elements: circle, ellipse, image, line, mesh, path, polygon,\n        polyline, rect, text, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule\n",
+        "type": "TypedSvg.Types.ClipRule -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "color",
+        "comment": "\n    The `color` attribute is used to provide a potential indirect value\n    (currentColor) for the fill, stroke, stopColor, floodColor and\n    lightingColor attributes.\n\n    As a presentation attribute, it can also be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: altGlyph, altGlyphDef, altGlyphItem, circle, ellipse,\n        feDiffuseLighting, feFlood, feSpecularLighting, glyph, glyphRef, line,\n        mesh, path, polygon, polyline, rect, stop, text, textPath, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color\n",
+        "type": "Color.Color -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "colorInterpolation",
+        "comment": "\n    The `colorInterpolation` attribute specifies the color space for gradient\n    interpolations, color animations, and alpha compositing.\n\n    When a child element is blended into a background, the value of the\n    `colorInterpolation` attribute on the child determines the type of blending,\n    not the value of the `colorInterpolation` on the parent.\n\n    For gradients which make use of the `xlinkHref` attribute to reference\n    another gradient, the gradient uses the `colorInterpolation` attribute value\n    from the gradient element which is directly referenced by the fill or stroke\n    attribute.\n\n    When animating colors, color interpolation is performed according to the\n    value of the `colorInterpolation` attribute on the element being animated.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: a, animage, animateColor, circle, defs, ellipse, g, image,\n        line, marker, mask, mesh, missing-glyph, path, pattern, polygon,\n        polyline, rect, svg, switch, symbol, text, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-interpolation\n",
+        "type": "TypedSvg.Types.ColorInterpolation -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "colorProfile",
+        "comment": "\n    The `colorProfile` attribute is used to define which color profile a raster\n    image included through the `image` element should use.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: image\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-profile\n",
+        "type": "TypedSvg.Types.ColorProfile -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "colorRendering",
+        "comment": "\n    The colorRendering attribute provides a hint to the SVG user agent about\n    how to optimize its color interpolation and compositing operations.\n\n    `colorRendering` takes precedence over `colorInterpolationFilters`. For\n    example, assume `colorRendering` is set to `optimizeSpeed`, and\n    `ColorInterpolationFilters` is set to `linearRGB`. In this case, the SVG\n    user agent should perform color operations in a way that optimizes\n    performance, which might mean sacrificing the color interpolation precision\n    as specified by `colorInterpolationFilters`.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: a, animate, animateColor, circle, defs, ellipse, g, image,\n        line, marker, mask, mesh, missing-glyph, path, pattern, polygon,\n        polyline, rect, svg, switch, symbol, text, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-rendering\n",
+        "type": "TypedSvg.Types.Rendering -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "contentScriptType",
+        "comment": "\n    The contentScriptType attribute on the <svg> element specifies the default\n    scripting language for the given document fragment.\n\n    This attribute sets the default scripting language used to process the value\n    strings in event attributes. This language must be used for all instances of\n    scripts that do not specify their own scripting language. The value\n    contentType specifies a media type, per MIME Part Two: Media Types\n    [RFC2046]. The default value is application/ecmascript.\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/contentScriptType\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "contentStyleType",
+        "comment": "\n    This attribute specifies the style sheet language for the given document\n    fragment. The contentStyleType is specified on the <svg> element. By\n    default, if it's not defined, the value is \"text/css\"\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/contentStyleType\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "contentType",
+        "comment": "\n    Defines the content type of the element.\n\n    Used by Elements: script, style\n\n    NOTE: this is called `type_` in `elm-lang/svg` but is different here in\n          order to distinguish it from `animateTransformType`\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/type_\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "cursor",
+        "comment": "\n    The `cursor` attribute specifies the mouse cursor displayed when the mouse\n    pointer is over an element.\n\n    This attribute behaves exactly like the css cursor property except that if\n    the browser supports the `cursor` element, you should be able to use it\n    with the `funcIRI` notation.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: a, circle, defs, ellipse, g, image, line, marker, mask,\n        mesh, missing-glyph, path, pattern, polygon, polyline, rect, svg,\n        switch, symbol, text, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/cursor\n",
+        "type": "TypedSvg.Types.Cursor -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "cx",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "cy",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "d",
+        "comment": "\n    This attribute defines a path to follow.\n\n    NOTE: You probably want to import the \"folkertdev/svg-path-dsl\" package for\n        access to a more Elm-like way of expressing paths. For instance:\n\n        [ path\n            [ d (pathToString [\n                subpath\n                    (startAt (10, 10))\n                    open\n                    [ cubicTo\n                        (10, 50)\n                        (90, 50)\n                        (90, 90)\n                    ]\n                ])\n            , stroke Color.black\n            , strokeWidth 3.5\n            , noFill\n            ]\n            []\n\n    Used by Elements: path\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "decelerate",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "descent",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "direction",
+        "comment": "\n    The `direction` attribute specifies the base writing direction of text and\n    the direction of embeddings and overrides for the Unicode bidirectional\n    algorithm.\n\n    For the direction attribute to have any effect on an element that does not\n    by itself establish a new text chunk (such as a `tspan` element without\n    absolute position adjustments due to `x` or `y` attributes), the\n    unicode-bidi property's value must be `embed` or `bidiOverride`.\n\n    The `direction` attribute applies only to glyphs oriented perpendicular to\n    the `inlineProgressionDirection`, which includes the usual case of\n    horizontally-oriented Latin or Arabic text and the case of narrow-cell\n    Latin or Arabic characters rotated 90 degrees clockwise relative to a\n    top-to-bottom inline-progression-direction.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: altGlyph, altGlyphDef, altGlyphItem, glyph, glyphRef,\n        text, textPath, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/direction\n",
+        "type": "TypedSvg.Types.Direction -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "display",
+        "comment": "\n    The `display` attribute lets you control the rendering of graphical or\n    container elements. It is similar to the CSS \"display\" attribute (e.g.\n    display: \"none\", \"block\", etc.)\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: a, altGlyph, altGlyphDef, altGlyphItem, circle, ellipse,\n        foreignobject, g, glyph, glyphRef, image, line, mesh, path, polygon,\n        polyline, rect, svg, switch, text, text, textPath, tref, tspan, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/display\n",
+        "type": "TypedSvg.Types.Display -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "dominantBaseline",
+        "comment": "\n    The `dominantBaseline` attribute is used to determine or re-determine a\n    scaled-baseline-table. A scaled-baseline-table is a compound value with\n    three components: a baseline-identifier for the `dominantBaseline`, a\n    baseline-table and a baseline-table font-size.\n\n    Some values of the property re-determine all three values; other only\n    re-establish the baseline-table font-size. When the initial value, auto,\n    would give an undesired result, this property can be used to explicitly\n    set the desire scaled-baseline-table.\n\n    If there is no baseline table in the nominal font or if the baseline table\n    lacks an entry for the desired baseline, then the browser may use heuristics\n    to determine the position of the desired baseline.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: altGlyph, altGlyphDef, altGlyphItem, glyph, glyphRef,\n        textPath, text, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dominant-baseline\n",
+        "type": "TypedSvg.Types.DominantBaseline -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "dur",
+        "comment": "\n    This attribute indicates the simple duration of the animation.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform,\n        discard, mpath, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/dur\n",
+        "type": "TypedSvg.Types.Duration -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "dx",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "dy",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "enableBackground",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "end",
+        "comment": "\n    This attribute defines an end value for the animation that can constrain\n    the active duration.\n\n    Each value can be of the same type as the ones defined for the begin\n    attribute.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform,\n        discard, mpath, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/end\n",
+        "type": "List TypedSvg.Types.TimingValue -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "exponent",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "externalResourcesRequired",
+        "comment": "\n    The externalResourcesRequired attribute is available on all container\n    elements and to all elements which potentially can reference external\n    resources. It specifies whether referenced resources that are not part of\n    the current document are required for proper rendering of the given\n    container element or graphics element.\n\n    Used by Elements: a, altGlyph, altGlyphDef, altGlyphItem, animate,\n        animateColor, animateMotion, animateTransform, circle, clipPath, cursor,\n        discard, defs, ellipse, feImage, filter, font, foreignObject, g, glyph,\n        glyphRef, image, line, linearGradient, mesh, meshGradient, marker, mask,\n        mpath, path, pattern, polygon, polyline, radialGradient, rect, script,\n        set, stop, svg, switch, symbol, text, textPath, tref, tspan, use, view\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/externalResourcesRequired\n",
+        "type": "Bool -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fill",
+        "comment": " ",
+        "type": "Color.Color -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fillOpacity",
+        "comment": "\n    This attribute specifies the opacity of the color or the content the current\n    object is filled with.\n\n    Used by Elements: altGlyph, altGlyphDef, altGlyphItem, circle, ellipse,\n        glyph, glyphRef, line, mesh, path, polygon, polyline, rect, text,\n        textPath, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-opacity\n",
+        "type": "TypedSvg.Types.Opacity -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fillRule",
+        "comment": "\n    The fillRule attribute indicates how to determine what side of a path is\n    inside a shape, to determine how the fill property paints the shape. For a\n    simple, non-intersecting path, it is intuitively clear what region lies\n    \"inside\"; however, for a more complex path, such as a path that intersects\n    itself or where one subpath encloses another, the interpretation of\n    \"inside\" is not so obvious.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet\n\n    Used by Elements: altGlyph, altGlyphDef, altGlyphItem, circle, ellipse,\n        glyph, glyphRef, line, mesh, path, polygon, polyline, rect, text,\n        textPath, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule\n",
+        "type": "TypedSvg.Types.FillRule -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "filter",
+        "comment": "\n    The filter attribute defines the filter effects define by the `filter`\n    element that shall be applied to its element.\n\n    NOTE: See Filters and Filters.Attributes modules.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: a, circle, defs, ellipse, g, glyph, image, line, marker,\n        mesh, missing-glyph, path, pattern, polygon, polyline, rect, svg,\n        switch, symbol, text, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/filter\n",
+        "type": "TypedSvg.Types.Filter -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fontFamily",
+        "comment": " An empty list will set `font-family: inherit`\n",
+        "type": "List String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fontSize",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fontSizeAdjust",
+        "comment": "\n    The `fontSizeAdjust` attribute allows authors to specify an aspect value\n    for an element that will preserve the X height of the first choice font in\n    a substitute font.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: altGlyph, altGlyphDef, altGlyphItem, glyph, glyphRef,\n        text, textPath, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-size-adjust\n",
+        "type": "TypedSvg.Types.FontSizeAdjust -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fontStretch",
+        "comment": "\n    The `fontStretch` attribute indicates the desired amount of condensing or\n    expansion in the glyphs used to render the text.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: altGlyph, altGlyphDef, altGlyphItem, glyph, glyphRef,\n        text, textPath, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-stretch\n",
+        "type": "TypedSvg.Types.FontStretch -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fontStyle",
+        "comment": "\n    The `fontStyle` attribute specifies whether the text is to be rendered using\n    a normal, italic or oblique face.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: altGlyph, altGlyphDef, altGlyphItem, glyph, glyphRef,\n        text, textPath, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-style\n",
+        "type": "TypedSvg.Types.FontStyle -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fontVariant",
+        "comment": "\n    The `fontVariant` attribute indicates whether the text is to be rendered\n    using the normal glyphs for lowercase characters or using small-caps glyphs\n    for lowercase characters.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: altGlyph, altGlyphDef, altGlyphItem, glyph, glyphRef,\n        text, textPath, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-variant\n",
+        "type": "TypedSvg.Types.FontVariant -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fontWeight",
+        "comment": "\n    The `fontWeight` attribute refers to the boldness or lightness of the glyphs\n    used to render the text, relative to other fonts in the same font family.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: altGlyph, altGlyphDef, altGlyphItem, glyph, glyphRef,\n        text, textPath, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/font-weight\n",
+        "type": "TypedSvg.Types.FontWeight -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "format",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "from",
+        "comment": "\n    This attribute indicates the initial value of the attribute that will be\n    modified during the animation. When used with the `to` attribute, the\n    animation will change the modified attribute from the from value to the to\n    value.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/from\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fx",
+        "comment": "\n    For the `radialGradient` element, this attribute defines the x-axis\n    coordinate of the focal point for the radial gradient.\n\n    If the attribute is not specified, it's assumed to be at the same place as\n    the center point.\n\n    Used by Elements: radialGradient\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/\n",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "fy",
+        "comment": "\n    For the `radialGradient` element, this attribute defines the y-axis\n    coordinate of the focal point for the radial gradient.\n\n    If the attribute is not specified, it's assumed to be at the same place as\n    the center point.\n\n    Used by Elements: radialGradient\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/\n",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "g1",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "g2",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "glyphName",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "glyphOrientationHorizontal",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "glyphOrientationVertical",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "glyphRef",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "gradientTransform",
+        "comment": "\n    The gradientTransform attribute contains the definition of an optional\n    additional transformation from the gradient coordinate system onto the\n    target coordinate system (i.e., userSpaceOnUse or objectBoundingBox). This\n    allows for things such as skewing the gradient. This additional\n    transformation matrix is post-multiplied to (i.e., inserted to the right of)\n    any previously defined transformations, including the implicit\n    transformation necessary to convert from object bounding box units to user\n    space.\n\n    Used by Elements: linearGradient, radialGradient\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/gradientTransform\n",
+        "type": "List TypedSvg.Types.Transform -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "gradientUnits",
+        "comment": "\n    The gradientUnits attribute defines the coordinate system for attributes\n    x1, y1, x2 and y2 on the `linearGradient` element or for attributes cx, cy,\n    r, fx, and fy on the `radialGradient`.\n\n    If the `gradientUnits` attribute isn't specified, then the effect is as if a\n    value of CoordinateSystemObjectBoundingBox were specified.\n\n    Used by Elements: linearGradient, radialGradient\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/gradientUnits\n",
+        "type": "TypedSvg.Types.CoordinateSystem -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "hanging",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "height",
+        "comment": "\n    This attribute indicates a vertical length in the user coordinate system.\n    The exact effect of this coordinate depends on each element. Most of the\n    time, it represents the height of the rectangular region of the reference\n    element (see each individual element's documentation for exceptions).\n\n    This attribute must be specified except for the `svg` element where the\n    default value is 100% and the `filter` and `mask` elements where the default\n    value is 120%.\n",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "horizAdvX",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "horizOriginX",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "horizOriginY",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "ideographic",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "imageRendering",
+        "comment": "\n    The `imageRendering` attribute provides a hint to the browser about how to\n    make speed vs. quality tradeoffs as it performs image processing.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: image\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/image-rendering\n",
+        "type": "TypedSvg.Types.Rendering -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "intercept",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "k",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "kerning",
+        "comment": "\n    The kerning attribute indicates whether the browser should adjust\n    inter-glyph spacing based on kerning tables that are included in the\n    relevant font (i.e., enable auto-kerning) or instead disable auto-kerning\n    and instead set inter-character spacing to a specific length (typically,\n    zero).\n\n    The value of auto indicates that the user agent should adjust inter-glyph\n    spacing based on kerning tables that are included in the font that will be\n    used.\n\n    If a <length> is provided, then auto-kerning is disabled. Instead,\n    inter-character spacing is set to the given <length>. The most common\n    scenario, other than auto, is to set kerning to a value of 0 so that\n    auto-kerning is disabled.\n\n    If a <length> is provided without a unit identifier (e.g., an unqualified\n    number such as 128), the browser processes the <length> as a width value in\n    the current user coordinate system.\n\n    If a <length> is provided with a unit identifier (e.g., .25em or 1%), then\n    the browser converts the <length> into a corresponding value in the current\n    user coordinate system.\n\n    When a <length> is provided, its value is added to the inter-character\n    spacing value specified by the letter-spacing attribute.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet, see css kerning for further information.\n\n    Used by Elements: altGlyph, altGlyphDef, glyph, glyphRef, textPath,\n        text, tref, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/kerning\n",
+        "type": "TypedSvg.Types.Kerning -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "keySplines",
+        "comment": "\n    The keySplines attribute define a set of Bézier control points associated\n    with the keyTimes list, defining a cubic Bézier function that controls\n    interval pacing.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/keySplines\n",
+        "type": "List TypedSvg.Types.BezierAnchorPoint -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "keyTimes",
+        "comment": "\n    The keyTimes attribute is a semicolon-separated list of time `values` used\n    to control the pacing of the animation. Each time in the list corresponds to\n    a value in the values attribute list, and defines when the value is used in\n    the animation. Each time value in the keyTimes list is specified as a\n    floating point value between 0 and 1 (inclusive), representing a\n    proportional offset into the duration of the animation element.\n\n    If a list of keyTimes is specified, there must be exactly as many values in\n    the keyTimes list as in the values list.\n\n    Each successive time value must be greater than or equal to the preceding\n    time value.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/keyTimes\n",
+        "type": "List Float -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "lang",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "lengthAdjust",
+        "comment": "\n    When an SVG `text` or `tspan` element has a specific length set using the\n    textLength attribute, the lengthAdjust attribute controls how the text is\n    stretched or compressed into that length.\n\n    The two possible values for the attribute are:\n\n    - LengthAdjustSpacing\n    - LengthAdjustSpacingAndGlyphs\n\n    Using LengthAdjustSpacing (the default), the letter forms are preserved,\n    but the space between them grows or shrinks.\n\n    Using LengthAdjustSpacingAndGlyphs, the entire text element is stretched in\n    the direction of the text.\n\n    Used by Elements: text, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/lengthAdjust\n",
+        "type": "TypedSvg.Types.LengthAdjust -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "letterSpacing",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "lightingColor",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "local",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "markerEnd",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "markerHeight",
+        "comment": "\n    The markerHeight represents the height of the viewport into which the\n    `marker` is to be fitted when it is rendered.\n\n    A value of zero disables rendering of the element.\n\n    If the attribute is not specified, the effect is as if a value of 3 were\n    specified.\n\n    Used by Elements: marker\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/markerHeight\n",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "markerMid",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "markerStart",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "markerUnits",
+        "comment": "\n    The `markerUnits` attribute defines the coordinate system for the attributes\n    `markerWidth`, `markerHeight` and the contents of the `marker`.\n\n    If the `markerUnits` attribute is not specified, then the effect is as if a\n    value of `strokeWidth` were specified.\n\n    Used by Elements: marker\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/markerUnits\n",
+        "type": "TypedSvg.Types.MarkerCoordinateSystem -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "markerWidth",
+        "comment": "\n    The markerWidth represents the width of the viewport into which the\n    `marker` is to be fitted when it is rendered.\n\n    A value of zero disables rendering of the element.\n\n    If the attribute is not specified, the effect is as if a value of 3 were\n    specified.\n\n    Used by Elements: marker\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/markerWidth\n",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "mask",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "maskContentUnits",
+        "comment": "\n    The maskContentUnits attribute defines the coordinate system for the\n    contents of the `mask`.\n\n    If the `maskContentUnits` attribute isn't specified, then the effect is as\n    if a value of CoordinateSystemUserSpaceOnUse were specified.\n\n    Note that values defined as a percentage inside the content of the `mask`\n    are not affected by this attribute. It means that even if you set the value\n    of `maskContentUnits` to CoordinateSystemObjectBoundingBox, percentage\n    values will be calculated as if the value of the attribute were\n    CoordinateSystemUserSpaceOnUse.\n\n    Used by Elements: mask\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/maskContentUnits\n",
+        "type": "TypedSvg.Types.CoordinateSystem -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "maskUnits",
+        "comment": "\n    The `maskUnits` attribute defines the coordinate system for attributes x, y,\n    width and height.\n\n    If the `maskUnits` attribute isn't specified, then the effect is as if a\n    value of CoordinateSystemObjectBoundingBox were specified.\n\n    Used by Elements: mask\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/maskUnits\n",
+        "type": "TypedSvg.Types.CoordinateSystem -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "max",
+        "comment": "\n    This attribute specifies the maximum value of the active duration.\n\n    The default value for max is 0. This does not constrain the active duration\n    at all.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform,\n        discard, mpath, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/max\n",
+        "type": "TypedSvg.Types.ClockValue -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "media",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "method",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "min",
+        "comment": "\n    This attribute specifies the minimum value of the active duration.\n\n    The default value for max is 0. This does not constrain the active duration\n    at all.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform,\n        discard, mpath, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/min\n",
+        "type": "TypedSvg.Types.ClockValue -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "name",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "noFill",
+        "comment": " ",
+        "type": "TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "offset",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "opacity",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "orient",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "orientation",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "origin",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "overflow",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "overlinePosition",
+        "comment": "\n    The `overlinePosition` attribute represents the ideal vertical position of\n    the overline. The overline position is expressed in the font's coordinate\n    system.\n\n    Used by Elements: fontFace\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/overlinePosition\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "overlineThickness",
+        "comment": "\n    The `overlineThickness` attribute represents the ideal thickness of\n    the overline. The overline position is expressed in the font's coordinate\n    system.\n\n    Used by Elements: fontFace\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/overlineThickness\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "panose1",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "path",
+        "comment": " NOTE: is this used as an attribute? `elm-lang/svg` seems to think so.\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "pathLength",
+        "comment": "\n    This attribute lets the author specify a total length for the path, in user\n    units. This value is then used to calibrate the browser's distance\n    calculations with those of the author, by scaling all distance computations\n    using the ratio pathLength / (computed value of path length).\n\n    Used by Elements: path\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pathLength\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "patternContentUnits",
+        "comment": "\n    The `patternContentUnits` attribute defines the coordinate system for the\n    contents of the `pattern`. Note that this attribute has no effect if\n    attribute viewBox is specified on the `pattern` element.\n\n    If the `patternContentUnits` attribute isn't specified, then the effect is\n    as if a value of CoordinateSystemUserSpaceOnUse were specified.\n\n    Used by Elements: pattern\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/patternContentUnits\n",
+        "type": "TypedSvg.Types.CoordinateSystem -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "patternTransform",
+        "comment": "\n    The `patternTransform` attribute contains the definition of an optional\n    additional transformation from the pattern coordinate system onto the target\n    coordinate system. This allows for things such as skewing the pattern tiles.\n    This additional transformation matrix is post-multiplied to (i.e., inserted\n    to the right of) any previously defined transformations, including the\n    implicit transformation necessary to convert from object bounding box units\n    to user space.\n\n    If attribute `patternTransform` is not specified, then the effect is as if\n    an identity transform were specified.\n\n    Used by Elements: pattern\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/patternTransform\n",
+        "type": "List TypedSvg.Types.Transform -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "patternUnits",
+        "comment": "\n    The `patternUnits` attribute defines the coordinate system for attributes\n    x, y, width and height.\n\n    If the `patternUnits` attribute isn't specified, then the effect is as if a\n    value of CoordinateSystemObjectBoundingBox were specified.\n\n    Used by Elements: pattern\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/patternUnits\n",
+        "type": "TypedSvg.Types.CoordinateSystem -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "pointOrder",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "pointerEvents",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "points",
+        "comment": "\n    The points attribute defines a list of points required to draw a `polyline`\n    or `polygon` element.\n\n    Each point is defined by an X and a Y coordinate (pair) in the user\n    coordinate system.\n\n    Used by Elements: polyline, polygon\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/points\n",
+        "type": "List ( number, number ) -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "preserveAspectRatio",
+        "comment": "\n    In some cases, typically when using the `viewBox` attribute, it is desirable\n    that the graphics stretch to fit non-uniformly to take up the entire\n    viewport. In other cases, it is desirable that uniform scaling be used for\n    the purposes of preserving the aspect ratio of the graphics.\n\n    Used by Elements: svg, symbol, image, feImage, marker, pattern, view\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/preserveAspectRatio\n",
+        "type": "TypedSvg.Types.Align -> TypedSvg.Types.MeetOrSlice -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "primitiveUnits",
+        "comment": "\n    The `primitiveUnits` attribute specifies the coordinate system for the\n    various length values within the `filter` primitives and for the attributes\n    that define the filter primitive subregion.\n\n    If the `primitiveUnits` attribute isn't specified, then the effect is as if\n    a value of CoordinateSystemUserSpaceOnUse were specified.\n\n    Used by Elements: filter\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/primitiveUnits\n",
+        "type": "TypedSvg.Types.CoordinateSystem -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "r",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "refX",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "refY",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "renderingIntent",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "repeatCount",
+        "comment": "\n    This attribute indicates the number of times the animation will take place.\n\n    The number can be a partial iteration, expressed as a fraction. Its value\n    must be greater than 0.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform,\n        discard, mpath, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/repeatCount\n",
+        "type": "TypedSvg.Types.RepeatCount -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "repeatDur",
+        "comment": "\n    This attribute specifies the total duration for repeat.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform,\n        discard, mpath, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/repeatDur\n",
+        "type": "TypedSvg.Types.Duration -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "requiredExtensions",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "requiredFeatures",
+        "comment": "\n    This attribute takes a list of feature strings. It determines whether or not\n    all of the named features are supported by the browser; if all of them are\n    supported, the attribute evaluates to true end the element is rendered;\n    otherwise, the attribute evaluates to false and the current element and its\n    children are skipped and thus will not be rendered. This provides a way to\n    design SVG that gracefully falls back when features aren't available.\n\n    If the attribute is not present, then its implicit evaluated value is true.\n    If a null string or empty string value is given to attribute\n    `requiredFeatures`, the attribute is evaluate to false.\n\n    `requiredFeatures` is often used in conjunction with the `switch` element.\n    If `requiredFeatures` is used in other situations, it represents a simple\n    switch on the given element whether to render the element or not.\n\n    Used by Elements: a, altGlyph, animate, animateColor, animateMotion,\n        animateTransform, circle, clipPath, cursor, defs, discard, ellipse,\n        foreignObject, g, image, line, mask, mesh, mpath, path, pattern,\n        polygon, polyline, rect, set, svg, switch, text, textPath, tref,\n        tspan, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/requiredFeatures\n",
+        "type": "List String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "restart",
+        "comment": "\n    This attribute indicates when animation can or can not restart.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform,\n        discard, mpath, set\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/restart\n",
+        "type": "TypedSvg.Types.Restart -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "rotate",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "rx",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "ry",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "shapeRendering",
+        "comment": "\n    The creator of SVG content might want to provide a hint about what tradeoffs\n    to make as the browser renders `path` element or basic shapes. The\n    shape-rendering attribute provides these hints.\n\n    Used by Elements: circle, ellipse, line, mesh, path, polygon, polyline,\n        rect, svg\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/shapeRendering\n",
+        "type": "TypedSvg.Types.ShapeRendering -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "slope",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "spacing",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "specularConstant",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "specularExponent",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "speed",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "spreadMethod",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "startOffset",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "stdDeviation",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "stemh",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "stemv",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "stitchTiles",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "stopColor",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "stopOpacity",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "strikethroughPosition",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "strikethroughThickness",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "string",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "stroke",
+        "comment": " ",
+        "type": "Color.Color -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "strokeDasharray",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "strokeDashoffset",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "strokeLinecap",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "strokeLinejoin",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "strokeMiterlimit",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "strokeOpacity",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "strokeWidth",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "style",
+        "comment": "\n    The style attribute specifies style information for its element. It\n    functions identically to the style attribute in HTML.\n\n    Used by Elements: a, altGlyph, altGlyphDef, altGlyphItem, circle, clipPath,\n        defs, defs, ellipse, feBlend, feColorMatrix, feComponentTransfer,\n        feComposite, feConvolveMatrix, feDiffuseLighting, feDisplacementMap,\n        feDropShadow, feFlood, feFuncA, feFuncB, feFuncG, feFuncR,\n        feGaussianBlur, feImage, feMerge, feMergeNode, feMorphology, feOffset,\n        feSpecularLighting, feTile, feTurbulence, filter, font, foreignObject,\n        g, glyph, glyph, glyphRef, glyphRef, image, line, linearGradient,\n        marker, mask, mesh, meshGradient, missingGlyph, path, pattern, polygon,\n        polyline, radialGradient, rect, stop, svg, svg, switch, symbol,\n        text, text, textPath, tref, tspan, use, use\n\n    TODO: easy use of a typed CSS library?\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/style\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "systemLanguage",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "tableValues",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "target",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "textAnchor",
+        "comment": " ",
+        "type": "TypedSvg.Types.AnchorAlignment -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "textDecoration",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "textLength",
+        "comment": "\n    The `textLength` attribute is intended to preserve a span of SVG text's\n    display width across a variety of conditions, such as webfonts not loading.\n\n    Used by Elements: text, tspan\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/textLength\n",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "textRendering",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "title",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "to",
+        "comment": "\n    This attribute indicates the final value of the attribute that will be\n    modified during the animation. The value of the attribute will change\n    between the from attribute value and this value. By default the change will\n    be linear.\n\n    When this attribute is used with the `set` element, it specifies the value\n    for the attribute during the duration of the `set` element.\n\n    Used by Elements: animate, animateColor, animateMotion, animateTransform\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/to\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "transform",
+        "comment": "\n    The transform attribute defines a list of transform definitions that are\n    applied to an element and the element's children. The items in the transform\n    list are applied from right to left.\n\n    Used by Elements: a, circle, clipPath, defs, ellipse, foreignObject, g,\n        image, line, mesh, path, polygon, polyline, rect, switch, text, use,\n        svg\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/transform\n",
+        "type": "List TypedSvg.Types.Transform -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "u1",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "u2",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "underlinePosition",
+        "comment": "\n    The underlinePosition attribute represents the ideal vertical position of\n    the underline. The underline position is expressed in the font's\n    coordinate system.\n\n    Used by Elements: fontFace\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/underline-position\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "underlineThickness",
+        "comment": "\n    The underlineThickness attribute represents the ideal thickness of the\n    underline. The underline thickness is expressed in the font's coordinate\n    system.\n\n    Used by Elements: fontFace\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/underline-thickness\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "unicode",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "unicodeBidi",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "unicodeRange",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "unitsPerEm",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "vAlphabetic",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "vHanging",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "vIdeographic",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "vMathematical",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "version",
+        "comment": "\n    The version attribute is used to indicate what specification a SVG document\n    conforms to. It is only allowed on the root <svg> element. It is purely\n    advisory and has no influence on rendering or processing.\n\n    While it is specified to accept any number, the only two valid choices are\n    currently 1.0 and 1.1.\n\n    Used by Elements: svg\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/version\n",
+        "type": "Float -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "vertAdvY",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "vertOriginX",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "vertOriginY",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "viewBox",
+        "comment": "\n    The `viewBox` attribute allows you to specify that a given set of graphics\n    stretch to fit a particular container element.\n\n    `minX`, `minY`, `width` and `height` specify a rectangle in user space\n    which should be mapped to the bounds of the viewport established by the\n    given element, taking into account attribute `preserveAspectRatio`.\n\n    Negative values for `width` or `height` are not permitted, and a value of\n    zero disables rendering of the element.\n\n    Used by Elements: svg, symbol, image, marker, pattern, view\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox\n",
+        "type": "number -> number -> number -> number -> TypedSvg.Core.Attribute a"
+      },
+      {
+        "name": "viewTarget",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "visibility",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "width",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "widths",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "wordSpacing",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "writingMode",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "x",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "x1",
+        "comment": "\n    This attribute defines the x-axis coordinate of the start of a line or\n    linearGradient.\n\n    If the attribute is not specified, the effect is as if a value of 0\n    (or 0%, in the case of a linearGradient) were specified.\n\n    Used by Elements: line, linearGradient\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/x1\n",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "x2",
+        "comment": "\n    This attribute defines the x-axis coordinate of the end of a line or\n    linearGradient.\n\n    If the attribute is not specified, the effect is as if a value of 0\n    (or 0%, in the case of a linearGradient) were specified.\n\n    Used by Elements: line, linearGradient\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/x1\n",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xChannelSelector",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xHeight",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xlinkActuate",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xlinkArcrole",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xlinkHref",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xlinkRole",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xlinkShow",
+        "comment": "\n    This attribute is provided for backwards compatibility with SVG 1.1. It\n    provides documentation to XLink-aware processors. In case of a conflict,\n    the target attribute has priority, since it can express a wider range of\n    values.\n\n    Used by Elements: a, altGlyph, animate, animateColor, animateMotion,\n        animateTransform, colorProfile, cursor, feImage, filter, fontFaceUri,\n        glyphRef, image, linearGradient, mpath, pattern, radialGradient,\n        script, set, textPath, tref, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlinkShow\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xlinkTitle",
+        "comment": "\n    The xlinkTitle attribute is used to describe the meaning of a link or\n    resource in a human-readable fashion, along the same lines as the xlinkRole\n    or xlinkArcrole attribute. It is a string that describes the resource.\n    In general it is preferable to use a `title` child element rather than a\n    xlinkTitle attribute.\n\n    Used by Elements: a, altGlyph, animate, animateColor, animateMotion,\n        animateTransform, colorProfile, cursor, feImage, filter, fontFaceUri,\n        glyphRef, image, linearGradient, mpath, pattern, radialGradient,\n        script, set, textPath, tref, use\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlinkTitle\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xlinkType",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xmlBase",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xmlLang",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "xmlSpace",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "y",
+        "comment": " ",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "y1",
+        "comment": "\n    This attribute defines the y-axis coordinate of the start of a line or\n    linearGradient.\n\n    If the attribute is not specified, the effect is as if a value of 0\n    (or 0%, in the case of a linearGradient) were specified.\n\n    Used by Elements: line, linearGradient\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/y1\n",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "y2",
+        "comment": "\n    This attribute defines the y-axis coordinate of the end of a line or\n    linearGradient.\n\n    If the attribute is not specified, the effect is as if a value of 0\n    (or 0%, in the case of a linearGradient) were specified.\n\n    Used by Elements: line, linearGradient\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/y1\n",
+        "type": "TypedSvg.Types.Length -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "yChannelSelector",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "zoomAndPan",
+        "comment": " ",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "TypedSvg.Filters.Attributes",
+    "comment": " Attributes of SVG filter elements\n\n# Attributes\n@docs azimuth, baseFrequency, bias, colorInterpolationFilters, colorMatrixType,\n    colorMatrixValues, compositeOperator, diffuseConstant, divisor, edgeMode,\n    elevation, filterRes, filterUnits, floodColor, floodOpacity, funcType, in2,\n    in_, k1, k2, k3, k4, kernelMatrix, kernelUnitLength, limitingConeAngle,\n    mode, morphologyOperator, numOctaves, order, pointsAtX, pointsAtY,\n    pointsAtZ, preserveAlpha, radius, result, scale, seed, surfaceScale,\n    targetX, targetY, turbulenceType, z\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "azimuth",
+        "comment": "\n    The azimuth attribute represents the direction angle of the light source on\n    the XY plane (clockwise), in degrees from the x axis.\n\n    If the attribute is not specified, then the effect is as if a value of 0\n    were specified.\n\n    Used by Elements: Filters.distantLight\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/azimuth\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "baseFrequency",
+        "comment": "\n    The baseFrequency attribute represents the frequency parameter for the noise\n    function of the `Filters.turbulence` primitive. The first number represents\n    a base frequency in the X direction and the second value represents a base\n    frequency in the Y direction.\n\n    Negative values are forbidden.\n\n    If the attribute is not specified, then the effect is as if a value of 0\n    were specified.\n\n    Used by Elements: Filters.turbulence\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/baseFrequency\n",
+        "type": "number -> number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "bias",
+        "comment": "\n    The bias attribute shifts the range of a filter. After applying the\n    kernelMatrix of the `Filters.convolveMatrix` element to the input image to\n    yield a number and applying the divisor attribute, the bias attribute is\n    added to each component. This allows representation of values that would\n    otherwise be clamped to 0 or 1.\n\n    If bias is not specified, then the effect is as if a value of 0 were\n    specified.\n\n    Used by Elements: Filters.convolveMatrix\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/bias\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "colorInterpolationFilters",
+        "comment": "\n    The `colorInterpolationFilters` attribute specifies the color space for\n    imaging operations performed via filter effects.\n\n    Note that `colorInterpolationFilters` has a different initial value than\n    `colorInterpolation`. `colorInterpolationFilters` has an initial value of\n    linearRGB, whereas color-interpolation has an initial value of sRGB. Thus,\n    in the default case, filter effects operations occur in the linearRGB\n    color space, whereas all other color interpolations occur by default in the\n    sRGB color space.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: Filters.blend, Filters.colorMatrix,\n        Filters.componentTransfer, Filters.composite, Filters.convolveMatrix,\n        Filters.diffuseLighting, Filters.displacementMap, Filters.gaussianBlur,\n        Filters.morphology, Filters.offset, Filters.specularLighting,\n        Filters.tile\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-interpolation-filters\n",
+        "type": "TypedSvg.Types.ColorInterpolation -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "colorMatrixType",
+        "comment": "\n    Indicates the type of matrix operation. The keyword matrix indicates that a\n    full 5x4 matrix of values will be provided. The other keywords represent\n    convenience shortcuts to allow commonly used color operations to be\n    performed without specifying a complete matrix.\n\n    Used by Elements: Filters.colorMatrix\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/type_\n",
+        "type": "TypedSvg.Types.ColorMatrixType -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "colorMatrixValues",
+        "comment": "\n    Contents of `colorMatrixValues` depends on the value of the attribute\n    `type`.\n\n    Used by Elements: Filters.colorMatrix\n\n    NOTE: this is called `values` in `elm-lang/svg` but is different here\n          in order to differentiate from animationValues.\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/values\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "compositeOperator",
+        "comment": "\n    compositeOperator defines the compositing operation that is to be performed\n    in the `Filters.composite` element\n\n    Used by Elements: Filters.composite\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/operator\n",
+        "type": "TypedSvg.Types.CompositeOperator -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "diffuseConstant",
+        "comment": "\n    The diffuseConstant attribute represant the kd value in the Phong lighting\n    model. In SVG, this can be any non-negative number.\n\n    If the attribute is not specified, then the effect is as if a value of 1\n    were specified.\n\n    Used by Elements: Filters.diffuseLighting\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/diffuseConstant\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "divisor",
+        "comment": "\n    After applying the kernelMatrix of the Filters.convolveMatrix element to the\n    input image to yield a number, that number is divided by the value given to\n    the divisor attribute to yield the final destination color value. A divisor\n    that is the sum of all the matrix values tends to have an evening effect on\n    the overall color intensity of the result.\n\n    The default value is the sum of all values in kernelMatrix, with the\n    exception that if the sum is zero, then the divisor is set to 1.\n\n    It is an error to specify a divisor of zero.\n\n    Used by Elements: Filters.convolveMatrix\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/divisor\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "edgeMode",
+        "comment": "\n    The edgeMode attribute determines how to extend the input image as necessary\n    with color values so that the matrix operations can be applied when the\n    kernel is positioned at or near the edge of the input image.\n\n    Used by Elements: Filters.convolveMatrix\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/edgeMode\n",
+        "type": "TypedSvg.Types.EdgeMode -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "elevation",
+        "comment": "\n    The elevation attribute represents the direction angle for a light source\n    from the XY plane towards the Z axis, in degrees. Note the positive Z-axis\n    points towards the viewer of the content.\n\n    Used by Elements: Filters.distantLight\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/elevation\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "filterRes",
+        "comment": "\n    A <filter> element can define a region to which a given filter effect\n    applies and can provide a resolution for any intermediate continuous tone\n    images used to process any raster-based filter primitives.\n\n    NOTE: Obsolete.\n\n    Used by Elements: Filters.filter\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/filterRes\n",
+        "type": "number -> number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "filterUnits",
+        "comment": "\n    The filterUnits attribute defines the coordinate system for attributes x, y,\n    width and height.\n\n    Used by Elements: Filters.filter\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/filterUnits\n",
+        "type": "TypedSvg.Types.CoordinateSystem -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "floodColor",
+        "comment": "\n    The `floodColor` attribute indicates what color to use to flood the current\n    filter primitive subregion defined through the `Filters.flood` element. The\n    keyword currentColor and ICC colors can be specified in the same manner as\n    within a `paint` specification for the fill and stroke attributes.\n\n    As a presentation attribute, it also can be used as a property directly\n    inside a CSS stylesheet.\n\n    Used by Elements: Filters.flood\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/flood-color\n",
+        "type": "TypedSvg.Types.FloodColor -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "floodOpacity",
+        "comment": "\n    The `floodOpacity` attribute indicates the opacity value to use across the\n    current filter primitive subregion defined through the `Filters.flood`\n    element.\n\n    Used by Elements: Filters.flood\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/flood-opacity\n",
+        "type": "TypedSvg.Types.Opacity -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "funcType",
+        "comment": "\n    Indicates the type of component transfer function.\n\n    Used by Elements: Filters.funcR, Filters.funcG, Filters.funcA, Filters.funcB\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/type_\n",
+        "type": "TypedSvg.Types.FuncType -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "in2",
+        "comment": "\n    The `in2` attribute identifies the second input for the given filter\n    primitive. It works exactly like the in attribute.\n\n    Used by Elements: Filters.blend, Filters.colorMatrix,\n        Filters.componentTransfer, Filters.composite, Filters.convolveMatrix,\n        Filters.diffuseLighting, Filters.displacementMap, Filters.gaussianBlur,\n        Filters.morphology, Filters.offset, Filters.specularLighting,\n        Filters.tile\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/in2\n",
+        "type": "TypedSvg.Types.InValue -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "in_",
+        "comment": "\n    The `in_` attribute identifies input for the given filter primitive.\n\n    Takes type InValue, which can be one of 6 constants, or a reference\n\n    If no value is provided and this is the first filter primitive, then this\n    filter primitive will use `InSourceGraphic` as its input.\n\n    If no value is provided and this is a subsequent filter primitive, then this\n    filter primitive will use the result from the previous filter primitive as\n    its input.\n\n    Used by Elements: Filters.blend, Filters.colorMatrix,\n        Filters.componentTransfer, Filters.composite, Filters.convolveMatrix,\n        Filters.diffuseLighting, Filters.displacementMap, Filters.gaussianBlur,\n        Filters.morphology, Filters.offset, Filters.specularLighting,\n        Filters.tile\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/in\n",
+        "type": "TypedSvg.Types.InValue -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "k1",
+        "comment": "\n    The k1 attribute defines one of the values to be used within the arithmetic\n    operation of the `Filters.composite` filter primitive.\n\n    If this attribute is not set, its default value is 0.\n\n    Used by Elements: Filters.composite\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/k1\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "k2",
+        "comment": "\n    The k2 attribute defines one of the values to be used within the arithmetic\n    operation of the `Filters.composite` filter primitive.\n\n    If this attribute is not set, its default value is 0.\n\n    Used by Elements: Filters.composite\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/k2\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "k3",
+        "comment": "\n    The k3 attribute defines one of the values to be used within the arithmetic\n    operation of the `Filters.composite` filter primitive.\n\n    If this attribute is not set, its default value is 0.\n\n    Used by Elements: Filters.composite\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/k3\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "k4",
+        "comment": "\n    The k4 attribute defines one of the values to be used within the arithmetic\n    operation of the `Filters.composite` filter primitive.\n\n    If this attribute is not set, its default value is 0.\n\n    Used by Elements: Filters.composite\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/k4\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "kernelMatrix",
+        "comment": "\n    The `order` attribute defines the list of numbers that makes up the kernel\n    matrix for the `Filters.convolveMatrix` element.\n\n    The number of entries in the list must be equal to `orderX` x `orderY`, as\n    defined in the `order` attribute.\n\n    Used by Elements: Filters.convolveMatrix\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/kernelMatrix\n",
+        "type": "List number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "kernelUnitLength",
+        "comment": "\n    The kernelUnitLength attribute has two meaning based on the context it's\n    used:\n\n    - For lighting filter primitives, it indicates the intended distance in\n      current filter units (i.e., units as determined by the value of attribute\n      primitiveUnits) for `dx` and `dy`, respectively, in the surface normal\n      calculation formulas.\n\n    - For the `feConvolveMatrix` primitive, it indicates the intended distance\n      in current filter units (i.e., units as determined by the value of\n      attribute primitiveUnits) between successive columns and rows,\n      respectively, in the kernelMatrix.\n\n    Used by Elements: Filters.convolveMatrix, Filters.diffuseLighting,\n        Filters.specularLighting\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/kernelUnitLength\n",
+        "type": "number -> number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "limitingConeAngle",
+        "comment": "\n    The limitingConeAngle attribute represents the angle in degrees between\n    the spot light axis (i.e. the axis between the light source and the point\n    to which it is pointing at) and the spot light cone. So it defines a\n    limiting cone which restricts the region where the light is projected.\n    No light is projected outside the cone.\n\n    If no value is specified, then no limiting cone will be applied.\n\n    Used by Elements: Filters.spotlight\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/limitingConeAngle\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "mode",
+        "comment": "\n    The mode attribute defines the blending mode on the `Filters.blend` filter\n    primitive.\n\n    Used by Elements: Filters.blend\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/mode\n",
+        "type": "TypedSvg.Types.Mode -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "morphologyOperator",
+        "comment": "\n    morphologyOperator defines the compositing operation that is to be performed\n    in the `feMorphology` element\n\n    Used by Elements: Filters.morphology\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/operator\n",
+        "type": "TypedSvg.Types.MorphologyOperator -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "numOctaves",
+        "comment": "\n    The numOctaves parameter for the noise function of the `Filters.turbulence`\n    primitive.\n\n    If the attribute is not specified, then the effect is as if a value of 1\n    were specified.\n\n    Used by Elements: Filters.turbulence\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/\n",
+        "type": "Int -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "order",
+        "comment": "\n    The order attribute indicates the size of the matrix to be used by an\n    `Filters.convolveMatrix` element.\n\n    The values provided must be integers greater than zero. The first number,\n    `orderX`, indicates the number of columns in the matrix. The second number,\n    `orderY`, indicates the number of rows in the matrix.\n\n    A typical value is order=\"3\". It is recommended that only small values\n    (e.g., 3) be used; higher values may result in very high CPU overhead and\n    usually do not produce results that justify the impact on performance.\n\n    If the attribute is not specified, the effect is as if a value of 3 were\n    specified.\n\n    Used by Elements: Filters.convolveMatrix\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/order\n",
+        "type": "number -> number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "pointsAtX",
+        "comment": "\n    The `pointsAtX` attribute represent the X location in the coordinate system\n    established by attribute primitiveUnits on the `filter` element of the point\n    at which the light source is pointing.\n\n    If the attribute is not specified, then the effect is as if a value of 0\n    were specified.\n\n    Used by Elements: Filters.spotlight\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pointsAtX\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "pointsAtY",
+        "comment": "\n    The `pointsAtY` attribute represent the Y location in the coordinate system\n    established by attribute primitiveUnits on the `filter` element of the point\n    at which the light source is pointing.\n\n    If the attribute is not specified, then the effect is as if a value of 0\n    were specified.\n\n    Used by Elements: Filters.spotlight\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pointsAtY\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "pointsAtZ",
+        "comment": "\n    The `pointsAtZ` attribute represents the Z location in the coordinate system\n    established by attribute primitiveUnits on the `filter` element of the point\n    at which the light source is pointing.\n\n    If the attribute is not specified, then the effect is as if a value of 0\n    were specified.\n\n    Used by Elements: Filters.spotlight\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pointsAtZ\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "preserveAlpha",
+        "comment": "\n    The `preserveAlpha` attribute indicates how an `feConvolveMatrix` element\n    handles alpha transparency.\n\n    A value of false indicates that the convolution matrix will apply to all\n    channels, including the alpha channel. This is the default value.\n\n    A value of true indicates that the convolution matrix will only apply to the\n    color channels.\n\n    Used by Elements: Filters.convolveMatrix\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/preserveAlpha\n",
+        "type": "Bool -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "radius",
+        "comment": "\n    The `radius` attribute represent the radius for the operation on a given\n    `feMorphology` filter primitive. The values are in the coordinate system\n    established by the `primitiveUnits` attribute on the `filter` element.\n\n    If the attribute is not specified, then the effect is as if a value of 0\n    were specified.\n\n    Used by Elements: Filters.morphology\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/radius\n",
+        "type": "number -> number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "result",
+        "comment": "\n    The `result` attribute defines the assigned name for this filter primitive.\n    If supplied, then graphics that result from processing this filter primitive\n    can be referenced by an in attribute on a subsequent filter primitive within\n    the same `filter` element.\n\n    If no value is provided, the output will only be available for re-use as the\n    implicit input into the next filter primitive if that filter primitive\n    provides no value for its in attribute.\n\n    Used by Elements: feBlend, feColorMatrix, feComponentTransfer, feComposite,\n        feConvolveMatrix, feDiffuseLighting, feDisplacementMap, feDropShadow,\n        feFlood,feFuncA, feFuncB, feFuncG, feFuncR,feGaussianBlur, feImage,\n        feMerge, feMergeNode, feMorphology, feOffset, feSpecularLighting,\n        feTile, feTurbulence\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/result\n",
+        "type": "String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "scale",
+        "comment": "\n    The `scale` attribute define the displacement scale factor to be used on a\n    `Filters.displacementMap` filter primitive. The amount is expressed in the\n    coordinate system established by the `primitiveUnits` attribute on the\n    `filter` element.\n\n    When the value of this attribute is 0, this operation has no effect on the\n    source image.\n\n    If the attribute is not specified, then the effect is as if a value of 0\n    were specified.\n\n    Used by Elements: Filters.displacementMap\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/scale\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "seed",
+        "comment": "\n    The seed attribute represents the starting number for the pseudo random\n    number generator of the `Filters.turbulence` primitive.\n\n    If the attribute is not specified, then the effect is as if a value of 0\n    were specified.\n\n    Used by Elements: Filters.turbulence\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/seed\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "surfaceScale",
+        "comment": "\n    The `surfaceScale` attribute represents the height of the surface for a\n    light filter primitive.\n\n    If the attribute is not specified, then the effect is as if a value of 1\n    were specified.\n\n    Used by Elements: Filters.diffuseLighting, Filters.specularLighting\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/surfaceScale\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "targetX",
+        "comment": "\n    The `targetX` attribute determines the positioning in X of the convolution\n    matrix relative to a given target pixel in the input image. The leftmost\n    column of the matrix is column number zero. The value must be such that:\n\n        0 <= targetX < orderX\n\n    By default, the convolution matrix is centered in X over each pixel of the\n    input image (i.e., targetX = floor ( orderX / 2 )).\n\n    Used by Elements: convolveMatrix\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/targetX\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "targetY",
+        "comment": "\n    The targetY attribute determines the positioning in Y of the convolution\n    matrix relative to a given target pixel in the input image. The topmost\n    row of the matrix is row number zero. The value must be such that:\n\n        0 <= targetY < orderY\n\n    By default, the convolution matrix is centered in Y over each pixel of the\n    input image (i.e., targetY = floor ( orderY / 2 )).\n\n    Used by Elements: Filters.convolveMatrix\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/targetY\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "turbulenceType",
+        "comment": "\n    Indicates whether the filter primitive should perform a noise or turbulence\n    function.\n\n    Used by Elements: Filters.turbulence\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/type_\n",
+        "type": "TypedSvg.Types.TurbulenceType -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "z",
+        "comment": "\n    The `z` attribute difines the location along the Z-axis for a light source\n    in the coordinate system established by the primitiveUnits attribute on the\n    `filter` element, assuming that, in the initial coordinate system, the\n    positive Z-axis comes out towards the person viewing the content and\n    assuming that one unit along the Z-axis equals on unit in X and Z.\n\n    If the attribute is not specified, then the effect is as if a value of 0 were specified.\n\n    Used by Elements: Filters.pointlight, Filters.spotlight\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/z\n",
+        "type": "number -> TypedSvg.Core.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "TypedSvg.Filters",
+    "comment": " SVG Filter Elements\n\n    Typical usage:\n\n        import TypedSvg.Filters as Fe\n        import TypedSvg.Filters.Attributes exposing (..)\n\n        Fe.filter []\n            [ Fe.blend [in InSourceGraphic, in2 InFillPaint, mode ModeMultiply] []\n            ]\n\n@docs blend, colorMatrix, componentTransfer, composite,\n  convolveMatrix, diffuseLighting, displacementMap, flood, funcA,\n  funcB, funcG, funcR, gaussianBlur, image, merge, mergeNode,\n  morphology, offset, specularLighting, tile, turbulence\n\n# Light source elements\n@docs distantLight, pointLight, spotLight\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "blend",
+        "comment": "\n    The `Filters.blend` SVG filter primitive composes two objects together\n    ruled by a certain blending mode. This is similar to what is known from\n    image editing software when blending two layers. The mode is defined by the\n    `mode` attribute.\n\n    Attributes: in, in2, mode\n\n    Global Attributes: id, class, height, result, style, tabindex, width, x, y\n\n    Presentation Attributes\n\n    See: https://developer.mozilla.org/en-US/docs/Web/SVG/Element/feBlend\n",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "colorMatrix",
+        "comment": "\n    The `colorMatrix` SVG filter element changes colors based on a\n    transformation matrix. Every pixel's color value (represented by an\n    [R,G,B,A] vector) is matrix multiplied to create a new color.\n\n    Specific Attributes: in, colorMatrixType, colorMatrixValues\n\n    Global Attributes: id, class, height, result, style, tabindex, width, x, y\n\n    Presentation Attributes\n",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "componentTransfer",
+        "comment": "\n    The `componentTransfer` SVG filter primitive performs color-component-wise\n    remapping of data for each pixel. It allows operations like brightness\n    adjustment, contrast adjustment, color balance or thresholding.\n\n    The calculations are performed on non-premultiplied color values. The colors\n    are modified by changing each channel (R, G, B, and A) to the result of what\n    the children `funcR`, `funcB`, `funcG`, and `funcA` return.\n\n    Specific Attributes: in\n\n    Global Attributes: id, class, height, result, style, tabindex, width, x, y\n\n    Presentation Attributes\n",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "composite",
+        "comment": "\n    This filter primitive performs the combination of two input images\n    pixel-wise in image space using one of the Porter-Duff compositing\n    operations:\n\n        over, in, atop, out, xor, and lighter\n\n    Additionally, a component-wise arithmetic operation (with the result clamped\n    between [0..1]) can be applied.\n\n    The arithmetic operation is useful for combining the output from the\n    `diffuseLighting` and `specularLighting` filters with texture data. If the\n    arithmetic operation is chosen, each result pixel is computed using the\n    following formula:\n\n        result = k1*i1*i2 + k2*i1 + k3*i2 + k4\n\n    where:\n\n    `i1` and `i2` indicate the corresponding pixel channel values of the input\n    image, which map to `in` and `in2` respectively.\n\n    `k1`, `k2`, `k3` and `k4` indicate the values of the attributes with the\n    same name.\n\n    Specific Attributes: in, in2, compositeOperator, k1, k2, k3, k4\n\n    Global Attributes: id, class, height, result, style, tabindex, width, x, y\n\n    Presentation Attributes\n",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "convolveMatrix",
+        "comment": "\n    The `convolveMatrix` SVG filter primitive applies a matrix convolution\n    filter effect. A convolution combines pixels in the input image with\n    neighboring pixels to produce a resulting image. A wide variety of imaging\n    operations can be achieved through convolutions, including blurring, edge\n    detection, sharpening, embossing and beveling.\n\n    Specific Attributes: in, order, kernelMatrix, divisor, bias, targetX,\n        targetY, edgeMode, kernelUnitLength, preserveAlpha\n\n    Global Attributes: id, class, height, result, style, tabindex, width, x, y\n\n    Presentation Attributes\n",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "diffuseLighting",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "displacementMap",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "distantLight",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "flood",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "funcA",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "funcB",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "funcG",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "funcR",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "gaussianBlur",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "image",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "merge",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "mergeNode",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "morphology",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "offset",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "pointLight",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "specularLighting",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "spotLight",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "tile",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "turbulence",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "TypedSvg",
+    "comment": "\n\n# HTML Embedding\n@docs svg, foreignObject\n\n# Graphics elements\n@docs circle, ellipse, image, line, path, polygon, polyline, rect, use\n\n# Animation elements\n@docs animate, animateColor, animateMotion, animateTransform, mpath, set\n\n# Descriptive elements\n@docs desc, metadata, title\n\n# Containers\n@docs a, defs, g, marker, mask, pattern, switch, symbol\n\n# Text\n@docs altGlyph, altGlyphDef, altGlyphItem, glyph, glyphRef, textPath, text_,\n  tref, tspan\n\n# Fonts\n@docs font\n\n# Gradients\n@docs linearGradient, radialGradient, stop\n\n# Filters\nSee TypedSvg.Filters\n\n# Miscellaneous\n@docs clipPath, colorProfile, cursor, filter, script, style, view\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "a",
+        "comment": " The SVG Anchor Element defines a hyperlink.\n",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "altGlyph",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "altGlyphDef",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "altGlyphItem",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "animate",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "animateColor",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "animateMotion",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "animateTransform",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "circle",
+        "comment": " The circle element is an SVG basic shape, used to create circles based on\na center point and a radius.\n\n    circle [ cx \"60\", cy \"60\", r \"50\" ] []\n",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "clipPath",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "colorProfile",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "cursor",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "defs",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "desc",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "ellipse",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "filter",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "font",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "foreignObject",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (Html.Html msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "g",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "glyph",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "glyphRef",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "image",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "line",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "linearGradient",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "marker",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "mask",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "metadata",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "mpath",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "path",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "pattern",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "polygon",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "polyline",
+        "comment": " The polyline element is an SVG basic shape, used to create a series of\nstraight lines connecting several points. Typically a polyline is used to\ncreate open shapes.\n\n    polyline [ fill \"none\", stroke \"black\", points \"20,100 40,60 70,80 100,20\" ] []\n",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "radialGradient",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "rect",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "script",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "set",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "stop",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "style",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "svg",
+        "comment": " The root `<svg>` node for any SVG scene. This example shows a scene\ncontaining a rounded rectangle:\n\n    import Html\n    import Svg exposing (..)\n    import Svg.Attributes exposing (..)\n\n    roundRect : Html.Html msg\n    roundRect =\n        svg\n          [ width \"120\", height \"120\", viewBox \"0 0 120 120\" ]\n          [ rect [ x \"10\", y \"10\", width \"100\", height \"100\", rx \"15\", ry \"15\" ] [] ]\n",
+        "type": "List (Html.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> Html.Html msg"
+      },
+      {
+        "name": "switch",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "symbol",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "textPath",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "text_",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "title",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "tref",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "tspan",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "use",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "view",
+        "comment": " ",
+        "type": "List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "TypedSvg.Events",
+    "comment": "\n# Animation event attributes\n@docs onBegin, onEnd, onRepeat\n\n# Document event attributes\n@docs onAbort, onError, onResize, onScroll, onLoad, onUnload, onZoom\n\n# Graphical event attributes\n@docs onActivate, onClick, onFocusIn, onFocusOut, onMouseDown, onMouseMove,\n  onMouseOut, onMouseOver, onMouseUp\n\n# Custom Events\n@docs on\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "on",
+        "comment": " Create a custom event listener.\n    import Json.Decode as Json\n    onClick : msg -> Attribute msg\n    onClick msg =\n      on \"click\" (Json.succeed msg)\n\nYou first specify the name of the event in the same format as with JavaScript’s\n`addEventListener`. Next you give a JSON decoder, which lets you pull\ninformation out of the event object. If the decoder succeeds, it will produce\na message and route it to your `update` function.\n",
+        "type": "String -> Json.Decode.Decoder msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onAbort",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onActivate",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onBegin",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onClick",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onEnd",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onError",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onFocusIn",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onFocusOut",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onLoad",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onMouseDown",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onMouseMove",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onMouseOut",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onMouseOver",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onMouseUp",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onRepeat",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onResize",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onScroll",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onUnload",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "onZoom",
+        "comment": " ",
+        "type": "msg -> TypedSvg.Core.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "TypedSvg.Types",
+    "comment": "\n\nThe Types module defines all of the types used by TypedSvg.\n\n# Types\n@docs Accumulate, Additive, Align, AlignmentBaseline, AnchorAlignment,\n    AnimateTransformType, AttributeType, BaselineShift, BezierAnchorPoint,\n    CalcMode, Clip, ClipPath, ClipRule, ClockValue, ColorInterpolation,\n    ColorMatrixType, ColorProfile, CompositeOperator, CoordinateSystem, Cursor,\n    Direction, Display, DominantBaseline, Duration, EdgeMode, FillRule, Filter,\n    FloodColor, FontSizeAdjust, FontStretch, FontStyle, FontVariant, FontWeight,\n    FuncType, InValue, Kerning, Length, LengthAdjust, MarkerCoordinateSystem,\n    MeetOrSlice, Mode, MorphologyOperator, Opacity, Rendering, RepeatCount,\n    Restart, Scale, ShapeRendering, TimingValue, Transform, TurbulenceType\n\n@docs cm, em, ex, inch, mm, num, pc, percent, pt, px\n",
+    "aliases": [
+      {
+        "name": "BezierAnchorPoint",
+        "comment": " ",
+        "args": [],
+        "type": "( Float, Float, Float, Float )"
+      },
+      {
+        "name": "ClockValue",
+        "comment": " In a future version of TypedSvg, this may be turned into a DSL\n",
+        "args": [],
+        "type": "String"
+      }
+    ],
+    "types": [
+      {
+        "name": "Accumulate",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "AccumulateNone",
+            []
+          ],
+          [
+            "AccumulateSum",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Additive",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "AdditiveNone",
+            []
+          ],
+          [
+            "AdditiveReplace",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Align",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Align",
+            [
+              "TypedSvg.Types.Scale",
+              "TypedSvg.Types.Scale"
+            ]
+          ],
+          [
+            "AlignNone",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "AlignmentBaseline",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "AlignmentAuto",
+            []
+          ],
+          [
+            "AlignmentBaseline",
+            []
+          ],
+          [
+            "AlignmentBeforeEdge",
+            []
+          ],
+          [
+            "AlignmentTextBeforeEdge",
+            []
+          ],
+          [
+            "AlignmentMiddle",
+            []
+          ],
+          [
+            "AlignmentCentral",
+            []
+          ],
+          [
+            "AlignmentAfterEdge",
+            []
+          ],
+          [
+            "AlignmentTextAfterEdge",
+            []
+          ],
+          [
+            "AlignmentIdeographic",
+            []
+          ],
+          [
+            "AlignmentAlphabetic",
+            []
+          ],
+          [
+            "AlignmentHanging",
+            []
+          ],
+          [
+            "AlignmentMathematical",
+            []
+          ],
+          [
+            "AlignmentInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "AnchorAlignment",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "AnchorInherit",
+            []
+          ],
+          [
+            "AnchorStart",
+            []
+          ],
+          [
+            "AnchorMiddle",
+            []
+          ],
+          [
+            "AnchorEnd",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "AnimateTransformType",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "AnimateTransformTypeTranslate",
+            []
+          ],
+          [
+            "AnimateTransformTypeScale",
+            []
+          ],
+          [
+            "AnimateTransformTypeRotate",
+            []
+          ],
+          [
+            "AnimateTransformTypeSkewX",
+            []
+          ],
+          [
+            "AnimateTransformTypeSkewY",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "AttributeType",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "AttributeTypeAuto",
+            []
+          ],
+          [
+            "AttributeTypeCss",
+            []
+          ],
+          [
+            "AttributeTypeXml",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "BaselineShift",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "ShiftAuto",
+            []
+          ],
+          [
+            "ShiftBaseline",
+            []
+          ],
+          [
+            "ShiftSuper",
+            []
+          ],
+          [
+            "ShiftSub",
+            []
+          ],
+          [
+            "ShiftPercentage",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "ShiftLength",
+            [
+              "TypedSvg.Types.Length"
+            ]
+          ],
+          [
+            "ShiftInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "CalcMode",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "CalcModeDiscrete",
+            []
+          ],
+          [
+            "CalcModeLinear",
+            []
+          ],
+          [
+            "CalcModePaced",
+            []
+          ],
+          [
+            "CalcModeSpline",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Clip",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "ClipAuto",
+            []
+          ],
+          [
+            "ClipInherit",
+            []
+          ],
+          [
+            "ClipShape",
+            [
+              "TypedSvg.Types.Length",
+              "TypedSvg.Types.Length",
+              "TypedSvg.Types.Length",
+              "TypedSvg.Types.Length"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "ClipPath",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "ClipPathNone",
+            []
+          ],
+          [
+            "ClipPathInherit",
+            []
+          ],
+          [
+            "ClipPathFunc",
+            [
+              "String"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "ClipRule",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "ClipRuleNonZero",
+            []
+          ],
+          [
+            "ClipRuleEvenOdd",
+            []
+          ],
+          [
+            "ClipRuleInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "ColorInterpolation",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "ColorInterpolationAuto",
+            []
+          ],
+          [
+            "ColorInterpolationSRGB",
+            []
+          ],
+          [
+            "ColorInterpolationLinearRGB",
+            []
+          ],
+          [
+            "ColorInterpolationInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "ColorMatrixType",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "ColorMatrixTypeMatrix",
+            []
+          ],
+          [
+            "ColorMatrixTypeSaturate",
+            []
+          ],
+          [
+            "ColorMatrixTypeHueRotate",
+            []
+          ],
+          [
+            "ColorMatrixTypeLuminanceToAlpha",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "ColorProfile",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "ColorProfileAuto",
+            []
+          ],
+          [
+            "ColorProfileSRGB",
+            []
+          ],
+          [
+            "ColorProfile",
+            [
+              "String"
+            ]
+          ],
+          [
+            "ColorProfileInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "CompositeOperator",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "CompositeOperatorOver",
+            []
+          ],
+          [
+            "CompositeOperatorIn",
+            []
+          ],
+          [
+            "CompositeOperatorOut",
+            []
+          ],
+          [
+            "CompositeOperatorAtop",
+            []
+          ],
+          [
+            "CompositeOperatorXor",
+            []
+          ],
+          [
+            "CompositeOperatorArithmetic",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "CoordinateSystem",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "CoordinateSystemUserSpaceOnUse",
+            []
+          ],
+          [
+            "CoordinateSystemObjectBoundingBox",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Cursor",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "CursorAuto",
+            []
+          ],
+          [
+            "CursorDefault",
+            []
+          ],
+          [
+            "CursorCrosshair",
+            []
+          ],
+          [
+            "CursorPointer",
+            []
+          ],
+          [
+            "CursorMove",
+            []
+          ],
+          [
+            "CursorEResize",
+            []
+          ],
+          [
+            "CursorNEResize",
+            []
+          ],
+          [
+            "CursorNWResize",
+            []
+          ],
+          [
+            "CursorNResize",
+            []
+          ],
+          [
+            "CursorSEResize",
+            []
+          ],
+          [
+            "CursorSWResize",
+            []
+          ],
+          [
+            "CursorWResize",
+            []
+          ],
+          [
+            "CursorText",
+            []
+          ],
+          [
+            "CursorWait",
+            []
+          ],
+          [
+            "CursorHelp",
+            []
+          ],
+          [
+            "CursorInherit",
+            []
+          ],
+          [
+            "Cursor",
+            [
+              "String"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Direction",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "DirectionLTR",
+            []
+          ],
+          [
+            "DirectionRTL",
+            []
+          ],
+          [
+            "DirectionInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Display",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "DisplayInline",
+            []
+          ],
+          [
+            "DisplayBlock",
+            []
+          ],
+          [
+            "DisplayListItem",
+            []
+          ],
+          [
+            "DisplayRunIn",
+            []
+          ],
+          [
+            "DisplayCompact",
+            []
+          ],
+          [
+            "DisplayMarker",
+            []
+          ],
+          [
+            "DisplayTable",
+            []
+          ],
+          [
+            "DisplayInlineTable",
+            []
+          ],
+          [
+            "DisplayTableRowGroup",
+            []
+          ],
+          [
+            "DisplayTableHeaderGroup",
+            []
+          ],
+          [
+            "DisplayTableFooterGroup",
+            []
+          ],
+          [
+            "DisplayTableRow",
+            []
+          ],
+          [
+            "DisplayTableColumnGroup",
+            []
+          ],
+          [
+            "DisplayTableColumn",
+            []
+          ],
+          [
+            "DisplayTableCell",
+            []
+          ],
+          [
+            "DisplayTableCaption",
+            []
+          ],
+          [
+            "DisplayNone",
+            []
+          ],
+          [
+            "DisplayInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "DominantBaseline",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "DominantBaselineAuto",
+            []
+          ],
+          [
+            "DominantBaselineUseScript",
+            []
+          ],
+          [
+            "DominantBaselineNoChange",
+            []
+          ],
+          [
+            "DominantBaselineResetSize",
+            []
+          ],
+          [
+            "DominantBaselineIdeographic",
+            []
+          ],
+          [
+            "DominantBaselineAlphabetic",
+            []
+          ],
+          [
+            "DominantBaselineHanging",
+            []
+          ],
+          [
+            "DominantBaselineMathematical",
+            []
+          ],
+          [
+            "DominantBaselineCentral",
+            []
+          ],
+          [
+            "DominantBaselineMiddle",
+            []
+          ],
+          [
+            "DominantBaselineTextAfterEdge",
+            []
+          ],
+          [
+            "DominantBaselineTextBeforeEdge",
+            []
+          ],
+          [
+            "DominantBaselineInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Duration",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Duration",
+            [
+              "TypedSvg.Types.ClockValue"
+            ]
+          ],
+          [
+            "DurationIndefinite",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "EdgeMode",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "EdgeModeDuplicate",
+            []
+          ],
+          [
+            "EdgeModeWrap",
+            []
+          ],
+          [
+            "EdgeModeNone",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "FillRule",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "FillRuleNonZero",
+            []
+          ],
+          [
+            "FillRuleEvenOdd",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Filter",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "FilterNone",
+            []
+          ],
+          [
+            "FilterInherit",
+            []
+          ],
+          [
+            "Filter",
+            [
+              "String"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "FloodColor",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "FloodInherit",
+            []
+          ],
+          [
+            "FloodCurrentColor",
+            []
+          ],
+          [
+            "Flood",
+            [
+              "Color.Color"
+            ]
+          ],
+          [
+            "FloodICC",
+            [
+              "String"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "FontSizeAdjust",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "FontSizeAdjustNone",
+            []
+          ],
+          [
+            "FontSizeAdjustInherit",
+            []
+          ],
+          [
+            "FontSizeAdjust",
+            [
+              "Float"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "FontStretch",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "FontStretchNormal",
+            []
+          ],
+          [
+            "FontStretchWider",
+            []
+          ],
+          [
+            "FontStretchNarrower",
+            []
+          ],
+          [
+            "FontStretchUltraCondensed",
+            []
+          ],
+          [
+            "FontStretchExtraCondensed",
+            []
+          ],
+          [
+            "FontStretchCondensed",
+            []
+          ],
+          [
+            "FontStretchSemiCondensed",
+            []
+          ],
+          [
+            "FontStretchSemiExpanded",
+            []
+          ],
+          [
+            "FontStretchExpanded",
+            []
+          ],
+          [
+            "FontStretchExtraExpanded",
+            []
+          ],
+          [
+            "FontStretchUltraExpanded",
+            []
+          ],
+          [
+            "FontStretchInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "FontStyle",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "FontStyleNormal",
+            []
+          ],
+          [
+            "FontStyleItalic",
+            []
+          ],
+          [
+            "FontStyleOblique",
+            []
+          ],
+          [
+            "FontStyleInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "FontVariant",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "FontVariantNormal",
+            []
+          ],
+          [
+            "FontVariantSmallCaps",
+            []
+          ],
+          [
+            "FontVariantInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "FontWeight",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "FontWeightNormal",
+            []
+          ],
+          [
+            "FontWeightBold",
+            []
+          ],
+          [
+            "FontWeightBolder",
+            []
+          ],
+          [
+            "FontWeightLighter",
+            []
+          ],
+          [
+            "FontWeightInherit",
+            []
+          ],
+          [
+            "FontWeight",
+            [
+              "Int"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "FuncType",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "FuncTypeIdentity",
+            []
+          ],
+          [
+            "FuncTypeTable",
+            []
+          ],
+          [
+            "FuncTypeDiscrete",
+            []
+          ],
+          [
+            "FuncTypeLinear",
+            []
+          ],
+          [
+            "FuncTypeGamma",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "InValue",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "InSourceGraphic",
+            []
+          ],
+          [
+            "InSourceAlpha",
+            []
+          ],
+          [
+            "InBackgroundAlpha",
+            []
+          ],
+          [
+            "InFillPaint",
+            []
+          ],
+          [
+            "InStrokePaint",
+            []
+          ],
+          [
+            "InReference",
+            [
+              "String"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Kerning",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "KerningAuto",
+            []
+          ],
+          [
+            "KerningInherit",
+            []
+          ],
+          [
+            "KerningLength",
+            [
+              "TypedSvg.Types.Length"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Length",
+        "comment": " The Length type is an important type in the TypedSvg package--it is used\n    wherever CSS needs to measure a length or distance in a certain unit (px,\n    em, etc.)\n",
+        "args": [],
+        "cases": [
+          [
+            "Cm",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Em",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Ex",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "In",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Mm",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Num",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Pc",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Percent",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Pt",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Px",
+            [
+              "Float"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "LengthAdjust",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "LengthAdjustSpacing",
+            []
+          ],
+          [
+            "LengthAdjustSpacingAndGlyphs",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "MarkerCoordinateSystem",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "MarkerCoordinateSystemUserSpaceOnUse",
+            []
+          ],
+          [
+            "MarkerCoordinateSystemStrokeWidth",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "MeetOrSlice",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Meet",
+            []
+          ],
+          [
+            "Slice",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Mode",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "ModeNormal",
+            []
+          ],
+          [
+            "ModeMultiply",
+            []
+          ],
+          [
+            "ModeScreen",
+            []
+          ],
+          [
+            "ModeDarken",
+            []
+          ],
+          [
+            "ModeLighten",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "MorphologyOperator",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "MorphologyOperatorErode",
+            []
+          ],
+          [
+            "MorphologyOperatorDilate",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Opacity",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Opacity",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "OpacityInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Rendering",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "RenderingAuto",
+            []
+          ],
+          [
+            "RenderingOptimizeSpeed",
+            []
+          ],
+          [
+            "RenderingOptimizeQuality",
+            []
+          ],
+          [
+            "RenderingInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "RepeatCount",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "RepeatCount",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "RepeatIndefinite",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Restart",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "RestartAlways",
+            []
+          ],
+          [
+            "RestartWhenNotActive",
+            []
+          ],
+          [
+            "RestartNever",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Scale",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "ScaleMin",
+            []
+          ],
+          [
+            "ScaleMid",
+            []
+          ],
+          [
+            "ScaleMax",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "ShapeRendering",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "RenderAuto",
+            []
+          ],
+          [
+            "RenderOptimizeSpeed",
+            []
+          ],
+          [
+            "RenderCrispEdges",
+            []
+          ],
+          [
+            "RenderGeometricPrecision",
+            []
+          ],
+          [
+            "RenderInherit",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "TimingValue",
+        "comment": " Used by `begin` and `end` in constraining animation times\n",
+        "args": [],
+        "cases": [
+          [
+            "TimingOffsetValue",
+            [
+              "TypedSvg.Types.ClockValue"
+            ]
+          ],
+          [
+            "TimingSyncBaseValue",
+            [
+              "String"
+            ]
+          ],
+          [
+            "TimingEventValue",
+            [
+              "String"
+            ]
+          ],
+          [
+            "TimingRepeatValue",
+            [
+              "String"
+            ]
+          ],
+          [
+            "TimingAccessKeyValue",
+            [
+              "String"
+            ]
+          ],
+          [
+            "TimingWallclockSyncValue",
+            [
+              "String"
+            ]
+          ],
+          [
+            "TimingIndefinite",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Transform",
+        "comment": " The Transform type is used by `transform` and `gradientTransform`\n",
+        "args": [],
+        "cases": [
+          [
+            "Matrix",
+            [
+              "Float",
+              "Float",
+              "Float",
+              "Float",
+              "Float",
+              "Float"
+            ]
+          ],
+          [
+            "Rotate",
+            [
+              "Float",
+              "Float",
+              "Float"
+            ]
+          ],
+          [
+            "Scale",
+            [
+              "Float",
+              "Float"
+            ]
+          ],
+          [
+            "SkewX",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "SkewY",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Translate",
+            [
+              "Float",
+              "Float"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "TurbulenceType",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "TurbulenceTypeFractalNoise",
+            []
+          ],
+          [
+            "TurbulenceTypeTurbulence",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "cm",
+        "comment": " Length expressed as a centimeter\n",
+        "type": "Float -> TypedSvg.Types.Length"
+      },
+      {
+        "name": "em",
+        "comment": " Length expressed as an `em`\n",
+        "type": "Float -> TypedSvg.Types.Length"
+      },
+      {
+        "name": "ex",
+        "comment": " Length expressed as a `ex`\n",
+        "type": "Float -> TypedSvg.Types.Length"
+      },
+      {
+        "name": "inch",
+        "comment": " Length expressed as an inch\n",
+        "type": "Float -> TypedSvg.Types.Length"
+      },
+      {
+        "name": "mm",
+        "comment": " Length expressed as a millimeter\n",
+        "type": "Float -> TypedSvg.Types.Length"
+      },
+      {
+        "name": "num",
+        "comment": " Length expressed as a raw number\n",
+        "type": "Float -> TypedSvg.Types.Length"
+      },
+      {
+        "name": "pc",
+        "comment": " Length expressed as a `pc`\n",
+        "type": "Float -> TypedSvg.Types.Length"
+      },
+      {
+        "name": "percent",
+        "comment": " Length expressed as a percentage\n",
+        "type": "Float -> TypedSvg.Types.Length"
+      },
+      {
+        "name": "pt",
+        "comment": " Length expressed in points\n",
+        "type": "Float -> TypedSvg.Types.Length"
+      },
+      {
+        "name": "px",
+        "comment": " Length expressed in pixels\n",
+        "type": "Float -> TypedSvg.Types.Length"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "TypedSvg.Core",
+    "comment": "\n# SVG Nodes\n@docs Svg, text, node, map\n\n# SVG Attributes\n@docs Attribute, attribute, attributeNS, svgNamespace\n",
+    "aliases": [
+      {
+        "name": "Attribute",
+        "comment": " Set attributes on your `Svg`.\n",
+        "args": [
+          "msg"
+        ],
+        "type": "VirtualDom.Property msg"
+      },
+      {
+        "name": "Svg",
+        "comment": " The core building block to create SVG. This library is filled with helper\nfunctions to create these `Svg` values.\n",
+        "args": [
+          "msg"
+        ],
+        "type": "VirtualDom.Node msg"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "attribute",
+        "comment": " Creates any untyped attribute\n",
+        "type": "String -> String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "attributeNS",
+        "comment": " Creates any untyped, namespaced attribute\n",
+        "type": "String -> String -> String -> TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "map",
+        "comment": " Transform the messages produced by some `Svg`.\n",
+        "type": "(a -> msg) -> TypedSvg.Core.Svg a -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "node",
+        "comment": " Create any SVG node. To create a `<rect>` helper function, you would write:\n    rect : List (Attribute msg) -> List (Svg msg) -> Svg msg\n    rect attributes children =\n        node \"rect\" attributes children\nYou should always be able to use the helper functions already defined in this\nlibrary though!\n",
+        "type": "String -> List (TypedSvg.Core.Attribute msg) -> List (TypedSvg.Core.Svg msg) -> TypedSvg.Core.Svg msg"
+      },
+      {
+        "name": "svgNamespace",
+        "comment": " ",
+        "type": "TypedSvg.Core.Attribute msg"
+      },
+      {
+        "name": "text",
+        "comment": " A simple text node, no tags at all.\nWarning: not to be confused with `text_` which produces the SVG `<text>` tag!\n",
+        "type": "String -> TypedSvg.Core.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
