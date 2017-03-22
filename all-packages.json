@@ -4157,6 +4157,7 @@
         "name": "ghivert/elm-cloudinary",
         "summary": "Upload your photos to Cloudinary, without dealing with details.",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -6405,6 +6406,13 @@
         ]
     },
     {
+        "name": "norpan/elm-json-patch",
+        "summary": "JSON Patch implementation",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "nphollon/collision",
         "summary": "3D collision detection using OBBTree algorithm",
         "versions": [
@@ -6523,6 +6531,7 @@
         "name": "ohanhi/remotedata-http",
         "summary": "A collection of helper functions for server communication using RemoteData",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.1",
@@ -7103,6 +7112,8 @@
         "name": "robinpokorny/elm-brainfuck",
         "summary": "A brainfuck interpreter in Elm",
         "versions": [
+            "2.0.3",
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.1",
@@ -7153,6 +7164,7 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "8.2.0",
             "8.1.0",
             "8.0.0",
             "7.0.0",
@@ -8521,6 +8533,8 @@
         "name": "xarvh/elm-styled-html",
         "summary": "Composable classes with hashed names for Elm",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.0"
         ]
     },
