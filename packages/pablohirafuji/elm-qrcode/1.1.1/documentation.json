@@ -1,0 +1,107 @@
+[
+  {
+    "name": "QRCode",
+    "comment": " QR Code encoder and renderer.\n\n# Rendering\n@docs toSvg, toSvgWithECLevel\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "toSvg",
+        "comment": " Transform a string into a result [Error](./QRCode-Error#Error)\nor a QR Code svg element using [`ECLevel.Q`](./QRCode-ECLevel#ECLevel)\n(25% of codewords can be restored).\n\n```\nqrCode : Html msg\nqrCode =\n    let\n        resultQRCode = toSvg \"Hello world\"\n\n    in\n        case resultQRCode of\n            Result.Ok view -> view\n            Result.Err err -> Html.text (toString err)\n```\n\n**Tip**: You can determine the size of the generated svg setting\n`width` and `height` styles.\n",
+        "type": "String -> Result.Result QRCode.Error.Error (Html.Html msg)"
+      },
+      {
+        "name": "toSvgWithECLevel",
+        "comment": " Transform a string with a given [EClevel](./QRCode-ECLevel#ECLevel)\ninto a result [Error](./QRCode-Error#Error) or a QR Code svg element.\n\n\n```\nimport QRCode exposing (toSvgWithECLevel)\nimport QRCode.ECLevel as ECLevel\n\nqrCode : Html msg\nqrCode =\n    let\n        resultQRCode =\n            toSvgWithECLevel \"Hello world\" ECLevel.L\n\n    in\n        case resultQRCode of\n            Result.Ok view -> view\n            Result.Err err -> Html.text (toString err)\n```\n\n",
+        "type": "String -> QRCode.ECLevel.ECLevel -> Result.Result QRCode.Error.Error (Html.Html msg)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "QRCode.ECLevel",
+    "comment": " # ECLevel\n\n@docs ECLevel\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "ECLevel",
+        "comment": " Error correction level. Provides the following error\ncorrection capability:\n\n- **L** (Low): 7% of codewords can be restored.\n- **M** (Medium): 15% of codewords can be restored.\n- **Q** (Quartile): 25% of codewords can be restored.\n- **H** (High): 30% of codewords can be restored.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "L",
+            []
+          ],
+          [
+            "M",
+            []
+          ],
+          [
+            "Q",
+            []
+          ],
+          [
+            "H",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "QRCode.Error",
+    "comment": " # Error\n\n@docs Error\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Error",
+        "comment": " Possible errors.\n",
+        "args": [],
+        "cases": [
+          [
+            "AlignmentPatternNotFound",
+            []
+          ],
+          [
+            "InvalidNumericChar",
+            []
+          ],
+          [
+            "InvalidAlphanumericChar",
+            []
+          ],
+          [
+            "InvalidUTF8Char",
+            []
+          ],
+          [
+            "InvalidBinaryConversion",
+            []
+          ],
+          [
+            "LogTableException",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "PolynomialMultiply",
+            []
+          ],
+          [
+            "PolynomialMod",
+            []
+          ],
+          [
+            "InputLengthOverflow",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

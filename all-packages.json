@@ -729,6 +729,7 @@
         "name": "NoRedInk/nri-elm-css",
         "summary": "Helpers for working with NRI styling",
         "versions": [
+            "1.12.0",
             "1.11.0",
             "1.10.0",
             "1.9.1",
@@ -852,6 +853,7 @@
         "name": "Skinney/fnv",
         "summary": "An implementation of the fnv hash function in elm",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -1846,6 +1848,14 @@
         "summary": "Elm interface to Amazon's DynamoDB key/value store.",
         "versions": [
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "billstclair/elm-html-template",
+        "summary": "Templates for Elm HTML generation.",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
@@ -2980,6 +2990,7 @@
         "name": "elm-bodybuilder/formbuilder",
         "summary": "Generic form builder in Elm",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.0.0",
             "1.0.1",
@@ -2997,6 +3008,7 @@
         "name": "elm-bodybuilder/formbuilder-photo",
         "summary": "Field for FormBuilder: photo selector",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3334,6 +3346,7 @@
         "name": "elm-community/string-extra",
         "summary": "String helper functions for Elm",
         "versions": [
+            "1.3.2",
             "1.3.1",
             "1.3.0",
             "1.2.0",
@@ -5188,6 +5201,7 @@
         "name": "krisajenkins/elm-cdn",
         "summary": "Quick access to the CSS frameworks you need.",
         "versions": [
+            "2.0.0",
             "1.6.0",
             "1.5.0",
             "1.4.0",
@@ -6406,6 +6420,8 @@
         "name": "norpan/elm-html5-drag-drop",
         "summary": "This library handles dragging and dropping using the HTML5 API",
         "versions": [
+            "1.1.0",
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -6496,6 +6512,16 @@
             "2.0.0",
             "1.0.3",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "nvaldes/elm-bootstrap",
+        "summary": "DEPRECATED - See http://package.elm-lang.org/packages/rundis/elm-bootstrap",
+        "versions": [
+            "2.0.0",
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -6625,6 +6651,9 @@
         "name": "pablohirafuji/elm-qrcode",
         "summary": "QR Code encoder and renderer.",
         "versions": [
+            "1.1.1",
+            "1.1.0",
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -7967,6 +7996,7 @@
         "name": "toastal/either",
         "summary": "A more complete Either for representing a structure with two types",
         "versions": [
+            "3.2.0",
             "3.1.1",
             "3.1.0",
             "3.0.0",
@@ -8153,6 +8183,7 @@
         "name": "vieiralucas/elm-collections",
         "summary": "A package that implements a bunch of collections",
         "versions": [
+            "1.1.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
