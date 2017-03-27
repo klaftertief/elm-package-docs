@@ -835,6 +835,7 @@
         "name": "Skinney/elm-array-exploration",
         "summary": "New Array implementation for Elm.",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -1856,6 +1857,7 @@
         "name": "billstclair/elm-html-template",
         "summary": "Templates for Elm HTML generation.",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -3069,6 +3071,7 @@
         "name": "elm-community/elm-datepicker",
         "summary": "A reusable date picker component",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.0.0",
             "1.0.0"
@@ -8138,6 +8141,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "tunguski/elm-ast",
+        "summary": "A parser for Elm code",
+        "versions": [
             "1.0.0"
         ]
     },

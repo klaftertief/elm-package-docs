@@ -452,6 +452,7 @@
     "truqu/elm-base64",
     "truqu/elm-dictset",
     "truqu/elm-mustache",
+    "tunguski/elm-ast",
     "turboMaCk/chae-tree",
     "turboMaCk/grid-solver",
     "vieiralucas/elm-collections",
