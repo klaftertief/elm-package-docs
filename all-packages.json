@@ -774,6 +774,13 @@
         ]
     },
     {
+        "name": "RGBboy/websocket-server",
+        "summary": "Web Socket Server in Elm and Node.js",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "RobbieMcKinstry/stripe",
         "summary": "Wrapper for the Stripe Checkout embedded form.",
         "versions": [
@@ -5677,6 +5684,13 @@
         ]
     },
     {
+        "name": "ludvigsen/elm-svg-ast",
+        "summary": "Data structure for holding svg, with parser and json encoder/decoder",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lukewestby/elm-http-builder",
         "summary": "Extra functions for more easily building HTTP requests",
         "versions": [
@@ -7868,6 +7882,7 @@
         "name": "tesk9/elm-html-a11y",
         "summary": "view helpers enforcing accessible practices",
         "versions": [
+            "1.1.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -7879,6 +7894,13 @@
         "versions": [
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "tesk9/elm-tabs",
+        "summary": "Accessible tab widget using tesk9/elm-html-a11y.",
+        "versions": [
             "1.0.0"
         ]
     },
