@@ -1,0 +1,52 @@
+[
+  {
+    "name": "SweetPoll",
+    "comment": "\n\n# Configuration\n@docs Config, defaultConfig\n\n# Elm Artchitecture\n@docs Model, Msg, init, update\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " ",
+        "args": [
+          "data"
+        ],
+        "type": "{ url : String , decoder : Json.Decode.Decoder data , delay : Time.Time , samesBeforeDelay : Int , delayMultiplier : Float , maxDelay : Time.Time }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Model",
+        "comment": " Private state of the SweetPoll component\n",
+        "args": [
+          "data"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Msg",
+        "comment": " ",
+        "args": [
+          "data"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultConfig",
+        "comment": " Default configuration for SweetPoll\n",
+        "type": "Json.Decode.Decoder data -> String -> SweetPoll.Config data"
+      },
+      {
+        "name": "init",
+        "comment": " ",
+        "type": "SweetPoll.Config data -> ( SweetPoll.Model data, Platform.Cmd.Cmd (SweetPoll.Msg data) )"
+      },
+      {
+        "name": "update",
+        "comment": " The SweetPoll StartApp-style update function\n\nReturns:\n  - The new SweetPoll model\n  - The current data, if there is any\n  - A command to keep SweetPoll running\n",
+        "type": "SweetPoll.Msg data -> SweetPoll.Model data -> ( SweetPoll.Model data , Maybe.Maybe data , Platform.Cmd.Cmd (SweetPoll.Msg data) )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
