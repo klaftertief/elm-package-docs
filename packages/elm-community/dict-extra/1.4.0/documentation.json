@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Dict.Extra",
+    "comment": " Convenience functions for working with `Dict`\n\n# List operations\n@docs groupBy, fromListBy\n\n# Manipulation\n@docs removeWhen, removeMany, keepOnly, mapKeys, filterMap, invert\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "filterMap",
+        "comment": " Apply a function that may or may not succeed to all entries in a dictionary,\nbut only keep the successes.\n\n    isTeen : Int -> String -> Maybe String\n    isTeen n a =\n        if 13 <= n && n <= 19 then\n            Just <| String.toUpper a\n        else\n            Nothing\n\n    Dict.fromList\n        [ ( 5, \"Jack\" )\n        , ( 15, \"Jill\" )\n        , ( 20, \"Jones\" )\n        ]\n        |> filterMap isTeen\n        == Dict.singleton 15 \"JILL\"\n",
+        "type": "(comparable -> a -> Maybe.Maybe b) -> Dict.Dict comparable a -> Dict.Dict comparable b"
+      },
+      {
+        "name": "fromListBy",
+        "comment": " Create a dictionary from a list of values, by passing a function that can get a key from any such value.\nIf the function does not return unique keys, earlier values are discarded.\nThis can, for instance, be useful when constructing Dicts from a List of records with `id` fields:\n\n    mary = {id=1, name=\"Mary\"}\n    jack = {id=2, name=\"Jack\"}\n    jill = {id=1, name=\"Jill\"}\n    fromListBy .id [mary, jack, jill] == Dict.fromList [(1, jack), (2, jill)]\n",
+        "type": "(a -> comparable) -> List a -> Dict.Dict comparable a"
+      },
+      {
+        "name": "groupBy",
+        "comment": " Takes a key-fn and a list.\nCreates a `Dict` which maps the key to a list of matching elements.\n\n    mary = {id=1, name=\"Mary\"}\n    jack = {id=2, name=\"Jack\"}\n    jill = {id=1, name=\"Jill\"}\n    groupBy .id [mary, jack, jill] == Dict.fromList [(1, [mary, jill]), (2, [jack])]\n",
+        "type": "(a -> comparable) -> List a -> Dict.Dict comparable (List a)"
+      },
+      {
+        "name": "invert",
+        "comment": " Inverts the keys and values of an array.\n\n    dict = Dict.fromList [(\"Jill\", 5), (\"Jack\", 10)]\n    inverted = Dict.fromList [(5, \"Jill\"), (\"Jack\", 10)]\n    Dict.invert dict == inverted\n",
+        "type": "Dict.Dict comparable1 comparable2 -> Dict.Dict comparable2 comparable1"
+      },
+      {
+        "name": "keepOnly",
+        "comment": " Keep a key-value pair if its key appears in the set.\n\n    dict = Dict.fromList [(\"Mary\", 1), (\"Jack\", 2), (\"Jill\", 1)]\n    removeMany (Set.fromList [\"Jack\"]) dict == Dict.fromList [(\"Jack\", 2)]\n",
+        "type": "Set.Set comparable -> Dict.Dict comparable v -> Dict.Dict comparable v"
+      },
+      {
+        "name": "mapKeys",
+        "comment": " Apply a function to all keys in a dictionary.\n\n    mapKeys ((+) 1) (Dict.fromList [(5, \"Jack\"), (10, \"Jill\")])\n    == Dict.fromList [(6, \"Jack\"), (11, \"Jill\")]\n",
+        "type": "(comparable -> comparable) -> Dict.Dict comparable v -> Dict.Dict comparable v"
+      },
+      {
+        "name": "removeMany",
+        "comment": " Remove a key-value pair if its key appears in the set.\n\n    dict = Dict.fromList [(\"Mary\", 1), (\"Jack\", 2), (\"Jill\", 1)]\n    removeMany (Set.fromList [\"Mary\", \"Jill\"]) dict == Dict.fromList [(\"Jack\", 2)]\n",
+        "type": "Set.Set comparable -> Dict.Dict comparable v -> Dict.Dict comparable v"
+      },
+      {
+        "name": "removeWhen",
+        "comment": " Remove elements which satisfies the predicate.\n\n    dict = Dict.fromList [(\"Mary\", 1), (\"Jack\", 2), (\"Jill\", 1)]\n    removeWhen (\\_ v -> v == 1) dict == Dict.fromList [(\"Jack\", 2)]\n",
+        "type": "(comparable -> v -> Bool) -> Dict.Dict comparable v -> Dict.Dict comparable v"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

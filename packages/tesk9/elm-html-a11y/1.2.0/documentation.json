@@ -1,0 +1,376 @@
+[
+  {
+    "name": "Html.A11y",
+    "comment": "\n## Inputs\n@docs Input\n@docs textInput, radioInput, checkboxInput\n@docs leftLabeledInput, rightLabeledInput, invisibleLabeledInput\n\n## Tabs\n@docs tabList, tab, tabPanel\n\n## Images\n@docs img, decorativeImg, figure\n",
+    "aliases": [
+      {
+        "name": "Input",
+        "comment": " Describes the model used in input views in this library.\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ label : Html.Html msg , typeAndValue : Html.A11y.InputTypeAndValue , attributes : List (Html.Attribute msg) }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "checkboxInput",
+        "comment": " This will construct a checkbox input. THe first argument is the value of the checkbox.\nThe second is whether the radio is checked, unchecked, or indeterminate.\n\n    checkboxInput \"radio_name\" \"This is the actual value of the radio.\" True\n",
+        "type": "String -> Maybe.Maybe Bool -> Html.A11y.InputTypeAndValue"
+      },
+      {
+        "name": "decorativeImg",
+        "comment": " Use this tag when the image is decorative or provides redundant information. Read through [the w3 decorative image tutorial](https://www.w3.org/WAI/tutorials/images/decorative/) to learn more.\n\n    decorativeImg [ src \"smiling_family.jpg\" ]\n",
+        "type": "List (Html.Attribute msg) -> Html.Html msg"
+      },
+      {
+        "name": "figure",
+        "comment": " Adds the group role to a figure.\n",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "img",
+        "comment": " Use this tag when the image provides information not expressed in the text of the page.\nWhen images are used to express the purpose of a button or link, aim for alternative text that encapsulates the function of the image.\n\nRead through [the w3 informative image tutorial](https://www.w3.org/WAI/tutorials/images/informative/) and the [the w3 functional image tutorial](https://www.w3.org/WAI/tutorials/images/functional/) to learn more.\n\nFor graphs and diagrams, see `figure` and `longDesc`.\n\n    img \"Bear rubbing back on tree\" [ src \"bear.png\" ]\n",
+        "type": "String -> List (Html.Attribute msg) -> Html.Html msg"
+      },
+      {
+        "name": "invisibleLabeledInput",
+        "comment": " Produces a labeled input of a given label type.\nThis label is visibly hidden, but is still available for screen readers.\nE.g., use this input if your design asks that you convey information via placeholders\nrather than visible labels.\nRequires that you pass an id.\n",
+        "type": "Html.A11y.Input msg -> String -> Html.Html msg"
+      },
+      {
+        "name": "leftLabeledInput",
+        "comment": " Produces a labeled input of a given label type. The label appears on the left side on the input.\n",
+        "type": "Html.A11y.Input msg -> Html.Html msg"
+      },
+      {
+        "name": "radioInput",
+        "comment": " This will construct a radio input. The first argument is the radio group name\nin common across radio items. THe second argument is the value of the radio.\nThe third is whether the radio is checked or not.\n\n    radioInput \"radio_name\" \"This is the actual value of the radio.\" True\n",
+        "type": "String -> String -> Bool -> Html.A11y.InputTypeAndValue"
+      },
+      {
+        "name": "rightLabeledInput",
+        "comment": " Produces a labeled input of a given label type. The label appears on the right side on the input.\n",
+        "type": "Html.A11y.Input msg -> Html.Html msg"
+      },
+      {
+        "name": "tab",
+        "comment": " Create a tab. This is the part that you select in order to change panel views.\n",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "tabList",
+        "comment": " Create a tablist. This is the outer container for a list of tabs.\n",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "tabPanel",
+        "comment": " Create a tab panel.\n\n    tabPanel [] [ h3 [] [ text \"Panel Header\" ], text \"Panel Content\" ]\n",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "textInput",
+        "comment": " This will construct a text input with the value passed in.\n\n    textInput \"This appears in the text input.\"\n",
+        "type": "String -> Html.A11y.InputTypeAndValue"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Html.Attributes.A11y",
+    "comment": "\n## Hiding content\n\nFor more information on hiding/semi-hiding elements, please see [the a11y project.](http://a11yproject.com/posts/how-to-hide-content/)\n\n@docs invisible\n\n## Roles\n\nLearn more about roles on the [w3 website](https://www.w3.org/TR/wai-aria/roles).\n\n@docs Role, role\n\n\n## Other\n\n@docs controls, labelledBy, selected, hidden, longDescription\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Role",
+        "comment": "\nThe roles defined here match [w3 website](https://www.w3.org/TR/wai-aria/roles).\n\nTo be used with `role`.\n\n    div [ customRole Button ] []\n",
+        "args": [],
+        "cases": [
+          [
+            "Alert",
+            []
+          ],
+          [
+            "Alertdialog",
+            []
+          ],
+          [
+            "Application",
+            []
+          ],
+          [
+            "Article",
+            []
+          ],
+          [
+            "Banner",
+            []
+          ],
+          [
+            "Button",
+            []
+          ],
+          [
+            "Checkbox",
+            []
+          ],
+          [
+            "Columnheader",
+            []
+          ],
+          [
+            "Combobox",
+            []
+          ],
+          [
+            "Complementary",
+            []
+          ],
+          [
+            "Contentinfo",
+            []
+          ],
+          [
+            "Definition",
+            []
+          ],
+          [
+            "Dialog",
+            []
+          ],
+          [
+            "Directory",
+            []
+          ],
+          [
+            "Document",
+            []
+          ],
+          [
+            "Form",
+            []
+          ],
+          [
+            "Grid",
+            []
+          ],
+          [
+            "Gridcell",
+            []
+          ],
+          [
+            "Group",
+            []
+          ],
+          [
+            "Heading",
+            []
+          ],
+          [
+            "Img",
+            []
+          ],
+          [
+            "Link",
+            []
+          ],
+          [
+            "List",
+            []
+          ],
+          [
+            "Listbox",
+            []
+          ],
+          [
+            "Listitem",
+            []
+          ],
+          [
+            "Log",
+            []
+          ],
+          [
+            "Main",
+            []
+          ],
+          [
+            "Marquee",
+            []
+          ],
+          [
+            "Math",
+            []
+          ],
+          [
+            "Menu",
+            []
+          ],
+          [
+            "Menubar",
+            []
+          ],
+          [
+            "Menuitem",
+            []
+          ],
+          [
+            "Menuitemcheckbox",
+            []
+          ],
+          [
+            "Menuitemradio",
+            []
+          ],
+          [
+            "Navigation",
+            []
+          ],
+          [
+            "Note",
+            []
+          ],
+          [
+            "Option",
+            []
+          ],
+          [
+            "Presentation",
+            []
+          ],
+          [
+            "Progressbar",
+            []
+          ],
+          [
+            "Radio",
+            []
+          ],
+          [
+            "Radiogroup",
+            []
+          ],
+          [
+            "Region",
+            []
+          ],
+          [
+            "Row",
+            []
+          ],
+          [
+            "Rowgroup",
+            []
+          ],
+          [
+            "Rowheader",
+            []
+          ],
+          [
+            "Scrollbar",
+            []
+          ],
+          [
+            "Search",
+            []
+          ],
+          [
+            "Separator",
+            []
+          ],
+          [
+            "Slider",
+            []
+          ],
+          [
+            "Spinbutton",
+            []
+          ],
+          [
+            "Status",
+            []
+          ],
+          [
+            "Tab",
+            []
+          ],
+          [
+            "Tablist",
+            []
+          ],
+          [
+            "Tabpanel",
+            []
+          ],
+          [
+            "Textbox",
+            []
+          ],
+          [
+            "Timer",
+            []
+          ],
+          [
+            "Toolbar",
+            []
+          ],
+          [
+            "Tooltip",
+            []
+          ],
+          [
+            "Tree",
+            []
+          ],
+          [
+            "Treegrid",
+            []
+          ],
+          [
+            "Treeitem",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "controls",
+        "comment": " Creates aria controls attribute. Pass the unique string id of whatever is being controlled.\n",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "hidden",
+        "comment": " Creates aria hidden attribute.\n",
+        "type": "Bool -> Html.Attribute msg"
+      },
+      {
+        "name": "invisible",
+        "comment": " Makes content invisible without making it inaccessible.\n\n    label [ invisible ] [ text \"Screen readers can still read me!\" ]\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "labelledBy",
+        "comment": " Creates aria labelledby attribute. Pass the unique string id of the labelling element.\n",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "longDescription",
+        "comment": " Creates the longDesc attribute with the given url, which should point to a text description of the content. This attribute is only supported on img tags.\n\n    Html.A11y.img \"Growth Chart in Some Sweet Unit (Quarter 4)\" [ longDescription \"/quarter_4_summary#Growth\" ]\n",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "role",
+        "comment": " Set the role of a given element.\n\n    div [ role Tablist ] [ tab1, tab2 ]\n",
+        "type": "Html.Attributes.A11y.Role -> Html.Attribute msg"
+      },
+      {
+        "name": "selected",
+        "comment": " Creates aria selected attribute.\n",
+        "type": "Bool -> Html.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
