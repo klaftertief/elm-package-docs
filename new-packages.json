@@ -251,6 +251,7 @@
     "identicalsnowflake/elm-dynamic-style",
     "identicalsnowflake/elm-typed-styles",
     "ingara/elm-asoiaf-api",
+    "iosphere/elm-i18n",
     "iosphere/elm-logger",
     "iosphere/elm-network-graph",
     "iosphere/elm-toast",

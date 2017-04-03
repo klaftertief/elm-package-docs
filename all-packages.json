@@ -720,6 +720,7 @@
         "name": "NoRedInk/json-elm-schema",
         "summary": "write json schemas in elm",
         "versions": [
+            "1.4.0",
             "1.3.0",
             "1.2.0",
             "1.1.0",
@@ -4441,6 +4442,13 @@
         ]
     },
     {
+        "name": "iosphere/elm-i18n",
+        "summary": "Generate localized versions of your elm-app, import and export strings (PO/CSV)",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "iosphere/elm-logger",
         "summary": "Elm logger with support for log levels and colored console output",
         "versions": [
@@ -4954,6 +4962,7 @@
         "name": "jschomay/elm-paginate",
         "summary": "Simple and robust pagination in elm",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.1.0",
             "1.0.0"
@@ -6686,6 +6695,7 @@
         "name": "pablohirafuji/elm-qrcode",
         "summary": "QR Code encoder and renderer.",
         "versions": [
+            "2.0.0",
             "1.1.1",
             "1.1.0",
             "1.0.2",
