@@ -694,6 +694,7 @@
         "name": "NoRedInk/elm-sweet-poll",
         "summary": "HTTP polling with backoff when the server response doesn't change",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.0.0",
             "1.1.0",
@@ -3042,6 +3043,8 @@
         "name": "elm-community/basics-extra",
         "summary": "Additional basic functions",
         "versions": [
+            "2.1.1",
+            "2.1.0",
             "2.0.0",
             "1.2.0",
             "1.1.0",
@@ -6087,6 +6090,7 @@
         "name": "mgold/elm-date-format",
         "summary": "Format dates with ease",
         "versions": [
+            "1.3.0",
             "1.2.0",
             "1.1.7",
             "1.1.6",
@@ -8077,6 +8081,8 @@
         "name": "toastal/return-optics",
         "summary": "Extend Return with Monocle's Lenses for fun in the update function",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.5",
             "1.0.4",
             "1.0.3",
@@ -8154,6 +8160,7 @@
         "name": "trifectalabs/elm-polyline",
         "summary": "Polyline encoder/decoder",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
