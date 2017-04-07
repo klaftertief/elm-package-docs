@@ -614,6 +614,13 @@
         ]
     },
     {
+        "name": "NoRedInk/elm-feature-interest",
+        "summary": "Generated modules for interfacing with NoRedInk's Feature Interest REST API",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "NoRedInk/elm-lazy-list",
         "summary": "Lazy list implementation in Elm",
         "versions": [
@@ -714,6 +721,8 @@
         "name": "NoRedInk/elm-view-utils",
         "summary": "Small view helpers.",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -881,6 +890,15 @@
             "2.0.2",
             "2.0.1",
             "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Spottt/elm-dialog",
+        "summary": "A modal dialog widget for Elm.",
+        "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1800,6 +1818,13 @@
         "summary": "elm-test extensions for lobo with focus & skip",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "bendyworks/elm-action-cable",
+        "summary": "Client-side library for ActionCable, part of the Ruby on Rails suite",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3267,6 +3292,7 @@
         "name": "elm-community/linear-algebra",
         "summary": "A linear algebra library for fast vector and matrix math",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.0.0",
             "1.2.2",
@@ -7813,6 +7839,14 @@
         ]
     },
     {
+        "name": "stoeffel/set-extra",
+        "summary": "Convenience functions for working with Set.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "swiftsnamesake/euclidean-space",
         "summary": "Types and functions in for working with euclidean geometry",
         "versions": [
@@ -7893,6 +7927,8 @@
         "name": "terezka/elm-plot",
         "summary": "Tufte plots in SVG and Elm!",
         "versions": [
+            "5.1.0",
+            "5.0.2",
             "5.0.1",
             "5.0.0",
             "4.1.0",
