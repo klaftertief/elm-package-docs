@@ -6646,6 +6646,13 @@
         ]
     },
     {
+        "name": "oleiade/elm-maestro",
+        "summary": "A music theory library for Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "omarroth/elm-dom",
         "summary": "DOM traversal for Elm event-handlers",
         "versions": [
