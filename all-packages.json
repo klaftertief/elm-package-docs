@@ -178,6 +178,16 @@
         ]
     },
     {
+        "name": "Chadtech/elm-us-state-abbreviations",
+        "summary": "List of US State abbreviations and a few helpful functions",
+        "versions": [
+            "1.1.0",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Dandandan/Easing",
         "summary": "Creating animations and transitions with easing functions.",
         "versions": [
@@ -1866,6 +1876,9 @@
         "name": "billstclair/elm-dev-random",
         "summary": "Cryptographically secure random-number generator.",
         "versions": [
+            "1.1.4",
+            "1.1.3",
+            "1.1.2",
             "1.1.1",
             "1.1.0",
             "1.0.3",
@@ -1894,6 +1907,11 @@
         "name": "billstclair/elm-html-template",
         "summary": "Templates for Elm HTML generation.",
         "versions": [
+            "2.1.0",
+            "2.0.3",
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -3700,6 +3718,13 @@
         ]
     },
     {
+        "name": "eskimoblood/elm-parametric-surface",
+        "summary": "create 3d parametric surfaces to use with WebGL",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "eskimoblood/elm-simplex-noise",
         "summary": "This is a library to generate simplex noise in Elm.",
         "versions": [
@@ -4009,6 +4034,7 @@
         "name": "fbonetti/elm-phoenix-socket",
         "summary": "Pure Elm state manager for Phoenix channels",
         "versions": [
+            "2.2.0",
             "2.1.0",
             "2.0.1",
             "2.0.0",
@@ -7087,6 +7113,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "8.5.0",
             "8.4.0",
             "8.3.0",
             "8.2.0",
@@ -7309,6 +7336,7 @@
         "name": "rtfeldman/elm-css-helpers",
         "summary": "Helper functions for using elm-css with elm-html",
         "versions": [
+            "2.1.0",
             "2.0.1",
             "2.0.0",
             "1.2.0",
