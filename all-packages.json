@@ -371,6 +371,13 @@
         ]
     },
     {
+        "name": "GlobalWebIndex/cmd-extra",
+        "summary": "Extra functions for working with Cmds",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "JOEANDAVERDE/flex-html",
         "summary": "Flexbox layout for elm-html (TEMPORARY)",
         "versions": [
@@ -2857,6 +2864,7 @@
         "name": "doodledood/elm-split-pane",
         "summary": "Split pane for elm.",
         "versions": [
+            "4.0.0",
             "3.0.3",
             "3.0.2",
             "3.0.1",
@@ -4252,6 +4260,7 @@
         "name": "ghivert/elm-cloudinary",
         "summary": "Upload your photos to Cloudinary, without dealing with details.",
         "versions": [
+            "2.1.0",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -5046,6 +5055,13 @@
         "versions": [
             "1.1.1",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "juanedi/charty",
+        "summary": "SVG charts for Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -7302,6 +7318,13 @@
     {
         "name": "rolograaf/elm-favicon",
         "summary": "Get icons for URLs",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "rtfeldman/console-print",
+        "summary": "Print formatted text to the console using ANSI escape sequences.",
         "versions": [
             "1.0.0"
         ]

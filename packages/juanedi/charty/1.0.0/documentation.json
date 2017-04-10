@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Charty.LineChart",
+    "comment": " This module is in charge of drawing line charts.\n\n# Data representation\n@docs Dataset\n@docs Series\n@docs DataPoint\n\n# Settings\n@docs Color\n@docs Config\n@docs defaults\n\n# Drawing\n@docs view\n",
+    "aliases": [
+      {
+        "name": "Color",
+        "comment": " The color used to draw a line. For the moment, any string used to specify\nSVG colors is valid, so things such as \"red\" and \"#FF0000\" should work.\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Config",
+        "comment": " Configuration for how the chart will be drawn. Note that\n[`LineChart.defaults`](Charty.LineChart#defaults) can be used as a base\nconfiguration.\n",
+        "args": [],
+        "type": "{ drawPoints : Bool , background : Charty.LineChart.Color , colorAssignment : Charty.LineChart.Dataset -> List ( Charty.LineChart.Color, Charty.LineChart.Series ) , labelPrecision : Int }"
+      },
+      {
+        "name": "DataPoint",
+        "comment": " An (x,y) pair that will be drawn in the line chart\n",
+        "args": [],
+        "type": "( Float, Float )"
+      },
+      {
+        "name": "Dataset",
+        "comment": " A dataset is just a list of series.\n",
+        "args": [],
+        "type": "List Charty.LineChart.Series"
+      },
+      {
+        "name": "Series",
+        "comment": " A series of points that will be draw as a separate line\n",
+        "args": [],
+        "type": "List Charty.LineChart.DataPoint"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "defaults",
+        "comment": " Default configuration. Labels have at most two decimal places and a default\ncolor palette is used.\n",
+        "type": "Charty.LineChart.Config"
+      },
+      {
+        "name": "view",
+        "comment": " This function generates svg markup for the chart, provided a the necessary\nconfiguration and dataset. Example usage:\n\n    sampleDataset : LineChart.Dataset\n    sampleDataset =\n        [ [ ( 100000, 3 ), ( 100001, 4 ) ]\n        , [ ( 100000, 1 ), ( 100001, 2.5 ) ]\n        ]\n\n    view : Model -> Html Msg\n    view model =\n        Html.div\n          []\n          [ Html.p [] [ Html.text \"Wow!\" ]\n          , LineChart.view LineChart.defaults dataset\n          ]\n",
+        "type": "Charty.LineChart.Config -> Charty.LineChart.Dataset -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
