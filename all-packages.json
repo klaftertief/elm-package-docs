@@ -6667,6 +6667,7 @@
         "name": "ohanhi/keyboard-extra",
         "summary": "Convenience helpers for working with Keyboard",
         "versions": [
+            "2.1.0",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -7876,9 +7877,17 @@
         ]
     },
     {
+        "name": "stephenreddek/elm-range-slider",
+        "summary": "An elm package for range sliders",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "stil4m/elm-aui-css",
         "summary": "HTML helper functions to comply to Atlassian AUI css",
         "versions": [
+            "4.1.1",
             "4.1.0",
             "4.0.0",
             "3.0.1",
