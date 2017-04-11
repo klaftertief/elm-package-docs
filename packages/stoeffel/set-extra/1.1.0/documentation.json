@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Set.Extra",
+    "comment": " Convenience functions for working with Set.\n\n@docs concatMap, subset, toggle\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "concatMap",
+        "comment": " Map a given function onto a set and union the resulting set.\n\n    neighbors :: (Int, Int) -> Set (Int, Int)\n    neighbors (x, y) =\n        Set.fromList\n          [ (x - 1, y - 1), (x, y - 1), (x + 1, y - 1)\n          , (x - 1, y),                 (x + 1, y)\n          , (x - 1, y + 1), (x, y + 1), (x + 1, y + 1)\n          ]\n    Set.Extra.concatMap neighbors setOfPoints\n",
+        "type": "(comparable -> Set.Set comparable2) -> Set.Set comparable -> Set.Set comparable2"
+      },
+      {
+        "name": "subset",
+        "comment": " Check if a Set is a subset of another Set.\n\n    Set.Extra.subset (Set.fromList [1,2,3]) (Set.fromList [1,2,3,4,5]) -- True\n",
+        "type": "Set.Set comparable -> Set.Set comparable -> Bool"
+      },
+      {
+        "name": "toggle",
+        "comment": " If the set does not contain the element, add it. If it does contain the element, remove it.\n\n    Set.Extra.toggle 1 (Set.fromList [1,2,3]) -- { 2, 3 }\n\n    Set.Extra.toggle 1 (Set.fromList [2,3]) -- { 1, 2, 3 }\n",
+        "type": "comparable -> Set.Set comparable -> Set.Set comparable"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

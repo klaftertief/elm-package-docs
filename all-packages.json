@@ -4599,6 +4599,7 @@
         "name": "jamesmacaulay/elm-graphql",
         "summary": "A GraphQL request builder and HTTP client",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -7900,6 +7901,7 @@
         "name": "stoeffel/set-extra",
         "summary": "Convenience functions for working with Set.",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
