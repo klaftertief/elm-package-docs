@@ -2675,6 +2675,8 @@
         "name": "danielnarey/elm-stylesheet",
         "summary": "A CSS implementation with helpful constructors to generate a global stylesheet",
         "versions": [
+            "6.1.0",
+            "6.0.1",
             "6.0.0",
             "5.0.0",
             "4.0.0",
@@ -3380,6 +3382,7 @@
         "name": "elm-community/parser-combinators",
         "summary": "A parser combinator library",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -4303,6 +4306,7 @@
         "name": "halfzebra/elm-aframe",
         "summary": "Elm integration for A-Frame",
         "versions": [
+            "2.0.0",
             "1.2.0",
             "1.1.0",
             "1.0.0"
@@ -4596,6 +4600,15 @@
         "name": "jahewson/elm-graphql-module",
         "summary": "Support module for elm-graphql",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jamby1100/elm-blog-engine",
+        "summary": "A Basic Blogging Platform in Elm",
+        "versions": [
+            "1.1.0",
+            "1.0.1",
             "1.0.0"
         ]
     },
