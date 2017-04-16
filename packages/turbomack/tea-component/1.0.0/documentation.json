@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Component",
+    "comment": " Composing Elm applications from smaller parts (Components) with respect to TEA.\nYou can think about this as about lightweight abstraction built around `(model, Cmd msg)` pair\nthat reduces boilerplate needed for compostion of TEA based components using\n[`Cmd.map`](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Cmd#map),\n[`Sub.map`](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Sub#map)\nand [`Html.map`](http://package.elm-lang.org/packages/elm-lang/html/2.0.0/Html#map).\n\n# Types\n@docs Component, component\n\n# Basics\nInterface with TEA parts.\n\n@docs init, update, view, subscriptions\n\n# Helpers\nHelpers for transfering generic TEA application to [`Component`](#Component)\n\n@docs map\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Component",
+        "comment": " A `Component` defines glue between sub-component and root component.\n\nYou can create `Component` with the [`component`](#component) constructor.\nEvery component is defined in terms of `Model`, `[SubComponent].Model` `Msg` and `[SubComponent].Msg`\nin root component. `Component` semantics are inspirated by [`Html.Program`](http://package.elm-lang.org/packages/elm-lang/core/latest/Platform#Program).\n",
+        "args": [
+          "model",
+          "subModel",
+          "msg",
+          "subMsg"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "component",
+        "comment": " Create [Component](#Component) from any TEA frendly app.\nThis defines interface between two parts of application.\nSubcomponent can be generic TEA app or polymorphic component (One maping it's `Msg` internally).\nYou can also used `Cmd` for sending data from bottom component to upper one.\n\n**Interface**:\n\n```\ncomponent :\n    { model : subModel -> model -> model\n    , init : ( subModel, Cmd msg )\n    , update : subMsg -> model -> ( subModel, Cmd msg )\n    , view : model -> Html msg\n    , subscriptions : model -> Sub msg\n    }\n    -> Component model subModel msg subMsg\n```\n\nSee [examples](https://github.com/turboMaCk/component/tree/master/examples) for more informations.\n",
+        "type": "{ model : subModel -> model -> model , init : ( subModel, Platform.Cmd.Cmd msg ) , update : subMsg -> model -> ( subModel, Platform.Cmd.Cmd msg ) , view : model -> Html.Html msg , subscriptions : model -> Platform.Sub.Sub msg } -> Component.Component model subModel msg subMsg"
+      },
+      {
+        "name": "init",
+        "comment": " Initialize sub-component in parent component.\n\nInit uses [applicative style](https://wiki.haskell.org/Applicative_functor) for `(subModel -> a, Cmd Msg)`\nsimilarly to [`Json.Decode.Extra.andMap`](http://package.elm-lang.org/packages/elm-community/json-extra/2.1.0/Json-Decode-Extra#andMap).\nThe only diference is that `(subModel, Cmd msg)` is extracted from [`Component`](#Component) definition.\n\n```\ntype alias Model =\n    { message : String\n    , firstCounterModel : Counter.Model\n    , secondCounterModel : Counter.Model\n    }\n\ninit : ( Model, Cmd msg )\ninit =\n    ( Model \"I <3 TEA\", Cmd.none )\n        |> Component.init firstCounter\n        |> Component.init secondCounter\n```\n",
+        "type": "Component.Component model subModel msg subMsg -> ( subModel -> a, Platform.Cmd.Cmd msg ) -> ( a, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "map",
+        "comment": " Tiny abstraction over [`Cmd.map`](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Cmd#map)\npacked in `(model, Cmd msg)` pair that helps you to reduce boiler plate while turning generic TEA app to [`Component`](#Component).\n\nThis thing is generally usefull when turning independent elm applications to [`Component`](#Component)s.\n\n```\ntype alias Model =\n    { message : String\n    , counter : Counter.Model\n    }\n\ntype Msg\n    = CounterMsg Counter.Msg\n\ncounter : Component Model Counter.Model Msg Counter.Msg\ncounter =\n    Component.component\n        { model = \\subModel model -> { model | counter = subModel }\n        , init = Counter.init |> Component.map CounterMsg\n        , update =\n            \\subMsg model ->\n                Counter.update subMsg model.counter\n                    |> Component.map CounterMsg\n        , view = \\model -> Html.map CounterMsg <| Counter.view model.counter\n        , subscriptions = \\_ -> Sub.none\n        }\n```\n",
+        "type": "(subMsg -> msg) -> ( subModel, Platform.Cmd.Cmd subMsg ) -> ( subModel, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Subscribe to sub component subscriptions within parent component.\n\nYou can think about this as about mapping and merging over subscriptions.\nFor mapping part `subscriptions` function from [`Component`](#Component) is used.\n\n```\nsubscriptions : Model -> Sub Msg\nsubscriptions model =\n    Mouse.clicks Clicked\n\n\nmain =\n    Html.program\n        { init = init\n        , update = update\n        , view = view\n        , subscriptions =\n            subscriptions\n                |> Component.subscriptions subComponent\n                |> Component.subscriptions anotherNestedComponent\n        }\n```\n",
+        "type": "Component.Component model subModel msg subMsg -> (model -> Platform.Sub.Sub msg) -> model -> Platform.Sub.Sub msg"
+      },
+      {
+        "name": "update",
+        "comment": " Update subComponent in parent's update\n\nThis uses [functor-like](https://en.wikipedia.org/wiki/Functor) approach to transform `(subModel, msg) -> (model, msg)`.\nAnyway rather then using low level function like `map` this transformation is constructed from `model` and `update`\nfunctions from [`Component`](#Component) for you under the hood.\n\n```\ntype Msg\n    = CounterMsg Counter.Msg\n\n\nupdate : Msg -> Model -> ( Model, Cmd Msg )\nupdate msg model =\n    case msg of\n        CounterMsg counterMsg ->\n            ( { model | message = \"Hacking Elm\" }, Cmd.none )\n                |> Component.update counter counterMsg\n```\n\n",
+        "type": "Component.Component model subModel msg subMsg -> subMsg -> ( model, Platform.Cmd.Cmd msg ) -> ( model, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Render sub-component's view within parent component.\n\nThis is in fact just proxy to `view` function from [`Component`](#Component). This function relies on [`Html.map`](http://package.elm-lang.org/packages/elm-lang/html/2.0.0/Html#map)\nand is efectively just wrapper around [functorish](https://en.wikipedia.org/wiki/Functor) operation.\n\n```\nview : Model -> Html msg\nview model =\n    Html.div []\n        [ Html.text model.message\n        , Component.view counter model\n        ]\n```\n\n",
+        "type": "Component.Component model subModel msg subMsg -> model -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
