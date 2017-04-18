@@ -1,0 +1,429 @@
+[
+  {
+    "name": "Html.A11y",
+    "comment": "\n## Inputs\n@docs Input\n@docs textInput, radioInput, checkboxInput\n@docs leftLabeledInput, rightLabeledInput, invisibleLabeledInput\n\n## Tabs\n@docs tabList, tab, tabPanel\n\n## Images\n@docs img, decorativeImg, figure\n",
+    "aliases": [
+      {
+        "name": "Input",
+        "comment": " Describes the model used in input views in this library.\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Tags.Inputs.Input msg"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "checkboxInput",
+        "comment": " This will construct a checkbox input. THe first argument is the value of the checkbox.\nThe second is whether the radio is checked, unchecked, or indeterminate.\n\n    checkboxInput \"radio_name\" \"This is the actual value of the radio.\" True\n",
+        "type": "String -> Maybe.Maybe Bool -> Html.A11y.InputTypeAndValue"
+      },
+      {
+        "name": "decorativeImg",
+        "comment": " Use this tag when the image is decorative or provides redundant information. Read through [the w3 decorative image tutorial](https://www.w3.org/WAI/tutorials/images/decorative/) to learn more.\n\n    decorativeImg [ src \"smiling_family.jpg\" ]\n",
+        "type": "List (Html.Attribute msg) -> Html.Html msg"
+      },
+      {
+        "name": "figure",
+        "comment": " Adds the group role to a figure.\n",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "img",
+        "comment": " Use this tag when the image provides information not expressed in the text of the page.\nWhen images are used to express the purpose of a button or link, aim for alternative text that encapsulates the function of the image.\n\nRead through [the w3 informative image tutorial](https://www.w3.org/WAI/tutorials/images/informative/) and the [the w3 functional image tutorial](https://www.w3.org/WAI/tutorials/images/functional/) to learn more.\n\nFor graphs and diagrams, see `figure` and `longDesc`.\n\n    img \"Bear rubbing back on tree\" [ src \"bear.png\" ]\n",
+        "type": "String -> List (Html.Attribute msg) -> Html.Html msg"
+      },
+      {
+        "name": "invisibleLabeledInput",
+        "comment": " Produces a labeled input of a given label type.\nThis label is visibly hidden, but is still available for screen readers.\nE.g., use this input if your design asks that you convey information via placeholders\nrather than visible labels.\nRequires that you pass an id.\n",
+        "type": "Html.A11y.Input msg -> String -> Html.Html msg"
+      },
+      {
+        "name": "leftLabeledInput",
+        "comment": " Produces a labeled input of a given label type. The label appears on the left side on the input.\n",
+        "type": "Html.A11y.Input msg -> Html.Html msg"
+      },
+      {
+        "name": "radioInput",
+        "comment": " This will construct a radio input. The first argument is the radio group name\nin common across radio items. THe second argument is the value of the radio.\nThe third is whether the radio is checked or not.\n\n    radioInput \"radio_name\" \"This is the actual value of the radio.\" True\n",
+        "type": "String -> String -> Bool -> Html.A11y.InputTypeAndValue"
+      },
+      {
+        "name": "rightLabeledInput",
+        "comment": " Produces a labeled input of a given label type. The label appears on the right side on the input.\n",
+        "type": "Html.A11y.Input msg -> Html.Html msg"
+      },
+      {
+        "name": "tab",
+        "comment": " Create a tab. This is the part that you select in order to change panel views.\n",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "tabList",
+        "comment": " Create a tablist. This is the outer container for a list of tabs.\n",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "tabPanel",
+        "comment": " Create a tab panel.\n\n    tabPanel [] [ h3 [] [ text \"Panel Header\" ], text \"Panel Content\" ]\n",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "textInput",
+        "comment": " This will construct a text input with the value passed in.\n\n    textInput \"This appears in the text input.\"\n",
+        "type": "String -> Html.A11y.InputTypeAndValue"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Html.Attributes.A11y",
+    "comment": "\n## Hiding content\n\nFor more information on hiding/semi-hiding elements, please see [the a11y project.](http://a11yproject.com/posts/how-to-hide-content/)\n\n@docs invisible\n\n## Aria\n\n@docs controls, labelledBy, selected, hidden, longDescription, indeterminate\n\n## Landmark\n\n[On page regions.](https://www.w3.org/TR/WCAG20-TECHS/ARIA11.html)\n\n@docs banner, complementary, contentInfo, form, main_, navigation, search, application, region\n\n## Grouping\n\n@docs group, radioGroup\n\n## Heading\n\n@docs heading\n\n## Elements\n\n(e.g., stuff that isn't in the HTML spec or is in the HTML spec but you want to do something tricky.)\n\n@docs alert, alertDialog, article, button, checkBox, columnHeader, comboBox, definition, dialog, directory, document, grid, gridCell, img, link, list, listBox, listItem, log, marquee, math, menu, menuBar, menuItem, menuItemCheckBox, menuItemRadio, note, option, progressBar, radio, row, rowGroup, rowHeader, scrollBar, separator, slider, spinButton, status, tab, tabList, tabPanel, textBox, timer, toolBar, toolTip, tree, treeGrid, treeItem\n## Other\n\n@docs presentation\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "alert",
+        "comment": " Add `role=\"alert\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "alertDialog",
+        "comment": " Add `role=\"alertdialog\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "application",
+        "comment": " Declare a region as a web application.\nBe careful with this one--see https://www.w3.org/TR/WCAG20-TECHS/ARIA11.html.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "article",
+        "comment": " Add `role=\"article\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "banner",
+        "comment": " This banner should have the page title in it.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "button",
+        "comment": " Add `role=\"button\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "checkBox",
+        "comment": " Add `role=\"checkbox\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "columnHeader",
+        "comment": " Add `role=\"columnheader\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "comboBox",
+        "comment": " Add `role=\"combobox\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "complementary",
+        "comment": " \"Complements\" the main content.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "contentInfo",
+        "comment": " Copyrights, privacy statements, etc.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "controls",
+        "comment": " Creates aria controls attribute. Pass the unique string id of whatever is being controlled.\n",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "definition",
+        "comment": " Add `role=\"definition\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "dialog",
+        "comment": " Add `role=\"dialog\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "directory",
+        "comment": " Add `role=\"directory\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "document",
+        "comment": " Add `role=\"document\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "form",
+        "comment": " A form container.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "grid",
+        "comment": " Add `role=\"grid\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "gridCell",
+        "comment": " Add `role=\"gridcell\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "group",
+        "comment": " Define a set of controls. (for a group of radio inputs, see radioGroup).\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "heading",
+        "comment": " Prefer using `h1`, `h2`, `h3`, `h4`, `h5`, and `h6`.\nReally this attribute should only be necessary if you need an `h7`-type heading.\n\n    div [ heading, level 7 ] []\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "hidden",
+        "comment": " Creates aria hidden attribute.\n",
+        "type": "Bool -> Html.Attribute msg"
+      },
+      {
+        "name": "img",
+        "comment": " Add `role=\"img\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "indeterminate",
+        "comment": " Sets the indeterminate value to be true.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "invisible",
+        "comment": " Makes content invisible without making it inaccessible.\n\n    label [ invisible ] [ text \"Screen readers can still read me!\" ]\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "labelledBy",
+        "comment": " Creates aria labelledby attribute. Pass the unique string id of the labelling element.\n",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "link",
+        "comment": " Add `role=\"link\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "list",
+        "comment": " Add `role=\"list\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "listBox",
+        "comment": " Add `role=\"listbox\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "listItem",
+        "comment": " Add `role=\"listitem\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "log",
+        "comment": " Add `role=\"log\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "longDescription",
+        "comment": " Creates the longDesc attribute with the given url, which should point to a text description of the content. This attribute is only supported on img tags.\n\n    Html.A11y.img \"Growth Chart in Some Sweet Unit (Quarter 4)\" [ longDescription \"/quarter_4_summary#Growth\" ]\n",
+        "type": "String -> Html.Attribute msg"
+      },
+      {
+        "name": "main_",
+        "comment": " Main content in a document. (There can only be one.)\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "marquee",
+        "comment": " Add `role=\"marquee\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "math",
+        "comment": " Add `role=\"math\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "menu",
+        "comment": " Add `role=\"menu\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "menuBar",
+        "comment": " Add `role=\"menubar\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "menuItem",
+        "comment": " Add `role=\"menuitem\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "menuItemCheckBox",
+        "comment": " Add `role=\"menuitemcheckbox\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "menuItemRadio",
+        "comment": " Add `role=\"menuitemradio\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "navigation",
+        "comment": " Navigation.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "note",
+        "comment": " Add `role=\"note\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "option",
+        "comment": " Add `role=\"option\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "presentation",
+        "comment": " Sets role presentation.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "progressBar",
+        "comment": " Add `role=\"progressbar\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "radio",
+        "comment": " Add `role=\"radio\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "radioGroup",
+        "comment": " Define a set of radio-controls.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "region",
+        "comment": " Prefer the other Landmark options to `region`. Be sure to add a name when using this attribute!\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "row",
+        "comment": " Add `role=\"row\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "rowGroup",
+        "comment": " Add `role=\"rowgroup\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "rowHeader",
+        "comment": " Add `role=\"rowheader\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "scrollBar",
+        "comment": " Add `role=\"scrollbar\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "search",
+        "comment": " A search input.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "selected",
+        "comment": " Creates aria selected attribute.\n",
+        "type": "Bool -> Html.Attribute msg"
+      },
+      {
+        "name": "separator",
+        "comment": " Add `role=\"separator\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "slider",
+        "comment": " Add `role=\"slider\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "spinButton",
+        "comment": " Add `role=\"spinbutton\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "status",
+        "comment": " Add `role=\"status\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "tab",
+        "comment": " Add `role=\"tab\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "tabList",
+        "comment": " Add `role=\"tablist\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "tabPanel",
+        "comment": " Add `role=\"tabpanel\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "textBox",
+        "comment": " Add `role=\"textbox\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "timer",
+        "comment": " Add `role=\"timer\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "toolBar",
+        "comment": " Add `role=\"toolbar\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "toolTip",
+        "comment": " Add `role=\"tooltip\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "tree",
+        "comment": " Add `role=\"tree\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "treeGrid",
+        "comment": " Add `role=\"treegrid\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "treeItem",
+        "comment": " Add `role=\"treeitem\"` to the attributes of an element.\n",
+        "type": "Html.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
