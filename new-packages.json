@@ -1,6 +1,7 @@
 [
     "Bernardoow/elm-alert-timer-message",
     "Bernardoow/elm-rating-component",
+    "Bogdanp/elm-ast",
     "Bogdanp/elm-combine",
     "Bogdanp/elm-datepicker",
     "Bogdanp/elm-querystring",
@@ -312,6 +313,8 @@
     "ktonon/url-parser",
     "labzero/elm-google-geocoding",
     "lattenwald/elm-base64",
+    "league/difference-list",
+    "league/unique-id",
     "lgastako/elm-select",
     "lovasoa/choices",
     "lovasoa/elm-component-list",
