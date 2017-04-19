@@ -2590,6 +2590,7 @@
         "name": "danielnarey/elm-bulma-classes",
         "summary": "Bulma CSS classes organized into nested record sets",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.6",
             "1.0.5",
@@ -2597,6 +2598,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "danielnarey/elm-color-math",
+        "summary": "Functions for scaling colors and converting among representations",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2615,8 +2623,9 @@
     },
     {
         "name": "danielnarey/elm-css-frameworks",
-        "summary": "Embed a CSS framework in your Elm program's view (experimental)",
+        "summary": "DEPRECATED",
         "versions": [
+            "4.0.2",
             "4.0.1",
             "4.0.0",
             "3.2.0",
@@ -8103,6 +8112,7 @@
         "name": "terezka/elm-plot-rouge",
         "summary": "Cartesian to SVG coordinate translation.",
         "versions": [
+            "3.0.0",
             "2.4.1",
             "2.4.0",
             "2.3.0",

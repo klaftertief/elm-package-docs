@@ -1,0 +1,169 @@
+[
+  {
+    "name": "ColorMath",
+    "comment": "\n\n# Intermediate Color Representations\n@docs Rgba, Hsla\n\n## Converting back to `Color`\n@docs rgbaToColor, hslaToColor\n\n# Converting to and from Hex Codes\n@docs hexToColor, colorToHex, colorToHex8\n\n# Getting and Setting Color Components\n\n## RGB Components\n@docs getRed, setRed, getGreen, setGreen, getBlue, setBlue\n\n## HSL Components\n@docs getHue, setHue, getSaturation, setSaturation, getLightness, setLightness\n\n## Alpha\n@docs getAlpha, setAlpha\n\n# Relative Color Scaling\n\n## Lightness\n@docs lighten, darken\n\n## Saturation\n@docs saturate, desaturate\n\n## Alpha\n@docs moreOpaque, moreTransparent\n\n## Hue\n@docs rotateHue, scaleToRed, scaleToAqua\n\n# Applying a color transform function to a [`CssValue`](http://package.elm-lang.org/packages/danielnarey/elm-css-basics/latest/CssBasics#CssValue)\n@docs colorTransform\n",
+    "aliases": [
+      {
+        "name": "Hsla",
+        "comment": " Represents the components of an HSLA color value. This is an alias for the\ntype returned when `Color.toHsl` is called.\n",
+        "args": [],
+        "type": "{ hue : Float, saturation : Float, lightness : Float, alpha : Float }"
+      },
+      {
+        "name": "Rgba",
+        "comment": " Represents the components of an RGBA color value. This is an alias for the\ntype returned when `Color.toRgb` is called.\n",
+        "args": [],
+        "type": "{ red : Int, green : Int, blue : Int, alpha : Float }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "colorToHex",
+        "comment": "\n",
+        "type": "Color.Color -> String"
+      },
+      {
+        "name": "colorToHex8",
+        "comment": "\n",
+        "type": "Color.Color -> String"
+      },
+      {
+        "name": "colorTransform",
+        "comment": " Apply a color transform function to a `Col` value; returns an error message\nif the `CssValue` is not of type `Col`.\n",
+        "type": "(Color.Color -> Color.Color) -> CssBasics.CssValue -> Result.Result String CssBasics.CssValue"
+      },
+      {
+        "name": "darken",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "desaturate",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "getAlpha",
+        "comment": "\n",
+        "type": "Color.Color -> Float"
+      },
+      {
+        "name": "getBlue",
+        "comment": "\n",
+        "type": "Color.Color -> Int"
+      },
+      {
+        "name": "getGreen",
+        "comment": "\n",
+        "type": "Color.Color -> Int"
+      },
+      {
+        "name": "getHue",
+        "comment": "\n",
+        "type": "Color.Color -> Float"
+      },
+      {
+        "name": "getLightness",
+        "comment": "\n",
+        "type": "Color.Color -> Float"
+      },
+      {
+        "name": "getRed",
+        "comment": "\n",
+        "type": "Color.Color -> Int"
+      },
+      {
+        "name": "getSaturation",
+        "comment": "\n",
+        "type": "Color.Color -> Float"
+      },
+      {
+        "name": "hexToColor",
+        "comment": " Converts a string containing a three or six digit hexadecimal color code to\na `Color`. Returns `Undefined` if the string argument\nis not a valid hexadecimal code (in CSS).\n",
+        "type": "String -> Result.Result String Color.Color"
+      },
+      {
+        "name": "hslaToColor",
+        "comment": " Converts HSLA components to a\n[`Color`](http://package.elm-lang.org/packages/elm-lang/core/latest/Color#Color)\n",
+        "type": "ColorMath.Hsla -> Color.Color"
+      },
+      {
+        "name": "lighten",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "moreOpaque",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "moreTransparent",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "rgbaToColor",
+        "comment": " Converts RGBA components to a\n[`Color`](http://package.elm-lang.org/packages/elm-lang/core/latest/Color#Color)\n",
+        "type": "ColorMath.Rgba -> Color.Color"
+      },
+      {
+        "name": "rotateHue",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "saturate",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "scaleToAqua",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "scaleToRed",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "setAlpha",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "setBlue",
+        "comment": "\n",
+        "type": "Int -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "setGreen",
+        "comment": "\n",
+        "type": "Int -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "setHue",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "setLightness",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "setRed",
+        "comment": "\n",
+        "type": "Int -> Color.Color -> Color.Color"
+      },
+      {
+        "name": "setSaturation",
+        "comment": "\n",
+        "type": "Float -> Color.Color -> Color.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
