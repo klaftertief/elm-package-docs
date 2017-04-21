@@ -851,6 +851,13 @@
         ]
     },
     {
+        "name": "RoyalIcing/lofi-schema-elm",
+        "summary": "Declare schemas with a friendly syntax and convert",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "SamirTalwar/arborist",
         "summary": "A test framework for asynchronous Elm code.",
         "versions": [
@@ -2551,6 +2558,14 @@
         ]
     },
     {
+        "name": "dailydrip/elm-emoji",
+        "summary": "A searchable emoji database",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "damienklinnert/elm-hue",
         "summary": "Control your Philips Hue devices with Elm",
         "versions": [
@@ -3089,6 +3104,14 @@
         ]
     },
     {
+        "name": "elm-bodybuilder/elegant",
+        "summary": "Framework for inline CSS",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "elm-bodybuilder/formbuilder",
         "summary": "Generic form builder in Elm",
         "versions": [
@@ -3390,6 +3413,7 @@
         "name": "elm-community/material-icons",
         "summary": "Material Icons Library",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -5110,6 +5134,7 @@
         "name": "juanedi/charty",
         "summary": "SVG charts for Elm",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -8112,6 +8137,7 @@
         "name": "terezka/elm-plot-rouge",
         "summary": "Cartesian to SVG coordinate translation.",
         "versions": [
+            "3.0.1",
             "3.0.0",
             "2.4.1",
             "2.4.0",

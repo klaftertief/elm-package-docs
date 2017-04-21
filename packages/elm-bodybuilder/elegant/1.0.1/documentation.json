@@ -1,0 +1,633 @@
+[
+  {
+    "name": "Elegant.Elements",
+    "comment": "\n@docs border\n@docs btn\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "border",
+        "comment": " ",
+        "type": "Color.Color -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "btn",
+        "comment": " ",
+        "type": "( Elegant.SizeUnit, Elegant.SizeUnit ) -> Elegant.Style -> Elegant.Style"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Elegant",
+    "comment": "\n# Types\n@docs State\n@docs Msg\n@docs State\n@docs Vector\n@docs Style\n@docs SizeUnit\n\n# Initializers\n@docs emptyState\n@docs update\n@docs resizeWindow\n@docs initialSize\n\n# Styling\n@docs simpleStyle\n@docs hoverStyle\n@docs responsiveStyle\n@docs responsiveHoverStyle\n\n# Utilities\n@docs small\n@docs tiny\n@docs medium\n\n# Styles\n@docs position\n@docs left\n@docs right\n@docs top\n@docs bottom\n@docs absolutelyPositionned\n@docs verticalAlignMiddle\n@docs alignItemsBaseline\n@docs alignItemsCenter\n@docs alignItemsFlexStart\n@docs alignItemsFlexEnd\n@docs alignItemsInherit\n@docs alignItemsInitial\n@docs alignItemsStretch\n@docs alignSelfCenter\n@docs padding\n@docs paddingHorizontal\n@docs paddingVertical\n@docs paddingLeft\n@docs paddingRight\n@docs paddingTop\n@docs paddingBottom\n@docs margin\n@docs marginAuto\n@docs marginHorizontal\n@docs marginVertical\n@docs marginTop\n@docs marginBottom\n@docs marginLeft\n@docs marginRight\n@docs textColor\n@docs uppercase\n@docs lowercase\n@docs capitalize\n@docs textDecorationNone\n@docs underline\n@docs lineThrough\n@docs bold\n@docs strong\n@docs lineHeight\n@docs fontWeightNormal\n@docs fontStyleNormal\n@docs fontStyleItalic\n@docs fontSize\n@docs alpha\n@docs alpha\n@docs beta\n@docs gamma\n@docs delta\n@docs epsilon\n@docs zeta\n@docs eta\n@docs theta\n@docs iota\n@docs kappa\n@docs textCenter\n@docs textLeft\n@docs textRight\n@docs textJustify\n@docs backgroundColor\n@docs borderColor\n@docs borderStyle\n@docs borderWidth\n@docs borderAndTextColor\n@docs displayBlock\n@docs displayInlineBlock\n@docs displayFlex\n@docs flex\n@docs flexWrapWrap\n@docs flexWrapNoWrap\n@docs displayInline\n@docs opacity\n@docs overflowAuto\n@docs overflowHidden\n@docs overflowScroll\n@docs overflowVisible\n@docs displayNone\n@docs listStyleNone\n@docs listStyleDisc\n@docs listStyleCircle\n@docs listStyleSquare\n@docs listStyleDecimal\n@docs listStyleGeorgian\n@docs roundCorner\n@docs justifyContentSpaceBetween\n@docs justifyContentSpaceAround\n@docs spaceBetween\n@docs spaceAround\n@docs fontInherit\n@docs width\n@docs widthPercent\n@docs maxWidth\n@docs minWidth\n@docs height\n@docs heightPercent\n@docs maxHeight\n@docs minHeight\n\n# Constants\n@docs transparent\n",
+    "aliases": [
+      {
+        "name": "Vector",
+        "comment": " ",
+        "args": [],
+        "type": "( Float, Float )"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "SizeUnit",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Px",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "Pt",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "Percent",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Em",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "Rem",
+            [
+              "Float"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "State",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Style",
+        "comment": " Contains all style for an element used with Elegant.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "absolutelyPositionned",
+        "comment": " ",
+        "type": "Elegant.Vector -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "alignItemsBaseline",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "alignItemsCenter",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "alignItemsFlexEnd",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "alignItemsFlexStart",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "alignItemsInherit",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "alignItemsInitial",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "alignItemsStretch",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "alignSelfCenter",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "alpha",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "backgroundColor",
+        "comment": " ",
+        "type": "Color.Color -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "beta",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "bold",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "borderAndTextColor",
+        "comment": " Set both text and border in same color.\n",
+        "type": "Color.Color -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "borderColor",
+        "comment": " ",
+        "type": "Color.Color -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "borderStyle",
+        "comment": " ",
+        "type": "String -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "borderWidth",
+        "comment": " ",
+        "type": "Int -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "bottom",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "capitalize",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "delta",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "displayBlock",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "displayFlex",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "displayInline",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "displayInlineBlock",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "displayNone",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "emptyState",
+        "comment": " ",
+        "type": "Elegant.State"
+      },
+      {
+        "name": "epsilon",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "eta",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "flex",
+        "comment": " ",
+        "type": "Int -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "flexWrapNoWrap",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "flexWrapWrap",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "fontInherit",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "fontSize",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "fontStyleItalic",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "fontStyleNormal",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "fontWeightNormal",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "gamma",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "height",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "heightPercent",
+        "comment": " ",
+        "type": "Int -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "hoverStyle",
+        "comment": " ",
+        "type": "( Elegant.State, String, Elegant.Msg -> msg ) -> (Bool -> List Elegant.StyleTransformer) -> List (Html.Attribute msg)"
+      },
+      {
+        "name": "initialSize",
+        "comment": " ",
+        "type": "(Elegant.Msg -> msg) -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "iota",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "justifyContentSpaceAround",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "justifyContentSpaceBetween",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "kappa",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "left",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "lineHeight",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "lineThrough",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "listStyleCircle",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "listStyleDecimal",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "listStyleDisc",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "listStyleGeorgian",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "listStyleNone",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "listStyleSquare",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "lowercase",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "margin",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "marginAuto",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "marginBottom",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "marginHorizontal",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "marginLeft",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "marginRight",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "marginTop",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "marginVertical",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "maxHeight",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "maxWidth",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "medium",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "minHeight",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "minWidth",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "opacity",
+        "comment": " ",
+        "type": "Float -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "overflowAuto",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "overflowHidden",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "overflowScroll",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "overflowVisible",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "padding",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "paddingBottom",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "paddingHorizontal",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "paddingLeft",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "paddingRight",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "paddingTop",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "paddingVertical",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "position",
+        "comment": " ",
+        "type": "Elegant.Position -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "resizeWindow",
+        "comment": " ",
+        "type": "(Elegant.Msg -> msg) -> Platform.Sub.Sub msg"
+      },
+      {
+        "name": "responsiveHoverStyle",
+        "comment": " ",
+        "type": "( Elegant.State, String, Elegant.Msg -> msg ) -> (Window.Size -> Bool -> List Elegant.StyleTransformer) -> List (Html.Attribute msg)"
+      },
+      {
+        "name": "responsiveStyle",
+        "comment": " ",
+        "type": "Elegant.State -> (Window.Size -> List Elegant.StyleTransformer) -> List (Html.Attribute msg)"
+      },
+      {
+        "name": "right",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "roundCorner",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "simpleStyle",
+        "comment": " ",
+        "type": "List Elegant.StyleTransformer -> List (Html.Attribute msg)"
+      },
+      {
+        "name": "small",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "spaceAround",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "spaceBetween",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "strong",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "textCenter",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "textColor",
+        "comment": " ",
+        "type": "Color.Color -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "textDecorationNone",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "textJustify",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "textLeft",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "textRight",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "theta",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "tiny",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      },
+      {
+        "name": "top",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "transparent",
+        "comment": " ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "underline",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "update",
+        "comment": " ",
+        "type": "Elegant.Msg -> Elegant.State -> Elegant.State"
+      },
+      {
+        "name": "uppercase",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "verticalAlignMiddle",
+        "comment": " ",
+        "type": "Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "width",
+        "comment": " ",
+        "type": "Elegant.SizeUnit -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "widthPercent",
+        "comment": " ",
+        "type": "Float -> Elegant.Style -> Elegant.Style"
+      },
+      {
+        "name": "zeta",
+        "comment": " ",
+        "type": "Elegant.SizeUnit"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
