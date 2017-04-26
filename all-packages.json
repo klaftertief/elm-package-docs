@@ -369,6 +369,7 @@
         "name": "Gizra/elm-dictlist",
         "summary": "Dict with arbitrary ordering (like List)",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -2150,6 +2151,7 @@
         "name": "ccapndave/elm-update-extra",
         "summary": "Convenience functions for working with update in Elm",
         "versions": [
+            "3.0.0",
             "2.3.1",
             "2.3.0",
             "2.2.0",
@@ -2818,6 +2820,13 @@
         ]
     },
     {
+        "name": "davidpelaez/elm-scenic",
+        "summary": "Experimental package of common layouts & animations wrapping Program",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "deadfoxygrandpa/elm-architecture",
         "summary": "Use The Elm Architecture to generate any type of Signal",
         "versions": [
@@ -3396,6 +3405,7 @@
         "name": "elm-community/list-extra",
         "summary": "Convenience functions for working with List",
         "versions": [
+            "6.1.0",
             "6.0.0",
             "5.0.1",
             "5.0.0",
@@ -4680,6 +4690,8 @@
         "name": "jamesmacaulay/elm-graphql",
         "summary": "A GraphQL request builder and HTTP client",
         "versions": [
+            "1.3.2",
+            "1.3.1",
             "1.3.0",
             "1.2.0",
             "1.1.0",
@@ -6354,6 +6366,7 @@
         "name": "mhoare/elm-stack",
         "summary": "A package which implements a Stack",
         "versions": [
+            "3.1.1",
             "3.1.0",
             "3.0.2",
             "3.0.1",
