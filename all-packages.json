@@ -63,6 +63,7 @@
         "name": "Bogdanp/elm-ast",
         "summary": "A parser for Elm code",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.0"
@@ -298,6 +299,8 @@
         "name": "Fresheyeball/elm-restrict-number",
         "summary": "Modules that enforce number restrictions",
         "versions": [
+            "2.2.0",
+            "2.1.0",
             "2.0.0",
             "1.0.1",
             "1.0.0"
