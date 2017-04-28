@@ -63,6 +63,7 @@
         "name": "Bogdanp/elm-ast",
         "summary": "A parser for Elm code",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -169,6 +170,29 @@
         "versions": [
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "CallumJHays/elm-kalman-filter",
+        "summary": "Simple 1D Kalman filters",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "CallumJHays/elm-sliders",
+        "summary": "Typed wrapper around <input type=\"range\"> html elements",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "CallumJHays/elm-unwrap",
+        "summary": "Dangerously unwrap value wrapper types",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3112,6 +3136,7 @@
         "name": "eeue56/elm-xml",
         "summary": "XML parser, encoder/decoder and queries in Elm",
         "versions": [
+            "2.2.1",
             "2.2.0",
             "2.1.0",
             "2.0.0",
@@ -3514,6 +3539,14 @@
     {
         "name": "elm-community/svg-extra",
         "summary": "Additional functions for working with Svg",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/typed-svg",
+        "summary": "A Typed SVG (Scalable Vector Graphics) builder",
         "versions": [
             "1.0.1",
             "1.0.0"
