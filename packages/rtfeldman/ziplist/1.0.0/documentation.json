@@ -1,0 +1,75 @@
+[
+  {
+    "name": "ZipList",
+    "comment": " A ZipList is a nonempty list which always has exactly one element selected.\n\n@docs ZipList, fromLists, singleton\n\n\n## Reading\n\n@docs segments, toList, before, selected, after\n\n\n## Transforming\n\n@docs mapBy, select, append, prepend\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "ZipList",
+        "comment": " A nonempty list which always has exactly one element selected.\n\nCreate one using [`fromLists`](#fromLists).\n\n",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "after",
+        "comment": " Return the elements after the selected element.\n\n    import ZipList\n\n    ZipList.fromLists [ 1, 2 ] 3 [ 4, 5, 6 ]\n        |> ZipList.after\n\n    == [ 3, 4, 5 ]\n\n",
+        "type": "ZipList.ZipList a -> List a"
+      },
+      {
+        "name": "append",
+        "comment": " Add elements to the end of a ZipList.\n\n    import ZipList\n\n    ZipList.fromLists [ 1, 2 ] 3 [ 4 ]\n        |> ZipList.append [ 5, 6 ]\n\n    == ZipList.fromLists [ 1 ] 2 [ 3, 4, 5, 6 ]\n\n",
+        "type": "List a -> ZipList.ZipList a -> ZipList.ZipList a"
+      },
+      {
+        "name": "before",
+        "comment": " Return the elements before the selected element.\n\n    import ZipList\n\n    ZipList.fromLists [ 1, 2 ] 3 [ 4, 5, 6 ]\n        |> ZipList.before\n\n    == [ 1, 2 ]\n\n",
+        "type": "ZipList.ZipList a -> List a"
+      },
+      {
+        "name": "fromLists",
+        "comment": " Returns a ZipList.\n\nUse [`segments`](#segments) to reverse this operation.\n\n    import ZipList\n\n    ZipList.fromLists [ 1, 2 ] 3 [ 4, 5, 6 ]\n        |> ZipList.segments\n\n    == { before = [ 1, 2 ], selected = 3, after = [ 4, 5, 6 ] }\n\n",
+        "type": "List a -> a -> List a -> ZipList.ZipList a"
+      },
+      {
+        "name": "mapBy",
+        "comment": " Transform each element of the ZipList. The transform\nfunction receives a `Bool` which is `True` if it was passed\nthe ZipList's selected element.\n\n    import ZipList\n\n    doubleOrNegate isSelected num =\n        if isSelected then\n            num * -1\n        else\n            num * 2\n\n\n    ZipList.fromLists [ 1, 2 ] 3 [ 4, 5, 6 ]\n        |> ZipList.mapBy doubleOrNegate\n\n    == ZipList.fromLists [ 2, 4 ] -3 [ 8, 10, 12 ]\n\n",
+        "type": "(Bool -> a -> b) -> ZipList.ZipList a -> ZipList.ZipList b"
+      },
+      {
+        "name": "prepend",
+        "comment": " Add elements to the beginning of a ZipList.\n\n    import ZipList\n\n    ZipList.fromLists [ 3 ] 4 [ 5, 6 ]\n        |> ZipList.prepend [ 1, 2 ]\n\n    == ZipList.fromLists [ 1, 2, 3 ] 4 [ 5, 6 ]\n\n",
+        "type": "List a -> ZipList.ZipList a -> ZipList.ZipList a"
+      },
+      {
+        "name": "segments",
+        "comment": " Returns the ZipList's selected element, along with lists of\nthe elements before and after it.\n\n    import ZipList\n\n    ZipList.fromLists [ 1, 2 ] 3 [ 4, 5, 6 ]\n        |> ZipList.segments\n\n    == { before = [ 1, 2 ], selected = 3, after = [ 4, 5, 6 ] }\n\n",
+        "type": "ZipList.ZipList elem -> { before : List elem, selected : elem, after : List elem }"
+      },
+      {
+        "name": "select",
+        "comment": " Change the selected element to the first one which passes a\npredicate function. If no elements pass, the ZipList is unchanged.\n\n    import ZipList\n\n    isEven num =\n        num % 2 == 0\n\n\n    ZipList.fromLists [ 1, 2 ] 3 [ 4, 5, 6 ]\n        |> ZipList.select isEven\n\n    == ZipList.fromLists [ 1 ] 2 [ 3, 4, 5, 6 ]\n\n",
+        "type": "(a -> Bool) -> ZipList.ZipList a -> ZipList.ZipList a"
+      },
+      {
+        "name": "selected",
+        "comment": " Return the selected element.\n\n    import ZipList\n\n    ZipList.fromLists [ 1, 2 ] 3 [ 4, 5, 6 ]\n        |> ZipList.selected\n\n    == 3\n\n",
+        "type": "ZipList.ZipList a -> a"
+      },
+      {
+        "name": "singleton",
+        "comment": " A ZipList containing exactly one element.\n\n    import ZipList\n\n    ZipList.singleton \"foo\"\n\n    == ZipList.fromLists [] \"foo\" []\n\n",
+        "type": "a -> ZipList.ZipList a"
+      },
+      {
+        "name": "toList",
+        "comment": " Return a `List` containing the elements in a ZipList.\n\n    import ZipList\n\n    ZipList.fromLists [ 1, 2, 3 ] 4 [ 5, 6 ]\n        |> ZipList.toList\n\n    == [ 1, 2, 3, 4, 5, 6 ]\n\n",
+        "type": "ZipList.ZipList a -> List a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

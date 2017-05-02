@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Glue",
+    "comment": " Composing Elm applications from smaller isolated parts (modules).\nYou can think about this as about lightweight abstraction built around `(model, Cmd msg)` pair\nthat reduces boilerplate required for composing `init` `update` `view` and `subscribe` using\n[`Cmd.map`](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Cmd#map),\n[`Sub.map`](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Sub#map)\nand [`Html.map`](http://package.elm-lang.org/packages/elm-lang/html/2.0.0/Html#map).\n\n# Types\n@docs Glue, glue\n\n# Basics\n\n@docs init, update, view, subscriptions\n\n# Helpers\nHelpers functions\n\n@docs map\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Glue",
+        "comment": " `Glue` defines interface mapings between parent and child module.\n\nYou can create `Glue` with the [`glue`](#glue) function constructor.\nEvery glue layer is defined in terms of `Model`, `[Submodule].Model` `Msg` and `[Submodule].Msg`.\n",
+        "args": [
+          "model",
+          "subModel",
+          "msg",
+          "subMsg"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "glue",
+        "comment": " Create [Glue](#Glue) mapigs between modules.\nchild module can be generic TEA app or module that is already doing polymorfic maping to generic `msg` internaly.\nYou can also use `Cmd` for sending data from bottom module to upper one if you want to observe child\nas a black box (similary you do in case of DOM events with `Html.Events`).\n\n**Interface**:\n\n```\nglue :\n    { model : subModel -> model -> model\n    , init : ( subModel, Cmd msg )\n    , update : subMsg -> model -> ( subModel, Cmd msg )\n    , view : model -> Html msg\n    , subscriptions : model -> Sub msg\n    }\n    -> Glue model subModel msg subMsg\n```\n\nSee [examples](https://github.com/turboMaCk/glue/tree/master/examples) for more informations.\n",
+        "type": "{ model : subModel -> model -> model , init : ( subModel, Platform.Cmd.Cmd msg ) , update : subMsg -> model -> ( subModel, Platform.Cmd.Cmd msg ) , view : model -> Html.Html msg , subscriptions : model -> Platform.Sub.Sub msg } -> Glue.Glue model subModel msg subMsg"
+      },
+      {
+        "name": "init",
+        "comment": " Initialize child module in parent.\n\nInit uses [applicative style](https://wiki.haskell.org/Applicative_functor) for `(subModel -> a, Cmd Msg)`\nsimilarly to [`Json.Decode.Extra.andMap`](http://package.elm-lang.org/packages/elm-community/json-extra/2.1.0/Json-Decode-Extra#andMap).\nThe only diference is that `(subModel, Cmd msg)` is extracted from [`Glue`](#Glue) definition.\n\n```\ntype alias Model =\n    { message : String\n    , firstCounterModel : Counter.Model\n    , secondCounterModel : Counter.Model\n    }\n\ninit : ( Model, Cmd msg )\ninit =\n    ( Model \"\", Cmd.none )\n        |> Glue.init firstCounter\n        |> Glue.init secondCounter\n```\n",
+        "type": "Glue.Glue model subModel msg subMsg -> ( subModel -> a, Platform.Cmd.Cmd msg ) -> ( a, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "map",
+        "comment": " Tiny abstraction over [`Cmd.map`](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Cmd#map)\npacked in `(model, Cmd msg)` pair that helps you to reduce boilerplate while turning generic TEA app to [`Glue`](#Glue).\n\nThis function is generally usefull for turning update and init functions in `[Glue](#Glue)` definition.\n\n```\ntype alias Model =\n    { message : String\n    , counter : Counter.Model\n    }\n\ntype Msg\n    = CounterMsg Counter.Msg\n\ncounter : Glue Model Counter.Model Msg Counter.Msg\ncounter =\n    Glue.glue\n        { model = \\subModel model -> { model | counter = subModel }\n        , init = Counter.init |> Glue.map CounterMsg\n        , update =\n            \\subMsg model ->\n                Counter.update subMsg model.counter\n                    |> Glue.map CounterMsg\n        , view = \\model -> Html.map CounterMsg <| Counter.view model.counter\n        , subscriptions = \\_ -> Sub.none\n        }\n```\n",
+        "type": "(subMsg -> msg) -> ( subModel, Platform.Cmd.Cmd subMsg ) -> ( subModel, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Subscribe to subscriptions defined in submodule.\n\nYou can think about this as about mapping and merging over subscriptions.\nFor mapping part `subscriptions` function from [`Glue`](#Glue) is used.\n\n```\nsubscriptions : Model -> Sub Msg\nsubscriptions =\n    (\\model -> Mouse.clicks Clicked)\n        |> Glue.subscriptions subModlue\n        |> Glue.subscriptions anotherNestedModule\n```\n",
+        "type": "Glue.Glue model subModel msg subMsg -> (model -> Platform.Sub.Sub msg) -> model -> Platform.Sub.Sub msg"
+      },
+      {
+        "name": "update",
+        "comment": " Update submodule's state using it's `update` function.\n\nThis uses [functor-like](https://en.wikipedia.org/wiki/Functor) approach to transform `(subModel, msg) -> (model, msg)`.\nAnyway rather then using low level function like `map` this transformation is constructed from `model` and `update`\nfunctions from [`Glue`](#Glue) for you under the hood.\n\n```\ntype Msg\n    = CounterMsg Counter.Msg\n\n\nupdate : Msg -> Model -> ( Model, Cmd Msg )\nupdate msg model =\n    case msg of\n        CounterMsg counterMsg ->\n            ( { model | message = \"Counter has changed\" }, Cmd.none )\n                |> Glue.update counter counterMsg\n```\n\n",
+        "type": "Glue.Glue model subModel msg subMsg -> subMsg -> ( model, Platform.Cmd.Cmd msg ) -> ( model, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Render submodule's view.\n\nThis is in fact just proxy to `view` function from [`Glue`](#Glue). This function relies on [`Html.map`](http://package.elm-lang.org/packages/elm-lang/html/2.0.0/Html#map)\nand is efectively just wrapper around [functorish](https://en.wikipedia.org/wiki/Functor) operation.\n\n```\nview : Model -> Html msg\nview model =\n    Html.div []\n        [ Html.text model.message\n        , Glue.view counter model\n        ]\n```\n\n",
+        "type": "Glue.Glue model subModel msg subMsg -> model -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
