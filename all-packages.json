@@ -787,6 +787,7 @@
         "name": "NoRedInk/json-elm-schema",
         "summary": "write json schemas in elm",
         "versions": [
+            "1.5.0",
             "1.4.0",
             "1.3.0",
             "1.2.0",
@@ -3101,6 +3102,7 @@
         "name": "eeue56/elm-html-in-elm",
         "summary": "A pure Elm representation of Elm Html",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.1.0",
             "2.0.1",
@@ -3113,6 +3115,7 @@
         "name": "eeue56/elm-html-query",
         "summary": "Query for things inside ElmHtml",
         "versions": [
+            "1.2.1",
             "1.2.0",
             "1.1.0",
             "1.0.1",
@@ -3123,6 +3126,9 @@
         "name": "eeue56/elm-html-test",
         "summary": "Write tests for your Html.",
         "versions": [
+            "1.1.2",
+            "1.1.1",
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -5142,6 +5148,16 @@
         ]
     },
     {
+        "name": "joonazan/elm-ast",
+        "summary": "A parser for Elm code",
+        "versions": [
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jreut/elm-grid",
         "summary": "Two-dimensional array",
         "versions": [
@@ -6094,6 +6110,7 @@
         "name": "marshallformula/elm-swiper",
         "summary": "Utilities to help detect & manage 'swipe' events on mobile devices",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6811,6 +6828,7 @@
         "name": "ohanhi/autoexpand",
         "summary": "A pure Elm auto expanding textarea",
         "versions": [
+            "2.0.0",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -6832,6 +6850,8 @@
         "name": "ohanhi/keyboard-extra",
         "summary": "Convenience helpers for working with Keyboard",
         "versions": [
+            "3.0.1",
+            "3.0.0",
             "2.1.0",
             "2.0.2",
             "2.0.1",
@@ -7627,6 +7647,13 @@
         ]
     },
     {
+        "name": "ryanolsonx/elm-mock-http",
+        "summary": "A client-side server to simulate server-side communications",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ryanolsonx/elm-time-range",
         "summary": "Represent time ranges in an elegant manner.",
         "versions": [
@@ -8003,6 +8030,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.6.0",
             "2.5.1",
             "2.5.0",
             "2.4.0",

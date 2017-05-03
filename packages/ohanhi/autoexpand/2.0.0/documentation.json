@@ -1,0 +1,61 @@
+[
+  {
+    "name": "AutoExpand",
+    "comment": "\nThis library lets you use automatically expanding textareas in Elm.\nThis means the textarea grows in height until it reaches the maximum number of\nrows allowed and then becomes a scrollable box.\n\n# View\n@docs view\n\n# Configuration\n@docs Config, config, withId, withClass, withPlaceholder, withStyles\n\n# State\n@docs State, initState\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Config",
+        "comment": " Configuration for your textarea, describing the look and feel.\n\n**Note:** Your `Config` should *never* be held in your model.\nIt should only appear in `view` code.\n",
+        "args": [
+          "msg"
+        ],
+        "cases": []
+      },
+      {
+        "name": "State",
+        "comment": " Keeps track of how many rows we need.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "config",
+        "comment": " Create the `Config` for the auto expanding textarea.\n\nA typical configuration might look like this:\n\n    type Msg\n        = AutoExpandInput { textValue : String, state : AutoExpand.State }\n\n    config : AutoExpand.Config Msg\n    config =\n        AutoExpand.config\n            { onInput = AutoExpandInput\n            , padding = 10\n            , lineHeight = 20\n            , minRows = 1\n            , maxRows = 4\n            }\n",
+        "type": "{ onInput : { textValue : String, state : AutoExpand.State } -> msg , padding : Float , lineHeight : Float , minRows : Int , maxRows : Int } -> AutoExpand.Config msg"
+      },
+      {
+        "name": "initState",
+        "comment": " Sets up the initial `State` for the textarea using a `Config`.\n",
+        "type": "AutoExpand.Config msg -> AutoExpand.State"
+      },
+      {
+        "name": "view",
+        "comment": " Show the textarea on your page.\n\n    view : Model -> Html Msg\n    view model =\n        AutoExpand.view config model.autoExpandState model.textValue\n",
+        "type": "AutoExpand.Config msg -> AutoExpand.State -> String -> Html.Html msg"
+      },
+      {
+        "name": "withClass",
+        "comment": " Add the `class` attribute to the configuration.\n\n    myConfig\n        |> withClass \"textarea has-inset-shadow\"\n",
+        "type": "String -> AutoExpand.Config msg -> AutoExpand.Config msg"
+      },
+      {
+        "name": "withId",
+        "comment": " Add the `id` attribute to the configuration.\n\n    myConfig\n        |> withId \"chat-message-textarea\"\n",
+        "type": "String -> AutoExpand.Config msg -> AutoExpand.Config msg"
+      },
+      {
+        "name": "withPlaceholder",
+        "comment": " Add the `placeholder` attribute to the configuration.\n\n    myConfig\n        |> withPlaceholder \"Type a message here\"\n",
+        "type": "String -> AutoExpand.Config msg -> AutoExpand.Config msg"
+      },
+      {
+        "name": "withStyles",
+        "comment": " Add inline styles for the textarea.\n\n    myConfig\n        |> withStyles [ ( \"font-family\", \"sans-serif\" ) ]\n",
+        "type": "List ( String, String ) -> AutoExpand.Config msg -> AutoExpand.Config msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
