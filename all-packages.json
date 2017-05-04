@@ -55,6 +55,7 @@
         "name": "Bernardoow/elm-rating-component",
         "summary": "Simple rating component.",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -63,6 +64,8 @@
         "name": "Bogdanp/elm-ast",
         "summary": "A parser for Elm code",
         "versions": [
+            "4.0.0",
+            "3.0.0",
             "2.0.4",
             "2.0.3",
             "2.0.2",
@@ -2862,6 +2865,7 @@
         "name": "davidpelaez/elm-scenic",
         "summary": "Experimental package of common layouts & animations wrapping Program",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3195,6 +3199,7 @@
         "name": "elm-bodybuilder/formbuilder-photo",
         "summary": "Field for FormBuilder: photo selector",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -7650,6 +7655,7 @@
         "name": "ryanolsonx/elm-mock-http",
         "summary": "A client-side server to simulate server-side communications",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -8138,6 +8144,14 @@
         "versions": [
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "stoeffel/editable",
+        "summary": "Editable represents a value that can be read-only or editable.",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
