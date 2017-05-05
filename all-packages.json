@@ -3178,6 +3178,7 @@
         "name": "eeue56/elm-xml",
         "summary": "XML parser, encoder/decoder and queries in Elm",
         "versions": [
+            "2.2.2",
             "2.2.1",
             "2.2.0",
             "2.1.0",
@@ -5192,6 +5193,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "joonazan/elm-type-inference",
+        "summary": "Type inference for Elm, written in Elm.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -7779,6 +7787,16 @@
         "summary": "Composable styles in Elm",
         "versions": [
             "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "seanpile/elm-orbit-controls",
+        "summary": "OrbitControls provides orbiting for objects around a target",
+        "versions": [
+            "2.0.0",
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
