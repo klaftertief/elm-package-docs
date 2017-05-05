@@ -221,6 +221,14 @@
         ]
     },
     {
+        "name": "ChristophP/elm-i18next",
+        "summary": "Use this module to load, decode and use translations in your app",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Dandandan/Easing",
         "summary": "Creating animations and transitions with easing functions.",
         "versions": [
@@ -2276,6 +2284,16 @@
         "summary": "Medium-esque reading stats in elm",
         "versions": [
             "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "christophp/elm-i18next",
+        "summary": "Use this module to load, decode and use translations in your app",
+        "versions": [
+            "1.0.3",
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -4528,6 +4546,14 @@
         ]
     },
     {
+        "name": "humio/elm-plot",
+        "summary": "Modified version of elm-plot for use in Humio",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ianp/elm-datepicker",
         "summary": "A date range picker",
         "versions": [
@@ -4762,6 +4788,13 @@
             "1.3.0",
             "1.2.0",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jamesmacaulay/elm-json-bidirectional",
+        "summary": "Two-way JSON encoder-decoders.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -7321,6 +7354,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "8.5.1",
             "8.5.0",
             "8.4.0",
             "8.3.0",
