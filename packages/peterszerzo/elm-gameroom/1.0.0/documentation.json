@@ -1,0 +1,130 @@
+[
+  {
+    "name": "Gameroom",
+    "comment": " This is a framework for creating multiplayer guessing games by the boatloads, all within the comfort of Elm. Specify only what is unique to a game, write no logic on the back-end, and have it all wired up and ready to play.\n\n`elm-gameroom` takes care of calling game rounds, generating problems and reconciling scores, as well as talking to either a generic real-time database such as Firebase (JS adapter provided), with have clients sort things out amongst themselves via WebRTC (JavaScript glue code provided).\n\n# The program\n@docs program\n\n# Ports\n@docs Ports\n\n# Program types\n@docs Model, Msg\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " Use this Model type to annotate your program.\n",
+        "args": [
+          "problem",
+          "guess"
+        ],
+        "type": "Models.Model problem guess"
+      },
+      {
+        "name": "Msg",
+        "comment": " Use this Msg type to annotate your program.\n",
+        "args": [
+          "problem",
+          "guess"
+        ],
+        "type": "Messages.Msg problem guess"
+      },
+      {
+        "name": "Ports",
+        "comment": " The Ports record contains incoming and outgoing ports necessary for a guessing game. The client is responsible for declaring them, passing them to the game-generator `program` method, and hooking them up with the realtime back-end. Head to the examples in the repo for some simple usage.\n\nDefining them goes like so:\n\n    port incoming = (String -> msg) -> Sub msg\n    port outgoing = String -> Cmd msg\n\n    ports = { incoming = incoming, outgoing = outgoing }\n\nTalking to them is best understood with [this simple example](https://github.com/peterszerzo/elm-gameroom/blob/master/src/js/talk-to-ports.js).\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Models.Ports.Ports msg"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "program",
+        "comment": " Create a fully functional game program from a gamespec and a ports record. The `spec` is the declarative definition of the data structures, logic and view behind your game - see `Gameroom.Spec` documentation for details. `ports` is a record containing two ports defined and wired up by the client. For more details on wiring up ports to a generic backend, see the [JS documentation](/src/js/README.md). Don't worry, it is all razorthin boilerplate.\n\nNotice you don't have to supply any `init`, `update` or `subscriptions` field yourself. All that is taken care of, and you wind up with a working interface that allows you to create game rooms, invite others, and play. Timers, scoreboards etc. all come straight out of the box.\n",
+        "type": "Gameroom.Spec.Spec problem guess -> Models.Ports.Ports (Gameroom.Msg problem guess) -> Platform.Program Basics.Never (Gameroom.Model problem guess) (Gameroom.Msg problem guess)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gameroom.Spec",
+    "comment": " With the Spec object, you can define your game declaratively, specifying only what is unique to it.\n\n# The full spec\n@docs Spec\n\n# The view\n@docs View, Copy\n\n# Game logic\n@docs ProblemGenerator\n\n# Data management\n@docs ProblemEncoder, ProblemDecoder, GuessEncoder, GuessDecoder\n",
+    "aliases": [
+      {
+        "name": "Copy",
+        "comment": " Some copy to populate the game's interface. Includes the game title, subheading and instruction.\n\n    copy =\n        { name = \"Simple Game\"\n        , subheading = \"You don't want to play this one..\"\n        , instructions = \"Just hit no!\"\n        }\n",
+        "args": [],
+        "type": "{ name : String, subheading : String, instructions : String }"
+      },
+      {
+        "name": "GuessDecoder",
+        "comment": " Decode a guess as it arrives from the backend.\n",
+        "args": [
+          "guess"
+        ],
+        "type": "Json.Decode.Decoder guess"
+      },
+      {
+        "name": "GuessEncoder",
+        "comment": " Encode a guess to be stored in the backend.\n",
+        "args": [
+          "guess"
+        ],
+        "type": "guess -> Json.Encode.Value"
+      },
+      {
+        "name": "ProblemDecoder",
+        "comment": " Decode a problem as it arrives from the backend.\n",
+        "args": [
+          "problem"
+        ],
+        "type": "Json.Decode.Decoder problem"
+      },
+      {
+        "name": "ProblemEncoder",
+        "comment": " Encode a problem to be stored in the backend.\n",
+        "args": [
+          "problem"
+        ],
+        "type": "problem -> Json.Encode.Value"
+      },
+      {
+        "name": "ProblemGenerator",
+        "comment": " Generate game problems.\n",
+        "args": [
+          "problem"
+        ],
+        "type": "Random.Generator problem"
+      },
+      {
+        "name": "Spec",
+        "comment": " Define every moving part of a multiplayer game, all generalized over a type variable representing a `problem`, and one representing a `guess`. Each field in the record is documented separately in this module.\n",
+        "args": [
+          "problem",
+          "guess"
+        ],
+        "type": "{ copy : Gameroom.Spec.Copy , view : Gameroom.Spec.View problem guess , isGuessCorrect : problem -> guess -> Bool , problemGenerator : Gameroom.Spec.ProblemGenerator problem , problemEncoder : Gameroom.Spec.ProblemEncoder problem , problemDecoder : Gameroom.Spec.ProblemDecoder problem , guessEncoder : Gameroom.Spec.GuessEncoder guess , guessDecoder : Gameroom.Spec.GuessDecoder guess }"
+      },
+      {
+        "name": "View",
+        "comment": " Game view, based on current player, all players, current number of repaints since the round began, and the current problem. Emits guesses.\n",
+        "args": [
+          "problem",
+          "guess"
+        ],
+        "type": "Models.Player.PlayerId -> Models.Player.Players guess -> Int -> problem -> Html.Html guess"
+      }
+    ],
+    "types": [],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gameroom.Utilities",
+    "comment": " This module contains generic utility methods useful when defining games.\n\n# Random\n@docs generatorFromList\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "generatorFromList",
+        "comment": " Create a generator from a discrete list of problems. For instance,\n\n    generatorFromList \"apples\" [ \"oranges\", \"lemons\" ] == generator yielding random problems from [\"apples\", \"oranges\", \"lemons\"]\n",
+        "type": "problem -> List problem -> Random.Generator problem"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

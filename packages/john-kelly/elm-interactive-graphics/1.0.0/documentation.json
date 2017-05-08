@@ -1,0 +1,322 @@
+[
+  {
+    "name": "Collage.Interaction",
+    "comment": " Incremental introduction to interactive graphics programs.\n\n# Draw\n@docs Drawing, draw, overlay\n\n# Draw with Time\n@docs Animation, animate\n\n# Draw with Time and Model\n@docs Simulation, simulate\n\n# Draw with Model and Messages\n@docs Interaction, interact, Msg, Mouse, Key, Window\n",
+    "aliases": [
+      {
+        "name": "Animation",
+        "comment": " ",
+        "args": [],
+        "type": "Platform.Program Basics.Never (Collage.Interaction.Model ()) Collage.Interaction.Msg"
+      },
+      {
+        "name": "Drawing",
+        "comment": " ",
+        "args": [],
+        "type": "Platform.Program Basics.Never (Collage.Interaction.Model ()) Collage.Interaction.Msg"
+      },
+      {
+        "name": "Interaction",
+        "comment": " ",
+        "args": [
+          "model"
+        ],
+        "type": "Platform.Program Basics.Never (Collage.Interaction.Model model) Collage.Interaction.Msg"
+      },
+      {
+        "name": "Mouse",
+        "comment": " ",
+        "args": [],
+        "type": "{ x : Float, y : Float }"
+      },
+      {
+        "name": "Simulation",
+        "comment": " ",
+        "args": [
+          "model"
+        ],
+        "type": "Platform.Program Basics.Never (Collage.Interaction.Model model) Collage.Interaction.Msg"
+      },
+      {
+        "name": "Window",
+        "comment": " ",
+        "args": [],
+        "type": "{ top : Float, bottom : Float, left : Float, right : Float }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Key",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Tab",
+            []
+          ],
+          [
+            "Enter",
+            []
+          ],
+          [
+            "Shift",
+            []
+          ],
+          [
+            "Space",
+            []
+          ],
+          [
+            "Left",
+            []
+          ],
+          [
+            "Up",
+            []
+          ],
+          [
+            "Right",
+            []
+          ],
+          [
+            "Down",
+            []
+          ],
+          [
+            "Zero",
+            []
+          ],
+          [
+            "One",
+            []
+          ],
+          [
+            "Two",
+            []
+          ],
+          [
+            "Three",
+            []
+          ],
+          [
+            "Four",
+            []
+          ],
+          [
+            "Five",
+            []
+          ],
+          [
+            "Six",
+            []
+          ],
+          [
+            "Seven",
+            []
+          ],
+          [
+            "Eight",
+            []
+          ],
+          [
+            "Nine",
+            []
+          ],
+          [
+            "A",
+            []
+          ],
+          [
+            "B",
+            []
+          ],
+          [
+            "C",
+            []
+          ],
+          [
+            "D",
+            []
+          ],
+          [
+            "E",
+            []
+          ],
+          [
+            "F",
+            []
+          ],
+          [
+            "G",
+            []
+          ],
+          [
+            "H",
+            []
+          ],
+          [
+            "I",
+            []
+          ],
+          [
+            "J",
+            []
+          ],
+          [
+            "K",
+            []
+          ],
+          [
+            "L",
+            []
+          ],
+          [
+            "M",
+            []
+          ],
+          [
+            "N",
+            []
+          ],
+          [
+            "O",
+            []
+          ],
+          [
+            "P",
+            []
+          ],
+          [
+            "Q",
+            []
+          ],
+          [
+            "R",
+            []
+          ],
+          [
+            "S",
+            []
+          ],
+          [
+            "T",
+            []
+          ],
+          [
+            "U",
+            []
+          ],
+          [
+            "V",
+            []
+          ],
+          [
+            "W",
+            []
+          ],
+          [
+            "X",
+            []
+          ],
+          [
+            "Y",
+            []
+          ],
+          [
+            "Z",
+            []
+          ],
+          [
+            "Other",
+            [
+              "Keyboard.KeyCode"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Msg",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "TimeTick",
+            [
+              "Time.Time"
+            ]
+          ],
+          [
+            "MouseClick",
+            [
+              "Collage.Interaction.Mouse"
+            ]
+          ],
+          [
+            "MouseDown",
+            [
+              "Collage.Interaction.Mouse"
+            ]
+          ],
+          [
+            "MouseUp",
+            [
+              "Collage.Interaction.Mouse"
+            ]
+          ],
+          [
+            "MouseMove",
+            [
+              "Collage.Interaction.Mouse"
+            ]
+          ],
+          [
+            "KeyDown",
+            [
+              "Collage.Interaction.Key"
+            ]
+          ],
+          [
+            "KeyUp",
+            [
+              "Collage.Interaction.Key"
+            ]
+          ],
+          [
+            "WindowResize",
+            [
+              "Collage.Interaction.Window"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "animate",
+        "comment": " ",
+        "type": "(Time.Time -> Collage.Form) -> Collage.Interaction.Animation"
+      },
+      {
+        "name": "draw",
+        "comment": " ",
+        "type": "Collage.Form -> Collage.Interaction.Drawing"
+      },
+      {
+        "name": "interact",
+        "comment": " ",
+        "type": "model -> (model -> Collage.Form) -> (Collage.Interaction.Msg -> model -> model) -> Collage.Interaction.Interaction model"
+      },
+      {
+        "name": "overlay",
+        "comment": " ",
+        "type": "Collage.Form -> Collage.Form -> Collage.Form"
+      },
+      {
+        "name": "simulate",
+        "comment": " ",
+        "type": "model -> (model -> Collage.Form) -> (Time.Time -> model -> model) -> Collage.Interaction.Simulation model"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
