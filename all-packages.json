@@ -657,6 +657,14 @@
         ]
     },
     {
+        "name": "NoRedInk/datetimepicker",
+        "summary": "Reusable date and time picker view",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "NoRedInk/elm-api-components",
         "summary": "API-based components",
         "versions": [
@@ -1884,6 +1892,13 @@
         ]
     },
     {
+        "name": "basti1302/elm-human-readable-filesize",
+        "summary": "Converts file size in bytes to a human readable string",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "bcardiff/elm-debounce",
         "summary": "This modules allows easy usage of debounced events from the view.",
         "versions": [
@@ -2607,6 +2622,18 @@
             "4.0.0",
             "3.0.0",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "cultureamp/elm-css-modules-loader",
+        "summary": "Use Webpack-powered CSS Modules inside your Elm views",
+        "versions": [
+            "1.1.0",
+            "1.0.4",
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -4791,6 +4818,7 @@
         "name": "jamesmacaulay/elm-graphql",
         "summary": "A GraphQL request builder and HTTP client",
         "versions": [
+            "1.3.3",
             "1.3.2",
             "1.3.1",
             "1.3.0",
@@ -5507,6 +5535,14 @@
         "name": "koyachi/elm-sha",
         "summary": "sha.js wrapper for Elm.",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "kress95/random-pcg-extra",
+        "summary": "Community's Random.Pcg extras with pcg support",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6620,6 +6656,7 @@
         "name": "mpizenberg/elm-touch-events",
         "summary": "Handle multitouch events",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -6972,6 +7009,14 @@
             "1.1.0",
             "1.0.3",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "opensolid/linear-algebra",
+        "summary": "Interop support for opensolid/geometry and elm-community/linear-algebra",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
