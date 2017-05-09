@@ -5512,6 +5512,13 @@
         ]
     },
     {
+        "name": "klaftertief/elm-heatmap",
+        "summary": "SVG based heatmaps",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "knewter/elm-rfc5988-parser",
         "summary": "A (woefully-incomplete) parser for RFC5988 Links",
         "versions": [
@@ -6962,6 +6969,14 @@
         ]
     },
     {
+        "name": "ohanhi/lorem",
+        "summary": "Placeholder text for your Elm apps",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ohanhi/remotedata-http",
         "summary": "A collection of helper functions for server communication using RemoteData",
         "versions": [
@@ -7209,6 +7224,14 @@
             "1.1.0",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "primait/elm-autocomplete",
+        "summary": "A very simple autocomplete",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
