@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Glue",
+    "comment": " Composing Elm applications from smaller isolated parts (modules).\nYou can think about this as about lightweight abstraction built around `(model, Cmd msg)` pair\nthat reduces boilerplate required for composing `init` `update` `view` and `subscribe` using\n[`Cmd.map`](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Cmd#map),\n[`Sub.map`](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Sub#map)\nand [`Html.map`](http://package.elm-lang.org/packages/elm-lang/html/2.0.0/Html#map).\n\n# Datatype Definition\n\n@docs Glue\n\n# Constructors\n\n@docs simple, poly, glue\n\n# Basics\n\n@docs init, update, view, subscriptions, subscriptionsWhen\n\n# Helpers\n\n@docs map\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Glue",
+        "comment": " `Glue` defines interface mapings between parent and child module.\n\nYou can create `Glue` with the [`simple`](#simple), [`poly`](#poly) or [`glue`](#glue) function constructor in case of non-standard APIs.\nEvery glue layer is defined in terms of `Model`, `[Submodule].Model` `Msg` and `[Submodule].Msg`.\n",
+        "args": [
+          "model",
+          "subModel",
+          "msg",
+          "subMsg"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "glue",
+        "comment": " Low level [Glue](#Glue) constructor.\n\nUseful when you can't use either [`simple`](#simple) or [`poly`](#poly).\nThis can be caused by nonstandard API where one of the functions uses generic `msg` and other `SubModule.Msg`.\n\n*Always use this constructor as your last option for constructing [`Glue`](#Glue).*\n\n**Interface:**\n\n```\nglue :\n    { model : subModel -> model -> model\n    , init : ( subModel, Cmd msg )\n    , update : subMsg -> model -> ( subModel, Cmd msg )\n    , view : model -> Html msg\n    , subscriptions : model -> Sub msg\n    }\n    -> Glue model subModel msg subMsg\n```\n",
+        "type": "{ model : subModel -> model -> model , init : ( subModel, Platform.Cmd.Cmd msg ) , update : subMsg -> model -> ( subModel, Platform.Cmd.Cmd msg ) , view : model -> Html.Html msg , subscriptions : model -> Platform.Sub.Sub msg } -> Glue.Glue model subModel msg subMsg"
+      },
+      {
+        "name": "init",
+        "comment": " Initialize child module in parent.\n\n```\ntype alias Model =\n    { message : String\n    , firstCounterModel : Counter.Model\n    , secondCounterModel : Counter.Model\n    }\n\ninit : ( Model, Cmd msg )\ninit =\n    ( Model \"\", Cmd.none )\n        |> Glue.init firstCounter\n        |> Glue.init secondCounter\n```\n",
+        "type": "Glue.Glue model subModel msg subMsg -> ( subModel -> a, Platform.Cmd.Cmd msg ) -> ( a, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "map",
+        "comment": " Tiny abstraction over [`Cmd.map`](http://package.elm-lang.org/packages/elm-lang/core/5.1.1/Platform-Cmd#map)\npacked in `(model, Cmd msg)` pair that helps you to reduce boilerplate while turning generic TEA app to [`Glue`](#Glue) using [`glue`](#glue) constructor.\n\nThis function is generally usefull for turning update and init functions in [`Glue`](#glue) definition.\n\n```\ntype alias Model =\n    { message : String\n    , counter : Counter.Model\n    }\n\ntype Msg\n    = CounterMsg Counter.Msg\n\n-- this works liske `simple` constructor\ncounter : Glue Model Counter.Model Msg Counter.Msg\ncounter =\n    Glue.glue\n        { model = \\subModel model -> { model | counter = subModel }\n        , init = Counter.init |> Glue.map CounterMsg\n        , update =\n            \\subMsg model ->\n                Counter.update subMsg model.counter\n                    |> Glue.map CounterMsg\n        , view = \\model -> Html.map CounterMsg <| Counter.view model.counter\n        , subscriptions = \\_ -> Sub.none\n        }\n```\n",
+        "type": "(subMsg -> msg) -> ( subModel, Platform.Cmd.Cmd subMsg ) -> ( subModel, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "poly",
+        "comment": " Polymorphic [`Glue`](#Glue) constructor.\n\nUsefull when module's api has generic `msg` type. Module can also perfrom action bubbling to parent.\n\n**Interface:**\n\n```\npoly :\n    { get : model -> subModel\n    , set : subModel -> model -> model\n    , init : ( subModel, Cmd msg )\n    , update : subMsg -> subModel -> ( subModel, Cmd msg )\n    , view : subModel -> Html msg\n    , subscriptions : subModel -> Sub msg\n    }\n    -> Glue model subModel msg subMsg\n```\n",
+        "type": "{ get : model -> subModel , set : subModel -> model -> model , init : ( subModel, Platform.Cmd.Cmd msg ) , update : subMsg -> subModel -> ( subModel, Platform.Cmd.Cmd msg ) , view : subModel -> Html.Html msg , subscriptions : subModel -> Platform.Sub.Sub msg } -> Glue.Glue model subModel msg subMsg"
+      },
+      {
+        "name": "simple",
+        "comment": " Simple [`Glue`](#Glue) constructor.\n\nGenerally useful for composing independent TEA modules together.\nIf your module's API is polymofphic use [`poly`](#poly) constructor instead.\n\n**Interface:**\n\n```\nsimple :\n    { msg : subMsg -> msg\n    , get : model -> subModel\n    , set : subModel -> model -> model\n    , init : ( subModel, Cmd subMsg )\n    , update : subMsg -> subModel -> ( subModel, Cmd subMsg )\n    , view : subModel -> Html subMsg\n    , subscriptions : subModel -> Sub subMsg\n    }\n    -> Glue model subModel msg subMsg\n```\n",
+        "type": "{ msg : subMsg -> msg , get : model -> subModel , set : subModel -> model -> model , init : ( subModel, Platform.Cmd.Cmd subMsg ) , update : subMsg -> subModel -> ( subModel, Platform.Cmd.Cmd subMsg ) , view : subModel -> Html.Html subMsg , subscriptions : subModel -> Platform.Sub.Sub subMsg } -> Glue.Glue model subModel msg subMsg"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Subscribe to subscriptions defined in submodule.\n\n```\nsubscriptions : Model -> Sub Msg\nsubscriptions =\n    (\\model -> Mouse.clicks Clicked)\n        |> Glue.subscriptions subModule\n        |> Glue.subscriptions anotherNestedModule\n```\n",
+        "type": "Glue.Glue model subModel msg subMsg -> (model -> Platform.Sub.Sub msg) -> model -> Platform.Sub.Sub msg"
+      },
+      {
+        "name": "subscriptionsWhen",
+        "comment": " Subscribe to subscriptions when model is in some state.\n\n```\nsubscriptions : Model -> Sub Msg\nsubscriptions =\n    (\\_ -> Mouse.clicks Clicked)\n        |> Glue.subscriptionsWhen .subModuleSubOn subModule\n```\n",
+        "type": "(model -> Bool) -> Glue.Glue model subModel msg subMsg -> (model -> Platform.Sub.Sub msg) -> model -> Platform.Sub.Sub msg"
+      },
+      {
+        "name": "update",
+        "comment": " Update submodule's state using it's `update` function.\n\n```\ntype Msg\n    = CounterMsg Counter.Msg\n\n\nupdate : Msg -> Model -> ( Model, Cmd Msg )\nupdate msg model =\n    case msg of\n        CounterMsg counterMsg ->\n            ( { model | message = \"Counter has changed\" }, Cmd.none )\n                |> Glue.update counter counterMsg\n```\n\n",
+        "type": "Glue.Glue model subModel msg subMsg -> subMsg -> ( model, Platform.Cmd.Cmd msg ) -> ( model, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Render submodule's view.\n\n```\nview : Model -> Html msg\nview model =\n    Html.div []\n        [ Html.text model.message\n        , Glue.view counter model\n        ]\n```\n",
+        "type": "Glue.Glue model subModel msg subMsg -> model -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
