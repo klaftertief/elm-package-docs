@@ -64,6 +64,7 @@
         "name": "Bogdanp/elm-ast",
         "summary": "A parser for Elm code",
         "versions": [
+            "6.0.0",
             "5.0.0",
             "4.0.5",
             "4.0.4",
@@ -231,6 +232,8 @@
         "name": "ChristophP/elm-i18next",
         "summary": "Use this module to load, decode and use translations in your app",
         "versions": [
+            "2.0.0",
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -2642,6 +2645,7 @@
         "name": "cultureamp/elm-css-modules-loader",
         "summary": "Use Webpack-powered CSS Modules inside your Elm views",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.4",
             "1.0.3",
@@ -2706,6 +2710,8 @@
         "name": "danielnarey/elm-bulma-classes",
         "summary": "Bulma CSS classes organized into one big nested record set",
         "versions": [
+            "2.0.6",
+            "2.0.5",
             "2.0.4",
             "2.0.3",
             "2.0.2",
@@ -3488,6 +3494,7 @@
         "name": "elm-community/graph",
         "summary": "Handling graphs the functional way.",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -7098,6 +7105,13 @@
         ]
     },
     {
+        "name": "opensolid/webgl-math",
+        "summary": "Interop support for opensolid/geometry and Zinggi/elm-webgl-math",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "overminddl1/program-ex",
         "summary": "ProgramEx adds filtering and conversion of messages and states",
         "versions": [
@@ -7112,6 +7126,8 @@
         "name": "pablen/toasty",
         "summary": "A configurable toast notification package for Elm apps.",
         "versions": [
+            "1.0.4",
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -7513,6 +7529,8 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "8.7.0",
+            "8.6.2",
             "8.6.1",
             "8.6.0",
             "8.5.1",
@@ -8627,6 +8645,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "the-sett/ai-search",
+        "summary": "AI Search for Elm",
+        "versions": [
             "1.0.0"
         ]
     },

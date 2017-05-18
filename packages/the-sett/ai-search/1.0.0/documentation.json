@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Search",
+    "comment": "\n\n# Input types for searches:\n@docs Node, Step, Uninformed\n\n# The search output type:\n@docs SearchResult\n\n# The search function:\n@docs search\n\n# Helper functions for iterating searches to produce results:\n@docs next, nextGoal\n",
+    "aliases": [
+      {
+        "name": "Node",
+        "comment": " Defines the type of Nodes that searches work over.\n",
+        "args": [
+          "state"
+        ],
+        "type": "( state, Bool )"
+      },
+      {
+        "name": "Step",
+        "comment": " Defines the type of the step function that produces new states from existing\n   ones. This is how the graph over the search space is defined.\n",
+        "args": [
+          "state"
+        ],
+        "type": "Search.Node state -> List (Search.Node state)"
+      },
+      {
+        "name": "Uninformed",
+        "comment": " Defines the type of a bundle of operators that need to be supplied to conduct\n   an uninformed (non-heuristic) search.\n",
+        "args": [
+          "state"
+        ],
+        "type": "{ step : Search.Step state }"
+      }
+    ],
+    "types": [
+      {
+        "name": "SearchResult",
+        "comment": " Defines the possible outcomes of a search.\n",
+        "args": [
+          "state"
+        ],
+        "cases": [
+          [
+            "Complete",
+            []
+          ],
+          [
+            "Goal",
+            [
+              "state"
+            ]
+          ],
+          [
+            "Ongoing",
+            [
+              "state",
+              "() -> Search.SearchResult state"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "next",
+        "comment": " Steps a search result, to produce the next result.\n   * The result of this function may be an Ongoing search. This will provide the\n     current head search node and a continuation to run the remainder of the search.\n",
+        "type": "Search.SearchResult state -> Search.SearchResult state"
+      },
+      {
+        "name": "nextGoal",
+        "comment": " Continues a search result, to produce the next search goal.\n   * The result of this function will never be an Ongoing search. This\n     function will recursively apply the search until either a Goal state if\n     found or the walk over the search space is Complete.\n",
+        "type": "Search.SearchResult state -> Search.SearchResult state"
+      },
+      {
+        "name": "search",
+        "comment": " Performs an uninformed search.\n",
+        "type": "Search.Uninformed state -> List (Search.Node state) -> Search.SearchResult state"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
