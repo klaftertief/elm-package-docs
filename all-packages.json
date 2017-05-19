@@ -2571,6 +2571,14 @@
         ]
     },
     {
+        "name": "ckoster22/elm-genetic",
+        "summary": "A genetic algorithm implementation",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "cobalamin/elm-json-extra",
         "summary": "DEPRECATED: Use http://package.elm-lang.org/elm-community/json-extra instead",
         "versions": [
@@ -2710,6 +2718,8 @@
         "name": "danielnarey/elm-bulma-classes",
         "summary": "Bulma CSS classes organized into one big nested record set",
         "versions": [
+            "2.0.8",
+            "2.0.7",
             "2.0.6",
             "2.0.5",
             "2.0.4",
@@ -3540,6 +3550,7 @@
         "name": "elm-community/linear-algebra",
         "summary": "A linear algebra library for fast vector and matrix math",
         "versions": [
+            "3.1.1",
             "3.1.0",
             "3.0.0",
             "2.0.0",
@@ -4880,6 +4891,7 @@
         "name": "jamesmacaulay/elm-json-bidirectional",
         "summary": "Two-way JSON encoder-decoders.",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
