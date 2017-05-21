@@ -1,0 +1,71 @@
+[
+  {
+    "name": "Table",
+    "comment": " This module provides a feature-rich and semantic table for Elm apps. It is currently under development and should NOT be used.\n\n# Types and Aliases\n@docs Column, Fixed, State, Msg\n\n# Functions\n@docs initialState, update, view\n\n",
+    "aliases": [
+      {
+        "name": "Column",
+        "comment": " The shape of a column for a particular set of data. See the examples provided within this repository for usage details.\n",
+        "args": [
+          "a"
+        ],
+        "type": "{ id : String , fixed : Table.Fixed , sorting : Table.Sorting a , filtering : Table.Filtering a , header : Html.Html (Table.Msg a) , body : a -> Html.Html (Table.Msg a) , footer : List a -> Html.Html (Table.Msg a) }"
+      },
+      {
+        "name": "State",
+        "comment": " Holds the internal Table state. You need to hold this state in your application's model.\n",
+        "args": [
+          "a"
+        ],
+        "type": "{ scrollPos : Table.Point , sorter : Dict.Dict String Table.SortDirection , popovers : Dict.Dict String Table.PopoverState , filters : Dict.Dict String (a -> Bool) }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Fixed",
+        "comment": " Provides types for fixed columns. This feature is not yet implemented.\n",
+        "args": [],
+        "cases": [
+          [
+            "Right",
+            []
+          ],
+          [
+            "Left",
+            []
+          ],
+          [
+            "None",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Msg",
+        "comment": " Messages used internally by the Table module. You need to map the return from the view function to a message in your app and pass the\nreceived sub-message to the Table module's update function. See the example including with the view function below.\n",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "initialState",
+        "comment": " Creates the initial state for a Table.\n",
+        "type": "Table.State a"
+      },
+      {
+        "name": "update",
+        "comment": " Handles the messages defined above. This function must be called from your application's update function with the Table.Msg, the\noriginal data set, the current data set (stored in your model), the current Table.State (stored in your model), and your application's\nNoOp Msg.\n",
+        "type": "Table.Msg a -> List a -> List a -> Table.State a -> msg -> Table.Result a msg"
+      },
+      {
+        "name": "view",
+        "comment": " The entry point for the Table module. You will need to call this from your application's view function. See the examples provided\nwithin this repository for usage details.\n",
+        "type": "Table.Props a -> Table.State a -> Html.Html (Table.Msg a)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

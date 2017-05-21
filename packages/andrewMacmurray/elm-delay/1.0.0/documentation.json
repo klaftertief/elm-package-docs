@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Delay",
+    "comment": " Utilities to delay updates after a set period of time\n\n# Delay one message\n@docs after\n\n# Delay a sequence of messages\n@docs start, startIf, handleSequence\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "after",
+        "comment": " Delays an update (with a message) by a given number of milliseconds\n\n    -- triggers DelayedMsg after 500ms\n    after 500 DelayedMsg\n",
+        "type": "Float -> msg -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "handleSequence",
+        "comment": " Calls update with each message and a delay until finished.\n\n    -- recursively calls update until all Msgs have been processed\n    Sequence msgs ->\n      handleSequence Sequence update model\n",
+        "type": "(List ( Float, msg ) -> msg) -> List ( Float, msg ) -> (msg -> model -> ( model, Platform.Cmd.Cmd msg )) -> model -> ( model, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "start",
+        "comment": " Starts a sequence of messages given the SequenceMsg and a list of messages to be sent\n\n    type Msg\n        = FirstMsg\n        | SecondMsg\n        | ThirdMsg\n        | Sequence (List ( Float, Msg ))\n\n    -- triggers each Msg one after the other with a 500ms delay\n    start Sequence\n      [ (500, FirstMsg)\n      , (500, SecondMsg)\n      , (500, ThirdMsg)\n      ]\n",
+        "type": "(List ( Float, msg ) -> msg) -> List ( Float, msg ) -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "startIf",
+        "comment": " Starts a sequence if a predicate value is True. This is helpful if you'd like to start the sequence only if your model is in a particular shape\n\n    startIf (not model.updating) Sequence\n      [ (500, FirstMsg)\n      , (500, SecondMsg)\n      , (500, ThirdMsg)\n      ]\n",
+        "type": "Bool -> (List ( Float, msg ) -> msg) -> List ( Float, msg ) -> Platform.Cmd.Cmd msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
