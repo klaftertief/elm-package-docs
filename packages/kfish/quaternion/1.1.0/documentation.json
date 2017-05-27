@@ -1,0 +1,304 @@
+[
+  {
+    "name": "Quaternion",
+    "comment": " Quaternions\n\nThis API exposes only normalized quaternions (ie. length=1).\nTo use arbitrary quaternions, import Internal.Quaternion.\n\n\n# Types\n\n@docs Quaternion\n\n\n# Create\n\n@docs quaternion, unit, fromVec3, fromTo\n\n\n# Angle-Axis representation\n\n@docs fromAngleAxis, getAngle, getAxis\n\n\n# Operations\n\n@docs negate, conjugate, multiply, rotate\n\n\n# Yaw-Pitch-Roll\n\n@docs fromYawPitchRoll, toYawPitchRoll\n\n\n# Conversions\n\n@docs toVec3, toMat4\n\n",
+    "aliases": [
+      {
+        "name": "Quaternion",
+        "comment": " Quaternion type\n",
+        "args": [],
+        "type": "Internal.Quaternion.Quaternion"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "conjugate",
+        "comment": " Quaternion conjugate\n",
+        "type": "Quaternion.Quaternion -> Quaternion.Quaternion"
+      },
+      {
+        "name": "fromAngleAxis",
+        "comment": " Construction from angle, axis.\nThis will create a unit quaternion if given a unit vector.\n",
+        "type": "Float -> Math.Vector3.Vec3 -> Quaternion.Quaternion"
+      },
+      {
+        "name": "fromTo",
+        "comment": " Quaternion from two vectors\n",
+        "type": "Math.Vector3.Vec3 -> Math.Vector3.Vec3 -> Quaternion.Quaternion"
+      },
+      {
+        "name": "fromVec3",
+        "comment": " Construct a quaternion from an orientation vector\n",
+        "type": "Math.Vector3.Vec3 -> Quaternion.Quaternion"
+      },
+      {
+        "name": "fromYawPitchRoll",
+        "comment": " Construction a unit quaternion from Tait-Bryan angles representing\n(yaw, pitch, roll)\n\n<https://en.wikipedia.org/wiki/Euler_angles#Tait.E2.80.93Bryan_angles>\n\n",
+        "type": "( Float, Float, Float ) -> Quaternion.Quaternion"
+      },
+      {
+        "name": "getAngle",
+        "comment": " Angle of rotation.\nReturns angle in radians, in the range [0, 2*pi)\n",
+        "type": "Quaternion.Quaternion -> Float"
+      },
+      {
+        "name": "getAxis",
+        "comment": " Unit vector along the axis of rotation\n",
+        "type": "Quaternion.Quaternion -> Math.Vector3.Vec3"
+      },
+      {
+        "name": "multiply",
+        "comment": " Hamilton product\n",
+        "type": "Quaternion.Quaternion -> Quaternion.Quaternion -> Quaternion.Quaternion"
+      },
+      {
+        "name": "negate",
+        "comment": " Quaternion negation: -a\n",
+        "type": "Quaternion.Quaternion -> Quaternion.Quaternion"
+      },
+      {
+        "name": "quaternion",
+        "comment": " Creates a normalized quaternion with the given x, y, z, and w values.\n",
+        "type": "Float -> Float -> Float -> Float -> Quaternion.Quaternion"
+      },
+      {
+        "name": "rotate",
+        "comment": " Rotate a vector v by the unit quaternion q\n",
+        "type": "Quaternion.Quaternion -> Math.Vector3.Vec3 -> Math.Vector3.Vec3"
+      },
+      {
+        "name": "toMat4",
+        "comment": " Convert to a Mat4\n",
+        "type": "Quaternion.Quaternion -> Math.Matrix4.Mat4"
+      },
+      {
+        "name": "toVec3",
+        "comment": " Extract the axis of rotation\n",
+        "type": "Quaternion.Quaternion -> Math.Vector3.Vec3"
+      },
+      {
+        "name": "toYawPitchRoll",
+        "comment": " Convert a unit quaternion to Yaw, Pitch, Roll\n",
+        "type": "Quaternion.Quaternion -> ( Float, Float, Float )"
+      },
+      {
+        "name": "unit",
+        "comment": " Construction of a unit quaternion\n",
+        "type": "Quaternion.Quaternion"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Internal.Quaternion",
+    "comment": " Quaternions\n\nCan express rotations, but not shearing, scaling or translations\n\nTranslations are trivial\n\nShearing and scaling don't happen in the real world\n\nScaling is trivial\n\nSo, a combination of translation and orientation (via quaternions)\nis everything you need for world transforms.\n\nImpossible transforms are inexpressible\n\nAlso, quaternions are faster than matrices due to 4 components not 9.\n\n\n# API Design\n\nThis API is designed for efficiency: input ranges are documented, but\ninput values are not sanitized. For example, most rotation operations\nrequire unit quaternions and unit axis vectors. Rather than normalizing\nall inputs, which would add sqrt calls to all functions, the expected\nvalues are documented.\n\n\n# Types\n\n@docs Quaternion\n\n\n# Create\n\n@docs unit, quaternion, fromRecord, fromTuple, fromScalar, fromVec3, fromScalarVector, fromTo\n\n\n# Get and Set\n\n@docs getScalar, getI, getJ, getK, setScalar, setI, setJ, setK\n\n\n# Operations\n\n@docs length, lengthSquared, normalize, negate, scale, add, sub, conjugate, hamilton, vmult, rotateV, multv, rotateQ\n\n\n# Angle-Axis representation\n\n@docs fromAngleAxis, getAngle, getAxis\n\n\n# Yaw-Pitch-Roll\n\n@docs fromYawPitchRoll, toYawPitchRoll\n\n\n# Conversions\n\n@docs toRecord, toTuple, toScalarVector, toVec3, toMat4\n\n\n# Co-ordinate systems\n\nRigid Body Dynamics, Inertial Reference Frames,\nand Graphics Coordinate Systems:\nA Resolution of Conflicting Conventions and Terminology\n<http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.58.99&rep=rep1&type=pdf>\n\n",
+    "aliases": [
+      {
+        "name": "Quaternion",
+        "comment": " Quaternion type\n",
+        "args": [],
+        "type": "Math.Vector4.Vec4"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "add",
+        "comment": " Quaternion addition: a + b\n",
+        "type": "Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "conjugate",
+        "comment": " Quaternion conjugate\n",
+        "type": "Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "fromAngleAxis",
+        "comment": " Construction from angle, axis.\nThis will create a unit quaternion if given a unit vector.\n",
+        "type": "Float -> Math.Vector3.Vec3 -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "fromRecord",
+        "comment": " Convert a record to a quaternion.\n",
+        "type": "{ s : Float, i : Float, j : Float, k : Float } -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "fromScalar",
+        "comment": " Construction of a scalar quaternion\n",
+        "type": "Float -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "fromScalarVector",
+        "comment": " Construct a Quaternion from its representation as a scalar and a vector\n",
+        "type": "( Float, Math.Vector3.Vec3 ) -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "fromTo",
+        "comment": " Quaternion from two vectors\n",
+        "type": "Math.Vector3.Vec3 -> Math.Vector3.Vec3 -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "fromTuple",
+        "comment": " Convert a tuple to a quaternion.\n",
+        "type": "( Float, Float, Float, Float ) -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "fromVec3",
+        "comment": " Construction of a right quaternion\n",
+        "type": "Math.Vector3.Vec3 -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "fromYawPitchRoll",
+        "comment": " Construction a unit quaternion from Tait-Bryan angles representing\n(yaw, pitch, roll)\n\n<https://en.wikipedia.org/wiki/Euler_angles#Tait.E2.80.93Bryan_angles>\n\n",
+        "type": "( Float, Float, Float ) -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "getAngle",
+        "comment": " Angle of rotation.\nReturns angle in radians, in the range [0, 2*pi)\n",
+        "type": "Internal.Quaternion.Quaternion -> Float"
+      },
+      {
+        "name": "getAxis",
+        "comment": " Unit vector along the axis of rotation\n",
+        "type": "Internal.Quaternion.Quaternion -> Math.Vector3.Vec3"
+      },
+      {
+        "name": "getI",
+        "comment": " Extract the i component of a quaternion.\n",
+        "type": "Internal.Quaternion.Quaternion -> Float"
+      },
+      {
+        "name": "getJ",
+        "comment": " Extract the j component of a quaternion.\n",
+        "type": "Internal.Quaternion.Quaternion -> Float"
+      },
+      {
+        "name": "getK",
+        "comment": " Extract the k component of a quaternion.\n",
+        "type": "Internal.Quaternion.Quaternion -> Float"
+      },
+      {
+        "name": "getScalar",
+        "comment": " Extract the scalar component of a quaternion.\n",
+        "type": "Internal.Quaternion.Quaternion -> Float"
+      },
+      {
+        "name": "hamilton",
+        "comment": " Hamilton product\n",
+        "type": "Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "length",
+        "comment": " The length of the given quaternion: |a|\n",
+        "type": "Internal.Quaternion.Quaternion -> Float"
+      },
+      {
+        "name": "lengthSquared",
+        "comment": " The square of the length of the given quaternion: |a| * |a|\n",
+        "type": "Internal.Quaternion.Quaternion -> Float"
+      },
+      {
+        "name": "multv",
+        "comment": " Multiplication of a quaternion by a vector\n",
+        "type": "Internal.Quaternion.Quaternion -> Math.Vector3.Vec3 -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "negate",
+        "comment": " Quaternion negation: -a\n",
+        "type": "Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "normalize",
+        "comment": " A unit quaternion with the same direction as the given quaternion: a / |a|\n",
+        "type": "Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "quaternion",
+        "comment": " Creates a new 4-element quaternion with the given x, y, z, and w values.\n",
+        "type": "Float -> Float -> Float -> Float -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "rotateQ",
+        "comment": " Rotate quaternion q1 by quaternion q2\n",
+        "type": "Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "rotateV",
+        "comment": " Rotate a vector v by the unit quaternion q\n",
+        "type": "Internal.Quaternion.Quaternion -> Math.Vector3.Vec3 -> Math.Vector3.Vec3"
+      },
+      {
+        "name": "scale",
+        "comment": " Multiply the quaternion by a scalar: s * q\n",
+        "type": "Float -> Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "setI",
+        "comment": " Update the i component of a quaternion, returning a new quaternion.\n",
+        "type": "Float -> Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "setJ",
+        "comment": " Update the j component of a quaternion, returning a new quaternion.\n",
+        "type": "Float -> Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "setK",
+        "comment": " Update the k component of a quaternion, returning a new quaternion.\n",
+        "type": "Float -> Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "setScalar",
+        "comment": " Update the scalar component of a quaternion, returning a new quaternion.\n",
+        "type": "Float -> Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "sub",
+        "comment": " Quaternion subtraction: a - b\n",
+        "type": "Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "toMat4",
+        "comment": " Convert to a Mat4\n",
+        "type": "Internal.Quaternion.Quaternion -> Math.Matrix4.Mat4"
+      },
+      {
+        "name": "toRecord",
+        "comment": " Convert a quaternion to a record.\n",
+        "type": "Internal.Quaternion.Quaternion -> { s : Float, i : Float, j : Float, k : Float }"
+      },
+      {
+        "name": "toScalarVector",
+        "comment": " Convert a quaternion to a tuple of (scalar, vector)\n",
+        "type": "Internal.Quaternion.Quaternion -> ( Float, Math.Vector3.Vec3 )"
+      },
+      {
+        "name": "toTuple",
+        "comment": " Convert a quaternion to a tuple.\n",
+        "type": "Internal.Quaternion.Quaternion -> ( Float, Float, Float, Float )"
+      },
+      {
+        "name": "toVec3",
+        "comment": " Extract the axis of rotation\n",
+        "type": "Internal.Quaternion.Quaternion -> Math.Vector3.Vec3"
+      },
+      {
+        "name": "toYawPitchRoll",
+        "comment": " Convert a unit quaternion to Yaw, Pitch, Roll\n<http://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToEuler/index.htm>\n",
+        "type": "Internal.Quaternion.Quaternion -> ( Float, Float, Float )"
+      },
+      {
+        "name": "unit",
+        "comment": " Construction of a unit quaternion\n",
+        "type": "Internal.Quaternion.Quaternion"
+      },
+      {
+        "name": "vmult",
+        "comment": " Multiplication of a vector by a quaternion\n",
+        "type": "Math.Vector3.Vec3 -> Internal.Quaternion.Quaternion -> Internal.Quaternion.Quaternion"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

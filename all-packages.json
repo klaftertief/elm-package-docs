@@ -440,6 +440,7 @@
         "name": "Gizra/elm-dictlist",
         "summary": "Dict with arbitrary ordering (like List)",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -469,6 +470,7 @@
         "name": "Janiczek/elm-architecture-test",
         "summary": "A library for fuzz testing TEA models by simulating user interactions",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -601,6 +603,7 @@
         "name": "Kinto/elm-kinto",
         "summary": "A client to help making requests to a Kinto storage server",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.0.0",
             "1.0.0"
@@ -5641,6 +5644,14 @@
             "2.0.1",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "kfish/quaternion",
+        "summary": "Fast 3D rotation and orientation",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
