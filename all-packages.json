@@ -64,6 +64,8 @@
         "name": "Bogdanp/elm-ast",
         "summary": "A parser for Elm code",
         "versions": [
+            "8.0.1",
+            "8.0.0",
             "7.0.0",
             "6.0.2",
             "6.0.1",
@@ -864,6 +866,7 @@
         "name": "NoRedInk/json-elm-schema",
         "summary": "write json schemas in elm",
         "versions": [
+            "2.0.0",
             "1.5.0",
             "1.4.0",
             "1.3.0",
@@ -1828,6 +1831,7 @@
         "name": "avh4/elm-beautiful-example",
         "summary": "Create beautiful examples to show off your Elm packages and projects",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -1843,6 +1847,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "avh4/elm-dropbox",
+        "summary": "Unofficial Dropbox API for Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3423,6 +3434,7 @@
         "name": "elm-community/dict-extra",
         "summary": "Convenience functions for working with Dict",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.5.0",
             "1.4.0",
@@ -3550,6 +3562,7 @@
         "name": "elm-community/elm-test",
         "summary": "Unit and Fuzz testing support with Console/Html/String outputs.",
         "versions": [
+            "4.1.0",
             "4.0.0",
             "3.1.0",
             "3.0.0",
@@ -6017,6 +6030,7 @@
         "name": "ktonon/elm-test-extra",
         "summary": "Extra expectations, fuzzers, testers and describers",
         "versions": [
+            "1.5.1",
             "1.5.0",
             "1.4.0",
             "1.3.0",
@@ -8014,6 +8028,7 @@
         "name": "rundis/elm-bootstrap",
         "summary": "Elm Bootstrap is a comprehensive library for working with Twitter Bootstrap 4",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.1.0",
             "1.0.0"
