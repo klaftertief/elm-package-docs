@@ -425,6 +425,13 @@
         ]
     },
     {
+        "name": "Gizra/elm-attribute-builder",
+        "summary": "Build up lists of HTML attributes in a modular manner",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Gizra/elm-compat-017",
         "summary": "Compatibility layer for use in Elm 0.17",
         "versions": [
@@ -472,6 +479,7 @@
         "name": "Janiczek/elm-architecture-test",
         "summary": "A library for fuzz testing TEA models by simulating user interactions",
         "versions": [
+            "1.0.5",
             "1.0.4",
             "1.0.3",
             "1.0.2",
@@ -1831,7 +1839,17 @@
         "name": "avh4/elm-beautiful-example",
         "summary": "Create beautiful examples to show off your Elm packages and projects",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "avh4/elm-debug-controls",
+        "summary": "Easily create interactive UIs for complex data structures",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
@@ -3377,6 +3395,10 @@
         "name": "elm-bodybuilder/elegant",
         "summary": "Framework for inline CSS",
         "versions": [
+            "2.2.0",
+            "2.1.0",
+            "2.0.1",
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -5410,6 +5432,7 @@
         "name": "joonazan/elm-type-inference",
         "summary": "Type inference for Elm, written in Elm.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6499,6 +6522,8 @@
         "name": "mdgriffith/elm-color-mixing",
         "summary": "Color Mixing Functions!",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.4",
             "1.0.3",
             "1.0.2",
@@ -7365,6 +7390,7 @@
         "name": "peterszerzo/elm-gameroom",
         "summary": "Multiplayer guessing game framework",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -7451,6 +7477,8 @@
         "name": "primait/elm-autocomplete",
         "summary": "A very simple autocomplete",
         "versions": [
+            "3.0.0",
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -9220,6 +9248,7 @@
         "name": "wende/elmchemy-core",
         "summary": "Set of standard libraries for Elmchemy",
         "versions": [
+            "1.2.0",
             "1.1.1",
             "1.1.0",
             "1.0.1",
