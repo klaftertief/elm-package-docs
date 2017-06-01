@@ -192,6 +192,7 @@
     "eliaslfox/orderedmap",
     "eliaslfox/queue",
     "elm-bodybuilder/elegant",
+    "elm-bodybuilder/elm-function",
     "elm-bodybuilder/formbuilder",
     "elm-bodybuilder/formbuilder-autocomplete",
     "elm-bodybuilder/formbuilder-photo",
