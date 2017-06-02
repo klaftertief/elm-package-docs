@@ -876,6 +876,7 @@
         "name": "NoRedInk/json-elm-schema",
         "summary": "write json schemas in elm",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.5.0",
             "1.4.0",
@@ -1289,6 +1290,13 @@
     {
         "name": "TheSeamau5/typographic-scale",
         "summary": "Library for working with typographic scales",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ThinkAlexandria/elm-drag-locations",
+        "summary": "Drag library designed for many different interaction locations",
         "versions": [
             "1.0.0"
         ]
@@ -2009,6 +2017,7 @@
         "name": "basti1302/elm-human-readable-filesize",
         "summary": "Converts file size in bytes to a human readable string",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -3338,6 +3347,7 @@
         "name": "eeue56/elm-html-test",
         "summary": "Write tests for your Html.",
         "versions": [
+            "4.0.0",
             "3.1.1",
             "3.1.0",
             "3.0.0",
@@ -3432,6 +3442,7 @@
         "name": "elm-bodybuilder/formbuilder-autocomplete",
         "summary": "Field for FormBuilder: autocomplete field fetching informations on the Internet",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -7878,6 +7889,7 @@
         "name": "rogeriochaves/elm-test-bdd-style",
         "summary": "BDD-style matchers for elm-test",
         "versions": [
+            "6.0.3",
             "6.0.2",
             "6.0.1",
             "6.0.0",
@@ -8343,6 +8355,14 @@
         "name": "sindikat/elm-maybe-experimental",
         "summary": "Testing ground for experimental Maybe functions",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "sixty-north/elm-price-chart",
+        "summary": "Elm Price Chart",
+        "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -9076,6 +9096,25 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "truqu/elm-oauth2",
+        "summary": "OAuth 2.0 client-side utils",
+        "versions": [
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "truqu/elm-oauth2.0",
+        "summary": "DO NOT USE. See elm-oauth2 instead",
+        "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
