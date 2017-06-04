@@ -1,0 +1,208 @@
+[
+  {
+    "name": "Graph.Random",
+    "comment": "\n\nGraph.Random provides graph functions that require randomness to work. Note that this module uses `Random.Pcg` rather than the standard library `Random`.\n\n# Elm-test fuzzers\n@docs topologicalSortFuzzer\n\n# Random.Pcg\n@docs randomTopologicalSort\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "randomTopologicalSort",
+        "comment": " Generate a random topological sorting of a *directed acyclic graph*. Crashes if the graph contains cycles.\n",
+        "type": "Graph.Internal.Graph comparable data -> Random.Pcg.Generator (List comparable)"
+      },
+      {
+        "name": "topologicalSortFuzzer",
+        "comment": " Elm-test fuzzer that generates random topological sortings of a *directed acyclic graph*. Crashes if the graph contains cycles.\n",
+        "type": "Graph.Internal.Graph comparable data -> Fuzz.Fuzzer (List comparable)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graph",
+    "comment": "\n\nA simple functional graph library. Keys used to identify nodes can be any `comparable` and nodes can have any kind of metadata associated with them.\n\nAll operations that look at a single node are at most `O(log n)`.\nOperations that look at all elements in the graph are at most `O(n log n)`.\n\n# Types\n@docs Graph\n\n# Build\n@docs empty, insertNode, insertNodeData, insertEdge, removeNode, removeEdge\n\n# Query\n@docs getData, member, memberEdge, incoming, outgoing, size, keys, nodes, edges, isAcyclic, reachable, relativeOrder\n\n# Transform\n@docs map, foldl, foldr\n\n# Set operations\n@docs partition, union, intersect\n\n# Algorithms and Traversal\n@docs postOrder, topologicalSort\n\n# Feature flags\n@docs enableDagReachability, disableDagReachability\n\n",
+    "aliases": [
+      {
+        "name": "Graph",
+        "comment": " A directed graph. `Graph Int String` is a graph that uses `Int`s for identifying its nodes, and lets you store a `String` on each node.\n",
+        "args": [
+          "comparable",
+          "data"
+        ],
+        "type": "Graph.Internal.Graph comparable data"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "disableDagReachability",
+        "comment": " Disable the dynamic reachability optimization for *directed acyclic graphs*.\n",
+        "type": "Graph.Internal.Graph comparable data -> Graph.Internal.Graph comparable data"
+      },
+      {
+        "name": "edges",
+        "comment": " Get the (from, to) pair for each edge in the graph.\n",
+        "type": "Graph.Internal.Graph comparable data -> List ( comparable, comparable )"
+      },
+      {
+        "name": "empty",
+        "comment": " Create an empty graph.\n",
+        "type": "Graph.Internal.Graph comparable data"
+      },
+      {
+        "name": "enableDagReachability",
+        "comment": " Enable the dynamic reachability optimization for *directed acyclic graphs*. This allows `O(log n)` queries for the relative ordering of two elements in a partially ordered set, and `O(log n)` queries for the set of nodes that are reachable from a specific node.\n\nThe downside is that modifying the graph now takes `O(log n * (nodes before this node))` time on average. Modifying the beginning of the graph is thus quite fast, but inserting an edge at the end takes `O(n log n)` time. The other downside is that this optimization only works on directed acyclic graphs.\n",
+        "type": "Graph.Internal.Graph comparable data -> Maybe.Maybe (Graph.Internal.Graph comparable data)"
+      },
+      {
+        "name": "foldl",
+        "comment": " Fold over the node keys and data in a graph, in order from lowest `key` to highest `key`.\n",
+        "type": "(comparable -> Maybe.Maybe data -> a -> a) -> a -> Graph.Internal.Graph comparable data -> a"
+      },
+      {
+        "name": "foldr",
+        "comment": " Fold over the node keys and data in a graph, in order from highest `key` to lowest `key`.\n",
+        "type": "(comparable -> Maybe.Maybe data -> a -> a) -> a -> Graph.Internal.Graph comparable data -> a"
+      },
+      {
+        "name": "getData",
+        "comment": " Get the data associated with a specific node.\n",
+        "type": "comparable -> Graph.Internal.Graph comparable data -> Maybe.Maybe data"
+      },
+      {
+        "name": "incoming",
+        "comment": " Get the set of incoming edges to a node.\n",
+        "type": "comparable -> Graph.Internal.Graph comparable data -> Set.Set comparable"
+      },
+      {
+        "name": "insertEdge",
+        "comment": " Insert an edge between two nodes. Creates any nodes that do not already exist.\n",
+        "type": "( comparable, comparable ) -> Graph.Internal.Graph comparable data -> Graph.Internal.Graph comparable data"
+      },
+      {
+        "name": "insertNode",
+        "comment": " Insert a node. Does not overwrite metadata if node already exists.\n",
+        "type": "comparable -> Graph.Internal.Graph comparable data -> Graph.Internal.Graph comparable data"
+      },
+      {
+        "name": "insertNodeData",
+        "comment": " Update metadata for a node. Creates the node if it does not already exist.\n",
+        "type": "comparable -> data -> Graph.Internal.Graph comparable data -> Graph.Internal.Graph comparable data"
+      },
+      {
+        "name": "intersect",
+        "comment": " Create a graph based on the intersection of two graphs. If both graphs have the same node, edge or associated metadata, it will be in the resulting graph. If one graph has metadata and the other only has the node, the node will be in the resulting graph, but the metadata will not.\n",
+        "type": "Graph.Internal.Graph comparable data -> Graph.Internal.Graph comparable data -> Graph.Internal.Graph comparable data"
+      },
+      {
+        "name": "isAcyclic",
+        "comment": " Determine if a graph contains any loops or cycles.\n",
+        "type": "Graph.Internal.Graph comparable data -> Bool"
+      },
+      {
+        "name": "keys",
+        "comment": " Get the keys for all nodes in the graph.\n",
+        "type": "Graph.Internal.Graph comparable data -> List comparable"
+      },
+      {
+        "name": "map",
+        "comment": " Apply a function to the data associated with each node in a graph.\n",
+        "type": "(comparable -> Maybe.Maybe data1 -> Maybe.Maybe data2) -> Graph.Internal.Graph comparable data1 -> Graph.Internal.Graph comparable data2"
+      },
+      {
+        "name": "member",
+        "comment": " Determine if a node identified by a key is in the graph.\n",
+        "type": "comparable -> Graph.Internal.Graph comparable data -> Bool"
+      },
+      {
+        "name": "memberEdge",
+        "comment": " Determine if an edge identified by a pair of keys is in the graph.\n",
+        "type": "( comparable, comparable ) -> Graph.Internal.Graph comparable data -> Bool"
+      },
+      {
+        "name": "nodes",
+        "comment": " Get the (key, data) pair for each node in the graph.\n",
+        "type": "Graph.Internal.Graph comparable data -> List ( comparable, Maybe.Maybe data )"
+      },
+      {
+        "name": "outgoing",
+        "comment": " Get the set of outgoing edges from a node.\n",
+        "type": "comparable -> Graph.Internal.Graph comparable data -> Set.Set comparable"
+      },
+      {
+        "name": "partition",
+        "comment": " Partition a graph into two parts, one with the nodes where the predicate function returned `True`, and one where it returned `False`.\n",
+        "type": "(comparable -> Maybe.Maybe data -> Bool) -> Graph.Internal.Graph comparable data -> ( Graph.Internal.Graph comparable data , Graph.Internal.Graph comparable data )"
+      },
+      {
+        "name": "postOrder",
+        "comment": " Get a list of all keys according to a postorder traversal of a spanning tree of the graph.\n",
+        "type": "Graph.Internal.Graph comparable data -> List comparable"
+      },
+      {
+        "name": "reachable",
+        "comment": " Get the set of reachable nodes from a key, following outgoing edges any number of steps.\n",
+        "type": "comparable -> Graph.Internal.Graph comparable data -> Set.Set comparable"
+      },
+      {
+        "name": "relativeOrder",
+        "comment": " Returns the relative ordering of two keys in a *directed acyclic graph*. If there is a path from `a` to `b` over outgoing edges, `a` is `Before` `b`. If there is no path between them, they compare `Concurrent`.\n",
+        "type": "comparable -> comparable -> Graph.Internal.Graph comparable data -> Graph.RelativeOrdering.RelativeOrdering"
+      },
+      {
+        "name": "removeEdge",
+        "comment": " Remove an edge identified by its source and target keys. No-op if source, target or edge doesn't exist.\n",
+        "type": "( comparable, comparable ) -> Graph.Internal.Graph comparable data -> Graph.Internal.Graph comparable data"
+      },
+      {
+        "name": "removeNode",
+        "comment": " Remove a node by its key. No-op if node doesn't exist.\n",
+        "type": "comparable -> Graph.Internal.Graph comparable data -> Graph.Internal.Graph comparable data"
+      },
+      {
+        "name": "size",
+        "comment": " Determine the number of nodes in the graph.\n",
+        "type": "Graph.Internal.Graph comparable data -> Int"
+      },
+      {
+        "name": "topologicalSort",
+        "comment": " Get a topological sorting of the graph, if the graph doesn't contain any loops or cycles.\n",
+        "type": "Graph.Internal.Graph comparable data -> Maybe.Maybe (List comparable)"
+      },
+      {
+        "name": "union",
+        "comment": " Join two graphs together. If an edge appears between two nodes in either of the graphs, it will be in the resulting graph. If a node identified by a specific key appears in any of the graphs, it will be in the resulting graph. If both graphs have metadata for the same key, the metadata in the left graph will be used.\n",
+        "type": "Graph.Internal.Graph comparable data -> Graph.Internal.Graph comparable data -> Graph.Internal.Graph comparable data"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graph.RelativeOrdering",
+    "comment": "\n@docs RelativeOrdering\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "RelativeOrdering",
+        "comment": " This type represents the relative ordering between two things in a graph.\n",
+        "args": [],
+        "cases": [
+          [
+            "Before",
+            []
+          ],
+          [
+            "After",
+            []
+          ],
+          [
+            "Concurrent",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
