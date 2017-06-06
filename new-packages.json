@@ -313,6 +313,7 @@
     "jinjor/elm-html-parser",
     "jinjor/elm-inline-hover",
     "jinjor/elm-time-travel",
+    "jinjor/elm-xml-parser",
     "john-kelly/elm-interactive-graphics",
     "john-kelly/elm-postgrest",
     "joneshf/elm-tagged",

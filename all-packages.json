@@ -2836,6 +2836,7 @@
         "name": "danielnarey/elm-bulma-classes",
         "summary": "Bulma CSS classes organized into one big nested record set",
         "versions": [
+            "2.0.13",
             "2.0.12",
             "2.0.11",
             "2.0.10",
@@ -5276,6 +5277,13 @@
     {
         "name": "jinjor/elm-transition",
         "summary": "A simple transition library for Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jinjor/elm-xml-parser",
+        "summary": "XML Parser for Elm",
         "versions": [
             "1.0.0"
         ]
@@ -8527,6 +8535,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.7.0",
             "2.6.0",
             "2.5.1",
             "2.5.0",
