@@ -1,0 +1,251 @@
+[
+  {
+    "name": "Maps",
+    "comment": " The Maps library contains the functions neccessary for an\n[HTML.program](http://package.elm-lang.org/packages/elm-lang/html/2.0.0/Html#program).\n\n# Creating a map\nThe quickest way to get up and running is to create a map with default options\n\n    import Maps\n    import Html exposing (program)\n\n    main = program <| Maps.map Maps.defaultOptions\n\n@docs map\n@docs Options\n@docs defaultOptions\n\n# Definitions\n@docs Msg\n@docs Model\n\n# Program functions\n@docs update\n@docs subscriptions\n@docs view\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " The map's model consists of the [properties necessary to display a static map](Maps-Map#Map),\na cache of the previous map (for simulated zooming/panning before the real tiles load in)\nand the state of the map being dragged.\n",
+        "args": [],
+        "type": "{ map : Maps.Map.Map , cache : List Maps.Map.Map , drag : Maybe.Maybe Maps.Drag.Drag }"
+      },
+      {
+        "name": "Options",
+        "comment": " The Options type allows you to configure the map display properties.\n\nThe tileServer property is a URL template of the form\n\n    \"http://somedomain.com/blabla/{z}/{x}/{y}.png\"\n\nWhere {z} is the zoom level and {x}/{y} are the x/y tile coordinates.\n\nThe [bounds](Map-Bounds#Bounds) defines the area being viewed.\n\nThe width and height define the width and height of the map in pixels.\n\nThe tileSize defines the size of an individual tile in pixels (this is usually 256px).\n",
+        "args": [],
+        "type": "{ tileServer : String , bounds : Maps.Bounds.Bounds , width : Float , height : Float , tileSize : Float }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " The map has events for dragging, zooming and setting the bounds displayed by the map.\n",
+        "args": [],
+        "cases": [
+          [
+            "DragStart",
+            [
+              "Maps.Screen.Offset"
+            ]
+          ],
+          [
+            "DragTo",
+            [
+              "Maps.Screen.Offset"
+            ]
+          ],
+          [
+            "DragStop",
+            []
+          ],
+          [
+            "Zoom",
+            [
+              "Maps.Screen.Offset",
+              "Maps.Screen.ZoomLevel"
+            ]
+          ],
+          [
+            "SetBounds",
+            [
+              "Maps.Bounds.Bounds"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultOptions",
+        "comment": " A default set of options that displays Open Street Map tiles looking at Sydney.\n\n    { tileServer = \"http://a.tile.osm.org/{z}/{x}/{y}.png\"\n    , bounds = Bounds.Centered\n      { zoom = 10\n      , center = LatLng.sydney\n      }\n    , width = 600\n    , height = 400\n    , tileSize = 256\n    }\n",
+        "type": "Maps.Options"
+      },
+      {
+        "name": "map",
+        "comment": " Creates the functions needed to make a map program from a set of [options](#Options).\n",
+        "type": "Maps.Options -> { init : ( Maps.Model, Platform.Cmd.Cmd Maps.Msg ) , update : Maps.Msg -> Maps.Model -> ( Maps.Model, Platform.Cmd.Cmd Maps.Msg ) , subscriptions : Maps.Model -> Platform.Sub.Sub Maps.Msg , view : Maps.Model -> Html.Html Maps.Msg }"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " ",
+        "type": "Maps.Model -> Platform.Sub.Sub Maps.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " ",
+        "type": "Maps.Msg -> Maps.Model -> ( Maps.Model, Platform.Cmd.Cmd Maps.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " ",
+        "type": "Maps.Model -> Html.Html Maps.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Maps.Map",
+    "comment": " This module defines the Map type and functions.\nThe Map type is used for configuring the view of the map.\n\n# Definitions\n@docs Map\n\n# Transformations\n@docs move\n@docs zoom\n@docs zoomTo\n@docs viewBounds\n@docs drag\n\n# Map Tiles\n@docs tiles\n\n# Map Cache\n@docs diff\n@docs Transformation\n@docs transformationStyle\n",
+    "aliases": [
+      {
+        "name": "Map",
+        "comment": " The Map type stores the properties neccessary for displaying a map.\n\nThe tileServer property is a URL template of the form\n\n    \"http://somedomain.com/blabla/{z}/{x}/{y}.png\"\n\nWhere {z} is the zoom level and {x}/{y} are the x/y tile coordinates.\n\nThe zoom and center define the area being viewed.\n\nThe width and height define the width and height of the map in pixels.\n\nThe tileSize defines the size of an individual tile in pixels (this is usually 256px).\n",
+        "args": [],
+        "type": "{ tileServer : String , zoom : Maps.Screen.ZoomLevel , center : Maps.LatLng.LatLng , width : Float , height : Float , tileSize : Float }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Transformation",
+        "comment": " The transformations that account for the differences in placement and scale of tiles of a map.\nUsed for displaying the tile cache.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "diff",
+        "comment": " Finds the transformations between two maps.\nUseful for figuring out how to transform cached tiles into temporary substitutes of loading tiles.\n",
+        "type": "Maps.Map.Map -> Maps.Map.Map -> List Maps.Map.Transformation"
+      },
+      {
+        "name": "drag",
+        "comment": " Applies a drag (like a mouse drag) to the map\n",
+        "type": "Maps.Drag.Drag -> Maps.Map.Map -> Maps.Map.Map"
+      },
+      {
+        "name": "move",
+        "comment": " Moves the map the number of pixels given by the offset.\n",
+        "type": "Maps.Screen.Offset -> Maps.Map.Map -> Maps.Map.Map"
+      },
+      {
+        "name": "tiles",
+        "comment": " Returns the list of tiles necessary to fetch to display the map.\n",
+        "type": "Maps.Map.Map -> List Maps.Tile.Tile"
+      },
+      {
+        "name": "transformationStyle",
+        "comment": " Returns a list of CSS properties/values for transforming map tiles.\n",
+        "type": "Float -> Float -> List Maps.Map.Transformation -> List ( String, String )"
+      },
+      {
+        "name": "viewBounds",
+        "comment": " Moves the map to display the entire bounds given.\n",
+        "type": "Maps.Bounds.Bounds -> Maps.Map.Map -> Maps.Map.Map"
+      },
+      {
+        "name": "zoom",
+        "comment": " Zooms the map in or out from the center of the map.\n",
+        "type": "Maps.Screen.ZoomLevel -> Maps.Map.Map -> Maps.Map.Map"
+      },
+      {
+        "name": "zoomTo",
+        "comment": " Zooms the map in or out from the point given.\n",
+        "type": "Maps.Screen.ZoomLevel -> Maps.Screen.Offset -> Maps.Map.Map -> Maps.Map.Map"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Maps.Bounds",
+    "comment": " This module defines the Bounds type for the Maps library.\nThe Bounds type is used for defining a geographical area.\n\n# Definition\n@docs Bounds\n\n# Properties\n@docs zoom\n@docs center\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Bounds",
+        "comment": " The Bounds type defines the bounds of a map.\nIt can be a rectangular bounding box defined by two points, or a point and a zoom level.\n",
+        "args": [],
+        "cases": [
+          [
+            "Bounds",
+            [
+              "{ northEast : Maps.LatLng.LatLng, southWest : Maps.LatLng.LatLng }"
+            ]
+          ],
+          [
+            "Centered",
+            [
+              "{ zoom : Float, center : Maps.LatLng.LatLng }"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "center",
+        "comment": " Calculates the center point of a given Bounds.\n",
+        "type": "Maps.Bounds.Bounds -> Maps.LatLng.LatLng"
+      },
+      {
+        "name": "zoom",
+        "comment": " The zoom function calculates the zoom level necessary to contain the given Bounds.\n\nNote that the size of the tiles and map are needed to calculate the zoom level.\n",
+        "type": "Float -> Float -> Float -> Maps.Bounds.Bounds -> Maps.Screen.ZoomLevel"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Maps.Screen",
+    "comment": " The Screen module defines common types and functions relating to Map events.\n\n# Definition\n@docs Offset\n@docs ZoomLevel\n\n# Conversions\n@docs offsetToTileOffset\n@docs offsetFromTileOffset\n\n# Event Decoders\nThe following are decoders for getting Screen types from [HTML events](https://developer.mozilla.org/en-US/docs/Web/API/Event)\nlike the [mouse event](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent) etc.\n\n@docs decodeOffset\n@docs decodeZoom\n",
+    "aliases": [
+      {
+        "name": "Offset",
+        "comment": " The Offset type defines an offset as it relates pixels making up a map.\nFor example the position of a mouse click, or a scroll action.\n",
+        "args": [],
+        "type": "{ x : Float, y : Float }"
+      },
+      {
+        "name": "ZoomLevel",
+        "comment": " The level of zooming for the map.\nThis number has a [specific relation](http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Zoom_levels) to the map tiles shown.\n",
+        "args": [],
+        "type": "Float"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "decodeOffset",
+        "comment": " Decodes an HTML event which has an X and Y location into an Offset\n",
+        "type": "Json.Decode.Decoder Maps.Screen.Offset"
+      },
+      {
+        "name": "decodeZoom",
+        "comment": " Decodes an [HTML wheel event](https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent) into a ZoomLevel\n",
+        "type": "Json.Decode.Decoder Maps.Screen.ZoomLevel"
+      },
+      {
+        "name": "offsetFromTileOffset",
+        "comment": " This function is for converting a Tile.Offset to a Screen.Offset.\n\nNote that It needs to know the size of the tiles to perform this conversion.\n",
+        "type": "Float -> Maps.Screen.Offset -> Maps.Tile.Offset"
+      },
+      {
+        "name": "offsetToTileOffset",
+        "comment": " This function is for converting a Screen.Offset to a Tile.Offset.\nIt is used to figure out which tile, and subsequently which geographic point, a user clicked on for example.\n\nNote that It needs to know the size of the tiles to perform this conversion.\n",
+        "type": "Float -> Maps.Screen.Offset -> Maps.Tile.Offset"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Maps.LatLng",
+    "comment": " This module defines the LatLng type for the Maps library.\nThe LatLng type is used for defining geographical points.\n\n# Definition\n@docs LatLng\n\n# Examples\n@docs sydney\n",
+    "aliases": [
+      {
+        "name": "LatLng",
+        "comment": " The LatLng type consists of a [latitude](https://en.wikipedia.org/wiki/Latitude) and [longitude](https://en.wikipedia.org/wiki/Longitude).\n",
+        "args": [],
+        "type": "{ lat : Float, lng : Float }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "sydney",
+        "comment": " An example LatLng for Sydney.\n\n    sydney = { lat = -33.865143, lng = 151.209900 }\n",
+        "type": "Maps.LatLng.LatLng"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
