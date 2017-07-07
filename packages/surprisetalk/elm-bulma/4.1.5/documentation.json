@@ -1,0 +1,4798 @@
+[
+  {
+    "name": "Bulma.Components",
+    "comment": " TODO \n\n# Table of Contents\n- [Card](#card)\n- [Level](#level)\n- [Media](#media)\n- [Menu](#menu)\n- [Message](#message)\n- [Modal](#modal)\n- [Nav](#nav)\n- [Pagination](#pagination)\n- [Panel](#panel)\n- [Tabs](#tabs)\n\n# Card\n@docs Card\n@docs card\n\n## Card Partitions\n@docs CardPartition\n\n### Card Header\n@docs cardHeader, easyCardHeader, easierCardHeader\n\n#### Card Header Item\n@docs CardHeaderItem \n@docs cardTitle, easyCardTitle\n@docs cardIcon, cardIconLink, easyCardIconLink\n\n### Card Image\n@docs cardImage\n\n### Card Content\n@docs cardContent\n\n### Card Footer\n@docs cardFooter\n\n#### Card Footer Item\n@docs CardFooterItem\n@docs cardFooterItem, cardFooterItemLink\n\n# Level\n@docs Level\n@docs level, centeredLevel\n@docs horizontalLevel, centeredHorizontalLevel\n\n## Level Partition\n@docs LevelPartition\n@docs levelLeft, levelRight\n\n## Level Item\n@docs LevelItem\n@docs levelItem, levelItemLink, levelItemText\n@docs easyLevelItemWithHeading \n\n# Media Object\n@docs Media\n@docs media, largeMedia\n\n## Media Object Partition\n@docs MediaPartition \n@docs mediaContent\n@docs mediaLeft, mediaRight\n\n# Menu\n@docs Menu\n@docs menu\n\n## Menu Part\n@docs MenuPart\n\n### Menu Label\n@docs menuLabel\n\n### Menu List\n@docs menuList\n\n#### Menu List Item\n@docs MenuListItem\n@docs menuListItem, easyMenuListItem\n\n# Message\n@docs Message\n@docs message\n\n## Message Partition\n@docs MessagePartition \n@docs messageBody \n@docs messageHeader, messageHeaderWithDelete\n\n# Modal\n@docs Modal, IsModalOpen\n@docs modal, easyModal\n\n## Modal Partition\n@docs ModalPartition\n@docs modalContent\n@docs modalBackground, easyModalBackground\n@docs modalClose, easyModalClose\n@docs modalCard\n\n### Modal Card Partition\n@docs ModalCardPartition\n@docs modalCardBody\n@docs modalCardHead, modalCardTitle\n@docs modalCardFoot\n\n# Nav\n@docs Nav, HasShadow\n@docs nav, containedNav, easyNav, easierNav\n\n## Nav Partiton\n@docs NavPartition, IsMenuOpen\n@docs navLeft, navCenter, navRight, navRightMenu\n\n### Nav Toggle\n@docs NavToggle\n@docs navToggle\n\n### Nav Item\n@docs NavItem, IsActive\n@docs navItem, navItemLink\n@docs navItemTab, navItemTabLink\n\n# Pagination\n@docs Pagination, pagination\n\n## Pagination Partition\n@docs PaginationPartition\n@docs paginationPrev, easyPaginationPrev\n@docs paginationNext, easyPaginationNext\n@docs paginationList\n\n## Pagination List Item\n@docs PaginationListItem, IsCurrent\n@docs paginationLink, easyPaginationLink\n@docs paginationEllipsis, easyPaginationEllipsis\n\n# Panel\n@docs Panel\n@docs panel\n\n## Panel Partition\n@docs PanelPartition, IsActive\n@docs panelHeading\n@docs panelBlock, panelLink, panelLabel\n@docs panelTabs\n\n### Panel Tab\n@docs PanelTab, IsActive\n@docs panelTab\n\n# Tabs\n@docs Tabs, TabsModifiers, TabsStyle, tabsModifiers\n@docs tabs\n\n## Tab\n@docs Tab, IsActive\n@docs tab\n\n",
+    "aliases": [
+      {
+        "name": "Card",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "CardFooterItem",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "CardHeaderItem",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "CardPartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "HasShadow",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "Bool"
+      },
+      {
+        "name": "IsActive",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "Bool"
+      },
+      {
+        "name": "IsCurrent",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "Bool"
+      },
+      {
+        "name": "IsMenuOpen",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "Bool"
+      },
+      {
+        "name": "IsModalOpen",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "Bool"
+      },
+      {
+        "name": "Level",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "LevelItem",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "LevelPartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Media",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "MediaPartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Menu",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "MenuListItem",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "MenuPart",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Message",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "MessagePartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Modal",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "ModalCardPartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "ModalPartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Nav",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "NavItem",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "NavPartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "NavToggle",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Pagination",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "PaginationListItem",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "PaginationPartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Panel",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "PanelPartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "PanelTab",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Tab",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Tabs",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "TabsModifiers",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "{ style : Bulma.Components.TabsStyle , alignment : Bulma.Modifiers.HorizontalAlignment , size : Bulma.Modifiers.Size }"
+      }
+    ],
+    "types": [
+      {
+        "name": "TabsStyle",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "Minimal",
+            []
+          ],
+          [
+            "Boxed",
+            []
+          ],
+          [
+            "Toggle",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "card",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.CardPartition msg) -> Bulma.Components.Card msg"
+      },
+      {
+        "name": "cardContent",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.CardPartition msg"
+      },
+      {
+        "name": "cardFooter",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.CardFooterItem msg) -> Bulma.Components.CardPartition msg"
+      },
+      {
+        "name": "cardFooterItem",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.CardFooterItem msg"
+      },
+      {
+        "name": "cardFooterItemLink",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.CardFooterItem msg"
+      },
+      {
+        "name": "cardHeader",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.CardPartition msg"
+      },
+      {
+        "name": "cardIcon",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Elements.Icon.Icon msg) -> Bulma.Components.CardHeaderItem msg"
+      },
+      {
+        "name": "cardIconLink",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Elements.Icon.Icon msg) -> Bulma.Components.CardHeaderItem msg"
+      },
+      {
+        "name": "cardImage",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Elements.Image msg) -> Bulma.Components.CardPartition msg"
+      },
+      {
+        "name": "cardTitle",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.CardHeaderItem msg"
+      },
+      {
+        "name": "centeredHorizontalLevel",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.LevelPartition msg) -> Bulma.Components.Level msg"
+      },
+      {
+        "name": "centeredLevel",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.LevelItem msg) -> Bulma.Components.Level msg"
+      },
+      {
+        "name": "containedNav",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.HasShadow -> Helpers.Attrs msg -> List (Bulma.Components.NavPartition msg) -> Bulma.Components.Nav msg"
+      },
+      {
+        "name": "easierCardHeader",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> { title : String , icon : Bulma.Elements.Icon.Icon msg , onClickIcon : msg } -> Bulma.Components.CardPartition msg"
+      },
+      {
+        "name": "easierNav",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.HasShadow -> Helpers.Attrs msg -> { toggleMsg : msg , isMenuOpen : Bool , left : List (Bulma.Components.NavItem msg) , center : List (Bulma.Components.NavItem msg) , right : List (Bulma.Components.NavItem msg) } -> Bulma.Components.Nav msg"
+      },
+      {
+        "name": "easyCardHeader",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> { title : Helpers.Htmls msg , icon : Helpers.Htmls msg , onClickIcon : msg } -> Bulma.Components.CardPartition msg"
+      },
+      {
+        "name": "easyCardIconLink",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> msg -> Bulma.Elements.Icon.Icon msg -> Bulma.Components.CardHeaderItem msg"
+      },
+      {
+        "name": "easyCardTitle",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> String -> Bulma.Components.CardHeaderItem msg"
+      },
+      {
+        "name": "easyLevelItemWithHeading",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> String -> String -> Bulma.Components.LevelItem msg"
+      },
+      {
+        "name": "easyMenuListItem",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> msg -> Bulma.Elements.Icon.Icon msg -> String -> Bulma.Components.MenuListItem msg"
+      },
+      {
+        "name": "easyModal",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsModalOpen -> Helpers.Attrs msg -> msg -> Helpers.Htmls msg -> Bulma.Components.Modal msg"
+      },
+      {
+        "name": "easyModalBackground",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> msg -> Bulma.Components.ModalPartition msg"
+      },
+      {
+        "name": "easyModalClose",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.Size -> Helpers.Attrs msg -> msg -> Bulma.Components.ModalPartition msg"
+      },
+      {
+        "name": "easyNav",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.HasShadow -> Helpers.Attrs msg -> { toggle : Bulma.Components.NavToggle msg , left : Bulma.Components.NavPartition msg , center : Bulma.Components.NavPartition msg , right : Bulma.Components.NavPartition msg } -> Bulma.Components.Nav msg"
+      },
+      {
+        "name": "easyPaginationEllipsis",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Bulma.Components.PaginationListItem msg"
+      },
+      {
+        "name": "easyPaginationLink",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsCurrent -> Helpers.Attrs msg -> msg -> Int -> Bulma.Components.PaginationListItem msg"
+      },
+      {
+        "name": "easyPaginationNext",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> msg -> String -> Bulma.Components.PaginationPartition msg"
+      },
+      {
+        "name": "easyPaginationPrev",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> msg -> String -> Bulma.Components.PaginationPartition msg"
+      },
+      {
+        "name": "horizontalLevel",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.LevelPartition msg) -> Bulma.Components.Level msg"
+      },
+      {
+        "name": "largeMedia",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.MediaPartition msg) -> Bulma.Components.Media msg"
+      },
+      {
+        "name": "level",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.LevelPartition msg) -> Bulma.Components.Level msg"
+      },
+      {
+        "name": "levelItem",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.LevelItem msg"
+      },
+      {
+        "name": "levelItemLink",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.LevelItem msg"
+      },
+      {
+        "name": "levelItemText",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.LevelItem msg"
+      },
+      {
+        "name": "levelLeft",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.LevelItem msg) -> Bulma.Components.LevelPartition msg"
+      },
+      {
+        "name": "levelRight",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.LevelItem msg) -> Bulma.Components.LevelPartition msg"
+      },
+      {
+        "name": "media",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.MediaPartition msg) -> Bulma.Components.Media msg"
+      },
+      {
+        "name": "mediaContent",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.MediaPartition msg"
+      },
+      {
+        "name": "mediaLeft",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.MediaPartition msg"
+      },
+      {
+        "name": "mediaRight",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.MediaPartition msg"
+      },
+      {
+        "name": "menu",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.MenuPart msg) -> Bulma.Components.Menu msg"
+      },
+      {
+        "name": "menuLabel",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.MenuPart msg"
+      },
+      {
+        "name": "menuList",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.MenuListItem msg) -> Bulma.Components.MenuPart msg"
+      },
+      {
+        "name": "menuListItem",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.MenuListItem msg"
+      },
+      {
+        "name": "message",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.Color -> Helpers.Attrs msg -> List (Bulma.Components.MessagePartition msg) -> Bulma.Components.Message msg"
+      },
+      {
+        "name": "messageBody",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.MessagePartition msg"
+      },
+      {
+        "name": "messageHeader",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.MessagePartition msg"
+      },
+      {
+        "name": "messageHeaderWithDelete",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> msg -> Helpers.Htmls msg -> Bulma.Components.MessagePartition msg"
+      },
+      {
+        "name": "modal",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsModalOpen -> Helpers.Attrs msg -> List (Bulma.Components.ModalPartition msg) -> Bulma.Components.Modal msg"
+      },
+      {
+        "name": "modalBackground",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.ModalPartition msg"
+      },
+      {
+        "name": "modalCard",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.ModalCardPartition msg) -> Bulma.Components.ModalPartition msg"
+      },
+      {
+        "name": "modalCardBody",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.ModalCardPartition msg"
+      },
+      {
+        "name": "modalCardFoot",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.ModalCardPartition msg"
+      },
+      {
+        "name": "modalCardHead",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.ModalCardPartition msg"
+      },
+      {
+        "name": "modalCardTitle",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Html.Html msg"
+      },
+      {
+        "name": "modalClose",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.Size -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.ModalPartition msg"
+      },
+      {
+        "name": "modalContent",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.ModalPartition msg"
+      },
+      {
+        "name": "nav",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.HasShadow -> Helpers.Attrs msg -> List (Bulma.Components.NavPartition msg) -> Bulma.Components.Nav msg"
+      },
+      {
+        "name": "navCenter",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.NavItem msg) -> Bulma.Components.NavPartition msg"
+      },
+      {
+        "name": "navItem",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsActive -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.NavItem msg"
+      },
+      {
+        "name": "navItemLink",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsActive -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.NavItem msg"
+      },
+      {
+        "name": "navItemTab",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsActive -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.NavItem msg"
+      },
+      {
+        "name": "navItemTabLink",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsActive -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.NavItem msg"
+      },
+      {
+        "name": "navLeft",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.NavItem msg) -> Bulma.Components.NavPartition msg"
+      },
+      {
+        "name": "navRight",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.NavItem msg) -> Bulma.Components.NavPartition msg"
+      },
+      {
+        "name": "navRightMenu",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsMenuOpen -> Helpers.Attrs msg -> List (Bulma.Components.NavItem msg) -> Bulma.Components.NavPartition msg"
+      },
+      {
+        "name": "navToggle",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsMenuOpen -> Helpers.Attrs msg -> Bulma.Components.NavToggle msg"
+      },
+      {
+        "name": "pagination",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.HorizontalAlignment -> Helpers.Attrs msg -> List (Bulma.Components.PaginationPartition msg) -> Bulma.Components.Pagination msg"
+      },
+      {
+        "name": "paginationEllipsis",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.PaginationListItem msg"
+      },
+      {
+        "name": "paginationLink",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsCurrent -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.PaginationListItem msg"
+      },
+      {
+        "name": "paginationList",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.PaginationListItem msg) -> Bulma.Components.PaginationPartition msg"
+      },
+      {
+        "name": "paginationNext",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.PaginationPartition msg"
+      },
+      {
+        "name": "paginationPrev",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.PaginationPartition msg"
+      },
+      {
+        "name": "panel",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.PanelPartition msg) -> Bulma.Components.Panel msg"
+      },
+      {
+        "name": "panelBlock",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsActive -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.PanelPartition msg"
+      },
+      {
+        "name": "panelHeading",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.PanelPartition msg"
+      },
+      {
+        "name": "panelLabel",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsActive -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.PanelPartition msg"
+      },
+      {
+        "name": "panelLink",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsActive -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.PanelPartition msg"
+      },
+      {
+        "name": "panelTab",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsActive -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.PanelTab msg"
+      },
+      {
+        "name": "panelTabs",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Components.PanelTab msg) -> Bulma.Components.PanelPartition msg"
+      },
+      {
+        "name": "tab",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.IsActive -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Components.Tab msg"
+      },
+      {
+        "name": "tabs",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.TabsModifiers -> Helpers.Attrs msg -> List (Bulma.Components.Tab msg) -> Bulma.Components.Tabs msg"
+      },
+      {
+        "name": "tabsModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Components.TabsModifiers"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Bulma.Elements",
+    "comment": " TODO \n\n# Table of Contents\n- [Box](#box)\n- [Button](#button)\n- [Content](#content)\n- [Delete](#delete)\n- [Form](#form)\n- [Icon](#icon)\n- [Image](#image)\n- [Notification](#notification)\n- [Progress](#progress)\n- [Table](#table)\n- [Tag](#tag)\n- [Title](#title)\n\n# Box\n@docs Box\n@docs box\n\n# Button\n@docs Button, ButtonModifiers, buttonModifiers\n@docs button, staticButton, easyButton\n@docs iconButton, staticIconButton, easyIconButton\n\n## Button Groups\n@docs ButtonGroup\n@docs buttonGroup, connectedButtonGroup\n\n# Content\n@docs Content\n@docs content\n\n# Delete\n@docs Delete\n@docs delete, easyDelete\n\n# Form\n\n## Field\n@docs Field\n@docs field\n\n### Field Group\n@docs FieldGroupModifiers, fieldGroupModifiers\n@docs fieldGroup, horizontalFieldGroup\n\n#### Horizontal Field Partition\n@docs HorizontalFieldPartition\n@docs fieldLabel, fieldBody\n\n### Control\n@docs Control, IsInline\n@docs ControlModifiers, controlModifiers\n@docs control\n@docs controlCheckBox, controlInput, controlLabel, controlRadio, controlRadioButton, controlSelect, controlTextArea\n@docs label, help\n\n# Image\n@docs Image, ImageModifiers, ImageSize, ImageAspectRatio, imageModifiers\n@docs image, easyImage\n\n# Notification\n@docs Notification\n@docs notification, notificationWithDelete\n\n# Progress\n@docs Progress, ProgressModifiers, progressModifiers\n@docs progress, easyProgress\n\n# Table\n@docs Table, TableModifiers, tableModifiers\n@docs table\n\n## Table Partition\n@docs TablePartition\n@docs tableBody, tableHead, tableFoot\n\n### Table Row\n@docs TableRow, IsHighlighted\n@docs tableRow\n\n#### Table Cell\n@docs TableCell\n@docs tableCell, tableCellHead\n\n# Tag\n@docs Tag, TagModifiers, tagModifiers\n@docs tag, easyTag\n@docs tagWithDelete, easyTagWithDelete\n\n# Title\n@docs Title, TitleSize\n@docs title, subtitle\n\n## Title Pair\n@docs TitleSpacing \n@docs easyTitleWithSubtitle\n\n",
+    "aliases": [
+      {
+        "name": "Box",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Button",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "ButtonGroup",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "ButtonModifiers",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "{ disabled : Bool , outlined : Bool , inverted : Bool , size : Bulma.Modifiers.Size , state : Bulma.Modifiers.State , color : Bulma.Modifiers.Color }"
+      },
+      {
+        "name": "Content",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Control",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "ControlModifiers",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ color : Bulma.Modifiers.Color , size : Bulma.Modifiers.Size , state : Bulma.Modifiers.State , expanded : Bool , disabled : Bool , iconLeft : Maybe.Maybe ( Bulma.Modifiers.Size , Helpers.Attrs msg , Bulma.Elements.Icon.IconBody msg ) , iconRight : Maybe.Maybe ( Bulma.Modifiers.Size , Helpers.Attrs msg , Bulma.Elements.Icon.IconBody msg ) }"
+      },
+      {
+        "name": "Delete",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Field",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "FieldGroupModifiers",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "{ alignment : Bulma.Modifiers.HorizontalAlignment, connected : Bool }"
+      },
+      {
+        "name": "HorizontalFieldPartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Image",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "ImageModifiers",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "{ size : Maybe.Maybe Bulma.Elements.ImageSize , aspectRatio : Maybe.Maybe Bulma.Elements.ImageAspectRatio }"
+      },
+      {
+        "name": "IsHighlighted",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "Bool"
+      },
+      {
+        "name": "IsInline",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "Bool"
+      },
+      {
+        "name": "Notification",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Progress",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "ProgressModifiers",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "{ size : Bulma.Modifiers.Size, color : Bulma.Modifiers.Color }"
+      },
+      {
+        "name": "Table",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "TableCell",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "TableModifiers",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "{ bordered : Bool, striped : Bool, narrow : Bool }"
+      },
+      {
+        "name": "TablePartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "TableRow",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Tag",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "TagModifiers",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "{ size : Bulma.Modifiers.Size, color : Bulma.Modifiers.Color }"
+      },
+      {
+        "name": "Title",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "TitleSpacing",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "Bool"
+      }
+    ],
+    "types": [
+      {
+        "name": "ImageAspectRatio",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "OneByOne",
+            []
+          ],
+          [
+            "FourByThree",
+            []
+          ],
+          [
+            "ThreeByTwo",
+            []
+          ],
+          [
+            "SixteenByNine",
+            []
+          ],
+          [
+            "TwoByOne",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "ImageSize",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "X16",
+            []
+          ],
+          [
+            "X24",
+            []
+          ],
+          [
+            "X32",
+            []
+          ],
+          [
+            "X48",
+            []
+          ],
+          [
+            "X64",
+            []
+          ],
+          [
+            "X96",
+            []
+          ],
+          [
+            "X128",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "TitleSize",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "H1",
+            []
+          ],
+          [
+            "H2",
+            []
+          ],
+          [
+            "H3",
+            []
+          ],
+          [
+            "H4",
+            []
+          ],
+          [
+            "H5",
+            []
+          ],
+          [
+            "H6",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "box",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Box msg"
+      },
+      {
+        "name": "button",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ButtonModifiers -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Button msg"
+      },
+      {
+        "name": "buttonGroup",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.HorizontalAlignment -> Helpers.Attrs msg -> List (Bulma.Elements.Button msg) -> Bulma.Elements.ButtonGroup msg"
+      },
+      {
+        "name": "buttonModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ButtonModifiers"
+      },
+      {
+        "name": "connectedButtonGroup",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.HorizontalAlignment -> Helpers.Attrs msg -> List (Bulma.Elements.Button msg) -> Bulma.Elements.ButtonGroup msg"
+      },
+      {
+        "name": "content",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.Size -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Content msg"
+      },
+      {
+        "name": "control",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ControlModifiers msg -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Control msg"
+      },
+      {
+        "name": "controlCheckBox",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ControlModifiers msg -> Helpers.Attrs msg -> Helpers.Attrs msg -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Control msg"
+      },
+      {
+        "name": "controlInput",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.IsInline -> Bulma.Elements.ControlModifiers msg -> Helpers.Attrs msg -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Control msg"
+      },
+      {
+        "name": "controlLabel",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ControlModifiers msg -> Helpers.Attrs msg -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Control msg"
+      },
+      {
+        "name": "controlModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ControlModifiers msg"
+      },
+      {
+        "name": "controlRadio",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ControlModifiers msg -> Helpers.Attrs msg -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Control msg"
+      },
+      {
+        "name": "controlRadioButton",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Html.Html msg"
+      },
+      {
+        "name": "controlSelect",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ControlModifiers msg -> Helpers.Attrs msg -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Control msg"
+      },
+      {
+        "name": "controlTextArea",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.IsInline -> Bulma.Elements.ControlModifiers msg -> Helpers.Attrs msg -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Control msg"
+      },
+      {
+        "name": "delete",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Delete msg"
+      },
+      {
+        "name": "easyButton",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ButtonModifiers -> Helpers.Attrs msg -> msg -> String -> Bulma.Elements.Button msg"
+      },
+      {
+        "name": "easyDelete",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> msg -> Bulma.Elements.Delete msg"
+      },
+      {
+        "name": "easyIconButton",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ButtonModifiers -> Bulma.Elements.Icon.Icon msg -> Helpers.Attrs msg -> msg -> String -> Bulma.Elements.Button msg"
+      },
+      {
+        "name": "easyImage",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ImageModifiers -> Helpers.Attrs msg -> String -> Bulma.Elements.Image msg"
+      },
+      {
+        "name": "easyProgress",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ProgressModifiers -> Helpers.Attrs msg -> Float -> Bulma.Elements.Progress msg"
+      },
+      {
+        "name": "easyTag",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.TagModifiers -> Helpers.Attrs msg -> String -> Bulma.Elements.Tag msg"
+      },
+      {
+        "name": "easyTagWithDelete",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.TagModifiers -> Helpers.Attrs msg -> msg -> String -> Bulma.Elements.Tag msg"
+      },
+      {
+        "name": "easyTitleWithSubtitle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.TitleSpacing -> Bulma.Elements.TitleSize -> Helpers.Htmls msg -> Helpers.Htmls msg -> List (Bulma.Elements.Title msg)"
+      },
+      {
+        "name": "field",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Elements.Control msg) -> Bulma.Elements.Field msg"
+      },
+      {
+        "name": "fieldBody",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Elements.Control msg) -> Bulma.Elements.HorizontalFieldPartition msg"
+      },
+      {
+        "name": "fieldGroup",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.FieldGroupModifiers -> Helpers.Attrs msg -> List (Bulma.Elements.Control msg) -> Bulma.Elements.Field msg"
+      },
+      {
+        "name": "fieldGroupModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.FieldGroupModifiers"
+      },
+      {
+        "name": "fieldLabel",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.Size -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.HorizontalFieldPartition msg"
+      },
+      {
+        "name": "help",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ControlModifiers msg -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Control msg"
+      },
+      {
+        "name": "horizontalFieldGroup",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.FieldGroupModifiers -> Helpers.Attrs msg -> List (Bulma.Elements.HorizontalFieldPartition msg) -> Bulma.Elements.Field msg"
+      },
+      {
+        "name": "iconButton",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ButtonModifiers -> Bulma.Elements.Icon.Icon msg -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Button msg"
+      },
+      {
+        "name": "image",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ImageModifiers -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Image msg"
+      },
+      {
+        "name": "imageModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ImageModifiers"
+      },
+      {
+        "name": "label",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Control msg"
+      },
+      {
+        "name": "notification",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.Color -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Notification msg"
+      },
+      {
+        "name": "notificationWithDelete",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.Color -> Helpers.Attrs msg -> msg -> Helpers.Htmls msg -> Bulma.Elements.Notification msg"
+      },
+      {
+        "name": "progress",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ProgressModifiers -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Progress msg"
+      },
+      {
+        "name": "progressModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ProgressModifiers"
+      },
+      {
+        "name": "staticButton",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ButtonModifiers -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Button msg"
+      },
+      {
+        "name": "staticIconButton",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.ButtonModifiers -> Bulma.Elements.Icon.Icon msg -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Button msg"
+      },
+      {
+        "name": "subtitle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.TitleSize -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Title msg"
+      },
+      {
+        "name": "table",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.TableModifiers -> Helpers.Attrs msg -> List (Bulma.Elements.TablePartition msg) -> Bulma.Elements.Table msg"
+      },
+      {
+        "name": "tableBody",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Elements.TableRow msg) -> Bulma.Elements.TablePartition msg"
+      },
+      {
+        "name": "tableCell",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.TableCell msg"
+      },
+      {
+        "name": "tableCellHead",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.TableCell msg"
+      },
+      {
+        "name": "tableFoot",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Elements.TableRow msg) -> Bulma.Elements.TablePartition msg"
+      },
+      {
+        "name": "tableHead",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> List (Bulma.Elements.TableRow msg) -> Bulma.Elements.TablePartition msg"
+      },
+      {
+        "name": "tableModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.TableModifiers"
+      },
+      {
+        "name": "tableRow",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.IsHighlighted -> Helpers.Attrs msg -> List (Bulma.Elements.TableCell msg) -> Bulma.Elements.TableRow msg"
+      },
+      {
+        "name": "tag",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.TagModifiers -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Tag msg"
+      },
+      {
+        "name": "tagModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.TagModifiers"
+      },
+      {
+        "name": "tagWithDelete",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.TagModifiers -> Helpers.Attrs msg -> msg -> Helpers.Htmls msg -> Bulma.Elements.Tag msg"
+      },
+      {
+        "name": "title",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.TitleSize -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Elements.Title msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Bulma.Layout",
+    "comment": " TODO \n\n# Container\n@docs Container\n@docs container, fluidContainer\n\n# Hero\n@docs Hero, HeroModifiers, HeroSize, heroModifiers\n@docs hero, easyHero\n\n## Hero Partition\n@docs HeroPartition \n@docs heroBody, heroFoot, heroHead\n\n# Section\n@docs Section, SectionSpacing\n@docs section\n\n# Footer\n@docs Footer\n@docs footer\n\n",
+    "aliases": [
+      {
+        "name": "Container",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Footer",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Hero",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "HeroModifiers",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "{ bold : Bool , size : Bulma.Layout.HeroSize , color : Bulma.Modifiers.Color }"
+      },
+      {
+        "name": "HeroPartition",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "Section",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      }
+    ],
+    "types": [
+      {
+        "name": "HeroSize",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "Normal",
+            []
+          ],
+          [
+            "Medium",
+            []
+          ],
+          [
+            "Large",
+            []
+          ],
+          [
+            "FullHeight",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "SectionSpacing",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "NotSpaced",
+            []
+          ],
+          [
+            "Spaced",
+            []
+          ],
+          [
+            "VerySpaced",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "container",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Layout.Container msg"
+      },
+      {
+        "name": "easyHero",
+        "comment": " TODO\n",
+        "type": "Bulma.Layout.HeroModifiers -> Helpers.Attrs msg -> { head : Bulma.Layout.HeroPartition msg , body : Bulma.Layout.HeroPartition msg , foot : Bulma.Layout.HeroPartition msg } -> Bulma.Layout.Hero msg"
+      },
+      {
+        "name": "fluidContainer",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Layout.Container msg"
+      },
+      {
+        "name": "footer",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Layout.Footer msg"
+      },
+      {
+        "name": "hero",
+        "comment": " TODO\n",
+        "type": "Bulma.Layout.HeroModifiers -> Helpers.Attrs msg -> List (Bulma.Layout.HeroPartition msg) -> Bulma.Layout.Hero msg"
+      },
+      {
+        "name": "heroBody",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Layout.HeroPartition msg"
+      },
+      {
+        "name": "heroFoot",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Layout.HeroPartition msg"
+      },
+      {
+        "name": "heroHead",
+        "comment": " TODO\n",
+        "type": "Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Layout.HeroPartition msg"
+      },
+      {
+        "name": "heroModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Layout.HeroModifiers"
+      },
+      {
+        "name": "section",
+        "comment": " TODO\n",
+        "type": "Bulma.Layout.SectionSpacing -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Layout.Section msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Bulma.Elements.Icon",
+    "comment": " TODO \n\n# Icon Wrapper\n@docs Icon\n@docs icon\n\n# Icon Body\n@docs IconBody\n@docs adjust, american_sign_language_interpreting, anchor, archive, area_chart, arrows, arrows_h, arrows_v, asl_interpreting, assistive_listening_systems, asterisk, at, audio_description, automobile, balance_scale, ban, bank, bar_chart, bar_chart_o, barcode, bars, battery_0, battery_1, battery_2, battery_3, battery_4, battery_empty, battery_full, battery_half, battery_quarter, battery_three_quarters, bed, beer, bell, bell_o, bell_slash, bell_slash_o, bicycle, binoculars, birthday_cake, blind, bluetooth, bluetooth_b, bolt, bomb, book, bookmark, bookmark_o, braille, briefcase, bug, building, building_o, bullhorn, bullseye, bus, cab, calculator, calendar, calendar_check_o, calendar_minus_o, calendar_o, calendar_plus_o, calendar_times_o, camera, camera_retro, car, caret_square_o_down, caret_square_o_left, caret_square_o_right, caret_square_o_up, cart_arrow_down, cart_plus, cc, certificate, check, check_circle, check_circle_o, check_square, check_square_o, child, circle, circle_o, circle_o_notch, circle_thin, clock_o, clone, close, cloud, cloud_download, cloud_upload, code, code_fork, coffee, cog, cogs, comment, comment_o, commenting, commenting_o, comments, comments_o, compass, copyright, creative_commons, credit_card, credit_card_alt, crop, crosshairs, cube, cubes, cutlery, dashboard, database, deaf, deafness, desktop, diamond, dot_circle_o, download, edit, ellipsis_h, ellipsis_v, envelope, envelope_o, envelope_square, eraser, exchange, exclamation, exclamation_circle, exclamation_triangle, external_link, external_link_square, eye, eye_slash, eyedropper, fax, feed, female, fighter_jet, file_archive_o, file_audio_o, file_code_o, file_excel_o, file_image_o, file_movie_o, file_pdf_o, file_photo_o, file_picture_o, file_powerpoint_o, file_sound_o, file_video_o, file_word_o, file_zip_o, film, filter, fire, fire_extinguisher, flag, flag_checkered, flag_o, flash, flask, folder, folder_o, folder_open, folder_open_o, frown_o, futbol_o, gamepad, gavel, gear, gears, gift, glass, globe, graduation_cap, group, hand_grab_o, hand_lizard_o, hand_paper_o, hand_peace_o, hand_pointer_o, hand_rock_o, hand_scissors_o, hand_spock_o, hand_stop_o, hard_of_hearing, hashtag, hdd_o, headphones, heart, heart_o, heartbeat, history, home, hotel, hourglass, hourglass_1, hourglass_2, hourglass_3, hourglass_end, hourglass_half, hourglass_o, hourglass_start, i_cursor, image, inbox, industry, info, info_circle, institution, key, keyboard_o, language, laptop, leaf, legal, lemon_o, level_down, level_up, life_bouy, life_buoy, life_ring, life_saver, lightbulb_o, line_chart, location_arrow, lock, low_vision, magic, magnet, mail_forward, mail_reply, mail_reply_all, male, map, map_marker, map_o, map_pin, map_signs, meh_o, microphone, microphone_slash, minus, minus_circle, minus_square, minus_square_o, mobile, mobile_phone, money, moon_o, mortar_board, motorcycle, mouse_pointer, music, navicon, newspaper_o, object_group, object_ungroup, paint_brush, paper_plane, paper_plane_o, paw, pencil, pencil_square, pencil_square_o, percent, phone, phone_square, photo, picture_o, pie_chart, plane, plug, plus, plus_circle, plus_square, plus_square_o, power_off, print, puzzle_piece, qrcode, question, question_circle, question_circle_o, quote_left, quote_right, random, recycle, refresh, registered, remove, reorder, reply, reply_all, retweet, road, rocket, rss, rss_square, search, search_minus, search_plus, send, send_o, server, share, share_alt, share_alt_square, share_square, share_square_o, shield, ship, shopping_bag, shopping_basket, shopping_cart, sign_in, sign_language, sign_out, signal, signing, sitemap, sliders, smile_o, soccer_ball_o, sort, sort_alpha_asc, sort_alpha_desc, sort_amount_asc, sort_amount_desc, sort_asc, sort_desc, sort_down, sort_numeric_asc, sort_numeric_desc, sort_up, space_shuttle, spinner, spoon, square, square_o, star, star_half, star_half_empty, star_half_full, star_half_o, star_o, sticky_note, sticky_note_o, street_view, suitcase, sun_o, support, tablet, tachometer, tag, tags, tasks, taxi, television, terminal, thumb_tack, thumbs_down, thumbs_o_down, thumbs_o_up, thumbs_up, ticket, times, times_circle, times_circle_o, tint, toggle_down, toggle_left, toggle_off, toggle_on, toggle_right, toggle_up, trademark, trash, trash_o, tree, trophy, truck, tty, tv, umbrella, universal_access, university, unlock, unlock_alt, unsorted, upload, user, user_plus, user_secret, user_times, users, video_camera, volume_control_phone, volume_down, volume_off, volume_up, warning, wheelchair, wheelchair_alt, wifi, wrench, fiveHundredPX, adn, amazon, android, angellist, apple, behance, behance_square, bitbucket, bitbucket_square, bitcoin, black_tie, btc, buysellads, cc_amex, cc_diners_club, cc_discover, cc_jcb, cc_mastercard, cc_paypal, cc_stripe, cc_visa, chrome, codepen, codiepie, connectdevelop, contao, css3, dashcube, delicious, deviantart, digg, dribbble, dropbox, drupal, edge, empire, envira, expeditedssl, fa, facebook, facebook_f, facebook_official, facebook_square, firefox, first_order, flickr, font_awesome, fonticons, fort_awesome, forumbee, foursquare, ge, get_pocket, gg, gg_circle, git, git_square, github, github_alt, github_square, gitlab, gittip, glide, glide_g, google, google_plus, google_plus_circle, google_plus_official, google_plus_square, google_wallet, gratipay, hacker_news, houzz, html5, instagram, internet_explorer, ioxhost, joomla, jsfiddle, lastfm, lastfm_square, leanpub, linkedin, linkedin_square, linux, maxcdn, meanpath, medium_, mixcloud, modx, odnoklassniki, odnoklassniki_square, opencart, openid, opera, optin_monster, pagelines, paypal, pied_piper, pied_piper_alt, pied_piper_pp, pinterest, pinterest_p, pinterest_square, product_hunt, qq, ra, rebel, reddit, reddit_alien, reddit_square, renren, resistance, safari, scribd, sellsy, shirtsinbulk, simplybuilt, skyatlas, skype, slack, slideshare, snapchat, snapchat_ghost, snapchat_square, soundcloud, spotify, stack_exchange, stack_overflow, steam, steam_square, stumbleupon, stumbleupon_circle, tencent_weibo, themeisle, trello, tripadvisor, tumblr, tumblr_square, twitch, twitter, twitter_square, usb, viacoin, viadeo, viadeo_square, vimeo, vimeo_square, vine, vk, wechat, weibo, weixin, whatsapp, wikipedia_w, windows, wordpress, wpbeginner, wpforms, xing, xing_square, y_combinator, y_combinator_square, yahoo, yc, yc_square, yelp, yoast, youtube, youtube_play, youtube_square \n\n",
+    "aliases": [
+      {
+        "name": "Icon",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "IconBody",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "adjust",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "adn",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "amazon",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "american_sign_language_interpreting",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "anchor",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "android",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "angellist",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "apple",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "archive",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "area_chart",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "arrows",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "arrows_h",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "arrows_v",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "asl_interpreting",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "assistive_listening_systems",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "asterisk",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "at",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "audio_description",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "automobile",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "balance_scale",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "ban",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bank",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bar_chart",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bar_chart_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "barcode",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bars",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "battery_0",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "battery_1",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "battery_2",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "battery_3",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "battery_4",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "battery_empty",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "battery_full",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "battery_half",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "battery_quarter",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "battery_three_quarters",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bed",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "beer",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "behance",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "behance_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bell",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bell_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bell_slash",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bell_slash_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bicycle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "binoculars",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "birthday_cake",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bitbucket",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bitbucket_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bitcoin",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "black_tie",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "blind",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bluetooth",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bluetooth_b",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bolt",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bomb",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "book",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bookmark",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bookmark_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "braille",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "briefcase",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "btc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bug",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "building",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "building_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bullhorn",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bullseye",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "bus",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "buysellads",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cab",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "calculator",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "calendar",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "calendar_check_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "calendar_minus_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "calendar_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "calendar_plus_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "calendar_times_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "camera",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "camera_retro",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "car",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "caret_square_o_down",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "caret_square_o_left",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "caret_square_o_right",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "caret_square_o_up",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cart_arrow_down",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cart_plus",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cc_amex",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cc_diners_club",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cc_discover",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cc_jcb",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cc_mastercard",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cc_paypal",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cc_stripe",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cc_visa",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "certificate",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "check",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "check_circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "check_circle_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "check_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "check_square_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "child",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "chrome",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "circle_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "circle_o_notch",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "circle_thin",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "clock_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "clone",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "close",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cloud",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cloud_download",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cloud_upload",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "code",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "code_fork",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "codepen",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "codiepie",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "coffee",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cog",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cogs",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "comment",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "comment_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "commenting",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "commenting_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "comments",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "comments_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "compass",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "connectdevelop",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "contao",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "copyright",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "creative_commons",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "credit_card",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "credit_card_alt",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "crop",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "crosshairs",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "css3",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cube",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cubes",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "cutlery",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "dashboard",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "dashcube",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "database",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "deaf",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "deafness",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "delicious",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "desktop",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "deviantart",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "diamond",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "digg",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "dot_circle_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "download",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "dribbble",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "dropbox",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "drupal",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "edge",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "edit",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "ellipsis_h",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "ellipsis_v",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "empire",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "envelope",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "envelope_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "envelope_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "envira",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "eraser",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "exchange",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "exclamation",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "exclamation_circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "exclamation_triangle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "expeditedssl",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "external_link",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "external_link_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "eye",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "eye_slash",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "eyedropper",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "fa",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "facebook",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "facebook_f",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "facebook_official",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "facebook_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "fax",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "feed",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "female",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "fighter_jet",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_archive_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_audio_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_code_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_excel_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_image_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_movie_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_pdf_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_photo_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_picture_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_powerpoint_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_sound_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_video_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_word_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "file_zip_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "film",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "filter",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "fire",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "fire_extinguisher",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "firefox",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "first_order",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "fiveHundredPX",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "flag",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "flag_checkered",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "flag_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "flash",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "flask",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "flickr",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "folder",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "folder_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "folder_open",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "folder_open_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "font_awesome",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "fonticons",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "fort_awesome",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "forumbee",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "foursquare",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "frown_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "futbol_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "gamepad",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "gavel",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "ge",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "gear",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "gears",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "get_pocket",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "gg",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "gg_circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "gift",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "git",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "git_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "github",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "github_alt",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "github_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "gitlab",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "gittip",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "glass",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "glide",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "glide_g",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "globe",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "google",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "google_plus",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "google_plus_circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "google_plus_official",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "google_plus_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "google_wallet",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "graduation_cap",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "gratipay",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "group",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hacker_news",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hand_grab_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hand_lizard_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hand_paper_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hand_peace_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hand_pointer_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hand_rock_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hand_scissors_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hand_spock_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hand_stop_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hard_of_hearing",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hashtag",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hdd_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "headphones",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "heart",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "heart_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "heartbeat",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "history",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "home",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hotel",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hourglass",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hourglass_1",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hourglass_2",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hourglass_3",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hourglass_end",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hourglass_half",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hourglass_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "hourglass_start",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "houzz",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "html5",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "i_cursor",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "icon",
+        "comment": " TODO\n",
+        "type": "Bulma.Modifiers.Size -> Helpers.Attrs msg -> List (Bulma.Elements.Icon.IconBody msg) -> Bulma.Elements.Icon.Icon msg"
+      },
+      {
+        "name": "image",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "inbox",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "industry",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "info",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "info_circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "instagram",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "institution",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "internet_explorer",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "ioxhost",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "joomla",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "jsfiddle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "key",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "keyboard_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "language",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "laptop",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "lastfm",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "lastfm_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "leaf",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "leanpub",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "legal",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "lemon_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "level_down",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "level_up",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "life_bouy",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "life_buoy",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "life_ring",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "life_saver",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "lightbulb_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "line_chart",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "linkedin",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "linkedin_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "linux",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "location_arrow",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "lock",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "low_vision",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "magic",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "magnet",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "mail_forward",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "mail_reply",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "mail_reply_all",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "male",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "map",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "map_marker",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "map_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "map_pin",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "map_signs",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "maxcdn",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "meanpath",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "medium_",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "meh_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "microphone",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "microphone_slash",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "minus",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "minus_circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "minus_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "minus_square_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "mixcloud",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "mobile",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "mobile_phone",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "modx",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "money",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "moon_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "mortar_board",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "motorcycle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "mouse_pointer",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "music",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "navicon",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "newspaper_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "object_group",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "object_ungroup",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "odnoklassniki",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "odnoklassniki_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "opencart",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "openid",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "opera",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "optin_monster",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pagelines",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "paint_brush",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "paper_plane",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "paper_plane_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "paw",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "paypal",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pencil",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pencil_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pencil_square_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "percent",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "phone",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "phone_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "photo",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "picture_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pie_chart",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pied_piper",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pied_piper_alt",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pied_piper_pp",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pinterest",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pinterest_p",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "pinterest_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "plane",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "plug",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "plus",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "plus_circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "plus_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "plus_square_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "power_off",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "print",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "product_hunt",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "puzzle_piece",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "qq",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "qrcode",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "question",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "question_circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "question_circle_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "quote_left",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "quote_right",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "ra",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "random",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "rebel",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "recycle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "reddit",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "reddit_alien",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "reddit_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "refresh",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "registered",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "remove",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "renren",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "reorder",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "reply",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "reply_all",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "resistance",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "retweet",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "road",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "rocket",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "rss",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "rss_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "safari",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "scribd",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "search",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "search_minus",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "search_plus",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sellsy",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "send",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "send_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "server",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "share",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "share_alt",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "share_alt_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "share_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "share_square_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "shield",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "ship",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "shirtsinbulk",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "shopping_bag",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "shopping_basket",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "shopping_cart",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sign_in",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sign_language",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sign_out",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "signal",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "signing",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "simplybuilt",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sitemap",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "skyatlas",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "skype",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "slack",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sliders",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "slideshare",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "smile_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "snapchat",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "snapchat_ghost",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "snapchat_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "soccer_ball_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort_alpha_asc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort_alpha_desc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort_amount_asc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort_amount_desc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort_asc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort_desc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort_down",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort_numeric_asc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort_numeric_desc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sort_up",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "soundcloud",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "space_shuttle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "spinner",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "spoon",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "spotify",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "square_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "stack_exchange",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "stack_overflow",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "star",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "star_half",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "star_half_empty",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "star_half_full",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "star_half_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "star_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "steam",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "steam_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sticky_note",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sticky_note_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "street_view",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "stumbleupon",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "stumbleupon_circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "suitcase",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "sun_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "support",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tablet",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tachometer",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tag",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tags",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tasks",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "taxi",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "television",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tencent_weibo",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "terminal",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "themeisle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "thumb_tack",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "thumbs_down",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "thumbs_o_down",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "thumbs_o_up",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "thumbs_up",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "ticket",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "times",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "times_circle",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "times_circle_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tint",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "toggle_down",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "toggle_left",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "toggle_off",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "toggle_on",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "toggle_right",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "toggle_up",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "trademark",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "trash",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "trash_o",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tree",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "trello",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tripadvisor",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "trophy",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "truck",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tty",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tumblr",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tumblr_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "tv",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "twitch",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "twitter",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "twitter_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "umbrella",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "universal_access",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "university",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "unlock",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "unlock_alt",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "unsorted",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "upload",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "usb",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "user",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "user_plus",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "user_secret",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "user_times",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "users",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "viacoin",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "viadeo",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "viadeo_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "video_camera",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "vimeo",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "vimeo_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "vine",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "vk",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "volume_control_phone",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "volume_down",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "volume_off",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "volume_up",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "warning",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "wechat",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "weibo",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "weixin",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "whatsapp",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "wheelchair",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "wheelchair_alt",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "wifi",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "wikipedia_w",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "windows",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "wordpress",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "wpbeginner",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "wpforms",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "wrench",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "xing",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "xing_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "y_combinator",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "y_combinator_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "yahoo",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "yc",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "yc_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "yelp",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "yoast",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "youtube",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "youtube_play",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      },
+      {
+        "name": "youtube_square",
+        "comment": " TODO\n",
+        "type": "Bulma.Elements.Icon.IconBody msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Bulma.Modifiers",
+    "comment": " TODO \n\n# Size\n@docs Size\n\n# State\n@docs State\n\n# Color\n@docs Color\n\n# Alignment\n@docs HorizontalAlignment\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Color",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "Default",
+            []
+          ],
+          [
+            "White",
+            []
+          ],
+          [
+            "Light",
+            []
+          ],
+          [
+            "Dark",
+            []
+          ],
+          [
+            "Black",
+            []
+          ],
+          [
+            "Primary",
+            []
+          ],
+          [
+            "Info",
+            []
+          ],
+          [
+            "Success",
+            []
+          ],
+          [
+            "Warning",
+            []
+          ],
+          [
+            "Danger",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "HorizontalAlignment",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "Left",
+            []
+          ],
+          [
+            "Centered",
+            []
+          ],
+          [
+            "Right",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Size",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "Small",
+            []
+          ],
+          [
+            "Normal",
+            []
+          ],
+          [
+            "Medium",
+            []
+          ],
+          [
+            "Large",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "State",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "Blur",
+            []
+          ],
+          [
+            "Hover",
+            []
+          ],
+          [
+            "Focus",
+            []
+          ],
+          [
+            "Active",
+            []
+          ],
+          [
+            "Loading",
+            []
+          ],
+          [
+            "Static",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Bulma.Grid",
+    "comment": " TODO \n\n# Table of Contents\n- [Columns](#columns)\n  - [Column](#column)\n- [Tile](#tile)\n\n# Columns\n@docs ColumnsModifiers, Display, columnsModifiers\n@docs columns\n\n## Column\n@docs Column, ColumnModifiers, Width, columnModifiers\n@docs column, narrowColumn\n\n# Tile\n@docs Tile, Width\n@docs tile\n@docs tileAncestor, tileParent, tileChild\n@docs verticalTile, verticalTileParent\n\n",
+    "aliases": [
+      {
+        "name": "Column",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "ColumnModifiers",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "{ offset : Bulma.Grid.Width , widths : { mobile : Bulma.Grid.Width , tablet : Bulma.Grid.Width , desktop : Bulma.Grid.Width } }"
+      },
+      {
+        "name": "ColumnsModifiers",
+        "comment": " TODO\n",
+        "args": [],
+        "type": "{ multiline : Bool , gapless : Bool , display : Bulma.Grid.Display , verticallyCentered : Bool }"
+      },
+      {
+        "name": "Tile",
+        "comment": " TODO\n",
+        "args": [
+          "msg"
+        ],
+        "type": "Html.Html msg"
+      }
+    ],
+    "types": [
+      {
+        "name": "Display",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "MobileAndBeyond",
+            []
+          ],
+          [
+            "TabletAndBeyond",
+            []
+          ],
+          [
+            "DesktopAndBeyond",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Width",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "Auto",
+            []
+          ],
+          [
+            "Width1",
+            []
+          ],
+          [
+            "Width2",
+            []
+          ],
+          [
+            "Width3",
+            []
+          ],
+          [
+            "Width4",
+            []
+          ],
+          [
+            "Width5",
+            []
+          ],
+          [
+            "Width6",
+            []
+          ],
+          [
+            "Width7",
+            []
+          ],
+          [
+            "Width8",
+            []
+          ],
+          [
+            "Width9",
+            []
+          ],
+          [
+            "Width10",
+            []
+          ],
+          [
+            "Width11",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "column",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.ColumnModifiers -> Helpers.Attrs msg -> Helpers.Htmls msg -> Html.Html msg"
+      },
+      {
+        "name": "columnModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.ColumnModifiers"
+      },
+      {
+        "name": "columns",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.ColumnsModifiers -> Helpers.Attrs msg -> List (Bulma.Grid.Column msg) -> Html.Html msg"
+      },
+      {
+        "name": "columnsModifiers",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.ColumnsModifiers"
+      },
+      {
+        "name": "narrowColumn",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.Width -> Helpers.Attrs msg -> Helpers.Htmls msg -> Html.Html msg"
+      },
+      {
+        "name": "tile",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.Width -> Helpers.Attrs msg -> List (Bulma.Grid.Tile msg) -> Bulma.Grid.Tile msg"
+      },
+      {
+        "name": "tileAncestor",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.Width -> Helpers.Attrs msg -> List (Bulma.Grid.Tile msg) -> Html.Html msg"
+      },
+      {
+        "name": "tileChild",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.Width -> Helpers.Attrs msg -> Helpers.Htmls msg -> Bulma.Grid.Tile msg"
+      },
+      {
+        "name": "tileParent",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.Width -> Helpers.Attrs msg -> List (Bulma.Grid.Tile msg) -> Bulma.Grid.Tile msg"
+      },
+      {
+        "name": "verticalTile",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.Width -> Helpers.Attrs msg -> List (Bulma.Grid.Tile msg) -> Bulma.Grid.Tile msg"
+      },
+      {
+        "name": "verticalTileParent",
+        "comment": " TODO\n",
+        "type": "Bulma.Grid.Width -> Helpers.Attrs msg -> List (Bulma.Grid.Tile msg) -> Bulma.Grid.Tile msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Bulma.CDN",
+    "comment": " TODO \n\n@docs stylesheet\n@docs fontAwesome\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "fontAwesome",
+        "comment": " TODO\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "stylesheet",
+        "comment": " TODO\n",
+        "type": "Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Bulma.Helpers",
+    "comment": " TODO \n\n# Float\n@docs clearfix\n@docs pulledLeft, pulledRight\n\n# Overlay\n@docs overlay\n\n# Size\n@docs fullWidth\n\n# Text Alignment\n@docs textLeft, textCentered, textRight\n\n# Spacing\n@docs marginless, paddingless\n\n# Selectability\n@docs unselectable\n\n# Display\n@docs Devices, Display\n@docs display, displayByDevice\n\n",
+    "aliases": [
+      {
+        "name": "Devices",
+        "comment": " TODO\n",
+        "args": [
+          "a"
+        ],
+        "type": "{ mobile : a, tablet : a, desktop : a, widescreen : a }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Display",
+        "comment": " TODO\n",
+        "args": [],
+        "cases": [
+          [
+            "Block",
+            []
+          ],
+          [
+            "Flex",
+            []
+          ],
+          [
+            "Hidden",
+            []
+          ],
+          [
+            "Inline",
+            []
+          ],
+          [
+            "InlineBlock",
+            []
+          ],
+          [
+            "InlineFlex",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "clearfix",
+        "comment": " Fixes an element's floating children.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "display",
+        "comment": " TODO\n",
+        "type": "Bulma.Helpers.Display -> Html.Attribute msg"
+      },
+      {
+        "name": "displayByDevice",
+        "comment": " TODO\n",
+        "type": "Bulma.Helpers.Devices Bulma.Helpers.Display -> Html.Attribute msg"
+      },
+      {
+        "name": "fullWidth",
+        "comment": " Takes up the whole width (100%).\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "marginless",
+        "comment": " Removes all margins.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "overlay",
+        "comment": " Completely covers the first-positioned parent.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "paddingless",
+        "comment": " Removes all paddings.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "pulledLeft",
+        "comment": " Moves an element to the left.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "pulledRight",
+        "comment": " Moves an element to the right.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "textCentered",
+        "comment": " Aligns text to the right.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "textLeft",
+        "comment": " Aligns text to the left.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "textRight",
+        "comment": " Centers text.\n",
+        "type": "Html.Attribute msg"
+      },
+      {
+        "name": "unselectable",
+        "comment": " Prevents text from being selectable.\n",
+        "type": "Html.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
