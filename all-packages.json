@@ -4935,6 +4935,7 @@
         "name": "gilbertkennen/bigint",
         "summary": "unlimited size integers",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5216,6 +5217,13 @@
             "2.0.0",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "inkuzmin/elm-multiselect",
+        "summary": "multiselect control",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -10115,6 +10123,14 @@
         "name": "wintvelt/elm-print-any",
         "summary": "a tiny library to print any record to DOM or to console",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "wittjosiah/elm-alerts",
+        "summary": "Alert system with several customization options build purely in elm",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
