@@ -303,6 +303,13 @@
         ]
     },
     {
+        "name": "Elm-Canvas/raster-shapes",
+        "summary": "Pixelated shape drawing using the Bresenham algorithms",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "FabienHenon/elm-infinite-list-view",
         "summary": "Displays a virtual infinite list, only showing visible items",
         "versions": [
@@ -638,6 +645,13 @@
         ]
     },
     {
+        "name": "JohnBugner/elm-loop",
+        "summary": "Repeatedly apply a function while or until a predicate holds.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "JordyMoos/elm-clockpicker",
         "summary": "A clock picker component",
         "versions": [
@@ -671,6 +685,7 @@
         "name": "Kinto/elm-kinto",
         "summary": "A client to help making requests to a Kinto storage server",
         "versions": [
+            "6.0.0",
             "5.0.0",
             "4.0.1",
             "4.0.0",
@@ -820,6 +835,13 @@
         ]
     },
     {
+        "name": "NoRedInk/elm-compare",
+        "summary": "Tools for composing comparison functions",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "NoRedInk/elm-decode-pipeline",
         "summary": "A pipeline-friendly library for building JSON decoders.",
         "versions": [
@@ -836,6 +858,7 @@
         "name": "NoRedInk/elm-feature-interest",
         "summary": "Generated modules for interfacing with NoRedInk's Feature Interest REST API",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1204,6 +1227,7 @@
         "name": "TSFoster/elm-heap",
         "summary": "Heap structure for elmlang",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -2071,6 +2095,13 @@
         "summary": "DEPRECATED: Please take a look at adam-r-kowalski/Elm-Css instead",
         "versions": [
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "avh4-experimental/elm-compose-programs",
+        "summary": "(not recommended for real-world use) manipulate and combine Programs",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3589,6 +3620,7 @@
         "name": "elm-bodybuilder/elegant",
         "summary": "Framework for inline CSS",
         "versions": [
+            "5.0.0",
             "4.1.0",
             "4.0.0",
             "3.1.0",
@@ -4327,6 +4359,16 @@
         "versions": [
             "1.1.1",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "esanmiguelc/elm-validate",
+        "summary": "Elm validation library inspired by ecto changeset validations",
+        "versions": [
+            "2.0.0",
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5224,6 +5266,10 @@
         "name": "inkuzmin/elm-multiselect",
         "summary": "multiselect control",
         "versions": [
+            "1.0.4",
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5826,6 +5872,7 @@
         "name": "jschonenberg/elm-dropdown",
         "summary": "Component to serve as a foundation for custom dropdowns.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -5867,6 +5914,7 @@
         "name": "justgage/tachyons-elm",
         "summary": "Tachyons CSS classnames for Elm",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -5989,6 +6037,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jwoudenberg/elm-test-experimental",
+        "summary": "Experimental tools for use with elm-test",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -6538,6 +6593,7 @@
         "name": "lgastako/elm-select",
         "summary": "Helpers for building Select inputs in Elm",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -7090,6 +7146,7 @@
         "name": "mgold/elm-date-format",
         "summary": "Format dates with ease",
         "versions": [
+            "1.4.0",
             "1.3.0",
             "1.2.0",
             "1.1.7",
@@ -8172,6 +8229,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "9.0.1",
             "9.0.0",
             "8.7.0",
             "8.6.2",
@@ -9001,6 +9059,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.8.0",
             "2.7.0",
             "2.6.0",
             "2.5.1",
@@ -9300,6 +9359,7 @@
         "name": "terezka/elm-plot-rouge",
         "summary": "Cartesian to SVG coordinate translation.",
         "versions": [
+            "4.0.0",
             "3.1.0",
             "3.0.1",
             "3.0.0",
@@ -9620,6 +9680,7 @@
         "name": "truqu/elm-base64",
         "summary": "Base64 encoding and decoding",
         "versions": [
+            "1.0.6",
             "1.0.5",
             "1.0.4",
             "1.0.3",
@@ -9674,6 +9735,7 @@
         "name": "tunguski/elm-ast",
         "summary": "A parser for Elm code",
         "versions": [
+            "3.0.0",
             "2.0.4",
             "2.0.3",
             "2.0.2",
