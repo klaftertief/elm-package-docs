@@ -405,6 +405,7 @@
     "ktonon/url-parser",
     "kuzzmi/elm-gravatar",
     "labzero/elm-google-geocoding",
+    "larribas/elm-image-slider",
     "larribas/elm-multi-email-input",
     "larribas/elm-multi-input",
     "lattenwald/elm-base64",

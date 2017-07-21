@@ -1,0 +1,69 @@
+[
+  {
+    "name": "ImageSlider",
+    "comment": " A component to display and navigate through an image carousel. See the [demo here](https://larribas.github.io/elm-image-slider/) to get a clear idea.\n\nIt supports moving via arrow keys, visual arrows and clicking on the image thumbnails. The default styles come with easy support for the traditional close button on the upper right corner.\n\nYou can supply any type to the carousel, as long as you can supply functions that extract each item's originalUrl, thumbnailUrl and caption.\n\n\n# Main workflow\n\n@docs Msg, Model, Config, init, update, view\n\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " Holds all necessary transformations to display the image slider\n",
+        "args": [
+          "a"
+        ],
+        "type": "{ originalUrl : a -> String , thumbnailUrl : a -> String , alt : a -> String , caption : a -> Html.Html ImageSlider.Msg }"
+      },
+      {
+        "name": "Model",
+        "comment": " Minimal model for the component. It remembers its current position given an array of slides. Slides can be any type, as long as you are able to supply the functions described in @Config\n",
+        "args": [
+          "a"
+        ],
+        "type": "{ focusedSlide : Int, slides : Array.Array a }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Internal messages to manage the component's state.\n",
+        "args": [],
+        "cases": [
+          [
+            "ShowSlide",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "NextSlide",
+            []
+          ],
+          [
+            "PreviousSlide",
+            []
+          ],
+          [
+            "NoOp",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Initialize the component's state with an (Array, Index) pair. Should the index be out of range, it defaults to the first element.\n",
+        "type": "List a -> Int -> ( ImageSlider.Model a, Platform.Cmd.Cmd ImageSlider.Msg )"
+      },
+      {
+        "name": "update",
+        "comment": " Updates the component's state\n",
+        "type": "ImageSlider.Msg -> ImageSlider.Model a -> ImageSlider.Model a"
+      },
+      {
+        "name": "view",
+        "comment": " Renders the component visually. Should the slide array be empty, it displays nothing\n",
+        "type": "ImageSlider.Config a -> ImageSlider.Model a -> Html.Html ImageSlider.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

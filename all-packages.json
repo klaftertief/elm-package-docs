@@ -997,6 +997,7 @@
         "name": "NoRedInk/nri-elm-css",
         "summary": "Helpers for working with NRI styling",
         "versions": [
+            "2.1.0",
             "2.0.1",
             "2.0.0",
             "1.12.1",
@@ -6572,6 +6573,13 @@
     {
         "name": "lagunoff/elm-mdl",
         "summary": "Material Design Lite port to Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "larribas/elm-image-slider",
+        "summary": "An image slider / slideshow / carousel component for Elm",
         "versions": [
             "1.0.0"
         ]
