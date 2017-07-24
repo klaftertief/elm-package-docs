@@ -1,0 +1,158 @@
+[
+  {
+    "name": "ClarityUI.Grid",
+    "comment": " Clarity UI Uses the Bootstrap Flex-grid. This module is borrowed from `elm-bootstrap`\n\n Bootstrap includes a powerful mobile-first flexbox grid system for building layouts of all shapes and sizes. It’s based on a 12 column layout and has multiple tiers, one for each media query range.\n    Grid.container\n        [ Grid.row\n            [ Row.topXs ]\n            [ Grid.col\n                [ Col.xs4 ]\n                [ text \"col1-row1\"]\n            , Grid.col\n                [ Col.xs8 ]\n                [ text \"col2-row1\"]\n            ]\n        , Grid.simpleRow\n            [ Grid.col\n                [ Col.xs4 ]\n                [ text \"col1-row2\"]\n            , Grid.col\n                [ Col.xs6 ]\n                [ text \"col2-row2\"]\n            ]\n        ]\n# Containers\n@docs container, containerFluid\n# Rows\n@docs row, simpleRow, keyedRow\n# Columns\n@docs col, colBreak, keyedCol, Column\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Column",
+        "comment": " Opaque type representing a column element\n",
+        "args": [
+          "msg"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "col",
+        "comment": " Create a column\n* `options` List of column options\n* `children` List of child elments\n",
+        "type": "List (ClarityUI.Grid.Col.Option msg) -> List (Html.Html msg) -> ClarityUI.Grid.Column msg"
+      },
+      {
+        "name": "colBreak",
+        "comment": " Creates a full width column with no content. Handy for creating equal width multi-row columns.\n",
+        "type": "List (Html.Attribute msg) -> ClarityUI.Grid.Column msg"
+      },
+      {
+        "name": "container",
+        "comment": " Responsive fixed width container, which changes its max-width at breakpoint\n",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "containerFluid",
+        "comment": " Full width container spanning the entire viewport\n",
+        "type": "List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "keyedCol",
+        "comment": " Create a column with keyed children\n* `options` List of column options\n* `keyedChildren` List of key,element child element tuples\n",
+        "type": "List (ClarityUI.Grid.Col.Option msg) -> List ( String, Html.Html msg ) -> ClarityUI.Grid.Column msg"
+      },
+      {
+        "name": "keyedRow",
+        "comment": " Create a row with keyed columns. Handy when you need to move columns around without getting massive rerenders.\n* `options` List of row options\n* `keydCols` List of key, column tuples\n",
+        "type": "List (ClarityUI.Grid.Row.Option msg) -> List ( String, ClarityUI.Grid.Column msg ) -> Html.Html msg"
+      },
+      {
+        "name": "row",
+        "comment": " Create a row\n* `options` List of row options\n* `cols` List of columns\n",
+        "type": "List (ClarityUI.Grid.Row.Option msg) -> List (ClarityUI.Grid.Column msg) -> Html.Html msg"
+      },
+      {
+        "name": "simpleRow",
+        "comment": " Create a row with no configuration options\n",
+        "type": "List (ClarityUI.Grid.Column msg) -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "ClarityUI.CDN",
+    "comment": " CDN module.\nIncludes the clarity assets from a CDN for easy use with Elm Reactor.\n\n@docs styles, icons, iconsJS\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "icons",
+        "comment": " Adds a link to an [unpkg](https://unpkg.com/#/) mirror of the clarify-icons css\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "iconsJS",
+        "comment": " Adds a script to an unpkg](<https://unpkg.com/#/>) mirror of the clarify-icons js\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "styles",
+        "comment": " Adds a link to an [unpkg](https://unpkg.com/#/) mirror of the clarify-ui css\n\n    import ClarityUI.CDN\n\n    view : Model -> Html Msg\n    view model =\n        div []\n            [ CDN.styles -- css embedded inline\n            ]\n\n",
+        "type": "Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "ClarityUI.Alert",
+    "comment": " Clarity UI's Alerts.\n\n\n# Alerts\n\n@docs alert\n\n\n# Shorthand Inline Alerts\n\n@docs alertDanger, alertWarning, alertInfo, alertSuccess\n\n\n# App Alerts\n\n@docs alertAppDanger, alertAppWarning, alertAppInfo, alertAppSuccess\n\n\n# Options\n\n@docs AlertType\n\n\n# Data\n\n@docs AlertItem, AlertAction\n\n",
+    "aliases": [
+      {
+        "name": "AlertAction",
+        "comment": " Actions for an alert\n",
+        "args": [],
+        "type": "{ text : String, link : String }"
+      },
+      {
+        "name": "AlertItem",
+        "comment": " Item to pass to an alert\n",
+        "args": [],
+        "type": "{ text : String, actions : List ClarityUI.Alert.AlertAction }"
+      }
+    ],
+    "types": [
+      {
+        "name": "AlertType",
+        "comment": " Alert Type. Either Danger, Warning, Info or Success\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "alert",
+        "comment": " Main Alert Entry Point. Creates a clarity alert.\n\nDocumentation about Clarity Alerts: <https://vmware.github.io/clarity/documentation/alerts#top>\n\n",
+        "type": "ClarityUI.Alert.AlertType -> Bool -> Bool -> Bool -> ClarityUI.Alert.AlertItem -> Html.Html msg"
+      },
+      {
+        "name": "alertAppDanger",
+        "comment": " Alert App Danger.\nCurried Shortcut for a dismissible danger app alert.\n",
+        "type": "ClarityUI.Alert.AlertItem -> Html.Html msg"
+      },
+      {
+        "name": "alertAppInfo",
+        "comment": " Alert App Info.\nCurried Shortcut for a dismissible Info app alert.\n",
+        "type": "ClarityUI.Alert.AlertItem -> Html.Html msg"
+      },
+      {
+        "name": "alertAppSuccess",
+        "comment": " Alert App Success.\nCurried Shortcut for a dismissible Success app alert.\n",
+        "type": "ClarityUI.Alert.AlertItem -> Html.Html msg"
+      },
+      {
+        "name": "alertAppWarning",
+        "comment": " Alert App Warning.\nCurried Shortcut for a dismissible warning app alert.\n",
+        "type": "ClarityUI.Alert.AlertItem -> Html.Html msg"
+      },
+      {
+        "name": "alertDanger",
+        "comment": " Alert Danger.\nCurried Shortcut for a dismissible danger alert.\n",
+        "type": "ClarityUI.Alert.AlertItem -> Html.Html msg"
+      },
+      {
+        "name": "alertInfo",
+        "comment": " Alert Info.\nCurried Shortcut for a dismissible Info alert.\n",
+        "type": "ClarityUI.Alert.AlertItem -> Html.Html msg"
+      },
+      {
+        "name": "alertSuccess",
+        "comment": " Alert Success.\nCurried Shortcut for a dismissible Success alert.\n",
+        "type": "ClarityUI.Alert.AlertItem -> Html.Html msg"
+      },
+      {
+        "name": "alertWarning",
+        "comment": " Alert Warning.\nCurried Shortcut for a dismissible warning alert.\n",
+        "type": "ClarityUI.Alert.AlertItem -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

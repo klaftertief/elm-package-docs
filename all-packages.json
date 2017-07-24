@@ -179,6 +179,13 @@
         ]
     },
     {
+        "name": "Bractlet/elm-plot",
+        "summary": "Bractlet version of elm-plot (forked from terezka)",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "BrianHicks/elm-avl-exploration",
         "summary": "Drop-in replacement for Dict using AVL trees. Faster get, slower insert.",
         "versions": [
@@ -2949,6 +2956,9 @@
         "name": "cuducos/elm-format-number",
         "summary": "Format numbers as pretty strings",
         "versions": [
+            "5.0.2",
+            "5.0.1",
+            "5.0.0",
             "4.0.2",
             "4.0.1",
             "4.0.0",
@@ -3195,6 +3205,13 @@
             "2.0.0",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "danmarcab/elm-retroactive",
+        "summary": "Have a retroactive model. Lets you undo / redo with multiple future branches.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -6147,6 +6164,17 @@
         ]
     },
     {
+        "name": "kfish/glsl-pasta",
+        "summary": "Combine GLSL shaders for use with Elm WebGL",
+        "versions": [
+            "3.0.0",
+            "2.0.0",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "kfish/quaternion",
         "summary": "Fast 3D rotation and orientation",
         "versions": [
@@ -7051,6 +7079,15 @@
         "versions": [
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "mc706/elm-clarity-ui",
+        "summary": "Elm Clarity UI is a wrapper library for the Clarity UI Framework",
+        "versions": [
+            "1.2.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -7963,8 +8000,9 @@
     },
     {
         "name": "peterszerzo/elm-gameroom",
-        "summary": "Multiplayer guessing game framework",
+        "summary": "Framework for custom multiplayer games",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.0.0"
