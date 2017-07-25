@@ -68,6 +68,7 @@
     "NoRedInk/list-selection",
     "NoRedInk/nri-elm-css",
     "NoRedInk/rocket-update",
+    "NoRedInk/style-elements",
     "NoRedInk/view-extra",
     "OldhamMade/elm-charts",
     "RGBboy/websocket-server",
@@ -322,6 +323,7 @@
     "ghivert/elm-mapbox",
     "gilbertkennen/bigint",
     "gmauricio/elm-semantic-ui",
+    "gribouille/elm-prelude",
     "grrinchas/elm-natural",
     "h0lyalg0rithm/elm-select",
     "halfzebra/elm-aframe",
@@ -652,6 +654,7 @@
     "zaidan/elm-gridbox",
     "zwilias/elm-avl-dict-exploration",
     "zwilias/elm-disco",
+    "zwilias/elm-touch-events",
     "zwilias/elm-tree",
     "zwilias/elm-utf-tools",
     "zwilias/json-decode-exploration"
