@@ -7104,6 +7104,7 @@
         "name": "mc706/elm-clarity-ui",
         "summary": "Elm Clarity UI is a wrapper library for the Clarity UI Framework",
         "versions": [
+            "2.3.0",
             "2.2.2",
             "2.2.1",
             "2.2.0",
@@ -9317,6 +9318,7 @@
         "name": "stoeffel/editable",
         "summary": "Editable represents a value that can be read-only or editable.",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.0"
         ]
