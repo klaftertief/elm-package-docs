@@ -1004,6 +1004,7 @@
         "name": "NoRedInk/nri-elm-css",
         "summary": "Helpers for working with NRI styling",
         "versions": [
+            "2.1.1",
             "2.1.0",
             "2.0.1",
             "2.0.0",
@@ -2441,6 +2442,13 @@
     {
         "name": "cacay/elm-void",
         "summary": "The empty type in Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "cakenggt/elm-net",
+        "summary": "Hidden Layer Neural Network library for Elm",
         "versions": [
             "1.0.0"
         ]
@@ -5025,6 +5033,21 @@
         ]
     },
     {
+        "name": "ghivert/elm-data-dumper",
+        "summary": "Dump data structures easily in Elm!",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ghivert/elm-graphql",
+        "summary": "GraphQL queries made easy in Elm!",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ghivert/elm-mapbox",
         "summary": "Mapbox web API easy access.",
         "versions": [
@@ -6578,6 +6601,7 @@
         "name": "ktonon/elm-test-extra",
         "summary": "Extra expectations, fuzzers, testers and describers",
         "versions": [
+            "1.6.0",
             "1.5.1",
             "1.5.0",
             "1.4.0",
@@ -6626,6 +6650,7 @@
         "name": "larribas/elm-image-slider",
         "summary": "An image slider / slideshow / carousel component for Elm",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -7104,6 +7129,10 @@
         "name": "mc706/elm-clarity-ui",
         "summary": "Elm Clarity UI is a wrapper library for the Clarity UI Framework",
         "versions": [
+            "2.7.0",
+            "2.6.0",
+            "2.5.0",
+            "2.4.0",
             "2.3.0",
             "2.2.2",
             "2.2.1",
@@ -7319,6 +7348,7 @@
         "name": "mgold/elm-random-pcg",
         "summary": "A faster, more featureful, statistically better, & compatible random generator",
         "versions": [
+            "5.0.1",
             "5.0.0",
             "4.0.2",
             "4.0.1",
@@ -7505,6 +7535,13 @@
             "3.0.0",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "mrpinsky/elm-keyed-list",
+        "summary": "A library for encapsulating keyed lists in Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -10384,6 +10421,7 @@
         "name": "yotamDvir/elm-katex",
         "summary": "KaTeX in elm (without ports): a fast LaTeX rendering library from Kahn Academy.",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
