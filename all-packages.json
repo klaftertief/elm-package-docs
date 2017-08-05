@@ -64,6 +64,7 @@
         "name": "Bogdanp/elm-ast",
         "summary": "A parser for Elm code",
         "versions": [
+            "8.0.7",
             "8.0.6",
             "8.0.5",
             "8.0.4",
@@ -822,6 +823,7 @@
         "name": "NoRedInk/datetimepicker",
         "summary": "Reusable date and time picker view",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -999,6 +1001,7 @@
         "name": "NoRedInk/list-selection",
         "summary": "A list that might have at most one selected item",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -2989,6 +2992,7 @@
         "name": "cultureamp/elm-css-modules-loader",
         "summary": "Use Webpack-powered CSS Modules inside your Elm views",
         "versions": [
+            "2.0.0",
             "1.1.2",
             "1.1.1",
             "1.1.0",
@@ -3603,6 +3607,7 @@
         "name": "eeue56/elm-html-test",
         "summary": "Write tests for your Html.",
         "versions": [
+            "5.0.1",
             "5.0.0",
             "4.1.0",
             "4.0.0",
@@ -3990,6 +3995,7 @@
         "name": "elm-community/html-test-runner",
         "summary": "Run elm-test tests in a browser.",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -4420,6 +4426,8 @@
         "name": "ericgj/elm-quantiles",
         "summary": "Calculate quantiles, using various interpolation functions (or your own).",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -4819,6 +4827,13 @@
         ]
     },
     {
+        "name": "flarebyte/ntriples-filter",
+        "summary": "This library provides an easy way of filtering a list of simplified n-triples.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "folkertdev/elm-bounding-box",
         "summary": "bounding box operations",
         "versions": [
@@ -4831,6 +4846,7 @@
         "name": "folkertdev/elm-deque",
         "summary": "A deque (double-ended queue) ",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -5108,6 +5124,13 @@
     {
         "name": "gribouille/elm-prelude",
         "summary": "Extra standard functions",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "gribouille/elm-treeview",
+        "summary": "ELM tree view component",
         "versions": [
             "1.0.0"
         ]
@@ -6274,6 +6297,13 @@
         ]
     },
     {
+        "name": "kirchner/elm-selectize",
+        "summary": "selectize-like dropdown menu with autocompletion",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "kkpoon/elm-auth0",
         "summary": "Auth0 data types and helper functions",
         "versions": [
@@ -6948,6 +6978,14 @@
         ]
     },
     {
+        "name": "lukewestby/http-extra",
+        "summary": "Convenience functions for working with Http",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lukewestby/lru-cache",
         "summary": "A least recently used cache for Elm programs",
         "versions": [
@@ -7129,6 +7167,7 @@
         "name": "mattjbray/elm-prismicio",
         "summary": "Elm SDK for prismic.io",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -9373,6 +9412,8 @@
         "name": "stephenreddek/elm-range-slider",
         "summary": "An elm package for range sliders",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -9892,6 +9933,7 @@
         "name": "tripokey/elm-fuzzy",
         "summary": "A library for fuzzy string matching",
         "versions": [
+            "5.2.0",
             "5.1.0",
             "5.0.3",
             "5.0.2",
@@ -9982,6 +10024,7 @@
         "name": "turboMaCk/chae-tree",
         "summary": "Create multi-level navigation in elm easily.",
         "versions": [
+            "2.1.0",
             "2.0.1",
             "2.0.0",
             "1.0.3",
@@ -10456,6 +10499,13 @@
         "summary": "A pure Elm Chart library",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "xarvh/elm-gamepad",
+        "summary": "Elm Library for gamepads and game controllers",
+        "versions": [
             "1.0.0"
         ]
     },
