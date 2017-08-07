@@ -473,6 +473,13 @@
         ]
     },
     {
+        "name": "Gizra/elm-all-set",
+        "summary": "A set of unique values. The values can be any type (not just comparables).",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Gizra/elm-attribute-builder",
         "summary": "Build up lists of HTML attributes in a modular manner",
         "versions": [
@@ -504,8 +511,22 @@
         ]
     },
     {
+        "name": "Gizra/elm-editable-webdata",
+        "summary": "An EditableWebData represents an Editable value, along with WebData.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Gizra/elm-keyboard-event",
         "summary": "Decoders for keyboard events",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Gizra/elm-storage-key",
+        "summary": "A StorageKey represents a value that is either New or Existing.",
         "versions": [
             "1.0.0"
         ]
@@ -6315,6 +6336,7 @@
         "name": "kkpoon/elm-auth0-urlparser",
         "summary": "UrlParser for Auth0 token callback",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
