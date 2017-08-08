@@ -1741,6 +1741,14 @@
         ]
     },
     {
+        "name": "akheron/elm-easter",
+        "summary": "Compute the date of Easter for any given year",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "akoppela/elm-css-extra-properties",
         "summary": "Missing css properties for `elm-css` package",
         "versions": [
@@ -2578,6 +2586,7 @@
         "name": "ccapndave/elm-translator",
         "summary": "Type-safe internationalisation for Elm",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -3722,6 +3731,7 @@
         "name": "elm-bodybuilder/elegant",
         "summary": "Framework for inline CSS",
         "versions": [
+            "6.0.0",
             "5.0.0",
             "4.1.0",
             "4.0.0",
@@ -6711,6 +6721,9 @@
         "name": "ktonon/url-parser",
         "summary": "Parse URLs into nicely structured data. Fork: without dom, html, navigation",
         "versions": [
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -7166,6 +7179,21 @@
             "1.1.1",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "matheus23/elm-drag-and-drop",
+        "summary": "style-elements compatible Drag and Drop library similar to html5 drag and drop",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "matheus23/please-focus-more",
+        "summary": "Some helpful setters (a.k.a. Lenses/foci) using and extending please-focus",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -8496,6 +8524,7 @@
         "name": "rl-king/elm-modular-scale",
         "summary": "Generate proportionally related values to use as font-sizes, line-height, ect.",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -10528,6 +10557,7 @@
         "name": "xarvh/elm-gamepad",
         "summary": "Elm Library for gamepads and game controllers",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -10557,6 +10587,7 @@
         "name": "ydschneider/regex-builder",
         "summary": "Build a Regex from composable Patterns",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
