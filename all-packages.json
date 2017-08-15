@@ -853,6 +853,7 @@
         "name": "NoRedInk/datetimepicker",
         "summary": "Reusable date and time picker view",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -1622,6 +1623,7 @@
         "name": "abadi199/elm-creditcard",
         "summary": "Pretty credit card form built with elm",
         "versions": [
+            "9.0.1",
             "9.0.0",
             "8.0.0",
             "7.0.1",
@@ -1938,6 +1940,16 @@
         "name": "arowM/elm-check-button",
         "summary": "A button component that can be checked or unchecked.",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "arowM/elm-istring",
+        "summary": "A module to handle unexpected behavior when using `lazy` with `input` tag.",
+        "versions": [
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3061,6 +3073,15 @@
         ]
     },
     {
+        "name": "dalen/elm-charts",
+        "summary": "Bar and pie charts",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "damienklinnert/elm-hue",
         "summary": "Control your Philips Hue devices with Elm",
         "versions": [
@@ -3451,6 +3472,13 @@
         ]
     },
     {
+        "name": "dividat/elm-semver",
+        "summary": "Semantic versions (Semver 2.0.0) library for Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "doodledood/elm-split-pane",
         "summary": "Split pane for elm.",
         "versions": [
@@ -3649,6 +3677,7 @@
         "name": "eeue56/elm-html-test",
         "summary": "Write tests for your Html.",
         "versions": [
+            "5.1.0",
             "5.0.1",
             "5.0.0",
             "4.1.0",
@@ -4038,6 +4067,7 @@
         "name": "elm-community/html-test-runner",
         "summary": "Run elm-test tests in a browser.",
         "versions": [
+            "1.0.5",
             "1.0.4",
             "1.0.3",
             "1.0.2",
@@ -4208,6 +4238,8 @@
         "name": "elm-community/typed-svg",
         "summary": "A Typed SVG (Scalable Vector Graphics) builder",
         "versions": [
+            "2.0.0",
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -6321,6 +6353,7 @@
         "name": "kfish/quaternion",
         "summary": "Fast 3D rotation and orientation",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.1.0",
             "1.0.0"
@@ -6699,6 +6732,8 @@
         "name": "ktonon/elm-serverless",
         "summary": "Deploy an elm worker to AWS Lambda using serverless",
         "versions": [
+            "4.0.1",
+            "4.0.0",
             "3.0.2",
             "3.0.1",
             "3.0.0",
@@ -6711,6 +6746,8 @@
         "name": "ktonon/elm-serverless-cors",
         "summary": "CORS middleware for elm-serverless",
         "versions": [
+            "2.1.0",
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -7198,6 +7235,8 @@
         "name": "matheus23/elm-drag-and-drop",
         "summary": "style-elements compatible Drag and Drop library similar to html5 drag and drop",
         "versions": [
+            "4.0.0",
+            "3.1.0",
             "3.0.0",
             "2.2.0",
             "2.1.0",
@@ -8077,9 +8116,18 @@
     },
     {
         "name": "opensolid/linear-algebra",
+        "summary": "DEPRECATED: Moved to opensolid/linear-algebra-interop.",
+        "versions": [
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "opensolid/linear-algebra-interop",
         "summary": "Interop support for opensolid/geometry and elm-community/linear-algebra",
         "versions": [
-            "1.0.1",
             "1.0.0"
         ]
     },
@@ -8549,6 +8597,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "9.1.0",
             "9.0.1",
             "9.0.0",
             "8.7.0",
@@ -8869,6 +8918,13 @@
         ]
     },
     {
+        "name": "rtfeldman/hashed-class",
+        "summary": "Automatically generate elm-css classnames based on their content.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "rtfeldman/hex",
         "summary": "Work with hexadecimal numbers in Elm.",
         "versions": [
@@ -9167,6 +9223,7 @@
         "name": "simonh1000/elm-colorpicker",
         "summary": "elm-colorpicker",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -9397,6 +9454,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.9.0",
             "2.8.0",
             "2.7.0",
             "2.6.0",
@@ -9561,6 +9619,7 @@
         "name": "surprisetalk/elm-bulma",
         "summary": "Bulma HTML/CSS Framework for Elm",
         "versions": [
+            "5.0.0",
             "4.1.5",
             "4.1.4",
             "4.1.3",
@@ -9667,6 +9726,13 @@
     {
         "name": "terezka/colors",
         "summary": "terezka's default colors",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "terezka/coordinates",
+        "summary": "For translating from cartesian coordinates to SVG coordinates and vice versa.",
         "versions": [
             "1.0.0"
         ]
@@ -10277,6 +10343,14 @@
         ]
     },
     {
+        "name": "waratuman/elm-coder",
+        "summary": "An Base64, Base32, and Base16 decoder and encoder",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "wende/elm-ast",
         "summary": "A parser for Elm code",
         "versions": [
@@ -10610,6 +10684,13 @@
         "versions": [
             "1.1.1",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "xarvh/lexical-random-generator",
+        "summary": "Randomly generate names based on a lexicon",
+        "versions": [
             "1.0.0"
         ]
     },
