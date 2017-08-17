@@ -228,6 +228,13 @@
         ]
     },
     {
+        "name": "Chadtech/elm-bool-extra",
+        "summary": "List of US State abbreviations and a few helpful functions",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Chadtech/elm-loop",
         "summary": "Looping functions like while and until",
         "versions": [
@@ -853,6 +860,7 @@
         "name": "NoRedInk/datetimepicker",
         "summary": "Reusable date and time picker view",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.1",
@@ -4067,6 +4075,7 @@
         "name": "elm-community/html-test-runner",
         "summary": "Run elm-test tests in a browser.",
         "versions": [
+            "1.0.6",
             "1.0.5",
             "1.0.4",
             "1.0.3",
@@ -5086,6 +5095,13 @@
     {
         "name": "geekyme/elm-charts",
         "summary": "Bar and pie charts",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "geppettodivacin/elm-couchdb",
+        "summary": "CouchDB Elm Bindings",
         "versions": [
             "1.0.0"
         ]
@@ -6718,6 +6734,13 @@
             "2.0.1",
             "2.0.0",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ktonon/elm-hmac",
+        "summary": "Compute HMAC digests",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -8572,6 +8595,13 @@
     {
         "name": "rizafahmi/elm-semantic-ui",
         "summary": "Elm bindings for Semantic UI forked from b52/elm-semantic-ui.git",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "rjbma/elm-modal",
+        "summary": "Simple modal dialogs for Elm",
         "versions": [
             "1.0.0"
         ]

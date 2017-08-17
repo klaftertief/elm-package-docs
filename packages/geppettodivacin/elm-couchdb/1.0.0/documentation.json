@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Couchdb",
+    "comment": "\n@docs Config, Row, defineDb, fetch, specialView, view, store\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": "",
+        "args": [],
+        "type": "Couchdb.Internal.Config"
+      },
+      {
+        "name": "Row",
+        "comment": "",
+        "args": [
+          "key",
+          "value"
+        ],
+        "type": "Couchdb.Internal.Row key value"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "defineDb",
+        "comment": "",
+        "type": "String -> String -> Couchdb.Config"
+      },
+      {
+        "name": "fetch",
+        "comment": "",
+        "type": "Json.Decode.Decoder a -> Couchdb.Config -> String -> Http.Request a"
+      },
+      {
+        "name": "specialView",
+        "comment": "",
+        "type": "Json.Decode.Decoder key -> Json.Decode.Decoder value -> Couchdb.Config -> String -> Http.Request (List (Couchdb.Row key value))"
+      },
+      {
+        "name": "store",
+        "comment": "",
+        "type": "(a -> Json.Encode.Value) -> Couchdb.Config -> String -> a -> Http.Request String"
+      },
+      {
+        "name": "view",
+        "comment": "",
+        "type": "Json.Decode.Decoder key -> Json.Decode.Decoder value -> Couchdb.Config -> String -> String -> Http.Request (List (Couchdb.Row key value))"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Couchdb.View",
+    "comment": "\n@docs Settings, settings, key, start_key, end_key, viewWith, specialViewWith\n",
+    "aliases": [
+      {
+        "name": "Settings",
+        "comment": "",
+        "args": [],
+        "type": "{ key : Maybe.Maybe String , start_key : Maybe.Maybe String , end_key : Maybe.Maybe String }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "end_key",
+        "comment": "",
+        "type": "Json.Encode.Value -> Couchdb.View.Settings -> Couchdb.View.Settings"
+      },
+      {
+        "name": "key",
+        "comment": "",
+        "type": "Json.Encode.Value -> Couchdb.View.Settings -> Couchdb.View.Settings"
+      },
+      {
+        "name": "settings",
+        "comment": "",
+        "type": "Couchdb.View.Settings"
+      },
+      {
+        "name": "specialViewWith",
+        "comment": "",
+        "type": "Couchdb.View.Settings -> Json.Decode.Decoder key -> Json.Decode.Decoder value -> Couchdb.Internal.Config -> String -> Http.Request (List (Couchdb.Internal.Row key value))"
+      },
+      {
+        "name": "start_key",
+        "comment": "",
+        "type": "Json.Encode.Value -> Couchdb.View.Settings -> Couchdb.View.Settings"
+      },
+      {
+        "name": "viewWith",
+        "comment": "",
+        "type": "Couchdb.View.Settings -> Json.Decode.Decoder key -> Json.Decode.Decoder value -> Couchdb.Internal.Config -> String -> String -> Http.Request (List (Couchdb.Internal.Row key value))"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
