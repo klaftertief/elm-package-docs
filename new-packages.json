@@ -315,6 +315,7 @@
     "fapian/elm-html-aria",
     "fbonetti/elm-geodesy",
     "fbonetti/elm-phoenix-socket",
+    "fedragon/elm-typed-dropdown",
     "flarebyte/ntriples-filter",
     "folkertdev/elm-bounding-box",
     "folkertdev/elm-deque",
