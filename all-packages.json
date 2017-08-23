@@ -257,6 +257,13 @@
         ]
     },
     {
+        "name": "Chadtech/order",
+        "summary": "A type to arrange things in order",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ChristophP/elm-i18next",
         "summary": "Use this module to load, decode and use translations in your app",
         "versions": [
@@ -5889,6 +5896,13 @@
         ]
     },
     {
+        "name": "jmackie4/elm-bulma",
+        "summary": "HTML helpers for working with the Bulma CSS flex framework.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "joeandaverde/flex-html",
         "summary": "Flexbox layout for elm-html (TEMPORARY)",
         "versions": [
@@ -6343,6 +6357,7 @@
         "name": "kennib/elm-maps",
         "summary": "An Elm library for interactive maps",
         "versions": [
+            "4.2.0",
             "4.1.0",
             "4.0.0",
             "3.0.3",
@@ -7273,6 +7288,7 @@
         "name": "matheus23/elm-drag-and-drop",
         "summary": "style-elements compatible Drag and Drop library similar to html5 drag and drop",
         "versions": [
+            "5.0.0",
             "4.0.0",
             "3.1.0",
             "3.0.0",
@@ -9500,6 +9516,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.10.0",
             "2.9.0",
             "2.8.0",
             "2.7.0",
