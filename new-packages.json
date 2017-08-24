@@ -432,6 +432,7 @@
     "ktonon/elm-serverless",
     "ktonon/elm-serverless-cors",
     "ktonon/elm-test-extra",
+    "ktonon/elm-word",
     "ktonon/url-parser",
     "kuzzmi/elm-gravatar",
     "labzero/elm-google-geocoding",

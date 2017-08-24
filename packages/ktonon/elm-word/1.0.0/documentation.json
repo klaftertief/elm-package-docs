@@ -1,0 +1,147 @@
+[
+  {
+    "name": "Word",
+    "comment": " Unsigned 32 or 64 bit integers and related operations.\n\n\n## Table of Contents\n\n  - [Types](#types)\n  - [Constructors](#constructors)\n  - [Conversions](#conversions)\n  - [Arithmetic](#arithmetic)\n  - [Bitwise](#bitwise)\n  - [Misc](#misc)\n\nThis package was developed to facilitate computations for [SHA-2](https://en.wikipedia.org/wiki/SHA-2).\nIt contains the minimal set of functions required by those algorithms.\n\nExamples below assume the following imports:\n\n    import Array\n    import Byte exposing (Byte)\n\n\n## Types\n\n@docs Word, Size\n\n\n## Constructors\n\n@docs fromBytes, fromUTF8, zero\n\n\n## Conversions\n\n@docs toBytes, toHex\n\n\n## Arithmetic\n\n@docs add\n\n\n## Bitwise\n\n@docs and, xor, complement, rotateRightBy, shiftRightZfBy\n\n\n## Misc\n\n@docs sizeInBytes\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Size",
+        "comment": " Size of a word.\n",
+        "args": [],
+        "cases": [
+          [
+            "Bit32",
+            []
+          ],
+          [
+            "Bit64",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Word",
+        "comment": " Unsigned integers of size 32 or 64 bits.\n\n  - `W` a \"word\" of size 32 bits\n  - `D` a \"double word\" of size 64 bits\n  - `Mismatch` value of any operation that mixes word types\n\nThese constructors are provided as a convenience, but are unsafe.\nUse `fromBytes` or `fromUTF8` to safely create arrays of words of the same type.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "W",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "D",
+            [
+              "Int",
+              "Int"
+            ]
+          ],
+          [
+            "Mismatch",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "add",
+        "comment": " Modulo adds two words of the same type.\n\n    add (W 0x80000000)\n        (W 0x7FFFFFFF)\n    --> W 0xFFFFFFFF\n\n    add (W 0x80000000)\n        (W 0x80000003)\n    --> W 3\n\n    add (D 0 0xFFFFFFFF)\n        (D 0 1)\n    --> D 1 0\n\n    add (D 0xFFFFFFFF 0xFFFFFFFF)\n        (D 0 2)\n    --> D 0 1\n\n    add (W 0)\n        (D 0 0)\n    --> Mismatch\n\n",
+        "type": "Word.Word -> Word.Word -> Word.Word"
+      },
+      {
+        "name": "and",
+        "comment": " Bitwise and.\n\n    Word.and\n        (W 0xFF00FF00)\n        (W 0xFFFF0000)\n    -->  W 0xFF000000\n\n    Word.and\n        (D 0xFF00FF00 0xFFFF0000)\n        (D 0xFFFF0000 0xFF00FF00)\n    -->  D 0xFF000000 0xFF000000\n\n",
+        "type": "Word.Word -> Word.Word -> Word.Word"
+      },
+      {
+        "name": "complement",
+        "comment": " Bitwise complement.\n\n    Word.complement\n        (W 0x00FF00FF)\n    -->  W 0xFF00FF00\n\n    Word.complement\n        (D 0x00FF00FF 0x00FF00FF)\n    -->  D 0xFF00FF00 0xFF00FF00\n\n",
+        "type": "Word.Word -> Word.Word"
+      },
+      {
+        "name": "fromBytes",
+        "comment": " Convert a list of bytes to an array of words of the given size.\n\n    fromBytes Bit32 ([ 0xDE, 0xAD, 0xBE, 0xEF ] |> List.map Byte.fromInt)\n    --> [ W 0xDEADBEEF ] |> Array.fromList\n\n    fromBytes Bit32 (\n        [ 0xDE, 0xAD, 0xBE, 0xEF\n        , 0x01, 0x23, 0x45, 0x67\n        ] |> List.map Byte.fromInt)\n    --> [ W 0xDEADBEEF, W 0x01234567 ] |> Array.fromList\n\n    fromBytes Bit64 (\n        [ 0xDE, 0xAD, 0xBE, 0xEF\n        , 0x01, 0x23, 0x45, 0x67\n        ] |> List.map Byte.fromInt)\n    --> [ D 0xDEADBEEF 0x01234567 ] |> Array.fromList\n\n",
+        "type": "Word.Size -> List Byte.Byte -> Array.Array Word.Word"
+      },
+      {
+        "name": "fromUTF8",
+        "comment": " Convert a UTF8 string to an array of words of the given size.\n\n    fromUTF8 Bit32 \"I ❤ UTF strings!\" |> Array.toList\n    --> [ W 0x4920E29D  -- 'I', ' ', 226, 157\n    --> , W 0xA4205554  -- 164, ' ', 'U', 'T'\n    --> , W 0x46207374  -- 'F', ' ', 's', 't'\n    --> , W 0x72696E67  -- 'r', 'i', 'n', 'g'\n    --> , W 0x73210000  -- 's', '!'\n    --> ]\n\n    fromUTF8 Bit64 \"I ❤ UTF strings!\" |> Array.toList\n    --> [ D 0x4920E29D 0xA4205554 -- 'I', ' ', 226, 157, 164, ' ', 'U', 'T'\n    --> , D 0x46207374 0x72696E67 -- 'F', ' ', 's', 't', 'r', 'i', 'n', 'g'\n    --> , D 0x73210000 0x00000000 -- 's', '!'\n    --> ]\n\n",
+        "type": "Word.Size -> String -> Array.Array Word.Word"
+      },
+      {
+        "name": "rotateRightBy",
+        "comment": " Rotate bits to the right by the given offset.\n\n<https://en.wikipedia.org/wiki/Bitwise_operation#Rotate_no_carry>\n\n    rotateRightBy 4 (W 0xDEADBEEF)\n    --> W 0xFDEADBEE\n\n    rotateRightBy 4 (D 0xDDEEAADD 0xBBEEAAFF)\n    --> D 0xFDDEEAAD 0xDBBEEAAF\n\n    rotateRightBy 7 Mismatch\n    --> Mismatch\n\n",
+        "type": "Int -> Word.Word -> Word.Word"
+      },
+      {
+        "name": "shiftRightZfBy",
+        "comment": " Shift bits to the right by a given offset, filling new bits with zeros.\n\n<https://en.wikipedia.org/wiki/Bitwise_operation#Logical_shift>\n\n    shiftRightZfBy 9 (W 0xFFFF)\n    --> W 0x7F\n\n    shiftRightZfBy 142 (W 0xFFFF)\n    --> W 0\n\n    shiftRightZfBy 8 (D 0x01234567 0x89abcdef)\n    --> D 0x00012345 0x6789abcd\n\n    shiftRightZfBy 4 Mismatch\n    --> Mismatch\n\n",
+        "type": "Int -> Word.Word -> Word.Word"
+      },
+      {
+        "name": "sizeInBytes",
+        "comment": " Convert the given word size to a byte count.\n",
+        "type": "Word.Size -> Int"
+      },
+      {
+        "name": "toBytes",
+        "comment": " Convert an array of words to a list of bytes.\n\n    [ W 0 ] |> Array.fromList |> toBytes\n    --> [ 0, 0, 0, 0 ] |> List.map Byte.fromInt\n\n    [ D 0 0 ] |> Array.fromList |> toBytes\n    --> [ 0, 0, 0, 0, 0, 0, 0, 0 ] |> List.map Byte.fromInt\n\n    [ W 16843010 ] |> Array.fromList |> toBytes\n    --> [ 1, 1, 1, 2 ] |> List.map Byte.fromInt\n\n",
+        "type": "Array.Array Word.Word -> List Byte.Byte"
+      },
+      {
+        "name": "toHex",
+        "comment": " Convert a list of words to a string of hexadecimal characters.\n\n    [ D 0xDEADBEEF 0x00112233, D 0x44556677 0x8899AABB ]\n        |> Array.fromList\n        |> toHex\n    --> \"deadbeef00112233445566778899aabb\"\n\n",
+        "type": "Array.Array Word.Word -> String"
+      },
+      {
+        "name": "xor",
+        "comment": " Bitwise xor.\n\n    Word.xor\n        (W 0xFF00FF00)\n        (W 0x00FFFF00)\n    -->  W 0xFFFF0000\n\n    Word.xor\n        (D 0xFF00FF00 0x00FFFF00)\n        (D 0x00FFFF00 0xFF00FF00)\n    -->  D 0xFFFF0000 0xFFFF0000\n\n",
+        "type": "Word.Word -> Word.Word -> Word.Word"
+      },
+      {
+        "name": "zero",
+        "comment": " The integer zero as a word of the given size.\n",
+        "type": "Word.Size -> Word.Word"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Word.Bytes",
+    "comment": " Helper functions for creating lists of bytes.\n\n    import Byte\n\n@docs ByteCount, fromInt, fromUTF8, fromHex, toHex\n\n",
+    "aliases": [
+      {
+        "name": "ByteCount",
+        "comment": " Total number of bytes\n",
+        "args": [],
+        "type": "Int"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "fromHex",
+        "comment": " Attempt to interpret a string as a sequence of hexadecimal encoded bytes.\n\nFails for non-hex strings.\n\n    fromHex \"not hex\"\n    --> []\n\nEach byte requires 2 characters, so odd length strings fail\n\n    fromHex \"000\"\n    --> []\n\nSome passing examples\n\n    fromHex \"00\"\n    --> [ 0x00 ] |> List.map Byte.fromInt\n\n    fromHex \"010203040506DEADbeef\"\n    --> [ 0x01, 0x02, 0x03, 0x04\n    --> , 0x05, 0x06, 0xDE, 0xAD\n    --> , 0xBE, 0xEF\n    --> ] |> List.map Byte.fromInt\n\n",
+        "type": "String -> List Byte.Byte"
+      },
+      {
+        "name": "fromInt",
+        "comment": " Split an integer value into a list of bytes with the given length.\n\n    fromInt 4 0\n    --> [ 0, 0, 0, 0 ] |> List.map Byte.fromInt\n\n    fromInt 4 1\n    --> [ 0, 0, 0, 1 ] |> List.map Byte.fromInt\n\n    fromInt 2 2\n    --> [ 0, 2 ] |> List.map Byte.fromInt\n\n    fromInt 1 255\n    --> [ 255 ] |> List.map Byte.fromInt\n\n    fromInt 4 256\n    --> [ 0, 0, 1, 0 ] |> List.map Byte.fromInt\n\n    fromInt 4 65537\n    --> [ 0, 1, 0, 1 ] |> List.map Byte.fromInt\n\n    fromInt 4 16777216\n    --> [ 1, 0, 0, 0 ] |> List.map Byte.fromInt\n\n    fromInt 8 72058693549555970\n    --> [ 1, 0, 1, 0, 0, 0, 1, 0 ] |> List.map Byte.fromInt\n\n",
+        "type": "Word.Bytes.ByteCount -> Int -> List Byte.Byte"
+      },
+      {
+        "name": "fromUTF8",
+        "comment": " Convert a character into a list of bytes\n\n    fromUTF8 \"a\"\n    --> [ Byte.fromInt 97 ]\n\n    fromUTF8 \"I ❤ cheese\"\n    --> [ 73, 32,\n    -->   226, 157, 164,\n    -->   32, 99, 104, 101, 101, 115, 101 ]\n    --> |> List.map Byte.fromInt\n\n    fromUTF8 \"dѐf\"\n    --> [ 100, 209, 144, 102 ] |> List.map Byte.fromInt\n\n",
+        "type": "String -> List Byte.Byte"
+      },
+      {
+        "name": "toHex",
+        "comment": " Convert a list of bytes to a string of hexadecimal characters.\n\n    [ 0xDE, 0xAD, 0xBE, 0xEF ]\n        |> List.map Byte.fromInt\n        |> toHex\n    --> \"deadbeef\"\n\n",
+        "type": "List Byte.Byte -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
