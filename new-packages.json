@@ -536,6 +536,7 @@
     "pablohirafuji/elm-char-codepoint",
     "pablohirafuji/elm-markdown",
     "pablohirafuji/elm-qrcode",
+    "pablohirafuji/elm-syntax-highlight",
     "patrickjtoy/elm-table",
     "pdamoc/elm-hashids",
     "periodic/elm-csv",
