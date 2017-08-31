@@ -229,8 +229,9 @@
     },
     {
         "name": "Chadtech/elm-bool-extra",
-        "summary": "List of US State abbreviations and a few helpful functions",
+        "summary": "Convenience functions for working with Bools",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]
@@ -258,10 +259,20 @@
     },
     {
         "name": "Chadtech/order",
-        "summary": "A type to arrange things in order",
+        "summary": "DEPRECIATED : A type to arrange things in order",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Chadtech/unique-list",
+        "summary": "A type to arrange things in order",
+        "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -575,6 +586,14 @@
         "name": "JOEANDAVERDE/flex-html",
         "summary": "Flexbox layout for elm-html (TEMPORARY)",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Janiczek/cmd-extra",
+        "summary": "Pipeline-friendly helpers for working with Cmds",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1574,6 +1593,7 @@
         "name": "Zinggi/elm-obj-loader",
         "summary": "Load wavefront .obj files in your WebGL scene.",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -1665,6 +1685,7 @@
         "name": "abadi199/elm-input-extra",
         "summary": "Commonly used Html element with extra functionality",
         "versions": [
+            "5.2.1",
             "5.2.0",
             "5.1.0",
             "5.0.0",
@@ -2589,6 +2610,14 @@
         "name": "careport/elm-avl",
         "summary": "AVL tree-based Dicts and Sets using explicit comparison functions",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "carwow/elm-slider",
+        "summary": "Elm slider implementation",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -4017,6 +4046,7 @@
         "name": "elm-community/elm-test",
         "summary": "Unit and Fuzz testing support with Console/Html/String outputs.",
         "versions": [
+            "4.2.0",
             "4.1.1",
             "4.1.0",
             "4.0.0",
@@ -4284,6 +4314,7 @@
         "name": "elm-community/webgl",
         "summary": "A library for general 3D rendering with WebGL",
         "versions": [
+            "2.0.4",
             "2.0.3",
             "2.0.2",
             "2.0.1",
@@ -4504,6 +4535,13 @@
         "summary": "A type-safe 'sprintf' format printer.",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ericgj/elm-accordion-menu",
+        "summary": "Accordion-style submenus",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -4932,6 +4970,7 @@
         "name": "fedragon/elm-typed-dropdown",
         "summary": "Dropdown that handles items of an arbitrary type `t`",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.1.1",
             "1.1.0",
@@ -5660,6 +5699,15 @@
         "summary": "Two-way JSON encoder-decoders.",
         "versions": [
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "janiczek/cmd-extra",
+        "summary": "DEPRECATED: use Janiczek/cmd-extra (with capitalized 'J')",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6766,6 +6814,14 @@
         ]
     },
     {
+        "name": "ktonon/elm-crypto",
+        "summary": "Compute HMAC with SHA-2 hash functions or use SHA-2 directly.",
+        "versions": [
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ktonon/elm-english-dictionary",
         "summary": "English language dictionary derived from WordNet 3.0",
         "versions": [
@@ -6778,8 +6834,18 @@
     },
     {
         "name": "ktonon/elm-hmac",
-        "summary": "Compute HMAC digests",
+        "summary": "Deprecated. Use ktonon/elm-crypto",
         "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ktonon/elm-jsonwebtoken",
+        "summary": "JSON Web Token encoder and decoder (JWT)",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6801,6 +6867,13 @@
             "3.0.0",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ktonon/elm-serverless-auth-jwt",
+        "summary": "Authorization middleware using JWT for elm-serverless",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -6832,6 +6905,7 @@
         "name": "ktonon/elm-word",
         "summary": "Unsigned 32 or 64 bit integers and related operations",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -8423,6 +8497,14 @@
         ]
     },
     {
+        "name": "prikhi/paginate",
+        "summary": "Pagination with Built-In Fetching & Caching of Requests",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "prikhi/remote-status",
         "summary": "A Library for Tracking the Status of Remote Requests",
         "versions": [
@@ -8941,6 +9023,7 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "11.0.0",
             "10.0.0",
             "9.1.0",
             "9.0.0",
@@ -9309,6 +9392,7 @@
         "name": "simonh1000/elm-colorpicker",
         "summary": "elm-colorpicker",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]
@@ -9540,6 +9624,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.11.0",
             "2.10.0",
             "2.9.0",
             "2.8.0",
@@ -9698,6 +9783,15 @@
             "1.2.1",
             "1.2.0",
             "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "supermario/elm-countries",
+        "summary": "A searchable ISO 3166-1 based list of country names, codes and emoji flags",
+        "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -9976,6 +10070,10 @@
         "name": "the-sett/ai-search",
         "summary": "AI Search for Elm",
         "versions": [
+            "4.0.1",
+            "4.0.0",
+            "3.1.2",
+            "3.1.1",
             "3.1.0",
             "3.0.0",
             "2.0.0",
@@ -10411,6 +10509,7 @@
         "name": "vmchale/elm-composition",
         "summary": "Port of Haskell's composition package",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
