@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Stats.NormalDistribution",
+    "comment": " A library for stats calculations.\n\n@docs zScore, cdf, cdfZ\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "cdf",
+        "comment": "\n\n    cdf value mean std =\n        let\n            z_ =\n                zScore value mean std\n        in\n        cdfZ z_\n\n",
+        "type": "Float -> Float -> Float -> Maybe.Maybe Float"
+      },
+      {
+        "name": "cdfZ",
+        "comment": " Returns the probability given the normal distribution Z value.\n\n    cdfZ 2.4 -- \"Just 0.9918\"\n    cdfZ 2.44444444444 -- \"Just 0.9927\"\n    cdfZ -2.4 -- \"Just 0.0082\"\n\n",
+        "type": "Float -> Maybe.Maybe Float"
+      },
+      {
+        "name": "zScore",
+        "comment": " ",
+        "type": "Float -> Float -> Float -> Float"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

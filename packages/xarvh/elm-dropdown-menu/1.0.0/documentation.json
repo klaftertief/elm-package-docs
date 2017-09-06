@@ -1,0 +1,87 @@
+[
+  {
+    "name": "DropdownMenu",
+    "comment": " A production-grade dropdown menu.\n\nIf you need internal scrolling, you will need to wire in a [port](https://github.com/xarvh/elm-dropdown-menu/tree/master/ports),\ncheck the [examples](https://github.com/xarvh/elm-dropdown-menu/tree/master/examples)\nto see how it is done.\n\nThe API is designed to minimise the boiler plate necessary to use dropdown menus.\n\nWe rewrote the whole module several times and every time we ended up with the\nsame boilerplate and roughly the same way to abstract it away.\n\n\n# Common Features\n\n@docs CommonFeatures, defaultCommonFeatures, Classes, defaultClasses, itemToHtml\n\n\n# Config\n\n@docs Config\n\n\n# The Elm Architecture\n\n@docs OpenState, open, Msg, update, Setters, view\n\n",
+    "aliases": [
+      {
+        "name": "Classes",
+        "comment": " These are the CSS class names that will be used for the dropdown menu elements.\n",
+        "args": [],
+        "type": "{ root : String , isOpen : String , isClosed : String , isDisabled : String , selectBox : String , selection : String , placeholder : String , clearButton : String , downArrow : String , menu : String , menuOption : String , menuOptionSelected : String , menuOptionHighlighted : String }"
+      },
+      {
+        "name": "CommonFeatures",
+        "comment": " This record describes the stuff that should be the same all over the app.\n\n`scrollIntoView` is required only if you need internal scrolling: you should\nset it to the port provided in [ports/](https://github.com/xarvh/elm-dropdown-menu/tree/master/ports).\n\n",
+        "args": [],
+        "type": "{ downArrow : Html.Html Basics.Never , clearButton : Html.Html Basics.Never , scrollIntoView : String -> Platform.Cmd.Cmd Basics.Never , classes : DropdownMenu.Classes }"
+      },
+      {
+        "name": "Config",
+        "comment": " This record holds the configuration for a specific dropdown menu.\n\nThe `model` and the `msg` types refer to the [Elm Architecture](https://guide.elm-lang.org/architecture/)\n`Model` and `Msg` of the *parent*, ie the types used by the `update` function\nthat will call `DropdownMenu.update`.\n\n`item` is just the type of the items that will appear in the menu.\n\nThe record fields are:\n\n  - `hasClearButton` if set to True, will add a Clear icon that, when clicked, will set the selected item to `Nothing`.\n\n  - `itemToHtml` is a function to render a menu item into Html.\n    The first two arguments state whether the item is currently selected and highlighted, respectively.\n\n  - `itemToId` This string is used for comparisons and as DOM id when scrolling.\n\n  - `itemToLabel` This string is used for matching the item against character searches.\n\n  - `modelToItems` Returns the list of items to be shown in the menu.\n\n  - `modelToMaybeOpenState` Returns `Nothing` when the menu is closed, or `Just` the `OpenState` if it is open.\n\n  - `modelToMaybeSelection` Returns the currently selected `item`.\n\n  - `msgWrapper` Transforms a `DropdownMenu.Msg` into a parent `msg`.\n\n  - `placeholder` is shown whenever the current selection is `Nothing`.\n\n",
+        "args": [
+          "model",
+          "item",
+          "msg"
+        ],
+        "type": "{ hasClearButton : Bool , itemToHtml : Bool -> Bool -> item -> Html.Html Basics.Never , itemToId : item -> String , itemToLabel : item -> String , modelToItems : model -> List item , modelToMaybeOpenState : model -> Maybe.Maybe DropdownMenu.OpenState , modelToMaybeSelection : model -> Maybe.Maybe item , msgWrapper : DropdownMenu.Msg -> msg , placeholder : Html.Html Basics.Never }"
+      },
+      {
+        "name": "Setters",
+        "comment": " This type is just a nicer way to declare the arguments for `DropdownMenu.update`.\n\nAll these functions modify the parent `model`.\n\n",
+        "args": [
+          "model",
+          "item",
+          "msg"
+        ],
+        "type": "{ closeAllDropdowns : model -> model , openOnlyThisDropdown : DropdownMenu.OpenState -> model -> ( model, Platform.Cmd.Cmd msg ) , setCurrentSelection : Maybe.Maybe item -> model -> ( model, Platform.Cmd.Cmd msg ) }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "OpenState",
+        "comment": " You can think of this as the [Elm Architecture](https://guide.elm-lang.org/architecture/)\n`Model` for the dropdown menu, with the difference that it is only needed when\nthe menu is open.\n\nAlso, since you really want to have only a single dropdown menu open at any\ngiven time, you should structure your `Model` so that at most one `OpenState`\ncan exist at any given time.\nCheck the [examples](https://github.com/xarvh/elm-dropdown-menu/tree/master/examples) to see how this is done.\n\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultClasses",
+        "comment": " ",
+        "type": "DropdownMenu.Classes"
+      },
+      {
+        "name": "defaultCommonFeatures",
+        "comment": " ",
+        "type": "DropdownMenu.CommonFeatures"
+      },
+      {
+        "name": "itemToHtml",
+        "comment": " In most cases where you declare a `Config`'s `itemToHtml` field you don't\nreally care about the `isSelected` and `isHighlighted` arguments, so you\ncan use this convenience function to keep your config declaration cleaner.\n\n    myConfig =\n        { ...\n        , itemToHtml = DropdownMenu.itemToHtml .name\n        ...\n        }\n\n",
+        "type": "(item -> String) -> Bool -> Bool -> item -> Html.Html msg"
+      },
+      {
+        "name": "open",
+        "comment": " Normally dropdown menus are initialised as closed and open only on user\ninput, but if for any reason your code needs to open the menu, you can use this.\n",
+        "type": "DropdownMenu.OpenState"
+      },
+      {
+        "name": "update",
+        "comment": " ",
+        "type": "DropdownMenu.CommonFeatures -> DropdownMenu.Config model item msg -> DropdownMenu.Setters model item msg -> DropdownMenu.Msg -> model -> ( model, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Setting the third argument to True will disable the dropdown.\n",
+        "type": "DropdownMenu.CommonFeatures -> DropdownMenu.Config model item msg -> Bool -> model -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

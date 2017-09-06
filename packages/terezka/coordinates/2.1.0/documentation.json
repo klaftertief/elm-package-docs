@@ -1,0 +1,187 @@
+[
+  {
+    "name": "Svg.Path",
+    "comment": " SVG path commands.\n\n@docs Command, view\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Command",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Move",
+            [
+              "Svg.Coordinate.Point"
+            ]
+          ],
+          [
+            "Line",
+            [
+              "Svg.Coordinate.Point"
+            ]
+          ],
+          [
+            "CubicBeziers",
+            [
+              "Svg.Coordinate.Point",
+              "Svg.Coordinate.Point",
+              "Svg.Coordinate.Point"
+            ]
+          ],
+          [
+            "CubicBeziersShort",
+            [
+              "Svg.Coordinate.Point",
+              "Svg.Coordinate.Point"
+            ]
+          ],
+          [
+            "QuadraticBeziers",
+            [
+              "Svg.Coordinate.Point",
+              "Svg.Coordinate.Point"
+            ]
+          ],
+          [
+            "QuadraticBeziersShort",
+            [
+              "Svg.Coordinate.Point"
+            ]
+          ],
+          [
+            "Arc",
+            [
+              "Float",
+              "Float",
+              "Bool",
+              "Bool",
+              "Bool",
+              "Svg.Coordinate.Point"
+            ]
+          ],
+          [
+            "Close",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "view",
+        "comment": " Makes a path SVG element, translating your commands with the provided system.\n\n    view =\n      Svg.Path.view system attributes commands\n\n",
+        "type": "Svg.Coordinate.System -> List (Svg.Attribute msg) -> List Svg.Path.Command -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Svg.Coordinate",
+    "comment": "\n\n# Frame\n@docs Frame, Size, Margin\n\n# Dimension\n@docs Dimension, Orientation, Bounds, bounds\n\n# System\n@docs System, system\n\n# Translation\n\n## Single value\n@docs svgValue, cartesianValue\n\n## Point\n@docs Point, svgPoint, cartesianPoint\n\n## Scale\n@docs svgScale, cartesianScale\n\n",
+    "aliases": [
+      {
+        "name": "Bounds",
+        "comment": " ",
+        "args": [],
+        "type": "{ min : Float, max : Float }"
+      },
+      {
+        "name": "Dimension",
+        "comment": " Specifies the orientation and bounds of an axis.\n",
+        "args": [],
+        "type": "{ orientation : Svg.Coordinate.Orientation , bounds : Svg.Coordinate.Bounds }"
+      },
+      {
+        "name": "Frame",
+        "comment": " Specifies the size and margins of your graphic.\n",
+        "args": [],
+        "type": "{ margin : Svg.Coordinate.Margin, size : Svg.Coordinate.Size }"
+      },
+      {
+        "name": "Margin",
+        "comment": " ",
+        "args": [],
+        "type": "{ top : Float, right : Float, bottom : Float, left : Float }"
+      },
+      {
+        "name": "Point",
+        "comment": " ",
+        "args": [],
+        "type": "{ x : Float, y : Float }"
+      },
+      {
+        "name": "Size",
+        "comment": " ",
+        "args": [],
+        "type": "{ width : Float, height : Float }"
+      },
+      {
+        "name": "System",
+        "comment": " ",
+        "args": [],
+        "type": "{ frame : Svg.Coordinate.Frame , xAxis : Svg.Coordinate.Dimension , yAxis : Svg.Coordinate.Dimension }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Orientation",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Horizontal",
+            []
+          ],
+          [
+            "Vertical",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "bounds",
+        "comment": " Helper to determine the bounds of your dimension.\n\n      xAxis =\n        { orientation = Horizontal\n        , bounds = bounds .x points\n        }\n",
+        "type": "(a -> Float) -> List a -> Svg.Coordinate.Bounds"
+      },
+      {
+        "name": "cartesianPoint",
+        "comment": " ",
+        "type": "Svg.Coordinate.System -> Svg.Coordinate.Point -> Svg.Coordinate.Point"
+      },
+      {
+        "name": "cartesianScale",
+        "comment": " Scale a value from SVG to cartesian.\n",
+        "type": "Svg.Coordinate.Frame -> Svg.Coordinate.Dimension -> Float -> Float"
+      },
+      {
+        "name": "cartesianValue",
+        "comment": " Translate a value from SVG to cartesian.\n",
+        "type": "Svg.Coordinate.Frame -> Svg.Coordinate.Dimension -> Float -> Float"
+      },
+      {
+        "name": "svgPoint",
+        "comment": " ",
+        "type": "Svg.Coordinate.System -> Svg.Coordinate.Point -> Svg.Coordinate.Point"
+      },
+      {
+        "name": "svgScale",
+        "comment": " Scale a value from cartesian to SVG.\n",
+        "type": "Svg.Coordinate.Frame -> Svg.Coordinate.Dimension -> Float -> Float"
+      },
+      {
+        "name": "svgValue",
+        "comment": " Translate a value from cartesian to SVG.\n",
+        "type": "Svg.Coordinate.Frame -> Svg.Coordinate.Dimension -> Float -> Float"
+      },
+      {
+        "name": "system",
+        "comment": " Given a frame and the bounds of the x and y dimension respectively, we\n    can make a cartesian coordinate system.\n\n    frame : Coordinate.Frame\n    frame =\n      { margin = Margin 10 60 10 10\n      , size = Size 360 300\n      }\n\n    system : Coordinate.System\n    system =\n      Coordinate.system frame (Bounds -1 4) (Bounds -3 6)\n\n",
+        "type": "Svg.Coordinate.Frame -> Svg.Coordinate.Bounds -> Svg.Coordinate.Bounds -> Svg.Coordinate.System"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

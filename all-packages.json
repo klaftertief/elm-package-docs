@@ -890,6 +890,7 @@
         "name": "NoRedInk/datetimepicker",
         "summary": "Reusable date and time picker view",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -940,6 +941,13 @@
         "summary": "Generated modules for interfacing with NoRedInk's Feature Interest REST API",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "NoRedInk/elm-formatted-text",
+        "summary": "A type for representing formatted text",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -1078,6 +1086,7 @@
         "name": "NoRedInk/nri-elm-css",
         "summary": "Helpers for working with NRI styling",
         "versions": [
+            "3.0.0",
             "2.1.1",
             "2.1.0",
             "2.0.1",
@@ -1123,6 +1132,7 @@
         "name": "NoRedInk/style-elements",
         "summary": "A different approach to creating and managing styles.",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -2229,6 +2239,13 @@
     {
         "name": "avh4-experimental/elm-compose-programs",
         "summary": "(not recommended for real-world use) manipulate and combine Programs",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "avh4-experimental/elm-debug-controls-without-datepicker",
+        "summary": "(you probably want avh4/elm-debug-controls instead)",
         "versions": [
             "1.0.0"
         ]
@@ -3952,6 +3969,7 @@
         "name": "elm-community/elm-datepicker",
         "summary": "A reusable date picker component",
         "versions": [
+            "7.2.0",
             "7.1.0",
             "7.0.0",
             "6.1.0",
@@ -4676,6 +4694,7 @@
         "name": "etaque/elm-form",
         "summary": "Live validation of form inputs in Elm",
         "versions": [
+            "3.0.0",
             "2.1.0",
             "2.0.0",
             "1.0.0"
@@ -5248,6 +5267,7 @@
         "name": "ghivert/elm-graphql",
         "summary": "GraphQL queries made easy in Elm!",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -5684,6 +5704,7 @@
         "name": "jamesmacaulay/elm-graphql",
         "summary": "A GraphQL request builder and HTTP client",
         "versions": [
+            "1.5.0",
             "1.4.0",
             "1.3.3",
             "1.3.2",
@@ -6349,6 +6370,8 @@
         "name": "jweir/sparkline",
         "summary": "Generate inline graphs - sparklines",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -6479,6 +6502,9 @@
         "name": "kirchner/elm-selectize",
         "summary": "selectize-like dropdown menu with autocompletion",
         "versions": [
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -6905,6 +6931,7 @@
         "name": "ktonon/elm-word",
         "summary": "Unsigned 32 or 64 bit integers and related operations",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -7886,6 +7913,15 @@
         ]
     },
     {
+        "name": "mrvicadai/elm-stats",
+        "summary": "make statistical calculations in Elm",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "mthadley/elm-byte",
         "summary": "Working with Bytes in Elm",
         "versions": [
@@ -8041,6 +8077,14 @@
             "2.0.0",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "nonpop/elm-purl",
+        "summary": "A tiny library for building parameterized URLs",
+        "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -8340,6 +8384,7 @@
         "name": "pablohirafuji/elm-qrcode",
         "summary": "QR Code encoder and renderer.",
         "versions": [
+            "2.2.0",
             "2.1.0",
             "2.0.0",
             "1.1.1",
@@ -8353,6 +8398,7 @@
         "name": "pablohirafuji/elm-syntax-highlight",
         "summary": "Syntax highlighting in Elm",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -8500,6 +8546,12 @@
         "name": "prikhi/paginate",
         "summary": "Pagination with Built-In Fetching & Caching of Requests",
         "versions": [
+            "5.1.0",
+            "5.0.0",
+            "4.0.0",
+            "3.0.0",
+            "2.1.0",
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -8746,6 +8798,14 @@
         "name": "rjdestigter/elm-convert-units",
         "summary": "Convert between quantities in different unit.",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "rkrupinski/elm-range-slider",
+        "summary": "Elm range slider",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -9208,6 +9268,7 @@
         "name": "scottcorgan/elm-css-normalize",
         "summary": "A port of normalize.css for elm-css",
         "versions": [
+            "1.1.9",
             "1.1.8",
             "1.1.7",
             "1.1.6",
@@ -9723,6 +9784,7 @@
         "name": "stephenreddek/elm-range-slider",
         "summary": "An elm package for range sliders",
         "versions": [
+            "1.1.2",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -9915,6 +9977,8 @@
         "name": "terezka/coordinates",
         "summary": "For translating from cartesian coordinates to SVG coordinates and vice versa.",
         "versions": [
+            "2.1.0",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -9982,6 +10046,8 @@
         "name": "tesk9/elm-html-a11y",
         "summary": "view helpers enforcing accessible practices",
         "versions": [
+            "3.1.2",
+            "3.1.1",
             "3.1.0",
             "3.0.0",
             "2.1.0",
@@ -10070,6 +10136,7 @@
         "name": "the-sett/ai-search",
         "summary": "AI Search for Elm",
         "versions": [
+            "4.0.2",
             "4.0.1",
             "4.0.0",
             "3.1.2",
@@ -10844,6 +10911,13 @@
         ]
     },
     {
+        "name": "xarvh/elm-dropdown-menu",
+        "summary": "Customizable, stylable dropdown menu with full keyboard support",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "xarvh/elm-gamepad",
         "summary": "Elm Library for gamepads and game controllers",
         "versions": [
@@ -10855,6 +10929,7 @@
         "name": "xarvh/elm-slides",
         "summary": "Awesome presentation framework to create your slides in Elm",
         "versions": [
+            "4.0.1",
             "4.0.0",
             "3.1.1",
             "3.1.0",
