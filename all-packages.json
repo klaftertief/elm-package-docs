@@ -360,6 +360,7 @@
         "name": "FabienHenon/elm-infinite-scroll",
         "summary": "Infinite scroll API",
         "versions": [
+            "2.3.0",
             "2.2.0",
             "2.1.1",
             "2.1.0",
@@ -1086,6 +1087,7 @@
         "name": "NoRedInk/nri-elm-css",
         "summary": "Helpers for working with NRI styling",
         "versions": [
+            "4.0.0",
             "3.0.0",
             "2.1.1",
             "2.1.0",
@@ -1638,6 +1640,7 @@
         "name": "abadi199/dateparser",
         "summary": "Custom date parser",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -2247,6 +2250,7 @@
         "name": "avh4-experimental/elm-debug-controls-without-datepicker",
         "summary": "(you probably want avh4/elm-debug-controls instead)",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2513,6 +2517,13 @@
         "summary": "A parser for Elm code",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "brainrape/elm-bidict",
+        "summary": "Many-to-Many relation using a pair of Dicts",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -4082,6 +4093,7 @@
         "name": "elm-community/elm-time",
         "summary": "A pure Elm date and time library.",
         "versions": [
+            "1.0.10",
             "1.0.9",
             "1.0.8",
             "1.0.7",
@@ -5389,6 +5401,7 @@
         "name": "hendore/elm-adorable-avatars",
         "summary": "Simple, elegant and adorable avatars provided by avatars.adorable.io",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -6812,6 +6825,7 @@
         "name": "krisajenkins/remotedata",
         "summary": "Tools for fetching data from remote sources (incl. HTTP).",
         "versions": [
+            "4.3.1",
             "4.3.0",
             "4.2.1",
             "4.2.0",
@@ -6917,6 +6931,8 @@
         "name": "ktonon/elm-test-extra",
         "summary": "Extra expectations, fuzzers, testers and describers",
         "versions": [
+            "1.6.2",
+            "1.6.1",
             "1.6.0",
             "1.5.1",
             "1.5.0",
@@ -7371,6 +7387,7 @@
         "name": "marshallformula/arrangeable-list",
         "summary": "Ordered List that allows moving an item around within the list",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -7598,6 +7615,13 @@
             "3.0.0",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "mdgriffith/stylish-elephants",
+        "summary": "Experimental style elements, only for testing",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -8084,6 +8108,7 @@
         "name": "nonpop/elm-purl",
         "summary": "A tiny library for building parameterized URLs",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.0"
         ]
@@ -8652,6 +8677,13 @@
         ]
     },
     {
+        "name": "prozacchiwawa/elm-keccak",
+        "summary": "Keccak and SHA3 hashes",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "prozacchiwawa/elm-urlbase64",
         "summary": "Wrap a base64 library in the url base64 alphabet (+/ -> -_) and handle padding",
         "versions": [
@@ -8752,6 +8784,7 @@
         "name": "rgrempel/elm-route-url",
         "summary": "Router for single-page-apps in Elm",
         "versions": [
+            "4.0.0",
             "3.0.1",
             "3.0.0",
             "2.0.1",
@@ -8805,6 +8838,7 @@
         "name": "rkrupinski/elm-range-slider",
         "summary": "Elm range slider",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -8823,6 +8857,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "9.1.2",
             "9.1.1",
             "9.1.0",
             "9.0.1",
@@ -9083,6 +9118,7 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "11.1.0",
             "11.0.0",
             "10.0.0",
             "9.1.0",
@@ -9453,6 +9489,7 @@
         "name": "simonh1000/elm-colorpicker",
         "summary": "elm-colorpicker",
         "versions": [
+            "1.1.2",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -9462,6 +9499,7 @@
         "name": "simonh1000/elm-jwt",
         "summary": "Supports decoding Jwt tokens & making authenticated HTTP requests",
         "versions": [
+            "5.2.2",
             "5.2.1",
             "5.2.0",
             "5.1.0",

@@ -1,0 +1,208 @@
+[
+  {
+    "name": "EveryBiDict",
+    "comment": " Many to Many Relationship using a pair of Dicts\n\n# Definition\n@docs EveryBiDict\n\n# Build\n@docs empty, insert\n\n# Query\n@docs getByFirst, getBySecond\n\n# Remove\n@docs removeOne, removeByFirst, removeBySecond\n\n# Lists\n@docs fromList, toList\n",
+    "aliases": [
+      {
+        "name": "EveryBiDict",
+        "comment": " A pair of EveryDicts, mapping a set of first values to a set of second values, and back. The operations keep the Dicts in sync.\n",
+        "args": [
+          "m",
+          "n"
+        ],
+        "type": "( EverySetDict.EverySetDict m n, EverySetDict.EverySetDict n m )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "empty",
+        "comment": " An empty BiDict\n",
+        "type": "EveryBiDict.EveryBiDict m n"
+      },
+      {
+        "name": "fromList",
+        "comment": " Build a BiDict from a list of pairs\n",
+        "type": "List ( m, n ) -> EveryBiDict.EveryBiDict m n"
+      },
+      {
+        "name": "getByFirst",
+        "comment": " Get the set of second values associated with a given first value\n",
+        "type": "m -> EveryBiDict.EveryBiDict m n -> EveryDict.EveryDict n ()"
+      },
+      {
+        "name": "getBySecond",
+        "comment": " Get the set first values associated with a given second value\n",
+        "type": "n -> EveryBiDict.EveryBiDict m n -> EveryDict.EveryDict m ()"
+      },
+      {
+        "name": "insert",
+        "comment": " Insert a relationship between a first and a second value\n",
+        "type": "m -> n -> EveryBiDict.EveryBiDict m n -> EveryBiDict.EveryBiDict m n"
+      },
+      {
+        "name": "removeByFirst",
+        "comment": " Remove all relationships for the given first value\n",
+        "type": "m -> EveryBiDict.EveryBiDict m n -> EveryBiDict.EveryBiDict m n"
+      },
+      {
+        "name": "removeBySecond",
+        "comment": " Remove all relationships for the given second value\n",
+        "type": "n -> EveryBiDict.EveryBiDict m n -> EveryBiDict.EveryBiDict m n"
+      },
+      {
+        "name": "removeOne",
+        "comment": " Remove the given relationship\n",
+        "type": "m -> n -> EveryBiDict.EveryBiDict m n -> EveryBiDict.EveryBiDict m n"
+      },
+      {
+        "name": "toList",
+        "comment": " Return the list of pairs of first and second values\n",
+        "type": "EveryBiDict.EveryBiDict m n -> List ( m, n )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "BiDict",
+    "comment": " Many to Many Relationship using a pair of Dicts\n\n# Definition\n@docs BiDict\n\n# Build\n@docs empty, insert\n\n# Query\n@docs getByFirst, getBySecond\n\n# Remove\n@docs removeOne, removeByFirst, removeBySecond\n\n# Lists\n@docs fromList, toList\n",
+    "aliases": [
+      {
+        "name": "BiDict",
+        "comment": " A pair of Dicts, mapping a set of first values to a set of second values, and back. The operations keep the Dicts in sync.\n",
+        "args": [
+          "m",
+          "n"
+        ],
+        "type": "( SetDict.SetDict m n, SetDict.SetDict n m )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "empty",
+        "comment": " An empty BiDict\n",
+        "type": "BiDict.BiDict m n"
+      },
+      {
+        "name": "fromList",
+        "comment": " Build a BiDict from a list of pairs\n",
+        "type": "List ( comparable1, comparable2 ) -> BiDict.BiDict comparable1 comparable2"
+      },
+      {
+        "name": "getByFirst",
+        "comment": " Get the set of second values associated with a given first value\n",
+        "type": "comparable1 -> BiDict.BiDict comparable1 comparable2 -> Dict.Dict comparable2 ()"
+      },
+      {
+        "name": "getBySecond",
+        "comment": " Get the set first values associated with a given second value\n",
+        "type": "comparable2 -> BiDict.BiDict comparable1 comparable2 -> Dict.Dict comparable1 ()"
+      },
+      {
+        "name": "insert",
+        "comment": " Insert a relationship between a first and a second value\n",
+        "type": "comparable1 -> comparable2 -> BiDict.BiDict comparable1 comparable2 -> BiDict.BiDict comparable1 comparable2"
+      },
+      {
+        "name": "removeByFirst",
+        "comment": " Remove all relationships for the given first value\n",
+        "type": "comparable1 -> BiDict.BiDict comparable1 comparable2 -> BiDict.BiDict comparable1 comparable2"
+      },
+      {
+        "name": "removeBySecond",
+        "comment": " Remove all relationships for the given second value\n",
+        "type": "comparable2 -> BiDict.BiDict comparable1 comparable2 -> BiDict.BiDict comparable1 comparable2"
+      },
+      {
+        "name": "removeOne",
+        "comment": " Remove the given relationship\n",
+        "type": "comparable1 -> comparable2 -> BiDict.BiDict comparable1 comparable2 -> BiDict.BiDict comparable1 comparable2"
+      },
+      {
+        "name": "toList",
+        "comment": " Return the list of pairs of first and second values\n",
+        "type": "BiDict.BiDict comparable1 comparable2 -> List ( comparable1, comparable2 )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "EverySetDict",
+    "comment": "\nA Many-to-One relationship using an EveryDict of Sets.\nThis is a specialization of EveryDict so all EveryDict functions are available.\n\n# Definition\n@docs EverySetDict\n\n# Operations\n@docs insert, get, removeOne, removeMany\n",
+    "aliases": [
+      {
+        "name": "EverySetDict",
+        "comment": " An EveryDict mapping keys to sets of values\n",
+        "args": [
+          "m",
+          "n"
+        ],
+        "type": "EveryDict.EveryDict m (EveryDict.EveryDict n ())"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "get",
+        "comment": " Return the set of values associated with a key. It may be empty.\n",
+        "type": "m -> EverySetDict.EverySetDict m n -> EveryDict.EveryDict n ()"
+      },
+      {
+        "name": "insert",
+        "comment": " Given a key and value, Insert a value into the set of values associated with the key\n",
+        "type": "m -> n -> EverySetDict.EverySetDict m n -> EverySetDict.EverySetDict m n"
+      },
+      {
+        "name": "removeMany",
+        "comment": " Remove all values associated with a key\n",
+        "type": "m -> EverySetDict.EverySetDict m n -> EverySetDict.EverySetDict m n"
+      },
+      {
+        "name": "removeOne",
+        "comment": " Given a key and value, remove the value from the set of values associated with the keys\n",
+        "type": "m -> n -> EverySetDict.EverySetDict m n -> EverySetDict.EverySetDict m n"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "SetDict",
+    "comment": "\nA Many-to-One relationship using a Dict of Sets.\nThis is a specialization of Dict so all Dict functions are available.\n\n# Definition\n@docs SetDict\n\n# Operations\n@docs insert, get, removeOne, removeMany\n",
+    "aliases": [
+      {
+        "name": "SetDict",
+        "comment": " A Dict mapping keys to sets of values\n",
+        "args": [
+          "comparable1",
+          "comparable2"
+        ],
+        "type": "Dict.Dict comparable1 (Dict.Dict comparable2 ())"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "get",
+        "comment": " Return the set of values associated with a key. It may be empty.\n",
+        "type": "comparable1 -> SetDict.SetDict comparable1 comparable2 -> Dict.Dict comparable2 ()"
+      },
+      {
+        "name": "insert",
+        "comment": " Given a key and value, Insert a value into the set of values associated with the key\n",
+        "type": "comparable1 -> comparable2 -> SetDict.SetDict comparable1 comparable2 -> SetDict.SetDict comparable1 comparable2"
+      },
+      {
+        "name": "removeMany",
+        "comment": " Remove all values associated with a key\n",
+        "type": "comparable1 -> SetDict.SetDict comparable1 comparable2 -> SetDict.SetDict comparable1 comparable2"
+      },
+      {
+        "name": "removeOne",
+        "comment": " Given a key and value, remove the value from the set of values associated with the keys\n",
+        "type": "comparable1 -> comparable2 -> SetDict.SetDict comparable1 comparable2 -> SetDict.SetDict comparable1 comparable2"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

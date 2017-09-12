@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Slider.Helpers",
+    "comment": " Helpers for interacting with the slider\n\n# Value\n@docs valueFormatter, valueParser\n\n# Step\n@docs stepParser\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "stepParser",
+        "comment": " Converts a `Float` to a `Float` within `( 0, 1 )` range based on the given range\n\n    stepParser ( -5, 10 ) 5 == 0.3333333333333333\n",
+        "type": "Slider.Core.Range -> Float -> Float"
+      },
+      {
+        "name": "valueFormatter",
+        "comment": " Maps a `Float` within `( 0, 1 )` range to a `Float` within the given range\n\n    valueFormatter ( 0, 10 ) 0.5 == 5\n",
+        "type": "Slider.Core.Range -> Float -> Float"
+      },
+      {
+        "name": "valueParser",
+        "comment": " Maps a `Float` within the given range to a `Float` within `( 0, 1 )` range\n\n    valueParser ( 0, 10 ) 5 == 0.5\n",
+        "type": "Slider.Core.Range -> Float -> Float"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Slider.Styles",
+    "comment": " Default slider styles\n\n@docs styles\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "styles",
+        "comment": " Default styles\n",
+        "type": "Css.Stylesheet"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Slider.Core",
+    "comment": " Slider component\n\n# Types\n@docs Config, Msg, Model, Values, Range\n\n# Configuration\n@docs init\n\n# State\n@docs getValues\n\n# Update\n@docs update\n\n# Subscriptions\n@docs subscriptions\n\n# View\n@docs view\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " Slider config\n",
+        "args": [],
+        "type": "{ size : Maybe.Maybe Int , values : Maybe.Maybe Slider.Core.Values , step : Maybe.Maybe Float }"
+      },
+      {
+        "name": "Range",
+        "comment": " Slider range\n",
+        "args": [],
+        "type": "( Float, Float )"
+      },
+      {
+        "name": "Values",
+        "comment": " Slider values\n",
+        "args": [],
+        "type": "( Float, Float )"
+      }
+    ],
+    "types": [
+      {
+        "name": "Model",
+        "comment": " Slider model\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Msg",
+        "comment": " Internal slider messages\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "getValues",
+        "comment": " Retrieves the currently selected values\n",
+        "type": "Slider.Core.Model -> Slider.Core.Values"
+      },
+      {
+        "name": "init",
+        "comment": " Initializes the slider\n",
+        "type": "Slider.Core.Config -> Slider.Core.Model"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Subscriptions required by the slider to work\n",
+        "type": "Slider.Core.Model -> Platform.Sub.Sub Slider.Core.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " Updates slider model based on a message\n",
+        "type": "Slider.Core.Msg -> Slider.Core.Model -> ( Slider.Core.Model, Platform.Cmd.Cmd Slider.Core.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Renders the slider\n",
+        "type": "Slider.Core.Model -> Html.Html Slider.Core.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Slider.ClassNames",
+    "comment": " CSS class names for generating slider styles\n\n@docs ClassName\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "ClassName",
+        "comment": " Class names used by the slider\n",
+        "args": [],
+        "cases": [
+          [
+            "Slider",
+            []
+          ],
+          [
+            "Knob",
+            []
+          ],
+          [
+            "LeftKnob",
+            []
+          ],
+          [
+            "RightKnob",
+            []
+          ],
+          [
+            "Range",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
