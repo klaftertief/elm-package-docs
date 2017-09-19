@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Formatting.Html",
+    "comment": " This module is for writing formatter that generates Html. Say you want\na formatter that shows first name in H1 and last name as text:\n\n    import Formatting as F exposing ((<>))\n    import Html exposing (Html)\n\n    type alias User =\n        { first : String\n        , last : String\n        }\n\n    userFormat : F.Format User (Html msg)\n    userFormat =\n        (.first >> F.string |> F.node Html.h1 [])\n            <> F.s \" \"\n            <> (.last >> F.string |> F.map Html.text)\n\n    user : User -> Html msg\n    user =\n        F.html userFormat\n\n@docs node, html\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "html",
+        "comment": " html is the equivalent of Formatting.print for Html.\n\n    name : Format User (Html msg)\n    name =\n        (.first >> string)\n            -- this gives us a `Format User String`\n            |> node Html.h1 []\n\n\n    -- converts it to `Format User (Html msg)`\n\n    user : User -> Html msg\n    user u =\n        html name u\n\n\n    --> user {first = \"Amit\"} == Html.span [] [ Html.h1 [] [ text \"Amit\" ] ]\n\nIt wraps everything inside a `SPAN` tag.\n\n",
+        "type": "Formatting.Format a (Html.Html msg) -> a -> Html.Html msg"
+      },
+      {
+        "name": "node",
+        "comment": " node allows you to wrap a String formatter into an Html node.\n\n    name : Format User (Html msg)\n    name =\n        -- first we create a `Format User String`\n        (.first >> string)\n            -- then convert it to `Format User (Html msg)`, using H1 tag\n            |> node Html.h1 []\n\n",
+        "type": "(List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg) -> List (Html.Attribute msg) -> Formatting.Format a String -> Formatting.Format a (Html.Html msg)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Formatting",
+    "comment": " This library is to write type safe formatter.\n\nA formatter is function that formats a thing into an output. Eg if I have a\nrecord, and I want to convert it to a string, for printing.\n\nThe output can be other than string, eg I want to print to \"html\", say each\nshow someone's first name as bold, and last name as grayed out.\n\n    import Formatting as F exposing ((<>))\n\n    type alias User =\n        { first : String\n        , last : String\n        }\n\n    userFormat : F.Format User String\n    userFormat =\n        (.first >> F.string) <> F.s \" \" <> (.last >> F.string)\n\n    user : User -> String\n    user =\n        F.print userFormat\n\nThis library is heavily influenced by\n[krisajenkins/formatting](http://package.elm-lang.org/packages/krisajenkins/formatting/latest/Formatting).\n\nIf you want to combine two formatted strings, use `++` or equivalent.\n\n    user : Format User String\n\n    date : Format Date String\n\n    user_date : User -> Date -> String\n    user_date u d =\n        print user u ++ print date d\n\n\n# Format Constructors\n\nThese help us create type safe formatters. The formatters are of type\n`Format a String`, if you want a formatter of other kind, say `Format a b`, you\nwill can use `map` function to convert. So the path is `a -> String -> b`.\n\nYou can ignore these methods and directly write `Format a b` if you so want.\n\n@docs s, string, int, bool, float, number\n\n\n# Format Composition\n\n@docs (<>), map\n\n\n# Printer\n\n@docs print\n\n\n# Helpers\n\nThese are some helpers that change the output after the conversion of\n`a -> String`, they are simple applications of `map`.\n\n@docs wrap, pad, padLeft, padRight, roundTo\n\n\n# Definition\n\n@docs Format\n\n",
+    "aliases": [
+      {
+        "name": "Format",
+        "comment": " Format is a the core type on which this library works on. It is nothing\nfancy, for a Format a String, it converts a to list of String.\n\nThe reason why we format it into a list of string, is so we can compose more\nthan one formatter together. Each formatter can return a list of final output\ntype, `r`, into a list, and our composition function `<>` concatenates the\nlists together.\n\nIf Elm has support for monoids, we may not have needed the list.\n\n",
+        "args": [
+          "a",
+          "r"
+        ],
+        "type": "a -> List r"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "<>",
+        "comment": " <> lets you compose formatters together, best demonstrated via an example:\n\n    first : Format User String\n    first =\n        .first >> string\n\n    last : Format User String\n    last =\n        .last >> string\n\n    name : Format User String\n    name =\n        first <> s \" \" <> last\n\n    print name { first = \"Amit\", last = \"Upadhyay\" }\n\n    --> \"Amit Upadhyay\"\n\n",
+        "type": "Formatting.Format a r -> Formatting.Format a r -> Formatting.Format a r"
+      },
+      {
+        "name": "bool",
+        "comment": " Creates a formatter for Bool.\n",
+        "type": "Formatting.Format Bool String"
+      },
+      {
+        "name": "float",
+        "comment": " Creates a formatter for Float.\n",
+        "type": "Formatting.Format Float String"
+      },
+      {
+        "name": "int",
+        "comment": " Creates a formatter for Int.\n",
+        "type": "Formatting.Format Int String"
+      },
+      {
+        "name": "map",
+        "comment": " map changes the type of output from one format to another. It can also be\nused for general post processing of the output.\n\n    name : Format User String\n    name =\n        (.name >> string)\n            |> map String.toUpper\n\n",
+        "type": "(r1 -> r2) -> Formatting.Format a r1 -> Formatting.Format a r2"
+      },
+      {
+        "name": "number",
+        "comment": " Creates a formatter for Int or Float.\n",
+        "type": "Formatting.Format number String"
+      },
+      {
+        "name": "pad",
+        "comment": " Pad a string on both sides until it has a given length.\n",
+        "type": "Int -> Char -> Formatting.Format a String -> Formatting.Format a String"
+      },
+      {
+        "name": "padLeft",
+        "comment": " Pad a string on the left until it has a given length.\n",
+        "type": "Int -> Char -> Formatting.Format a String -> Formatting.Format a String"
+      },
+      {
+        "name": "padRight",
+        "comment": " Pad a string on the right until it has a given length.\n",
+        "type": "Int -> Char -> Formatting.Format a String -> Formatting.Format a String"
+      },
+      {
+        "name": "print",
+        "comment": " Print applies a formatter on a value, to produce the output.\n",
+        "type": "Formatting.Format a String -> a -> String"
+      },
+      {
+        "name": "roundTo",
+        "comment": " Rounds a float to given number of decimal points.\n",
+        "type": "Int -> Formatting.Format Float String"
+      },
+      {
+        "name": "s",
+        "comment": " Creates a formatter that returns the same string for any value.\n",
+        "type": "r -> Formatting.Format a r"
+      },
+      {
+        "name": "string",
+        "comment": " Creates a formatter for String.\n",
+        "type": "Formatting.Format String String"
+      },
+      {
+        "name": "wrap",
+        "comment": " Wrap puts a token around the output.\n\n    name : Format User String\n    name =\n        (.name >> string)\n            |> wrap \"'\"\n\n    print name { name = \"Amit\" }\n\n    --> 'Amit' (puts \"'\", before and after).\n\n",
+        "type": "r -> Formatting.Format a r -> Formatting.Format a r"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

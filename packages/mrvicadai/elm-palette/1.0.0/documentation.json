@@ -1,0 +1,111 @@
+[
+  {
+    "name": "Palette.FlatUI",
+    "comment": " FlatUI Palette\n\n@docs turquoise, emerald, peterRiver, amethyst, wetAsphalt, greenSea, nephritis, belizeHole, wisteria, midnightBlue, sunFlower, carrot, alizarin, clouds, concrete, orange, pumpkin, pomegranate, silver, asbestos\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "alizarin",
+        "comment": " alizarin\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "amethyst",
+        "comment": " amethyst\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "asbestos",
+        "comment": " asbestos\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "belizeHole",
+        "comment": " belizeHole\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "carrot",
+        "comment": " carrot\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "clouds",
+        "comment": " clouds\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "concrete",
+        "comment": " concrete\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "emerald",
+        "comment": " emerald\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "greenSea",
+        "comment": " greenSea\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "midnightBlue",
+        "comment": " midnightBlue\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "nephritis",
+        "comment": " nephritis\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "orange",
+        "comment": " orange\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "peterRiver",
+        "comment": " peterRiver\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "pomegranate",
+        "comment": " pomegranate\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "pumpkin",
+        "comment": " pumpkin\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "silver",
+        "comment": " silver\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "sunFlower",
+        "comment": " sunFlower\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "turquoise",
+        "comment": " turquoise\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "wetAsphalt",
+        "comment": " wetAsphalt\n",
+        "type": "Color.Color"
+      },
+      {
+        "name": "wisteria",
+        "comment": " wisteria\n",
+        "type": "Color.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

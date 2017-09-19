@@ -1,0 +1,123 @@
+[
+  {
+    "name": "AdjustableTable",
+    "comment": " An adjustable table that allows you to resize and reorder columns\n\n# Model\n@docs AdjustableTable, Header, Settings, HeaderSettings\n\n# Update\n@docs Msg, update, subscriptions\n\n# Configuring the table\n@docs init, setTableHeaders, setTableHeadersFromStrings, setTableHeadersFromHtml, setTableRows, getTableRowFromStrings, getTableRowFromHtml, setSettings, defaultSettings, defaultHeaderSettings, setHeaderMinWidth, setHeaderMaxWidth, setHeaderWidth\n\n# View\n@docs view\n\n",
+    "aliases": [
+      {
+        "name": "Header",
+        "comment": " Represents the content that goes into your THead\n",
+        "args": [],
+        "type": "{ index : Int , content : Html.Html AdjustableTable.Msg , settings : AdjustableTable.HeaderSettings }"
+      },
+      {
+        "name": "HeaderSettings",
+        "comment": " Represents the settings for the Header\n",
+        "args": [],
+        "type": "{ minWidth : Int, maxWidth : Int, width : Int }"
+      },
+      {
+        "name": "Settings",
+        "comment": " Represents the table settings to be able to resize/reorder columns\n",
+        "args": [],
+        "type": "{ resizeColumns : Bool, reorderColumns : Bool }"
+      }
+    ],
+    "types": [
+      {
+        "name": "AdjustableTable",
+        "comment": " The base model of the table\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Msg",
+        "comment": " The basic type accepted by the update\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultHeaderSettings",
+        "comment": " Default Header Settings\n",
+        "type": "AdjustableTable.HeaderSettings"
+      },
+      {
+        "name": "defaultSettings",
+        "comment": " Default Header Settings\n",
+        "type": "AdjustableTable.Settings"
+      },
+      {
+        "name": "getTableRowFromHtml",
+        "comment": " get table row from a list of Html Msg (content)\n",
+        "type": "List (Html.Html AdjustableTable.Msg) -> AdjustableTable.TableRow"
+      },
+      {
+        "name": "getTableRowFromStrings",
+        "comment": " get table row from a list of strings (content)\n",
+        "type": "List String -> AdjustableTable.TableRow"
+      },
+      {
+        "name": "init",
+        "comment": " Returns default adjustable table which is an empty table\n",
+        "type": "AdjustableTable.AdjustableTable"
+      },
+      {
+        "name": "setHeaderMaxWidth",
+        "comment": " Sets the max width of the header when rendered.\n",
+        "type": "Int -> AdjustableTable.Header -> AdjustableTable.Header"
+      },
+      {
+        "name": "setHeaderMinWidth",
+        "comment": " Sets the min width of the header when rendered.\n",
+        "type": "Int -> AdjustableTable.Header -> AdjustableTable.Header"
+      },
+      {
+        "name": "setHeaderWidth",
+        "comment": " Sets the width of the header when rendered.\n",
+        "type": "Int -> AdjustableTable.Header -> AdjustableTable.Header"
+      },
+      {
+        "name": "setSettings",
+        "comment": " Set the table settings\n",
+        "type": "AdjustableTable.Settings -> AdjustableTable.AdjustableTable -> AdjustableTable.AdjustableTable"
+      },
+      {
+        "name": "setTableHeaders",
+        "comment": " Sets the talbe headers from a list of Header\n",
+        "type": "List AdjustableTable.Header -> AdjustableTable.AdjustableTable -> AdjustableTable.AdjustableTable"
+      },
+      {
+        "name": "setTableHeadersFromHtml",
+        "comment": " Sets the table headers from a list of Html Msg (content)\n",
+        "type": "AdjustableTable.HeaderSettings -> List (Html.Html AdjustableTable.Msg) -> AdjustableTable.AdjustableTable -> AdjustableTable.AdjustableTable"
+      },
+      {
+        "name": "setTableHeadersFromStrings",
+        "comment": " Sets the table headers from a list of strings (content)\n",
+        "type": "AdjustableTable.HeaderSettings -> List String -> AdjustableTable.AdjustableTable -> AdjustableTable.AdjustableTable"
+      },
+      {
+        "name": "setTableRows",
+        "comment": " Sets the table rows from a list of TableData\n",
+        "type": "List AdjustableTable.TableRow -> AdjustableTable.AdjustableTable -> AdjustableTable.AdjustableTable"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Returns the subscriptions necessary to run\n",
+        "type": "AdjustableTable.AdjustableTable -> Platform.Sub.Sub AdjustableTable.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " takes a model and a message and applies it to create an updated model\n",
+        "type": "AdjustableTable.AdjustableTable -> AdjustableTable.Msg -> ( AdjustableTable.AdjustableTable , Platform.Cmd.Cmd AdjustableTable.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Displays the table\n",
+        "type": "AdjustableTable.AdjustableTable -> Html.Html AdjustableTable.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

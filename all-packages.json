@@ -333,6 +333,15 @@
         ]
     },
     {
+        "name": "DavidTobin/elm-key",
+        "summary": "Elm package for handling event.key in html keypress events",
+        "versions": [
+            "3.0.0",
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Elm-Canvas/element-relative-mouse-events",
         "summary": "Element-relative mouse events",
         "versions": [
@@ -830,6 +839,8 @@
         "name": "MadonnaMat/elm-select-two",
         "summary": "A mimic of Select2 in Elm",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -1901,6 +1912,13 @@
             "2.0.1",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "amitu/elm-formatting",
+        "summary": "A type safe formatting library, inspired from krisajenkins/formatting.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -4130,6 +4148,7 @@
         "name": "elm-community/graph",
         "summary": "Handling graphs the functional way.",
         "versions": [
+            "4.0.0",
             "3.1.0",
             "3.0.2",
             "3.0.1",
@@ -4797,6 +4816,7 @@
         "name": "etaque/elm-transit-style",
         "summary": "CSS styles for animation on elm-transit.",
         "versions": [
+            "3.1.0",
             "3.0.1",
             "3.0.0",
             "2.0.0",
@@ -5173,6 +5193,7 @@
         "name": "gampleman/elm-visualization",
         "summary": "A data visualization package for Elm",
         "versions": [
+            "1.5.0",
             "1.4.0",
             "1.3.0",
             "1.2.0",
@@ -6515,6 +6536,8 @@
         "name": "kirchner/elm-selectize",
         "summary": "selectize-like dropdown menu with autocompletion",
         "versions": [
+            "2.0.4",
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -7606,6 +7629,9 @@
         "name": "mdgriffith/style-elements",
         "summary": "A different approach to creating and managing styles.",
         "versions": [
+            "4.0.0",
+            "3.4.1",
+            "3.4.0",
             "3.3.0",
             "3.2.3",
             "3.2.2",
@@ -7932,6 +7958,13 @@
     {
         "name": "mrpinsky/elm-keyed-list",
         "summary": "A library for encapsulating keyed lists in Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "mrvicadai/elm-palette",
+        "summary": "A collection of color palettes from popular UI frameworks.",
         "versions": [
             "1.0.0"
         ]
@@ -8373,6 +8406,13 @@
         ]
     },
     {
+        "name": "owanturist/elm-validation",
+        "summary": "Tools for validation, e.g. for form input",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "pablen/toasty",
         "summary": "A configurable toast notification package for Elm apps.",
         "versions": [
@@ -8558,6 +8598,13 @@
         ]
     },
     {
+        "name": "prikhi/decimal",
+        "summary": "Arbitrary-Precision Decimal Numbers",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "prikhi/elm-http-builder",
         "summary": "Extra functions for more easily building and handling Http requests",
         "versions": [
@@ -8602,6 +8649,13 @@
             "3.0.0",
             "2.0.0",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "pro100filipp/elm-graphql",
+        "summary": "Fork from jamesmacaulay/elm-graphql to support custom variable types",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -8735,6 +8789,14 @@
         ]
     },
     {
+        "name": "realyarilabs/yarimoji",
+        "summary": "Simple and light Elm package for emojis and emoji picker.",
+        "versions": [
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "rehno-lindeque/elm-signal-alt",
         "summary": "Alternative prompt/defered Signals",
         "versions": [
@@ -8857,6 +8919,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "9.2.0",
             "9.1.2",
             "9.1.1",
             "9.1.0",
@@ -9348,6 +9411,7 @@
         "name": "scottcorgan/keyboard-combo",
         "summary": "Handle keyboard key combinations with type safety in Elm",
         "versions": [
+            "5.0.0",
             "4.0.0",
             "3.0.0",
             "2.0.3",
@@ -9723,6 +9787,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.12.0",
             "2.11.0",
             "2.10.0",
             "2.9.0",
@@ -9822,6 +9887,8 @@
         "name": "stephenreddek/elm-range-slider",
         "summary": "An elm package for range sliders",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.1.2",
             "1.1.1",
             "1.1.0",
@@ -10259,6 +10326,25 @@
         "name": "tiziano88/elm-tfl",
         "summary": "A wrapper for the TfL (Transport for London) API",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "tlentz/elm-adjustable-table",
+        "summary": "deprecated: use tlentz/elm-fancy-table/latest",
+        "versions": [
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "tlentz/elm-fancy-table",
+        "summary": "A table with the ability to resize, reorder, and hide columns.",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
