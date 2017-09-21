@@ -1098,6 +1098,7 @@
         "name": "NoRedInk/nri-elm-css",
         "summary": "Helpers for working with NRI styling",
         "versions": [
+            "4.1.0",
             "4.0.0",
             "3.0.0",
             "2.1.1",
@@ -4625,6 +4626,7 @@
         "name": "ericgj/elm-validation",
         "summary": "Tools for validation, e.g. for form input",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -7898,6 +7900,10 @@
         "name": "mpizenberg/elm-image-annotation",
         "summary": "Annotating collections of images",
         "versions": [
+            "7.0.3",
+            "7.0.2",
+            "7.0.1",
+            "7.0.0",
             "6.0.0",
             "5.0.2",
             "5.0.1",
@@ -8352,6 +8358,7 @@
         "name": "opensolid/geometry",
         "summary": "2D/3D geometric data types and operations",
         "versions": [
+            "2.0.0",
             "1.2.0",
             "1.1.0",
             "1.0.3",
@@ -9181,6 +9188,7 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "11.2.0",
             "11.1.0",
             "11.0.0",
             "10.0.0",
@@ -10144,6 +10152,13 @@
         "versions": [
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "tesk9/accessible-html",
+        "summary": "view helpers enforcing accessible practices",
+        "versions": [
             "1.0.0"
         ]
     },

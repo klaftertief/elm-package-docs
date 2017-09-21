@@ -1,0 +1,455 @@
+[
+  {
+    "name": "Annotation.Svg",
+    "comment": " View the annotations as Svg.\n\n@docs point, pointStyled, pointWithDetails\n\n@docs boundingBox, boundingBoxStyled, boundingBoxWithDetails\n\n@docs stroke, strokeStyled, strokeWithDetails\n\n@docs contour, contourStyled, contourWithDetails\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "boundingBox",
+        "comment": " Svg view of a bounding box with default style.\n",
+        "type": "Annotation.Geometry.Types.BoundingBox -> Svg.Svg msg"
+      },
+      {
+        "name": "boundingBoxStyled",
+        "comment": " Svg view of a bounding box with given style.\n",
+        "type": "Annotation.Style.Line -> Annotation.Style.Fill -> Annotation.Geometry.Types.BoundingBox -> Svg.Svg msg"
+      },
+      {
+        "name": "boundingBoxWithDetails",
+        "comment": " Svg detailed view of a bounding box.\n\nSpecify in the attributes the style of the bounding box.\nAlternatively put a class attribute and set those in a style sheet (CSS).\n\n",
+        "type": "List (Svg.Attribute msg) -> Annotation.Geometry.Types.BoundingBox -> Svg.Svg msg"
+      },
+      {
+        "name": "contour",
+        "comment": " Svg view of a contour with default style.\n",
+        "type": "Annotation.Geometry.Types.Contour -> Svg.Svg msg"
+      },
+      {
+        "name": "contourStyled",
+        "comment": " Svg view of a contour with given style.\n",
+        "type": "Annotation.Style.Line -> Annotation.Style.Fill -> Annotation.Geometry.Types.Contour -> Svg.Svg msg"
+      },
+      {
+        "name": "contourWithDetails",
+        "comment": " Svg detailed view of a contour.\n\nSpecify in the attributes the style of the contour.\nAlternatively put a class attribute and set those in a style sheet (CSS).\n\n",
+        "type": "List (Svg.Attribute msg) -> Annotation.Geometry.Types.Contour -> Svg.Svg msg"
+      },
+      {
+        "name": "point",
+        "comment": " Svg view of a point with default style.\n",
+        "type": "Annotation.Geometry.Types.Point -> Svg.Svg msg"
+      },
+      {
+        "name": "pointStyled",
+        "comment": " Svg view of a point with given style.\n",
+        "type": "Annotation.Style.Point -> Annotation.Geometry.Types.Point -> Svg.Svg msg"
+      },
+      {
+        "name": "pointWithDetails",
+        "comment": " Svg detailed view of a point.\n\nSpecify in the attributes the radius and styling of the circle\nused to represent the point. Alternatively, put a class attribute\nand set those in a style sheet (CSS).\n\n",
+        "type": "List (Svg.Attribute msg) -> Annotation.Geometry.Types.Point -> Svg.Svg msg"
+      },
+      {
+        "name": "stroke",
+        "comment": " Svg view of a stroke with default style.\n",
+        "type": "Annotation.Geometry.Types.Stroke -> Svg.Svg msg"
+      },
+      {
+        "name": "strokeStyled",
+        "comment": " Svg view of a stroke with given style.\n",
+        "type": "Annotation.Style.Line -> Annotation.Geometry.Types.Stroke -> Svg.Svg msg"
+      },
+      {
+        "name": "strokeWithDetails",
+        "comment": " Svg detailed view of a stroke.\n\nSpecify in the attributes the style of the stroke.\nAlternatively put a class attribute and set those in a style sheet (CSS).\n\n",
+        "type": "List (Svg.Attribute msg) -> Annotation.Geometry.Types.Stroke -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.Outline",
+    "comment": " Create and manipulate freeline closed outlines.\n\n@docs empty, addPoint\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "addPoint",
+        "comment": " Add a point to an unfinished outline.\n",
+        "type": "Annotation.Geometry.Types.Point -> Annotation.Geometry.Types.Outline -> Annotation.Geometry.Types.Outline"
+      },
+      {
+        "name": "empty",
+        "comment": " Create an empty outline.\n",
+        "type": "Annotation.Geometry.Types.Outline"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.Point",
+    "comment": " Create and manipulate points.\n\n@docs fromCoordinates\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "fromCoordinates",
+        "comment": " Create a Point with the given coordinates.\n",
+        "type": "( Float, Float ) -> Annotation.Geometry.Types.Point"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Viewer",
+    "comment": " This module provides functions to manage the viewing area.\n\n\n# Model\n\n@docs Viewer, default\n\n\n# Update\n\n@docs setSize, getCenter, centerAt\n@docs setZoom, setZoomCentered, zoomIn, zoomOut\n@docs fitImage\n@docs grabMove, positionIn, sizeIn\n\n\n# View\n\n@docs viewIn, viewInWithDetails, placeIn\n\n",
+    "aliases": [
+      {
+        "name": "Viewer",
+        "comment": " Parameters of the viewer.\n",
+        "args": [],
+        "type": "{ frame : OpenSolid.Geometry.Types.Frame2d , size : ( Float, Float ) , zoom : Float }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "centerAt",
+        "comment": " Recenter the viewing area at a given point.\n",
+        "type": "OpenSolid.Geometry.Types.Point2d -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "default",
+        "comment": " Default viewer.\n",
+        "type": "Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "fitImage",
+        "comment": " Fit the view so that the image takes a certain percentage of its max viewable size.\n",
+        "type": "Float -> Image.Image -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "getCenter",
+        "comment": " Compute the center point of the viewer.\n",
+        "type": "Annotation.Viewer.Viewer -> Annotation.Geometry.Types.Point"
+      },
+      {
+        "name": "grabMove",
+        "comment": " Translate the viewer frame opposite to the vector (used for \"grab and move\").\n",
+        "type": "( Float, Float ) -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "placeIn",
+        "comment": " Place an svg element in a viewer (apply the appropriate frame transformation).\n\nThis is for a user who wants to keep full control of the viewing process.\nThe result can then be used as a regular svg element.\n\nIt does not compute new coordinates of each svg element,\nbut simply embeds them in a group with the appropriate transformation.\nSo try using it only once, on a group containing all elements to insert.\n\nFor simple viewing, prefer using the `viewIn` function.\n\n",
+        "type": "Annotation.Viewer.Viewer -> Svg.Svg msg -> Svg.Svg msg"
+      },
+      {
+        "name": "positionIn",
+        "comment": " Transform coordinates of a point in the frame to their actual image coordinates.\n",
+        "type": "Annotation.Viewer.Viewer -> ( Float, Float ) -> ( Float, Float )"
+      },
+      {
+        "name": "setSize",
+        "comment": " Reset size of the viewer.\n",
+        "type": "( Float, Float ) -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "setZoom",
+        "comment": " Set the zoom value.\n",
+        "type": "Float -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "setZoomCentered",
+        "comment": " Set zoom value while keeping the current center.\n",
+        "type": "Float -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "sizeIn",
+        "comment": " Scale a size in the frame to its actual image size.\n",
+        "type": "Annotation.Viewer.Viewer -> ( Float, Float ) -> ( Float, Float )"
+      },
+      {
+        "name": "viewIn",
+        "comment": " View the generated svg annotations (bounding boxes, contours, ...)\nin the viewer.\n\nFor display of the corresponding image in background,\nsimply group it with the annotations to generate a new Svg msg:\n\n    Svg.g [] [ Image.viewSvg [] image, svgAnnotations ]\n\nBe aware that the output of `viewIn` is an `svg` tag embedded in a `div` tag.\nEmbedding is performed to remedy some inconsistencies that may occur when\ntrying to get the dimensions of an `svg` tag with `clientWidth`.\n(see [W3C spec](https://www.w3.org/TR/cssom-view-1/#dom-element-clientwidth):\n\"If the element has no associated CSS layout box\nor if the CSS layout box is inline, return zero.\")\n\nFor finer-grained control, prefer using `placeIn`.\n\n",
+        "type": "Annotation.Viewer.Viewer -> Svg.Svg msg -> Html.Html msg"
+      },
+      {
+        "name": "viewInWithDetails",
+        "comment": " Same as `viewIn` but html attributes can be added (like class, ...).\n",
+        "type": "List (Html.Attribute msg) -> Annotation.Viewer.Viewer -> Svg.Svg msg -> Html.Html msg"
+      },
+      {
+        "name": "zoomIn",
+        "comment": " Zoom in (x2).\n",
+        "type": "Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "zoomOut",
+        "comment": " Zoom out (x0.5).\n",
+        "type": "Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.Stroke",
+    "comment": " Create and manipulate freeline strokes.\n\n@docs empty, addPoint, fromPoints, close\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "addPoint",
+        "comment": " Add a point to an unfinished stroke.\n",
+        "type": "Annotation.Geometry.Types.Point -> Annotation.Geometry.Types.Stroke -> Annotation.Geometry.Types.Stroke"
+      },
+      {
+        "name": "close",
+        "comment": " Close a stroke (polyline) into a polygon.\nThe output can be interpreted as a `Contour` or `Outline`\nsince both are polygons.\n",
+        "type": "Annotation.Geometry.Types.Stroke -> OpenSolid.Geometry.Types.Polygon2d"
+      },
+      {
+        "name": "empty",
+        "comment": " Create an empty stroke.\n",
+        "type": "Annotation.Geometry.Types.Stroke"
+      },
+      {
+        "name": "fromPoints",
+        "comment": " Create a stroke from a list of points\n",
+        "type": "List Annotation.Geometry.Types.Point -> Annotation.Geometry.Types.Stroke"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.Contour",
+    "comment": " Create and manipulate polygonal contours.\n\n@docs empty, addPoint, fromPoints\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "addPoint",
+        "comment": " Add a point to an unfinished contour.\n",
+        "type": "Annotation.Geometry.Types.Point -> Annotation.Geometry.Types.Contour -> Annotation.Geometry.Types.Contour"
+      },
+      {
+        "name": "empty",
+        "comment": " Create an empty contour.\n",
+        "type": "Annotation.Geometry.Types.Contour"
+      },
+      {
+        "name": "fromPoints",
+        "comment": " Create a contour from a list of points.\n",
+        "type": "List Annotation.Geometry.Types.Point -> Annotation.Geometry.Types.Contour"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.BoundingBox",
+    "comment": " Create and manipulate bounding boxes.\n\n@docs fromPair, attributes\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "attributes",
+        "comment": " Get the geometric svg attributes of a bounding box.\n",
+        "type": "Annotation.Geometry.Types.BoundingBox -> List (Svg.Attribute msg)"
+      },
+      {
+        "name": "fromPair",
+        "comment": " Create a bounding box from a pair of points.\n",
+        "type": "( Annotation.Geometry.Types.Point, Annotation.Geometry.Types.Point ) -> Annotation.Geometry.Types.BoundingBox"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Style",
+    "comment": " Styling the annotations.\n\n@docs Point, pointDefault\n\n@docs Line, strokeDefault, strokeAttributes\n\n@docs Fill, fillAttributes\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Fill",
+        "comment": " Color of a fill.\n\nA fill is either not visible, or of a given color and opacity.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "NoFill",
+            []
+          ],
+          [
+            "Fill",
+            [
+              "Annotation.Color.Color",
+              "Float"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Line",
+        "comment": " Styling of a line.\n\nA line is either not visible,\nor displayed with a stroke of given width and color.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "NoLine",
+            []
+          ],
+          [
+            "Stroke",
+            [
+              "Float",
+              "Annotation.Color.Color"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Point",
+        "comment": " Styling of a point.\n\nA point is either not visible,\nor displayed as a colored disk of a given radius.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "NoPoint",
+            []
+          ],
+          [
+            "Disk",
+            [
+              "Float",
+              "Annotation.Color.Color"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "fillAttributes",
+        "comment": " Get the svg attributes of a filling.\n",
+        "type": "Annotation.Style.Fill -> List (Svg.Attribute msg)"
+      },
+      {
+        "name": "pointDefault",
+        "comment": " Default style of a point.\n",
+        "type": "Annotation.Style.Point"
+      },
+      {
+        "name": "strokeAttributes",
+        "comment": " Get the svg attributes of a line.\n",
+        "type": "Annotation.Style.Line -> List (Svg.Attribute msg)"
+      },
+      {
+        "name": "strokeDefault",
+        "comment": " Default style of a line.\n",
+        "type": "Annotation.Style.Line"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.Types",
+    "comment": " Types of the different elements usable for annotations.\n\nIn order to initialize an object of one of these types,\nlook into the corresponding module.\nFor example, to initialize a `Point`,\nyou will use the `Point.fromCoordinates` function from the `Point` module.\n\nRmq: *All those types are aliases of other types\nfrom the [OpenSolid](http://package.elm-lang.org/packages/opensolid/geometry/latest) package.\nSo you can easily extend functionalities based on the Opensolid functions.*\n\n@docs Point, BoundingBox, Contour, Outline, Stroke\n\n",
+    "aliases": [
+      {
+        "name": "BoundingBox",
+        "comment": " A bounding box.\n",
+        "args": [],
+        "type": "OpenSolid.Geometry.Types.BoundingBox2d"
+      },
+      {
+        "name": "Contour",
+        "comment": " A contour.\n",
+        "args": [],
+        "type": "OpenSolid.Geometry.Types.Polygon2d"
+      },
+      {
+        "name": "Outline",
+        "comment": " An outline.\n",
+        "args": [],
+        "type": "OpenSolid.Geometry.Types.Polygon2d"
+      },
+      {
+        "name": "Point",
+        "comment": " A point.\n",
+        "args": [],
+        "type": "OpenSolid.Geometry.Types.Point2d"
+      },
+      {
+        "name": "Stroke",
+        "comment": " A stroke.\n",
+        "args": [],
+        "type": "OpenSolid.Geometry.Types.Polyline2d"
+      }
+    ],
+    "types": [],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Color",
+    "comment": " Color management.\n\n@docs Color, toStr\n\n@docs white, black, red, green, blue, turquoise\n\n@docs palette\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Color",
+        "comment": " A color type.\n",
+        "args": [],
+        "cases": [
+          [
+            "RGB",
+            [
+              "Int",
+              "Int",
+              "Int"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "black",
+        "comment": " Black.\n",
+        "type": "Annotation.Color.Color"
+      },
+      {
+        "name": "blue",
+        "comment": " Blue.\n",
+        "type": "Annotation.Color.Color"
+      },
+      {
+        "name": "green",
+        "comment": " Green.\n",
+        "type": "Annotation.Color.Color"
+      },
+      {
+        "name": "palette",
+        "comment": " A color palette print and color-blind friendly.\n\n( beige, green, turquoise, blue, dark blue )\n\n",
+        "type": "( Annotation.Color.Color , Annotation.Color.Color , Annotation.Color.Color , Annotation.Color.Color , Annotation.Color.Color )"
+      },
+      {
+        "name": "red",
+        "comment": " Red.\n",
+        "type": "Annotation.Color.Color"
+      },
+      {
+        "name": "toStr",
+        "comment": " Get a string describing the color like `rgb(255,0,0)`.\n",
+        "type": "Annotation.Color.Color -> String"
+      },
+      {
+        "name": "turquoise",
+        "comment": " Turquoise.\n",
+        "type": "Annotation.Color.Color"
+      },
+      {
+        "name": "white",
+        "comment": " White.\n",
+        "type": "Annotation.Color.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

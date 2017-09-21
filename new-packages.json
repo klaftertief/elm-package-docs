@@ -666,6 +666,7 @@
     "terezka/elm-plot",
     "terezka/elm-plot-rouge",
     "terezka/elm-view-utils",
+    "tesk9/accessible-html",
     "tesk9/elm-html-a11y",
     "tesk9/elm-html-textup",
     "tesk9/elm-tabs",
