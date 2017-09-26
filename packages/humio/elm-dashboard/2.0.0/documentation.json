@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Dashboard",
+    "comment": " Create and layout dashboards in Elm.\n\n\n# Configuration\n\n@docs config\n\n\n# Modification\n\n@docs add, move, remove, resize, update, Msg\n\n\n# View\n\n@docs view, subscriptions\n\n\n# State\n\n@docs Model, init, initWithWidgets\n\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " ",
+        "args": [],
+        "type": "{ widgets : List Dashboard.Internal.Data.Widget , dragState : Dashboard.Internal.Data.DragState }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "add",
+        "comment": " ",
+        "type": "String -> Dashboard.Internal.Data.Rect -> Dashboard.Internal.Data.Config data msg -> Dashboard.Model -> Dashboard.Model"
+      },
+      {
+        "name": "config",
+        "comment": " A helper function for creating valid configurations.\n",
+        "type": "Dashboard.Internal.Data.ConfigProps data msg -> Dashboard.Internal.Data.Config data msg"
+      },
+      {
+        "name": "init",
+        "comment": " Creates the state that holds layout and dragging info.\n",
+        "type": "Dashboard.Model"
+      },
+      {
+        "name": "initWithWidgets",
+        "comment": " An initializer for copying dashboards\n",
+        "type": "List Dashboard.Internal.Data.Widget -> Dashboard.Model"
+      },
+      {
+        "name": "move",
+        "comment": " Moves the widget with `id` to `newPoint`.\n",
+        "type": "String -> { a | x : Int, y : Int } -> Dashboard.Internal.Data.Config data msg -> Dashboard.Model -> Dashboard.Model"
+      },
+      {
+        "name": "remove",
+        "comment": " Removes the widget with `id`. If the widget is not\nfound the dashboard is unchanged.\n",
+        "type": "String -> Dashboard.Model -> Dashboard.Model"
+      },
+      {
+        "name": "resize",
+        "comment": " Changes the size of the widget with `widgetId` to match `newRect`.\nThe minimum size is 1x1.\n",
+        "type": "String -> Dashboard.Internal.Data.Rect -> Dashboard.Internal.Data.Config data msg -> Dashboard.Model -> Dashboard.Model"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " ",
+        "type": "Dashboard.Model -> Platform.Sub.Sub Dashboard.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " The update function\n",
+        "type": "Dashboard.Msg -> Dashboard.Internal.Data.Config data msg -> Dashboard.Model -> ( Dashboard.Model, Platform.Cmd.Cmd Dashboard.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " ",
+        "type": "Dashboard.Internal.Data.Config data msg -> Dashboard.Model -> Html.Html Dashboard.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
