@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Tfn",
+    "comment": " Test the validity of a given 8 or 9 digit Australian Tax File Number (TFN).\n\n@docs isValid\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "isValid",
+        "comment": " Check if a given 8 or 9 digit TFN is valid or not\n\n  isValid \"555-000-555\" == True\n",
+        "type": "String -> Bool"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

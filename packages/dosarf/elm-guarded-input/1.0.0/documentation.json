@@ -1,0 +1,190 @@
+[
+  {
+    "name": "Guarded.Input.Parsers",
+    "comment": " Couple of parsers to use with guarded input controls, plus some other bits\nthat may come useful when constructing your own parsers.\n\n# Parsers\n@docs intParser, nonNegativeIntParser, simpleFloatParser, simpleNonNegativeFloatParser, decimalDigitParser\n\n# isWorkInProgress\n@docs isWorkInProgressForNumber, nothingIsWorkInProgress\n\n# Converters\n@docs intConverter\n\n# Converter utilities\n@docs nonNegativeNumberChecker, positiveNumberChecker, decimalDigitChecker, boundedNumberChecker\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "boundedNumberChecker",
+        "comment": " Given a comparator, a boundary and an error message, it returns a checker\nthat can be used together with either `intConverter` or `String.toFloat`.\nComparision expression for accepting a number `x` is: `comparator x boundary`,\ne.g. `(>=) x 0` will accept numbers greater or equal to 0.\n\n    monthIntChecker : Int -> Result String Int\n    monthIntChecker = boundedNumberChecker (>=) 1 \"Less than  1\" >> Result.andThen (boundedNumberChecker (<=) 12 \"More than 12\")\n\n    monthIntConverter : String -> Result String Int\n    monthIntConverter = intConverter >> Result.andThen monthIntChecker\n",
+        "type": "(comparable -> comparable -> Bool) -> comparable -> String -> comparable -> Result.Result String comparable"
+      },
+      {
+        "name": "decimalDigitChecker",
+        "comment": " Use it together with either `intConverter` to get a converter\nthat converts only single decimal digits.\n\n    converter : String -> Result String Int\n    converter = intConverter >> Result.andThen decimalDigitChecker\n\nSee `intConverter` as to why prefer that instead of `String.toInt`.\n",
+        "type": "comparable -> Result.Result String comparable"
+      },
+      {
+        "name": "decimalDigitParser",
+        "comment": " Parses a single decimal digit.\n",
+        "type": "String -> Guarded.Input.Msg Int"
+      },
+      {
+        "name": "intConverter",
+        "comment": " `String.toInt` will return a buggy `NaN` for a \"-\" (single\nminus character). Use this workaround function instead.\n\n    intConverter \"123\" -- yields 123\n    intConverter \"-123\" -- yields -123\n    intConverter \"a\" -- Err \"could not convert string 'a' to an Int\"\n    intConverter \"-\" -- Err \"NaN\"\n",
+        "type": "String -> Result.Result String Int"
+      },
+      {
+        "name": "intParser",
+        "comment": " Parses integers, including negative ones.\n",
+        "type": "String -> Guarded.Input.Msg Int"
+      },
+      {
+        "name": "isWorkInProgressForNumber",
+        "comment": " Matches a single minus character (\"-\"). Useful for number parsers: while\na single \"-\" character does not yet constitutes a valid number (integer or float),\nit is a valid beginning for one.\n",
+        "type": "String -> Bool"
+      },
+      {
+        "name": "nonNegativeIntParser",
+        "comment": " Parses non-negative integers.\n",
+        "type": "String -> Guarded.Input.Msg Int"
+      },
+      {
+        "name": "nonNegativeNumberChecker",
+        "comment": " Use it together with either `intConverter` or `String.toFloat` to get a converter\nthat converts only non-negative numbers.\n\nTo get a converter for non-negative floats:\n\n    nonNegativeFloatConverter : String -> Result String Float\n    nonNegativeFloatConverter = String.toFloat >> Result.andThen nonNegativeNumberChecker\n\nTo get a converter for non-negative integers:\n\n    nonNegativeIntConverter : String -> Result String Int\n    nonNegativeIntConverter = intConverter >> Result.andThen nonNegativeNumberChecker\n\nSee `intConverter` as to why prefer that instead of `String.toInt`.\n",
+        "type": "comparable -> Result.Result String comparable"
+      },
+      {
+        "name": "nothingIsWorkInProgress",
+        "comment": " Matches no input as a work-in-progress input. Useful in cases when the\nset of work-in-progress is empty (i.e. anything rejected by the convert function\nis invalid).\n",
+        "type": "String -> Bool"
+      },
+      {
+        "name": "positiveNumberChecker",
+        "comment": " Use it together with either `intConverter` or `String.toFloat` to get a converter\nthat converts only positive numbers.\n\nTo get a converter for positive floats:\n\n    positiveFloatConverter : String -> Result String Float\n    positiveFloatConverter = String.toFloat >> Result.andThen positiveNumberChecker\n",
+        "type": "comparable -> Result.Result String comparable"
+      },
+      {
+        "name": "simpleFloatParser",
+        "comment": " Parses floats, including negative ones. No scientific notation is supported.\n",
+        "type": "String -> Guarded.Input.Msg Float"
+      },
+      {
+        "name": "simpleNonNegativeFloatParser",
+        "comment": " Parses non-negative floats. No scientific notation is supported.\n",
+        "type": "String -> Guarded.Input.Msg Float"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Guarded.Input.CssUtil",
+    "comment": " Support for applying different CSS classes to HTML elements based\non guarded input control state.\n\nThe model of a guarded input control actually tracks two things:\n- the state of the actual input\n- the info about the last erroneous input attempt, if any.\n\nYou could define CSS class for the guarded input control itself using\n`classListForInput`, which then has to deal with the following states of the\ninput: valid, work-in-progress, undefined.\n\nYou could also define CSS class for an warning box using\n`classListForWarning`, if you want to show error info messages, which then has\nto deal with the following states of the last error/input state: invalid,\nvalid, work-in-progress, undefined.\n\n# Types\n@docs Purpose\n\n\n# CSS class utilities\n@docs classListForInput, classListForWarning\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Purpose",
+        "comment": " Used to define the purpose of a CSS class. See `classListForInput` for\nan example.\n",
+        "args": [],
+        "cases": [
+          [
+            "Valid",
+            []
+          ],
+          [
+            "Invalid",
+            []
+          ],
+          [
+            "WorkInProgress",
+            []
+          ],
+          [
+            "Undefined",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "classListForInput",
+        "comment": " Given a list of (class, purpose) pairs and a model, it returns a list of\n(class, bool) pairs to give directly to `Html.Attirbute.classList` for a guarded\ninput control. It requires a class for 3 eventualities: valid, work-in-progress\nand undefined state.\n\n    type alias Model =\n        { parsedInteger : Guarded.Input.Model Int\n        , ...\n        }\n\n    view : Model -> Html Msg\n    view model =\n        ...\n        input\n            [ ...\n            , classList <| classListForInput myClasses model.parsedInteger\n            ]\n            []\n        ...\n\n    myClasses : List ( String, Guarded.Input.CssUtil.Purpose )\n    myClasses =\n        [ ( \"guarded-input-valid\", Guarded.Input.CssUtil.Valid )\n        , ( \"guarded-input-work-in-progress\", Guarded.Input.CssUtil.WorkInProgress )\n        , ( \"guarded-input-undefined\", Guarded.Input.CssUtil.Undefined )\n        ]\n",
+        "type": "List ( String, Guarded.Input.CssUtil.Purpose ) -> Guarded.Input.Model value -> List ( String, Bool )"
+      },
+      {
+        "name": "classListForWarning",
+        "comment": " Given a list of (class, purpose) pairs and a model, it returns a list of\n(class, bool) pairs to give directly to `Html.Attirbute.classList` for a warning\nbox for a guarded input control. It requires a class for 4 eventualities:\nvalid, invalid, work-in-progress and undefined state.\n\n    type alias Model =\n        { parsedInteger : Guarded.Input.Model Int\n        , ...\n        }\n\n    view : Model -> Html Msg\n    view model =\n        ...\n        div\n            [ classList <| classListForWarning myClasses model.parsedInteger ]\n            [ text <| Maybe.withDefault \"\" <| Guarded.Input.lastError model.parsedInteger ]\n        ...\n\n    myClasses : List ( String, Guarded.Input.CssUtil.Purpose )\n    myClasses =\n        [ ( \"guarded-input-valid\", Guarded.Input.CssUtil.Valid )\n        , ( \"guarded-input-invalid\", Guarded.Input.CssUtil.Invalid )\n        , ( \"guarded-input-work-in-progress\", Guarded.Input.CssUtil.WorkInProgress )\n        , ( \"guarded-input-undefined\", Guarded.Input.CssUtil.Undefined )\n        ]\n",
+        "type": "List ( String, Guarded.Input.CssUtil.Purpose ) -> Guarded.Input.Model value -> List ( String, Bool )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Guarded.Input",
+    "comment": " This library provides support for guarded input (text) controls.\nGuarded here means that the input control is simply not allowed to\ncontain any erroneous string. This is solved by normalization of\nthe input control's content model on every input event and by feeding back\nthe normalized model to the view of the input control.\n\nPotentially handy in educational software, where one does not want to confuse kids\nwith explanations of badly formed input and such like.\n\nA guarded input can be in one of three _acceptable_ states:\n- undefined (empty input control),\n- work-in-progress (not convertible to a useful value, but could evolve\npotentially into one), and\n- valid (has actual value).\n\nIf the `Guarded.Input.update` function rejects a change of the input contents,\nthe previous state - necessarily an _accepted_ one - is preserved, and that\nis the model to write back to the view, and this way erroneous\nattempts will be just discarded.\n\n# Types\n@docs Model, Msg\n\n# Initializers\n@docs init, initFor, initWith\n\n# View\n@docs parseOnInput\n\n# Model update\n@docs update\n\n# Utility functions\n@docs inputString, inputStringMaybe, lastError, toResult\n\n# Parsing gadgetry\n@docs parser\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " The model for holding data for a guarded input control. Use utility\nfunctions `inputString`, `inputStringMaybe`, `toResult` or `lastError` to\ngain access to information held within. To manage CSS classes based on state,\ncheck out package 'Guarded.Input.CssUtil'.\n",
+        "args": [
+          "value"
+        ],
+        "type": "Guarded.Input.InternalTypes.Model_ value"
+      },
+      {
+        "name": "Msg",
+        "comment": " The message type emitted by a guarded input control.\n",
+        "args": [
+          "value"
+        ],
+        "type": "Guarded.Input.InternalTypes.Msg_ value"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Initializes the model with empty (undefined) input.\n",
+        "type": "Guarded.Input.Model value"
+      },
+      {
+        "name": "initFor",
+        "comment": " Initializes the model for an actual value.\n",
+        "type": "value -> Guarded.Input.Model value"
+      },
+      {
+        "name": "initWith",
+        "comment": " Initializes the model from an input string, using a parser. The model\nis in the exact state as if user had typed (copy-pasted) the initial input\nstring to a guarded input control.\n\nFor the sake of consistency of your initialized model, you want to use the very\nsame parser during model initialization that you use for the input control:\n\n    type MyStuff = ...\n\n    initialModel =\n        { ...\n        , parsedStuff = Guarded.Input.initWith myStuffParser \"stuff\"\n        }\n\n    ...\n\n    view : Model -> Html Msg\n    view model =\n        input\n            [ Guarded.Input.parseOnInput msgTag myStuffParser\n            , ...\n            ]\n            []\n    ...\n    myStuffParser : String -> Guarded.Input.Msg MyStuff\n    myStuffParser =\n        ...\n",
+        "type": "(String -> Guarded.Input.Msg value) -> String -> Guarded.Input.Model value"
+      },
+      {
+        "name": "inputString",
+        "comment": " Returns the input text, as accepted so far (either work-in-progress or valid).\nIn case of undefined (empty) content of the guarded input control,\nit returns an empty string.\n\nYou should feed back the model to the view. This way any erroneous input attempt\nis rejected, and the input control can contain only acceptable input strings:\n\n    Html.input [ ..., value <| Guarded.Input.inputString myModel ] []\n\n",
+        "type": "Guarded.Input.Model value -> String"
+      },
+      {
+        "name": "inputStringMaybe",
+        "comment": " Returns the input text, as accepted so far (either work-in-progress or valid).\nIn case of undefined (empty) content of the guarded input control,\nit returns `Nothing`.\n",
+        "type": "Guarded.Input.Model value -> Maybe.Maybe String"
+      },
+      {
+        "name": "lastError",
+        "comment": " Returns the last error info, if any, from a guarded input control model.\n",
+        "type": "Guarded.Input.Model value -> Maybe.Maybe String"
+      },
+      {
+        "name": "parseOnInput",
+        "comment": " Given a message tag with a payload of type `Msg value`, and parser function,\nit will return an `Html.Attribute` that you can use with your input control.\n\n    input\n        [ Guarded.Input.parseOnInput YourMessageTag someParser\n        , value <| Guarded.Input.inputString someParsedModel\n        ]\n        []\n",
+        "type": "(Guarded.Input.Msg value -> msg) -> (String -> Guarded.Input.Msg value) -> Html.Attribute msg"
+      },
+      {
+        "name": "parser",
+        "comment": " A function to construct your own parsers for guarded input controls. Needs\na `convert` and an `isWorkInProgress` function.\n\nThe `convert` function (`String -> Result String value`) attemps converting any\nnon-empty input text. On failure, it is to return an error message.\n\nThe `isWorkInProgress` function (`String -> Boolean`) is to accept any non-empty\ninput text rejected by the `convert` that could still evolve into something\nvalid. For instance, while 'tru' cannot be converted to a Bool value (hence would\nbe rejected by `convert`), it may still end up being 'true', thus the\n`isWorkInProgress` should accept it as work-in-progress input.\n\nA non-empty input string rejected by both `convert` and `isWorkInProgress` is invalid.\n\nA non-empty input string rejected `convert` but accepted by `isWorkInProgress` is\naccepted as work in progress.\n\nA non-empty input string converted successfully to a value by `convert` is\nvalid. In this case it does not matter whether `isWorkInProgress` accepts it or\nrejects it\n",
+        "type": "(String -> Result.Result String value) -> (String -> Bool) -> String -> Guarded.Input.Msg value"
+      },
+      {
+        "name": "toResult",
+        "comment": " Returns the value, if any, yielded by a guarded input control. In case\nof work-in-progress or undefined state, it returns Err.\n",
+        "type": "Guarded.Input.Model value -> Result.Result String value"
+      },
+      {
+        "name": "update",
+        "comment": " Updates the model for a guarded input control.\n",
+        "type": "Guarded.Input.Msg v -> Guarded.Input.Model v -> ( Guarded.Input.Model v, Platform.Cmd.Cmd (Guarded.Input.Msg v) )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Math.Strings",
+    "comment": " A math expression evaluator written in Elm.\n\n    Evaluates parentheses, exponentials, addition, subtraction, multiplication, and integer division from a String representation.\n\n#Evaluating expressions\n@docs evaluateExpression\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "evaluateExpression",
+        "comment": " Evaluate a math expression\n\n    evaluateExpression \"5 * (10 / (10 - 8)) + 3\" == Ok 28\n    evaluateExpression \"2^10\" == Ok 1024\n    evaluateExpression \"invalid\" == Err \"'i' is not a supported Operator.\"\n    evaluateExpression \"6 + 4) / 5\" == Err \"Unmatched CloseParen at chararcter #6.\"\n    evaluateExpression \"6 + 4 / \" == Err \"Too few values for the operators.\"\n    evaluateExpression \"5 / (1 - 1)\" == Err \"Cannot divide by 0.\"\n\n",
+        "type": "String -> Result.Result String Int"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

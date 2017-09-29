@@ -1,0 +1,40 @@
+[
+  {
+    "name": "BarChartStacked",
+    "comment": " This module creates an SVG element of a stacked bar chart.\n\n![Bar Chart Stacked](../images/barChartStacked.png)\n\n@docs viewBarChartStacked\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "viewBarChartStacked",
+        "comment": " Create SVG from bar chart config and several data sets.\n\n    svgElement =\n        viewBarChartStacked config dataSets\n\n",
+        "type": "Types.BarChartConfig -> Types.Datas -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "BarChart",
+    "comment": " This module creates a simple SVG bar chart.\n\n![Bar Chart](../images/barChart.png)\n\n@docs defaultBarChartConfig\n\n@docs viewBarChart\n\n@docs getBar\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "defaultBarChartConfig",
+        "comment": " The default configuration for the bar chart.\nCreate your own config by overwriting the fields you want to change.\n\n    barChart =\n        BarChart\n            { defaultBarChartConfig\n                | xLabelFormatter = utcWeek\n            }\n            timeData\n\n",
+        "type": "Types.BarChartConfig"
+      },
+      {
+        "name": "getBar",
+        "comment": " Helper to get SVG element for a single bar.\n",
+        "type": "Types.BarChartConfig -> Types.Data -> Types.MetaData -> Int -> Types.Entry -> Svg.Svg msg"
+      },
+      {
+        "name": "viewBarChart",
+        "comment": " Create SVG from bar chart config and a data set.\n\n    svgElement =\n        viewBarChart config dataSet\n\n",
+        "type": "Types.BarChartConfig -> Types.Data -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

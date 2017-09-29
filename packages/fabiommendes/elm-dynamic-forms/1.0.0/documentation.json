@@ -1,0 +1,398 @@
+[
+  {
+    "name": "DynForms.View",
+    "comment": " Functions used to display form elements.\n\n\n# View functions\n\n@docs viewForm\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "viewForm",
+        "comment": " Render form as Elm HTML\n",
+        "type": "DynForms.Form -> Html.Html DynForms.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "DynForms.JsonDecode",
+    "comment": " Functions used to decode a JSON string or Value to a form object.\n\n\n# Decode functions\n\n@docs decodeValue, decodeString\n\n\n# Decoders\n\n@docs formDecoder, layoutDecoder, fieldInfoDecoder, validatorDecoder\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "decodeString",
+        "comment": " Decode a JSON string to its corresponding form object\n",
+        "type": "String -> Result.Result String DynForms.Form"
+      },
+      {
+        "name": "decodeValue",
+        "comment": " Decode a JSON value to its corresponding form object\n",
+        "type": "Json.Decode.Value -> Result.Result String DynForms.Form"
+      },
+      {
+        "name": "fieldInfoDecoder",
+        "comment": " Decodes JSON to a FieldInfo object.\n",
+        "type": "Json.Decode.Decoder DynForms.FieldInfo"
+      },
+      {
+        "name": "formDecoder",
+        "comment": " Decodes JSON to a form object\n",
+        "type": "Json.Decode.Decoder DynForms.Form"
+      },
+      {
+        "name": "layoutDecoder",
+        "comment": " Decodes JSON to a layout object\n",
+        "type": "Json.Decode.Decoder DynForms.FormLayout"
+      },
+      {
+        "name": "validatorDecoder",
+        "comment": " Decodes JSON to a (validator, errorString) tuple\n",
+        "type": "Json.Decode.Decoder ( DynForms.Validator, String )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "DynForms.Validation",
+    "comment": " Validators objects represent an specific validation operation. DynForms\ndo not support custom validations since that implies putting functions inside\nthe model.\n\n\n# Basic validators\n\n@docs maxValue, minValue, maxLength, minLength\n\n\n# Additional options\n\n@docs withMsg, defaultErrorMsg\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "defaultErrorMsg",
+        "comment": " Return the default error message for the given validator\n",
+        "type": "DynForms.Validator -> String"
+      },
+      {
+        "name": "maxLength",
+        "comment": " Sets the maximum length value a field can assume\n",
+        "type": "Int -> DynForms.Validation.ValidatorFactory"
+      },
+      {
+        "name": "maxValue",
+        "comment": " Sets the maximum numerical value a field can assume\n",
+        "type": "Float -> DynForms.Validation.ValidatorFactory"
+      },
+      {
+        "name": "minLength",
+        "comment": " Sets the minimum length value a field can assume\n",
+        "type": "Int -> DynForms.Validation.ValidatorFactory"
+      },
+      {
+        "name": "minValue",
+        "comment": " Sets the minimum numerical value a field can assume\n",
+        "type": "Float -> DynForms.Validation.ValidatorFactory"
+      },
+      {
+        "name": "withMsg",
+        "comment": " Sets the error string used in the validator.\n\nThis function is designed to be used in a pipeline as in\n\n    validators =\n        [ minValue 0 |> withMsg \"Value must be positive\" ]\n\n",
+        "type": "String -> DynForms.Validation.ValidatorFactory -> DynForms.Validation.ValidatorFactory"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "DynForms.JsonEncode",
+    "comment": " Functions that encode a form or parts of the form to JSON.\n\nThe most useful functions are the encodeValue that encodes the complete form\nand encodeValueData that only encodes the current state of form data.\n\n@docs encodeValue, encodeString\n\n\n# Other partial encoders\n\nPartial encoders do not implement the convenience encode-to-string function.\n\n@docs encodeFieldInfo, encodeLayout\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "encodeFieldInfo",
+        "comment": " Encodes a FieldInfo object to a value\n",
+        "type": "DynForms.FieldInfo -> Json.Encode.Value"
+      },
+      {
+        "name": "encodeLayout",
+        "comment": " Encodes a Layout object to a value\n",
+        "type": "DynForms.FormLayout -> Json.Encode.Value"
+      },
+      {
+        "name": "encodeString",
+        "comment": " Encode a form to a JSON string.\n\nThe first parameter is an integer value describing the indentation level. (It\ncan be safely set to 0.)\n\n",
+        "type": "Int -> DynForms.Form -> String"
+      },
+      {
+        "name": "encodeValue",
+        "comment": " Encode a form to a JSON value.\n",
+        "type": "DynForms.Form -> Json.Encode.Value"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "DynForms.Layout",
+    "comment": " Functions used to define the layout of form elements.\n\n\n# Layout types\n\n@docs linearLayout, tableLayout\n\n\n# Conversion between different layouts\n\n@docs forceLinearLayout , forceTableLayout\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "forceLinearLayout",
+        "comment": " Converts any form layout to a linear layout\n",
+        "type": "DynForms.Form -> DynForms.FormLayout"
+      },
+      {
+        "name": "forceTableLayout",
+        "comment": " Converts any form layout to a linear table layout\n",
+        "type": "DynForms.Form -> DynForms.FormLayout"
+      },
+      {
+        "name": "linearLayout",
+        "comment": " Declares a linear layout\n",
+        "type": "List String -> DynForms.FormLayout"
+      },
+      {
+        "name": "tableLayout",
+        "comment": " Declares a linear layout\n",
+        "type": "List String -> DynForms.FormLayout"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "DynForms.Field",
+    "comment": "\n\n\n# Field types\n\n@docs stringField, textField, boolField, hiddenField, intField, floatField\n\n\n## Constructor helpers\n\nThe functions bellow create modified versions of the field setting up one of\nits parameters. They are useful for initializing the field object using the\npipeline notation as in\n\n    myField =\n        intField \"field-id\"\n            |> label \"Number\"\n            |> placeholder \"42\"\n            |> default \"0\"\n\n@docs label, placeholder, help, default, validators\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "boolField",
+        "comment": " Boolean fields hold a boolean value and are usually represented by a\ncheckbox.\n",
+        "type": "String -> DynForms.FieldInfo"
+      },
+      {
+        "name": "default",
+        "comment": " Sets the default value of a field.\n\nThis pre-fills the field with some value. If this option is enabled, the\nplaceholder should not appear unless the user deletes the field content.\n\n",
+        "type": "DynForms.Field.FieldMod DynForms.Data.FieldData"
+      },
+      {
+        "name": "floatField",
+        "comment": " Float fields hold numeric data that can have decimal places.\n",
+        "type": "String -> DynForms.FieldInfo"
+      },
+      {
+        "name": "help",
+        "comment": " Defines a help string that is usually displayed bellow the field input\nelement.\n\nHelp strings are useful UI elements that can be used to provide additional\ninformation to the user on how to fill the field or any other type of\nclarification.\n\n",
+        "type": "DynForms.Field.FieldMod String"
+      },
+      {
+        "name": "hiddenField",
+        "comment": " Hidden fields hold a string value that is hidden from the user.\n",
+        "type": "String -> DynForms.FieldInfo"
+      },
+      {
+        "name": "intField",
+        "comment": " Int fields hold numeric data as whole numbers.\n",
+        "type": "String -> DynForms.FieldInfo"
+      },
+      {
+        "name": "label",
+        "comment": " Sets the label text of a field.\n\nThe label is usually place just above or to the left of a field input box\nto tell the user what kind of information should be filled in.\n\n",
+        "type": "DynForms.Field.FieldMod String"
+      },
+      {
+        "name": "placeholder",
+        "comment": " Sets the placeholder text of a field.\n\nThe placeholder is a text that is displayed inside the input field and is\nreplaced by the user input as soon as the user starts typing. A common design\nchoice is to replace the label with a placeholder. DynForms treats both\nindependently.\n\n",
+        "type": "DynForms.Field.FieldMod String"
+      },
+      {
+        "name": "stringField",
+        "comment": " String fields represents a simple line of string input.\n",
+        "type": "String -> DynForms.FieldInfo"
+      },
+      {
+        "name": "textField",
+        "comment": " Text fields are similar to regular string fields, but uses a textarea as\nthe default input element.\n",
+        "type": "String -> DynForms.FieldInfo"
+      },
+      {
+        "name": "validators",
+        "comment": " Defines a list of validators for a field declaration.\n\nEach validator is declared using the functions in the DynForms.Validators\nmodule.\n\n",
+        "type": "List (DynForms.FieldInfo -> ( DynForms.Validator, String )) -> DynForms.FieldInfo -> DynForms.FieldInfo"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "DynForms",
+    "comment": " Dynamic forms usually start as some JSON sent by the backend. Elm takes control\nto present to render the form, interact with the user and perform basic\nvalidation. Data can be serialized and sent back to the server for further\nvalidation and persistence.\n\nIf you want to generate a form from JSON, take a look at the\nDynForms.JsonDecode and DynForms.JsonEncode modules. You can also construct\nform objects in Elm. A form is defined by a series of fields and a layout.\n\n    import DynForms exposing (form)\n    import DynForms.Field exposing (..)\n    import DynForms.Validation exposing (..)\n\n    sampleForm : Form\n    sampleForm =\n        form \"/api/form/1\"\n            [ stringField \"name\"\n                |> label \"Name\"\n                |> placeholder \"Full name\"\n                |> validators [ maxLength 200 ]\n            , intField \"age\"\n                |> label \"Age\"\n                |> help \"Your age\"\n                |> validators [ minValue 0, maxValue 120 ]\n            ]\n\n\n# Form creation\n\n@docs Form, form\n\n\n# Basic data types\n\nThe DynForms module also defines a few auxiliary data types.\n\n@docs FieldType, FormLayout, FieldInfo, Validator\n\n\n# Field constructors and introspection\n\nA field is declared using functions in the DynForms.Fields module. This module\ndefines a few functions used to construct a field (e.g., label, help,\nplaceholder, etc). If you want to instrospect an specific field use one of the\nfunctions bellow.\n\nThe `try*` functions return a Maybe while the `get*` functions return a definite\nvalue.\n\n@docs tryFieldInfoAt, getFieldLabelAt, tryFieldDefaultAt, tryFieldPlaceholderAt\n@docs tryFieldHelpAt, tryFieldTypeAt, getFieldValidatorsAt\n\n\n# Data access\n\nThe content of a field can be retrieved by a few data access functions.\nNotice that those are not type safe functions and you should make sure that you\nalways use the right function to access each field.\n\n@docs getStringAt, getBoolAt, getFloatAt, getIntAt\n\n\n# Validators\n\nEach field may define a list of validators that defines additional validation\nroutines that are not simply based on the content type (set up a minimum\nvalue of a number, or the maximum length of a string, etc). Field validators\nare declared in the DynForms.Validation module.\n\n\n# View Functions\n\nView functions are declared in the DynForms.View module. Unless you are trying\nsometing fancy, you really should care only about the viewForm() function.\n\n\n# Elm Archtecture\n\nDynForms follows a very standard Elm archtecture. `Form` can be safely used\ninside a model. It also defines the view function on the `DynForms.View`\nmodule. You should also use `DynForms.Msg` and `DynForms.updateForm` functions.\n\n@docs Msg, updateForm\n\nYou may want to check the self-contained example at\n<https://github.com/fabiommendes/elm-dynamic-forms/blob/master/example/Example.elm>\n\n",
+    "aliases": [
+      {
+        "name": "FieldInfo",
+        "comment": " Stores basic information about a field.\n\nUse the functions on `DynForms.Field` to create FieldInfo objets unless you\nknow what your are doing.\n\n",
+        "args": [],
+        "type": "{ id : String , fieldType : DynForms.FieldType , dataType : DynForms.Data.FieldDataType , label : Maybe.Maybe String , placeholder : Maybe.Maybe String , default : Maybe.Maybe DynForms.Data.FieldData , help : Maybe.Maybe String , validators : List ( DynForms.Validator, String ) }"
+      },
+      {
+        "name": "Form",
+        "comment": " Basic form type.\n\nThe Form type represents a full form in the application including the filled in\nvalues, declarations of field types and behaviors and the form layout.\n\nForms can be safely included in a model. It replicates a standard Elm\narchtecture and provides standard functions and messages such as updateForm,\nviewForm and FormMsg.\n\nYou should create new forms using the DynForms.form constructor.\n\n",
+        "args": [],
+        "type": "{ action : String , ajax : Bool , fields : Dict.Dict String DynForms.FieldInfo , layout : DynForms.FormLayout , state : DynForms.State.FormState }"
+      }
+    ],
+    "types": [
+      {
+        "name": "FieldType",
+        "comment": " Field type.\n\nEnumerate the possible field types.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "HiddenField",
+            []
+          ],
+          [
+            "StringField",
+            []
+          ],
+          [
+            "TextAreaField",
+            []
+          ],
+          [
+            "IntField",
+            []
+          ],
+          [
+            "FloatField",
+            []
+          ],
+          [
+            "BoolField",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "FormLayout",
+        "comment": " Represents a layout for the form elements.\n\nThe Layout describes how form elements will be placed on the page when creating\na view. Check the `DynForms.Layout` module for more options.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "LinearLayout",
+            [
+              "List String"
+            ]
+          ],
+          [
+            "TableLayout",
+            [
+              "List String"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Msg",
+        "comment": " The message type.\n",
+        "args": [],
+        "cases": [
+          [
+            "StateMsg",
+            [
+              "Form.Msg"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Validator",
+        "comment": " Validator\n\nDescribe the possible validation routines. Error strings can be set separately\nfrom the validator. See `DynForms.Validation` for more options.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "MinValue",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "MaxValue",
+            [
+              "Float"
+            ]
+          ],
+          [
+            "MinLength",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "MaxLength",
+            [
+              "Int"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "form",
+        "comment": " Creates a new form.\n\nYou should pass the address to the endpoint that handles the form and a list of\nfields.\n\n",
+        "type": "String -> List DynForms.FieldInfo -> DynForms.Form"
+      },
+      {
+        "name": "getBoolAt",
+        "comment": " Returns the boolean value stored in the field with the given id of a form\nobject.\n\nInvalid data is silently coerced to False.\n\n",
+        "type": "DynForms.Id -> DynForms.Form -> Bool"
+      },
+      {
+        "name": "getFieldLabelAt",
+        "comment": " Get field label for field with the given id, if it exists and label is\ndefined.\n",
+        "type": "DynForms.Id -> DynForms.Form -> Maybe.Maybe String"
+      },
+      {
+        "name": "getFieldValidatorsAt",
+        "comment": " Get list of validators for the given field. If field does not exist,\nreturn an empty list.\n",
+        "type": "DynForms.Id -> DynForms.Form -> List ( DynForms.Validator, String )"
+      },
+      {
+        "name": "getFloatAt",
+        "comment": " Returns the float value stored in the field with the given id of a form\nobject.\n\nInvalid data is silently coerced to 0.0.\n\n",
+        "type": "DynForms.Id -> DynForms.Form -> Float"
+      },
+      {
+        "name": "getIntAt",
+        "comment": " Returns the integer value stored in the field with the given id of a form\nobject.\n\nInvalid data is silently coerced to 0.\n\n",
+        "type": "DynForms.Id -> DynForms.Form -> Int"
+      },
+      {
+        "name": "getStringAt",
+        "comment": " Returns the string stored in the field with the given id of a form object.\n\nInvalid data (e.g., non-string values) is silently converted to string or\ncoerced to an empty string.\n\n    getStringAt \"name\" form == \"R2D2\"\n\n",
+        "type": "DynForms.Id -> DynForms.Form -> String"
+      },
+      {
+        "name": "tryFieldDefaultAt",
+        "comment": " Get field default value for field with the given id, if it exists and\ndefault value is defined.\n",
+        "type": "DynForms.Id -> DynForms.Form -> Maybe.Maybe DynForms.Data.FieldData"
+      },
+      {
+        "name": "tryFieldHelpAt",
+        "comment": " Get field help string for field with the given id, if it exists and the\nhelp string is defined.\n",
+        "type": "DynForms.Id -> DynForms.Form -> Maybe.Maybe String"
+      },
+      {
+        "name": "tryFieldInfoAt",
+        "comment": " Retrive information from a field if it exists\n",
+        "type": "DynForms.Id -> DynForms.Form -> Maybe.Maybe DynForms.FieldInfo"
+      },
+      {
+        "name": "tryFieldPlaceholderAt",
+        "comment": " Get field placeholder for field with the given id, if it exists and\nplaceholder is defined.\n",
+        "type": "DynForms.Id -> DynForms.Form -> Maybe.Maybe String"
+      },
+      {
+        "name": "tryFieldTypeAt",
+        "comment": " Get field type for field with the given id, if it exists.\n",
+        "type": "DynForms.Id -> DynForms.Form -> Maybe.Maybe DynForms.FieldType"
+      },
+      {
+        "name": "updateForm",
+        "comment": " Update form using message.\n",
+        "type": "DynForms.Msg -> DynForms.Form -> DynForms.Form"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

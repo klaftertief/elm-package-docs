@@ -1785,6 +1785,13 @@
         ]
     },
     {
+        "name": "adius/vectual",
+        "summary": "Open source charting library",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "agrafix/elm-bootforms",
         "summary": "Quickly create forms using bootstrap and elm",
         "versions": [
@@ -1913,6 +1920,14 @@
         "name": "amaksimov/elm-multikey-handling",
         "summary": "Simple multikey event handling library.",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "amazzeo/elm-math-strings",
+        "summary": "A library to evaluate math expressions as Strings.",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -3366,6 +3381,14 @@
         ]
     },
     {
+        "name": "danielnarey/elm-semantic-dom",
+        "summary": "Syntactic sugar for cooking with Elm VirtualDom",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "danielnarey/elm-stylesheet",
         "summary": "A flexible API for generating a complete CSS stylesheet in Elm",
         "versions": [
@@ -3607,6 +3630,13 @@
             "3.0.0",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "dosarf/elm-guarded-input",
+        "summary": "Utility for guarded text input fields: only valid (or WiP) text is allowed",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -4999,6 +5029,13 @@
         ]
     },
     {
+        "name": "fabiommendes/elm-dynamic-forms",
+        "summary": "Dynamic forms in Elm. Load and save forms from/to JSON.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "fapian/elm-html-aria",
         "summary": "Aria attributes for elm",
         "versions": [
@@ -5735,6 +5772,13 @@
             "1.0.3",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "j-panasiuk/elm-ionicons",
+        "summary": "The premium icon font for Ionic Framework - ported to Elm",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -10519,6 +10563,13 @@
             "2.0.2",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "treffynnon/elm-tfn",
+        "summary": "Test the validity of a given TFN",
+        "versions": [
             "1.0.0"
         ]
     },
