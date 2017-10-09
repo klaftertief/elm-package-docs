@@ -1,0 +1,123 @@
+[
+  {
+    "name": "FancyTable",
+    "comment": " An fancy table that allows you to resize and reorder columns\n\n# Model\n@docs FancyTable, Header, Settings, HeaderSettings\n\n# Update\n@docs Msg, update, subscriptions\n\n# Configuring the table\n@docs init, setTableHeaders, setTableHeadersFromStrings, setTableHeadersFromHtml, setTableRows, getTableRowFromStrings, getTableRowFromHtml, setSettings, defaultSettings, defaultHeaderSettings, setHeaderMinWidth, setHeaderMaxWidth, setHeaderWidth\n\n# View\n@docs view\n\n",
+    "aliases": [
+      {
+        "name": "Header",
+        "comment": " Represents the content that goes into your THead\n# index = order indes\n# name = the string name for the column\n# content = html inside the header\n# settings = settings for this header\n",
+        "args": [],
+        "type": "{ index : Int , name : String , content : Html.Html FancyTable.Msg , settings : FancyTable.HeaderSettings }"
+      },
+      {
+        "name": "HeaderSettings",
+        "comment": " Represents the settings for the Header\n",
+        "args": [],
+        "type": "{ minWidth : Int, maxWidth : Int, width : Int, isVisible : Bool }"
+      },
+      {
+        "name": "Settings",
+        "comment": " Represents the table settings to be able to resize/reorder columns\n",
+        "args": [],
+        "type": "{ resizeColumns : Bool, reorderColumns : Bool, hideColumns : Bool }"
+      }
+    ],
+    "types": [
+      {
+        "name": "FancyTable",
+        "comment": " The base model of the table\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Msg",
+        "comment": " The basic type accepted by the update\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultHeaderSettings",
+        "comment": " Default Header Settings\n",
+        "type": "FancyTable.HeaderSettings"
+      },
+      {
+        "name": "defaultSettings",
+        "comment": " Default Header Settings\n",
+        "type": "FancyTable.Settings"
+      },
+      {
+        "name": "getTableRowFromHtml",
+        "comment": " get table row from a list of Html Msg (content)\n",
+        "type": "List (Html.Html FancyTable.Msg) -> FancyTable.TableRow"
+      },
+      {
+        "name": "getTableRowFromStrings",
+        "comment": " get table row from a list of strings (content)\n",
+        "type": "List String -> FancyTable.TableRow"
+      },
+      {
+        "name": "init",
+        "comment": " Returns default fancy table which is an empty table\n",
+        "type": "FancyTable.FancyTable"
+      },
+      {
+        "name": "setHeaderMaxWidth",
+        "comment": " Sets the max width of the header when rendered.\n",
+        "type": "Int -> FancyTable.Header -> FancyTable.Header"
+      },
+      {
+        "name": "setHeaderMinWidth",
+        "comment": " Sets the min width of the header when rendered.\n",
+        "type": "Int -> FancyTable.Header -> FancyTable.Header"
+      },
+      {
+        "name": "setHeaderWidth",
+        "comment": " Sets the width of the header when rendered.\n",
+        "type": "Int -> FancyTable.Header -> FancyTable.Header"
+      },
+      {
+        "name": "setSettings",
+        "comment": " Set the table settings\n",
+        "type": "FancyTable.Settings -> FancyTable.FancyTable -> FancyTable.FancyTable"
+      },
+      {
+        "name": "setTableHeaders",
+        "comment": " Sets the talbe headers from a list of Header\n",
+        "type": "List FancyTable.Header -> FancyTable.FancyTable -> FancyTable.FancyTable"
+      },
+      {
+        "name": "setTableHeadersFromHtml",
+        "comment": " Sets the table headers from a list of (String, Html Msg) (content)\nwhere the String is the header name and the Html Msg is the header content\n",
+        "type": "FancyTable.HeaderSettings -> List ( String, Html.Html FancyTable.Msg ) -> FancyTable.FancyTable -> FancyTable.FancyTable"
+      },
+      {
+        "name": "setTableHeadersFromStrings",
+        "comment": " Sets the table headers from a list of strings (content)\n",
+        "type": "FancyTable.HeaderSettings -> List String -> FancyTable.FancyTable -> FancyTable.FancyTable"
+      },
+      {
+        "name": "setTableRows",
+        "comment": " Sets the table rows from a list of TableData\n",
+        "type": "List FancyTable.TableRow -> FancyTable.FancyTable -> FancyTable.FancyTable"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Returns the subscriptions necessary to run\n",
+        "type": "FancyTable.FancyTable -> Platform.Sub.Sub FancyTable.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " takes a model and a message and applies it to create an updated model\n",
+        "type": "FancyTable.FancyTable -> FancyTable.Msg -> ( FancyTable.FancyTable, Platform.Cmd.Cmd FancyTable.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Displays the table\n",
+        "type": "FancyTable.FancyTable -> Html.Html FancyTable.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

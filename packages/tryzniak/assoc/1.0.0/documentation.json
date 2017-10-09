@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Assoc",
+    "comment": " Lookup a key in assoc lists\n\n#Usage\n\n@docs lookup\n@docs lookupAll\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "lookup",
+        "comment": " Looks up a key in an association list and returns the first match.\n\n    namesByAges = [(\"Mary\", 30), (\"John\", 20), (\"Ivan\", 18), (\"John\", 100)]\n    lookup \"John\" namesByAges == Just 20\n\n",
+        "type": "a -> List ( a, b ) -> Maybe.Maybe b"
+      },
+      {
+        "name": "lookupAll",
+        "comment": " Looks up a key in an association list and returns all matches.\n\n    namesByAges = [(\"Mary\", 30), (\"John\", 20), (\"Ivan\", 18), (\"John\", 100)]\n    lookupAll \"John\" namesByAges == [20, 100]\n\n",
+        "type": "a -> List ( a, b ) -> List b"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

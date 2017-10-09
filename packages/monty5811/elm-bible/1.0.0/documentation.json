@@ -1,0 +1,325 @@
+[
+  {
+    "name": "Bible",
+    "comment": " A library for working with Bible references.\n\n@docs format, fromString\n\n\n# Helpers\n\n@docs reference, numChapters, numVerses\n\n\n# Types\n\n@docs Reference, Book\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Book",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Genesis",
+            []
+          ],
+          [
+            "Exodus",
+            []
+          ],
+          [
+            "Leviticus",
+            []
+          ],
+          [
+            "Numbers",
+            []
+          ],
+          [
+            "Deuteronomy",
+            []
+          ],
+          [
+            "Joshua",
+            []
+          ],
+          [
+            "Judges",
+            []
+          ],
+          [
+            "Ruth",
+            []
+          ],
+          [
+            "Samuel_1",
+            []
+          ],
+          [
+            "Samuel_2",
+            []
+          ],
+          [
+            "Kings_1",
+            []
+          ],
+          [
+            "Kings_2",
+            []
+          ],
+          [
+            "Chronicles_2",
+            []
+          ],
+          [
+            "Chronicles_1",
+            []
+          ],
+          [
+            "Ezra",
+            []
+          ],
+          [
+            "Nehemiah",
+            []
+          ],
+          [
+            "Esther",
+            []
+          ],
+          [
+            "Job",
+            []
+          ],
+          [
+            "Psalms",
+            []
+          ],
+          [
+            "Proverbs",
+            []
+          ],
+          [
+            "Ecclesiastes",
+            []
+          ],
+          [
+            "Song_of_Solomon",
+            []
+          ],
+          [
+            "Isaiah",
+            []
+          ],
+          [
+            "Jeremiah",
+            []
+          ],
+          [
+            "Lamentations",
+            []
+          ],
+          [
+            "Ezekiel",
+            []
+          ],
+          [
+            "Daniel",
+            []
+          ],
+          [
+            "Hosea",
+            []
+          ],
+          [
+            "Joel",
+            []
+          ],
+          [
+            "Amos",
+            []
+          ],
+          [
+            "Obadiah",
+            []
+          ],
+          [
+            "Jonah",
+            []
+          ],
+          [
+            "Micah",
+            []
+          ],
+          [
+            "Nahum",
+            []
+          ],
+          [
+            "Habakkuk",
+            []
+          ],
+          [
+            "Zephaniah",
+            []
+          ],
+          [
+            "Haggai",
+            []
+          ],
+          [
+            "Zechariah",
+            []
+          ],
+          [
+            "Malachi",
+            []
+          ],
+          [
+            "Matthew",
+            []
+          ],
+          [
+            "Mark",
+            []
+          ],
+          [
+            "Luke",
+            []
+          ],
+          [
+            "John",
+            []
+          ],
+          [
+            "Acts",
+            []
+          ],
+          [
+            "Romans",
+            []
+          ],
+          [
+            "Corinthians_1",
+            []
+          ],
+          [
+            "Corinthians_2",
+            []
+          ],
+          [
+            "Galatians",
+            []
+          ],
+          [
+            "Ephesians",
+            []
+          ],
+          [
+            "Philippians",
+            []
+          ],
+          [
+            "Colossians",
+            []
+          ],
+          [
+            "Thessalonians_1",
+            []
+          ],
+          [
+            "Thessalonians_2",
+            []
+          ],
+          [
+            "Timothy_1",
+            []
+          ],
+          [
+            "Timothy_2",
+            []
+          ],
+          [
+            "Titus",
+            []
+          ],
+          [
+            "Philemon",
+            []
+          ],
+          [
+            "Hebrews",
+            []
+          ],
+          [
+            "James",
+            []
+          ],
+          [
+            "Peter_1",
+            []
+          ],
+          [
+            "Peter_2",
+            []
+          ],
+          [
+            "John_1",
+            []
+          ],
+          [
+            "John_2",
+            []
+          ],
+          [
+            "John_3",
+            []
+          ],
+          [
+            "Jude",
+            []
+          ],
+          [
+            "Revelation",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Reference",
+        "comment": " Describes a Bible Reference\n\n    `Reference book startChapter startVerse endChapter endVerse`\n\n",
+        "args": [],
+        "cases": [
+          [
+            "Reference",
+            [
+              "Bible.Book",
+              "Int",
+              "Int",
+              "Int",
+              "Int"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "format",
+        "comment": " Nicely formatted `Reference`.\n\n    format (Reference Genesis 1 1 1 1 ) --> \"Genesis 1:1\"\n\n    format (Reference Genesis 1 1 11 5 ) --> \"Genesis 1:1-11:5\"\n\n",
+        "type": "Bible.Reference -> String"
+      },
+      {
+        "name": "fromString",
+        "comment": " Parse any references in a string.\n\n    fromString \"Gen 1:1\" --> [ Ok <| Reference Genesis 1 1 1 1]\n\n    fromString \"Gen 1:1, Exodus 1, Luke 10:16, Acts 28:100\" -->\n        [Ok <| Reference Genesis 1 1 1 1\n        ,Ok <| Reference Exodus 1 1 1 22\n        ,Ok <| Reference  Luke 10 16 10 16\n        ,Err \"Invalid end verse\"\n        ]\n\n",
+        "type": "String -> List (Result.Result String Bible.Reference)"
+      },
+      {
+        "name": "numChapters",
+        "comment": " Check how many chapters are in a `Book`\n\n    numChapters Genesis --> 50\n\n    numChapters Jude --> 1\n\n",
+        "type": "Bible.Book -> Int"
+      },
+      {
+        "name": "numVerses",
+        "comment": " Check how many verses are in a chapter of a `Book`\n\n    numVerses Genesis 50 --> 26\n\n    numVerses Psalms 119 --> 176\n\n",
+        "type": "Bible.Book -> Int -> Int"
+      },
+      {
+        "name": "reference",
+        "comment": " Generate a `Reference` and check it is valid\n\n    reference Genesis 1 1 1 1 --> Ok <| Reference Genesis 1 1 1 1\n\n    reference Genesis 1 1 51 1 --> Err \"End chapter invalid\"\n\n",
+        "type": "Bible.Book -> Int -> Int -> Int -> Int -> Result.Result String Bible.Reference"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

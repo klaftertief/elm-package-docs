@@ -1,0 +1,94 @@
+[
+  {
+    "name": "ElmChat",
+    "comment": " This module contains a simple chat component\nthat you can easily add to your Elm user interface.\n\n# Types\n@docs Settings, ExtraAttributes, Updater, Sender\n\n# Functions\n@docs makeSettings, chat, addChat, inputBox\n@docs encodeSettings, settingsEncoder, decodeSettings, settingsDecoder\n@docs restoreScroll\n\n# Variables\n@docs defaultExtraAttributes\n",
+    "aliases": [
+      {
+        "name": "ExtraAttributes",
+        "comment": " Extra attributes for the UI components.\n\nThis is the initial value of `Settings.attributes`.\n\nYou'll usually create one by changing `defaultAttributes`.\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ chatTable : List (Html.Attribute msg) , sizeButtons : List (Html.Attribute msg) , sizeColumn : List (Html.Attribute msg) , textColumn : List (Html.Attribute msg) , textArea : List (Html.Attribute msg) }"
+      },
+      {
+        "name": "Sender",
+        "comment": " A function to turn an input string and a `Settings` record into a `Msg`.\n",
+        "args": [
+          "msg"
+        ],
+        "type": "String -> ElmChat.Settings msg -> msg"
+      },
+      {
+        "name": "Settings",
+        "comment": " Settings for the chat component.\n\nMake one of these with `makeSettings`, and store it in your model.\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ fontSize : Int , text : String , input : String , scroll : Float , attributes : ElmChat.ExtraAttributes msg , id : String , defaultFontSize : Int , showSizeControls : Bool , updater : ElmChat.TheUpdater msg }"
+      },
+      {
+        "name": "Updater",
+        "comment": " A function to turn a `Settings` record and a `Cmd` into a `Msg`.\n",
+        "args": [
+          "msg"
+        ],
+        "type": "ElmChat.Settings msg -> Platform.Cmd.Cmd msg -> msg"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "addChat",
+        "comment": " Add a line to the chat box.\n",
+        "type": "ElmChat.Settings msg -> String -> ( ElmChat.Settings msg, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "chat",
+        "comment": " Create a chat component.\n",
+        "type": "ElmChat.Settings msg -> Html.Html msg"
+      },
+      {
+        "name": "decodeSettings",
+        "comment": " Turn a JSON string back into a `Settings` record.\n\n`Updater` is as to `makeSettings`.\n\nRestores with default `attributes`, so you'll need to change those\nafter decoding, if you customize them.\n",
+        "type": "ElmChat.Updater msg -> String -> Result.Result String (ElmChat.Settings msg)"
+      },
+      {
+        "name": "defaultExtraAttributes",
+        "comment": " The default value of the `Settings.attributes` property.\n",
+        "type": "ElmChat.ExtraAttributes msg"
+      },
+      {
+        "name": "encodeSettings",
+        "comment": " Turn chat `Settings` into a JSON string.\n\nDoes not encode the `attributes` or `updater` properties.\n",
+        "type": "ElmChat.Settings msg -> String"
+      },
+      {
+        "name": "inputBox",
+        "comment": " Create a text input control.\n\nArgs are `textSize buttonText sender settings`.\n\n`textSize` is the width in characters of the input control.\n\n`buttonText` is the text for the button that sends the input.\n\n`sender` is a function to turn an input string and `settings into a `Msg`.\n\n`settings` is your `Settings` record.\n",
+        "type": "Int -> String -> ElmChat.Sender msg -> ElmChat.Settings msg -> Html.Html msg"
+      },
+      {
+        "name": "makeSettings",
+        "comment": " Make a Settings record to add to your Model.\n\nArgs are `id initialFontSize showSizeControls updater`.\n\n`id` is the Html id for the textarea showing the chat.\n\n`initialFontSize` is the initial font size of the textarea in `pt`.\n\n`showSizeControls` is `True` to show the font size controls to the left of the text area.\n\n`updater` will be called to generate messages to update the Settings in your Model.\n",
+        "type": "String -> Int -> Bool -> ElmChat.Updater msg -> ElmChat.Settings msg"
+      },
+      {
+        "name": "restoreScroll",
+        "comment": " Restore the scroll position after restoring from a JSON string.\n",
+        "type": "ElmChat.Settings msg -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "settingsDecoder",
+        "comment": " The JSON Decoder for `decodeSettings`.\n",
+        "type": "ElmChat.Updater msg -> Json.Decode.Decoder (ElmChat.Settings msg)"
+      },
+      {
+        "name": "settingsEncoder",
+        "comment": " The JSON encoder for `encodeSettings`.\n",
+        "type": "ElmChat.Settings msg -> Json.Encode.Value"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

@@ -1,0 +1,143 @@
+[
+  {
+    "name": "JsonRPC.Infix",
+    "comment": " Few infix operators to simplify chaining JsonRPC commands.\n\n@docs (|>>=), (|>>), (-:-)\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "-:-",
+        "comment": " Infix operator equivalent of `JsonRPC.simpleParam`.\n",
+        "type": "String -> String -> ( String, Json.Encode.Value )"
+      },
+      {
+        "name": "|>>",
+        "comment": " Infix operator for `X |> JsonRPC.andThen (\\_ -> Y)`.\n",
+        "type": "JsonRPC.Command ctx msg a -> JsonRPC.Command ctx msg b -> JsonRPC.Command ctx msg b",
+        "associativity": "left",
+        "precedence": 0
+      },
+      {
+        "name": "|>>=",
+        "comment": " Infix operator variant for `X |> JsonRPC.andThen FY`.\n",
+        "type": "JsonRPC.Command ctx msg a -> (a -> JsonRPC.Command ctx msg b) -> JsonRPC.Command ctx msg b",
+        "associativity": "left",
+        "precedence": 0
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "JsonRPC",
+    "comment": " This library helps with building and chaining stateful JSON RPC\nrequests. While running a single RPC request (and handling all\npotential outcomes) or simple chaining stateless requests is\nstraightforward using built-in means of Elm, it becomes more difficult\nwhen several requests need to be run with one depending - both in\nterms of the result and side-effects - on the previous.\n\n\n# RPC context\n\nEvery RPC request (or RPC command, see below) needs an instance of\n`Context`. In most cases you don't need to access the instance\nitself, but you may access the state that the context instance wraps.\nThe state can be anything your application needs, from a single\ninteger to the full application model.\n\n@docs Context\n\n\n# The `Command` type\n\nEvery request is of the following type:\n\n@docs Command\n\nThe three type variables are:\n\n  - `state` - request state, anything that you need to pass between\n    commands, see above\n  - `err` - error type (typically `Http.Error` or something wrapping\n    it)\n  - `a` - the type that the request eventually evaluates to.\n\nWith `request` you can build individual commands, but other tools are\nneeded to chain commands (`andThen`) and to build special commands.\n\nFinally, when your chain of commands is ready, launch it with `run`.\n\n@docs request, return, fail, map, map2, andThen, noop, run\n\n\n## Utility functions\n\n@docs mapCtx, readCtx, updateState, readState, finalState, mapError\n\n@docs foldList\n\n@docs requestBody, simpleParam\n\n",
+    "aliases": [
+      {
+        "name": "Command",
+        "comment": " The RPC command (request) in action.\n",
+        "args": [
+          "state",
+          "err",
+          "a"
+        ],
+        "type": "JsonRPC.Context state -> Task.Task err ( JsonRPC.Context state, a )"
+      },
+      {
+        "name": "Context",
+        "comment": " Minimal RPC state data need to contain URL and request id.\n",
+        "args": [
+          "state"
+        ],
+        "type": "{ url : String, rpcId : Int, state : state }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "andThen",
+        "comment": " Chain a command and a command-producing function.\n",
+        "type": "(a -> JsonRPC.Command state err b) -> JsonRPC.Command state err a -> JsonRPC.Command state err b"
+      },
+      {
+        "name": "fail",
+        "comment": " Always failing command.\n",
+        "type": "err -> JsonRPC.Command state err a"
+      },
+      {
+        "name": "finalState",
+        "comment": " Similar to `readState`, but produce both the last value as well as\nstate. Might be useful as the last in the chain of commands.\n",
+        "type": "a -> JsonRPC.Command state err ( state, a )"
+      },
+      {
+        "name": "foldList",
+        "comment": " Apply the computation to all elements in the list, in a foldr-like\nmanner.\n",
+        "type": "(a -> JsonRPC.Command state err b) -> List a -> JsonRPC.Command state err (List b)"
+      },
+      {
+        "name": "map",
+        "comment": " Apply a function to the command result.\n",
+        "type": "(a -> b) -> JsonRPC.Command state err a -> JsonRPC.Command state err b"
+      },
+      {
+        "name": "map2",
+        "comment": " Transform results of two successive commands.\n",
+        "type": "(a -> b -> c) -> JsonRPC.Command state err a -> JsonRPC.Command state err b -> JsonRPC.Command state err c"
+      },
+      {
+        "name": "mapCtx",
+        "comment": " Given a function changing the context, construct the command that\ndoes not produce any value but as a \"side-effect\" applies this\nfunction.\n",
+        "type": "(JsonRPC.Context state -> JsonRPC.Context state) -> JsonRPC.Command state err ()"
+      },
+      {
+        "name": "mapError",
+        "comment": " Transform the error value. This can be useful when you need to\nchange the error type; for instance, you need to process two types of errors\n\n    type AppError\n        = HttpErr Http.Error\n        | OtherErr String\n\nBut since `request` yields a command with `Http.Error`, you need to\ntransform the command like\n\n    request ...\n        |> mapError HttpErr\n\n",
+        "type": "(err1 -> err2) -> JsonRPC.Command state err1 a -> JsonRPC.Command state err2 a"
+      },
+      {
+        "name": "noop",
+        "comment": " Empty, do-nothing command.\n",
+        "type": "JsonRPC.Command state err ()"
+      },
+      {
+        "name": "readCtx",
+        "comment": " A dummy command that just produces the context as its value.\n",
+        "type": "JsonRPC.Command state err (JsonRPC.Context state)"
+      },
+      {
+        "name": "readState",
+        "comment": " A dummy command that just produces the state as its value.\n",
+        "type": "JsonRPC.Command state err state"
+      },
+      {
+        "name": "request",
+        "comment": " Construct a command from a method name, list of parameters, and a JSON decoder.\n",
+        "type": "String -> List ( String, Json.Encode.Value ) -> Json.Decode.Decoder a -> JsonRPC.Command state Http.Error a"
+      },
+      {
+        "name": "requestBody",
+        "comment": " Construct a JSON RPC request body from a name, the request id, and\na set of parameters and values.\n",
+        "type": "String -> Int -> List ( String, Json.Encode.Value ) -> Http.Body"
+      },
+      {
+        "name": "return",
+        "comment": " The \"OK\" command (monadic return) - wrap a value into a dummy\ncommand.\n",
+        "type": "a -> JsonRPC.Command state err a"
+      },
+      {
+        "name": "run",
+        "comment": " Run the chain of commands. You need to provide the initial\nstate as well as the URL to be used for requests. The final state is\nlost; if you are interested in it, either use `readState`, or\n`finalState` if you need both the state as well as the final value.\n",
+        "type": "String -> state -> (Result.Result error a -> msg) -> JsonRPC.Command state error a -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "simpleParam",
+        "comment": " Utility function to make a request parameter pair from two\nstrings.\n",
+        "type": "String -> String -> ( String, Json.Encode.Value )"
+      },
+      {
+        "name": "updateState",
+        "comment": " Given a function changing the context, construct the command that\ndoes not produce any value but as a \"side-effect\" applies this\nfunction.\n",
+        "type": "(state -> state) -> JsonRPC.Command state err ()"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

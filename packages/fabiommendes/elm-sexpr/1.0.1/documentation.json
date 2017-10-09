@@ -1,0 +1,245 @@
+[
+  {
+    "name": "SExpr.Decode",
+    "comment": " Functions used to decode tuple types encoded as JSON arrays and arbitrary\ntypes encoded as S-expressions.\n\n\n# Tuple decoders\n\nTuple decoders match tuples represented as non-homogeneous arrays in JSON.\nSimply match the corresponding tuple* function and call it with the decoders\nfor each position:\n\n    point2d = tuple2 int int\n\n    decodeString point2d \"[1, 2]\" == Ok (1, 2)\n\n@docs tuple1, tuple2, tuple3, tuple4, tuple5, tuple6, tuple7, tuple8\n\n\n# S-Expression decoders\n\nThose decoders handle simple S-expressions like `[\"point\", 1, 2]`. In order to\ndecode this expression, use\n\n    type alias Point2d = {x : Int, y : Int}\n    point2d = exp2 (\"point\", int, int) Point2d\n\n    decodeString point2d \"[\\\"point\\\", 1, 2]\" == Ok Point2d {x = 1, y = 2}\n\nIt assumes fixed length S-Expressions and a constructor that takes 2\narguments.\n\n@docs exp0, exp1, exp2, exp3, exp4, exp5, exp6, exp7, exp8\n\n\n# Composite decoders for union types.\n\nUnion types might be encoded with a variable header (which might correspond to\na variable tail decoder). Consider the type bellow:\n\n    type Info\n        = Pos Int Int -- encoded as [\"pos\", x, y]\n        | Color String -- encoded as [\"color\", name]\n\nThe decoder can be created using:\n\n    info =\n        union\n            [ opt0 ( \"pos\", int, int ) Pos\n            , opt1 ( \"color\", string ) Color\n            ]\n\nThe head indentifier must be unique, and it selects the most apropriate\nsub-decoder for a given expression:\n\n    decodeString info \"[\\\"pos\\\", 0, 1]\" == Ok (Pos 0 1)\n\n@docs union, opt0, opt1, opt2, opt3, opt4, opt5, opt6, opt7, opt8\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "exp0",
+        "comment": " Decodes an 0 arguments S-expression\n",
+        "type": "String -> x -> SExpr.DecodeTupleAt.Dec x"
+      },
+      {
+        "name": "exp1",
+        "comment": " Decodes an 1 arguments S-expression\n",
+        "type": "( String, SExpr.DecodeTupleAt.Dec a ) -> (a -> x) -> SExpr.DecodeTupleAt.Dec x"
+      },
+      {
+        "name": "exp2",
+        "comment": " Decodes an 2 arguments S-expression\n",
+        "type": "( String, SExpr.DecodeTupleAt.Dec a, SExpr.DecodeTupleAt.Dec b ) -> (a -> b -> x) -> SExpr.DecodeTupleAt.Dec x"
+      },
+      {
+        "name": "exp3",
+        "comment": " Decodes an 3 arguments S-expression\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c ) -> (a -> b -> c -> x) -> SExpr.DecodeTupleAt.Dec x"
+      },
+      {
+        "name": "exp4",
+        "comment": " Decodes an 4 arguments S-expression\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c , SExpr.DecodeTupleAt.Dec d ) -> (a -> b -> c -> d -> x) -> SExpr.DecodeTupleAt.Dec x"
+      },
+      {
+        "name": "exp5",
+        "comment": " Decodes an 5 arguments S-expression\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c , SExpr.DecodeTupleAt.Dec d , SExpr.DecodeTupleAt.Dec e ) -> (a -> b -> c -> d -> e -> x) -> SExpr.DecodeTupleAt.Dec x"
+      },
+      {
+        "name": "exp6",
+        "comment": " Decodes an 6 arguments S-expression\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c , SExpr.DecodeTupleAt.Dec d , SExpr.DecodeTupleAt.Dec e , SExpr.DecodeTupleAt.Dec f ) -> (a -> b -> c -> d -> e -> f -> x) -> SExpr.DecodeTupleAt.Dec x"
+      },
+      {
+        "name": "exp7",
+        "comment": " Decodes an 7 arguments S-expression\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c , SExpr.DecodeTupleAt.Dec d , SExpr.DecodeTupleAt.Dec e , SExpr.DecodeTupleAt.Dec f , SExpr.DecodeTupleAt.Dec g ) -> (a -> b -> c -> d -> e -> f -> g -> x) -> SExpr.DecodeTupleAt.Dec x"
+      },
+      {
+        "name": "exp8",
+        "comment": " Decodes an 8 arguments S-expression\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c , SExpr.DecodeTupleAt.Dec d , SExpr.DecodeTupleAt.Dec e , SExpr.DecodeTupleAt.Dec f , SExpr.DecodeTupleAt.Dec g , SExpr.DecodeTupleAt.Dec h ) -> (a -> b -> c -> d -> e -> f -> g -> h -> x) -> SExpr.DecodeTupleAt.Dec x"
+      },
+      {
+        "name": "opt0",
+        "comment": " Declares a 0 argument S-Expression state\n",
+        "type": "String -> x -> ( String, SExpr.DecodeTupleAt.Dec x )"
+      },
+      {
+        "name": "opt1",
+        "comment": " Declares a 1 argument S-Expression state\n",
+        "type": "( String, SExpr.DecodeTupleAt.Dec a ) -> (a -> t) -> ( String, SExpr.DecodeTupleAt.Dec t )"
+      },
+      {
+        "name": "opt2",
+        "comment": " Declares a 2 argument S-Expression state\n",
+        "type": "( String, SExpr.DecodeTupleAt.Dec a, SExpr.DecodeTupleAt.Dec b ) -> (a -> b -> t) -> ( String, SExpr.DecodeTupleAt.Dec t )"
+      },
+      {
+        "name": "opt3",
+        "comment": " Declares a 3 argument S-Expression state\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c ) -> (a -> b -> c -> t) -> ( String, SExpr.DecodeTupleAt.Dec t )"
+      },
+      {
+        "name": "opt4",
+        "comment": " Declares a 4 argument S-Expression state\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c , SExpr.DecodeTupleAt.Dec d ) -> (a -> b -> c -> d -> t) -> ( String, SExpr.DecodeTupleAt.Dec t )"
+      },
+      {
+        "name": "opt5",
+        "comment": " Declares a 5 argument S-Expression state\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c , SExpr.DecodeTupleAt.Dec d , SExpr.DecodeTupleAt.Dec e ) -> (a -> b -> c -> d -> e -> t) -> ( String, SExpr.DecodeTupleAt.Dec t )"
+      },
+      {
+        "name": "opt6",
+        "comment": " Declares a 6 argument S-Expression state\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c , SExpr.DecodeTupleAt.Dec d , SExpr.DecodeTupleAt.Dec e , SExpr.DecodeTupleAt.Dec f ) -> (a -> b -> c -> d -> e -> f -> t) -> ( String, SExpr.DecodeTupleAt.Dec t )"
+      },
+      {
+        "name": "opt7",
+        "comment": " Declares a 7 argument S-Expression state\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c , SExpr.DecodeTupleAt.Dec d , SExpr.DecodeTupleAt.Dec e , SExpr.DecodeTupleAt.Dec f , SExpr.DecodeTupleAt.Dec g ) -> (a -> b -> c -> d -> e -> f -> g -> t) -> ( String, SExpr.DecodeTupleAt.Dec t )"
+      },
+      {
+        "name": "opt8",
+        "comment": " Declares a 8 argument S-Expression state\n",
+        "type": "( String , SExpr.DecodeTupleAt.Dec a , SExpr.DecodeTupleAt.Dec b , SExpr.DecodeTupleAt.Dec c , SExpr.DecodeTupleAt.Dec d , SExpr.DecodeTupleAt.Dec e , SExpr.DecodeTupleAt.Dec f , SExpr.DecodeTupleAt.Dec g , SExpr.DecodeTupleAt.Dec h ) -> (a -> b -> c -> d -> e -> f -> g -> h -> t) -> ( String, SExpr.DecodeTupleAt.Dec t )"
+      },
+      {
+        "name": "tuple1",
+        "comment": " Decodes an 1-tuple\n",
+        "type": "SExpr.DecodeTupleAt.Dec a -> SExpr.DecodeTupleAt.Dec a"
+      },
+      {
+        "name": "tuple2",
+        "comment": " Decodes an 2-tuple\n",
+        "type": "SExpr.DecodeTupleAt.Dec a -> SExpr.DecodeTupleAt.Dec b -> SExpr.DecodeTupleAt.Dec ( a, b )"
+      },
+      {
+        "name": "tuple3",
+        "comment": " Decodes an 3-tuple\n",
+        "type": "SExpr.DecodeTupleAt.Dec a -> SExpr.DecodeTupleAt.Dec b -> SExpr.DecodeTupleAt.Dec c -> SExpr.DecodeTupleAt.Dec ( a, b, c )"
+      },
+      {
+        "name": "tuple4",
+        "comment": " Decodes an 4-tuple\n",
+        "type": "SExpr.DecodeTupleAt.Dec a -> SExpr.DecodeTupleAt.Dec b -> SExpr.DecodeTupleAt.Dec c -> SExpr.DecodeTupleAt.Dec d -> SExpr.DecodeTupleAt.Dec ( a, b, c, d )"
+      },
+      {
+        "name": "tuple5",
+        "comment": " Decodes an 5-tuple\n",
+        "type": "SExpr.DecodeTupleAt.Dec a -> SExpr.DecodeTupleAt.Dec b -> SExpr.DecodeTupleAt.Dec c -> SExpr.DecodeTupleAt.Dec d -> SExpr.DecodeTupleAt.Dec e -> SExpr.DecodeTupleAt.Dec ( a, b, c, d, e )"
+      },
+      {
+        "name": "tuple6",
+        "comment": " Decodes an 6-tuple\n",
+        "type": "SExpr.DecodeTupleAt.Dec a -> SExpr.DecodeTupleAt.Dec b -> SExpr.DecodeTupleAt.Dec c -> SExpr.DecodeTupleAt.Dec d -> SExpr.DecodeTupleAt.Dec e -> SExpr.DecodeTupleAt.Dec f -> SExpr.DecodeTupleAt.Dec ( a, b, c, d, e, f )"
+      },
+      {
+        "name": "tuple7",
+        "comment": " Decodes an 7-tuple\n",
+        "type": "SExpr.DecodeTupleAt.Dec a -> SExpr.DecodeTupleAt.Dec b -> SExpr.DecodeTupleAt.Dec c -> SExpr.DecodeTupleAt.Dec d -> SExpr.DecodeTupleAt.Dec e -> SExpr.DecodeTupleAt.Dec f -> SExpr.DecodeTupleAt.Dec g -> SExpr.DecodeTupleAt.Dec ( a, b, c, d, e, f, g )"
+      },
+      {
+        "name": "tuple8",
+        "comment": " Decodes an 8-tuple\n",
+        "type": "SExpr.DecodeTupleAt.Dec a -> SExpr.DecodeTupleAt.Dec b -> SExpr.DecodeTupleAt.Dec c -> SExpr.DecodeTupleAt.Dec d -> SExpr.DecodeTupleAt.Dec e -> SExpr.DecodeTupleAt.Dec f -> SExpr.DecodeTupleAt.Dec g -> SExpr.DecodeTupleAt.Dec h -> SExpr.DecodeTupleAt.Dec ( a, b, c, d, e, f, g, h )"
+      },
+      {
+        "name": "union",
+        "comment": " Declares a S-Expression decoder for a union type\n",
+        "type": "List ( String, Json.Decode.Decoder a ) -> Json.Decode.Decoder a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "SExpr.Encode",
+    "comment": " This module defines JSON encoders for tuples and S-expression based encoders\nfor arbitrary types.\n\n\n# Tuple encoders\n\nTo declare a tuple encoder, simply select the appropriate tuple function and\npass the necessary decoder arguments:\n\n    import Json.Encode exposing (..)\n    import SExpr.Encode exposing (..)\n\n    point2d =\n        tuple2 float float\n\n    encode 0 point2d (2.5, 3.1) == \"[2.5, 3.1]\"\n\n@docs tuple1, tuple2, tuple3, tuple4, tuple5, tuple6, tuple7, tuple8, tuple9\n\n\n# S-Expression based encoders\n\nAll S-expression encoders follow the pattern: `exp* (name, args...) linearizer`,\nin which the name string represents the name for the head of the S-expression\nand the linearizer function converts the desired type to a tuple.\n\nA more concrete example:\n\n    import Json.Encode exposing (..)\n    import SExpr.Encode exposing (..)\n\n    type alias Date =\n        { year : Int\n        , month : Int\n        , day : Int\n        }\n\n    date =\n        exp2 ( \"date\", int, int, int ) (\\d -> ( d.year, d.month, d.day ))\n\n    encode 0 date (Date 2017 10 1) ==  \"[\\\"date\\\",2017,10,1]\"\n\nSelect exp0, exp1, exp3, etc if you want a different number of arguments.\n\n@docs exp0, exp1, exp2, exp3, exp4, exp5, exp6, exp7, exp8\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "exp0",
+        "comment": " Encode value as a 0-argument S-expression as `[\"name\"]`\n",
+        "type": "String -> (x -> a) -> SExpr.Encode.Enc x"
+      },
+      {
+        "name": "exp1",
+        "comment": " Encode value as a 1-argument S-expression.\n",
+        "type": "( String, SExpr.Encode.Enc a ) -> (x -> a) -> SExpr.Encode.Enc x"
+      },
+      {
+        "name": "exp2",
+        "comment": " Encode value as a 2-argument S-expression.\n",
+        "type": "( String, SExpr.Encode.Enc a, SExpr.Encode.Enc b ) -> (x -> ( a, b )) -> SExpr.Encode.Enc x"
+      },
+      {
+        "name": "exp3",
+        "comment": " Encode value as a 3-argument S-expression.\n",
+        "type": "( String , SExpr.Encode.Enc a , SExpr.Encode.Enc b , SExpr.Encode.Enc c ) -> (x -> ( a, b, c )) -> SExpr.Encode.Enc x"
+      },
+      {
+        "name": "exp4",
+        "comment": " Encode value as a 4-argument S-expression.\n",
+        "type": "( String , SExpr.Encode.Enc a , SExpr.Encode.Enc b , SExpr.Encode.Enc c , SExpr.Encode.Enc d ) -> (x -> ( a, b, c, d )) -> SExpr.Encode.Enc x"
+      },
+      {
+        "name": "exp5",
+        "comment": " Encode value as a 5-argument S-expression.\n",
+        "type": "( String , SExpr.Encode.Enc a , SExpr.Encode.Enc b , SExpr.Encode.Enc c , SExpr.Encode.Enc d , SExpr.Encode.Enc e ) -> (x -> ( a, b, c, d, e )) -> SExpr.Encode.Enc x"
+      },
+      {
+        "name": "exp6",
+        "comment": " Encode value as a 6-argument S-expression.\n",
+        "type": "( String , SExpr.Encode.Enc a , SExpr.Encode.Enc b , SExpr.Encode.Enc c , SExpr.Encode.Enc d , SExpr.Encode.Enc e , SExpr.Encode.Enc f ) -> (x -> ( a, b, c, d, e, f )) -> SExpr.Encode.Enc x"
+      },
+      {
+        "name": "exp7",
+        "comment": " Encode value as a 7-argument S-expression.\n",
+        "type": "( String , SExpr.Encode.Enc a , SExpr.Encode.Enc b , SExpr.Encode.Enc c , SExpr.Encode.Enc d , SExpr.Encode.Enc e , SExpr.Encode.Enc f , SExpr.Encode.Enc g ) -> (x -> ( a, b, c, d, e, f, g )) -> SExpr.Encode.Enc x"
+      },
+      {
+        "name": "exp8",
+        "comment": " Encode value as a 8-argument S-expression.\n",
+        "type": "( String , SExpr.Encode.Enc a , SExpr.Encode.Enc b , SExpr.Encode.Enc c , SExpr.Encode.Enc d , SExpr.Encode.Enc e , SExpr.Encode.Enc f , SExpr.Encode.Enc g , SExpr.Encode.Enc h ) -> (x -> ( a, b, c, d, e, f, g, h )) -> SExpr.Encode.Enc x"
+      },
+      {
+        "name": "tuple1",
+        "comment": " Encode an 1-tuple. This encodes a value into a list with a single element.\n",
+        "type": "SExpr.Encode.Enc a -> SExpr.Encode.Enc a"
+      },
+      {
+        "name": "tuple2",
+        "comment": " Encode an 2-tuple\n",
+        "type": "SExpr.Encode.Enc a -> SExpr.Encode.Enc b -> SExpr.Encode.Enc ( a, b )"
+      },
+      {
+        "name": "tuple3",
+        "comment": " Encode an 3-tuple\n",
+        "type": "SExpr.Encode.Enc a -> SExpr.Encode.Enc b -> SExpr.Encode.Enc c -> SExpr.Encode.Enc ( a, b, c )"
+      },
+      {
+        "name": "tuple4",
+        "comment": " Encode an 4-tuple\n",
+        "type": "SExpr.Encode.Enc a -> SExpr.Encode.Enc b -> SExpr.Encode.Enc c -> SExpr.Encode.Enc d -> SExpr.Encode.Enc ( a, b, c, d )"
+      },
+      {
+        "name": "tuple5",
+        "comment": " Encode an 5-tuple\n",
+        "type": "SExpr.Encode.Enc a -> SExpr.Encode.Enc b -> SExpr.Encode.Enc c -> SExpr.Encode.Enc d -> SExpr.Encode.Enc e -> SExpr.Encode.Enc ( a, b, c, d, e )"
+      },
+      {
+        "name": "tuple6",
+        "comment": " Encode an 6-tuple\n",
+        "type": "SExpr.Encode.Enc a -> SExpr.Encode.Enc b -> SExpr.Encode.Enc c -> SExpr.Encode.Enc d -> SExpr.Encode.Enc e -> SExpr.Encode.Enc f -> SExpr.Encode.Enc ( a, b, c, d, e, f )"
+      },
+      {
+        "name": "tuple7",
+        "comment": " Encode an 7-tuple\n",
+        "type": "SExpr.Encode.Enc a -> SExpr.Encode.Enc b -> SExpr.Encode.Enc c -> SExpr.Encode.Enc d -> SExpr.Encode.Enc e -> SExpr.Encode.Enc f -> SExpr.Encode.Enc g -> SExpr.Encode.Enc ( a, b, c, d, e, f, g )"
+      },
+      {
+        "name": "tuple8",
+        "comment": " Encode an 8-tuple\n",
+        "type": "SExpr.Encode.Enc a -> SExpr.Encode.Enc b -> SExpr.Encode.Enc c -> SExpr.Encode.Enc d -> SExpr.Encode.Enc e -> SExpr.Encode.Enc f -> SExpr.Encode.Enc g -> SExpr.Encode.Enc h -> SExpr.Encode.Enc ( a, b, c, d, e, f, g, h )"
+      },
+      {
+        "name": "tuple9",
+        "comment": " Encode an 9-tuple\n",
+        "type": "SExpr.Encode.Enc a -> SExpr.Encode.Enc b -> SExpr.Encode.Enc c -> SExpr.Encode.Enc d -> SExpr.Encode.Enc e -> SExpr.Encode.Enc f -> SExpr.Encode.Enc g -> SExpr.Encode.Enc h -> SExpr.Encode.Enc i -> SExpr.Encode.Enc ( a, b, c, d, e, f, g, h, i )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

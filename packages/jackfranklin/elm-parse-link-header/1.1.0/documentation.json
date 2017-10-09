@@ -1,0 +1,86 @@
+[
+  {
+    "name": "LinkHeader",
+    "comment": " This library provides the ability to parse Link headers returned from APIs.\n\n# Types\n@docs WebLink, LinkRel\n\n# Parsing\n@docs parse\n\n# Reading results\n\n@docs webLinkIsNext, webLinkIsPrev, webLinkIsFirst, webLinkIsLast, getIntegerForRel\n",
+    "aliases": [
+      {
+        "name": "WebLink",
+        "comment": " An individual link contains a `rel`, the `page` number and the URL.\n",
+        "args": [],
+        "type": "{ rel : LinkHeader.LinkRel, url : String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "LinkRel",
+        "comment": " The possible types of web links that this parser might produce.\n",
+        "args": [],
+        "cases": [
+          [
+            "RelNext",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "RelPrev",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "RelFirst",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "RelLast",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "RelUnknown",
+            [
+              "Int"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "getIntegerForRel",
+        "comment": " Takes a `LinkRel` and finds the number for the page\n    getIntegerForRel (RelPrev 2) == 2\n",
+        "type": "LinkHeader.LinkRel -> Int"
+      },
+      {
+        "name": "parse",
+        "comment": " Parse is given the string, which should be the entire `link` header from your API\nand returns a list of `WebLink`s. This will be empty if no matches were found.\n    parse \"<https://api.github.com/user/193238/repos?per_page=100&page=2>; rel=\\\"next\\\"\"  == [WebLink (RelNext 2) \"https://api.github.com/user/193238/repos?per_page=100&page=2\"]\n",
+        "type": "String -> List LinkHeader.WebLink"
+      },
+      {
+        "name": "webLinkIsFirst",
+        "comment": " Tells you if a given `WebLink` is first.\n",
+        "type": "LinkHeader.WebLink -> Bool"
+      },
+      {
+        "name": "webLinkIsLast",
+        "comment": " Tells you if a given `WebLink` is last.\n",
+        "type": "LinkHeader.WebLink -> Bool"
+      },
+      {
+        "name": "webLinkIsNext",
+        "comment": " Tells you if a given `WebLink` is the next link.\n",
+        "type": "LinkHeader.WebLink -> Bool"
+      },
+      {
+        "name": "webLinkIsPrev",
+        "comment": " Tells you if a given `WebLink` is the prev link.\n",
+        "type": "LinkHeader.WebLink -> Bool"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

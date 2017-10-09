@@ -1,0 +1,1224 @@
+[
+  {
+    "name": "Feather",
+    "comment": " This library is a translation of the Feather icons project. Naming has been\nconverted to camel case to adapt to Elm. The `type` icon has been renamed to\n`type_` to avoid naming collisions.\n\nThe Feather icons are a project from Cole Bemis under the MIT License.\nSee <https://feathericons.com/>\n\n\n# Types\n\n@docs Color, Size\n\n\n# Icons\n\n@docs activity, airplay, alertCircle, alertOctagon, alertTriangle, alignCenter, alignJustify, alignLeft, alignRight, anchor, aperture, arrowDownLeft, arrowDownRight, arrowDown, arrowLeft, arrowRight, arrowUpLeft, arrowUpRight, arrowUp, atSign, award\n\n@docs barChart, barChart2, batteryCharging, battery, bellOff, bell, bluetooth, bold, book, bookmark, box, briefcase\n\n@docs calendar, cameraOff, camera, cast, checkCircle, checkSquare, check, chevronDown, chevronLeft, chevronRight, chevronUp, chevronsDown, chevronsLeft, chevronsRight, chevronsUp, chrome, circle, clipboard, clock, cloudDrizzle, cloudLightning, cloudOff, cloudRain, cloudSnow, cloud, codepen, command, compass, copy, cornerDownLeft, cornerDownRight, cornerLeftDown, cornerLeftUp, cornerRightDown, cornerRightUp, cornerUpLeft, cornerUpRight, cpu, creditCard, crop, crosshair\n\n@docs delete, disc, downloadCloud, download, droplet\n\n@docs edit2, edit3, edit, externalLink, eyeOff, eye\n\n@docs facebook, fastForward, feather, fileMinus, filePlus, fileText, file, film, filter, flag, folder\n\n@docs github, gitlab, globe, grid\n\n@docs hash, headphones, heart, helpCircle, home, image, inbox, info, instagram, italic\n\n@docs layers, layout, lifeBuoy, link2, link, list, loader, lock, logIn, logOut\n\n@docs mail, mapPin, map, maximize2, maximize, menu, messageCircle, messageSquare, micOff, mic, minimize2, minimize, minusCircle, minusSquare, minus, monitor, moon, moreHorizontal, moreVertical, move, music\n\n@docs navigation2, navigation\n\n@docs octagon\n\n@docs package, paperclip, pauseCircle, pause, percent, phoneCall, phoneForwarded, phoneIncoming, phoneMissed, phoneOff, phoneOutgoing, phone, pieChart, playCircle, play, plusCircle, plusSquare, plus, pocket, power, printer\n\n@docs radio, refreshCcw, refreshCw, repeat, rewind, rotateCcw, rotateCw\n\n@docs save, scissors, search, server, settings, share2, share, shield, shoppingCart, shuffle, sidebar, skipBack, skipForward, slack, slash, sliders, smartphone, speaker, square, star, stopCircle, sun, sunrise, sunset\n\n@docs tablet, trendingDown, tag, target, thermometer, thumbsDown, thumbsUp, toggleLeft, toggleRight, trash2, trash, trendingUp, triangle, tv, twitter, type_\n\n@docs umbrella, underline, unlock, uploadCloud, upload, userCheck, userMinus, userPlus, userX, user, users\n\n@docs videoOff, video, voicemail, volume1, volume2, volumeX, volume\n\n@docs watch, wifiOff, wifi, wind\n\n@docs xCircle, xSquare, x\n\n@docs zap, zoomIn, zoomOut\n\n",
+    "aliases": [
+      {
+        "name": "Color",
+        "comment": " ",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Size",
+        "comment": " ",
+        "args": [],
+        "type": "Int"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "activity",
+        "comment": " Original name: activity\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "airplay",
+        "comment": " Original name: airplay\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "alertCircle",
+        "comment": " Original name: alert-circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "alertOctagon",
+        "comment": " Original name: alert-octagon\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "alertTriangle",
+        "comment": " Original name: alert-triangle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "alignCenter",
+        "comment": " Original name: align-center\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "alignJustify",
+        "comment": " Original name: align-justify\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "alignLeft",
+        "comment": " Original name: align-left\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "alignRight",
+        "comment": " Original name: align-right\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "anchor",
+        "comment": " Original name: anchor\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "aperture",
+        "comment": " Original name: aperture\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "arrowDown",
+        "comment": " Original name: arrow-down\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "arrowDownLeft",
+        "comment": " Original name: arrow-down-left\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "arrowDownRight",
+        "comment": " Original name: arrow-down-right\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "arrowLeft",
+        "comment": " Original name: arrow-left\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "arrowRight",
+        "comment": " Original name: arrow-right\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "arrowUp",
+        "comment": " Original name: arrow-up\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "arrowUpLeft",
+        "comment": " Original name: arrow-up-left\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "arrowUpRight",
+        "comment": " Original name: arrow-up-right\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "atSign",
+        "comment": " Original name: at-sign\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "award",
+        "comment": " Original name: award\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "barChart",
+        "comment": " Original name: bar-chart\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "barChart2",
+        "comment": " Original name: bar-chart-2\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "battery",
+        "comment": " Original name: battery\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "batteryCharging",
+        "comment": " Original name: battery-charging\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "bell",
+        "comment": " Original name: bell\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "bellOff",
+        "comment": " Original name: bell-off\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "bluetooth",
+        "comment": " Original name: bluetooth\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "bold",
+        "comment": " Original name: bold\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "book",
+        "comment": " Original name: book\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "bookmark",
+        "comment": " Original name: bookmark\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "box",
+        "comment": " Original name: box\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "briefcase",
+        "comment": " Original name: brief-case\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "calendar",
+        "comment": " Original name: calendar\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "camera",
+        "comment": " Original name: camera\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cameraOff",
+        "comment": " Original name: camera-off\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cast",
+        "comment": " Original name: cast\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "check",
+        "comment": " Original name: check\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "checkCircle",
+        "comment": " Original name: check-circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "checkSquare",
+        "comment": " Original name: check-square\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "chevronDown",
+        "comment": " Original name: chevron-down\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "chevronLeft",
+        "comment": " Original name: chevron-left\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "chevronRight",
+        "comment": " Original name: chevron-right\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "chevronUp",
+        "comment": " Original name: chevron-up\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "chevronsDown",
+        "comment": " Original name: chevrons-down\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "chevronsLeft",
+        "comment": " Original name: chevrons-left\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "chevronsRight",
+        "comment": " Original name: chevrons-right\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "chevronsUp",
+        "comment": " Original name: chevrons-up\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "chrome",
+        "comment": " Original name: chrome\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "circle",
+        "comment": " Original name: circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "clipboard",
+        "comment": " Original name: clipboard\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "clock",
+        "comment": " Original name: clock\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cloud",
+        "comment": " Original name: cloud\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cloudDrizzle",
+        "comment": " Original name: cloud-drizzle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cloudLightning",
+        "comment": " Original name: cloud-lightning\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cloudOff",
+        "comment": " Original name: cloud-off\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cloudRain",
+        "comment": " Original name: cloud-rain\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cloudSnow",
+        "comment": " Original name: cloud-snow\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "codepen",
+        "comment": " Original name: codepen\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "command",
+        "comment": " Original name: command\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "compass",
+        "comment": " Original name: compass\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "copy",
+        "comment": " Original name: copy\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cornerDownLeft",
+        "comment": " Original name: corner-down-left\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cornerDownRight",
+        "comment": " Original name: corner-down-right\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cornerLeftDown",
+        "comment": " Original name: corner-left-down\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cornerLeftUp",
+        "comment": " Original name: corner-left-up\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cornerRightDown",
+        "comment": " Original name: corner-right-down\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cornerRightUp",
+        "comment": " Original name: corner-right-up\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cornerUpLeft",
+        "comment": " Original name: corner-up-left\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cornerUpRight",
+        "comment": " Original name: corner-up-right\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "cpu",
+        "comment": " Original name: cpu\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "creditCard",
+        "comment": " Original name: credit-card\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "crop",
+        "comment": " Original name: crop\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "crosshair",
+        "comment": " Original name: crosshair\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "delete",
+        "comment": " Original name: delete\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "disc",
+        "comment": " Original name: disc\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "download",
+        "comment": " Original name: download\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "downloadCloud",
+        "comment": " Original name: download-cloud\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "droplet",
+        "comment": " Original name: droplet\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "edit",
+        "comment": " Original name: edit\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "edit2",
+        "comment": " Original name: edit-2\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "edit3",
+        "comment": " Original name: edit-3\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "externalLink",
+        "comment": " Original name: external-link\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "eye",
+        "comment": " Original name: eye\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "eyeOff",
+        "comment": " Original name: eye-off\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "facebook",
+        "comment": " Original name: facebook\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "fastForward",
+        "comment": " Original name: fast-forward\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "feather",
+        "comment": " Original name: feather\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "file",
+        "comment": " Original name: file\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "fileMinus",
+        "comment": " Original name: file-minus\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "filePlus",
+        "comment": " Original name: file-plus\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "fileText",
+        "comment": " Original name: file-text\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "film",
+        "comment": " Original name: film\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "filter",
+        "comment": " Original name: filter\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "flag",
+        "comment": " Original name: flag\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "folder",
+        "comment": " Original name: folder\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "github",
+        "comment": " Original name: github\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "gitlab",
+        "comment": " Original name: gitlab\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "globe",
+        "comment": " Original name: globe\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "grid",
+        "comment": " Original name: grid\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "hash",
+        "comment": " Original name: hash\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "headphones",
+        "comment": " Original name: headphones\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "heart",
+        "comment": " Original name: heart\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "helpCircle",
+        "comment": " Original name: help-circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "home",
+        "comment": " Original name: home\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "image",
+        "comment": " Original name: image\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "inbox",
+        "comment": " Original name: inbox\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "info",
+        "comment": " Original name: info\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "instagram",
+        "comment": " Original name: instagram\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "italic",
+        "comment": " Original name: italic\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "layers",
+        "comment": " Original name: layers\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "layout",
+        "comment": " Original name: layout\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "lifeBuoy",
+        "comment": " Original name: life-buoy\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "link",
+        "comment": " Original name: link\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "link2",
+        "comment": " Original name: link-2\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "list",
+        "comment": " Original name: list\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "loader",
+        "comment": " Original name: loader\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "lock",
+        "comment": " Original name: lock\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "logIn",
+        "comment": " Original name: log-in\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "logOut",
+        "comment": " Original name: log-out\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "mail",
+        "comment": " Original name: mail\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "map",
+        "comment": " Original name: map\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "mapPin",
+        "comment": " Original name: map-pin\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "maximize",
+        "comment": " Original name: maximize\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "maximize2",
+        "comment": " Original name: maximize-2\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "menu",
+        "comment": " Original name: menu\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "messageCircle",
+        "comment": " Original name: message-circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "messageSquare",
+        "comment": " Original name: message-square\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "mic",
+        "comment": " Original name: mic\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "micOff",
+        "comment": " Original name: mic-off\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "minimize",
+        "comment": " Original name: minimize\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "minimize2",
+        "comment": " Original name: minimize-2\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "minus",
+        "comment": " Original name: minus\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "minusCircle",
+        "comment": " Original name: minus-circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "minusSquare",
+        "comment": " Original name: minus-square\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "monitor",
+        "comment": " Original name: monitor\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "moon",
+        "comment": " Original name: moon\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "moreHorizontal",
+        "comment": " Original name: more-horizontal\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "moreVertical",
+        "comment": " Original name: more-vertical\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "move",
+        "comment": " Original name: move\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "music",
+        "comment": " Original name: music\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "navigation",
+        "comment": " Original name: navigation\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "navigation2",
+        "comment": " Original name: navigation-2\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "octagon",
+        "comment": " Original name: octagon\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "package",
+        "comment": " Original name: package\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "paperclip",
+        "comment": " Original name: paperclip\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "pause",
+        "comment": " Original name: pause\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "pauseCircle",
+        "comment": " Original name: pause-circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "percent",
+        "comment": " Original name: percent\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "phone",
+        "comment": " Original name: phone\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "phoneCall",
+        "comment": " Original name: phone-call\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "phoneForwarded",
+        "comment": " Original name: phone-forwarded\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "phoneIncoming",
+        "comment": " Original name: phone-incoming\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "phoneMissed",
+        "comment": " Original name: phone-missed\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "phoneOff",
+        "comment": " Original name: phone-off\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "phoneOutgoing",
+        "comment": " Original name: phone-outgoing\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "pieChart",
+        "comment": " Original name: pie-chart\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "play",
+        "comment": " Original name: play\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "playCircle",
+        "comment": " Original name: play-circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "plus",
+        "comment": " Original name: plus\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "plusCircle",
+        "comment": " Original name: plus-circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "plusSquare",
+        "comment": " Original name: plus-square\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "pocket",
+        "comment": " Original name: pockert\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "power",
+        "comment": " Original name: power\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "printer",
+        "comment": " Original name: printer\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "radio",
+        "comment": " Original name: radio\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "refreshCcw",
+        "comment": " Original name: refresh-ccw\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "refreshCw",
+        "comment": " Original name: refresh-cw\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "repeat",
+        "comment": " Original name: repeat\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "rewind",
+        "comment": " Original name: rewind\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "rotateCcw",
+        "comment": " Original name: rotate-ccw\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "rotateCw",
+        "comment": " Original name: rotate-cw\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "save",
+        "comment": " Original name: save\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "scissors",
+        "comment": " Original name: scissors\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "search",
+        "comment": " Original name: search\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "server",
+        "comment": " Original name: server\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "settings",
+        "comment": " Original name: settings\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "share",
+        "comment": " Original name: share\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "share2",
+        "comment": " Original name: share-2\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "shield",
+        "comment": " Original name: shield\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "shoppingCart",
+        "comment": " Original name: shopping-cart\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "shuffle",
+        "comment": " Original name: shuffle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "sidebar",
+        "comment": " Original name: sidebar\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "skipBack",
+        "comment": " Original name: skip-back\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "skipForward",
+        "comment": " Original name: skip-forward\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "slack",
+        "comment": " Original name: slack\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "slash",
+        "comment": " Original name: slash\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "sliders",
+        "comment": " Original name: sliders\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "smartphone",
+        "comment": " Original name: smartphone\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "speaker",
+        "comment": " Original name: speaker\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "square",
+        "comment": " Original name: square\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "star",
+        "comment": " Original name: star\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "stopCircle",
+        "comment": " Original name: stop-circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "sun",
+        "comment": " Original name: sun\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "sunrise",
+        "comment": " Original name: sunrise\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "sunset",
+        "comment": " Original name: sunset\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "tablet",
+        "comment": " Original name: tablet\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "tag",
+        "comment": " Original name: tag\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "target",
+        "comment": " Original name: target\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "thermometer",
+        "comment": " Original name: thermometer\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "thumbsDown",
+        "comment": " Original name: thumbs-down\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "thumbsUp",
+        "comment": " Original name: thumbs-up\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "toggleLeft",
+        "comment": " Original name: toggle-left\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "toggleRight",
+        "comment": " Original name: toggle-right\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "trash",
+        "comment": " Original name: trash\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "trash2",
+        "comment": " Original name: trash-2\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "trendingDown",
+        "comment": " Original name: trending-down\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "trendingUp",
+        "comment": " Original name: trending-up\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "triangle",
+        "comment": " Original name: triangle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "tv",
+        "comment": " Original name: tv\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "twitter",
+        "comment": " Original name: twitter\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "type_",
+        "comment": " Original name: type\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "umbrella",
+        "comment": " Original name: umbrella\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "underline",
+        "comment": " Original name: underline\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "unlock",
+        "comment": " Original name: unlock\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "upload",
+        "comment": " Original name: upload\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "uploadCloud",
+        "comment": " Original name: upload-cloud\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "user",
+        "comment": " Original name: user\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "userCheck",
+        "comment": " Original name: user-check\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "userMinus",
+        "comment": " Original name: user-minus\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "userPlus",
+        "comment": " Original name: user-plus\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "userX",
+        "comment": " Original name: user-x\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "users",
+        "comment": " Original name: users\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "video",
+        "comment": " Original name: video\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "videoOff",
+        "comment": " Original name: video-off\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "voicemail",
+        "comment": " Original name: voicemail\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "volume",
+        "comment": " Original name: volume\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "volume1",
+        "comment": " Original name: volume-1\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "volume2",
+        "comment": " Original name: volume-2\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "volumeX",
+        "comment": " Original name: volume-x\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "watch",
+        "comment": " Original name: watch\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "wifi",
+        "comment": " Original name: wifi\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "wifiOff",
+        "comment": " Original name: wifi-off\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "wind",
+        "comment": " Original name: wind\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "x",
+        "comment": " Original name: x\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "xCircle",
+        "comment": " Original name: x-circle\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "xSquare",
+        "comment": " Original name: x-square\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "zap",
+        "comment": " Original name: zap\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "zoomIn",
+        "comment": " Original name: zoom-in\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      },
+      {
+        "name": "zoomOut",
+        "comment": " Original name: zoom-out\n",
+        "type": "Feather.Color -> Feather.Size -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

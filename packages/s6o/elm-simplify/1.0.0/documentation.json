@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Simplify",
+    "comment": " Port of Simplify.js http://mourner.github.io/simplify-js/\n\nInteractive demo at https://s6o.github.io/elm-simplify/\n\n@docs PixelTolerance, Quality, simplify, simplifyDefault\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "PixelTolerance",
+        "comment": " Simplification pixel tolerance.\n",
+        "args": [],
+        "cases": [
+          [
+            "OnePixel",
+            []
+          ],
+          [
+            "Pixels",
+            [
+              "Float"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Quality",
+        "comment": " Simplification quality.\n    Two options:\n      * Low = Radial Distance + Ramer-Douglas-Peucker\n      * High = only Ramer-Douglas-Peucker\n",
+        "args": [],
+        "cases": [
+          [
+            "Low",
+            []
+          ],
+          [
+            "High",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "simplify",
+        "comment": " Simplify with Radial Distance and/or Ramer-Douglas-Peucker\n",
+        "type": "Simplify.PixelTolerance -> Simplify.Quality -> Dict.Dict Int ( Float, Float ) -> Dict.Dict Int ( Float, Float )"
+      },
+      {
+        "name": "simplifyDefault",
+        "comment": " Convenience function for the typical use case equal to:\n\n    simplify OnePixel Low\n",
+        "type": "Dict.Dict Int ( Float, Float ) -> Dict.Dict Int ( Float, Float )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

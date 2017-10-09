@@ -1,0 +1,70 @@
+[
+  {
+    "name": "Yarimoji",
+    "comment": " ❤️😺 Simple and light Elm package for emojis 😃❤️.\n\nThis package has functions to search for ascii emojis in a string and\nreplace them with the correspondent unicode.\nIt also provides an emoji picker for your elm webapp, so you can express yourself properly.\nRight now it only contains a few emojis, but more to come in the future.\n\nYou can use this package to replace emojis in a string (ascii -> unicode) and/ or\nemoji picker if you want:\n\n  - yariFindEmoji, yariMojiTranslate for (string find and replace).\n  - use emoji picker like in the example in update function (used for emoji picker).\n\n😎 **Feel free to contribute with this package. We need more tests and more emojis** 😉\n\nThe proposal of this package is to add emojis to a web chat opensource made with\nElm and Elixir, promoted by [Yarilabs](http://www.yarilabs.com/).\n\n\n# Types\n\n@docs YmojiMsg, YmojiModel\n\n\n# Functions for emoji picker\n\n@docs update, ymojiPickup, initYmojiModel\n\n\n# Other utils functions\n\n@docs yariMojiTranslate, yariFindEmoji, yariCheckEmoji, yariReplacebyEmoji, yariMojiTranslateAll\n\n\n# Emoji database\n\n@docs emojidb\n\n",
+    "aliases": [
+      {
+        "name": "YmojiModel",
+        "comment": " State of the widget\n",
+        "args": [],
+        "type": "{ openWidget : Bool }"
+      }
+    ],
+    "types": [
+      {
+        "name": "YmojiMsg",
+        "comment": " Message for ymoji widget\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "emojidb",
+        "comment": " Emoji database list\n\n        -- [ ( \"😊\", \":)\" ), ( \"😉\", \";)\" ), ... ]\n\n",
+        "type": "List ( String, String )"
+      },
+      {
+        "name": "initYmojiModel",
+        "comment": " init a model for state of menu picker\n",
+        "type": "Yarimoji.YmojiModel"
+      },
+      {
+        "name": "update",
+        "comment": " Update function for emoji picker\n\n    import Yarimoji.Yarimoji as Ymoji\n\n    type Msg\n        = SetNewMessage String\n        | YmojiMsg Ymoji.YmojiMsg\n        | NoOp\n\n    type alias Model =\n        { newMessage : String\n        , ymojiModel : Ymoji.YmojiModel\n        }\n\n    initModel : Model\n    initModel =\n        { newMessage = \"\"\n        , ymojiModel = Ymoji.initYmojiModel\n        }\n\n\n    -- Update\n\n    update : Msg -> Model -> ( Model, Cmd Msg )\n    update msg model =\n        case msg of\n            YmojiMsg msg ->\n                (!) { model | ymojiModel = Ymoji.update msg model.ymojiModel } []\n\n\n    -- View\n\n    view : Model -> Html Msg\n    view model =\n        div []\n            [ Ymoji.ymojiPickup SetNewMessage YmojiMsg model.ymojiModel\n            , input [ onInput SetNewMessage, value model.newMessage ] []\n            ]\n\n",
+        "type": "Yarimoji.YmojiMsg -> Yarimoji.YmojiModel -> Yarimoji.YmojiModel"
+      },
+      {
+        "name": "yariCheckEmoji",
+        "comment": " Check if exist any emoji on string\n\n    yariCheckEmoji \"some message :D \"\n    -- returns a bool if any key found on emojidb\n\n",
+        "type": "String -> Bool"
+      },
+      {
+        "name": "yariFindEmoji",
+        "comment": " Find emoji on a string\n\n    import Yarimoji as Ymoji\n\n    ymojiFind =\n        \"Hello :D !\"\n            |> Ymoji.yariFindEmoji\n\n\n    -- output [(\"😊\",\":D\")]\n\n",
+        "type": "String -> List ( String, String )"
+      },
+      {
+        "name": "yariMojiTranslate",
+        "comment": " This is for translate from string to emoji fonts\n\n      import Yarimoji as Ymoji\n\n      ymojiTranslateMessage =\n          \"Hello :D !\"\n          |> Ymoji.yariFindEmoji\n          |> Ymoji.yariMojiTranslate str\n\n      -- output \"Hello 😊!\"\n\n",
+        "type": "String -> List ( String, String ) -> String"
+      },
+      {
+        "name": "yariMojiTranslateAll",
+        "comment": "\n\n    find and replace all emojis\n        yariMojiTranslateAll \"This string :D is the best string :D.\"\n\n    -- output\n        \"This string 😃 is the best string 😃.\"\n",
+        "type": "String -> String"
+      },
+      {
+        "name": "yariReplacebyEmoji",
+        "comment": " Replaces all matched keys of emojis on a determinate string\n",
+        "type": "String -> ( String, String ) -> String"
+      },
+      {
+        "name": "ymojiPickup",
+        "comment": " A Pickup, pop's a window with all emojis on db for choose. this is a view\nof this widget.\n",
+        "type": "(String -> msg) -> (Yarimoji.YmojiMsg -> msg) -> Yarimoji.YmojiModel -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

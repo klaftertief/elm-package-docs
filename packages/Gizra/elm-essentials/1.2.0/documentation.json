@@ -1,0 +1,342 @@
+[
+  {
+    "name": "Gizra.NominalDate",
+    "comment": " Some utilities for dealing with \"pure\" dates that have no time or\ntime zone information.\n\n@docs NominalDate, decodeYYYYMMDD, encodeYYYYMMDD, formatYYYYMMDD, formatMMDDYYYY, fromLocalDateTime\n\n\n## Ranges\n\n@docs NominalDateRange, decodeDrupalRange, encodeDrupalRange\n\n",
+    "aliases": [
+      {
+        "name": "NominalDate",
+        "comment": " An alias for `Time.Date.Date` from elm-community/elm-time. Represents\na \"pure\" date without any time information or time zone information.\n\nThis is basically to avoid confusion between `Time.Date.Date` and the\n`Date.Date` in elm-lang/core.\n\n",
+        "args": [],
+        "type": "Time.Date.Date"
+      },
+      {
+        "name": "NominalDateRange",
+        "comment": " A range of nominal dates, with a start and end.\n\nBoth the start and end date are included in the range.\n\n",
+        "args": [],
+        "type": "{ start : Gizra.NominalDate.NominalDate , end : Gizra.NominalDate.NominalDate }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "decodeDrupalRange",
+        "comment": " Given a decoder, Decodes a range as Drupal sends it, with a `value` and `value2`.\n\n    \"\"\"\n        { \"value\": \"2017-07-21\"\n        , \"value2\": \"2017-07-23\"\n        }\n    \"\"\"\n        |> decodeString (decodeDrupalRange decodeYYYYMMDD)\n    --> Ok\n            { start = date 2017 07 21\n            , end = date 2017 07 23\n            }\n\n",
+        "type": "Json.Decode.Decoder Gizra.NominalDate.NominalDate -> Json.Decode.Decoder Gizra.NominalDate.NominalDateRange"
+      },
+      {
+        "name": "decodeYYYYMMDD",
+        "comment": " Decodes nominal date from string of the form \"2017-02-20\".\n\n    import Json.Decode exposing (..)\n\n    decodeString decodeYYYYMMDD \"\"\" \"2017-02-20\" \"\"\" --> Ok (date 2017 02 20)\n\n",
+        "type": "Json.Decode.Decoder Gizra.NominalDate.NominalDate"
+      },
+      {
+        "name": "encodeDrupalRange",
+        "comment": " Given an encoder, encodes a range as Drupal expects it, with a `value` and `value2`.\n\n    { start = date 2017 07 21\n    , end = date 2017 07 23\n    }\n        |> encodeDrupalRange encodeYYYYMMDD\n        |> encode 0\n    --> \"\"\"{\"value\":\"2017-07-21\",\"value2\":\"2017-07-23\"}\"\"\"\n\n",
+        "type": "(Gizra.NominalDate.NominalDate -> Json.Encode.Value) -> Gizra.NominalDate.NominalDateRange -> Json.Encode.Value"
+      },
+      {
+        "name": "encodeYYYYMMDD",
+        "comment": " Encode nominal date to string of the form \"2017-02-20\".\n\n    import Json.Encode exposing (encode)\n\n    encodeYYYYMMDD (date 2017 2 20)\n        |> encode 0 --> \"\\\"2017-02-20\\\"\"\n\n",
+        "type": "Gizra.NominalDate.NominalDate -> Json.Encode.Value"
+      },
+      {
+        "name": "formatMMDDYYYY",
+        "comment": " Convert a nominal date to formatted string.\n\n    import Time.Date exposing (date)\n\n    formatMMDDYYYY (date 2017 5 2) --> \"05/02/2017\"\n\n",
+        "type": "Gizra.NominalDate.NominalDate -> String"
+      },
+      {
+        "name": "formatYYYYMMDD",
+        "comment": " Convert nominal date to a formatted string..\n\n    formatYYYYMMDD (date 2017 5 2) --> \"2017-05-02\"\n\n",
+        "type": "Gizra.NominalDate.NominalDate -> String"
+      },
+      {
+        "name": "fromLocalDateTime",
+        "comment": " Converts an `elm-lang/core` `Date` to a `NominalDate`.\n\nWe pick up the date part according to whatever the local browser's time zone\nis. Thus, results will be inconsistent from one locality to the next ... since\nthe same universal time might be considered one day in one time zone and a\ndifferent day in a different time zone.\n\n",
+        "type": "Date.Date -> Gizra.NominalDate.NominalDate"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gizra.Date",
+    "comment": " Some functions for working with dates.\n\nAlso consider `Gizra.NominalDate` for cases where you want a \"pure\"\ndate, without time or time zone information.\n\n@docs formatDDMMYY, formatDDMMYYhhmm, allMonths\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "allMonths",
+        "comment": " A list of all the months, in the traditional order.\n",
+        "type": "List Date.Month"
+      },
+      {
+        "name": "formatDDMMYY",
+        "comment": " Format a date using the supplied delimiter.\n\n    import Date exposing (fromString)\n    import Result exposing (Result(Ok), map)\n\n    fromString \"February 3, 1971\"\n        |> map (formatDDMMYY \"-\")\n    --> Ok \"03-02-71\"\n\n    fromString \"February 3, 1971\"\n        |> map (formatDDMMYY \"/\")\n    --> Ok \"03/02/71\"\n\n    fromString \"October 2, 2005\"\n        |> map (formatDDMMYY \"-\")\n    --> Ok \"02-10-05\"\n\n",
+        "type": "String -> Date.Date -> String"
+      },
+      {
+        "name": "formatDDMMYYhhmm",
+        "comment": " Format a data using the supplied delimiter.\n\n    fromString \"February 3, 1971 2:03 PM\"\n        |> map (formatDDMMYYhhmm \"-\")\n    --> Ok \"03-02-71 14:03\"\n\n    fromString \"February 3, 1971 12:04 PM\"\n        |> map (formatDDMMYYhhmm \"/\")\n    --> Ok \"03/02/71 12:04\"\n\n    fromString \"October 2, 2005 4:12 PM\"\n        |> map (formatDDMMYYhhmm \"-\")\n    --> Ok \"02-10-05 16:12\"\n\n",
+        "type": "String -> Date.Date -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gizra.WebData",
+    "comment": " Some functions for working with WebData.\n\n@docs sendWithHandler\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "sendWithHandler",
+        "comment": " This is a convenience for the common pattern where we build a request with\n`HttpBuilder` and want to handle the result as a `WebData a`. So, consider someting\nlike this:\n\n    type alias Model =\n        -- Amongst other fields ...\n        { id : WebData Int\n        }\n\n    type Msg\n        -- Amongst other messages\n        = HandleFetchedId (WebData Int)\n\n    -- The point is that the `update` method can now be very simple, since what\n    -- is passed to `HandleFetchedId` will already be the `WebData ...` we want\n    update : Msg -> Model -> (Model, Cmd Msg)\n    update msg model =\n        case msg of\n            HandleFetchedId id ->\n                ( { model | id = id }\n                , Cmd.none\n                )\n\n    -- Given the format of the JSON returned by the server, this picks out the\n    -- thing of the type we're interested in\n    decodeId : Decode.Decoder Int\n    decodeId =\n        Decode.at [ \"data\", \"id\" ] decodeInt\n\n    -- You just need to build the `RequestBuilder`, and then call `sendWithHandler`\n    fetchFromBackend =\n        HttpBuilder.post\n            |> -- whatever you need to finish the `RequestBuilder`\n            |> sendWithHandler decodeId HandleFetchedId\n\n",
+        "type": "Json.Decode.Decoder a -> (RemoteData.WebData a -> msg) -> HttpBuilder.RequestBuilder any -> Platform.Cmd.Cmd msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gizra.Update",
+    "comment": " Some conveniences for implementing the `update` function.\n\nUsing the various functions in\n[ccapndave/elm-update-extra](http://package.elm-lang.org/packages/ccapndave/elm-update-extra/latest)\nis also highly recommended.\n\n@docs sequenceExtra\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "sequenceExtra",
+        "comment": " Like `Update.Extra.sequence`, but for `update` signatures that also\nreturn a list of extra messages for the caller to handle.\n\nEssentially, this allows you to recusively apply a whole sequence of messages,\ncollecting their results. So, with `Update.Extra.sequence` you can do something\nlike this:\n\n    update : Msg -> Model -> ( Model, Cmd Msg )\n    update msg model =\n        case msg of\n            SomeMsg ->\n                sequence update\n                    [ AnotherMsg, YetAnotherMsg, AThirdMsg ]\n                    ( model, Cmd.none )\n\nIsn't that nice? Essentially, you get a really expressive way of constructing\na \"composite\" message. Plus, you can do something first ... that is, you could\nmodify the model, and have your own `Cmd`, and then feed that into the `sequence`\nfor further processing.\n\nSo, what is `sequenceExtra`? It deals with an alternative `update` signature,\nin which we're returning a third element to our tuple, with extra messages that\nthe caller is expected to handle. So, you can follow the same idiom as shown above.\n\n    update : Msg -> Model -> ( Model, Cmd Msg, List extraMsg )\n    update msg model =\n        case msg of\n            SomeMsg ->\n                sequenceExtra update\n                    [ AnotherMsg, YetAnotherMsg, AThirdMsg ]\n                    ( model, Cmd.none, [] )\n\n",
+        "type": "(msg -> model -> ( model, Platform.Cmd.Cmd msg, List extraMsg )) -> List msg -> ( model, Platform.Cmd.Cmd msg, List extraMsg ) -> ( model, Platform.Cmd.Cmd msg, List extraMsg )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gizra.Maybe",
+    "comment": " A module with some useful `Maybe` utilities.\n\n@docs when\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "when",
+        "comment": " Create a `Just a` if condition is `True`, otherwise `Nothing`\n\n    \"something\" |> when True --> Just \"something\"\n\n    \"something\" |> when False --> Nothing\n\n",
+        "type": "Bool -> a -> Maybe.Maybe a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gizra.String",
+    "comment": " Some functions that work with strings.\n\n\n## Whitespace\n\n@docs isBlank\n\n\n## Prefixes and suffixes\n\n@docs startsWithOneOf, endsWithOneOf, replacePrefixWith, requireAndStripPrefix\n\n\n## Padding\n\n@docs addLeadingZero, addLeadingZeroes\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "addLeadingZero",
+        "comment": " Add a leading zero to ensure that the string length is 2.\n\n    addLeadingZero \"1\" --> \"01\"\n\n    addLeadingZero \"17\" --> \"17\"\n\n",
+        "type": "String -> String"
+      },
+      {
+        "name": "addLeadingZeroes",
+        "comment": " Pad the string to the desired length by adding leading zeroes.\n\n    addLeadingZeroes 2 \"1\" --> \"01\"\n\n    addLeadingZeroes 3 \"17\" --> \"017\"\n\n    addLeadingZeroes 2 \"27\"  --> \"27\"\n\n",
+        "type": "Int -> String -> String"
+      },
+      {
+        "name": "endsWithOneOf",
+        "comment": " Checks whether the string ends with one of the provided prefixes.\nIf so, returns the suffix.\n\n    endsWithOneOf [\"apples\", \"bananas\"] \"27 apples\" --> Just \"apples\"\n\n    endsWithOneOf [\"apples\", \"bananas\"] \"27 bananas\" --> Just \"bananas\"\n\n    endsWithOneOf [\"apples\", \"bananas\"] \"35 grapefruits\" --> Nothing\n\n",
+        "type": "List String -> String -> Maybe.Maybe String"
+      },
+      {
+        "name": "isBlank",
+        "comment": " Returns `True` if the string is empty, or composed only of whitespace.\n\n    isBlank \"\" --> True\n\n    isBlank \"   \" --> True\n\n    isBlank \"\\t\\n\\r\" --> True\n\n    isBlank \"blank\" --> False\n\n",
+        "type": "String -> Bool"
+      },
+      {
+        "name": "replacePrefixWith",
+        "comment": " If the string (third parameter) starts with the prefix (first parameter),\nreplace the prefix with a new prefix (second parameter). Otherwise, just\nreturn the string.\n\n    replacePrefixWith \"http\" \"https\" \"http://apple.com/\" --> \"https://apple.com/\"\n\n    replacePrefixWith \"http\" \"https\" \"ftp://ftp.apple.com/\" --> \"ftp://ftp.apple.com/\"\n\n",
+        "type": "String -> String -> String -> String"
+      },
+      {
+        "name": "requireAndStripPrefix",
+        "comment": " Checks whether the string starts with one of the provided prefixes.\nIf so, strips the prefix and returns the result. If not, returns `Nothing`.\nChecks the prefixes in order, and uses the first which matches.\n\n    \"https://www.youtube.com/watch?v=abcdefghijklmnop\"\n        |> requireAndStripPrefix\n            [ \"https://www.youtube.com/watch?v=\"]\n    --> Just \"abcdefghijklmnop\"\n\n    \"https://www.youtube.com/watch?v=abcdefghijklmnop\"\n        |> requireAndStripPrefix\n            [ \"https://www.youtube.com/watch?v=\"\n            , \"https://youtu.be/\"\n            ]\n    --> Just \"abcdefghijklmnop\"\n\n    \"https://www.youtube.com/watch?v=abcdefghijklmnop\"\n        |> requireAndStripPrefix\n            [ \"https://youtu.be/\"\n            , \"https://www.youtube.com/watch?v=\"\n            ]\n    --> Just \"abcdefghijklmnop\"\n\n    \"https://www.youtube.com/watch?v=abcdefghijklmnop\"\n        |> requireAndStripPrefix []\n    --> Nothing\n\n    \"https://www.youtube.com/watch?v=abcdefghijklmnop\"\n        |> requireAndStripPrefix\n            [ \"https://apple.com/\"\n            , \"https://microsoft.com\"\n            ]\n    --> Nothing\n\n",
+        "type": "List String -> String -> Maybe.Maybe String"
+      },
+      {
+        "name": "startsWithOneOf",
+        "comment": " Checks whether the string starts with one of the provided prefixes.\nIf so, returns the prefix.\n\n    startsWithOneOf [\"apple\", \"banana\"] \"apple 27\" --> Just \"apple\"\n\n    startsWithOneOf [\"apple\", \"banana\"] \"banana 27\" --> Just \"banana\"\n\n    startsWithOneOf [\"apple\", \"banana\"] \"grapefruit 35\" --> Nothing\n\n",
+        "type": "List String -> String -> Maybe.Maybe String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gizra.Json",
+    "comment": " Utilities for dealing with JSON.\n\n\n## Dictionaries\n\n@docs encodeDict, encodeAnyDict, decodeIntDict\n\n\n## Numbers\n\n@docs decodeInt, decodeIntToString, decodeFloat\n\n\n## Arrays\n\n@docs decodeEmptyArrayAs\n\n\n## Strings\n\n@docs decodeJsonInString\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "decodeEmptyArrayAs",
+        "comment": " If given an empty array, decodes it as the given value. Otherwise, fail.\n\n    \"\"\" [] \"\"\"\n        |> decodeString (decodeEmptyArrayAs \"empty\")\n    --> Ok \"empty\"\n\n    \"\"\" [27] \"\"\"\n        |> decodeString (decodeEmptyArrayAs \"empty\")\n        |> mapError (always \"error\")\n    --> Err \"error\"\n\n",
+        "type": "a -> Json.Decode.Decoder a"
+      },
+      {
+        "name": "decodeFloat",
+        "comment": " Decodes a `Float` -- but, if given a `String`, will convert it to a\n`Float` if possible.\n\n    decodeString decodeFloat \"\"\" \"7.1\" \"\"\" --> Ok 7.1\n\n    decodeString decodeFloat \"\"\" 7.1 \"\"\" --> Ok 7.1\n\n    \"\"\" \"not a float\" \"\"\"\n        |> decodeString decodeFloat\n        |> mapError (always \"\")\n    --> Err \"\"\n\n",
+        "type": "Json.Decode.Decoder Float"
+      },
+      {
+        "name": "decodeInt",
+        "comment": " Decodes an `Int`, but if given a `String`, will convert it to an `Int`\nif possible.\n\n    import Json.Decode exposing (..)\n    import Result exposing (Result(..), mapError)\n\n    decodeString decodeInt \"\"\" \"7\" \"\"\" --> Ok 7\n\n    decodeString decodeInt \"\"\" 7 \"\"\" --> Ok 7\n\n    \"\"\" \"not an int\" \"\"\"\n        |> decodeString decodeInt\n        |> mapError (always \"\")\n    --> Err \"\"\n\n",
+        "type": "Json.Decode.Decoder Int"
+      },
+      {
+        "name": "decodeIntDict",
+        "comment": " Given a decoder for the values, decode a dictionary that has integer keys.\nThe resulting decoder will fail if any of the keys can't be converted to an `Int`.\n\n    import Dict\n\n    \"\"\" { \"27\" : \"value\" } \"\"\"\n        |> decodeString (decodeIntDict string)\n    --> Ok <| Dict.fromList [ (27, \"value\") ]\n\n",
+        "type": "Json.Decode.Decoder value -> Json.Decode.Decoder (Dict.Dict Int value)"
+      },
+      {
+        "name": "decodeIntToString",
+        "comment": " Decodes a `String`, but if given an `Int` will convert it to a `String`.\n\n    decodeString decodeIntToString \"\"\" \"7\" \"\"\" --> Ok \"7\"\n\n    decodeString decodeIntToString \"\"\" 7 \"\"\" --> Ok \"7\"\n\n    decodeString decodeIntToString \"\"\" \"other string\" \"\"\" --> Ok \"other string\"\n\n",
+        "type": "Json.Decode.Decoder String"
+      },
+      {
+        "name": "decodeJsonInString",
+        "comment": " This is for JSON which is embedded as a string value. Given a decoder, this\nwill produce a decoder that first decodes a string, and then run the supplied\ndecoder on that JSON string.\n\nSo, in the example below, note how the `[27, 32]` is wrapped as a string, rather\nthan being \"normal\" JSON. With `decodeJsonInString`, we can \"unwrap\" it.\n\n    \"\"\" { \"wrappedJson\": \"[27, 32]\" } \"\"\"\n        |> decodeString (field \"wrappedJson\" (decodeJsonInString (list int)))\n    --> Ok [27, 32]\n\n",
+        "type": "Json.Decode.Decoder a -> Json.Decode.Decoder a"
+      },
+      {
+        "name": "encodeAnyDict",
+        "comment": " Like `encodeDict`, but you also supply a way of turning the keys into\nstrings.\n",
+        "type": "(comparable -> String) -> (v -> Json.Decode.Value) -> Dict.Dict comparable v -> Json.Decode.Value"
+      },
+      {
+        "name": "encodeDict",
+        "comment": " Given a function which encodes a dict's values, encode the `Dict` as a JSON\nobject, using the dict's keys as the keys for the JSON object.\n",
+        "type": "(v -> Json.Decode.Value) -> Dict.Dict String v -> Json.Decode.Value"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gizra.List",
+    "comment": " Some utility functions for `List`.\n\n@docs insertAt, sortDescending\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "insertAt",
+        "comment": " Insert an element at the specified position. Will insert at the\nhead if the position is negative, and at the end if the position is\nout of range.\n\n    insertAt -1 \"d\" [\"a\", \"b\", \"c\"] --> [\"d\", \"a\", \"b\", \"c\"]\n\n    insertAt 0 \"d\" [\"a\", \"b\", \"c\"] --> [\"d\", \"a\", \"b\", \"c\"]\n\n    insertAt 1 \"d\" [\"a\", \"b\", \"c\"] --> [\"a\", \"d\", \"b\", \"c\"]\n\n    insertAt 100 \"d\" [\"a\", \"b\", \"c\"] --> [\"a\", \"b\", \"c\", \"d\"]\n\n",
+        "type": "Int -> a -> List a -> List a"
+      },
+      {
+        "name": "sortDescending",
+        "comment": " Sort the list in descending order.\n\n    sortDescending [\"a\", \"c\", \"b\"] --> [\"c\", \"b\", \"a\"]\n\n",
+        "type": "List comparable -> List comparable"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gizra.Dom",
+    "comment": " Some utility functions for accessing the DOM.\n\n@docs Rectangle, currentTarget, target, findAncestor, checkId, decodeDomRect\n\n",
+    "aliases": [
+      {
+        "name": "Rectangle",
+        "comment": " The dimensions of a rectangle.\n",
+        "args": [],
+        "type": "{ top : Float, left : Float, width : Float, height : Float }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "checkId",
+        "comment": " Provides a decoder which indicates whether the `id` field is equal to the\nprovided id. Fails if there is no `id` field.\n\n    \"\"\" { \"id\": \"an-id\" } \"\"\"\n        |> decodeString (checkId \"an-id\")\n    --> Ok True\n\n    \"\"\" { \"id\": \"an-id\" } \"\"\"\n        |> decodeString (checkId \"a-different-id\")\n    --> Ok False\n\n    \"\"\" { } \"\"\"\n        |> decodeString (checkId \"an-id\")\n        |> mapError (always \"\")\n    --> Err \"\"\n\n",
+        "type": "String -> Json.Decode.Decoder Bool"
+      },
+      {
+        "name": "currentTarget",
+        "comment": " Like `target`, but instead of getting the element that received the\nevent, this gets the element on which the event handler was placed.\n\n    \"\"\"\n        { \"currentTarget\":\n            { \"id\": \"an-id\" }\n        }\n    \"\"\"\n        |> decodeString (currentTarget (field \"id\" string))\n    --> Ok \"an-id\"\n\n",
+        "type": "Json.Decode.Decoder a -> Json.Decode.Decoder a"
+      },
+      {
+        "name": "decodeDomRect",
+        "comment": " Decodes a `DOMRect` Javascript object.\n\n    \"\"\"\n        { \"top\": 27\n        , \"left\": 32\n        , \"width\": 45\n        , \"height\": 72\n        }\n    \"\"\"\n        |> decodeString decodeDomRect\n    --> Ok\n            { top = 27\n            , left = 32\n            , width = 45\n            , height = 72\n            }\n\n",
+        "type": "Json.Decode.Decoder Gizra.Dom.Rectangle"
+      },
+      {
+        "name": "findAncestor",
+        "comment": " You supply two decoders.\n\nWe use the first decoder to select an ancestor. We start with the object\nitself, and then look at each of its ancestors in turn (via `parentElement`).\nWe stop when the first decoder succeeds with a `True`.\n\nThen, we take the selected ancestor and apply the second decoder\n\nThe resulting decoder will fail if no ancestor is found via the first decoder,\nor if the second decoder fails once we've found an ancestor to apply it to.\n\n    \"\"\"\n        { \"id\": \"id1\"\n        , \"height\": 1\n        }\n    \"\"\"\n        |> decodeString (findAncestor (checkId \"id1\") (field \"height\" int))\n    --> Ok 1\n\n    \"\"\"\n        { \"id\": \"id1\"\n        , \"height\": 1\n        }\n    \"\"\"\n        |> decodeString (findAncestor (checkId \"id1\") (field \"non-existent\" int))\n        |> mapError (always \"\")\n    --> Err \"\"\n\n    \"\"\"\n        { \"id\": \"id1\"\n        , \"height\": 1\n        }\n    \"\"\"\n        |> decodeString (findAncestor (checkId \"non-existent\") (field \"height\" int))\n        |> mapError (always \"\")\n    --> Err \"\"\n\n    \"\"\"\n        { \"id\": \"id1\"\n        , \"height\": 1\n        , \"parentElement\":\n            { \"id\": \"id2\"\n            , \"height\": 2\n            }\n        }\n    \"\"\"\n        |> decodeString (findAncestor (checkId \"id2\") (field \"height\" int))\n    --> Ok 2\n\n    \"\"\"\n        { \"id\": \"id1\"\n        , \"height\": 1\n        , \"parentElement\":\n            { \"id\": \"id2\"\n            , \"height\": 2\n            , \"parentElement\":\n                { \"id\": \"id3\"\n                , \"height\": 3\n                }\n            }\n        }\n    \"\"\"\n        |> decodeString (findAncestor (checkId \"id3\") (field \"height\" int))\n    --> Ok 3\n\n",
+        "type": "Json.Decode.Decoder Bool -> Json.Decode.Decoder a -> Json.Decode.Decoder a"
+      },
+      {
+        "name": "target",
+        "comment": " Applies the supplied decoder to the \"target\" field.\n\n    import Json.Decode exposing (..)\n    import Result exposing (Result(..), mapError)\n\n    \"\"\"\n        { \"target\":\n            { \"id\": \"an-id\" }\n        }\n    \"\"\"\n        |> decodeString (target (field \"id\" string))\n    --> Ok \"an-id\"\n\n",
+        "type": "Json.Decode.Decoder a -> Json.Decode.Decoder a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Gizra.Html",
+    "comment": " Utilities for working with `Html`\n\n\n## Keyed\n\n@docs keyed, divKeyed, keyedDivKeyed\n\n\n## Options\n\n@docs preventDefault, stopPropagation, preventDefaultAndStopPropagation\n\n\n## Conditionally show HTML\n\n@docs showIf, showMaybe, emptyNode\n\n\n## CSS pixels\n\n@docs intToPx, floatToPx\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "divKeyed",
+        "comment": " A convenience for keyed divs.\n\nYou can use it just like `Html.div`.\n\n    divKeyed []\n        [ (\"first-key\", functionThatProducesSomeHtml)\n        , (\"second-key\", anotherFunction)\n        ]\n\n",
+        "type": "List (Html.Attribute msg) -> List ( String, Html.Html msg ) -> Html.Html msg"
+      },
+      {
+        "name": "emptyNode",
+        "comment": " Produces an empty text node for the DOM.\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "floatToPx",
+        "comment": " Convert float to CSS px, with just 1 decimal point, since a px\nis already pretty small.\n\n    floatToPx 27 --> \"27.0px\"\n\n    floatToPx 32.56 --> \"32.6px\"\n\n",
+        "type": "Float -> String"
+      },
+      {
+        "name": "intToPx",
+        "comment": " Convert integer to CSS px.\n\n    intToPx 27 --> \"27px\"\n\n",
+        "type": "Int -> String"
+      },
+      {
+        "name": "keyed",
+        "comment": " A convenience for putting things in keyed elements. It's just the\n`(,)` operator, but it reads nicely in typical idioms. For instance,\nyou can do things like:\n\n    keyedDiv []\n        [ functionThatProducesHtml\n            |> keyed \"first-key\"\n        , anotherFunctionThatProducesHtml\n            |> Html.map SomeMsgWrapper\n            |> keyed \"second-key\"\n        ]\n\nPart of the reasoning here is that it's really the caller's job to provide a\nkey, since the key needs to be unique amongst the things in the list that the\ncaller is creating. So, functions that produce HTML shouldn't supply a key\nthemselves -- it should be supplied by the caller. And this is a convenient\nidiom for doing that.\n\n",
+        "type": "String -> Html.Html msg -> ( String, Html.Html msg )"
+      },
+      {
+        "name": "keyedDivKeyed",
+        "comment": " Like `divKeyed`, but you also provide a key for the div itself.\n",
+        "type": "String -> List (Html.Attribute msg) -> List ( String, Html.Html msg ) -> ( String, Html.Html msg )"
+      },
+      {
+        "name": "preventDefault",
+        "comment": " Shorthand for event options.\n",
+        "type": "Html.Events.Options"
+      },
+      {
+        "name": "preventDefaultAndStopPropagation",
+        "comment": " Shorthand for event options.\n",
+        "type": "Html.Events.Options"
+      },
+      {
+        "name": "showIf",
+        "comment": " Conditionally show Html. A bit cleaner than using if expressions in middle\nof an html block:\n\n    text \"I'm shown\"\n        |> showIf True\n\n    text \"I'm not shown\"\n        |> showIf False\n\n",
+        "type": "Bool -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "showMaybe",
+        "comment": " Show Maybe Html if Just, or empty node if Nothing.\n",
+        "type": "Maybe.Maybe (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "stopPropagation",
+        "comment": " Shorthand for event options.\n",
+        "type": "Html.Events.Options"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

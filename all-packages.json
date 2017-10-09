@@ -561,6 +561,8 @@
         "name": "Gizra/elm-essentials",
         "summary": "Various utilities commonly used in Gizra projects",
         "versions": [
+            "1.2.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -1607,6 +1609,7 @@
         "name": "Zinggi/elm-2d-game",
         "summary": "A 2D rendering engine based on WebGL",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.1.0",
             "2.0.0",
@@ -2023,6 +2026,13 @@
     {
         "name": "aristidesstaffieri/elm-poisson",
         "summary": "A function for calculating Poisson distributions.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "arnau/elm-feather",
+        "summary": "Feather icons in Elm",
         "versions": [
             "1.0.0"
         ]
@@ -2457,6 +2467,8 @@
         "name": "billstclair/elm-chat",
         "summary": "A simple chat component, easy to add to your user interface.",
         "versions": [
+            "1.2.1",
+            "1.2.0",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -3147,6 +3159,15 @@
         ]
     },
     {
+        "name": "cotterjd/elm-mdl",
+        "summary": "debois/elm-mdl with the toggle drawer button removed",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "crazymykl/ex-em-elm",
         "summary": "An xml parsing library for Elm",
         "versions": [
@@ -3381,10 +3402,24 @@
         ]
     },
     {
+        "name": "danielnarey/elm-semantic-content",
+        "summary": "Semantically structured helpers to construct basic HTML content",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "danielnarey/elm-semantic-dom",
         "summary": "Syntactic sugar for cooking with Elm VirtualDom",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "danielnarey/elm-semantic-effects",
+        "summary": "Make things happen on the user side of a web application",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -3644,6 +3679,7 @@
         "name": "drathier/elm-graph",
         "summary": "Simple graph library.",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.0.1",
             "2.0.0",
@@ -3657,6 +3693,22 @@
         "versions": [
             "1.0.3",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "drojas/elm-http-parser",
+        "summary": "This library provides methods to parse HTTP/1.1 requests string",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "drojas/elm-task-middleware",
+        "summary": "Task.Middleware, a sequence of tasks that can either continue or end.",
+        "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -3920,6 +3972,8 @@
         "name": "elm-bodybuilder/elegant",
         "summary": "Framework for inline CSS",
         "versions": [
+            "7.1.0",
+            "7.0.0",
             "6.0.0",
             "5.0.0",
             "4.1.0",
@@ -4049,6 +4103,7 @@
         "name": "elm-community/elm-datepicker",
         "summary": "A reusable date picker component",
         "versions": [
+            "7.2.1",
             "7.2.0",
             "7.1.0",
             "7.0.0",
@@ -4200,6 +4255,7 @@
         "name": "elm-community/graph",
         "summary": "Handling graphs the functional way.",
         "versions": [
+            "4.0.1",
             "4.0.0",
             "3.1.0",
             "3.0.2",
@@ -4246,6 +4302,8 @@
         "name": "elm-community/json-extra",
         "summary": "Convenience functions for working with Json",
         "versions": [
+            "2.5.0",
+            "2.4.0",
             "2.3.0",
             "2.2.0",
             "2.1.0",
@@ -5036,6 +5094,14 @@
         ]
     },
     {
+        "name": "fabiommendes/elm-sexpr",
+        "summary": "LISP-inspired S-expressions for Elm.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "fapian/elm-html-aria",
         "summary": "Aria attributes for elm",
         "versions": [
@@ -5698,6 +5764,11 @@
         "name": "inkuzmin/elm-multiselect",
         "summary": "multiselect control",
         "versions": [
+            "1.1.1",
+            "1.1.0",
+            "1.0.7",
+            "1.0.6",
+            "1.0.5",
             "1.0.4",
             "1.0.3",
             "1.0.2",
@@ -5786,6 +5857,14 @@
         "name": "jackfranklin/elm-console-log",
         "summary": "A log function that converts to string first",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jackfranklin/elm-parse-link-header",
+        "summary": "Parse HTTP Link headers",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -5992,6 +6071,7 @@
         "name": "jinjor/elm-contextmenu",
         "summary": "Flexible context menu for Elm",
         "versions": [
+            "1.1.0",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -6622,6 +6702,7 @@
         "name": "kirchner/elm-selectize",
         "summary": "selectize-like dropdown menu with autocompletion",
         "versions": [
+            "2.0.5",
             "2.0.4",
             "2.0.3",
             "2.0.2",
@@ -7295,6 +7376,14 @@
         ]
     },
     {
+        "name": "lucasssm/simpledate",
+        "summary": "Elm package made for working with simple date format",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ludvigsen/elm-svg-ast",
         "summary": "Data structure for holding svg, with parser and json encoder/decoder",
         "versions": [
@@ -7511,6 +7600,13 @@
         ]
     },
     {
+        "name": "martin-volf/elm-jsonrpc",
+        "summary": "JSON RPC client library",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "martinsk/elm-datastructures",
         "summary": "A collection of helpfull datastructures",
         "versions": [
@@ -7570,6 +7666,7 @@
         "name": "mattjbray/elm-prismicio",
         "summary": "Elm SDK for prismic.io",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -7717,6 +7814,7 @@
         "name": "mdgriffith/style-elements",
         "summary": "A different approach to creating and managing styles.",
         "versions": [
+            "4.1.0",
             "4.0.0",
             "3.4.1",
             "3.4.0",
@@ -7853,6 +7951,7 @@
         "name": "mgold/elm-random-pcg",
         "summary": "A faster, more featureful, statistically better, & compatible random generator",
         "versions": [
+            "5.0.2",
             "5.0.1",
             "5.0.0",
             "4.0.2",
@@ -7960,6 +8059,13 @@
             "2.0.0",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "monty5811/elm-bible",
+        "summary": "Parse Bible References.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -8637,6 +8743,13 @@
         ]
     },
     {
+        "name": "peterszerzo/elm-arborist",
+        "summary": "Tree-editing interface for Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "peterszerzo/elm-cms",
         "summary": "Simple CMS",
         "versions": [
@@ -8877,6 +8990,14 @@
         ]
     },
     {
+        "name": "pwentz/elm-pretty-printer",
+        "summary": "A combinator library for pretty printing to the terminal",
+        "versions": [
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "pzingg/elm-navigation-extra",
         "summary": "Router for single-page-apps in Elm",
         "versions": [
@@ -8909,6 +9030,7 @@
         "name": "realyarilabs/yarimoji",
         "summary": "Simple and light Elm package for emojis and emoji picker.",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -9455,6 +9577,13 @@
         ]
     },
     {
+        "name": "s6o/elm-simplify",
+        "summary": "elm-simplify - port of Simplify.js - http://mourner.github.io/simplify-js",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "sanichi/elm-md5",
         "summary": "Compute MD5 message digests in pure Elm",
         "versions": [
@@ -9905,6 +10034,7 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.12.1",
             "2.12.0",
             "2.11.0",
             "2.10.0",
@@ -10473,6 +10603,7 @@
         "name": "tlentz/elm-fancy-table",
         "summary": "A table with the ability to resize, reorder, and hide columns.",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -10661,6 +10792,13 @@
         "versions": [
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "tryzniak/assoc",
+        "summary": "Lookup a key in an assoc list",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -11145,6 +11283,7 @@
         "name": "wittjosiah/elm-alerts",
         "summary": "Alert system with several customization options build purely in elm",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -11167,6 +11306,7 @@
         "name": "wuct/elm-charts",
         "summary": "A pure Elm Chart library",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]

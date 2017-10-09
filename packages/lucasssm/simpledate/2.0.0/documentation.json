@@ -1,0 +1,53 @@
+[
+  {
+    "name": "SimpleDate",
+    "comment": " Elm SimpleDate type\nThis package try to work with date but in a simple way.\nIt only have day, month and year -> All Strings\nThe elm SimpleDate module can show date in ISO8601 format,\ntransform each day, month and year in Int, and\nmake a Json from a SimpleDate type.\n\n@docs SimpleDate, show, day, month, monthName, year, toJson, dateUpdate\n",
+    "aliases": [
+      {
+        "name": "SimpleDate",
+        "comment": " Simple date type\n  Represents a date in elm, but only day - month - year.\n  All three values are String type.\n",
+        "args": [],
+        "type": "{ month : Maybe.Maybe String , day : Maybe.Maybe String , year : Maybe.Maybe String }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "dateUpdate",
+        "comment": "\n  This function takes a simpleDate, a field to be edited and a value\n  fields are = \"day\", \"month\" and \"year\"\n",
+        "type": "SimpleDate.SimpleDate -> String -> String -> SimpleDate.SimpleDate"
+      },
+      {
+        "name": "day",
+        "comment": " Returns the day in Int type\n    if it fails, returns -1.\n",
+        "type": "SimpleDate.SimpleDate -> Maybe.Maybe Int"
+      },
+      {
+        "name": "month",
+        "comment": " Returns the month in Int type\n    if it fails, returns -1.\n",
+        "type": "SimpleDate.SimpleDate -> Maybe.Maybe Int"
+      },
+      {
+        "name": "monthName",
+        "comment": " takes a date and returns its month name\n    if it's invalid, will return \"Invalid month\"\n",
+        "type": "SimpleDate.SimpleDate -> String"
+      },
+      {
+        "name": "show",
+        "comment": "\n  This function takes a SimpleDate type and transforms it into a string.\n  This string has ISO8601 format.\n",
+        "type": "SimpleDate.SimpleDate -> String"
+      },
+      {
+        "name": "toJson",
+        "comment": " Simple date Encoder\n  This function takes SimpleDate type and turns it into a json\n",
+        "type": "SimpleDate.SimpleDate -> Json.Decode.Value"
+      },
+      {
+        "name": "year",
+        "comment": " Returns the year in Int type\n    if it fails, returns -1.\n",
+        "type": "SimpleDate.SimpleDate -> Maybe.Maybe Int"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

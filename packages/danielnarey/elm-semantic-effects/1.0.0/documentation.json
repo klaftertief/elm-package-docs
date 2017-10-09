@@ -1,0 +1,185 @@
+[
+  {
+    "name": "Effect.Focus",
+    "comment": "\n# Manually set or unset the focus on a page\n@docs on, off\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "off",
+        "comment": " Alias for [`Dom.blur`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom#blur) in elm-lang/dom\n",
+        "type": "String -> Task.Task Effect.Error ()"
+      },
+      {
+        "name": "on",
+        "comment": " Alias for [`Dom.focus`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom#focus) in elm-lang/dom\n",
+        "type": "String -> Task.Task Effect.Error ()"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Effect.Scroll",
+    "comment": "\n# Manually change the scroll position on an element that overflows its container\n@docs toTop, toBottom, toY, toLeft, toRight, toX\n\n# Get the current scroll position\n@docs getY, getX\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "getX",
+        "comment": " Alias for [`Dom.Scroll.y`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom-Scroll#y) in *elm-lang/dom*\n",
+        "type": "String -> Task.Task Effect.Error Float"
+      },
+      {
+        "name": "getY",
+        "comment": " Alias for [`Dom.Scroll.x`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom-Scroll#x) in *elm-lang/dom*\n",
+        "type": "String -> Task.Task Effect.Error Float"
+      },
+      {
+        "name": "toBottom",
+        "comment": " Alias for [`Dom.Scroll.toBottom`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom-Scroll#toBottom) in *elm-lang/dom*\n",
+        "type": "String -> Task.Task Effect.Error ()"
+      },
+      {
+        "name": "toLeft",
+        "comment": " Alias for [`Dom.Scroll.toLeft`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom-Scroll#toLeft) in *elm-lang/dom*\n",
+        "type": "String -> Task.Task Effect.Error ()"
+      },
+      {
+        "name": "toRight",
+        "comment": " Alias for [`Dom.Scroll.toRight`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom-Scroll#toRight) in *elm-lang/dom*\n",
+        "type": "String -> Task.Task Effect.Error ()"
+      },
+      {
+        "name": "toTop",
+        "comment": " Alias for [`Dom.Scroll.toTop`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom-Scroll#toTop) in *elm-lang/dom*\n",
+        "type": "String -> Task.Task Effect.Error ()"
+      },
+      {
+        "name": "toX",
+        "comment": " Alias for [`Dom.Scroll.toX`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom-Scroll#toX) in *elm-lang/dom*\n",
+        "type": "String -> Float -> Task.Task Effect.Error ()"
+      },
+      {
+        "name": "toY",
+        "comment": " Alias for [`Dom.Scroll.toY`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom-Scroll#toY) in *elm-lang/dom*\n",
+        "type": "String -> Float -> Task.Task Effect.Error ()"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Effect.Url",
+    "comment": "\n# Manually update the browser's address bar\n@docs stepTo, displayAs\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "displayAs",
+        "comment": " Alias for [`Navigation.modifyUrl`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#modifyUrl)\n",
+        "type": "String -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "stepTo",
+        "comment": " Alias for [`Navigation.newUrl`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#newUrl)\n",
+        "type": "String -> Platform.Cmd.Cmd msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Effect",
+    "comment": "\n# Low-level functions (to be used only in rare cases)\n@docs onDocument, onWindow\n\n# Error handling for tasks that may fail\n@docs Error\n",
+    "aliases": [
+      {
+        "name": "Error",
+        "comment": " Alias for [`Dom.Error`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom#Error) in *elm-lang/dom*\n",
+        "args": [],
+        "type": "Dom.Error"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "onDocument",
+        "comment": " Alias for [`Dom.LowLevel.onDocument`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom-LowLevel#onDocument) in *elm-lang/dom*\n",
+        "type": "String -> Json.Decode.Decoder msg -> (msg -> Task.Task Basics.Never ()) -> Task.Task Basics.Never Basics.Never"
+      },
+      {
+        "name": "onWindow",
+        "comment": " Alias for [`Dom.LowLevel.onWindow`](http://package.elm-lang.org/packages/elm-lang/dom/latest/Dom-LowLevel#onWindow) in *elm-lang/dom*\n",
+        "type": "String -> Json.Decode.Decoder msg -> (msg -> Task.Task Basics.Never ()) -> Task.Task Basics.Never Basics.Never"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Effect.Page",
+    "comment": "\n# Manually load a new URL or reload the current URL\n@docs load, reload, cleanReload\n\n# Load a URL stored in the user's browser history\n@docs back, forward\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "back",
+        "comment": "\nAlias for [`Navigation.back`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#back)\n",
+        "type": "Int -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "cleanReload",
+        "comment": "\nAlias for [`Navigation.reloadAndSkipCache`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#reloadAndSkipCache)\n",
+        "type": "Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "forward",
+        "comment": "\nAlias for [`Navigation.forward`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#forward)\n",
+        "type": "Int -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "load",
+        "comment": "\nAlias for [`Navigation.load`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#load)\n",
+        "type": "String -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "reload",
+        "comment": "\nAlias for [`Navigation.reload`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#reload)\n",
+        "type": "Platform.Cmd.Cmd msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Effect.Routing",
+    "comment": "\n# Data structure representing a URL\n@docs Location\n\n# Pipeline functions to initialize programs with location routing\n@docs run, runWithFlags\n\n# Standard functions to initialize programs with location routing\n@docs custom, customWithFlags\n\n",
+    "aliases": [
+      {
+        "name": "Location",
+        "comment": " Alias for [`Navigation.Location`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#Location)\n",
+        "args": [],
+        "type": "Navigation.Location"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "custom",
+        "comment": " Alias for [`Navigation.program`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#program)\n",
+        "type": "(Effect.Routing.Location -> msg) -> { init : Effect.Routing.Location -> ( model, Platform.Cmd.Cmd msg ) , update : msg -> model -> ( model, Platform.Cmd.Cmd msg ) , subscriptions : model -> Platform.Sub.Sub msg , view : model -> VirtualDom.Node msg } -> Platform.Program Basics.Never model msg"
+      },
+      {
+        "name": "customWithFlags",
+        "comment": " Alias for [`Navigation.programWithFlags`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#programWithFlags)\n",
+        "type": "(Effect.Routing.Location -> msg) -> { init : flags -> Effect.Routing.Location -> ( model, Platform.Cmd.Cmd msg ) , update : msg -> model -> ( model, Platform.Cmd.Cmd msg ) , subscriptions : model -> Platform.Sub.Sub msg , view : model -> VirtualDom.Node msg } -> Platform.Program flags model msg"
+      },
+      {
+        "name": "run",
+        "comment": " Generate your initial model with the page's `Location` as data; the initial\nmodel specified in your setup (the second argument) becomes a fallback if\nanything goes wrong in parsing the location.\n\nThis function follows the pattern of `Dom.Program.run` and\n`Dom.Program.runWithFlags` in *danielnarey/elm-semantic-dom*, which are intended\nto be used as pipeline functions, but it calls\n[`Navigation.program`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#program)\ninstead of `VirtualDom.program`.\n\nThe two additional arguments, given as a tuple, are a function to generate an\ninitial model given a `Location` and a type key that routes URL changes to the\nprogram's update function.\n\n",
+        "type": "( Effect.Routing.Location -> Maybe.Maybe model , Effect.Routing.Location -> msg ) -> Effect.Routing.Setup model msg -> Platform.Program Basics.Never model msg"
+      },
+      {
+        "name": "runWithFlags",
+        "comment": " Same pattern as `Effect.Routing.run`, except that the function to generate\nthe initial model will handle flags from the JavaScript side of the application.\nCalls\n[`Navigation.programWithFlags`](http://package.elm-lang.org/packages/elm-lang/navigation/latest/Navigation#programWithFlags).\n\n",
+        "type": "( flags -> Effect.Routing.Location -> Maybe.Maybe model , Effect.Routing.Location -> msg ) -> Effect.Routing.Setup model msg -> Platform.Program flags model msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

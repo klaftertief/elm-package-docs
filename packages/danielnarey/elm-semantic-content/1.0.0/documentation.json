@@ -1,0 +1,232 @@
+[
+  {
+    "name": "Content.Source",
+    "comment": " Constructors for external source content\n\n# Constructors\n@docs empty, svg, object, iframe, embed\n\n# Rendering\n@docs container\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "container",
+        "comment": " Place source content in a `Dom.Element` container, with the HTML tag given\nin the first argument\n",
+        "type": "String -> Content.Source msg -> Dom.Element msg"
+      },
+      {
+        "name": "embed",
+        "comment": " Construct external source content using an HTML `<embed>` tag\n\n    ( \"helloworld.swf\"\n    , \"application/x-shockwave-flash\"\n    )\n      |> Content.Source.embed\n      |> Content.Source.container \"div\"\n      |> Dom.Element.toNode\n\n    --> <div>\n    --    <embed src=\"helloworld.swf\" type=\"application/x-shockwave-flash\">\n    --  </div>\n\nSee https://www.iana.org/assignments/media-types/media-types.xhtml for a list\nof media type codes.\n\n",
+        "type": "( String, String ) -> Content.Source msg"
+      },
+      {
+        "name": "empty",
+        "comment": " Construct empty source content as a placeholder\n",
+        "type": "Content.Source msg"
+      },
+      {
+        "name": "iframe",
+        "comment": " Construct external source content using an HTML `<iframe>` tag\n\n    \"http://elm-lang.org\"\n      |> Content.Source.iframe\n      |> Content.Source.container \"div\"\n      |> Dom.Element.toNode\n\n    --> <div>\n    --    <iframe src=\"http://elm-lang.org\"></iframe>\n    --  </div>\n\n",
+        "type": "String -> Content.Source msg"
+      },
+      {
+        "name": "object",
+        "comment": " Construct external source content using an HTML `<object>` tag; the first\nargument gives the path to the external resource, the second argument gives\nthe media type, and the third argument gives a fallback as `Content.Text` (use\n`Content.Text.empty` if you don't want to include a fallback)\n\n    ( \"helloworld.pdf\"\n    , \"application/pdf\"\n    , \"Click here to download\"\n      |> Content.text.link (\"http://example.com/files/myfile.pdf\", False)\n    )\n      |> Content.Source.object\n      |> Content.Source.container \"div\"\n      |> Dom.Element.toNode\n\n    --> <div>\n    --    <object data=\"helloworld.swf\" type=\"application/x-shockwave-flash\">\n    --      <a href=\"http://example.com/files/myfile.pdf\">Click here to download</a>\n    --    </object>\n    --  </div>\n\nSee https://www.iana.org/assignments/media-types/media-types.xhtml for a list\nof media type codes.\n\n",
+        "type": "( String, String, Content.Text msg ) -> Content.Source msg"
+      },
+      {
+        "name": "svg",
+        "comment": " Construct SVG content; the first argument gives the path to the external\nresource and the second argument gives a fallback as `Content.Media` (use\n`Content.Media.empty` if you don't want to include a fallback)\n\n    ( \"logo.svg\"\n    , (\"logo.png\", \"Company Name\") |> Content.Media.image\n    )\n      |> Content.Source.svg\n      |> Content.Source.container \"div\"\n      |> Dom.Element.toNode\n\n    --> <div>\n    --    <object data=\"logo.svg\" type=\"image/svg+xml\">\n    --      <img src=\"logo.png\" alt=\"Company Name\">\n    --    </object>\n    --  </div>\n\n",
+        "type": "( String, Content.Media msg ) -> Content.Source msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Content.Text",
+    "comment": " Constructors for text content\n\n## Constructors\n@docs empty, plain, styled, link\n\n## Putting text together\n@docs append, prepend, concat, join\n\n## Rendering\n@docs wrapper\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "append",
+        "comment": " Add the text in the first argument to the end of the text in the second\nargument (intended to be used as a pipeline function)\n\n    \"Hello \"\n      |> Content.Text.plain\n      |> Content.Text.append\n        ( \"World!\"\n          |> Content.Text.styled \"strong\"\n        )\n      |> Content.Text.wrapper \"p\"\n      |> Dom.Element.toNode\n\n    --> <p>Hello <strong>World!</strong></p>\n\n",
+        "type": "Content.Text msg -> Content.Text msg -> Content.Text msg"
+      },
+      {
+        "name": "concat",
+        "comment": " Combine multiple segments of text into one\n\n    [ \"Hello \"\n      |> Content.Text.plain\n    , \"World!\"\n      |> Content.Text.styled \"strong\"\n    ]\n      |> Content.Text.concat\n      |> Content.Text.wrapper \"p\"\n      |> Dom.Element.toNode\n\n    --> <p>Hello <strong>World!</strong></p>\n\n",
+        "type": "List (Content.Text msg) -> Content.Text msg"
+      },
+      {
+        "name": "empty",
+        "comment": " Construct empty text content as a placeholder\n\n    Content.Text.empty\n      |> Content.Text.wrapper \"p\"\n      |> Dom.Element.toNode\n\n    --> <p></p>\n",
+        "type": "Content.Text msg"
+      },
+      {
+        "name": "join",
+        "comment": " Combine multiple segments of text into one, with the string given in the\nfirst argument inserted as a separator\n\n    [ \"Hello\"\n      |> Content.Text.plain\n    , \"World!\"\n      |> Content.Text.styled \"strong\"\n    ]\n      |> Content.Text.join \", \"\n      |> Content.Text.wrapper \"p\"\n      |> Dom.Element.toNode\n\n    --> <p>Hello, <strong>World!</strong></p>\n\n",
+        "type": "String -> List (Content.Text msg) -> Content.Text msg"
+      },
+      {
+        "name": "link",
+        "comment": " Construct linked text content; the first argument gives the URI and the\nsecond argument gives the text displayed\n\n    \"Click here to download\"\n      |> Content.Text.link (\"http://example.com/files/myfile.pdf\", True)\n      |> Content.Text.wrapper \"p\"\n      |> Dom.Element.toNode\n\n    --> <p>\n    --    <a href=\"http://example.com/files/myfile.pdf\" target=\"_blank\">Click here to download</a>\n    --  </p>\n\n",
+        "type": "( String, Bool ) -> String -> Content.Text msg"
+      },
+      {
+        "name": "plain",
+        "comment": " Construct plain text content\n\n    \"Hello World!\"\n      |> Content.Text.plain\n      |> Content.Text.wrapper \"p\"\n      |> Dom.Element.toNode\n\n    --> <p>Hello World!</p>\n\n",
+        "type": "String -> Content.Text msg"
+      },
+      {
+        "name": "prepend",
+        "comment": " Add the text in the first argument at the beginning of the text in the\nsecond argument (intended to be used as a pipeline function)\n\n    \"World!\"\n      |> Content.Text.styled \"strong\"\n      |> Content.Text.prepend\n        ( \"Hello \"\n          |> Content.Text.plain\n        )\n      |> Content.Text.wrapper \"p\"\n      |> Dom.Element.toNode\n\n    --> <p>Hello <strong>World!</strong></p>\n\n",
+        "type": "Content.Text msg -> Content.Text msg -> Content.Text msg"
+      },
+      {
+        "name": "styled",
+        "comment": " Construct styled text content using the HTML tag specified in the first\nargument\n\n    \"Hello World!\"\n      |> Content.Text.styled \"strong\"\n      |> Content.Text.wrapper \"p\"\n      |> Dom.Element.toNode\n\n    --> <p><strong>Hello World!<strong></p>\n\n",
+        "type": "String -> String -> Content.Text msg"
+      },
+      {
+        "name": "wrapper",
+        "comment": " Wrap text content in a `Dom.Element`, with the HTML tag given in the first\nargument (see above for examples)\n",
+        "type": "String -> Content.Text msg -> Dom.Element msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Content.Icon",
+    "comment": " Constructors for icon font character content\n\n# Constructors\n@docs empty, fontAwesome, material, ionicons\n\n# Rendering\n@docs container\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "container",
+        "comment": " Place icon content in a `Dom.Element` container, with the HTML tag given\nin the first argument\n",
+        "type": "String -> Content.Icon msg -> Dom.Element msg"
+      },
+      {
+        "name": "empty",
+        "comment": " Construct empty icon content as a placeholder\n",
+        "type": "Content.Icon msg"
+      },
+      {
+        "name": "fontAwesome",
+        "comment": " Construct an icon from the [Font Awesome](http://fontawesome.io/)\ncollection, licensed under\n[SIL OFL 1.1](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL)\n\n    \"bicycle\"\n      |> Content.Icon.fontAwesome\n\n    --> <i class=\"fa fa-bicycle\"></i>\n\n",
+        "type": "String -> Content.Icon msg"
+      },
+      {
+        "name": "ionicons",
+        "comment": " Construct an icon from the [Ionicons](http://ionicons.com/) collection,\nlicensed under [MIT](https://opensource.org/licenses/MIT)\n\n    \"android-bicycle\"\n      |> Content.Icon.ionicons\n\n    --> <i class=\"icon ion-android-bicycle\"></i>\n\n",
+        "type": "String -> Content.Icon msg"
+      },
+      {
+        "name": "material",
+        "comment": " Construct an icon from Google's\n[Material Design](https://material.io/icons/) collection, licensed under\n[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)\n\n    \"directions_bike\"\n      |> Content.Icon.material\n\n    --> <i class=\"material-icons\">directions_bike</i>\n\n",
+        "type": "String -> Content.Icon msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Content.Media",
+    "comment": " Constructors for basic media content (image, video, audio)\n\n# Constructors\n@docs empty, image, video, audio\n\n# Rendering\n@docs container\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "audio",
+        "comment": " Construct audio content\n\n    [ (\"horse.ogg\", \"audio/ogg\")\n    , (\"horse.mp3\", \"audio/mpeg\")\n    ]\n      |> Content.Media.audio\n      |> Content.Media.container \"div\"\n      |> Dom.Element.toNode\n\n\n    --> <div>\n    --    <audio controls>\n    --      <source src=\"horse.ogg\" type=\"audio/ogg\">\n    --      <source src=\"horse.mp3\" type=\"audio/mpeg\">\n    --      <p>Audio file 'horse.ogg' cannot be loaded. Verify that your browser\n    --      is up to date and can play 'audio/ogg' files.</p>\n    --      <p>Audio file 'horse.mp3' cannot be loaded. Verify that your browser\n    --      is up to date and can play 'audio/mpeg' files.</p>\n    --    </audio>\n    --  </div>\n\n",
+        "type": "List ( String, String ) -> Content.Media msg"
+      },
+      {
+        "name": "container",
+        "comment": " Place media content in a `Dom.Element` container, with the HTML tag given\nin the first argument\n",
+        "type": "String -> Content.Media msg -> Dom.Element msg"
+      },
+      {
+        "name": "empty",
+        "comment": " Construct empty media content as a placeholder\n\n    Content.Media.empty\n      |> Content.Media.container \"figure\"\n      |> Dom.Element.toNode\n\n    --> <figure></figure>\n\n",
+        "type": "Content.Media msg"
+      },
+      {
+        "name": "image",
+        "comment": " Construct image content\n\n    ( \"mountain.jpg\"\n    , \"A photograph of a mountain\"\n    )\n      |> Content.Media.image\n      |> Content.Media.container \"figure\"\n      |> Dom.Element.toNode\n\n    --> <figure>\n    --    <img src=\"mountain.jpg\" alt=\"A photograph of a mountain\">\n    --  </figure>\n\n",
+        "type": "( String, String ) -> Content.Media msg"
+      },
+      {
+        "name": "video",
+        "comment": " Construct video content\n\n    [ (\"movie.mp4\", \"video/mp4\")\n    , (\"movie.ogg\", \"video/ogg\")\n    ]\n      |> Content.Media.video\n      |> Content.Media.container \"div\"\n      |> Dom.Element.toNode\n\n\n    --> <div>\n    --    <video controls>\n    --      <source src=\"movie.mp4\" type=\"video/mp4\">\n    --      <source src=\"movie.ogg\" type=\"video/ogg\">\n    --      <p>Video file 'movie.mp4' cannot be loaded. Verify that your browser\n    --      is up to date and can play 'video/mp4' files.</p>\n    --      <p>Video file 'movie.ogg' cannot be loaded. Verify that your browser\n    --      is up to date and can play 'video/ogg' files.</p>\n    --    </video>\n    --  </div>\n\n",
+        "type": "List ( String, String ) -> Content.Media msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Content",
+    "comment": "\n\n@docs Text, Icon, Media, Source\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Icon",
+        "comment": " A type to contain icon font character content\n",
+        "args": [
+          "msg"
+        ],
+        "cases": [
+          [
+            "Icon",
+            [
+              "List (Dom.Node msg)"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Media",
+        "comment": " A type to contain basic media content (image, video, audio)\n",
+        "args": [
+          "msg"
+        ],
+        "cases": [
+          [
+            "Media",
+            [
+              "List (Dom.Node msg)"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Source",
+        "comment": " A type to contain embedded content from an external source (e.g., an SVG\nfile)\n",
+        "args": [
+          "msg"
+        ],
+        "cases": [
+          [
+            "Source",
+            [
+              "List (Dom.Node msg)"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Text",
+        "comment": " A type to contain text content\n",
+        "args": [
+          "msg"
+        ],
+        "cases": [
+          [
+            "Text",
+            [
+              "List (Dom.Node msg)"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
