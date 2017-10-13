@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Contador",
+    "comment": "\n\n\n# Functions\n\n@docs Msg, update, view, main\n\n# Description\n\nThe functions bellow makes a counter on the screen and when you press\nthe button '+', the program makes a adction one on a model and when you press '-',\nthe program reduce one on the model text on the screen\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": "\n\nThis type have the messages of the counter\n\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "main",
+        "comment": " The main starts a counter showing on the screen ",
+        "type": "Platform.Program Basics.Never Int Contador.Msg"
+      },
+      {
+        "name": "update",
+        "comment": "\n\nThe update method recives the message when the userclicks\non the button and make the action of incrementor decrement\n\n",
+        "type": "Contador.Msg -> Int -> Int"
+      },
+      {
+        "name": "view",
+        "comment": " The view method shows on the screen the buttons and the result of increment and decrement ",
+        "type": "Int -> Html.Html Contador.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

@@ -1,0 +1,180 @@
+[
+  {
+    "name": "Arborist",
+    "comment": " Drag-and-drop interface to edit, dissect and-rearrange tree structures with arbitrary data sitting in their nodes.\n\n\n# The editor module\n\n@docs Model, Msg, init, update, updateWith, UpdateConfig, view, subscriptions\n\n\n# Tree query and manipulations\n\n@docs tree, activeNode, setActiveNode, deleteActiveNode\n\n",
+    "aliases": [
+      {
+        "name": "Msg",
+        "comment": " Msg type annotation for the program.\n",
+        "args": [
+          "item"
+        ],
+        "type": "Messages.Msg item"
+      },
+      {
+        "name": "UpdateConfig",
+        "comment": " A special update configuration object used in the custom [updateWith](/Arborist#updateWith) method. It holds the following fields:\n\n    - `centerAt`: given the width and height of the canvas as float values, where should an activated node be centered. Defaults to `\\width height -> ( width / 2, height / 2 )`\n\n",
+        "args": [],
+        "type": "{ centerAt : Float -> Float -> ( Float, Float ) }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Model",
+        "comment": " Model, used for type annotation.\n",
+        "args": [
+          "item"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "activeNode",
+        "comment": " Returns the current active node. Returns a tuple of `Maybe item` (as the node maybe a placeholder for a new node), as well as its coordinates on the screen. Use these coordinates to position an active node-related pop-up (see example).\n",
+        "type": "Arborist.Config.Config item -> Arborist.Model item -> Maybe.Maybe ( Maybe.Maybe item, ( Float, Float ) )"
+      },
+      {
+        "name": "deleteActiveNode",
+        "comment": " Delete the active node from a tree, including all of its children. If a placeholder is active, this method does nothing.\n",
+        "type": "Arborist.Model item -> Arborist.Model item"
+      },
+      {
+        "name": "init",
+        "comment": " Initialize model from a [tree](/Arborist-Tree).\n",
+        "type": "Arborist.Tree.Tree item -> Arborist.Model item"
+      },
+      {
+        "name": "setActiveNode",
+        "comment": " Sets a new item at the active node. This may be adding a completely new item from scratch (in case the current node is a placeholder), or modifying an existing one. Typically, the modification is based off an original value provided by the [activeNode](#activeNode) method.\n",
+        "type": "item -> Arborist.Model item -> Arborist.Model item"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Subscriptions responsible for obtaining animation frames used when animating a view centering. See example for usage.\n",
+        "type": "Arborist.Model item -> Platform.Sub.Sub (Arborist.Msg item)"
+      },
+      {
+        "name": "tree",
+        "comment": " Access the current [tree](/Arborist-Tree).\n",
+        "type": "Arborist.Model item -> Arborist.Tree.Tree item"
+      },
+      {
+        "name": "update",
+        "comment": " Update method, with the global editor [Config](/Arborist-Config#Config) as its first argument.\n",
+        "type": "Arborist.Config.Config item -> Arborist.Msg item -> Arborist.Model item -> Arborist.Model item"
+      },
+      {
+        "name": "updateWith",
+        "comment": " A custom version of [update](/Arborist#update), using a [configuration](/Arborist#UpdateConfig).\n",
+        "type": "Arborist.UpdateConfig -> Arborist.Config.Config item -> Arborist.Msg item -> Arborist.Model item -> Arborist.Model item"
+      },
+      {
+        "name": "view",
+        "comment": " The view, as a function of the `Config`, some custom html attributes for the container, and the Model.\n",
+        "type": "Arborist.Config.Config item -> List (Html.Attribute (Arborist.Msg item)) -> Arborist.Model item -> Html.Html (Arborist.Msg item)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Arborist.Config",
+    "comment": " Configuration and view context for the tree editor.\n\n\n# Config\n\n@docs Config, Layout, NodeState\n\n\n# View Context\n\n@docs Context\n\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " Global configuration for the editor module, consisting of two fields:\n\n  - `view`: the view of a single node function, dependent on its [Context](/Arborist-Config#Context) and the item it holds (may be `Nothing` in case of a placeholder). Since there are all sorts of event handlers on the node element containing this piece of html, the library essentially disallows any messages (it does so by expecting the message type to be of `Msg item`, but does not actually expose any `Msg` constructors)\n  - `layout`: bits of geometry information, detailed [here](/Arborist-Context#Layout)\n\n",
+        "args": [
+          "item"
+        ],
+        "type": "{ view : Arborist.Config.Context item -> Maybe.Maybe item -> Html.Html (Messages.Msg item) , layout : Arborist.Config.Layout }"
+      },
+      {
+        "name": "Context",
+        "comment": " View context. Contains the following fields:\n\n  - `parent`: the item at the parent, not available for the root node\n  - `siblings`: a list of all direct siblings\n  - `children`: a list of all direct children\n  - `state`: node [state](/Arborist-Config#NodeState)\n\n",
+        "args": [
+          "item"
+        ],
+        "type": "{ parent : Maybe.Maybe item , siblings : List item , children : List item , state : Arborist.Config.NodeState }"
+      },
+      {
+        "name": "Layout",
+        "comment": " Layout dimensions for the tree editor, with the following fields:\n\n  - `canvasWidth`: width of the canvas containing the entire editor interface\n  - `canvasHeight`: height of the canvas containing the entire editor interface\n  - `nodeWidth`: width of a single node\n  - `nodeHeight`: height of a single node\n  - `level`: vertical offset between different levels of nodes (from the bottom of the parent to the top of the child)\n  - `gutter`: horizontal gutter between two sibling nodes\n\n",
+        "args": [],
+        "type": "{ canvasWidth : Float , canvasHeight : Float , nodeWidth : Float , nodeHeight : Float , level : Float , gutter : Float }"
+      }
+    ],
+    "types": [
+      {
+        "name": "NodeState",
+        "comment": " The state of a node at a given time. May be normal one of the following:\n\n  - `Normal`: node in rest state\n  - `Hovered`: a hovered over node\n  - `Active`: an activated node. Overrides hover\n  - `DropTarget`: indicates that a swap or insert of the dragged subtree will take place at this node upon release\n\n",
+        "args": [],
+        "cases": [
+          [
+            "Normal",
+            []
+          ],
+          [
+            "Active",
+            []
+          ],
+          [
+            "Hovered",
+            []
+          ],
+          [
+            "DropTarget",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Arborist.Tree",
+    "comment": " A tiny tiny tree module. Only a few utility methods are provided here - after all, if you want to manupilate the tree, you should probably do so using the interface 🤓.\n\n\n# Type\n\n@docs Tree\n\n\n# Json\n\n@docs decoder\n\n\n# Methods\n\n@docs depth, map\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Tree",
+        "comment": " Recursive tree structure, holding any data type `a`, and any number of child nodes.\n",
+        "args": [
+          "item"
+        ],
+        "cases": [
+          [
+            "Empty",
+            []
+          ],
+          [
+            "Node",
+            [
+              "item",
+              "List (Arborist.Tree.Tree item)"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "decoder",
+        "comment": " Tree decoder as a function of the node's decoder. Assumes a `value` and `children` fields, holding the current node contents and an array of children, respectively.\n",
+        "type": "Json.Decode.Decoder item -> Json.Decode.Decoder (Arborist.Tree.Tree item)"
+      },
+      {
+        "name": "depth",
+        "comment": " Tree depth.\n",
+        "type": "Arborist.Tree.Tree item -> Int"
+      },
+      {
+        "name": "map",
+        "comment": " Map over the items of the tree.\n",
+        "type": "(a -> b) -> Arborist.Tree.Tree a -> Arborist.Tree.Tree b"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

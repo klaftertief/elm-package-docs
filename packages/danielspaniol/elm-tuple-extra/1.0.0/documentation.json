@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Tuple2.Extra",
+    "comment": " This modules provides some convenience functions to make working with tuples of 2 elements easier. <br/>\nI recommend importing this module like `import Tuple2.Extra as Tuple2`. All code examples assume you imported the module like that.\n\n\n# Mapping\n\nApply a function to the elements.\n\n@docs map, mapEach\n\n\n# Combining\n\nCombine the elements of a tuple or multiple tuples together.\n\n@docs reduce, join\n\n\n# Comparing\n\nCompare tuples.\n\n@docs compareBy, compareByFirst, compareBySecond\n\n\n# Misc\n\n@docs swap\n\n\n# Tuples of numbers\n\nFunction to work with tuples of numbers more easily. If you use one of those maybe you should think about defining a Vector type instead of tuples.\n\n@docs sum, add, subtract, scale\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "add",
+        "comment": " Adds the first elements of the tuples together and the second elements of the tuples together.\n\n    Tuple2.add (1, 2) (3, 4) == (1+3, 2+4) == (4, 6)\n\n",
+        "type": "( number, number ) -> ( number, number ) -> ( number, number )"
+      },
+      {
+        "name": "compareBy",
+        "comment": " Compares the tuples after reducing them to a comparable.\n\n    Tuple2.compareBy Tuple2.sum (1, 2) (3, 4)\n        == compare (1+2) (3+4)\n        == LT\n\n",
+        "type": "(( a, b ) -> comparable) -> ( a, b ) -> ( a, b ) -> Basics.Order"
+      },
+      {
+        "name": "compareByFirst",
+        "comment": " Compares the tuples using their first element.\n\n    Tuple2.compareByFirst (1, 9001) (2, 0)\n        == compare 1 2\n        == LT\n\n",
+        "type": "( comparable, a ) -> ( comparable, b ) -> Basics.Order"
+      },
+      {
+        "name": "compareBySecond",
+        "comment": " Compares the tuples using their second element.\n\n    Tuple2.compareBySecond (9001, 1) (0, 2)\n        == compare 1 2\n        == LT\n\n",
+        "type": "( a, comparable ) -> ( b, comparable ) -> Basics.Order"
+      },
+      {
+        "name": "join",
+        "comment": " Joins two tuples into a single one using the given function\n\n    Tuple2.join (+) (1, 2) (3, 4) == (1+3, 2+4) == (4, 6)\n\n",
+        "type": "(a -> b -> c) -> ( a, a ) -> ( b, b ) -> ( c, c )"
+      },
+      {
+        "name": "map",
+        "comment": " Applies the given function to both elements of the tuples.\n\n    Tuple2.map ((+)1) (1, 2) == (1+1, 1+2) == (2, 3)\n\n",
+        "type": "(a -> b) -> ( a, a ) -> ( b, b )"
+      },
+      {
+        "name": "mapEach",
+        "comment": " Applies the first function to the first element and the second function to the second element.\n\n    Tuple2.mapEach ((+)1) ((*)2) (2, 3)\n        == (1+2, 2*3)\n        == (3, 6)\n\n",
+        "type": "(a -> x) -> (b -> y) -> ( a, b ) -> ( x, y )"
+      },
+      {
+        "name": "reduce",
+        "comment": " Calculates a value based on both elements\n\n    Tuple2.reduce (+) (1, 2) == 1+2 == 3\n\n",
+        "type": "(a -> b -> c) -> ( a, b ) -> c"
+      },
+      {
+        "name": "scale",
+        "comment": " Multiplies both elements with the given scalar.\n\n    Tuple2.scale 3 (1, 2) == (3*1, 3*2) == (3, 6)\n\n",
+        "type": "number -> ( number, number ) -> ( number, number )"
+      },
+      {
+        "name": "subtract",
+        "comment": " Subtracts the first elements of the tuples from each other and the second elements of the tuples from each other.\n\n    Tuple2.subtract (3, 4) (1, 2) == (3-1, 3-2) == (2, 2)\n\n",
+        "type": "( number, number ) -> ( number, number ) -> ( number, number )"
+      },
+      {
+        "name": "sum",
+        "comment": " Returns the sum of both elements.\n\n    Tuple2.sum (1, 2) == 1+2 == 3\n\n",
+        "type": "( number, number ) -> number"
+      },
+      {
+        "name": "swap",
+        "comment": " Swaps both elements\n\n    Tuple2.swap (1, 2) == (2, 1)\n\n",
+        "type": "( a, b ) -> ( b, a )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Tuple2.Infix",
+    "comment": " Provides infix functions for working with tuples.\n\n\n# Creation\n\n@docs (=>)\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "=>",
+        "comment": " Creates a tuple of both arguments. This is useful if you want to construct many tuples in a readable way.\n\n    [ \"a\" => 1, \"b\" => 2 ] == [ (\"a\", 1), (\"b\", 2) ]\n\n",
+        "type": "a -> b -> ( a, b )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

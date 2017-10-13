@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Task.Middleware",
+    "comment": " This library provides a middleware abstraction that can be used to\nrun tasks in a pre-defined sequence.\n\n\n# Definition\n\n@docs Middleware, Error\n\n\n# Common Helpers\n\n@docs next, end, mapError\n\n\n# Chaining Middleware\n\n@docs connect\n\n@docs middleware\n\n",
+    "aliases": [
+      {
+        "name": "Middleware",
+        "comment": " Represent a middleware unit with an associated task. A middleware task has a companion\nvalue to inform the runner to continue with the next task or to end the sequence.\n\nMiddleware units are designed to do work on some \"payload\" similarly as a reducer\nworks on Redux applications.\n\n    -- A middleware that does almost nothing looks like this.\n    \\name -> end (Task.succeed \"hello \" ++ name)\n\n",
+        "args": [
+          "x",
+          "a"
+        ],
+        "type": "a -> Task.Task x (Task.Middleware.Step a)"
+      }
+    ],
+    "types": [
+      {
+        "name": "Error",
+        "comment": " Represent the unexpected situations when we forget to call `end` in the sequence or some middleware\ntask failed\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "NeverEnded",
+            []
+          ],
+          [
+            "Middleware",
+            [
+              "a"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "connect",
+        "comment": " Connect a task to another after a mapError to Middlware\n",
+        "type": "(a -> Task.Task (Task.Middleware.Error x) b) -> Task.Task x a -> Task.Task (Task.Middleware.Error x) b"
+      },
+      {
+        "name": "end",
+        "comment": " Transform a `Task` into a return value for a middleware unit choosing to end\n\n    end (Task.fail 420)\n\n",
+        "type": "Task.Task x a -> Task.Task x (Task.Middleware.Step a)"
+      },
+      {
+        "name": "mapError",
+        "comment": " Map a failing middleware error to some other type of error\n",
+        "type": "(x -> y) -> Task.Middleware.Middleware x a -> Task.Middleware.Middleware y a"
+      },
+      {
+        "name": "middleware",
+        "comment": " Merge a list of middleware units into a single task\n\n    middleware\n        [ (\\n -> next (Task.succeed n))\n        , (n -> end (Task.succeed (* n n)))\n        ]\n        2\n\n",
+        "type": "List (Task.Middleware.Middleware x a) -> a -> Task.Task (Task.Middleware.Error x) a"
+      },
+      {
+        "name": "next",
+        "comment": " Transform a `Task` into a return value for a middleware unit choosing to continue\n\n    next (Task.succeed 200)\n\n",
+        "type": "Task.Task x a -> Task.Task x (Task.Middleware.Step a)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

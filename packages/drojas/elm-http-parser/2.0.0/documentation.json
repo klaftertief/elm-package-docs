@@ -1,0 +1,60 @@
+[
+  {
+    "name": "Http.Parser",
+    "comment": " This library provides methods to parse HTTP/1.1 requests string.\n\n    -- Example usage parsing a json request\n    let\n        body =\n            Decode.succeed ReqBody\n                |: field \"hello\" Decode.string\n    in\n        request \"POST /hello HTTP/1.1\\r\\n(...)\" |> expect (json body)\n\n\n# Definition\n\n@docs Request\n\n\n# Parsing messages\n\n@docs request\n\n\n# Parsing JSON\n\n@docs json\n\n\n# Common helpers\n\n@docs expect\n\n@docs mapResult\n\n\n# Parser errors\n\n@docs Error\n\n",
+    "aliases": [
+      {
+        "name": "Request",
+        "comment": " Represent a parsed request with a parameterized body type\n",
+        "args": [
+          "body"
+        ],
+        "type": "{ method : String , uri : String , headers : Dict.Dict String String , body : body }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Error",
+        "comment": " Represent an unexpected error while trying to parse or decode some part of the message\n",
+        "args": [],
+        "cases": [
+          [
+            "ParserError",
+            [
+              "Parser.Error"
+            ]
+          ],
+          [
+            "DecoderError",
+            [
+              "String"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "expect",
+        "comment": " Chain a request parser to some body decoder\n",
+        "type": "(Http.Parser.Request String -> Result.Result Http.Parser.Error (Http.Parser.Request a)) -> Result.Result Http.Parser.Error (Http.Parser.Request String) -> Result.Result Http.Parser.Error (Http.Parser.Request a)"
+      },
+      {
+        "name": "json",
+        "comment": " Decode the body of some previously parsed request expecting a json string and a Content-Type header with value \"application/json\"\n",
+        "type": "Json.Decode.Decoder a -> Http.Parser.Request String -> Result.Result Http.Parser.Error (Http.Parser.Request a)"
+      },
+      {
+        "name": "mapResult",
+        "comment": " Map a result error and ok cases in a single expression\n",
+        "type": "(x -> y) -> (a -> b) -> Result.Result x a -> Result.Result y b"
+      },
+      {
+        "name": "request",
+        "comment": " Parse a request message into a request representation\n",
+        "type": "String -> Result.Result Http.Parser.Error (Http.Parser.Request String)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
