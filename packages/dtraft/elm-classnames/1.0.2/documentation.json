@@ -1,0 +1,16 @@
+[
+  {
+    "name": "ClassNames",
+    "comment": " This library provides a simple utility to conditionally join together html class strings.\n\n## Generate class string\n\n@docs classNames\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "classNames",
+        "comment": " Convert a list of conditional classes into a single html class String.\n\n    classNames\n        [ (\"item\", True)\n        , (\"is-selected\", isSelected)\n        ]\n    -- Outputs 'item' when isSelected == False\n    -- Outputs 'item is-selected` when isSelected == True\n",
+        "type": "List ( String, Bool ) -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

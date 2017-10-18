@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Language",
+    "comment": " This library provides a union type for languges for which Github provides color codes and their respective color\n\n@docs Language, fromString, toColor\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Language",
+        "comment": " The union type of all languages supported by Github \n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "fromString",
+        "comment": " Parse a string to a lanuge. Unrecognized strings get turned into Other\n",
+        "type": "String -> Language.Language"
+      },
+      {
+        "name": "toColor",
+        "comment": " Convert a languges to its respective color code\n",
+        "type": "Language.Language -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

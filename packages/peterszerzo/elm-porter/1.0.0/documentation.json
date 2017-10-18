@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Porter",
+    "comment": " Port message manager to emulate a request-response style communication through ports, a'la `Http.send ResponseHandler request`.\n\n\n# Configuration\n\n@docs Config\n\n\n# The setup\n\n@docs Model, Msg, init, update, subscriptions\n\n\n# Send messages\n\n@docs send\n\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " Porter configuration, containing ports and message encoders/decoders.\n",
+        "args": [
+          "req",
+          "res",
+          "msg"
+        ],
+        "type": "{ outgoingPort : Json.Encode.Value -> Platform.Cmd.Cmd msg , incomingPort : (Json.Encode.Value -> Porter.Msg req res msg) -> Platform.Sub.Sub (Porter.Msg req res msg) , encodeRequest : req -> Json.Encode.Value , decodeResponse : Json.Decode.Decoder res }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Model",
+        "comment": " Porter model, used to keep track of response handlers.\n",
+        "args": [
+          "req",
+          "res",
+          "msg"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Msg",
+        "comment": " Module messages.\n",
+        "args": [
+          "req",
+          "res",
+          "msg"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Initialize model.\n",
+        "type": "Porter.Model req res msg"
+      },
+      {
+        "name": "send",
+        "comment": " Initiate a message send.\n",
+        "type": "(res -> msg) -> req -> Platform.Cmd.Cmd (Porter.Msg req res msg)"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Subscribe to messages from ports.\n",
+        "type": "Porter.Config req res msg -> Platform.Sub.Sub (Porter.Msg req res msg)"
+      },
+      {
+        "name": "update",
+        "comment": " Update port model based on local messages. Returns a new port model and a local command that must be mapped to the parent message.\n",
+        "type": "Porter.Config req res msg -> Porter.Msg req res msg -> Porter.Model req res msg -> ( Porter.Model req res msg, Platform.Cmd.Cmd msg )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
