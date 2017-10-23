@@ -554,6 +554,7 @@
         "name": "Gizra/elm-editable-webdata",
         "summary": "An EditableWebData represents an Editable value, along with WebData.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -828,6 +829,13 @@
         ]
     },
     {
+        "name": "Luftzig/elm-quadtree",
+        "summary": "QuadTree implementation in Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "M1chaelTran/elm-graphql",
         "summary": "elm-grapql",
         "versions": [
@@ -851,6 +859,7 @@
         "name": "MadonnaMat/elm-select-two",
         "summary": "A mimic of Select2 in Elm",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.2",
@@ -1607,6 +1616,14 @@
         ]
     },
     {
+        "name": "Xerpa/elm-graphql",
+        "summary": "Fork from ghivert/elm-graphql with RemoteData support",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Zinggi/elm-2d-game",
         "summary": "A 2D rendering engine based on WebGL",
         "versions": [
@@ -1793,6 +1810,8 @@
         "name": "adius/vectual",
         "summary": "Open source charting library",
         "versions": [
+            "2.0.0",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2379,6 +2398,7 @@
         "name": "basti1302/elm-non-empty-array",
         "summary": "An array that has at least one element.",
         "versions": [
+            "1.3.1",
             "1.3.0",
             "1.2.0",
             "1.1.1",
@@ -3164,6 +3184,7 @@
         "name": "cotterjd/elm-mdl",
         "summary": "debois/elm-mdl with the toggle drawer button removed",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -3179,6 +3200,14 @@
             "1.2.0",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "csicar/elm-mathui",
+        "summary": "display and edit math formulars",
+        "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -3201,6 +3230,7 @@
         "name": "cultureamp/elm-css-modules-loader",
         "summary": "Use Webpack-powered CSS Modules inside your Elm views",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.1.2",
             "1.1.1",
@@ -3558,6 +3588,7 @@
         "name": "dawehner/elm-colorbrewer",
         "summary": "Provides all colorbrewer colors in elm",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.0.1",
             "1.0.0"
@@ -5466,6 +5497,7 @@
         "name": "ghivert/elm-graphql",
         "summary": "GraphQL queries made easy in Elm!",
         "versions": [
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.0.1",
@@ -5941,6 +5973,8 @@
         "name": "jamesmacaulay/elm-graphql",
         "summary": "A GraphQL request builder and HTTP client",
         "versions": [
+            "1.6.1",
+            "1.6.0",
             "1.5.0",
             "1.4.0",
             "1.3.3",
@@ -6406,6 +6440,7 @@
         "name": "joonazan/elm-type-inference",
         "summary": "Type inference for Elm, written in Elm.",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -6500,6 +6535,8 @@
         "name": "justgage/tachyons-elm",
         "summary": "Tachyons CSS classnames for Elm",
         "versions": [
+            "3.0.0",
+            "2.1.1",
             "2.1.0",
             "2.0.0",
             "1.0.0"
@@ -6659,6 +6696,15 @@
         ]
     },
     {
+        "name": "kalutheo/elm-ui-explorer",
+        "summary": "A simple UI Explorer for ELM inspired by React-Storybook",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "karldray/elm-ref",
         "summary": "An experimental library for representing mutable values",
         "versions": [
@@ -6755,6 +6801,7 @@
         "name": "kirchner/form-validation",
         "summary": "create validatable forms",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -7446,6 +7493,14 @@
         ]
     },
     {
+        "name": "luftzig/elm-quadtree",
+        "summary": "QuadTree implementation in Elm",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "lukewestby/elm-http-builder",
         "summary": "Extra functions for more easily building HTTP requests",
         "versions": [
@@ -7869,6 +7924,7 @@
         "name": "mdgriffith/style-elements",
         "summary": "A different approach to creating and managing styles.",
         "versions": [
+            "4.2.0",
             "4.1.0",
             "4.0.0",
             "3.4.1",
@@ -8828,6 +8884,7 @@
         "name": "peterszerzo/elm-arborist",
         "summary": "Tree-editing interface for Elm",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -9199,6 +9256,7 @@
         "name": "rhofour/elm-pairing-heap",
         "summary": "A simple pairing heap implementation usable as a priority queue.",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -10275,8 +10333,17 @@
         "name": "stoeffel/editable",
         "summary": "Editable represents a value that can be read-only or editable.",
         "versions": [
+            "2.0.0",
             "1.2.0",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "stoeffel/resetable",
+        "summary": "A datastructure that allows you to reset its value to an original value.",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -10660,6 +10727,8 @@
         "name": "timjs/elm-collage",
         "summary": "Create interactive vector graphics and position them relative to each other",
         "versions": [
+            "1.5.0",
+            "1.4.0",
             "1.3.1",
             "1.3.0",
             "1.2.0",

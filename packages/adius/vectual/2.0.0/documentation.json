@@ -1,0 +1,330 @@
+[
+  {
+    "name": "Vectual",
+    "comment": " Contains methods that are relevant for all chart types\n@docs defaultBaseConfig\n@docs viewChart\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "defaultBaseConfig",
+        "comment": " ",
+        "type": "Vectual.Types.BaseConfigAnd {}"
+      },
+      {
+        "name": "viewChart",
+        "comment": " ",
+        "type": "Vectual.Types.Chart -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Vectual.BarChartStacked",
+    "comment": " This module creates an SVG element of a stacked bar chart.\n\n![Bar Chart Stacked](../images/barChartStacked.png)\n\n@docs viewBarChartStacked\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "viewBarChartStacked",
+        "comment": " Create SVG from bar chart config and several data sets.\n\n    svgElement =\n        viewBarChartStacked config dataSets\n\n",
+        "type": "Vectual.Types.BarChartConfig -> Vectual.Types.Datas -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Vectual.BarChart",
+    "comment": " This module creates a simple SVG bar chart.\n\n![Bar Chart](../images/barChart.png)\n\n@docs defaultBarChartConfig\n\n@docs viewBarChart\n\n@docs getBar\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "defaultBarChartConfig",
+        "comment": " The default configuration for the bar chart.\nCreate your own config by overwriting the fields you want to change.\n\n    barChart =\n        BarChart\n            { defaultBarChartConfig\n                | xLabelFormatter = utcWeek\n            }\n            timeData\n\n",
+        "type": "Vectual.Types.BarChartConfig"
+      },
+      {
+        "name": "getBar",
+        "comment": " Helper to get SVG element for a single bar.\n",
+        "type": "Vectual.Types.BarChartConfig -> Vectual.Types.Data -> Vectual.Types.MetaData -> Int -> Vectual.Types.Entry -> Svg.Svg msg"
+      },
+      {
+        "name": "viewBarChart",
+        "comment": " Create SVG from bar chart config and a data set.\n\n    svgElement =\n        viewBarChart config dataSet\n\n",
+        "type": "Vectual.Types.BarChartConfig -> Vectual.Types.Data -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Vectual.CoordinateSystem",
+    "comment": " Create ordinates, abscissas or a complete coordinate system.\n@docs getAbscissas\n@docs getCoordinateSystem\n@docs getOrdinates\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "getAbscissas",
+        "comment": " ",
+        "type": "Vectual.Types.BaseConfigAnd a -> Vectual.Types.Data -> Vectual.Types.MetaData -> List (Svg.Svg msg)"
+      },
+      {
+        "name": "getCoordinateSystem",
+        "comment": " ",
+        "type": "Vectual.Types.BaseConfigAnd a -> Vectual.Types.Data -> Vectual.Types.MetaData -> Svg.Svg msg"
+      },
+      {
+        "name": "getOrdinates",
+        "comment": " ",
+        "type": "Vectual.Types.BaseConfigAnd a -> Vectual.Types.Data -> Vectual.Types.MetaData -> List (Svg.Svg msg)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Vectual.Helpers",
+    "comment": " Helpers for normalizing / sanitizing data and easier SVG creation.\n\n@docs getDataLabels\n@docs getDataLength\n@docs getDataRecords\n@docs getDataValues\n@docs getMetaData\n@docs toRotate\n@docs toTranslate\n@docs utcDate\n@docs utcDateTime\n@docs utcWeek\n@docs wrapChart\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "getDataLabels",
+        "comment": " ",
+        "type": "Vectual.Types.BaseConfigAnd a -> Vectual.Types.Data -> List String"
+      },
+      {
+        "name": "getDataLength",
+        "comment": " ",
+        "type": "Vectual.Types.Data -> Int"
+      },
+      {
+        "name": "getDataRecords",
+        "comment": " ",
+        "type": "Vectual.Types.Data -> Vectual.Types.Entries"
+      },
+      {
+        "name": "getDataValues",
+        "comment": " ",
+        "type": "Vectual.Types.Data -> List Float"
+      },
+      {
+        "name": "getMetaData",
+        "comment": " ",
+        "type": "{ a | width : Int, height : Int, yStartAtZero : Bool } -> Vectual.Types.Data -> Vectual.Types.MetaData"
+      },
+      {
+        "name": "toRotate",
+        "comment": " ",
+        "type": "Int -> OpenSolid.Geometry.Types.Point2d -> String"
+      },
+      {
+        "name": "toTranslate",
+        "comment": " ",
+        "type": "OpenSolid.Geometry.Types.Vector2d -> String"
+      },
+      {
+        "name": "utcDate",
+        "comment": " ",
+        "type": "Date.Date -> String"
+      },
+      {
+        "name": "utcDateTime",
+        "comment": " ",
+        "type": "Date.Date -> String"
+      },
+      {
+        "name": "utcWeek",
+        "comment": " ",
+        "type": "Date.Date -> String"
+      },
+      {
+        "name": "wrapChart",
+        "comment": " ",
+        "type": "Vectual.Types.BaseConfigAnd a -> Svg.Svg msg -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Vectual.PieChart",
+    "comment": " This module creates a simple pie chart.\n\n@docs viewPieChart\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "viewPieChart",
+        "comment": " ",
+        "type": "Vectual.Types.PieChartConfig -> Vectual.Types.Data -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Vectual.Types",
+    "comment": " All types that are used in Vectual\n\n@docs Alignment\n@docs BarChartConfig\n@docs BaseConfigAnd\n@docs Chart\n@docs Data\n@docs Datas\n@docs Entries\n@docs Entry\n@docs Key\n@docs KeyRecord\n@docs MetaData\n@docs PieChartConfig\n@docs Radian\n@docs TimeRecord\n@docs Value\n\n",
+    "aliases": [
+      {
+        "name": "BarChartConfig",
+        "comment": " ",
+        "args": [],
+        "type": "Vectual.Types.BaseConfigAnd { labelAngle : Vectual.Types.Radian , yStartAtZero : Bool , alignBars : Vectual.Types.Alignment }"
+      },
+      {
+        "name": "BaseConfigAnd",
+        "comment": " ",
+        "args": [
+          "extraFields"
+        ],
+        "type": "{ extraFields | title : String, inline : Bool, width : Int, height : Int, borderRadius : ( Int, Int ), xLabelFormatter : Date.Date -> String }"
+      },
+      {
+        "name": "Datas",
+        "comment": " ",
+        "args": [],
+        "type": "List Vectual.Types.Data"
+      },
+      {
+        "name": "Entries",
+        "comment": " ",
+        "args": [],
+        "type": "List Vectual.Types.Entry"
+      },
+      {
+        "name": "Entry",
+        "comment": " ",
+        "args": [],
+        "type": "{ label : String, value : Float, offset : Float }"
+      },
+      {
+        "name": "Key",
+        "comment": " ",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "KeyRecord",
+        "comment": " ",
+        "args": [],
+        "type": "{ key : Vectual.Types.Key, value : Float, offset : Float }"
+      },
+      {
+        "name": "MetaData",
+        "comment": " ",
+        "args": [],
+        "type": "{ graphWidth : Int , graphHeight : Int , coordSysWidth : Int , coordSysHeight : Int , translation : OpenSolid.Geometry.Types.Vector2d , numberOfEntries : Int , yMinimum : Float , yMaximum : Float , yRange : Float }"
+      },
+      {
+        "name": "PieChartConfig",
+        "comment": " ",
+        "args": [],
+        "type": "Vectual.Types.BaseConfigAnd { radius : Int }"
+      },
+      {
+        "name": "Radian",
+        "comment": " ",
+        "args": [],
+        "type": "Float"
+      },
+      {
+        "name": "TimeRecord",
+        "comment": " ",
+        "args": [],
+        "type": "{ utc : Date.Date, value : Float, offset : Float }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Alignment",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Left",
+            []
+          ],
+          [
+            "Center",
+            []
+          ],
+          [
+            "Right",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Chart",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "PieChart",
+            [
+              "Vectual.Types.PieChartConfig",
+              "Vectual.Types.Data"
+            ]
+          ],
+          [
+            "BarChart",
+            [
+              "Vectual.Types.BarChartConfig",
+              "Vectual.Types.Data"
+            ]
+          ],
+          [
+            "BarChartStacked",
+            [
+              "Vectual.Types.BarChartConfig",
+              "Vectual.Types.Datas"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Data",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "TimeData",
+            [
+              "List Vectual.Types.TimeRecord"
+            ]
+          ],
+          [
+            "KeyData",
+            [
+              "List Vectual.Types.KeyRecord"
+            ]
+          ],
+          [
+            "Values",
+            [
+              "List Float"
+            ]
+          ],
+          [
+            "InvalidData",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Value",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Int",
+            []
+          ],
+          [
+            "Float",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
