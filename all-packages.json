@@ -6699,6 +6699,7 @@
         "name": "kalutheo/elm-ui-explorer",
         "summary": "A simple UI Explorer for ELM inspired by React-Storybook",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -8470,6 +8471,8 @@
         "name": "nonpop/elm-purl",
         "summary": "A tiny library for building parameterized URLs",
         "versions": [
+            "2.0.3",
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.0"
