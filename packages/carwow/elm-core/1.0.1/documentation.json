@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Core.Notifier",
+    "comment": " Displays latest notifications\n\n\n# Exported\n\n@docs subscriptions, view, Model, update, Msg, init, Flags\n\n",
+    "aliases": [
+      {
+        "name": "Flags",
+        "comment": " Placeholder\n",
+        "args": [],
+        "type": "{ notifierApiEndpoint : String }"
+      },
+      {
+        "name": "Model",
+        "comment": " Placeholder\n",
+        "args": [],
+        "type": "{ flags : Core.Notifier.Flags , notifications : RemoteData.WebData String , drawer : CarwowTheme.Drawer.Model }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Placeholder\n",
+        "args": [],
+        "cases": [
+          [
+            "NewNotification",
+            [
+              "String"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Placeholder\n",
+        "type": "Core.Notifier.Flags -> ( Core.Notifier.Model, Platform.Cmd.Cmd Core.Notifier.Msg )"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Placeholder\n",
+        "type": "Core.Notifier.Model -> Platform.Sub.Sub Core.Notifier.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " Placeholder\n",
+        "type": "Core.Notifier.Msg -> Core.Notifier.Model -> ( Core.Notifier.Model, Platform.Cmd.Cmd Core.Notifier.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Placeholder\n",
+        "type": "Core.Notifier.Model -> Html.Html Core.Notifier.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

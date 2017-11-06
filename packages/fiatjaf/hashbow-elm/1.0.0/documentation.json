@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Hashbow",
+    "comment": " Generate hexadecimal (usable as colors) hashes from arbitrary strings.\n\nThe hashes are not collision-resistant at all, but they are useful, for\nexample, if you have to generate a custom different color for each element\nof a collection of whatever you may have in your app.\n\n@docs hashbow, color, toHex\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "color",
+        "comment": " By default, `hashbow` uses the HSL colors scheme to generate the hashes,\nwith the hue provided by the string and saturation and lightness set to 0.5\neach. Here you can generate a Color with different saturation and lightness.\n\n    color 0.5 0.5 \"Bruce Willis\" == \"#bf408e\"\n\n`hashbow` is defined like this:\n\n    hashbow = color 0.5 0.5 >> toHex\n\n",
+        "type": "Float -> Float -> String -> Color.Color"
+      },
+      {
+        "name": "hashbow",
+        "comment": " The simplest method: takes any String and outputs a color in hex format.\n\n    hashbow \"Bruce Willis\" == \"#bf408e\"\n    hashbow \"Nicolas Cage\" == \"#40bf8c\"\n\n",
+        "type": "String -> String"
+      },
+      {
+        "name": "toHex",
+        "comment": " Takes a Color and turns it into a hex format. Just a helper for when you\nuse `color` instead of `hashbow`.\n\n    color 0.5 0.5 \"Bruce Willis\" |> toHex == \"#bf408e\"\n\n",
+        "type": "Color.Color -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

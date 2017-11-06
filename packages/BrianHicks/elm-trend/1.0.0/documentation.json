@@ -1,0 +1,49 @@
+[
+  {
+    "name": "Trend",
+    "comment": " Calculate trend lines given 2-dimensonal data.\n\n@docs linear, LinearFit\n\n\n## Using Fits\n\n@docs goodnessOfFit, predictY\n\n\n## Errors\n\n@docs Error\n\n",
+    "aliases": [
+      {
+        "name": "LinearFit",
+        "comment": " A line plotted through points. Get one by passing your data to\n[`linear`](#linear).\n\nMake predictions using this and [`predictY`](#predictY) and measure\naccuracy with [`goodnessOfFit`](#goodnessOfFit).\n\n",
+        "args": [],
+        "type": "{ slope : Float, intercept : Float }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Error",
+        "comment": " Indicate that something has gone wrong in the caculation of a\ntrend line. Specifically:\n\n  - `NotEnoughData`: there was not enough data to calculate a trend. The\n    number attached is the minimum number of points needed to\n    calculate.\n  - `ResultWasNaN`: this likely means you've tried to plot a point\n    through a bunch of zeroes, or a bunch of values that are very very\n    close to zero. If that's not the case, please open an issue.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "NotEnoughData",
+            []
+          ],
+          [
+            "ResultWasNaN",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "goodnessOfFit",
+        "comment": " How good is the fit that [`linear`](#linear) generated? We can\ngive you a confidence between 0 and 1 representing a percent\nconfidence. Practically, we'll usually return a value between almost 0\nand almost 1.\n\n    values : List (Float, Float)\n    values =\n        [ (1, 1), (2, 2), (3, 3), (4, 4) ]\n\n    linear values\n        |> Result.andThen (\\fit -> goodnessOfFit fit values)\n        --> Ok 1\n\nStatistically speaking, this is the R-squared value of the linear\nregression.\n\n",
+        "type": "Trend.LinearFit -> List ( Float, Float ) -> Result.Result Trend.Error Float"
+      },
+      {
+        "name": "linear",
+        "comment": " Plot a line through a series of points `(x, y)`.\n\n     linear [ (1, 1), (2, 2), (3, 3), (4, 4) ]\n         --> Ok { slope = 1, intercept = 0 }\n\nUse this in situations where the relationship between `x` and `y` is\nlinear and has as few outliers as possible. A relationship is linear\nif it can be described accurately as `y = x * slope + intercept`. The\neasiest way to determine this is to look at a plot of your values. If\nthey look roughly like a line, we're in business. But if your plot\nshows a curve or a random point cloud then don't trust the results of\nthis function applied to them.\n\nExamples of data which fit these criteria:\n\n  - relationship of some value to time. For example, are bananas\n    getting cheaper or more expensive as time goes on?\n  - relationships where doing something more or less leads to doing\n    something else more or less. For example, does smoking more\n    decrease your life expectancy?\n\nStatistically speaking, this is a least-squares regression.\n\n",
+        "type": "List ( Float, Float ) -> Result.Result Trend.Error Trend.LinearFit"
+      },
+      {
+        "name": "predictY",
+        "comment": " Predict a value of `y` from a [`LinearFit`](#LinearFit) calculated\nwith [`linear`](#linear) and a value of `x`.\n\n    linear [ (1, 1), (2, 2), (3, 3), (4, 4) ]\n        |> Result.map (\\fit -> predictY fit 5)\n        --> Ok 5\n\n",
+        "type": "Trend.LinearFit -> Float -> Float"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

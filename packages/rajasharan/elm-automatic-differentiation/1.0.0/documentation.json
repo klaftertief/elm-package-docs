@@ -1,0 +1,97 @@
+[
+  {
+    "name": "AD.Reverse",
+    "comment": " This library calculates the paritial derivatives of a multi-variable function\nusing the method of automatic differentiation in reverse mode. The result is returned\nas a dictionary of keys and their corresponding derivative values (a.k.a the gradient vector).\n\n# Definition\n@docs Node\n\n# Common helpers for building the computation graph\n@docs sqr, exp, sin, cos, pow, add, mul\n\n# Infix operators\n@docs (|+|), (|.|), (|*|), (|^|)\n\n# Automatic differentiation\n@docs autodiff\n\n# Misc.\n@docs nodeValue\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Node",
+        "comment": " Represent values as a Node in the computation graph. Build up the function\nby combining various Variable and Const with the help of helper functions below.\n\n    a = Variable \"x\" 3.2\n    b = Variable \"y\" 4.7\n    c = a |*| (b |+| (Const 1))\n",
+        "args": [],
+        "cases": [
+          [
+            "Variable",
+            [
+              "String",
+              "Float"
+            ]
+          ],
+          [
+            "Const",
+            [
+              "Float"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "add",
+        "comment": " Add two node computations\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node -> AD.Reverse.Node"
+      },
+      {
+        "name": "autodiff",
+        "comment": " The `autodiff` function calculates the derivatives of all Variables in a computation.\nReturns a dictionary of keys and their corresponding derivative values.\n\n    a = Variable \"x\" 3\n    b = a |^| (Const 2)\n    autodiff b == Dict.fromList [(\"x\", 6)]\n",
+        "type": "AD.Reverse.Node -> Dict.Dict String Float"
+      },
+      {
+        "name": "cos",
+        "comment": " cos of a node's computation\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node"
+      },
+      {
+        "name": "exp",
+        "comment": " exponent of a node's computation\n\n    a = Variable \"x\" 3.2\n    b = exp a\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node"
+      },
+      {
+        "name": "mul",
+        "comment": " Multiply two node computations\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node -> AD.Reverse.Node"
+      },
+      {
+        "name": "nodeValue",
+        "comment": " Helper method to retrieve the node value\n",
+        "type": "AD.Reverse.Node -> Float"
+      },
+      {
+        "name": "pow",
+        "comment": " pow of a node's computation. The second arg has to be a constant.\nFor e.g. to calculate `(x^3)`\n\n    a = Variable \"x\" 4\n    b = pow a (Const 3)\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node -> AD.Reverse.Node"
+      },
+      {
+        "name": "sin",
+        "comment": " sin of a node's computation\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node"
+      },
+      {
+        "name": "sqr",
+        "comment": " square a node's computation\n\n    a = Variable \"x\" 3.2\n    b = sqr a\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node"
+      },
+      {
+        "name": "|*|",
+        "comment": " Infix operator for `mul`\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node -> AD.Reverse.Node"
+      },
+      {
+        "name": "|+|",
+        "comment": " Infix operator for `add`\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node -> AD.Reverse.Node"
+      },
+      {
+        "name": "|.|",
+        "comment": " Infix operator for `mul`\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node -> AD.Reverse.Node"
+      },
+      {
+        "name": "|^|",
+        "comment": " Infix operator for `pow`\n",
+        "type": "AD.Reverse.Node -> AD.Reverse.Node -> AD.Reverse.Node"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

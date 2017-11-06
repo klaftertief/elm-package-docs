@@ -1,0 +1,70 @@
+[
+  {
+    "name": "OpenSolid.Mesh",
+    "comment": " This module provides functions for working with indexed triangular meshes.\nYou can:\n\n  - Construct meshes from vertices and face indices\n  - Extract vertices, faces and edges in various ways\n  - Combine multiple meshes into a single mesh\n\nNote that the `Array` type used by this package is the one from [`Array.Hamt`](http://package.elm-lang.org/packages/Skinney/elm-array-exploration/latest/Array-Hamt),\nnot Elm's built-in `Array` type.\n\n@docs Mesh\n\n\n# Constants\n\n@docs empty\n\n\n# Constructors\n\n@docs with, combine\n\n\n# Properties\n\n@docs vertices, vertex, faceIndices, faces, edgeIndices, edges\n\n\n# Transformations\n\n@docs mapVertices\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Mesh",
+        "comment": " A `Mesh` is a simple form of [face-vertex mesh](https://en.wikipedia.org/wiki/Polygon_mesh#Face-vertex_meshes)\ndefined by an array of vertices and a list of face indices. Each set of face\nindices consists of a tuple of three integer vertex indices.\n\nThe vertices themselves can be any type you want, so you can use this for 2D or\n3D meshes with any point type, store additional data such as normal vectors or\ntexture coordinates, etc.\n\n",
+        "args": [
+          "vertex"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "combine",
+        "comment": " Combine a list of meshes into a single mesh. This concatenates the vertex\narrays of each mesh and adjusts face indices to refer to the combined vertex\narray.\n",
+        "type": "List (OpenSolid.Mesh.Mesh a) -> OpenSolid.Mesh.Mesh a"
+      },
+      {
+        "name": "edgeIndices",
+        "comment": " Get all of the edges of the mesh as pairs of vertex indices. Each edge will\nonly be returned once, with the lower-index vertex listed first, and will be\nreturned in sorted order.\n\n    Mesh.edgeIndices square\n    --> [ ( 0, 1 )\n    --> , ( 0, 2 )\n    --> , ( 0, 3 )\n    --> , ( 1, 2 )\n    --> , ( 2, 3 )\n    --> ]\n\n",
+        "type": "OpenSolid.Mesh.Mesh vertex -> Set.Set ( Int, Int )"
+      },
+      {
+        "name": "edges",
+        "comment": " Get all of the edges of the mesh as pairs of vertices. Each edge will only\nbe returned once, with the lower-index vertex listed first, and will be returned\nin sorted order.\n\n    Mesh.edges square\n    --> [ ( a, b )\n    --> , ( a, c )\n    --> , ( a, d )\n    --> , ( b, c )\n    --> , ( c, d )\n    --> ]\n\n",
+        "type": "OpenSolid.Mesh.Mesh vertex -> List ( vertex, vertex )"
+      },
+      {
+        "name": "empty",
+        "comment": " A mesh with no vertices or faces.\n",
+        "type": "OpenSolid.Mesh.Mesh vertex"
+      },
+      {
+        "name": "faceIndices",
+        "comment": " Get the face indices of a mesh.\n\n    Mesh.faceIndices square\n    --> [ ( 0, 1, 2 ), ( 0, 2, 3 ) ]\n\n",
+        "type": "OpenSolid.Mesh.Mesh vertex -> List ( Int, Int, Int )"
+      },
+      {
+        "name": "faces",
+        "comment": " Get the faces of the mesh (by indexing into the array of vertices).\n\n    Mesh.faces square\n    --> [ ( a, b, c ), ( a, c, d ) ]\n\n",
+        "type": "OpenSolid.Mesh.Mesh vertex -> List ( vertex, vertex, vertex )"
+      },
+      {
+        "name": "mapVertices",
+        "comment": " Transform a mesh by applying the given function to each of its vertices. For\nexample, to rotate a mesh of [`Point2d`](http://package.elm-lang.org/packages/opensolid/geometry/latest/OpenSolid-Point2d)\nvertices:\n\n    translatedMesh =\n        mesh\n            |> Mesh.mapVertices\n                (Point2d.rotateAround centerPoint angle)\n\n",
+        "type": "(a -> b) -> OpenSolid.Mesh.Mesh a -> OpenSolid.Mesh.Mesh b"
+      },
+      {
+        "name": "vertex",
+        "comment": " Get a particular vertex of a mesh by index. If the index is out of range,\nreturns `Nothing`.\n\n    Mesh.vertex 1 square\n    --> Just b\n\n    Mesh.vertex 4 square\n    --> Nothing\n\n",
+        "type": "Int -> OpenSolid.Mesh.Mesh vertex -> Maybe.Maybe vertex"
+      },
+      {
+        "name": "vertices",
+        "comment": " Get the vertices of a mesh.\n\n    Mesh.vertices square\n    --> Array.fromList [ a, b, c, d ]\n\n",
+        "type": "OpenSolid.Mesh.Mesh vertex -> Array.Hamt.Array vertex"
+      },
+      {
+        "name": "with",
+        "comment": " Construct a mesh directly from an array of vertices and list of face\nindices. For example, to construct a square where `a` is the lower left\ncorner, `b` is the lower right corner, `c` is the upper right corner\nand `d` is the upper left corner:\n\n![Square mesh](https://opensolid.github.io/images/mesh/1.0/square.svg)\n\n    square =\n        Mesh.with\n            { vertices = Array.fromList [ a, b, c, d ]\n            , faceIndices = [ ( 0, 1, 2 ), ( 0, 2, 3 ) ]\n            }\n\n",
+        "type": "{ vertices : Array.Hamt.Array vertex , faceIndices : List ( Int, Int, Int ) } -> OpenSolid.Mesh.Mesh vertex"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

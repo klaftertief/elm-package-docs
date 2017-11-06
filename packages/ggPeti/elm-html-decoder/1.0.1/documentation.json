@@ -1,0 +1,179 @@
+[
+  {
+    "name": "Html.Decoder",
+    "comment": " NOTE: This is a port of the original package by TheSeamau5 from 0.15 to 0.18.\nElm has, in the meantime, made it a requirement to document all exposed values and types.\nI do not have the time to do that right now, therefore the filler comments.\nOriginal documentation below.\nList of Decoders made to capture DOM events. The types match their\nequivalent DOM interfaces.\n\n\n# Mouse Events\n\n@docs MouseEvent, mouseEvent\n\n\n# Wheel Events\n\n@docs WheelEvent, wheelEvent, dom_delta_pixel, dom_delta_line, dom_delta_page\n\n\n# Keyboard Events\n\n@docs KeyboardEvent, keyboardEvent, dom_key_location_standard, dom_key_location_left, dom_key_location_right, dom_key_location_right, dom_key_location_numpad\n\n\n# Composition Events\n\n@docs CompositionEvent, compositionEvent\n\n\n# Gamepad Events\n\n@docs GamepadEvent, gamepadEvent, Gamepad, gamepad, GamepadButton, gamepadButton\n\n\n# Animation Events\n\n@docs AnimationEvent, animationEvent\n\n\n# Device Motion / Orientation Events\n\n@docs DeviceMotionEvent, deviceMotionEvent, DeviceOrientationEvent, deviceOrientationEvent, DeviceAcceleration, deviceAcceleration, DeviceRotationRate, deviceRotationRate\n\n",
+    "aliases": [
+      {
+        "name": "AnimationEvent",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ animationName : String , elapsedTime : Float , pseudoElement : String }"
+      },
+      {
+        "name": "CompositionEvent",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ data : String }"
+      },
+      {
+        "name": "DeviceAcceleration",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ x : Float, y : Float, z : Float }"
+      },
+      {
+        "name": "DeviceMotionEvent",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ acceleration : Html.Decoder.DeviceAcceleration , accelerationIncludingGravity : Html.Decoder.DeviceAcceleration , rotationRate : Html.Decoder.DeviceRotationRate , interval : Float }"
+      },
+      {
+        "name": "DeviceOrientationEvent",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ alpha : Float, beta : Float, gamma : Float, absolute : Bool }"
+      },
+      {
+        "name": "DeviceRotationRate",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ alpha : Float, beta : Float, gamma : Float }"
+      },
+      {
+        "name": "Gamepad",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ id : String , index : Int , connected : Bool , timestamp : Float , mapping : String , axes : List Float , buttons : List Html.Decoder.GamepadButton }"
+      },
+      {
+        "name": "GamepadButton",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ pressed : Bool, value : Float }"
+      },
+      {
+        "name": "GamepadEvent",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ gamepad : Html.Decoder.Gamepad }"
+      },
+      {
+        "name": "KeyboardEvent",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ key : String , code : String , location : Int , ctrlKey : Bool , shiftKey : Bool , altKey : Bool , metaKey : Bool , repeat : Bool , isComposing : Bool }"
+      },
+      {
+        "name": "MouseEvent",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ screenX : Int , screenY : Int , clientX : Int , clientY : Int , ctrlKey : Bool , shiftKey : Bool , altKey : Bool , metaKey : Bool , button : Int }"
+      },
+      {
+        "name": "WheelEvent",
+        "comment": " TODO: doc\n",
+        "args": [],
+        "type": "{ screenX : Int , screenY : Int , clientX : Int , clientY : Int , ctrlKey : Bool , shiftKey : Bool , altKey : Bool , metaKey : Bool , button : Int , deltaX : Float , deltaY : Float , deltaZ : Float , deltaMode : Int }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "animationEvent",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.AnimationEvent"
+      },
+      {
+        "name": "compositionEvent",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.CompositionEvent"
+      },
+      {
+        "name": "deviceAcceleration",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.DeviceAcceleration"
+      },
+      {
+        "name": "deviceMotionEvent",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.DeviceMotionEvent"
+      },
+      {
+        "name": "deviceOrientationEvent",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.DeviceOrientationEvent"
+      },
+      {
+        "name": "deviceRotationRate",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.DeviceRotationRate"
+      },
+      {
+        "name": "dom_delta_line",
+        "comment": " TODO: doc\n",
+        "type": "Int"
+      },
+      {
+        "name": "dom_delta_page",
+        "comment": " TODO: doc\n",
+        "type": "Int"
+      },
+      {
+        "name": "dom_delta_pixel",
+        "comment": " TODO: doc\n",
+        "type": "Int"
+      },
+      {
+        "name": "dom_key_location_left",
+        "comment": " TODO: doc\n",
+        "type": "Int"
+      },
+      {
+        "name": "dom_key_location_numpad",
+        "comment": " TODO: doc\n",
+        "type": "Int"
+      },
+      {
+        "name": "dom_key_location_right",
+        "comment": " TODO: doc\n",
+        "type": "Int"
+      },
+      {
+        "name": "dom_key_location_standard",
+        "comment": " TODO: doc\n",
+        "type": "Int"
+      },
+      {
+        "name": "gamepad",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.Gamepad"
+      },
+      {
+        "name": "gamepadButton",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.GamepadButton"
+      },
+      {
+        "name": "gamepadEvent",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.GamepadEvent"
+      },
+      {
+        "name": "keyboardEvent",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.KeyboardEvent"
+      },
+      {
+        "name": "mouseEvent",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.MouseEvent"
+      },
+      {
+        "name": "wheelEvent",
+        "comment": " TODO: doc\n",
+        "type": "Json.Decode.Decoder Html.Decoder.WheelEvent"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

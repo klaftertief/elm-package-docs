@@ -1,0 +1,129 @@
+[
+  {
+    "name": "Json.Encode.Exploration",
+    "comment": " Retain some structural information while encoding to JSON.\n\nExamples assume the following imports:\n\n    import Json.Encode\n\n\n# Building blocks\n\n@docs Value, Encoded, Seq, Obj, toValue\n\n\n# Primitives\n\n@docs string, int, float, null, value, force, maybe\n\n\n# Sequences\n\n@docs list, listOf, emptySeq, cons, concatSeq\n\n\n# Objects\n\n@docs object, objectOf, emptyObj, addField, concatObj\n\n",
+    "aliases": [
+      {
+        "name": "Value",
+        "comment": " For readability, an alias for `Json.Encode.Value` which is also aliased as\n`Json.Decode.Value`\n",
+        "args": [],
+        "type": "Json.Encode.Value"
+      }
+    ],
+    "types": [
+      {
+        "name": "Encoded",
+        "comment": " Something which has been encoded. The type parameter `t` can realistically\nbe one of three things:\n\n  - `Value` which represents opaque encoded values. This included primitives or\n    any other value that was made opaque using `force` or `value`.\n  - `Seq` which represents a sequence of things. I.e. a `List` or a JS array.\n  - `Obj` which represents an object made up of key-value pairs.\n\n",
+        "args": [
+          "t"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Obj",
+        "comment": " An opaque object of key-value pairs.\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Seq",
+        "comment": " An opaque sequence of things.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "addField",
+        "comment": " Add a single field to an encoded object.\n\n    objectOf string [ ( \"hello\", \"world\" ) ]\n        |> addField \"foo\" (string \"bar\")\n    --> object\n        [ ( \"foo\", string \"bar\" )\n        , ( \"hello\", string \"world\" )\n        ]\n\n",
+        "type": "String -> Json.Encode.Exploration.Encoded a -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Obj -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Obj"
+      },
+      {
+        "name": "concatObj",
+        "comment": " Concatenates two objects. Order doesn't really matter, but is preserved.\n\n    left : Encoded Obj\n    left =\n        objectOf string [ ( \"hello\", \"world\" ) ]\n\n    right : Encoded Obj\n    right =\n        objectOf int [ ( \"foo\", 5 ) ]\n\n    left |> concatObj right\n    --> object\n        [ ( \"hello\", string \"world\" )\n        , ( \"foo\", int 5 )\n        ]\n\n",
+        "type": "Json.Encode.Exploration.Encoded Json.Encode.Exploration.Obj -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Obj -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Obj"
+      },
+      {
+        "name": "concatSeq",
+        "comment": " Concatenate two sequences.\n\n    left : Encoded Seq\n    left =\n        listOf string [ \"a\", \"b\", \"c\" ]\n\n    right : Encoded Seq\n    right =\n        listOf int [ 1, 2, 3 ]\n\n    left |> concatSeq right\n    --> list\n        [ string \"a\"\n        , string \"b\"\n        , string \"c\"\n        , int 1\n        , int 2\n        , int 3\n        ]\n\n",
+        "type": "Json.Encode.Exploration.Encoded Json.Encode.Exploration.Seq -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Seq -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Seq"
+      },
+      {
+        "name": "cons",
+        "comment": " Prepend a single value to a sequence.\n\n    listOf string [ \"a\", \"b\" ]\n        |> cons (int 0)\n        |> cons null\n    --> list\n        [ null\n        , int 0\n        , string \"a\"\n        , string \"b\"\n        ]\n\n",
+        "type": "Json.Encode.Exploration.Encoded a -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Seq -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Seq"
+      },
+      {
+        "name": "emptyObj",
+        "comment": " Create an empty JSON object, so you can add things to it as you see fit\n\n    emptyObj\n    --> object []\n\n\n    emptyObj\n        |> addField \"hello\" (string \"world\")\n    --> object [ ( \"hello\", string \"world\" ) ]\n\n",
+        "type": "Json.Encode.Exploration.Encoded Json.Encode.Exploration.Obj"
+      },
+      {
+        "name": "emptySeq",
+        "comment": " An empty sequence. Useful for consing thing onto.\n\n    emptySeq\n    --> list []\n\n    cons (string \"hello\") <| cons (int 5) emptySeq\n    --> list [ string \"hello\", int 5 ]\n\n",
+        "type": "Json.Encode.Exploration.Encoded Json.Encode.Exploration.Seq"
+      },
+      {
+        "name": "float",
+        "comment": " The equivalent of `Json.Encode.float`\n\n    toValue <| float 4.5\n    --> Json.Encode.float 4.5\n\n",
+        "type": "Float -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Value"
+      },
+      {
+        "name": "force",
+        "comment": " Force any `Encoded x` into an `Encoded Value`\n\n    listOf string [ \"hello\", \"world\" ] -- Encoded Seq\n        |> force -- Encoded Value\n        |> toValue -- Value\n    --> Json.Encode.list\n        [ Json.Encode.string \"hello\", Json.Encode.string \"world\" ]\n\n",
+        "type": "Json.Encode.Exploration.Encoded a -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Value"
+      },
+      {
+        "name": "int",
+        "comment": " The equivalent of `Json.Encode.int`\n\n    toValue <| int 5\n    --> Json.Encode.int 5\n\n",
+        "type": "Int -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Value"
+      },
+      {
+        "name": "list",
+        "comment": " Combine a `List` of encoded values into a single `Seq`uence.\n\nNote that making a sequence involving both `Encoded Value` and `Encoded Seq`\nwill involve \"downcasting\" the `Encoded Seq` to an `Encoded Value` using `force`.\n\n    toValue <| list [ string \"hello\", string \"world\" ]\n    --> Json.Encode.list\n        [ Json.Encode.string \"hello\", Json.Encode.string \"world\" ]\n\n\n    toValue <| list [ string \"hello\", null, int 5 ]\n    --> Json.Encode.list\n        [ Json.Encode.string \"hello\", Json.Encode.null, Json.Encode.int 5 ]\n\n\n    toValue <| list [ force emptySeq, force emptyObj, null ]\n    --> Json.Encode.list\n        [ Json.Encode.list []\n        , Json.Encode.object []\n        , Json.Encode.null\n        ]\n\n",
+        "type": "List (Json.Encode.Exploration.Encoded a) -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Seq"
+      },
+      {
+        "name": "listOf",
+        "comment": " An even more constrained way of creating a sequence, yet often useful.\n\n    toValue <| listOf string [ \"hello\", \"world\" ]\n    --> Json.Encode.list\n        [ Json.Encode.string \"hello\", Json.Encode.string \"world\" ]\n\n\n    toValue <| listOf (always null) [ 1, 2, 3 ]\n    --> Json.Encode.list\n        [ Json.Encode.null, Json.Encode.null, Json.Encode.null ]\n\n\n    listOf identity [ null ]\n    --> list [ null ]\n\n",
+        "type": "(a -> Json.Encode.Exploration.Encoded b) -> List a -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Seq"
+      },
+      {
+        "name": "maybe",
+        "comment": " The type of thing having a `force` is useful for.\n\n    maybe string Nothing\n    --> null\n\n    maybe string (Just \"foo\")\n    --> string \"foo\"\n\n",
+        "type": "(a -> Json.Encode.Exploration.Encoded b) -> Maybe.Maybe a -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Value"
+      },
+      {
+        "name": "null",
+        "comment": " The equivalent of `Json.Encode.null`\n\n    toValue null\n    --> Json.Encode.null\n\n",
+        "type": "Json.Encode.Exploration.Encoded Json.Encode.Exploration.Value"
+      },
+      {
+        "name": "object",
+        "comment": " Like `sequence` creates an `Encoded Seq`, this creates an `Encoded Obj`.\n\n    toValue <| object [ ( \"hello\", string \"world\" ), ( \"nope\", null ) ]\n    --> Json.Encode.object\n        [ ( \"hello\", Json.Encode.string \"world\" )\n        , ( \"nope\", Json.Encode.null )\n        ]\n\n",
+        "type": "List ( String, Json.Encode.Exploration.Encoded a ) -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Obj"
+      },
+      {
+        "name": "objectOf",
+        "comment": " Create an object from a list of key-value pairs where the values all happen\nto be the same type.\n\nSince this results in an `Encoded Obj`, you can still add information of a\ndifferent type afterwards.\n\n    objectOf string [ ( \"foo\", \"bar\" ), ( \"hello\", \"world\" ) ]\n    --> object [ ( \"foo\", string \"bar\" ), ( \"hello\", string \"world\" ) ]\n\n",
+        "type": "(a -> Json.Encode.Exploration.Encoded b) -> List ( String, a ) -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Obj"
+      },
+      {
+        "name": "string",
+        "comment": " The equivalent of `Json.Encode.string`\n\n    toValue <| string \"hello\"\n    --> Json.Encode.string \"hello\"\n\n",
+        "type": "String -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Value"
+      },
+      {
+        "name": "toValue",
+        "comment": " Wrap up encoding to turn an `Encoded` thing into a `Value`.\n",
+        "type": "Json.Encode.Exploration.Encoded a -> Json.Encode.Exploration.Value"
+      },
+      {
+        "name": "value",
+        "comment": " Wrap a value in `Encoded`.\n\n    Json.Encode.string \"hello world\"\n        |> value\n        |> toValue\n    --> Json.Encode.string \"hello world\"\n\n",
+        "type": "Json.Encode.Exploration.Value -> Json.Encode.Exploration.Encoded Json.Encode.Exploration.Value"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

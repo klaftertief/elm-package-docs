@@ -1,0 +1,25 @@
+[
+  {
+    "name": "MaybePipeline",
+    "comment": " Extra helpers providing pipeline functionality for Maybe types.\n\n@docs (?>), (??>)\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "?>",
+        "comment": " Insted of Maybe.map f ma use ma ?> f.\n",
+        "type": "Maybe.Maybe a -> (a -> b) -> Maybe.Maybe b",
+        "associativity": "left",
+        "precedence": 0
+      },
+      {
+        "name": "??>",
+        "comment": " Insted of Maybe.andThen ma f use ma ??> f.\n",
+        "type": "Maybe.Maybe a -> (a -> Maybe.Maybe b) -> Maybe.Maybe b",
+        "associativity": "left",
+        "precedence": 0
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

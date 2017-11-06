@@ -1,0 +1,489 @@
+[
+  {
+    "name": "Nri.Colors.Deprecated",
+    "comment": "\n\n\n## Deprecated Colors\n\nColors listed below are in the process of being killed or renamed.\n@docs linkBlueSuperLight\n@docs orangeLighter\n\nRenamed colors. Use the new name\n@docs coral, coralLighter, coralLightest, redLightest\n@docs black, gray, grayDark, grayDarker, grayLighter, grayLightest\n@docs greenLighter\n@docs highlightSolidBlue, highlightSolidMagenta, highlightSolidYellow\n@docs blueDark, blueDark5, blueDark70, blueLighter, linkBlue, linkBlueDark, linkBlueLight, linkBlueMed\n@docs orangeDark\n@docs purpleLighter, purpleLightest\n@docs turquoiseLighter, turquoiseLightest\n@docs yellowDark, yellowLight\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "black",
+        "comment": " black is now gray20\n\n<p style=\"font-size:2em; color: #333333\">#333333</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "blueDark",
+        "comment": " blueDark is now navy\n\n<p style=\"font-size:2em; color: #0e5595\">#0e5595</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "blueDark5",
+        "comment": " blueDark5 is now frost\n\n<p style=\"font-size:2em; color: #eef9ff; background-color: black;\">#eef9ff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "blueDark70",
+        "comment": " blueDark70 is now navy\n\n<p style=\"font-size:2em; color: #0e5595\">#0e5595</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "blueLighter",
+        "comment": "\n\n<p style=\"font-size:2em; color: #eef9ff; background-color: black;\">#eef9ff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "coral",
+        "comment": " coral is now red\n\n<p style=\"font-size:2em; color: #F3336c\">#F3336c</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "coralLighter",
+        "comment": " coralLighter is now redLight\n\n<p style=\"font-size:2em; color: #ffe0e6; background-color: black;\">#ffe0e6</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "coralLightest",
+        "comment": " coralLightest is now redLight\n\n<p style=\"font-size:2em; color: #ffe0e6; background-color: black;\">#ffe0e6</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "gray",
+        "comment": " gray is now gray75\n\n<p style=\"font-size:2em; color: #bfbfbf; background-color: black;\">#bfbfbf</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "grayDark",
+        "comment": " grayDark is now gray45\n\n<p style=\"font-size:2em; color: #727272\">#727272</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "grayDarker",
+        "comment": " grayDarker is now gray45\n\n<p style=\"font-size:2em; color: #727272\">#727272</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "grayLighter",
+        "comment": " grayLighter is now gray92\n\n<p style=\"font-size:2em; color: #EBEBEB; background-color: black;\">#EBEBEB</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "grayLightest",
+        "comment": " grayLightest is now gray96\n\n<p style=\"font-size:2em; color: #f5f5f5; background-color: black;\">#f5f5f5</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "greenLighter",
+        "comment": " greenLighter is now greenLight\n\n<p style=\"font-size:2em; color: #b3ffc9; background-color: black;\">#b3ffc9</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "highlightSolidBlue",
+        "comment": " highlightSolidBlue is now cyan\n\n<p style=\"font-size:2em; color: #43dcff\">#43dcff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "highlightSolidMagenta",
+        "comment": " highlightSolidMagenta is now magenta\n\n<p style=\"font-size:2em; color: #ff00bd\">#ff00bd</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "highlightSolidYellow",
+        "comment": " highlightSolidYellow is now yellow\n\n<p style=\"font-size:2em; color: #fec70a\">#fec70a</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "linkBlue",
+        "comment": " linkBlue is now azure\n\nmain link and button color\n\n<p style=\"font-size:2em; color: #146aff\">#146aff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "linkBlueDark",
+        "comment": " linkBlueDark is now azureDark\n\n<p style=\"font-size:2em; color: #004cc9\">#004cc9</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "linkBlueLight",
+        "comment": " linkBlueLight is now blueLighter\n\ninput accent color, link and button color against dark backgrounds where main color does not have enough contrast\n\n<p style=\"font-size:2em; color: #E4EFF5; background-color: black;\">#E4EFF5</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "linkBlueMed",
+        "comment": " linkBlueMed is now glacier\n\nsecondary color for cycling dots\n\n<p style=\"font-size:2em; color: #d4f0ff; background-color: black;\">#d4f0ff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "linkBlueSuperLight",
+        "comment": " linkBlueSuperLight is in use in some animations currently, but isn't in the\ncurrent style guide.\n\n<p style=\"font-size:2em; color: #CBE4F5; background-color: black;\">#CBE4F5</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "orangeDark",
+        "comment": " orangeDark is now ochre\n\n<p style=\"font-size:2em; color: #e68800\">#e68800</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "orangeLighter",
+        "comment": " orangeLighter is not in the style guide, nor in the code base\n\n<p style=\"font-size:2em; color: #F9C97B; background-color: black;\">#F9C97B</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "purpleLighter",
+        "comment": " purpleLighter is now purpleLight\n\n<p style=\"font-size:2em; color: #f7ebff; background-color: black;\">#f7ebff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "purpleLightest",
+        "comment": " purpleLightest is now purpleLight\n\n<p style=\"font-size:2em; color: #f7ebff; background-color: black;\">#f7ebff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "redLightest",
+        "comment": " redLightest is now redLight\n\n<p style=\"font-size:2em; color: #ffe0e6\">#ffe0e6</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "turquoiseLighter",
+        "comment": " turquoiseLighter is now turquoiseLight\n\n<p style=\"font-size:2em; color: #e0fffe; background-color: black;\">#e0fffe</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "turquoiseLightest",
+        "comment": " turquoiseLightest is now turquoiseLight\n\n<p style=\"font-size:2em; color: #e0fffe; background-color: black;\">#e0fffe</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "yellowDark",
+        "comment": " yellowDark is now yellow\n\n<p style=\"font-size:2em; color: #FEC709; background-color: black;\">#FEC709</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "yellowLight",
+        "comment": " yellowLight is now sunshine\n\n<p style=\"font-size:2em; color: #fffadc; background-color: black;\">#fffadc</p>\n\n",
+        "type": "Css.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri.Colors",
+    "comment": " Helper module for working with colors.\n\n**NOTE:** Rather than adding functions to convert css colors into their string\nrepresentation, consider converting css colors to core colors and then using\n[elm-color-extra](http://package.elm-lang.org/packages/eskimoblood/elm-color-extra/5.0.0/)\nto convert to string.\n\n@docs aqua, aquaDark, aquaLight, azure, azureDark\n@docs white\n@docs blue, blueDeep\n@docs cornflower, cornflowerDark, cornflowerLight, cyan\n@docs frost\n@docs gray20, gray45, gray75, gray92, gray96\n@docs glacier, grassland, green, greenDark, greenDarkest, greenLight, greenLightest\n@docs highlightLightBlue, highlightLightMagenta, highlightLightYellow\n@docs lichen\n@docs magenta\n@docs navy\n@docs orange, ochre\n@docs purple, purpleDark, purpleLight\n@docs red, redDark, redLight\n@docs sunshine\n@docs turquoise, turquoiseDark, turquoiseLight\n@docs yellow\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "aqua",
+        "comment": "\n\n<p style=\"font-size:2em; color: #00cbeb\">#00cbeb</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "aquaDark",
+        "comment": "\n\n<p style=\"font-size:2em; color: #008da3\">#008da3</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "aquaLight",
+        "comment": "\n\n<p style=\"font-size:2em; color: #e6fcff\">#e6fcff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "azure",
+        "comment": "\n\n<p style=\"font-size:2em; color: #146aff\">#146aff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "azureDark",
+        "comment": "\n\n<p style=\"font-size:2em; color: #004cc9\">#004cc9</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "blue",
+        "comment": " TODO\n\n<p style=\"font-size:2em; color: #40a8e4\">#40a8e4</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "blueDeep",
+        "comment": " TODO\n\n<p style=\"font-size:2em; color: #4a79a7\">#4a79a7</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "cornflower",
+        "comment": "\n\n<p style=\"font-size:2em; color: #00aaff\">#00aaff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "cornflowerDark",
+        "comment": "\n\n<p style=\"font-size:2em; color: #0074ad\">#0074ad</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "cornflowerLight",
+        "comment": "\n\n<p style=\"font-size:2em; color: #e6f7ff\">#e6f7ff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "cyan",
+        "comment": "\n\n<p style=\"font-size:2em; color: #43dcff\">#43dcff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "frost",
+        "comment": "\n\n<p style=\"font-size:2em; color: #eef9ff\">#eef9ff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "glacier",
+        "comment": "\n\n<p style=\"font-size:2em; color: #d4f0ff\">#d4f0ff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "grassland",
+        "comment": "\n\n<p style=\"font-size:2em; color: #56bf74\">#56bf74</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "gray20",
+        "comment": "\n\n<p style=\"font-size:2em; color: #333333\">#333333</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "gray45",
+        "comment": "\n\n<p style=\"font-size:2em; color: #727272\">#727272</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "gray75",
+        "comment": "\n\n<p style=\"font-size:2em; color: #bfbfbf\">#bfbfbf</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "gray92",
+        "comment": "\n\n<p style=\"font-size:2em; color: #ebebeb\">#ebebeb</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "gray96",
+        "comment": "\n\n<p style=\"font-size:2em; color: #f5f5f5\">#f5f5f5</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "green",
+        "comment": "\n\n<p style=\"font-size:2em; color: #00d93e\">#00d93e</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "greenDark",
+        "comment": "\n\n<p style=\"font-size:2em; color: #26a300\">#26a300</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "greenDarkest",
+        "comment": "\n\n<p style=\"font-size:2em; color: #228000\">#228000</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "greenLight",
+        "comment": "\n\n<p style=\"font-size:2em; color: #b3ffc9\">#b3ffc9</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "greenLightest",
+        "comment": "\n\n<p style=\"font-size:2em; color: #e6ffed; background-color: black;\">#e6ffed</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "highlightLightBlue",
+        "comment": " cyan with alpha of 0.75\n\n<p style=\"font-size:2em; color: rgba(66, 219, 255, 0.75)\">rgba(66, 219, 255, 0.75)</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "highlightLightMagenta",
+        "comment": " magenta with alpha of 0.5\n\n<p style=\"font-size:2em; color: rgba(255, 0 ,189, 0.5)\">rgba(255, 0 ,189, 0.5)</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "highlightLightYellow",
+        "comment": " yellow with alpha of 0.75\n\n<p style=\"font-size:2em; color: rgba(254, 199 ,9, 0.75)\">rgba(254, 199 ,9, 0.75)</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "lichen",
+        "comment": "\n\n<p style=\"font-size:2em; color: #99bfa4\">#99bfa4</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "magenta",
+        "comment": "\n\n<p style=\"font-size:2em; color: #ff00bd\">#ff00bd</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "navy",
+        "comment": "\n\n<p style=\"font-size:2em; color: #004e95\">#004e95</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "ochre",
+        "comment": "\n\n<p style=\"font-size:2em; color: #e68800\">#e68800</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "orange",
+        "comment": " -- TODO\n\n<p style=\"font-size:2em; color: #f5a623\">#f5a623</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "purple",
+        "comment": "\n\n<p style=\"font-size:2em; color: #a839e7\">#a839e7</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "purpleDark",
+        "comment": "\n\n<p style=\"font-size:2em; color: #7721a7\">#7721a7</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "purpleLight",
+        "comment": "\n\n<p style=\"font-size:2em; color: #f7ebff\">#f7ebff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "red",
+        "comment": "\n\n<p style=\"font-size:2em; color: #f3336c\">#f3336c</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "redDark",
+        "comment": "\n\n<p style=\"font-size:2em; color: #c2003a\">#c2003a</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "redLight",
+        "comment": "\n\n<p style=\"font-size:2em; color: #ffe0e6\">#ffe0e6</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "sunshine",
+        "comment": "\n\n<p style=\"font-size:2em; color: #fffadc\">#fffadc</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "turquoise",
+        "comment": "\n\n<p style=\"font-size:2em; color: #00cfbe\">#00cfbe</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "turquoiseDark",
+        "comment": "\n\n<p style=\"font-size:2em; color: #00a39b\">#00a39b</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "turquoiseLight",
+        "comment": "\n\n<p style=\"font-size:2em; color: #e0fffe\">#e0fffe</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "white",
+        "comment": "\n\n<p style=\"font-size:2em; color: #ffffff; background-color: black;\">#ffffff</p>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "yellow",
+        "comment": "\n\n<p style=\"font-size:2em; color: #fec709\">#fec709</p>\n\n",
+        "type": "Css.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri.Stylers",
+    "comment": " Helper module for working with fonts\n\n@docs makeFont\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "makeFont",
+        "comment": "\ntakes a size and a color and creates a font\n",
+        "type": "Css.FontSize a -> Css.ColorValue b -> Css.Style"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri.Css.Extra",
+    "comment": " Put helper functions, styles, and anything else that might be missing from elm-css. If it gets used enough and the use case is in the scope of elm-css, we can open PRs/Issues to discuss or add the features to that package.\n\n@docs lineHeightNum\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "lineHeightNum",
+        "comment": " Use a Css.Num value for line height\n",
+        "type": "Float -> Css.Style"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri.Colors.Extra",
+    "comment": " Helpers for working with colors. Put color definitions in Nri.Colors itself.\n\n\n# Conversions\n\n@docs toCoreColor, withAlpha\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "toCoreColor",
+        "comment": " Convert a Css.Color into a Color.Color\n\n    toCoreColor (Css.hex \"#FFFFFF\") -- \"RGBA 255 255 255 1 : Color.Color\"\n\n",
+        "type": "Css.Color -> Color.Color"
+      },
+      {
+        "name": "withAlpha",
+        "comment": " Add an alpha property to a Css.Color\n\n    grassland -- \"{ value = \"#56bf74\", color = Compatible, red = 86, green = 191, blue = 116, alpha = 1, warnings = [] } : Css.Color\"\n    withAlpha 0.5 grassland -- \"{ value = \"rgba(86, 191, 116, 0.5)\", color = Compatible, warnings = [], red = 86, green = 191, blue = 116, alpha = 0.5 } : Css.Color\"\n\n",
+        "type": "Float -> Css.Color -> Css.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri",
+    "comment": " A collection of helpers for working with NoRedInk projects\n@docs name\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "name",
+        "comment": " NoRedInk's name!\n",
+        "type": "String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri.Fonts",
+    "comment": " Fonts for NoRedInk projects\n\n@docs baseFont, quizFont\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "baseFont",
+        "comment": " Font for instructions, headers, and pretty much everything else\n",
+        "type": "Css.Style"
+      },
+      {
+        "name": "quizFont",
+        "comment": " Font for question sentences, or most interactable or graded fields\n",
+        "type": "Css.Style"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri.Accessibility",
+    "comment": " Helper module for functions that make it easier to write accessible code.\nRole, aria, label-related helpers, color-fallbacks, etc.\n\n@docs invisibleText\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "invisibleText",
+        "comment": " invisibleText is most frequently useful on labels.\n\nFor instance, if there's an input element with a placeholder,\nsomeone on a screenreader would miss the content of that placeholder.\n\nWith invisibleText, we can avoid redundancy across visible label\nand placeholder, but maintain semantic meaning of the input for other users.\n\n",
+        "type": "Css.Style"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

@@ -1,0 +1,220 @@
+[
+  {
+    "name": "Arborist",
+    "comment": " Drag-and-drop interface to edit, dissect and-rearrange tree structures with arbitrary data sitting in their nodes. Structured as a TEA component defining its own init, update and view, `elm-arborist` allows you to easily initialize a tree editor, keep its state in an opaque model, and access the [edited result at any time](#tree).\n\n\n# Module setup\n\n@docs Model, Msg, init, initWith, update, NodeView, view, subscriptions\n\n\n# Configuration\n\n@docs applySettings, resize\n\n\n# Tree getters and modifiers\n\n@docs tree, activeNode, setActiveNode, deleteActiveNode\n\n",
+    "aliases": [
+      {
+        "name": "Msg",
+        "comment": " Message type annotation for the program. When wiring up the editor within a larger program, you will define a `ArboristMsg Arborist.Msg` message type, one that will trigger this package's [update](#update) function.\n",
+        "args": [],
+        "type": "Messages.Msg"
+      },
+      {
+        "name": "NodeView",
+        "comment": " View function for an individual node, depending on its [context](Context), and its value. This value is expressed as a maybe because the node may contain an `insert new node`-type placeholder.\n",
+        "args": [
+          "node"
+        ],
+        "type": "Arborist.Context.Context node -> Maybe.Maybe node -> Html.Html Arborist.Msg"
+      }
+    ],
+    "types": [
+      {
+        "name": "Model",
+        "comment": " Opaque type for the editor's model, dependent on a node type variable. You can only use this for type annotation - to initialize a new model, see [init](#init).\n",
+        "args": [
+          "node"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "activeNode",
+        "comment": " Returns the current active node as a tuple of `Maybe node` (as the node maybe a placeholder for a new node), as well as its coordinates in the editor's container. Use these coordinates to position an active node-related pop-up (see example).\n",
+        "type": "Arborist.Model node -> Maybe.Maybe ( Maybe.Maybe node, ( Float, Float ) )"
+      },
+      {
+        "name": "applySettings",
+        "comment": " Apply a new list of settings to the model.\n",
+        "type": "List Data.Settings.Setting -> Arborist.Model node -> Arborist.Model node"
+      },
+      {
+        "name": "deleteActiveNode",
+        "comment": " Delete the active node from a tree, including all of its children. If a placeholder is active, this method does nothing.\n",
+        "type": "Arborist.Model node -> Arborist.Model node"
+      },
+      {
+        "name": "init",
+        "comment": " Initialize model from a [tree](Tree).\n",
+        "type": "Arborist.Tree.Tree node -> Arborist.Model node"
+      },
+      {
+        "name": "initWith",
+        "comment": " Initialize model from a [tree](Tree), using a list of [settings](Settings).\n",
+        "type": "List Data.Settings.Setting -> Arborist.Tree.Tree node -> Arborist.Model node"
+      },
+      {
+        "name": "resize",
+        "comment": " Resize the canvas by passing a new width and a new height. Note that you can reproduce this using [applySettings](#applySettings) as follows:\n\n    resize 600 400 arborist == applySettings [ Settings.canvasWidth 600, Settings.canvasHeight 400 ] arborist\n\n",
+        "type": "Int -> Int -> Arborist.Model node -> Arborist.Model node"
+      },
+      {
+        "name": "setActiveNode",
+        "comment": " Sets a new node at the active position. This may be adding a completely new node from scratch (in case the current node is a placeholder), or modifying an existing one. Typically, the modification is based off an original value provided by the [activeNode](#activeNode) method.\n",
+        "type": "node -> Arborist.Model node -> Arborist.Model node"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Subscriptions responsible for obtaining animation frames used to smoothly center an activated tree node. Using these subscriptions is completely optional - if they aren't wired up in your app, the editor will simply jump to the activated node without an animation. We recommend adding these subscriptions as you familiarize yourself with the package, as it is a significant user experience improvement.\n",
+        "type": "Arborist.Model node -> Platform.Sub.Sub Arborist.Msg"
+      },
+      {
+        "name": "tree",
+        "comment": " Access the current state of the tree through this getter (returns structure defined in the `Arborist.Tree` module). The result reflects all changes since it was [initialized](#init).\n",
+        "type": "Arborist.Model node -> Arborist.Tree.Tree node"
+      },
+      {
+        "name": "update",
+        "comment": " Update function handling changes in the model.\n",
+        "type": "Arborist.Msg -> Arborist.Model node -> Arborist.Model node"
+      },
+      {
+        "name": "view",
+        "comment": " The editor's view function, taking the following arguments:\n\n  - [NodeView](#NodeView): view function for an individual node.\n  - a list of html attributes for the container element.\n  - the editor's [model](#Model).\n\n",
+        "type": "Arborist.NodeView node -> List (Html.Attribute Arborist.Msg) -> Arborist.Model node -> Html.Html Arborist.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Arborist.Settings",
+    "comment": " Various settings for the editor, defined at the time of [initialization](Arborist#initWith), or [added](Arborist#applySettings) at any time later in the program. Includes various geometric settings such as canvas dimensions and the gutter between nodes, and, in a later version of this package, more functional settings such as hiding placeholder nodes.\n\n@docs nodeWidth, nodeHeight, canvasWidth, canvasHeight, level, gutter, centerOffset\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "canvasHeight",
+        "comment": " Sets the height of the canvas.\n",
+        "type": "Int -> Data.Settings.Setting"
+      },
+      {
+        "name": "canvasWidth",
+        "comment": " Sets the width of the canvas.\n",
+        "type": "Int -> Data.Settings.Setting"
+      },
+      {
+        "name": "centerOffset",
+        "comment": " When a node is activated, the interface centers it automatically. Sometimes, though, it is useful to move it somewhere other than the center, e.g. to accommodate a large pop-up underneath. With this configuration option, you can specify this offset, horizontal first, vertical second.\n",
+        "type": "Int -> Int -> Data.Settings.Setting"
+      },
+      {
+        "name": "gutter",
+        "comment": " Horizontal gutter between nodes.\n",
+        "type": "Int -> Data.Settings.Setting"
+      },
+      {
+        "name": "level",
+        "comment": " Vertical distance between the bottom of a parent node and the top of its child.\n",
+        "type": "Int -> Data.Settings.Setting"
+      },
+      {
+        "name": "nodeHeight",
+        "comment": " Sets the width of node.\n",
+        "type": "Int -> Data.Settings.Setting"
+      },
+      {
+        "name": "nodeWidth",
+        "comment": " Sets the width of node.\n",
+        "type": "Int -> Data.Settings.Setting"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Arborist.Context",
+    "comment": " This module defines the node view context, an object passed to the [NodeView](#NodeView) function responsible for rendering individual nodes within a tree's layout. It holds information such as the node's parent, siblings, hover state etc.\n\nEffective tree editors need to give the users feedback on whether the node they're about to create is valid, or if it creates conflicts with its surrounding nodes based on your domain's rules. Imagine modeling a conversation as a tree structure, where a set of sibling nodes answer a question represented in the common parent. Would you allow two nodes representing the answer 'no'? By having access to the context when defining how nodes should look, you can render these error messages flexibly to the user.\n\nThe best part: at no point will you have to think about traversing a recursive tree structure. Just work with a simple summary record handed down to you in context.\n\n@docs Context, NodeState\n\n",
+    "aliases": [
+      {
+        "name": "Context",
+        "comment": " View context. Contains the following fields:\n\n  - `parent`: the item at the parent, not available for the root node\n  - `siblings`: a list of all direct siblings\n  - `children`: a list of all direct children\n  - `state`: node [state](#NodeState)\n\n",
+        "args": [
+          "item"
+        ],
+        "type": "{ parent : Maybe.Maybe item , siblings : List item , children : List item , state : Arborist.Context.NodeState }"
+      }
+    ],
+    "types": [
+      {
+        "name": "NodeState",
+        "comment": " The state of a node at a given time. May be normal one of the following:\n\n  - `Normal`: node in rest state\n  - `Hovered`: a hovered over node\n  - `Active`: an activated node. Overrides hover\n  - `DropTarget`: indicates that a swap or insert of the dragged subtree will take place at this node upon release\n\n",
+        "args": [],
+        "cases": [
+          [
+            "Normal",
+            []
+          ],
+          [
+            "Active",
+            []
+          ],
+          [
+            "Hovered",
+            []
+          ],
+          [
+            "DropTarget",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Arborist.Tree",
+    "comment": " A tiny tiny tree module. Only a few utility methods are provided here - after all, if you want to manupilate the tree, you should probably do so using the interface 🤓.\n\n\n# Type\n\n@docs Tree\n\n\n# Json\n\n@docs decoder\n\n\n# Methods\n\n@docs depth, map\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Tree",
+        "comment": " Recursive tree structure, holding any data type `node`, and any number of child nodes. Creating a tree of strings, for instance, would look like this:\n\n    Tree.Node \"Parent\" [ Tree.Node \"Child1\" [], Tree.Node \"Child2\" [] ]\n\n",
+        "args": [
+          "node"
+        ],
+        "cases": [
+          [
+            "Empty",
+            []
+          ],
+          [
+            "Node",
+            [
+              "node",
+              "List (Arborist.Tree.Tree node)"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "decoder",
+        "comment": " Tree decoder as a function of the node's decoder. Assumes a `value` and `children` fields, holding the current node contents and an array of children, respectively.\n",
+        "type": "Json.Decode.Decoder node -> Json.Decode.Decoder (Arborist.Tree.Tree node)"
+      },
+      {
+        "name": "depth",
+        "comment": " Tree depth.\n",
+        "type": "Arborist.Tree.Tree node -> Int"
+      },
+      {
+        "name": "map",
+        "comment": " Map over the nodes of the tree.\n",
+        "type": "(a -> b) -> Arborist.Tree.Tree a -> Arborist.Tree.Tree b"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

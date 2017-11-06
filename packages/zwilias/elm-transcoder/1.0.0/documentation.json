@@ -1,0 +1,106 @@
+[
+  {
+    "name": "Transcode",
+    "comment": " Allow transcoding from one data-structure to another in a style similar to\nthat used in `elm-json-pipeline`.\n\n\n# Basics\n\n@docs Transcoder, run, transcodeTo\n\n\n# Supplying values\n\n@docs supply, supplyMaybe, supplyResult, hardcoded, fail, succeed\n\n\n# Combining and chaining\n\n@docs map, andMap, andThen, map2, map3, map4, map5, map6, map7\n\n",
+    "aliases": [
+      {
+        "name": "Transcoder",
+        "comment": " A transcoder is really just a function `a -> Result String b`. The point is\nto make it easy to pass this around in its unevaluated form and reason about it\nas if it were a thing on its own, much like a JSON decoder.\n\nIn fact, one can think of a JSON `Decoder a` as a `Transcoder Value a`,\nsomething I've [implemented]() with fancy Errors.\n\n[implemented]: http://package.elm-lang.org/packages/zwilias/json-decode-exploration/3.0.0/Json-Decode-Exploration#Decoder\n\n",
+        "args": [
+          "a",
+          "b"
+        ],
+        "type": "a -> Result.Result String b"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "andMap",
+        "comment": " The building block for `supply` and coincidentially an alias for\n`supplyResult` (or, technically, the other way around).\n",
+        "type": "Transcode.Transcoder i a -> Transcode.Transcoder i (a -> b) -> Transcode.Transcoder i b"
+      },
+      {
+        "name": "andThen",
+        "comment": " Allow chaining a transcoder that depends on the value produced by the\npreceding transcoder.\n",
+        "type": "(a -> Transcode.Transcoder i b) -> Transcode.Transcoder i a -> Transcode.Transcoder i b"
+      },
+      {
+        "name": "fail",
+        "comment": " Create a transcoder that always fails with a given string.\n",
+        "type": "String -> Transcode.Transcoder i a"
+      },
+      {
+        "name": "hardcoded",
+        "comment": " Insert a hardcoded value in the transcoder. This allows adding hardcoded\ninformation in the transcoded result that was not available in the input.\n",
+        "type": "a -> Transcode.Transcoder i (a -> b) -> Transcode.Transcoder i b"
+      },
+      {
+        "name": "map",
+        "comment": " Tansform the resulting value of a transcoder. This allows doing things like\nwrapping a record in a union type.\n",
+        "type": "(a -> b) -> Transcode.Transcoder i a -> Transcode.Transcoder i b"
+      },
+      {
+        "name": "map2",
+        "comment": " Combine the results of 2 transcoders using a function, ending up with\ntranscoder for the combined result.\n\n    map2 (,) (succeed \"a\") (succeed \"b\")\n        |> flip run ()\n    --> Ok ( \"a\", \"b\" )\n\n",
+        "type": "(a -> b -> c) -> Transcode.Transcoder i a -> Transcode.Transcoder i b -> Transcode.Transcoder i c"
+      },
+      {
+        "name": "map3",
+        "comment": " Combine 3 transcoders.\n",
+        "type": "(a -> b -> c -> d) -> Transcode.Transcoder i a -> Transcode.Transcoder i b -> Transcode.Transcoder i c -> Transcode.Transcoder i d"
+      },
+      {
+        "name": "map4",
+        "comment": " Combine 4 transcoders.\n",
+        "type": "(a -> b -> c -> d -> e) -> Transcode.Transcoder i a -> Transcode.Transcoder i b -> Transcode.Transcoder i c -> Transcode.Transcoder i d -> Transcode.Transcoder i e"
+      },
+      {
+        "name": "map5",
+        "comment": " Combine 5 transcoders.\n",
+        "type": "(a -> b -> c -> d -> e -> f) -> Transcode.Transcoder i a -> Transcode.Transcoder i b -> Transcode.Transcoder i c -> Transcode.Transcoder i d -> Transcode.Transcoder i e -> Transcode.Transcoder i f"
+      },
+      {
+        "name": "map6",
+        "comment": " Combine 6 transcoders.\n",
+        "type": "(a -> b -> c -> d -> e -> f -> g) -> Transcode.Transcoder i a -> Transcode.Transcoder i b -> Transcode.Transcoder i c -> Transcode.Transcoder i d -> Transcode.Transcoder i e -> Transcode.Transcoder i f -> Transcode.Transcoder i g"
+      },
+      {
+        "name": "map7",
+        "comment": " Combine 7 transcoders.\n\nTo combine more, use the convenient, pipeline friendly `supply`, `supplyResult`,\n`supplyMaybe` and `hardcoded` functions.\n\n",
+        "type": "(a -> b -> c -> d -> e -> f -> g -> h) -> Transcode.Transcoder i a -> Transcode.Transcoder i b -> Transcode.Transcoder i c -> Transcode.Transcoder i d -> Transcode.Transcoder i e -> Transcode.Transcoder i f -> Transcode.Transcoder i g -> Transcode.Transcoder i h"
+      },
+      {
+        "name": "run",
+        "comment": " Actually `run` a transcoder. Since a transcoder really just _is_ a function,\nits definition is just `identity`.\n\n    type alias Person = { name : String, age : String }\n    type alias ProperPerson = { name : String, age : Int }\n\n\n    toProperPerson : Transcoder { name : String, age : String } { name : String, age : Int }\n    toProperPerson =\n        transcodeTo (\\name age -> { name = name, age = age })\n            |> supply .name\n            |> supplyResult (String.toInt << .age)\n\n\n    { name = \"Alice\", age = \"22\" }\n        |> run toProperPerson\n    --> Ok { name = \"Alice\", age = 22 }\n\n",
+        "type": "Transcode.Transcoder a b -> a -> Result.Result String b"
+      },
+      {
+        "name": "succeed",
+        "comment": " An alias for `transcodeTo`, useful when dealing with `mapN` or `andMap`.\n\nLifts any value into a transcoder that always succeeds with that value.\n\n",
+        "type": "a -> Transcode.Transcoder i a"
+      },
+      {
+        "name": "supply",
+        "comment": " Insert a \"data extraction function\" in the transcoder.\n\nFor example, when going from `{ r | name : String }` to `{ r | uppercasedName : String }`\nyou could use `... |> supply (String.toUpper << .name)`.\n\nWhen dealing with a `Maybe`, this can be used to provide a default value:\n`... |> supply (Maybe.withDefault \"fallback\" << .name)`\n\n",
+        "type": "(i -> a) -> Transcode.Transcoder i (a -> b) -> Transcode.Transcoder i b"
+      },
+      {
+        "name": "supplyMaybe",
+        "comment": " Insert a function producing a `Maybe` into the transcoder, with an error\nmessage to use when the produced value is `Nothing`. If you don't want to unwrap\nthe `Maybe`, simply use `supply` instead.\n",
+        "type": "(i -> Maybe.Maybe a) -> String -> Transcode.Transcoder i (a -> b) -> Transcode.Transcoder i b"
+      },
+      {
+        "name": "supplyResult",
+        "comment": " Insert the a function producing a `Result` (i.e. a transcoder) into the\npipeline.\n",
+        "type": "Transcode.Transcoder i a -> Transcode.Transcoder i (a -> b) -> Transcode.Transcoder i b"
+      },
+      {
+        "name": "transcodeTo",
+        "comment": " Start a transcoding pipeine. This is a convenient alias for `succeed`.\n",
+        "type": "b -> Transcode.Transcoder a b"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

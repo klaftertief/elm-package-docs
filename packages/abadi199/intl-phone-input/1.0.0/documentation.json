@@ -1,0 +1,190 @@
+[
+  {
+    "name": "IntlPhoneInput",
+    "comment": " Phone number input with built in international dial code selector.\n\n\n# View\n\n@docs input, customInput\n\n\n# Internal\n\n@docs State, initialState\n\n",
+    "aliases": [
+      {
+        "name": "State",
+        "comment": " Internal state of the Intl Phone Input element.\n",
+        "args": [],
+        "type": "IntlPhoneInput.Internal.State"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "customInput",
+        "comment": " Render the Intl Phone Input element as part of your `view` function with some custom attributes to the phone number field.\n\n    type alias model =\n        { phoneNumberstate : IntlPhoneInput.State\n        , phoneNumber : IntlPhoneInput.Type.PhoneNumber\n        }\n\n    type Msg\n        = PhoneNumberChanged IntlPhoneInput.State PhoneNumber (Cmd Msg)\n\n    view : Model -> Html Msg\n    view model =\n        IntlPhoneInput.input\n            [ Html.Attributes.class \"MyPhoneInput\" ]\n            (IntlPhoneInput.Config.defaultConfig PhoneNumberChanged)\n            model.phoneNumberstate\n            model.phoneNumber\n\n",
+        "type": "List (Html.Attribute msg) -> IntlPhoneInput.Config.Config msg -> IntlPhoneInput.State -> IntlPhoneInput.Type.PhoneNumber -> Html.Html msg"
+      },
+      {
+        "name": "initialState",
+        "comment": " The initial state of the Intl Phone Input element\n",
+        "type": "IntlPhoneInput.State"
+      },
+      {
+        "name": "input",
+        "comment": " Render the Intl Phone Input element as part of your `view` function.\n\n    type alias model =\n        { phoneNumberstate : IntlPhoneInput.State\n        , phoneNumber : IntlPhoneInput.Type.PhoneNumber\n        }\n\n    type Msg\n        = PhoneNumberChanged IntlPhoneInput.State PhoneNumber (Cmd Msg)\n\n    view : Model -> Html Msg\n    view model =\n        IntlPhoneInput.input\n            (IntlPhoneInput.Config.defaultConfig PhoneNumberChanged)\n            model.phoneNumberstate\n            model.phoneNumber\n\n",
+        "type": "IntlPhoneInput.Config.Config msg -> IntlPhoneInput.State -> IntlPhoneInput.Type.PhoneNumber -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "IntlPhoneInput.Css",
+    "comment": " Contains all CSS related code for IntlPhoneInput.\n\n@docs Class, css\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Class",
+        "comment": " CSS Classes used in IntlPhoneInput. You can use this classes in your application's elm-css module to override some style.\n",
+        "args": [],
+        "cases": [
+          [
+            "IntlPhoneInput",
+            []
+          ],
+          [
+            "CountryPicker",
+            []
+          ],
+          [
+            "PhoneInput",
+            []
+          ],
+          [
+            "Flag",
+            []
+          ],
+          [
+            "FlagIso",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Arrow",
+            []
+          ],
+          [
+            "CountryDropdown",
+            []
+          ],
+          [
+            "CountryDropdownHidden",
+            []
+          ],
+          [
+            "CountryListScroll",
+            []
+          ],
+          [
+            "CountryList",
+            []
+          ],
+          [
+            "CountryListItem",
+            []
+          ],
+          [
+            "Country",
+            []
+          ],
+          [
+            "CountryName",
+            []
+          ],
+          [
+            "Highlighted",
+            []
+          ],
+          [
+            "SearchInput",
+            []
+          ],
+          [
+            "Placeholder",
+            []
+          ],
+          [
+            "DialCode",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "css",
+        "comment": " Generate the CSS code for IntlPhoneInput by passing the namespace. Include this function to compile the css alongside your application's css.\n\n    Css.compile\n        [ IntlPhoneInput.Css.css \"MyApplicationNamespace\"\n        , YourApplication.Css.css \"MyApplicationNamespace\"\n        ]\n\n",
+        "type": "String -> Css.Stylesheet"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "IntlPhoneInput.Config",
+    "comment": " Contains types and helper functions for working with configuration of IntlPhoneInput\n\n\n# Config\n\n@docs Config, defaultConfig, configWithId, configWithSeed\n\n\n# Helper Functions\n\n@docs getPhoneNumberInputId\n\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " This record type holds all configuration of IntlPhoneInput.\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ hash : String , onChange : IntlPhoneInput.Internal.State -> IntlPhoneInput.Type.PhoneNumber -> Platform.Cmd.Cmd msg -> msg , namespace : String , countries : Dict.Dict String IntlPhoneInput.Type.CountryData , countriesSorter : List ( String, IntlPhoneInput.Type.CountryData ) -> List ( String, IntlPhoneInput.Type.CountryData ) , dialCodeFormatter : String -> String }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "configWithId",
+        "comment": " Create the `Config` using a unique `id` value. This is an alternative to `configWithSeed` if you already have a unique id for your `IntlPhoneInput`.\nThis is usually useful when generating dynamic forms from database, where you can use the Id from the database table as the 'unique' Id.\n\n    type Msg\n        = PhoneUpdated State PhoneNumber (Cmd Msg)\n\n    config =\n        baseConfig =\n            configWithId \"219\" PhoneUpdated\n\n",
+        "type": "String -> (IntlPhoneInput.Internal.State -> IntlPhoneInput.Type.PhoneNumber -> Platform.Cmd.Cmd msg -> msg) -> IntlPhoneInput.Config.Config msg"
+      },
+      {
+        "name": "configWithSeed",
+        "comment": " Create the `Config` with a custom seed value. The seed is used to generate the hash value to generate 'unique' `Id` for some elements inside the `IntlPhoneInput`.\n\n    type Msg\n        = PhoneUpdated State PhoneNumber (Cmd Msg)\n\n    config =\n        baseConfig =\n            configWithSeed 3876193 PhoneUpdated\n\n",
+        "type": "Int -> (IntlPhoneInput.Internal.State -> IntlPhoneInput.Type.PhoneNumber -> Platform.Cmd.Cmd msg -> msg) -> IntlPhoneInput.Config.Config msg"
+      },
+      {
+        "name": "defaultConfig",
+        "comment": " Create the `Config` for your `intlPhoneInput` view function using the default configuration. You just need to specify your `Msg` to the function.\n\nIf you need to customize the `Config`, just use the record update to override the fields you want to change, e.g.:\n\n    type Msg\n        = PhoneUpdated State PhoneNumber (Cmd Msg)\n\n    let\n        baseConfig =\n            defaultConfig PhoneUpdated\n    in\n    { baseConfig | dialCodeFormatter = \\dialCode -> \"(+\" ++ dialCode ++ \")\" }\n\n",
+        "type": "(IntlPhoneInput.Internal.State -> IntlPhoneInput.Type.PhoneNumber -> Platform.Cmd.Cmd msg -> msg) -> IntlPhoneInput.Config.Config msg"
+      },
+      {
+        "name": "getPhoneNumberInputId",
+        "comment": " Helper function to get the `DOM id` of the phone number `<input>` element.\n",
+        "type": "IntlPhoneInput.Config.Config msg -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "IntlPhoneInput.Type",
+    "comment": " Contains all the data types used in IntlPhoneInput\n\n\n# Types\n\n@docs PhoneNumber, CountryData\n\n\n# Helpers\n\n@docs emptyPhoneNumber\n\n",
+    "aliases": [
+      {
+        "name": "CountryData",
+        "comment": " Record type to hold country name and the dial code number.\nThis record is used by `Config` to hold the list of countries and their dial code.\n",
+        "args": [],
+        "type": "{ name : String, dialCode : String }"
+      },
+      {
+        "name": "PhoneNumber",
+        "comment": " Record type to hold the phone number and country ISO code\n",
+        "args": [],
+        "type": "{ isoCode : String, phoneNumber : String }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "emptyPhoneNumber",
+        "comment": " A constant for an empty phone number.\n",
+        "type": "IntlPhoneInput.Type.PhoneNumber"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

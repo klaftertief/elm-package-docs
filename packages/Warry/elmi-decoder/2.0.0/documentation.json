@@ -1,0 +1,235 @@
+[
+  {
+    "name": "Elmi.Interface",
+    "comment": "\n\n# Parse\n\n@docs parseInterface\n\n# Types\n\n@docs Interface, Version, PackageName, Imports, Types, Unions, Aliases, UnionInfo, CanonicalVar, CanonicalModuleName, Exports, Export, Canonical, AliasedCanonical, Home,  Infixes,  Infix, Assoc\n\n",
+    "aliases": [
+      {
+        "name": "Aliases",
+        "comment": " ",
+        "args": [],
+        "type": "List ( String, ( List String, Elmi.Interface.Canonical ) )"
+      },
+      {
+        "name": "CanonicalModuleName",
+        "comment": " ",
+        "args": [],
+        "type": "{ pkg : Elmi.Interface.PackageName, modul : List String }"
+      },
+      {
+        "name": "CanonicalVar",
+        "comment": " ",
+        "args": [],
+        "type": "{ home : Elmi.Interface.Home, name : String }"
+      },
+      {
+        "name": "Exports",
+        "comment": " ",
+        "args": [],
+        "type": "List Elmi.Interface.Export"
+      },
+      {
+        "name": "Imports",
+        "comment": " ",
+        "args": [],
+        "type": "List (List String)"
+      },
+      {
+        "name": "Infix",
+        "comment": " ",
+        "args": [],
+        "type": "{ op : String , associativity : Elmi.Interface.Assoc , precedence : Int }"
+      },
+      {
+        "name": "Infixes",
+        "comment": " ",
+        "args": [],
+        "type": "List Elmi.Interface.Infix"
+      },
+      {
+        "name": "Interface",
+        "comment": " ",
+        "args": [],
+        "type": "{ version : Elmi.Interface.Version , pkg : Elmi.Interface.PackageName , exports : Elmi.Interface.Exports , imports : Elmi.Interface.Imports , types : Elmi.Interface.Types , unions : Elmi.Interface.Unions , aliases : Elmi.Interface.Aliases , fixities : Elmi.Interface.Infixes }"
+      },
+      {
+        "name": "PackageName",
+        "comment": " ",
+        "args": [],
+        "type": "{ user : String, project : String }"
+      },
+      {
+        "name": "Types",
+        "comment": " ",
+        "args": [],
+        "type": "List ( String, Elmi.Interface.Canonical )"
+      },
+      {
+        "name": "UnionInfo",
+        "comment": " ",
+        "args": [],
+        "type": "( List String, List ( String, List Elmi.Interface.Canonical ) )"
+      },
+      {
+        "name": "Unions",
+        "comment": " ",
+        "args": [],
+        "type": "List ( String, Elmi.Interface.UnionInfo )"
+      },
+      {
+        "name": "Version",
+        "comment": " ",
+        "args": [],
+        "type": "{ major : Int, minor : Int, patch : Int }"
+      }
+    ],
+    "types": [
+      {
+        "name": "AliasedCanonical",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Holley",
+            [
+              "Elmi.Interface.Canonical"
+            ]
+          ],
+          [
+            "Filled",
+            [
+              "Elmi.Interface.Canonical"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Assoc",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "L",
+            []
+          ],
+          [
+            "N",
+            []
+          ],
+          [
+            "R",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Canonical",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Lambda",
+            [
+              "Elmi.Interface.Canonical",
+              "Elmi.Interface.Canonical"
+            ]
+          ],
+          [
+            "Var",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Type",
+            [
+              "Elmi.Interface.CanonicalVar"
+            ]
+          ],
+          [
+            "App",
+            [
+              "Elmi.Interface.Canonical",
+              "List Elmi.Interface.Canonical"
+            ]
+          ],
+          [
+            "Record",
+            [
+              "List ( String, Elmi.Interface.Canonical )",
+              "Maybe.Maybe Elmi.Interface.Canonical"
+            ]
+          ],
+          [
+            "Aliased",
+            [
+              "Elmi.Interface.CanonicalVar",
+              "List ( String, Elmi.Interface.Canonical )",
+              "Elmi.Interface.AliasedCanonical"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Export",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "ExportValue",
+            [
+              "String"
+            ]
+          ],
+          [
+            "ExportAlias",
+            [
+              "String"
+            ]
+          ],
+          [
+            "ExportUnion",
+            [
+              "String",
+              "Elmi.Interface.Listing"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Home",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "BuiltIn",
+            []
+          ],
+          [
+            "Module",
+            [
+              "Elmi.Interface.CanonicalModuleName"
+            ]
+          ],
+          [
+            "TopLevel",
+            [
+              "Elmi.Interface.CanonicalModuleName"
+            ]
+          ],
+          [
+            "Local",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "parseInterface",
+        "comment": " ",
+        "type": "Elmi.Parser.Parser Elmi.Interface.Interface"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

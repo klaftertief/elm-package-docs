@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Ascii",
+    "comment": "\n\n# Simple ascii table\n\n## to string\n\n@docs toString, toChar\n\n## from string\n\n@docs fromString, fromChar\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "fromChar",
+        "comment": " Only returns valid ascii chars (from 0x20 to 0x7e)\n",
+        "type": "Char -> Maybe.Maybe Int"
+      },
+      {
+        "name": "fromString",
+        "comment": " Will discard non-ascii chars\n",
+        "type": "String -> List Int"
+      },
+      {
+        "name": "toChar",
+        "comment": " Only return chars (from 0x20 to 0x7e)\n",
+        "type": "Int -> Maybe.Maybe Char"
+      },
+      {
+        "name": "toString",
+        "comment": " Will discard un-recognized chars.\n",
+        "type": "List Int -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

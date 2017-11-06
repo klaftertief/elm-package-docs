@@ -1,0 +1,250 @@
+[
+  {
+    "name": "CarwowTheme.Drawer",
+    "comment": " Drawer\n\n\n# Exports\n\n@docs Model, Properties, Msg, init, view, subscriptions, update, Action\n\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " Placeholder\n",
+        "args": [],
+        "type": "{ id : String, state : CarwowTheme.Drawer.State }"
+      },
+      {
+        "name": "Properties",
+        "comment": " Placeholder\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ body : Html.Html msg, title : String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Action",
+        "comment": " Placeholder\n",
+        "args": [],
+        "cases": [
+          [
+            "Open",
+            []
+          ],
+          [
+            "Close",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Msg",
+        "comment": " Placeholder\n",
+        "args": [],
+        "cases": [
+          [
+            "Toggle",
+            [
+              "CarwowTheme.Drawer.Action"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Placeholder\n",
+        "type": "String -> CarwowTheme.Drawer.Model"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Placeholder\n",
+        "type": "CarwowTheme.Drawer.Model -> Platform.Sub.Sub CarwowTheme.Drawer.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " Placeholder\n",
+        "type": "CarwowTheme.Drawer.Msg -> CarwowTheme.Drawer.Model -> ( CarwowTheme.Drawer.Model , Platform.Cmd.Cmd CarwowTheme.Drawer.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Placeholder\n",
+        "type": "CarwowTheme.Drawer.Model -> CarwowTheme.Drawer.Properties msg -> msg -> msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "CarwowTheme.Modal",
+    "comment": " Displays modal window\n\n\n# Exported\n\n@docs ModalProperties, Model, Msg, PaddingStyle, init, linkView, subscriptions, update, view\n\n",
+    "aliases": [
+      {
+        "name": "ModalProperties",
+        "comment": " Placeholder\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ body : Html.Html msg , title : String , paddingStyle : CarwowTheme.Modal.PaddingStyle , footer : Maybe.Maybe (Html.Html msg) , secondaryAction : Maybe.Maybe (Html.Html msg) }"
+      },
+      {
+        "name": "Model",
+        "comment": " Placeholder\n",
+        "args": [],
+        "type": "{ id : String, isOpen : Bool }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Placeholder\n",
+        "args": [],
+        "cases": [
+          [
+            "SwitchModal",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "PaddingStyle",
+        "comment": " Placeholder\n",
+        "args": [],
+        "cases": [
+          [
+            "NoPadding",
+            []
+          ],
+          [
+            "DefaultPadding",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Placeholder\n",
+        "type": "String -> CarwowTheme.Modal.Model"
+      },
+      {
+        "name": "linkView",
+        "comment": " Placeholder\n",
+        "type": "CarwowTheme.Modal.Model -> List (Html.Html msg) -> String -> Html.Html msg"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Placeholder\n",
+        "type": "CarwowTheme.Modal.Model -> Platform.Sub.Sub CarwowTheme.Modal.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " Placeholder\n",
+        "type": "CarwowTheme.Modal.Msg -> CarwowTheme.Modal.Model -> ( CarwowTheme.Modal.Model , Platform.Cmd.Cmd CarwowTheme.Modal.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Placeholder\n",
+        "type": "CarwowTheme.Modal.Model -> msg -> msg -> CarwowTheme.Modal.ModalProperties msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "CarwowTheme.Pagination",
+    "comment": " Filters\n\n\n# Exports\n\n@docs PaginationProperties, view\n\n",
+    "aliases": [
+      {
+        "name": "PaginationProperties",
+        "comment": " Properties for the pagination component\n",
+        "args": [],
+        "type": "{ totalCount : Int , totalPages : Int , perPage : Int , currentPage : Int }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "view",
+        "comment": " Helper to render the component\n",
+        "type": "CarwowTheme.Pagination.PaginationProperties -> (Int -> msg) -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "CarwowTheme.Filters",
+    "comment": " Filters\n\n\n# Exports\n\n@docs select, filterView, standardFilterView, FilterGroupItem, filterGroup\n\n",
+    "aliases": [
+      {
+        "name": "FilterGroupItem",
+        "comment": " Placeholder\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ filterId : String , filterLabel : String , filterValue : Bool , message : Bool -> msg }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "filterGroup",
+        "comment": " Placeholder\n",
+        "type": "List (CarwowTheme.Filters.FilterGroupItem msg) -> List (Html.Html msg)"
+      },
+      {
+        "name": "filterView",
+        "comment": " Placeholder\n",
+        "type": "String -> String -> String -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "select",
+        "comment": " Placeholder\n",
+        "type": "String -> String -> String -> List (Html.Html value) -> String -> (String -> value) -> List (Html.Html value)"
+      },
+      {
+        "name": "standardFilterView",
+        "comment": " Placeholder\n",
+        "type": "String -> String -> List (CarwowTheme.Filters.FilterGroupItem msg) -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "CarwowTheme.Icons",
+    "comment": " Icons are displayed using the SVG spirte technique.\n\n\n# Embed icon\n\n@docs icon\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "icon",
+        "comment": " Embeds an icon from the SVG sprite, with the given properties.\n",
+        "type": "String -> CarwowTheme.Icons.Properties -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "CarwowTheme.Inputs",
+    "comment": " Helpers for user input elements.\n\n\n# Checkbox\n\n@docs checkbox\n\n\n# Select\n\n@docs select\n\n\n# Option\n\n@docs option\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "checkbox",
+        "comment": " Checbox atom\n",
+        "type": "String -> List (Html.Html msg) -> Bool -> (Bool -> msg) -> List (Html.Html msg)"
+      },
+      {
+        "name": "option",
+        "comment": " Option atom\n",
+        "type": "String -> String -> Html.Html msg"
+      },
+      {
+        "name": "select",
+        "comment": " Select atom\n",
+        "type": "String -> List (Html.Html msgType) -> String -> (String -> msgType) -> Bool -> Html.Html msgType"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
