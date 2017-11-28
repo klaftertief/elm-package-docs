@@ -1,0 +1,748 @@
+[
+  {
+    "name": "Keyboard.KeySet",
+    "comment": " KeySet data type. Holds the current set of keys pressed.\n\n#  Data types - KeySet for holding a set of Keys, Msg for tracking Up/Down events.\n\n@docs Msg, KeySet\n\n# Set management\n\n@docs insert, remove, empty, member\n\n\n# Subscription - subscriptions for tracking window keys, update function for tracking state\n\n@docs subscriptions, update\n\n",
+    "aliases": [
+      {
+        "name": "KeySet",
+        "comment": " KeySet data type. Holds a set of keys pressed at once.\n",
+        "args": [],
+        "type": "Set.Set String"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " `KeySet`'s internal message type.\n",
+        "args": [],
+        "cases": [
+          [
+            "Down",
+            [
+              "Keyboard.Key.Key"
+            ]
+          ],
+          [
+            "Up",
+            [
+              "Keyboard.Key.Key"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "empty",
+        "comment": " empty `KeySet`\n",
+        "type": "Keyboard.KeySet.KeySet"
+      },
+      {
+        "name": "insert",
+        "comment": " insert Key into `KeySet`\n",
+        "type": "Keyboard.Key.Key -> Keyboard.KeySet.KeySet -> Keyboard.KeySet.KeySet"
+      },
+      {
+        "name": "member",
+        "comment": " is Key a member of `KeySet`?\n",
+        "type": "Keyboard.Key.Key -> Keyboard.KeySet.KeySet -> Bool"
+      },
+      {
+        "name": "remove",
+        "comment": " remove Key from `KeySet` (or nothing if it does not exist)\n",
+        "type": "Keyboard.Key.Key -> Keyboard.KeySet.KeySet -> Keyboard.KeySet.KeySet"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " The subscriptions needed for the \"Msg and Update\" way.\n",
+        "type": "(Keyboard.KeySet.Msg -> msg) -> Platform.Sub.Sub msg"
+      },
+      {
+        "name": "update",
+        "comment": " update `KeySet` using message.\n",
+        "type": "Keyboard.KeySet.Msg -> Keyboard.KeySet.KeySet -> Keyboard.KeySet.KeySet"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Keyboard.Attributes",
+    "comment": " Html event handlers for key events using the Key data type.\n\n# Html event handler attributes\n\n@docs onKeyDown, onKeyUp, onKeyPress\n\n# Decoder\n\n@docs decodeKey\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "decodeKey",
+        "comment": " A `Json.Decoder` for grabbing `event.keyCode` and turning it into a `Key`\n",
+        "type": "Json.Decode.Decoder Keyboard.Key.Key"
+      },
+      {
+        "name": "onKeyDown",
+        "comment": " Subscription for key down events.\n\n**Note** When the user presses and holds a key, there may or may not be many of\nthese messages before the corresponding key up message.\n\n",
+        "type": "(Keyboard.Key.Key -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onKeyPress",
+        "comment": " Subscription for key press events.\n",
+        "type": "(Keyboard.Key.Key -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onKeyUp",
+        "comment": " Subscription for key up events.\n",
+        "type": "(Keyboard.Key.Key -> msg) -> Html.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Keyboard.Key",
+    "comment": " Higher level Key data type for keyboard events.\n\n\n# Window Event Subscriptions\n\n@docs onKeyDown, onKeyUp, onKeyPress\n\n\n# Decoder\n\n@docs decodeKey\n\n\n# Low level\n\n@docs fromCode, toCode\n\n\n# Keyboard keys\n\n@docs Key\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Key",
+        "comment": " Key data type. Originally from keyboard-extra package.\n",
+        "args": [],
+        "cases": [
+          [
+            "Cancel",
+            []
+          ],
+          [
+            "Help",
+            []
+          ],
+          [
+            "BackSpace",
+            []
+          ],
+          [
+            "Tab",
+            []
+          ],
+          [
+            "Clear",
+            []
+          ],
+          [
+            "Enter",
+            []
+          ],
+          [
+            "Shift",
+            []
+          ],
+          [
+            "Control",
+            []
+          ],
+          [
+            "Alt",
+            []
+          ],
+          [
+            "Pause",
+            []
+          ],
+          [
+            "CapsLock",
+            []
+          ],
+          [
+            "Escape",
+            []
+          ],
+          [
+            "Convert",
+            []
+          ],
+          [
+            "NonConvert",
+            []
+          ],
+          [
+            "Accept",
+            []
+          ],
+          [
+            "ModeChange",
+            []
+          ],
+          [
+            "Space",
+            []
+          ],
+          [
+            "PageUp",
+            []
+          ],
+          [
+            "PageDown",
+            []
+          ],
+          [
+            "End",
+            []
+          ],
+          [
+            "Home",
+            []
+          ],
+          [
+            "ArrowLeft",
+            []
+          ],
+          [
+            "ArrowUp",
+            []
+          ],
+          [
+            "ArrowRight",
+            []
+          ],
+          [
+            "ArrowDown",
+            []
+          ],
+          [
+            "Select",
+            []
+          ],
+          [
+            "Print",
+            []
+          ],
+          [
+            "Execute",
+            []
+          ],
+          [
+            "PrintScreen",
+            []
+          ],
+          [
+            "Insert",
+            []
+          ],
+          [
+            "Delete",
+            []
+          ],
+          [
+            "Number0",
+            []
+          ],
+          [
+            "Number1",
+            []
+          ],
+          [
+            "Number2",
+            []
+          ],
+          [
+            "Number3",
+            []
+          ],
+          [
+            "Number4",
+            []
+          ],
+          [
+            "Number5",
+            []
+          ],
+          [
+            "Number6",
+            []
+          ],
+          [
+            "Number7",
+            []
+          ],
+          [
+            "Number8",
+            []
+          ],
+          [
+            "Number9",
+            []
+          ],
+          [
+            "Colon",
+            []
+          ],
+          [
+            "Semicolon",
+            []
+          ],
+          [
+            "LessThan",
+            []
+          ],
+          [
+            "Equals",
+            []
+          ],
+          [
+            "GreaterThan",
+            []
+          ],
+          [
+            "QuestionMark",
+            []
+          ],
+          [
+            "At",
+            []
+          ],
+          [
+            "CharA",
+            []
+          ],
+          [
+            "CharB",
+            []
+          ],
+          [
+            "CharC",
+            []
+          ],
+          [
+            "CharD",
+            []
+          ],
+          [
+            "CharE",
+            []
+          ],
+          [
+            "CharF",
+            []
+          ],
+          [
+            "CharG",
+            []
+          ],
+          [
+            "CharH",
+            []
+          ],
+          [
+            "CharI",
+            []
+          ],
+          [
+            "CharJ",
+            []
+          ],
+          [
+            "CharK",
+            []
+          ],
+          [
+            "CharL",
+            []
+          ],
+          [
+            "CharM",
+            []
+          ],
+          [
+            "CharN",
+            []
+          ],
+          [
+            "CharO",
+            []
+          ],
+          [
+            "CharP",
+            []
+          ],
+          [
+            "CharQ",
+            []
+          ],
+          [
+            "CharR",
+            []
+          ],
+          [
+            "CharS",
+            []
+          ],
+          [
+            "CharT",
+            []
+          ],
+          [
+            "CharU",
+            []
+          ],
+          [
+            "CharV",
+            []
+          ],
+          [
+            "CharW",
+            []
+          ],
+          [
+            "CharX",
+            []
+          ],
+          [
+            "CharY",
+            []
+          ],
+          [
+            "CharZ",
+            []
+          ],
+          [
+            "Super",
+            []
+          ],
+          [
+            "ContextMenu",
+            []
+          ],
+          [
+            "Sleep",
+            []
+          ],
+          [
+            "Numpad0",
+            []
+          ],
+          [
+            "Numpad1",
+            []
+          ],
+          [
+            "Numpad2",
+            []
+          ],
+          [
+            "Numpad3",
+            []
+          ],
+          [
+            "Numpad4",
+            []
+          ],
+          [
+            "Numpad5",
+            []
+          ],
+          [
+            "Numpad6",
+            []
+          ],
+          [
+            "Numpad7",
+            []
+          ],
+          [
+            "Numpad8",
+            []
+          ],
+          [
+            "Numpad9",
+            []
+          ],
+          [
+            "Multiply",
+            []
+          ],
+          [
+            "Add",
+            []
+          ],
+          [
+            "Separator",
+            []
+          ],
+          [
+            "Subtract",
+            []
+          ],
+          [
+            "Decimal",
+            []
+          ],
+          [
+            "Divide",
+            []
+          ],
+          [
+            "F1",
+            []
+          ],
+          [
+            "F2",
+            []
+          ],
+          [
+            "F3",
+            []
+          ],
+          [
+            "F4",
+            []
+          ],
+          [
+            "F5",
+            []
+          ],
+          [
+            "F6",
+            []
+          ],
+          [
+            "F7",
+            []
+          ],
+          [
+            "F8",
+            []
+          ],
+          [
+            "F9",
+            []
+          ],
+          [
+            "F10",
+            []
+          ],
+          [
+            "F11",
+            []
+          ],
+          [
+            "F12",
+            []
+          ],
+          [
+            "F13",
+            []
+          ],
+          [
+            "F14",
+            []
+          ],
+          [
+            "F15",
+            []
+          ],
+          [
+            "F16",
+            []
+          ],
+          [
+            "F17",
+            []
+          ],
+          [
+            "F18",
+            []
+          ],
+          [
+            "F19",
+            []
+          ],
+          [
+            "F20",
+            []
+          ],
+          [
+            "F21",
+            []
+          ],
+          [
+            "F22",
+            []
+          ],
+          [
+            "F23",
+            []
+          ],
+          [
+            "F24",
+            []
+          ],
+          [
+            "NumLock",
+            []
+          ],
+          [
+            "ScrollLock",
+            []
+          ],
+          [
+            "Circumflex",
+            []
+          ],
+          [
+            "Exclamation",
+            []
+          ],
+          [
+            "DoubleQuote",
+            []
+          ],
+          [
+            "Hash",
+            []
+          ],
+          [
+            "Dollar",
+            []
+          ],
+          [
+            "Percent",
+            []
+          ],
+          [
+            "Ampersand",
+            []
+          ],
+          [
+            "Underscore",
+            []
+          ],
+          [
+            "OpenParen",
+            []
+          ],
+          [
+            "CloseParen",
+            []
+          ],
+          [
+            "Asterisk",
+            []
+          ],
+          [
+            "Plus",
+            []
+          ],
+          [
+            "Pipe",
+            []
+          ],
+          [
+            "HyphenMinus",
+            []
+          ],
+          [
+            "OpenCurlyBracket",
+            []
+          ],
+          [
+            "CloseCurlyBracket",
+            []
+          ],
+          [
+            "Tilde",
+            []
+          ],
+          [
+            "VolumeMute",
+            []
+          ],
+          [
+            "VolumeDown",
+            []
+          ],
+          [
+            "VolumeUp",
+            []
+          ],
+          [
+            "Comma",
+            []
+          ],
+          [
+            "Minus",
+            []
+          ],
+          [
+            "Period",
+            []
+          ],
+          [
+            "Slash",
+            []
+          ],
+          [
+            "BackQuote",
+            []
+          ],
+          [
+            "OpenBracket",
+            []
+          ],
+          [
+            "BackSlash",
+            []
+          ],
+          [
+            "CloseBracket",
+            []
+          ],
+          [
+            "Quote",
+            []
+          ],
+          [
+            "Meta",
+            []
+          ],
+          [
+            "Altgr",
+            []
+          ],
+          [
+            "Other",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "decodeKey",
+        "comment": " A `Json.Decoder` for grabbing `event.keyCode` and turning it into a `Key`\n\n    import Json.Decode as Json\n\n    onKey : (Key -> msg) -> Attribute msg\n    onKey tagger =\n        on \"keydown\" (Json.map tagger decodeKey)\n\n",
+        "type": "Json.Decode.Decoder Keyboard.Key.Key"
+      },
+      {
+        "name": "fromCode",
+        "comment": " Convert a key code into a `Key`.\n\n    fromCode 13  --> Enter\n\n",
+        "type": "Keyboard.KeyCode -> Keyboard.Key.Key"
+      },
+      {
+        "name": "onKeyDown",
+        "comment": " Subscription for key down events.\n\n**Note** When the user presses and holds a key, there may or may not be many of\nthese messages before the corresponding key up message.\n\n",
+        "type": "(Keyboard.Key.Key -> msg) -> Platform.Sub.Sub msg"
+      },
+      {
+        "name": "onKeyPress",
+        "comment": " Subscription for key press events.\n",
+        "type": "(Keyboard.Key.Key -> msg) -> Platform.Sub.Sub msg"
+      },
+      {
+        "name": "onKeyUp",
+        "comment": " Subscription for key up events.\n",
+        "type": "(Keyboard.Key.Key -> msg) -> Platform.Sub.Sub msg"
+      },
+      {
+        "name": "toCode",
+        "comment": " Convert a `Key` into a key code.\n\n    toCode Enter  --> 13\n\n",
+        "type": "Keyboard.Key.Key -> Keyboard.KeyCode"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

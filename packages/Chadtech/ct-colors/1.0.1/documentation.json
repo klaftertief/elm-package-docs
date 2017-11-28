@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Chadtech.Colors",
+    "comment": " Colors in the Chadtech design standard v1\n\n\n# Background\n\n@docs backgroundx2, backgroundx1, actualBlack\n\n\n# Point\n\n@docs point, pointier, importantText, importanterText\n\n\n# Ignorables\n\n@docs ignorable0, ignorable1, ignorable2, ignorable3\n\n\n# High Saturation Colors\n\n@docs good, critical, prettyBlue, lowWarning\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "actualBlack",
+        "comment": " Actual black. Should rarely be used, but used to demonstrate absolute minimum brightness.\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #000000\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "backgroundx1",
+        "comment": " A darker version of backgroundx2. Could be mistaken as black. This color exists mainly to emphasize the visual effect of being in the background, or for contrast against backgroundx2\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #030907\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "backgroundx2",
+        "comment": " `backgroundx2` is the default background color. Not totally black, and slightly turqoise, but still dark\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #06120e\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "critical",
+        "comment": " This color is for things that demand attention and must be noticed. It should be used sparingly, if at all.\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #f21d23\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "good",
+        "comment": " When things are successful, this color is used.\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #366317\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "ignorable0",
+        "comment": " This color is called \"ignorable\", its for unimportant things the user can be forgotten.\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #807672\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "ignorable1",
+        "comment": " `ignorable1` is darker than `ignorable0`\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #57524f\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "ignorable2",
+        "comment": " `ignorable2` is darker than `ignorable1`\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #2c2826\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "ignorable3",
+        "comment": " `ignorable3` is darker than `ignorable2`\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #131610\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "importantText",
+        "comment": " When some text needs priority or attention\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #b39f4b\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "importanterText",
+        "comment": " When some text needs even more priority or attention\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #e3d34b\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "lowWarning",
+        "comment": " Warnings, but not the \"critical melt down\" sort, more the \"something isnt right\" sort.\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #651a20\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "point",
+        "comment": " Point, the default color of text and content. If things are the content that should be presented, then they should be colored point. They are \"the point\" of the web app.\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #b0a69a\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "pointier",
+        "comment": " Point, but brighter. Useful for lighting up point during a hover over.\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #e0d6ca\"></div>\n\n",
+        "type": "Css.Color"
+      },
+      {
+        "name": "prettyBlue",
+        "comment": " When things need to be decorated, they are blue. Blue is the color to make things look pretty. Its the color for things that are special.\n\n<div style=\"border: 2px solid #000000; width: 200px; height: 200px; background-color: #175cfe\"></div>\n\n",
+        "type": "Css.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

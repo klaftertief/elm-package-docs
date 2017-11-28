@@ -1,0 +1,609 @@
+[
+  {
+    "name": "Path",
+    "comment": " Module for layering SubPaths into Paths.\n\nMost of the interesting stuff happens in the `SubPath` and `Curve` modules.\n`Path` is simply for combining multiple subpaths into one string or element.\n\n\n\n## Data Structures\n\n@docs Path\n\n\n## Constructing Paths\n\n@docs parse\n\n\n## Creating SVG\n\n@docs element, toString\n\n## Conversion\n\n@docs fromLowLevel, toLowLevel\n\n",
+    "aliases": [
+      {
+        "name": "Path",
+        "comment": " A path is a list of [`SubPath`](#subpath)s.\n",
+        "args": [],
+        "type": "List SubPath.SubPath"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "element",
+        "comment": " Construct an svg path element from a `Path` with the given attributes\n",
+        "type": "Path.Path -> List (Svg.Attribute msg) -> Svg.Svg msg"
+      },
+      {
+        "name": "fromLowLevel",
+        "comment": " Converting a svg-path-lowlevel subpath into a one-true-path subpath. Used in parsing\n",
+        "type": "List Path.LowLevel.SubPath -> Path.Path"
+      },
+      {
+        "name": "parse",
+        "comment": " Parse a path string into a `Path`\n\n    import SubPath exposing (SubPath, subpath)\n    import LowLevel.Command exposing (moveTo, lineTo)\n\n    expected : SubPath\n    expected =\n        subpath (moveTo (0,0)) [ lineTo [ (42, 73) ] ]\n\n    parse \"M0,0 l42,73\"\n        --> Ok [expected]\n\n\nOnly accepts valid complete subpaths (a sequences of a move followed by zero or more draws). Relative instructions are converted to absolute ones. Short-hand curve extensions are converted to explicit curve instructions.\n\nThe parser uses [`elm-tools/parser`](http://package.elm-lang.org/packages/elm-tools/parser/2.0.1/).\nThe error type is [`Parser.Error`](http://package.elm-lang.org/packages/elm-tools/parser/2.0.1/Parser#Error).\n\n",
+        "type": "String -> Result.Result Parser.Error Path.Path"
+      },
+      {
+        "name": "toLowLevel",
+        "comment": " Convert a path to a svg-path-lowlevel list of subpaths\n",
+        "type": "Path.Path -> List Path.LowLevel.SubPath"
+      },
+      {
+        "name": "toString",
+        "comment": " Turn a `Path` into a `String`. The result is ready to be used with the `d` attribute.\n\n\n    myPath : SubPath\n    myPath =\n        subpath (moveTo (0,0)) [ lineTo [ (42, 73) ] ]\n\n\n    Path.toString [ myPath ]\n        --> \"M0,0 L42,73\"\n\n    -- forms a cycle (almost isomorphism) with parse\n    arc : String\n    arc = \"M80,230 A45,45 90 0 1 125,275\"\n\n    arc\n        |> parse\n        |> Result.map Path.toString\n        --> Ok arc\n\n",
+        "type": "Path.Path -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Curve",
+    "comment": " Construct curves from a set of points.\n\nThe problem of drawing a line through a set of points is actually quite tricky. Should the curve be smooth? Should the ends be connected?\nThis module gives many options for drawing lines through points.\n\nSupports all the curves defined by [D3 Shape](https://github.com/d3/d3-shape#curves).\n\n\n## Linear\n\n@docs linear, linearClosed\n\n\n## Bezier\n\n@docs cubicBezier , smoothCubicBezier , quadraticBezier , smoothQuadraticBezier\n\n\n## Step\n\n@docs step, stepBefore, stepAfter\n\n\n## Basis\n\n@docs basis, basisClosed, basisOpen, bundle\n\n\n## Cardinal\n\n@docs cardinal, cardinalClosed, cardinalOpen\n\n\n## Catmull-Rom\n\nCatmull-Rom splines are a special case of cardinal splines. These curves are great for animation, because the data points are\nhit exactly and the curve is smooth.\n\n@docs catmullRom, catmullRomClosed, catmullRomOpen\n\n\n## Monotone\n\nThe monotone curves can only be increasing (staying flat or becoming higher) or decreasing (staying flat or becoming lower) between any two adjacent points.\nIt cannot first go down and then go up.\n\n<img style=\"max-width: 100%;\" src=\"https://upload.wikimedia.org/wikipedia/en/f/fe/MonotCubInt.png\" />\n\nNotice that around 0.45, the cubic interpolation dives below the y-coordinate of the next point, whereas the monotone interpolation does not.\n\nA nice consequence is that there are no weird bumps in the curve between the data points.\n\n@docs monotoneX, monotoneY\n\n\n## Natural\n\n@docs natural\n\n\n## Transformations\n\n@docs repeatFirstPoint , repeatFinalPoint\n@docs radial, toPolarWithCenter\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "basis",
+        "comment": " Basis interpolation (also known as B-spline)\n\n<img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/basis.svg\" />\n\n",
+        "type": "List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "basisClosed",
+        "comment": " Closed Basis interpolation (also known as B-spline)\n\n<img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/basisClosed.svg\" />\n\n",
+        "type": "List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "basisOpen",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/basisOpen.svg\" />\n",
+        "type": "List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "bundle",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/bundle.svg\" />\n",
+        "type": "Float -> List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "cardinal",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/cardinal.svg\" />\n",
+        "type": "Float -> List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "cardinalClosed",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/cardinalClosed.svg\" />\n",
+        "type": "Float -> List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "cardinalOpen",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/cardinalOpen.svg\" />\n",
+        "type": "Float -> List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "catmullRom",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/catmullRom.svg\" />\n",
+        "type": "Float -> List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "catmullRomClosed",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/catmullRomClosed.svg\" />\n",
+        "type": "Float -> List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "catmullRomOpen",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/catmullRomOpen.svg\" />\n",
+        "type": "Float -> List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "cubicBezier",
+        "comment": " Shorthand to draw a sequence of cubic bezier segments\n",
+        "type": "Vector2.Vec2 Float -> List ( Vector2.Vec2 Float, Vector2.Vec2 Float, Vector2.Vec2 Float ) -> SubPath.SubPath"
+      },
+      {
+        "name": "linear",
+        "comment": " Draw straight lines between the data points.\n\n<img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/linear.svg\" />\n\n",
+        "type": "List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "linearClosed",
+        "comment": " Draw a straigt line between the data points, connecting the ends.\n\n<img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/linearClosed.svg\" />\n\n",
+        "type": "List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "monotoneX",
+        "comment": " Draw a curve monotone in y assuming the points are monotone in x.\n<img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/monotoneX.svg\" />\n\nNote, does not deal well with coincident points\n\n",
+        "type": "List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "monotoneY",
+        "comment": " Draw a curve monotone in y assuming the points are monotone in x.\n<img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/monotoneY.svg\" />\n",
+        "type": "List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "natural",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/natural.svg\" />\n",
+        "type": "List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "quadraticBezier",
+        "comment": " Shorthand to draw a sequence of quadratic bezier segments\n",
+        "type": "Vector2.Vec2 Float -> List ( Vector2.Vec2 Float, Vector2.Vec2 Float ) -> SubPath.SubPath"
+      },
+      {
+        "name": "radial",
+        "comment": " Interpret a 2D vector as a `(angle, radius)` pair. The angle is in radians. The first argument is the center.\n\n<img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/radial.svg\" />\n\n",
+        "type": "Vector2.Vec2 Float -> List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "repeatFinalPoint",
+        "comment": " Repeat the final element of a list\n\nSimilar to `repeatFirstPoint`, this can be used to make some curves hit their final control point.\n\n",
+        "type": "List a -> List a"
+      },
+      {
+        "name": "repeatFirstPoint",
+        "comment": " Repeat the first element of a list\n\nThis is sometimes useful for curves that don't go through their first control point (catmullRom, cardinal). Repeating the first point\nmakes the curve actually hit the first control point.\n\n",
+        "type": "List a -> List a"
+      },
+      {
+        "name": "smoothCubicBezier",
+        "comment": " Shorthand to draw a sequence of smooth cubic bezier segments\n",
+        "type": "Vector2.Vec2 Float -> ( Vector2.Vec2 Float, Vector2.Vec2 Float, Vector2.Vec2 Float ) -> List ( Vector2.Vec2 Float, Vector2.Vec2 Float ) -> SubPath.SubPath"
+      },
+      {
+        "name": "smoothQuadraticBezier",
+        "comment": " Shorthand to draw a sequence of smooth quadratic bezier segments\n",
+        "type": "Vector2.Vec2 Float -> ( Vector2.Vec2 Float, Vector2.Vec2 Float ) -> List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "step",
+        "comment": " Step goes some distance to the right, then to the y-coordinate of the next data point, and then draws to the next point.\n\nThe first argument determines where the step is.\n\n  - `step 1 points` is `stepAfter`\n  - `step 0 points` is `stepBefore`\n  - `step 0.5 points` steps exactly in the middle\n\n<img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/step.svg\" />\n\n",
+        "type": "Float -> List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "stepAfter",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/stepAfter.svg\" />\n",
+        "type": "List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "stepBefore",
+        "comment": " <img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/stepBefore.svg\" />\n",
+        "type": "List (Vector2.Vec2 Float) -> SubPath.SubPath"
+      },
+      {
+        "name": "toPolarWithCenter",
+        "comment": " Convert `(angle, radius)` pairs to `(x, y)` coordinates, relative to the given vector.\n\nThis function is used by radial and can be used to use radial with different interpolations, for instance.\n\n    radialNatural : Vec2 Float -> List (Vec2 Float) -> SubPath\n    radialNatural ( x, y ) =\n        natural << toPolarWithCenter ( x, y )\n\n",
+        "type": "Vector2.Vec2 Float -> List (Vector2.Vec2 Float) -> List (Vector2.Vec2 Float)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "SubPath",
+    "comment": "\n\n\n## Types\n\n@docs SubPath\n\n\n## Construction\n\n@docs subpath, empty\n\n\n## Conversion\n\n@docs element, toString, toSegments, fromSegments, unwrap\n\n\n## Composition\n\n<img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/one-true-path-experiment/master/docs/subpath-composition.svg\" />\n\n    import Curve\n\n    curve : SubPath\n    curve =\n        Curve.quadraticBezier ( 0, 0 )\n            [ ( ( 0.5, -0.5 ), ( 1.0, 0 ) ) ]\n\n\n    down : SubPath\n    down =\n        Curve.linear [ ( 0, 0 ), ( 0, 1 ) ]\n\n    curve\n        |> connect down\n        |> SubPath.toString\n        --> \"M0,0 Q0.5,-0.5 1,0 L0,0 L0,1\"\n\n    curve\n        |> continue down\n        |> SubPath.toString\n        --> \"M0,0 Q0.5,-0.5 1,0 L1,1\"\n\n    curve\n        |> continueSmooth down\n        |> SubPath.toString\n        --> \"M0,0 Q0.5,-0.5 1,0 L1.707106781187,0.707106781187\"\n\n    close curve\n        |> SubPath.toString\n        --> \"M0,0 Q0.5,-0.5 1,0 Z\"\n\n\n@docs continue , connect, continueSmooth, close\n\n\n## Mapping\n\n@docs reverse, compress\n@docs translate, rotate, scale\n@docs mapCoordinate, mapWithCursorState\n\n\n## Conversion\n\n@docs fromLowLevel, toLowLevel\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "SubPath",
+        "comment": " Type representing a subpath\n\nA subpath is one moveto command followed by an arbitrary number of drawto commands.\n\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "close",
+        "comment": " Append a ClosePath at the end of the subpath (if none is present)\n",
+        "type": "SubPath.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "compress",
+        "comment": " Try to merge adjacent instructions\n\nThis conversion is costly (timewise), but can shorten a subpath\nconsiderably, meaning other functions are faster.\n\nAdditionally, the toString output can become shorter.\n",
+        "type": "SubPath.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "connect",
+        "comment": " Join two subpaths, connecting them with a straight line\n",
+        "type": "SubPath.SubPath -> SubPath.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "continue",
+        "comment": " Start the second subpath where the first one ends\n\n",
+        "type": "SubPath.SubPath -> SubPath.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "continueSmooth",
+        "comment": " Start the second subpath where the first one ends, and rotate it to continue smoothly\n",
+        "type": "SubPath.SubPath -> SubPath.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "element",
+        "comment": " Construct an svg path element from a `Path` with the given attributes\n\n    Svg.svg []\n        [ SubPath.element mySubPath [ stroke \"black\" ] ]\n",
+        "type": "SubPath.SubPath -> List (Svg.Attribute msg) -> Svg.Svg msg"
+      },
+      {
+        "name": "empty",
+        "comment": " An empty subpath\n",
+        "type": "SubPath.SubPath"
+      },
+      {
+        "name": "fromLowLevel",
+        "comment": " Converting a svg-path-lowlevel subpath into a one-true-path subpath. Used in parsing\n\n> Beware that the moveto is always interpreted as **Absolute**.\n",
+        "type": "Path.LowLevel.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "fromSegments",
+        "comment": " Convert a list of segments to a path\n\nIn the conversion, the starting point of a segment is discarded:\nIt is assumed that for every two adjacent segments in the list, the first segment's end point is the second segment's starting point\n\n    import Segment exposing (line)\n    import LowLevel.Command exposing (moveTo, lineTo)\n\n\n    [ line (0,0) (10,10) , line (10, 10) (20, 10) ]\n        |> fromSegments\n        --> subpath (moveTo (0,0)) [ lineTo [ (10, 10)], lineTo [ (20, 10) ] ]\n\n",
+        "type": "List Segment.Segment -> SubPath.SubPath"
+      },
+      {
+        "name": "mapCoordinate",
+        "comment": " Map over all the 2D coordinates in a subpath\n",
+        "type": "(Vector2.Vec2 Float -> Vector2.Vec2 Float) -> SubPath.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "mapWithCursorState",
+        "comment": " Map over each drawto with the CursorState available.\n\nThe CursorState contains the subpath start position and the current cursor position at the\ncurrent DrawTo\n\n",
+        "type": "(LowLevel.Command.CursorState -> LowLevel.Command.DrawTo -> b) -> SubPath.SubPath -> List b"
+      },
+      {
+        "name": "reverse",
+        "comment": " Reverse a subpath\n\nThe direction of a subpath [can be important][reverse] if you want to use SVG fills.\n\n    mySubPath : SubPath\n    mySubPath =\n        subpath (moveTo (0,0))\n            [ lineTo [ (10, 10)], lineTo [ (20, 10) ] ]\n\n    mySubPath\n        |> reverse\n        |> reverse\n        --> mySubPath\n\n\n\n[reverse]: https://pomax.github.io/svg-path-reverse/\n",
+        "type": "SubPath.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "rotate",
+        "comment": " Rotate a subpath around its starting point by an angle (in radians).\n",
+        "type": "Float -> SubPath.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "scale",
+        "comment": " Scale the subpath in the x and y direction\n\nFor more complex scaling operations, define a transformation matrix and use `mapCoordinate`.\n\n",
+        "type": "Vector2.Vec2 Float -> SubPath.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "subpath",
+        "comment": " Construct a subpath\n\n    subpath (moveTo (0,0)) [ lineTo [ (10,10), (10, 20) ] ]\n",
+        "type": "LowLevel.Command.MoveTo -> List LowLevel.Command.DrawTo -> SubPath.SubPath"
+      },
+      {
+        "name": "toLowLevel",
+        "comment": " Converting a one-true-path subpath into a svg-path-lowlevel subpath. Used in toString\n",
+        "type": "SubPath.SubPath -> Maybe.Maybe Path.LowLevel.SubPath"
+      },
+      {
+        "name": "toSegments",
+        "comment": " Convert a subpath to its `Segment`s\n\n    subpath (moveTo (0,0)) [ lineTo [ (10, 10), (20, 10) ] ]\n        |> toSegments\n        --> [ line (0,0) (10,10) , line (10, 10) (20, 10) ]\n",
+        "type": "SubPath.SubPath -> List Segment.Segment"
+      },
+      {
+        "name": "toString",
+        "comment": " Convert a subpath into SVG path notation\n\n    import LowLevel.Command exposing (moveTo, lineTo)\n\n    line : SubPath\n    line = subpath (moveTo (0,0)) [ lineTo [ (10,10), (10, 20) ] ]\n\n    SubPath.toString line --> \"M0,0 L10,10 10,20\"\n",
+        "type": "SubPath.SubPath -> String"
+      },
+      {
+        "name": "translate",
+        "comment": " Translate the subpath by a vector\n",
+        "type": "Vector2.Vec2 Float -> SubPath.SubPath -> SubPath.SubPath"
+      },
+      {
+        "name": "unwrap",
+        "comment": " deconstruct a subpath into its components\n",
+        "type": "SubPath.SubPath -> Maybe.Maybe { moveto : LowLevel.Command.MoveTo , drawtos : List LowLevel.Command.DrawTo }"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Segment",
+    "comment": " An alternative view on paths that is convenient for mathematical operations.\n\nWhen we look at a path as a list of elemental `Segment`s, it becomes easier to reason about it.\nThe segment data type has four segment types:\n\n* `line` straigt line segment\n* `quadratic` a quadratic bezier curve segment\n* `cubic` a cubic bezier curve segment\n* `arc` an elliptical arc segment\n\nAll four of these are mathematically well-defined, and there is a wide range of\noperations that we can perform on them:\n\n* `length` the arc length of a segment\n* `angle` between two segments\n* `derivative` or curvature\n* `reverse` reverse a segment - this can be used to [let the browser fill your svg correctly][reverse]\n\nThese operations are backed by the great [OpenSolid][] package, and in turn back many of the operations\nin `SubPath`.\n\n[reverse]: https://pomax.github.io/svg-path-reverse/\n[OpenSolid]: http://package.elm-lang.org/packages/opensolid/geometry/latest\n\n@docs Segment\n@docs line, quadratic, cubic, arc\n\n# Operations\n\n@docs at, angle\n@docs derivativeAt, derivativeAtFirst, derivativeAtFinal\n@docs firstPoint, finalPoint, reverse\n\n\n# Conversion\n\n@docs toDrawTo, toSegment, toCursorState\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Segment",
+        "comment": " The four types of segments.\n\n\n",
+        "args": [],
+        "cases": [
+          [
+            "LineSegment",
+            [
+              "OpenSolid.LineSegment2d.LineSegment2d"
+            ]
+          ],
+          [
+            "Quadratic",
+            [
+              "OpenSolid.QuadraticSpline2d.QuadraticSpline2d"
+            ]
+          ],
+          [
+            "Cubic",
+            [
+              "OpenSolid.CubicSpline2d.CubicSpline2d"
+            ]
+          ],
+          [
+            "Arc",
+            [
+              "Geometry.Ellipse.EndpointParameterization"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "angle",
+        "comment": " The signed angle (in radians) between the end of segment1 and the start of segment2\n\n    a : Segment\n    a = line ( 0, 0 ) ( 1, 0 )\n\n    b : Segment\n    b = line ( 0, 0 ) ( 0, 1 )\n\n    angle a b --> degrees 90\n\n    angle b a --> degrees -90\n",
+        "type": "Segment.Segment -> Segment.Segment -> Float"
+      },
+      {
+        "name": "arc",
+        "comment": " Make an elliptic arc segment\n",
+        "type": "( Float, Float ) -> Path.LowLevel.EllipticalArcArgument -> Segment.Segment"
+      },
+      {
+        "name": "at",
+        "comment": " Get the location at a point on the curve, only defined in the range [0, 1].\n\n\n    at 0.5 (line (0,0) (10, 0)) --> ( 5, 0 )\n\n    at 0.5 (quadratic (0,0) (5, 10) (10, 0)) --> ( 5, 5 )\n\n",
+        "type": "Float -> Segment.Segment -> ( Float, Float )"
+      },
+      {
+        "name": "cubic",
+        "comment": " Make a cubic bezier segment\n",
+        "type": "( Float, Float ) -> ( Float, Float ) -> ( Float, Float ) -> ( Float, Float ) -> Segment.Segment"
+      },
+      {
+        "name": "derivativeAt",
+        "comment": " Get the derivative at a point on the curve, only defined in the range [0, 1].\n\n    import LowLevel.Command exposing\n        ( EllipticalArcArgument\n        , largestArc\n        , clockwise\n        )\n\n    derivativeAt 0.5 (line (0,0) (1,1))\n        --> (0.7071067811865475,0.7071067811865475)\n\n    argument : EllipticalArcArgument\n    argument =\n        { target = ( 10, 0 )\n        , radii = ( 5, 5 )\n        , xAxisRotate = 0\n        , arcFlag = largestArc\n        , direction = clockwise\n        }\n\n    derivativeAt 0.5 (arc (0,0)  argument) --> ( 1, 0)\n\n",
+        "type": "Float -> Segment.Segment -> ( Float, Float )"
+      },
+      {
+        "name": "derivativeAtFinal",
+        "comment": " The derivative at the ending point of the segment\n",
+        "type": "Segment.Segment -> Vector2.Float2"
+      },
+      {
+        "name": "derivativeAtFirst",
+        "comment": " The derivative at the starting point of the segment\n",
+        "type": "Segment.Segment -> Vector2.Float2"
+      },
+      {
+        "name": "finalPoint",
+        "comment": " Extract the final point from a segment\n",
+        "type": "Segment.Segment -> Vector2.Vec2 Float"
+      },
+      {
+        "name": "firstPoint",
+        "comment": " Extract the first point from a segment\n",
+        "type": "Segment.Segment -> Vector2.Vec2 Float"
+      },
+      {
+        "name": "line",
+        "comment": " Make a line segment\n",
+        "type": "( Float, Float ) -> ( Float, Float ) -> Segment.Segment"
+      },
+      {
+        "name": "quadratic",
+        "comment": " Make a quadratic bezier segment\n",
+        "type": "( Float, Float ) -> ( Float, Float ) -> ( Float, Float ) -> Segment.Segment"
+      },
+      {
+        "name": "reverse",
+        "comment": " Reverse a line segment\n",
+        "type": "Segment.Segment -> Segment.Segment"
+      },
+      {
+        "name": "toCursorState",
+        "comment": " Convert a `Segment` to a `CursorState`\n\n    toCursorState (line (0,0) (10, 10))\n        --> { start = (0,0) , cursor = (10, 10) , previousControlPoint = Nothing }\n\n",
+        "type": "Segment.Segment -> LowLevel.Command.CursorState"
+      },
+      {
+        "name": "toDrawTo",
+        "comment": " Convert a segment to a drawto instruction. forgets the starting point.\n",
+        "type": "Segment.Segment -> LowLevel.Command.DrawTo"
+      },
+      {
+        "name": "toSegment",
+        "comment": " Convert a drawto into a segment\n\nThis function needs the previous segment to the starting point and (for bezier curves) the control points\n\n    import LowLevel.Command exposing (DrawTo(EllipticalArc), CursorState)\n\n    start : CursorState\n    start = { start = (0,0), cursor = (0,0), previousControlPoint = Nothing }\n\n    drawto : DrawTo\n    drawto =\n            EllipticalArc\n                [ { target = (10, 0)\n                  , radii = (5,5)\n                  , xAxisRotate = 90\n                  , arcFlag = largestArc\n                  , direction = clockwise\n                  }\n                ]\n\n    expected : List Segment\n    expected =\n         [ Arc\n            { start = (0,0)\n            , end = (10, 0)\n            , radii = (5,5)\n            , xAxisRotate = pi / 2\n            , arcFlag = largestArc\n            , direction = clockwise\n            }\n          ]\n\n    toSegment start drawto --> expected\n\n",
+        "type": "LowLevel.Command.CursorState -> LowLevel.Command.DrawTo -> List Segment.Segment"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "LowLevel.Command",
+    "comment": " Low-level access to drawing instructions.\n\nThis is a low-level module that you probably shouldn't deal with.\nThese instructions are meant to build up primitives (like in the `Curve` module); building of\ncurves should happen at the `SubPath` level.\n\n\n## Threading State\n\n@docs CursorState, updateCursorState\n\n\n## Moving the cursor\n\n@docs MoveTo, moveTo\n\n\n## Drawing on the canvas\n\n\n## Type\n\n@docs DrawTo\n\n\n## Straight lines\n\n@docs lineTo, horizontalTo, verticalTo\n\n\n## Close Path\n\n@docs closePath\n\n\n## Beziers\n\n@docs quadraticCurveTo, cubicCurveTo\n\n\n## Arcs\n\n@docs arcTo, EllipticalArcArgument, clockwise, counterClockwise, largestArc, smallestArc\n@docs ArcFlag, Direction\n\n\n## Conversion\n\n@docs merge\n@docs fromLowLevelMoveTo, fromLowLevelDrawTos, fromLowLevelDrawTo\n@docs toLowLevelDrawTo, toLowLevelMoveTo\n@docs mapCoordinateDrawTo\n\n",
+    "aliases": [
+      {
+        "name": "ArcFlag",
+        "comment": " Determine which arc to draw\n",
+        "args": [],
+        "type": "Path.LowLevel.ArcFlag"
+      },
+      {
+        "name": "CursorState",
+        "comment": "\n* `start` start of the subpath (most recent `MoveTo`)\n* `cursor` the current cursor position\n* `previousControlPoint` if the previous drawto instruction was a curveTo (cubic or quadratic), then\n    this value stores Just its last control point position, else Nothing\n",
+        "args": [],
+        "type": "{ start : Vector2.Vec2 Float , cursor : Vector2.Vec2 Float , previousControlPoint : Maybe.Maybe ( Float, Float ) }"
+      },
+      {
+        "name": "Direction",
+        "comment": " Determine which arc to draw\n",
+        "args": [],
+        "type": "Path.LowLevel.Direction"
+      },
+      {
+        "name": "EllipticalArcArgument",
+        "comment": " The arguments for an Arc\n\n    argument : EllipticalArcArgument\n    argument =\n        { start = ( 0, 42 )\n        , end = ( 42, 0 )\n        , radii = ( 1, 1 )\n        , xAxisRotate = 90\n        , arcFlag = largestArc\n        , direction = clockwise\n        }\n\nThe xAxisRotate parameter is in degrees (note that in the `Segment` module, it is in radians).\n",
+        "args": [],
+        "type": "{ radii : ( Float, Float ) , xAxisRotate : Float , arcFlag : Path.LowLevel.ArcFlag , direction : Path.LowLevel.Direction , target : Vector2.Vec2 Float }"
+      }
+    ],
+    "types": [
+      {
+        "name": "DrawTo",
+        "comment": " Constructors for DrawTo instructions\n\nYou may miss some constructs in comparison to SVG. Only absolute coordinates are\nsupported, and the smooth curve variants are removed. These choices were\nmade to keep the number of constructors small.\n\nRelative coordinates can always\nbe transformed to abslute ones, and smooth (also known as short-hand) curve extensions\ncan be achieved with `Curve.smoothQuadraticBezier` and `Curve.smoothCubicBezier`.\n",
+        "args": [],
+        "cases": [
+          [
+            "LineTo",
+            [
+              "List (Vector2.Vec2 Float)"
+            ]
+          ],
+          [
+            "Horizontal",
+            [
+              "List Float"
+            ]
+          ],
+          [
+            "Vertical",
+            [
+              "List Float"
+            ]
+          ],
+          [
+            "CurveTo",
+            [
+              "List ( Vector2.Vec2 Float, Vector2.Vec2 Float, Vector2.Vec2 Float )"
+            ]
+          ],
+          [
+            "QuadraticBezierCurveTo",
+            [
+              "List ( Vector2.Vec2 Float, Vector2.Vec2 Float )"
+            ]
+          ],
+          [
+            "EllipticalArc",
+            [
+              "List LowLevel.Command.EllipticalArcArgument"
+            ]
+          ],
+          [
+            "ClosePath",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "MoveTo",
+        "comment": " Constructors for MoveTo instructions\n",
+        "args": [],
+        "cases": [
+          [
+            "MoveTo",
+            [
+              "Vector2.Vec2 Float"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "arcTo",
+        "comment": " An elliptical arc. The `A` instruction.\n\n\n",
+        "type": "List LowLevel.Command.EllipticalArcArgument -> LowLevel.Command.DrawTo"
+      },
+      {
+        "name": "clockwise",
+        "comment": " Corresponds to a sweep flag of 0\n",
+        "type": "LowLevel.Command.Direction"
+      },
+      {
+        "name": "closePath",
+        "comment": " Draw a straight line from the cursor position to the starting position of the path. The `Z` instruction.\n",
+        "type": "LowLevel.Command.DrawTo"
+      },
+      {
+        "name": "counterClockwise",
+        "comment": " Corresponds to a sweep flag of 1\n",
+        "type": "LowLevel.Command.Direction"
+      },
+      {
+        "name": "cubicCurveTo",
+        "comment": " A cubic bezier. The `C` instruction.\n",
+        "type": "List ( Vector2.Vec2 Float, Vector2.Vec2 Float, Vector2.Vec2 Float ) -> LowLevel.Command.DrawTo"
+      },
+      {
+        "name": "fromLowLevelDrawTo",
+        "comment": " ",
+        "type": "Path.LowLevel.DrawTo -> LowLevel.Command.CursorState -> Maybe.Maybe ( LowLevel.Command.DrawTo, LowLevel.Command.CursorState )"
+      },
+      {
+        "name": "fromLowLevelDrawTos",
+        "comment": " ",
+        "type": "List Path.LowLevel.DrawTo -> LowLevel.Command.CursorState -> ( LowLevel.Command.CursorState, List LowLevel.Command.DrawTo )"
+      },
+      {
+        "name": "fromLowLevelMoveTo",
+        "comment": " ",
+        "type": "Path.LowLevel.MoveTo -> LowLevel.Command.CursorState -> ( LowLevel.Command.CursorState, LowLevel.Command.MoveTo )"
+      },
+      {
+        "name": "horizontalTo",
+        "comment": " Specific version of `lineTo` that only moves horizontally. The `H` instruction.\n",
+        "type": "List Float -> LowLevel.Command.DrawTo"
+      },
+      {
+        "name": "largestArc",
+        "comment": " Corresponds to an arc flag of 1\nthDefault\n",
+        "type": "LowLevel.Command.ArcFlag"
+      },
+      {
+        "name": "lineTo",
+        "comment": " Draw a series of line segments to absolute positions. The `L` instruction.\n",
+        "type": "List (Vector2.Vec2 Float) -> LowLevel.Command.DrawTo"
+      },
+      {
+        "name": "mapCoordinateDrawTo",
+        "comment": " Transform the coordinates in a drawto\n",
+        "type": "(Vector2.Vec2 Float -> Vector2.Vec2 Float) -> LowLevel.Command.DrawTo -> LowLevel.Command.DrawTo"
+      },
+      {
+        "name": "merge",
+        "comment": " Merge adjacent commands if possible\n\n    merge (lineTo [ (0,0) ]) (lineTo [ (10, 10) ]) --> Ok (lineTo [ (0,0) , (10, 10) ])\n\n    merge (lineTo [ (0,0) ]) closePath --> Err (lineTo [ (0,0) ], closePath)\n",
+        "type": "LowLevel.Command.DrawTo -> LowLevel.Command.DrawTo -> Result.Result ( LowLevel.Command.DrawTo, LowLevel.Command.DrawTo ) LowLevel.Command.DrawTo"
+      },
+      {
+        "name": "moveTo",
+        "comment": " Move to a position on the canvas without drawing.\n",
+        "type": "Vector2.Vec2 Float -> LowLevel.Command.MoveTo"
+      },
+      {
+        "name": "quadraticCurveTo",
+        "comment": " A quadratic bezier. The `Q` instruction.\n",
+        "type": "List ( Vector2.Vec2 Float, Vector2.Vec2 Float ) -> LowLevel.Command.DrawTo"
+      },
+      {
+        "name": "smallestArc",
+        "comment": " Corresponds to an arc flag of 0\n",
+        "type": "LowLevel.Command.ArcFlag"
+      },
+      {
+        "name": "toLowLevelDrawTo",
+        "comment": " Convert a one-true-path drawto to a svg-path-lowlevel drawto. Used in conversion to string\n",
+        "type": "LowLevel.Command.DrawTo -> Path.LowLevel.DrawTo"
+      },
+      {
+        "name": "toLowLevelMoveTo",
+        "comment": " Convert a one-true-path moveto to a svg-path-lowlevel moveto. Used in conversion to string\n",
+        "type": "LowLevel.Command.MoveTo -> Path.LowLevel.MoveTo"
+      },
+      {
+        "name": "updateCursorState",
+        "comment": " Simulate the effect of a drawto command on the cursor position\n\n\n    state : CursorState\n    state =\n        { start = (0,0)\n        , cursor = (10, 10)\n        , previousControlPoint = Nothing\n        }\n\n    updateCursorState (lineTo [(20, 10)]) state\n        --> { start = (0,0), cursor = (20,10), previousControlPoint = Nothing }\n\n    updateCursorState (quadraticCurveTo [(( 15, 20), (20, 10))]) state\n        --> { start = (0,0), cursor = (20,10), previousControlPoint = Just (15, 20) }\n\n",
+        "type": "LowLevel.Command.DrawTo -> LowLevel.Command.CursorState -> LowLevel.Command.CursorState"
+      },
+      {
+        "name": "verticalTo",
+        "comment": " Specific version of `lineTo` that only moves vertically. The `V` instruction\n",
+        "type": "List Float -> LowLevel.Command.DrawTo"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

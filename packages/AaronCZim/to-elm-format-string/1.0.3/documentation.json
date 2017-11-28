@@ -1,0 +1,16 @@
+[
+  {
+    "name": "ToElmFormatString",
+    "comment": " A quick way to display the current model in a readable way.\nBy adding the line 'Html.pre [][ model |> toElmFormatString |> Html.text ]'\nto your code, you can see exactly what's going on in your program at any time.\n\n@docs toElmFormatString\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "toElmFormatString",
+        "comment": " Accepts single values, List, and Records of any depth\nand inserts newlines with tabulation according to the elm formatting rules.\n",
+        "type": "model -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

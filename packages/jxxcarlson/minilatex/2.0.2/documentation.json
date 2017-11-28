@@ -1,0 +1,36 @@
+[
+  {
+    "name": "MiniLatex.Driver",
+    "comment": " This library exposes functions for rendering MiniLaTeX text into HTML.\n\n\n# API\n\n@docs render, setup, getRenderedText, update, emptyEditRecord\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "emptyEditRecord",
+        "comment": " Return an empty EditRecord\n\n        { paragraphs = []\n        , renderedParagraphs = []\n        , latexState =\n            { counters =\n                Dict.fromList\n                    [ ( \"eqno\", 0 )\n                    , ( \"s1\", 0 )\n                    , ( \"s2\", 0 )\n                    , ( \"s3\", 0 )\n                    , ( \"tno\", 0 )\n                    ]\n            , crossReferences = Dict.fromList []\n            }\n        , idList = []\n        , idListStart = 0\n        }\n\n",
+        "type": "MiniLatex.Differ.EditRecord"
+      },
+      {
+        "name": "getRenderedText",
+        "comment": " Using the renderedParagraph list of the editRecord,\nreturn a string representing the HTML of the paragraph list\nof the editRecord. Append the macroDefinitions for use\nby MathJax.\n",
+        "type": "String -> MiniLatex.Differ.EditRecord -> String"
+      },
+      {
+        "name": "render",
+        "comment": " The function call `render macros sourceTest` produces\nan HTML string corresponding to the MiniLatex source text\n`sourceText`. The macro definitions in `macros`\nare appended to this string and are used by MathJax\nto render purely mathematical text. The `macros` string\nmay be empty. Thus, if\n\nmacros = \"\"\nsource = \"\\italic{Test:}\\n\\n$$a^2 + b^2 = c^2$$\\n\\n\\strong{Q.E.D.}\"\n\nthen `render macros source` yields the HTML text\n\n    <p>\n    <span class=italic>Test:</span></p>\n      <p>\n        $$a^2 + b^2 = c^2$$\n      </p>\n    <p>\n\n    <span class=\"strong\">Q.E.D.</span>\n    </p>\n\n",
+        "type": "String -> String -> String"
+      },
+      {
+        "name": "setup",
+        "comment": " Create an EditRecord from a string of MiniLaTeX text:\n\n> editRecord = setup 0 source\n\n        { paragraphs =\n            [ \"\\\\italic{Test:}\\n\\n\"\n            , \"$$a^2 + b^2 = c^2$$\\n\\n\"\n            , \"\\\\strong{Q.E.D.}\\n\\n\"\n            ]\n        , renderedParagraphs =\n            [ \"  <span class=italic>Test:</span>\"\n            , \" $$a^2 + b^2 = c^2$$\"\n            , \"  <span class=\\\"strong\\\">Q.E.D.</span> \"\n            ]\n        , latexState =\n            { counters =\n                Dict.fromList\n                    [ ( \"eqno\", 0 )\n                    , ( \"s1\", 0 )\n                    , ( \"s2\", 0 )\n                    , ( \"s3\", 0 )\n                    , ( \"tno\", 0 )\n                    ]\n            , crossReferences = Dict.fromList []\n            }\n        , idList = []\n        , idListStart = 0\n        } : MiniLatex.Differ.EditRecord\n\n",
+        "type": "Int -> String -> MiniLatex.Differ.EditRecord"
+      },
+      {
+        "name": "update",
+        "comment": " Update the given edit record with modified text.\nThus, if\n\n    source2 = \"\\italic{Test:}\\n\\n$$a^3 + b^3 = c^3$$\\n\\n\\strong{Q.E.D.}\"\n\nthen we can say\n\neditRecord2 = update 0 source2 editRecord\n\nThe `update` function attempts to re-render only the paragraph\nwhich have been changed. It will always update the text correctly,\nbut its efficiency depends on the nature of the edit. This is\nbecause the \"differ\" used to detect changes is rather crude.\n\n",
+        "type": "Int -> MiniLatex.Differ.EditRecord -> String -> MiniLatex.Differ.EditRecord"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

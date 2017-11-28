@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Json.Decode.FieldValue",
+    "comment": " Decode helpers for a field.\n\n@docs fieldValue\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "fieldValue",
+        "comment": " Successfully decodes a value when the decoded string matches the given item\n\n    fieldValue \"yes\" <| Json.Encode.string \"yes\"\n    --> Json.Decode.succeed \"yes\"\n\n    fieldValue \"no\" <| Json.Encode.string \"yes\"\n    --> Json.Decode.fail \"Expected 'no' but got 'yes'\"\n\nThis is intended for when you need to match against a specific value for a field.\n\nFor example:\n\n    { \"type\": \"Dog\" }\n\n    Json.Decode.field \"type\" (fieldValue \"Dog\")\n\n",
+        "type": "String -> Json.Decode.Decoder String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

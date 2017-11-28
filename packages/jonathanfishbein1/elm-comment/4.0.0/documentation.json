@@ -1,0 +1,182 @@
+[
+  {
+    "name": "CommentView",
+    "comment": " This library is a comments library similar to that found on social media sites.\n\n@docs commentMainView\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "commentMainView",
+        "comment": " Main comment view function. Use mapAll from style-elements\n\n    Element.mapAll MyCommentMessageWrapper Comment identity (commentMainView isSignedIn userCommentModel myAppComments)\n\n",
+        "type": "Bool -> CommentModel.UserCommentModel -> Maybe.Maybe (MultiwayTreeZipper.Zipper CommentModel.CommentModel) -> Element.Element CommentStyles.Class variation CommentModel.CommentMsg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "CommentUpdate",
+    "comment": " This library is a comments library similar to that found on social media sites.\n\n@docs commentUpdate, getParentComment\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "commentUpdate",
+        "comment": " Update function. A seed is necessary\n\n    ( ( newZipper, newSeed ), newCommentCmd ) =\n        commentUpdate isSignedIn seed commentMsg myAppComments\n\n",
+        "type": "Bool -> Random.Pcg.Seed -> CommentModel.CommentMsg -> Maybe.Maybe (MultiwayTreeZipper.Zipper CommentModel.CommentModel) -> ( ( Maybe.Maybe (MultiwayTreeZipper.Zipper CommentModel.CommentModel) , Random.Pcg.Seed ) , Platform.Cmd.Cmd CommentModel.CommentMsg )"
+      },
+      {
+        "name": "getParentComment",
+        "comment": " Function to get the parent comment\n",
+        "type": "Maybe.Maybe (MultiwayTreeZipper.Zipper CommentModel.CommentModel) -> CommentModel.CommentIdModel -> Maybe.Maybe CommentModel.CommentModel"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "CommentStyles",
+    "comment": " This library is a comments library similar to that found on social media sites.\n\n@docs Class, stylesheet\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Class",
+        "comment": " Comments style classes\n",
+        "args": [],
+        "cases": [
+          [
+            "None",
+            []
+          ],
+          [
+            "Paragraph",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "stylesheet",
+        "comment": " Comments stylesheet\n",
+        "type": "String -> Style.StyleSheet CommentStyles.Class variation"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "CommentModel",
+    "comment": " This library is a comments library similar to that found on social media sites.\n\n\n# Types\n\n@docs CommentIdModel, CommentModel, CommentMsg, UserCommentModel, UserIdModel, config\n\n\n# Inital values\n\n@docs commentInitState, commentModelInit, commentTreeInit, commentZipperInit\n\n",
+    "aliases": [
+      {
+        "name": "CommentModel",
+        "comment": " CommentModel\n",
+        "args": [],
+        "type": "{ commentId : CommentModel.CommentIdModel , user : CommentModel.UserCommentModel , message : String , showReplyInput : Bool , protoMessage : String , autoexpand : AutoExpand.State }"
+      },
+      {
+        "name": "UserCommentModel",
+        "comment": " UserModel for comments\n",
+        "args": [],
+        "type": "{ userId : CommentModel.UserIdModel , userFullName : String , picture : String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "CommentIdModel",
+        "comment": " Union Wrapped CommentId\n",
+        "args": [],
+        "cases": [
+          [
+            "CommentIdModel",
+            [
+              "Internal.CommentModel.CommentId"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "CommentMsg",
+        "comment": " Comment Messages\n",
+        "args": [],
+        "cases": [
+          [
+            "ClickReplyButton",
+            [
+              "CommentModel.CommentIdModel"
+            ]
+          ],
+          [
+            "TextInput",
+            [
+              "CommentModel.CommentIdModel",
+              "{ textValue : String, state : AutoExpand.State }"
+            ]
+          ],
+          [
+            "GenerateCommentId",
+            [
+              "CommentModel.UserCommentModel",
+              "CommentModel.CommentIdModel"
+            ]
+          ],
+          [
+            "ClearValue",
+            [
+              "CommentModel.CommentIdModel"
+            ]
+          ],
+          [
+            "CommentRouting",
+            [
+              "String"
+            ]
+          ],
+          [
+            "CommentLogin",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "UserIdModel",
+        "comment": " Union Wrapped UserId\n",
+        "args": [],
+        "cases": [
+          [
+            "UserIdModel",
+            [
+              "String"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "commentInitState",
+        "comment": " Initial comment state\n",
+        "type": "AutoExpand.State"
+      },
+      {
+        "name": "commentModelInit",
+        "comment": " CommentModel initial value\n",
+        "type": "CommentModel.CommentModel"
+      },
+      {
+        "name": "commentTreeInit",
+        "comment": " CommentTree initial value\n",
+        "type": "MultiwayTree.Tree CommentModel.CommentModel"
+      },
+      {
+        "name": "commentZipperInit",
+        "comment": " Zipper initial value\n",
+        "type": "Maybe.Maybe (MultiwayTreeZipper.Zipper CommentModel.CommentModel)"
+      },
+      {
+        "name": "config",
+        "comment": " Comment config: accepts a isSignedIn boolean flag and a parentCommentId\n",
+        "type": "Bool -> Internal.CommentModel.CommentId -> AutoExpand.Config CommentModel.CommentMsg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

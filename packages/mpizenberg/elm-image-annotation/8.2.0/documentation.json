@@ -1,0 +1,448 @@
+[
+  {
+    "name": "Annotation.Svg",
+    "comment": " View the annotations as Svg.\n\n\n# Simple svg rendering with default styles\n\n@docs point, boundingBox, stroke, contour, outline\n\n\n# Svg rendering with personal styles\n\n@docs pointStyled, boundingBoxStyled, strokeStyled, contourStyled, outlineStyled\n\n\n# Detailed rendering with whatever svg attributes\n\n@docs pointWithDetails, boundingBoxWithDetails, strokeWithDetails, contourWithDetails, outlineWithDetails\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "boundingBox",
+        "comment": " Svg view of a bounding box with default style.\nDefault style is defined in `Annotation.Style`.\n",
+        "type": "Annotation.Geometry.Types.BoundingBox -> Svg.Svg msg"
+      },
+      {
+        "name": "boundingBoxStyled",
+        "comment": " Svg view of a bounding box with given style.\n",
+        "type": "Annotation.Style.Line -> Annotation.Style.Fill -> Annotation.Geometry.Types.BoundingBox -> Svg.Svg msg"
+      },
+      {
+        "name": "boundingBoxWithDetails",
+        "comment": " Svg detailed view of a bounding box.\n\nSpecify in the attributes the style of the bounding box.\nAlternatively put a class attribute and set those in a style sheet (CSS).\n\nThe attributes arguments are appended to the already provided ones\nwhich are the geometric attributes (position and size) of the bounding box.\n\nMost often, you will also want to add `pointerEvents \"none\"`\nto prevent unwanted pointer events from happening.\nIt is added by default in the `boundingBox` and `boundingBoxStyled`\nfunctions but not in `boundingBoxWithDetails`.\n\n",
+        "type": "List (Svg.Attribute msg) -> Annotation.Geometry.Types.BoundingBox -> Svg.Svg msg"
+      },
+      {
+        "name": "contour",
+        "comment": " Svg view of a contour with default style.\nDefault style is defined in `Annotation.Style`.\n",
+        "type": "Annotation.Geometry.Types.Contour -> Svg.Svg msg"
+      },
+      {
+        "name": "contourStyled",
+        "comment": " Svg view of a contour with given style.\n",
+        "type": "Annotation.Style.Line -> Annotation.Style.Fill -> Annotation.Geometry.Types.Contour -> Svg.Svg msg"
+      },
+      {
+        "name": "contourWithDetails",
+        "comment": " Svg detailed view of a contour.\n\nSpecify in the attributes the style of the contour.\nAlternatively put a class attribute and set those in a style sheet (CSS).\n\nThe attributes arguments are appended to the already provided ones\nwhich are the geometric attributes (contour points positions).\n\nMost often, you will also want to add `pointerEvents \"none\"`\nto prevent unwanted pointer events from happening.\nIt is added by default in the `contour` and `contourStyled`\nfunctions but not in `contourWithDetails`.\n\n",
+        "type": "List (Svg.Attribute msg) -> Annotation.Geometry.Types.Contour -> Svg.Svg msg"
+      },
+      {
+        "name": "outline",
+        "comment": " Svg view of an outline with default style.\nDefault style is defined in `Annotation.Style`.\n",
+        "type": "Annotation.Geometry.Types.Outline -> Svg.Svg msg"
+      },
+      {
+        "name": "outlineStyled",
+        "comment": " Svg view of an outline with given style.\n",
+        "type": "Annotation.Style.Line -> Annotation.Style.Fill -> Annotation.Geometry.Types.Outline -> Svg.Svg msg"
+      },
+      {
+        "name": "outlineWithDetails",
+        "comment": " Svg detailed view of an outline.\n\nSpecify in the attributes the style of the outline.\nAlternatively put a class attribute and set those in a style sheet (CSS).\n\nThe attributes arguments are appended to the already provided ones\nwhich are the geometric attributes (outline points positions).\n\nMost often, you will also want to add `pointerEvents \"none\"`\nto prevent unwanted pointer events from happening.\nIt is added by default in the `outline` and `outlineStyled`\nfunctions but not in `outlineWithDetails`.\n\n",
+        "type": "List (Svg.Attribute msg) -> Annotation.Geometry.Types.Outline -> Svg.Svg msg"
+      },
+      {
+        "name": "point",
+        "comment": " Svg view of a point with default style.\nDefault style is defined in `Annotation.Style`.\n",
+        "type": "Annotation.Geometry.Types.Point -> Svg.Svg msg"
+      },
+      {
+        "name": "pointStyled",
+        "comment": " Svg view of a point with given style.\n",
+        "type": "Annotation.Style.Point -> Annotation.Geometry.Types.Point -> Svg.Svg msg"
+      },
+      {
+        "name": "pointWithDetails",
+        "comment": " Svg detailed view of a point.\n\nSpecify in the attributes the radius and styling of the disk\nused to represent the point. Alternatively, put a class attribute\nand set those in a style sheet (CSS).\n\nThe attributes arguments are appended to the already provided ones\nwhich are the circle center point coordinates (`cx`, `cy`).\n\nMost often, you will also want to add `pointerEvents \"none\"`\nto prevent unwanted pointer events from happening.\nIt is added by default in the `point` and `pointStyled` functions\nbut not in `pointWithDetails`.\n\n",
+        "type": "List (Svg.Attribute msg) -> Annotation.Geometry.Types.Point -> Svg.Svg msg"
+      },
+      {
+        "name": "stroke",
+        "comment": " Svg view of a stroke with default style.\nDefault style is defined in `Annotation.Style`.\n",
+        "type": "Annotation.Geometry.Types.Stroke -> Svg.Svg msg"
+      },
+      {
+        "name": "strokeStyled",
+        "comment": " Svg view of a stroke with given style.\n",
+        "type": "Annotation.Style.Line -> Annotation.Geometry.Types.Stroke -> Svg.Svg msg"
+      },
+      {
+        "name": "strokeWithDetails",
+        "comment": " Svg detailed view of a stroke.\n\nSpecify in the attributes the style of the stroke.\nAlternatively put a class attribute and set those in a style sheet (CSS).\n\nThe attributes arguments are appended to the already provided ones\nwhich are the geometric attributes (line points positions).\n\nMost often, you will also want to add `pointerEvents \"none\"`\nto prevent unwanted pointer events from happening.\nIt is added by default in the `stroke` and `strokeStyled`\nfunctions but not in `strokeWithDetails`.\n\n",
+        "type": "List (Svg.Attribute msg) -> Annotation.Geometry.Types.Stroke -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.Stroke",
+    "comment": " Create and manipulate free line strokes.\n\nThe stroke type is an alias for the [OpenSolid Geometry Polyline2d][polyline2d]\ntype so if a functionality is not provided by this module,\nyou can easily extend it with functions from the OpenSolid/Geometry package.\n\n[polyline2d]: http://package.elm-lang.org/packages/opensolid/geometry/2.0.1/OpenSolid-Polyline2d#Polyline2d\n\n@docs empty, addPoint, fromPoints, points, close\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "addPoint",
+        "comment": " Add a point to an unfinished stroke.\n",
+        "type": "Annotation.Geometry.Types.Point -> Annotation.Geometry.Types.Stroke -> Annotation.Geometry.Types.Stroke"
+      },
+      {
+        "name": "close",
+        "comment": " Close a stroke (polyline) into a polygon.\n\nThe output can be interpreted as a either a `Contour` or an `Outline`\nsince both are OpenSolid polygons type aliases.\n\n",
+        "type": "Annotation.Geometry.Types.Stroke -> Annotation.Geometry.Types.Contour"
+      },
+      {
+        "name": "empty",
+        "comment": " Create an empty stroke.\n",
+        "type": "Annotation.Geometry.Types.Stroke"
+      },
+      {
+        "name": "fromPoints",
+        "comment": " Create a stroke from a list of points\n",
+        "type": "List Annotation.Geometry.Types.Point -> Annotation.Geometry.Types.Stroke"
+      },
+      {
+        "name": "points",
+        "comment": " Retrieve the list of points of the stroke.\n",
+        "type": "Annotation.Geometry.Types.Stroke -> List Annotation.Geometry.Types.Point"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Style",
+    "comment": " Styling the annotations.\n\n\n# Styling points\n\n@docs Point, pointDefault\n\n\n# Styling lines\n\n@docs Line, strokeDefault, strokeAttributes\n\n\n# Styling contents (fill)\n\n@docs Fill, fillDefault, fillAttribute\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Fill",
+        "comment": " Styling of a content (fill).\n\nA fill is either not visible, or of a given color.\nOpacity is set using the alpha channel of the color.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "NoFill",
+            []
+          ],
+          [
+            "Fill",
+            [
+              "Color.Color"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Line",
+        "comment": " Styling of a line.\n\nA line is either not visible,\nor displayed with a stroke of given width and color.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "NoLine",
+            []
+          ],
+          [
+            "Stroke",
+            [
+              "Float",
+              "Color.Color"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Point",
+        "comment": " Styling of a point.\n\nA point is either not visible,\nor displayed as a colored disk of a given radius.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "NoPoint",
+            []
+          ],
+          [
+            "Disk",
+            [
+              "Float",
+              "Color.Color"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "fillAttribute",
+        "comment": " Transform a Fill style into the corresponding svg attribute.\n",
+        "type": "Annotation.Style.Fill -> Svg.Attribute msg"
+      },
+      {
+        "name": "fillDefault",
+        "comment": " Default style of a content (fill)\n\nA red with opacity at 20%.\n\n",
+        "type": "Annotation.Style.Fill"
+      },
+      {
+        "name": "pointDefault",
+        "comment": " Default style of a point.\n\nAn orange disk of radius 3 px.\n\n",
+        "type": "Annotation.Style.Point"
+      },
+      {
+        "name": "strokeAttributes",
+        "comment": " Transform a Line style into the corresponding svg attributes.\n",
+        "type": "Annotation.Style.Line -> List (Svg.Attribute msg)"
+      },
+      {
+        "name": "strokeDefault",
+        "comment": " Default style of a line.\n\nA red stroke of width 2 px.\n\n",
+        "type": "Annotation.Style.Line"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Viewer",
+    "comment": " This module provides functions to manage the viewing area.\n\n\n# Model\n\n@docs Viewer, default\n\n\n# Update\n\n@docs setSize, getCenter, centerAt\n@docs setZoom, setZoomCentered, zoomIn, zoomOut\n@docs fitImage\n@docs grabMove, positionIn, sizeIn\n\n\n# View\n\n@docs viewIn, viewInWithDetails, placeIn\n\n",
+    "aliases": [
+      {
+        "name": "Viewer",
+        "comment": " Parameters of the viewer.\n",
+        "args": [],
+        "type": "{ frame : OpenSolid.Frame2d.Frame2d , size : ( Float, Float ) , zoom : Float }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "centerAt",
+        "comment": " Recenter the viewing area at a given point.\n",
+        "type": "OpenSolid.Point2d.Point2d -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "default",
+        "comment": " Default viewer.\n",
+        "type": "Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "fitImage",
+        "comment": " Fit the view so that the image takes a certain percentage of its max viewable size.\n",
+        "type": "Float -> Image.Image -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "getCenter",
+        "comment": " Compute the center point of the viewer.\n",
+        "type": "Annotation.Viewer.Viewer -> Annotation.Geometry.Types.Point"
+      },
+      {
+        "name": "grabMove",
+        "comment": " Translate the viewer frame opposite to the vector (used for \"grab and move\").\n",
+        "type": "( Float, Float ) -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "placeIn",
+        "comment": " Place an svg element in a viewer (apply the appropriate frame transformation).\n\nThis is for a user who wants to keep full control of the viewing process.\nThe result can then be used as a regular svg element.\n\nIt does not compute new coordinates of each svg element,\nbut simply embeds them in a group with the appropriate transformation.\nSo try using it only once, on a group containing all elements to insert.\n\nFor simple viewing, prefer using the `viewIn` function.\n\n",
+        "type": "Annotation.Viewer.Viewer -> Svg.Svg msg -> Svg.Svg msg"
+      },
+      {
+        "name": "positionIn",
+        "comment": " Transform coordinates of a point in the frame to their actual image coordinates.\n",
+        "type": "Annotation.Viewer.Viewer -> ( Float, Float ) -> ( Float, Float )"
+      },
+      {
+        "name": "setSize",
+        "comment": " Reset size of the viewer.\n",
+        "type": "( Float, Float ) -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "setZoom",
+        "comment": " Set the zoom value.\n",
+        "type": "Float -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "setZoomCentered",
+        "comment": " Set zoom value while keeping the current center.\n",
+        "type": "Float -> Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "sizeIn",
+        "comment": " Scale a size in the frame to its actual image size.\n",
+        "type": "Annotation.Viewer.Viewer -> ( Float, Float ) -> ( Float, Float )"
+      },
+      {
+        "name": "viewIn",
+        "comment": " View the generated svg annotations (bounding boxes, contours, ...)\nin the viewer.\n\nFor display of the corresponding image in background,\nsimply group it with the annotations to generate a new Svg msg:\n\n    Svg.g [] [ Image.viewSvg [] image, svgAnnotations ]\n\nBe aware that the output of `viewIn` is an `svg` tag embedded in a `div` tag.\nEmbedding is performed to remedy some inconsistencies that may occur when\ntrying to get the dimensions of an `svg` tag with `clientWidth`.\n(see [W3C spec](https://www.w3.org/TR/cssom-view-1/#dom-element-clientwidth):\n\"If the element has no associated CSS layout box\nor if the CSS layout box is inline, return zero.\")\n\nFor finer-grained control, prefer using `placeIn`.\n\n",
+        "type": "Annotation.Viewer.Viewer -> Svg.Svg msg -> Html.Html msg"
+      },
+      {
+        "name": "viewInWithDetails",
+        "comment": " Same as `viewIn` but html attributes can be added (like class, ...).\n",
+        "type": "List (Html.Attribute msg) -> Annotation.Viewer.Viewer -> Svg.Svg msg -> Html.Html msg"
+      },
+      {
+        "name": "zoomIn",
+        "comment": " Zoom in (x2).\n",
+        "type": "Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      },
+      {
+        "name": "zoomOut",
+        "comment": " Zoom out (x0.5).\n",
+        "type": "Annotation.Viewer.Viewer -> Annotation.Viewer.Viewer"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.BoundingBox",
+    "comment": " Create and manipulate bounding boxes.\n\n@docs fromPair, svgAttributes\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "fromPair",
+        "comment": " Create a bounding box from a pair of points\nrepresenting opposite corners of the bounding box.\n",
+        "type": "( Annotation.Geometry.Types.Point, Annotation.Geometry.Types.Point ) -> Annotation.Geometry.Types.BoundingBox"
+      },
+      {
+        "name": "svgAttributes",
+        "comment": " Get the geometric svg attributes of a bounding box.\n",
+        "type": "Annotation.Geometry.Types.BoundingBox -> List (Svg.Attribute msg)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.Outline",
+    "comment": " Create and manipulate free line closed outlines.\n\nThe `Outline` type is an alias for the [OpenSolid Geometry Polygon2d][polygon2d]\ntype so if a functionality is not provided by this module,\nyou can easily extend it with functions from the OpenSolid/Geometry package.\n\n[polygon2d]: http://package.elm-lang.org/packages/opensolid/geometry/2.0.1/OpenSolid-Polygon2d#Polygon2d\n\n@docs empty, fromPoints, points\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "empty",
+        "comment": " Create an empty outline.\n",
+        "type": "Annotation.Geometry.Types.Outline"
+      },
+      {
+        "name": "fromPoints",
+        "comment": " Create a closed outline from a list of points.\n",
+        "type": "List Annotation.Geometry.Types.Point -> Annotation.Geometry.Types.Outline"
+      },
+      {
+        "name": "points",
+        "comment": " Retrieve the list of points of the outline.\n",
+        "type": "Annotation.Geometry.Types.Contour -> List Annotation.Geometry.Types.Point"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.Contour",
+    "comment": " Create and manipulate polygonal contours.\n\nThe `Contour` type is an alias for the [OpenSolid Geometry Polygon2d][polygon2d]\ntype so if a functionality is not provided by this module,\nyou can easily extend it with functions from the OpenSolid/Geometry package.\n\n[polygon2d]: http://package.elm-lang.org/packages/opensolid/geometry/2.0.1/OpenSolid-Polygon2d#Polygon2d\n\n@docs empty, fromPoints, points\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "empty",
+        "comment": " Create an empty contour.\n",
+        "type": "Annotation.Geometry.Types.Contour"
+      },
+      {
+        "name": "fromPoints",
+        "comment": " Create a contour from a list of points.\n",
+        "type": "List Annotation.Geometry.Types.Point -> Annotation.Geometry.Types.Contour"
+      },
+      {
+        "name": "points",
+        "comment": " Retrieve the list of points of the contour.\n",
+        "type": "Annotation.Geometry.Types.Contour -> List Annotation.Geometry.Types.Point"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.Point",
+    "comment": " Create and manipulate points.\n\n@docs fromCoordinates, coordinates\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "coordinates",
+        "comment": " Get the point coordinates.\n",
+        "type": "Annotation.Geometry.Types.Point -> ( Float, Float )"
+      },
+      {
+        "name": "fromCoordinates",
+        "comment": " Create a Point with the given coordinates.\n",
+        "type": "( Float, Float ) -> Annotation.Geometry.Types.Point"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Color",
+    "comment": " Color management.\n\n@docs toStr, turquoise, palette\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "palette",
+        "comment": " A color palette print and color-blind friendly.\n\n( beige, green, turquoise, blue, dark blue )\n\n",
+        "type": "( Color.Color, Color.Color, Color.Color, Color.Color, Color.Color )"
+      },
+      {
+        "name": "toStr",
+        "comment": " Get a string describing the color like `rgba(255,0,0,1)`.\n",
+        "type": "Color.Color -> String"
+      },
+      {
+        "name": "turquoise",
+        "comment": " Turquoise.\n",
+        "type": "Color.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Annotation.Geometry.Types",
+    "comment": " Types of the different elements usable for annotations.\n\nIn order to initialize an object of one of these types,\nlook into the corresponding module.\nFor example, to initialize a `Point`,\nyou will use the `Point.fromCoordinates` function from the `Point` module.\n\nRmq: _All those types are aliases of other types\nfrom the [OpenSolid Geometry][OpenSolid] package.\nSo you can easily extend functionalities based on the Opensolid functions._\n\n[OpenSolid]: http://package.elm-lang.org/packages/opensolid/geometry/2.0.1\n\n@docs Point, BoundingBox, Contour, Outline, Stroke\n\n",
+    "aliases": [
+      {
+        "name": "BoundingBox",
+        "comment": " A bounding box.\n",
+        "args": [],
+        "type": "OpenSolid.BoundingBox2d.BoundingBox2d"
+      },
+      {
+        "name": "Contour",
+        "comment": " A contour.\n",
+        "args": [],
+        "type": "OpenSolid.Polygon2d.Polygon2d"
+      },
+      {
+        "name": "Outline",
+        "comment": " An outline.\n\nThe main difference with a contour is the context of usage.\nA contour is more likely to have few identified nodes,\nwhile an outline is more like a continuous line.\n\n",
+        "args": [],
+        "type": "OpenSolid.Polygon2d.Polygon2d"
+      },
+      {
+        "name": "Point",
+        "comment": " A 2D point.\n",
+        "args": [],
+        "type": "OpenSolid.Point2d.Point2d"
+      },
+      {
+        "name": "Stroke",
+        "comment": " A stroke.\n",
+        "args": [],
+        "type": "OpenSolid.Polyline2d.Polyline2d"
+      }
+    ],
+    "types": [],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

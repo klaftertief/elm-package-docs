@@ -1,0 +1,241 @@
+[
+  {
+    "name": "Data.Keys",
+    "comment": " Keys Module for CtPaint Project\n\n\n# Types\n\n@docs Event, Config, Cmd, allCmds, QuickKey\n\n\n# Default\n\n@docs defaultConfig\n\n\n# Decoders\n\n@docs eventDecoder, configDecoder\n\n\n# Encoders\n\n@docs encodeConfig\n\n\n# Init\n\n@docs initCmdLookUp, initQuickKeysLookUp\n\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " A config represents the full specification of keys a user presses to issue which cmds\n",
+        "args": [],
+        "type": "List ( Data.Keys.QuickKey, Data.Keys.Cmd )"
+      },
+      {
+        "name": "Event",
+        "comment": " Events represent key board events\n",
+        "args": [],
+        "type": "{ code : Keyboard.KeyCode , meta : Bool , ctrl : Bool , shift : Bool , direction : Data.Keys.Direction }"
+      },
+      {
+        "name": "QuickKey",
+        "comment": " Certain keys execute certain cmds. Those key combinations need to be represented to the user, the QuickKey type represents that\n",
+        "args": [],
+        "type": "( Data.Keys.Direction , Keyboard.Extra.Key , Data.Keys.CmdKeyState , Data.Keys.ShiftState )"
+      }
+    ],
+    "types": [
+      {
+        "name": "Cmd",
+        "comment": " Cmds are things particular key strokes can execute\n",
+        "args": [],
+        "cases": [
+          [
+            "SwatchesTurnLeft",
+            []
+          ],
+          [
+            "SwatchesTurnRight",
+            []
+          ],
+          [
+            "SwatchesQuickTurnLeft",
+            []
+          ],
+          [
+            "RevertQuickTurnLeft",
+            []
+          ],
+          [
+            "SwatchesQuickTurnRight",
+            []
+          ],
+          [
+            "RevertQuickTurnRight",
+            []
+          ],
+          [
+            "SwatchesQuickTurnDown",
+            []
+          ],
+          [
+            "RevertQuickTurnDown",
+            []
+          ],
+          [
+            "SetToolToPencil",
+            []
+          ],
+          [
+            "SetToolToHand",
+            []
+          ],
+          [
+            "SetToolToSelect",
+            []
+          ],
+          [
+            "SetToolToFill",
+            []
+          ],
+          [
+            "SetToolToSample",
+            []
+          ],
+          [
+            "SetToolToLine",
+            []
+          ],
+          [
+            "SetToolToRectangle",
+            []
+          ],
+          [
+            "SetToolToRectangleFilled",
+            []
+          ],
+          [
+            "Undo",
+            []
+          ],
+          [
+            "Redo",
+            []
+          ],
+          [
+            "Cut",
+            []
+          ],
+          [
+            "Copy",
+            []
+          ],
+          [
+            "SelectAll",
+            []
+          ],
+          [
+            "Paste",
+            []
+          ],
+          [
+            "ZoomIn",
+            []
+          ],
+          [
+            "ZoomOut",
+            []
+          ],
+          [
+            "InitDownload",
+            []
+          ],
+          [
+            "InitImport",
+            []
+          ],
+          [
+            "InitScale",
+            []
+          ],
+          [
+            "InitText",
+            []
+          ],
+          [
+            "InitImgur",
+            []
+          ],
+          [
+            "InitReplaceColor",
+            []
+          ],
+          [
+            "ToggleColorPicker",
+            []
+          ],
+          [
+            "SwitchGalleryView",
+            []
+          ],
+          [
+            "ToggleMinimap",
+            []
+          ],
+          [
+            "Delete",
+            []
+          ],
+          [
+            "FlipHorizontal",
+            []
+          ],
+          [
+            "FlipVertical",
+            []
+          ],
+          [
+            "Rotate90",
+            []
+          ],
+          [
+            "Rotate180",
+            []
+          ],
+          [
+            "Rotate270",
+            []
+          ],
+          [
+            "InvertColors",
+            []
+          ],
+          [
+            "Save",
+            []
+          ],
+          [
+            "NoCmd",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "allCmds",
+        "comment": " A list of all the cmds\n",
+        "type": "List Data.Keys.Cmd"
+      },
+      {
+        "name": "configDecoder",
+        "comment": " Turn json into a key config using the config decoder\n",
+        "type": "Json.Decode.Decoder Data.Keys.Config"
+      },
+      {
+        "name": "defaultConfig",
+        "comment": " Users must start with some kind of config. This is the default one they start off with\n",
+        "type": "List ( Data.Keys.QuickKey, Data.Keys.Cmd )"
+      },
+      {
+        "name": "encodeConfig",
+        "comment": " Turn the config into json\n",
+        "type": "Data.Keys.Config -> Json.Encode.Value"
+      },
+      {
+        "name": "eventDecoder",
+        "comment": " The decoder for key events\n",
+        "type": "Json.Decode.Decoder Data.Keys.Event"
+      },
+      {
+        "name": "initCmdLookUp",
+        "comment": " The dictionary used to map key events to cmds\n",
+        "type": "Data.Keys.Config -> Dict.Dict String Data.Keys.Cmd"
+      },
+      {
+        "name": "initQuickKeysLookUp",
+        "comment": " The dictionary used to map cmds to key arrangements (Undo -> \"cmd + z\")\n",
+        "type": "Data.Keys.Config -> Bool -> Dict.Dict String String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

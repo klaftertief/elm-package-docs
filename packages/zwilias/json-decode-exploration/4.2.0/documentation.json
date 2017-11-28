@@ -1,0 +1,361 @@
+[
+  {
+    "name": "Json.Decode.Exploration.Pipeline",
+    "comment": "\n\n\n# Json.Decode.Pipeline\n\nUse the `(|>)` operator to build JSON decoders.\n\n\n## Decoding fields\n\n@docs required, requiredAt, optional, optionalAt, hardcoded, custom\n\n\n## Validating the JSON without using the values\n\n@docs checked, checkedAt, ignored, ignoredAt\n\n\n## Beginning and ending pipelines\n\n@docs decode, resolve\n\n\n### Verified docs\n\nThe examples all expect imports set up like this:\n\n    import Json.Decode.Exploration exposing (..)\n    import Json.Decode.Exploration.Pipeline exposing (..)\n    import Json.Encode as Encode\n    import List.Nonempty as Nonempty\n\nFor automated verification of these examples, this import is also required.\nPlease ignore it.\n\n    import DocVerificationHelpers exposing (User)\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "checked",
+        "comment": " `check` a field in the JSON to ensure it has a certain value before allowing\nthe decoder to succeed.\n\n    type alias User =\n        { id : Int\n        , name : String\n        , email : String\n        }\n\n    userDecoder : Decoder User\n    userDecoder =\n        decode User\n            |> required \"id\" int\n            |> required \"name\" string\n            |> required \"email\" string\n            |> checked \"enabled\" bool True\n\n    \"\"\"\n    {\n        \"id\": 123,\n        \"email\": \"sam@example.com\",\n        \"name\": \"Sam\",\n        \"enabled\": true\n    }\n    \"\"\"\n        |> decodeString userDecoder\n    --> Success { id = 123, name = \"Sam\", email = \"sam@example.com\" }\n\n    \"\"\"\n    {\n        \"id\": 123,\n        \"email\": \"sam@example.com\",\n        \"name\": \"Sam\",\n        \"enabled\": false\n    }\n    \"\"\"\n        |> decodeString userDecoder\n    --> Errors expectedErrors\n\n    expectedErrors : Errors\n    expectedErrors =\n        Failure \"Verification failed, expected 'True'.\"  (Encode.bool False)\n            |> Nonempty.fromElement\n            |> BadField \"enabled\"\n            |> Nonempty.fromElement\n\n",
+        "type": "String -> Json.Decode.Exploration.Decoder a -> a -> Json.Decode.Exploration.Decoder b -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "checkedAt",
+        "comment": " Check a field at a certain path and validate its content before allowing\ndecoding to succeed.\n",
+        "type": "List String -> Json.Decode.Exploration.Decoder a -> a -> Json.Decode.Exploration.Decoder b -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "custom",
+        "comment": " Run the given decoder and feed its result into the pipeline at this point.\n\nConsider this example.\n\n    type alias User =\n        { id : Int\n        , name : String\n        , email : String\n        }\n\n    userDecoder : Decoder User\n    userDecoder =\n        decode User\n            |> required \"id\" int\n            |> custom (at [ \"profile\", \"name\" ] string)\n            |> required \"email\" string\n\n    \"\"\"\n    {\n        \"id\": 123,\n        \"email\": \"sam@example.com\",\n        \"profile\": {\"name\": \"Sam\"}\n    }\n    \"\"\"\n        |> decodeString userDecoder\n    --> Success { id = 123, name = \"Sam\", email = \"sam@example.com\" }\n\n",
+        "type": "Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder (a -> b) -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "decode",
+        "comment": " Begin a decoding pipeline. This is a synonym for [Json.Decode.succeed](http://package.elm-lang.org/packages/elm-lang/core/latest/Json-Decode#succeed),\nintended to make things read more clearly.\n\n    type alias User =\n        { id : Int\n        , email : String\n        , name : String\n        }\n\n    userDecoder : Decoder User\n    userDecoder =\n        decode User\n            |> required \"id\" int\n            |> required \"email\" string\n            |> optional \"name\" string \"\"\n\n",
+        "type": "a -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "hardcoded",
+        "comment": " Rather than decoding anything, use a fixed value for the next step in the\npipeline. `harcoded` does not look at the JSON at all.\n\n    type alias User =\n        { id : Int\n        , name : String\n        , email : String\n        }\n\n    userDecoder : Decoder User\n    userDecoder =\n        decode User\n            |> required \"id\" int\n            |> hardcoded \"Alex\"\n            |> required \"email\" string\n\n    \"\"\" { \"id\": 123, \"email\": \"sam@example.com\" } \"\"\"\n        |> decodeString userDecoder\n    --> Success { id = 123, name = \"Alex\", email = \"sam@example.com\" }\n\n",
+        "type": "a -> Json.Decode.Exploration.Decoder (a -> b) -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "ignored",
+        "comment": " Ignore a field from decoding. By using `ignored`, you acknowledge that it is\nin the JSON so warnings don't show up.\n\n    type alias User =\n        { id : Int\n        , name : String\n        , email : String\n        }\n\n    userDecoder : Decoder User\n    userDecoder =\n        decode User\n            |> required \"id\" int\n            |> required \"name\" string\n            |> required \"email\" string\n            |> ignored \"enabled\"\n\n    \"\"\"\n    {\n        \"id\": 123,\n        \"email\": \"sam@example.com\",\n        \"name\": \"Sam\",\n        \"enabled\": \"No one cares, it's ignored.\"\n    }\n    \"\"\"\n        |> decodeString userDecoder\n    --> Success { id = 123, name = \"Sam\", email = \"sam@example.com\" }\n\n",
+        "type": "String -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "ignoredAt",
+        "comment": " Ignore a value at a certain path from decoding. By using `ignoredAt`, you\nacknowledge that it is in the JSON so warnings don't show up.\n",
+        "type": "List String -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "optional",
+        "comment": " Decode a field that may be missing or have a null value. If the field is\nmissing, then it decodes as the `fallback` value. If the field is present,\nthen `valDecoder` is used to decode its value. If `valDecoder` fails on a\n`null` value, then the `fallback` is used as if the field were missing\nentirely.\n\n    type alias User =\n        { id : Int\n        , name : String\n        , email : String\n        }\n\n    userDecoder : Decoder User\n    userDecoder =\n        decode User\n            |> required \"id\" int\n            |> optional \"name\" string \"blah\"\n            |> required \"email\" string\n\n    \"\"\" { \"id\": 123, \"email\": \"sam@example.com\" } \"\"\"\n        |> decodeString userDecoder\n    --> Success { id = 123, name = \"blah\", email = \"sam@example.com\" }\n\nBecause `valDecoder` is given an opportunity to decode `null` values before\nresorting to the `fallback`, you can distinguish between missing and `null`\nvalues if you need to:\n\n    userDecoder2 =\n        decode User\n            |> required \"id\" int\n            |> optional \"name\" (oneOf [ string, null \"NULL\" ]) \"MISSING\"\n            |> required \"email\" string\n\n",
+        "type": "String -> Json.Decode.Exploration.Decoder a -> a -> Json.Decode.Exploration.Decoder (a -> b) -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "optionalAt",
+        "comment": " Decode an optional nested field.\n",
+        "type": "List String -> Json.Decode.Exploration.Decoder a -> a -> Json.Decode.Exploration.Decoder (a -> b) -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "required",
+        "comment": " Decode a required field.\n\n    type alias User =\n        { id : Int\n        , name : String\n        , email : String\n        }\n\n    userDecoder : Decoder User\n    userDecoder =\n        decode User\n            |> required \"id\" int\n            |> required \"name\" string\n            |> required \"email\" string\n\n    \"\"\" {\"id\": 123, \"email\": \"sam@example.com\", \"name\": \"Sam\"} \"\"\"\n        |> decodeString userDecoder\n    --> Success { id = 123, name = \"Sam\", email = \"sam@example.com\" }\n\n",
+        "type": "String -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder (a -> b) -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "requiredAt",
+        "comment": " Decode a required nested field.\n\n    type alias User =\n        { id : Int\n        , name : String\n        , email : String\n        }\n\n    userDecoder : Decoder User\n    userDecoder =\n        decode User\n            |> required \"id\" int\n            |> requiredAt [ \"profile\", \"name\" ] string\n            |> required \"email\" string\n\n    \"\"\"\n    {\n        \"id\": 123,\n        \"email\": \"sam@example.com\",\n        \"profile\": { \"name\": \"Sam\" }\n    }\n    \"\"\"\n        |> decodeString userDecoder\n    --> Success { id = 123, name = \"Sam\", email = \"sam@example.com\" }\n\n",
+        "type": "List String -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder (a -> b) -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "resolve",
+        "comment": " Convert a `Decoder (Result x a)` into a `Decoder a`. Useful when you want\nto perform some custom processing just before completing the decoding operation.\n\n    type alias User =\n        { id : Int\n        , name : String\n        , email : String\n        }\n\n    userDecoder : Decoder User\n    userDecoder =\n        let\n            -- toDecoder gets run *after* all the\n            -- (|> required ...) steps are done.\n            toDecoder : Int -> String -> String -> Int -> Decoder User\n            toDecoder id name email version =\n                if version >= 2 then\n                    succeed (User id name email)\n                else\n                    fail \"This JSON is from a deprecated source. Please upgrade!\"\n        in\n        decode toDecoder\n            |> required \"id\" int\n            |> required \"name\" string\n            |> required \"email\" string\n            |> required \"version\" int\n            -- version is part of toDecoder,\n            -- but it is not a part of User\n            |> resolve\n\n    \"\"\"\n    {\n        \"id\": 123,\n        \"name\": \"Sam\",\n        \"email\": \"sam@example.com\",\n        \"version\": 3\n    }\n    \"\"\"\n        |> decodeString userDecoder\n    --> Success { id = 123, name = \"Sam\", email = \"sam@example.com\" }\n\n",
+        "type": "Json.Decode.Exploration.Decoder (Json.Decode.Exploration.Decoder a) -> Json.Decode.Exploration.Decoder a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Json.Decode.Exploration",
+    "comment": " Like the regular decoders, except\n\nExamples assume imports:\n\n    import Json.Encode as Encode\n    import List.Nonempty as Nonempty exposing (Nonempty(Nonempty))\n    import Array\n    import Dict\n\n\n# Run Decoders\n\n@docs decodeString, decodeValue, DecodeResult, Value, Errors, Error, Warnings, Warning\n\n\n# Primitives\n\n@docs Decoder, string, bool, int, float\n\n\n# Data Structures\n\n@docs nullable, list, array, dict, keyValuePairs\n\n\n# Object Primitives\n\n@docs field, at, index\n\n\n# Inconsistent Structure\n\n@docs maybe, oneOf\n\n\n# Fancy Decoding\n\n@docs lazy, value, null, check, succeed, fail, andThen\n\n\n# Mapping\n\n**Note:** If you run out of map functions, take a look at [the pipeline module][pipe]\nwhich makes it easier to handle large objects.\n\n[pipe]: http://package.elm-lang.org/packages/zwilias/json-decode-exploration/latest/Json-Decode-Exploration-Pipeline\n\n@docs map, map2, map3, map4, map5, map6, map7, map8, andMap\n\nLast but not least, an extra import to allow elm-verify-examples to actually\nverify all the examples:\n\n    import DocVerificationHelpers exposing (Pet(..))\n\n",
+    "aliases": [
+      {
+        "name": "Errors",
+        "comment": " Decoding may fail with 1 or more errors, so `Errors` is a\n[`Nonempty`][nonempty] of errors.\n\n[nonempty]: TODO\n\n",
+        "args": [],
+        "type": "List.Nonempty.Nonempty Json.Decode.Exploration.Error"
+      },
+      {
+        "name": "Value",
+        "comment": " A simple type alias for `Json.Decode.Value`.\n",
+        "args": [],
+        "type": "Json.Decode.Value"
+      },
+      {
+        "name": "Warnings",
+        "comment": " Decoding may generate warnings. In case the result is a `WithWarnings`, you\nwill have 1 or more warnings, as a `Nonempty` list.\n",
+        "args": [],
+        "type": "List.Nonempty.Nonempty Json.Decode.Exploration.Warning"
+      }
+    ],
+    "types": [
+      {
+        "name": "DecodeResult",
+        "comment": " Decoding can have 4 different outcomes:\n\n  - `BadJson` occurs when the JSON string isn't valid JSON, or the `Value`\n    contains non-JSON primitives like functions.\n  - `Errors` means errors occurred while running your decoder and contains the\n    [`Errors`](#errors) that occurred.\n  - `WithWarnings` means decoding succeeded but produced one or more\n    [`Warnings`](#warnings).\n  - `Success` is the best possible outcome: All went well!\n\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "BadJson",
+            []
+          ],
+          [
+            "Errors",
+            [
+              "Json.Decode.Exploration.Errors"
+            ]
+          ],
+          [
+            "WithWarnings",
+            [
+              "Json.Decode.Exploration.Warnings",
+              "a"
+            ]
+          ],
+          [
+            "Success",
+            [
+              "a"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Decoder",
+        "comment": " Kind of the core idea of this library. Think of it as a piece of data that\ndescribed _how_ to read and transform JSON. You can use `decodeString` and\n`decodeValue` to actually execute a decoder on JSON.\n",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Error",
+        "comment": " The most basic kind of an `Error` is `Failure`, which comes annotated with\na string describing the failure, and the JSON `Value` that was encountered\ninstead.\n\nThe other cases describe the \"path\" to where the error occurred.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "BadField",
+            [
+              "String",
+              "Json.Decode.Exploration.Errors"
+            ]
+          ],
+          [
+            "BadIndex",
+            [
+              "Int",
+              "Json.Decode.Exploration.Errors"
+            ]
+          ],
+          [
+            "BadOneOf",
+            [
+              "List Json.Decode.Exploration.Errors"
+            ]
+          ],
+          [
+            "Failure",
+            [
+              "String",
+              "Json.Decode.Exploration.Value"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Warning",
+        "comment": " Like with errors, the most basic warning is an unused value. The other cases\ndescribe the path to the warnings.\n",
+        "args": [],
+        "cases": [
+          [
+            "InField",
+            [
+              "String",
+              "Json.Decode.Exploration.Warnings"
+            ]
+          ],
+          [
+            "AtIndex",
+            [
+              "Int",
+              "Json.Decode.Exploration.Warnings"
+            ]
+          ],
+          [
+            "UnusedValue",
+            [
+              "Json.Decode.Exploration.Value"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "andMap",
+        "comment": " Decode an argument and provide it to a function in a decoder.\n\n    decoder : Decoder String\n    decoder =\n        succeed (String.repeat)\n            |> andMap (field \"count\" int)\n            |> andMap (field \"val\" string)\n\n\n    \"\"\" { \"val\": \"hi\", \"count\": 3 } \"\"\"\n        |> decodeString decoder\n    --> Success \"hihihi\"\n\n",
+        "type": "Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder (a -> b) -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "andThen",
+        "comment": " Chain decoders where one decoder depends on the value of another decoder.\n",
+        "type": "(a -> Json.Decode.Exploration.Decoder b) -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "array",
+        "comment": " _Convenience function._ Decode a JSON array into an Elm `Array`.\n\n    \"\"\" [ 1, 2, 3 ] \"\"\"\n        |> decodeString (array int)\n    --> Success <| Array.fromList [ 1, 2, 3 ]\n\n",
+        "type": "Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder (Array.Array a)"
+      },
+      {
+        "name": "at",
+        "comment": " Decodes a value at a certain path, using a provided decoder. Essentially,\nwriting `at [ \"a\", \"b\", \"c\" ]  string` is sugar over writing\n`field \"a\" (field \"b\" (field \"c\" string))`}.\n\n    \"\"\" { \"a\": { \"b\": { \"c\": \"hi there\" } } } \"\"\"\n        |> decodeString (at [ \"a\", \"b\", \"c\" ] string)\n    --> Success \"hi there\"\n\n",
+        "type": "List String -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "bool",
+        "comment": " Decode a boolean value.\n\n    \"\"\" [ true, false ] \"\"\"\n        |> decodeString (list bool)\n    --> Success [ True, False ]\n\n",
+        "type": "Json.Decode.Exploration.Decoder Bool"
+      },
+      {
+        "name": "check",
+        "comment": " Useful for checking a value in the JSON matches the value you expect it to\nhave. If it does, succeeds with the second decoder. If it doesn't it fails.\n\nThis can be used to decode union types:\n\n    type Pet = Cat | Dog | Rabbit\n\n    petDecoder : Decoder Pet\n    petDecoder =\n        oneOf\n            [ check string \"cat\" <| succeed Cat\n            , check string \"dog\" <| succeed Dog\n            , check string \"rabbit\" <| succeed Rabbit\n            ]\n\n    \"\"\" [ \"dog\", \"rabbit\", \"cat\" ] \"\"\"\n        |> decodeString (list petDecoder)\n    --> Success [ Dog, Rabbit, Cat ]\n\n",
+        "type": "Json.Decode.Exploration.Decoder a -> a -> Json.Decode.Exploration.Decoder b -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "decodeString",
+        "comment": " Decode a JSON string. If the string isn't valid JSON, this will fail with a\n`BadJson` result.\n",
+        "type": "Json.Decode.Exploration.Decoder a -> String -> Json.Decode.Exploration.DecodeResult a"
+      },
+      {
+        "name": "decodeValue",
+        "comment": " Run a `Decoder` on a `Value`.\n\nNote that this may still fail with a `BadJson` if there are non-JSON compatible\nvalues in the provided `Value`. In particular, don't attempt to use this library\nwhen decoding `Event`s - it will blow up. Badly.\n\n",
+        "type": "Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Value -> Json.Decode.Exploration.DecodeResult a"
+      },
+      {
+        "name": "dict",
+        "comment": " _Convenience function._ Decode a JSON object into an Elm `Dict String`.\n\n    \"\"\" { \"foo\": \"bar\", \"bar\": \"hi there\" } \"\"\"\n        |> decodeString (dict string)\n    --> Success <| Dict.fromList\n    -->   [ ( \"bar\", \"hi there\" )\n    -->   , ( \"foo\", \"bar\" )\n    -->   ]\n\n",
+        "type": "Json.Decode.Exploration.Decoder v -> Json.Decode.Exploration.Decoder (Dict.Dict String v)"
+      },
+      {
+        "name": "fail",
+        "comment": " Ignore the json and fail with a provided message.\n\n    \"\"\" \"hello\" \"\"\"\n        |> decodeString (fail \"failure\")\n    --> Errors (Nonempty (Failure \"failure\" (Encode.string \"hello\")) [])\n\n",
+        "type": "String -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "field",
+        "comment": " Decode the content of a field using a provided decoder.\n\n    \"\"\" { \"foo\": \"bar\" } \"\"\"\n        |> decodeString (field \"foo\" string)\n    --> Success \"bar\"\n\n\n    \"\"\" [ { \"foo\": \"bar\" }, { \"foo\": \"baz\", \"hello\": \"world\" } ] \"\"\"\n        |> decodeString (list (field \"foo\" string))\n    --> WithWarnings expectedWarnings [ \"bar\", \"baz\" ]\n\n\n    expectedWarnings : Warnings\n    expectedWarnings =\n        UnusedValue (Encode.string \"world\")\n            |> Nonempty.fromElement\n            |> InField \"hello\"\n            |> Nonempty.fromElement\n            |> AtIndex 1\n            |> Nonempty.fromElement\n\n",
+        "type": "String -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "float",
+        "comment": " Decode a number into a `Float`.\n\n    \"\"\" 12.34 \"\"\"\n        |> decodeString float\n    --> Success 12.34\n\n\n    \"\"\" 12 \"\"\"\n        |> decodeString float\n    --> Success 12\n\n\n    \"\"\" null \"\"\"\n        |> decodeString float\n    --> Errors (Nonempty (Failure \"Expected a number\" Encode.null) [])\n\n",
+        "type": "Json.Decode.Exploration.Decoder Float"
+      },
+      {
+        "name": "index",
+        "comment": " Decode a specific index using a specified `Decoder`.\n\n    \"\"\" [ \"hello\", 123 ] \"\"\"\n        |> decodeString (map2 (,) (index 0 string) (index 1 int))\n    --> Success ( \"hello\", 123 )\n\n\n    \"\"\" [ \"hello\", \"there\" ] \"\"\"\n        |> decodeString (index 1 string)\n    --> WithWarnings\n    -->   (Nonempty (AtIndex 0 <| Nonempty (UnusedValue (Encode.string \"hello\")) []) [])\n    -->   \"there\"\n\n",
+        "type": "Int -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "int",
+        "comment": " Decode a number into an `Int`.\n\n    \"\"\" 123 \"\"\"\n        |> decodeString int\n    --> Success 123\n\n\n    \"\"\" 0.1 \"\"\"\n        |> decodeString int\n    --> Errors <|\n    -->   Nonempty\n    -->     (Failure \"Expected an integer number\" (Encode.float 0.1))\n    -->     []\n\n",
+        "type": "Json.Decode.Exploration.Decoder Int"
+      },
+      {
+        "name": "keyValuePairs",
+        "comment": " Decode a JSON object into a list of key-value pairs. The decoder you provide\nwill be used to decode the values.\n\n    \"\"\" { \"foo\": \"bar\", \"hello\": \"world\" } \"\"\"\n        |> decodeString (keyValuePairs string)\n    --> Success [ ( \"foo\", \"bar\" ), ( \"hello\", \"world\" ) ]\n\n",
+        "type": "Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder (List ( String, a ))"
+      },
+      {
+        "name": "lazy",
+        "comment": " Required when using (mutually) recursive decoders.\n",
+        "type": "(() -> Json.Decode.Exploration.Decoder a) -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "list",
+        "comment": " Decode a list of values, decoding each entry with the provided decoder.\n\n    \"\"\" [ \"foo\", \"bar\" ] \"\"\"\n        |> decodeString (list string)\n    --> Success [ \"foo\", \"bar\" ]\n\n\n    \"\"\" [ \"foo\", null ] \"\"\"\n        |> decodeString (list string)\n    --> Errors <|\n    -->   Nonempty\n    -->     (BadIndex 1 <|\n    -->       Nonempty (Failure \"Expected a string\" Encode.null) []\n    -->     )\n    -->     []\n\n",
+        "type": "Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder (List a)"
+      },
+      {
+        "name": "map",
+        "comment": " Useful for transforming decoders.\n\n    \"\"\" \"foo\" \"\"\"\n        |> decodeString (map String.toUpper string)\n    --> Success \"FOO\"\n\n",
+        "type": "(a -> b) -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder b"
+      },
+      {
+        "name": "map2",
+        "comment": " Combine 2 decoders.\n",
+        "type": "(a -> b -> c) -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder b -> Json.Decode.Exploration.Decoder c"
+      },
+      {
+        "name": "map3",
+        "comment": " Combine 3 decoders.\n",
+        "type": "(a -> b -> c -> d) -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder b -> Json.Decode.Exploration.Decoder c -> Json.Decode.Exploration.Decoder d"
+      },
+      {
+        "name": "map4",
+        "comment": " Combine 4 decoders.\n",
+        "type": "(a -> b -> c -> d -> e) -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder b -> Json.Decode.Exploration.Decoder c -> Json.Decode.Exploration.Decoder d -> Json.Decode.Exploration.Decoder e"
+      },
+      {
+        "name": "map5",
+        "comment": " Combine 5 decoders.\n",
+        "type": "(a -> b -> c -> d -> e -> f) -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder b -> Json.Decode.Exploration.Decoder c -> Json.Decode.Exploration.Decoder d -> Json.Decode.Exploration.Decoder e -> Json.Decode.Exploration.Decoder f"
+      },
+      {
+        "name": "map6",
+        "comment": " Combine 6 decoders.\n",
+        "type": "(a -> b -> c -> d -> e -> f -> g) -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder b -> Json.Decode.Exploration.Decoder c -> Json.Decode.Exploration.Decoder d -> Json.Decode.Exploration.Decoder e -> Json.Decode.Exploration.Decoder f -> Json.Decode.Exploration.Decoder g"
+      },
+      {
+        "name": "map7",
+        "comment": " Combine 7 decoders.\n",
+        "type": "(a -> b -> c -> d -> e -> f -> g -> h) -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder b -> Json.Decode.Exploration.Decoder c -> Json.Decode.Exploration.Decoder d -> Json.Decode.Exploration.Decoder e -> Json.Decode.Exploration.Decoder f -> Json.Decode.Exploration.Decoder g -> Json.Decode.Exploration.Decoder h"
+      },
+      {
+        "name": "map8",
+        "comment": " Combine 8 decoders.\n",
+        "type": "(a -> b -> c -> d -> e -> f -> g -> h -> i) -> Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder b -> Json.Decode.Exploration.Decoder c -> Json.Decode.Exploration.Decoder d -> Json.Decode.Exploration.Decoder e -> Json.Decode.Exploration.Decoder f -> Json.Decode.Exploration.Decoder g -> Json.Decode.Exploration.Decoder h -> Json.Decode.Exploration.Decoder i"
+      },
+      {
+        "name": "maybe",
+        "comment": " Decodes successfully and wraps with a `Just`, handling failure by succeeding\nwith `Nothing`.\n\n    \"\"\" [ \"foo\", 12 ] \"\"\"\n        |> decodeString (list <| maybe string)\n    --> WithWarnings expectedWarnings [ Just \"foo\", Nothing ]\n\n\n    expectedWarnings : Warnings\n    expectedWarnings =\n        UnusedValue (Encode.int 12)\n            |> Nonempty.fromElement\n            |> AtIndex 1\n            |> Nonempty.fromElement\n\n",
+        "type": "Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder (Maybe.Maybe a)"
+      },
+      {
+        "name": "null",
+        "comment": " Decode a `null` and succeed with some value.\n\n    \"\"\" null \"\"\"\n        |> decodeString (null \"it was null\")\n    --> Success \"it was null\"\n\nNote that `undefined` and `null` are not the same thing. This cannot be used to\nverify that a field is _missing_, only that it is explicitly set to `null`.\n\n    \"\"\" { \"foo\": null } \"\"\"\n        |> decodeString (field \"foo\" (null ()))\n    --> Success ()\n\n\n    \"\"\" { } \"\"\"\n        |> decodeString (field \"foo\" (null ()))\n    --> Errors <|\n    -->   Nonempty\n    -->     (Failure \"Expected an object with a field 'foo'\" (Encode.object []))\n    -->     []\n\n",
+        "type": "a -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "nullable",
+        "comment": " Decodes successfully and wraps with a `Just`. If the values is `null`\nsucceeds with `Nothing`.\n\n    \"\"\" [ { \"foo\": \"bar\" }, { \"foo\": null } ] \"\"\"\n        |> decodeString (list <| field \"foo\" <| nullable string)\n    --> Success [ Just \"bar\", Nothing ]\n\n",
+        "type": "Json.Decode.Exploration.Decoder a -> Json.Decode.Exploration.Decoder (Maybe.Maybe a)"
+      },
+      {
+        "name": "oneOf",
+        "comment": " Tries a bunch of decoders. The first one to not fail will be the one used.\n\nIf all fail, the errors are collected into a `BadOneOf`.\n\n    \"\"\" [ 12, \"whatever\" ] \"\"\"\n        |> decodeString (list <| oneOf [ map toString int, string ])\n    --> Success [ \"12\", \"whatever\" ]\n\n\n    \"\"\" null \"\"\"\n        |> decodeString (oneOf [ string, map toString int ])\n    --> Errors <| Nonempty.fromElement <| BadOneOf\n    -->   [ Nonempty.fromElement <| Failure \"Expected a string\" Encode.null\n    -->   , Nonempty.fromElement <| Failure \"Expected an integer number\" Encode.null\n    -->   ]\n\n",
+        "type": "List (Json.Decode.Exploration.Decoder a) -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "string",
+        "comment": " Decode a string.\n\n    \"\"\" \"hello world\" \"\"\"\n        |> decodeString string\n    --> Success \"hello world\"\n\n\n    \"\"\" 123 \"\"\"\n        |> decodeString string\n    --> Errors (Nonempty (Failure \"Expected a string\" (Encode.int 123)) [])\n\n",
+        "type": "Json.Decode.Exploration.Decoder String"
+      },
+      {
+        "name": "succeed",
+        "comment": " A decoder that will ignore the actual JSON and succeed with the provided\nvalue. Note that this may still fail when dealing with an invalid JSON string.\n\nIf a value in the JSON ends up being ignored because of this, this will cause a\nwarning.\n\n    \"\"\" null \"\"\"\n        |> decodeString (value |> andThen (\\_ -> succeed \"hello world\"))\n    --> Success \"hello world\"\n\n\n    \"\"\" null \"\"\"\n        |> decodeString (succeed \"hello world\")\n    --> WithWarnings\n    -->     (Nonempty (UnusedValue Encode.null) [])\n    -->     \"hello world\"\n\n\n    \"\"\" foo \"\"\"\n        |> decodeString (succeed \"hello world\")\n    --> BadJson\n\n",
+        "type": "a -> Json.Decode.Exploration.Decoder a"
+      },
+      {
+        "name": "value",
+        "comment": " Extract a piece without actually decoding it.\n\nIf a structure is decoded as a `value`, everything _in_ the structure will be\nconsidered as having been used and will not appear in `UnusedValue` warnings.\n\n    \"\"\" [ 123, \"world\" ] \"\"\"\n        |> decodeString value\n    --> Success (Encode.list [ Encode.int 123, Encode.string \"world\" ])\n\n",
+        "type": "Json.Decode.Exploration.Decoder Json.Decode.Exploration.Value"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

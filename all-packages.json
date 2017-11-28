@@ -12,6 +12,8 @@
         "name": "1602/json-schema",
         "summary": "JSON Schema for elm",
         "versions": [
+            "3.0.0",
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -27,6 +29,16 @@
         "name": "ASVBPREAUBV/elm-flexbox",
         "summary": "Flexbox layout for elm-html",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "AaronCZim/to-elm-format-string",
+        "summary": "toElmFormatString adds newlines and indentation to toString",
+        "versions": [
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -95,6 +107,9 @@
         "name": "Bogdanp/elm-ast",
         "summary": "A parser for Elm code",
         "versions": [
+            "8.0.10",
+            "8.0.9",
+            "8.0.8",
             "8.0.7",
             "8.0.6",
             "8.0.5",
@@ -237,6 +252,9 @@
         "name": "BrianHicks/elm-trend",
         "summary": "generate trend lines for two-dimensional data",
         "versions": [
+            "2.1.0",
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -262,6 +280,23 @@
         "name": "CallumJHays/elm-unwrap",
         "summary": "Dangerously unwrap value wrapper types",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Chadtech/ct-colors",
+        "summary": "Chadtech standard colors in Elm form",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Chadtech/ctpaint-keys",
+        "summary": "Keys module for CtPaint project",
+        "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -330,6 +365,7 @@
         "name": "ChristophP/elm-i18next",
         "summary": "Use this module to load, decode and use translations in your app",
         "versions": [
+            "2.0.1",
             "2.0.0",
             "1.0.3",
             "1.0.2",
@@ -418,6 +454,7 @@
         "name": "FabienHenon/elm-infinite-scroll",
         "summary": "Infinite scroll API",
         "versions": [
+            "2.3.1",
             "2.3.0",
             "2.2.0",
             "2.1.1",
@@ -686,6 +723,21 @@
         ]
     },
     {
+        "name": "Janiczek/elm-encoding",
+        "summary": "Just use `uriEncode` and `uriDecode` from `elm-lang/http` instead!",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Janiczek/package-info",
+        "summary": "Types and helpers for dealing with the data found in an elm-package.json file",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "JasonGFitzpatrick/elm-router",
         "summary": "Simple Routing Library in Elm",
         "versions": [
@@ -786,8 +838,10 @@
     },
     {
         "name": "JohnBugner/elm-loop",
-        "summary": "Repeatedly apply a function while or until a predicate holds.",
+        "summary": "Repeatedly apply a function to a value.",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -1020,6 +1074,17 @@
         ]
     },
     {
+        "name": "NoRedInk/elm-doodad",
+        "summary": "Doodads we use at NRI",
+        "versions": [
+            "2.0.0",
+            "1.2.0",
+            "1.1.1",
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "NoRedInk/elm-feature-interest",
         "summary": "Generated modules for interfacing with NoRedInk's Feature Interest REST API",
         "versions": [
@@ -1079,6 +1144,13 @@
             "2.1.1",
             "2.1.0",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "NoRedInk/elm-rfc5988-parser",
+        "summary": "Fork of: A (woefully-incomplete) parser for RFC5988 Links",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -1306,6 +1378,20 @@
         ]
     },
     {
+        "name": "Saulzar/elm-keyboard-keys",
+        "summary": "Higher level data type and helpers for dealing with Key events",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Saulzar/key-constants",
+        "summary": "Constants refering to keycodes",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "SelectricSimian/elm-constructive",
         "summary": "A variant of the Elm architecture, where actions directly construct new models",
         "versions": [
@@ -1346,6 +1432,7 @@
         "name": "Skinney/elm-dict-exploration",
         "summary": "Exploring the dict implementation",
         "versions": [
+            "1.0.3",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -1373,6 +1460,7 @@
         "name": "Skinney/murmur3",
         "summary": "An implementation of the murmur 3 hash function in elm",
         "versions": [
+            "2.0.6",
             "2.0.5",
             "2.0.4",
             "2.0.3",
@@ -2068,6 +2156,7 @@
         "name": "andrewMacmurray/elm-delay",
         "summary": "utilities to trigger updates after a delay",
         "versions": [
+            "2.0.3",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -2178,6 +2267,7 @@
         "name": "arowM/elm-monoid",
         "summary": "A module to define generic functions for monoid.",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -2226,6 +2316,7 @@
         "name": "astynax/tea-combine",
         "summary": "Combinator library for \"The Elm Arcitecture\"-powered applications",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -2658,11 +2749,30 @@
         ]
     },
     {
+        "name": "billstclair/elm-simple-xml-to-json",
+        "summary": "Obsolete. Renamed to billstclair/elm-xml-extra.",
+        "versions": [
+            "1.1.1",
+            "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "billstclair/elm-versioned-json",
         "summary": "Help with versioned JSON representations.",
         "versions": [
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "billstclair/elm-xml-extra",
+        "summary": "Extend eeue56/elm-xml to simplify building Decoders for XML input.",
+        "versions": [
+            "2.0.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -2679,6 +2789,13 @@
         "versions": [
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "bloom/aviators",
+        "summary": "The best UI library in Elm made specifically for Bloom Built.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2824,6 +2941,7 @@
         "name": "careport/elm-avl",
         "summary": "AVL tree-based Dicts and Sets using explicit comparison functions",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -2831,6 +2949,19 @@
         "name": "carwow/elm-core",
         "summary": "Elm components used by carwow",
         "versions": [
+            "4.1.0",
+            "4.0.6",
+            "4.0.5",
+            "4.0.4",
+            "4.0.3",
+            "4.0.2",
+            "4.0.1",
+            "4.0.0",
+            "3.0.0",
+            "2.1.0",
+            "2.0.0",
+            "1.1.0",
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -2839,6 +2970,8 @@
         "name": "carwow/elm-slider",
         "summary": "Elm slider implementation",
         "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -2847,6 +2980,14 @@
         "name": "carwow/elm-theme",
         "summary": "Elm helpers to render carwow theme ui components",
         "versions": [
+            "4.3.0",
+            "4.2.0",
+            "4.1.1",
+            "4.1.0",
+            "4.0.2",
+            "4.0.1",
+            "4.0.0",
+            "3.1.0",
             "3.0.0",
             "2.0.0",
             "1.0.0"
@@ -3240,6 +3381,13 @@
         ]
     },
     {
+        "name": "cjduncana/three-words",
+        "summary": "Convert three-word addresses to latitude, longitude coordinates and vice-versa",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ckoster22/elm-genetic",
         "summary": "A genetic algorithm implementation",
         "versions": [
@@ -3554,6 +3702,9 @@
         "name": "danielnarey/elm-semantic-content",
         "summary": "Semantically structured helpers to construct basic HTML content",
         "versions": [
+            "1.3.0",
+            "1.2.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -3594,8 +3745,10 @@
     },
     {
         "name": "danielnarey/elm-toolkit",
-        "summary": "Generic helpers and custom operators that I use across other projects",
+        "summary": "A toolkit of generic helpers and custom operators to extend elm-lang/core",
         "versions": [
+            "6.1.0",
+            "6.0.0",
             "5.1.0",
             "5.0.0",
             "4.5.0",
@@ -3886,6 +4039,14 @@
         ]
     },
     {
+        "name": "dustinfarris/elm-autocomplete",
+        "summary": "A customizable autocomplete component",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "dustinspecker/capitalize-word",
         "summary": "Capitalize a word",
         "versions": [
@@ -4068,6 +4229,13 @@
     {
         "name": "eeue56/elm-http-error-view",
         "summary": "Human-readable messages for Http.Error in a Html view",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "eeue56/elm-json-field-value",
+        "summary": "Json decoder helpers for dealign with complex values",
         "versions": [
             "1.0.0"
         ]
@@ -4275,6 +4443,7 @@
         "name": "elm-community/elm-datepicker",
         "summary": "A reusable date picker component",
         "versions": [
+            "7.2.4",
             "7.2.3",
             "7.2.2",
             "7.2.1",
@@ -5393,6 +5562,7 @@
         "name": "folkertdev/one-true-path-experiment",
         "summary": "An experimental package for building paths and curves in elm",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -5517,6 +5687,7 @@
         "name": "gampleman/elm-visualization",
         "summary": "A data visualization package for Elm",
         "versions": [
+            "1.6.0",
             "1.5.0",
             "1.4.0",
             "1.3.0",
@@ -6117,6 +6288,7 @@
         "name": "jamesmacaulay/elm-graphql",
         "summary": "A GraphQL request builder and HTTP client",
         "versions": [
+            "1.7.0",
             "1.6.1",
             "1.6.0",
             "1.5.0",
@@ -6155,6 +6327,13 @@
             "2.0.2",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "janjelinek/creditcard-validation",
+        "summary": "CreditCard validation",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -6308,6 +6487,7 @@
         "name": "jinjor/elm-debounce",
         "summary": "Yet another debouncer for Elm.",
         "versions": [
+            "2.1.2",
             "2.1.1",
             "2.1.0",
             "2.0.0",
@@ -6497,6 +6677,22 @@
         ]
     },
     {
+        "name": "jonathanfishbein1/elm-comment",
+        "summary": "commenting package for elm",
+        "versions": [
+            "4.0.0",
+            "3.0.1",
+            "2.0.1",
+            "3.0.0",
+            "2.0.0",
+            "1.2.1",
+            "1.2.0",
+            "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "joneshf/elm-",
         "summary": "Converts -- and --- to – and — respectively",
         "versions": [
@@ -6586,6 +6782,13 @@
         "versions": [
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jpagex/elm-geoip",
+        "summary": "User location detecting based on IP address",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -6794,6 +6997,8 @@
         "name": "jweir/sparkline",
         "summary": "Generate inline graphs - sparklines",
         "versions": [
+            "3.0.0",
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.2",
@@ -6817,6 +7022,20 @@
         "name": "jwoudenberg/elm-test-experimental",
         "summary": "Experimental tools for use with elm-test",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jxxcarlson/minilatex",
+        "summary": "minilatex provides functions for rendering a subset of LaTeX into HTML.",
+        "versions": [
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
+            "1.1.2",
+            "1.1.1",
+            "1.1.0",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6913,6 +7132,7 @@
         "name": "kfish/quaternion",
         "summary": "Fast 3D rotation and orientation",
         "versions": [
+            "2.1.0",
             "2.0.1",
             "2.0.0",
             "1.1.0",
@@ -7395,6 +7615,14 @@
             "2.0.2",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "kuon/elm-hsluv",
+        "summary": "HSLuv implementation in pure Elm",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -7979,6 +8207,9 @@
         "name": "mc706/elm-clarity-ui",
         "summary": "Elm Clarity UI is a wrapper library for the Clarity UI Framework",
         "versions": [
+            "2.8.1",
+            "2.8.0",
+            "2.7.1",
             "2.7.0",
             "2.6.0",
             "2.5.0",
@@ -8073,6 +8304,7 @@
         "name": "mdgriffith/style-elements",
         "summary": "A different approach to creating and managing styles.",
         "versions": [
+            "4.2.1",
             "4.2.0",
             "4.1.0",
             "4.0.0",
@@ -8153,6 +8385,7 @@
         "name": "mgold/elm-date-format",
         "summary": "Format dates with ease",
         "versions": [
+            "1.4.2",
             "1.4.1",
             "1.4.0",
             "1.3.0",
@@ -8307,6 +8540,14 @@
         ]
     },
     {
+        "name": "miyamoen/elm-todofuken",
+        "summary": "A searchable ISO 3166-2:JP based list of japanese prefectures and areas.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "mkovacs/quaternion",
         "summary": "Quaternion module to be used with the linear-algebra package",
         "versions": [
@@ -8361,6 +8602,10 @@
         "name": "mpizenberg/elm-image-annotation",
         "summary": "Annotating collections of images",
         "versions": [
+            "8.2.0",
+            "8.1.0",
+            "8.0.1",
+            "8.0.0",
             "7.0.3",
             "7.0.2",
             "7.0.1",
@@ -8827,6 +9072,7 @@
         "name": "omnidungeon/layout",
         "summary": "A grid and flexible box library for Elm.",
         "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -9281,6 +9527,7 @@
         "name": "prozacchiwawa/elm-keccak",
         "summary": "Keccak and SHA3 hashes",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -9323,6 +9570,16 @@
             "1.1.1",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "r-k-b/elm-interval",
+        "summary": "Interval algebra.",
+        "versions": [
+            "2.0.0",
+            "1.2.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -9483,6 +9740,7 @@
         "name": "rluiten/elm-date-extra",
         "summary": "Date Extra library add/subtract/diff/format etc dates.",
         "versions": [
+            "9.2.1",
             "9.2.0",
             "9.1.2",
             "9.1.1",
@@ -9612,6 +9870,29 @@
         ]
     },
     {
+        "name": "rnons/elm-svg-loader",
+        "summary": "inline SVG document inside Elm views",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "rnons/elm-svg-parser",
+        "summary": "parse String to SVG",
+        "versions": [
+            "1.2.0",
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "rnons/ordered-containers",
+        "summary": "A library that provides OrderedDict and OrderedSet types",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "roSievers/font-awesome",
         "summary": "Font Awesome icons for Elm-Html encapsulated in an Icon type.",
         "versions": [
@@ -9684,6 +9965,7 @@
         "name": "rogeriochaves/elm-testable",
         "summary": "Makes Tasks and Effects testable",
         "versions": [
+            "4.1.1",
             "4.1.0",
             "4.0.0",
             "3.0.0",
@@ -9745,6 +10027,7 @@
         "name": "rtfeldman/elm-css",
         "summary": "CSS Preprocessor for Elm",
         "versions": [
+            "12.0.0",
             "11.2.0",
             "11.1.0",
             "11.0.0",
@@ -10097,6 +10380,15 @@
         ]
     },
     {
+        "name": "simanaitis/elm-mdl",
+        "summary": "Fork of Material Design Lite port to Elm",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "simonewebdesign/elm-timer",
         "summary": "A clock/timer/countdown",
         "versions": [
@@ -10321,6 +10613,19 @@
         ]
     },
     {
+        "name": "splodingsocks/elm-tailwind",
+        "summary": "elm-tailwind. A stub of a library for using tailwind.css easily in Elm.",
+        "versions": [
+            "2.1.0",
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
+            "1.1.1",
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "splodingsocks/elm-type-extractor",
         "summary": "Transform a string of Elm source into type declarations.",
         "versions": [
@@ -10333,6 +10638,13 @@
         "versions": [
             "3.0.0",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "splodingsocks/validatable",
+        "summary": "A library for storing and checking validatable data, live or delayed.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -10359,6 +10671,8 @@
         "name": "sporto/elm-select",
         "summary": "A selection input with auto-completion",
         "versions": [
+            "2.14.0",
+            "2.13.0",
             "2.12.1",
             "2.12.0",
             "2.11.0",
@@ -10384,6 +10698,7 @@
         "name": "sporto/erl",
         "summary": "Parse and construct URLs",
         "versions": [
+            "13.0.1",
             "13.0.0",
             "12.0.0",
             "11.1.1",
@@ -10472,6 +10787,7 @@
         "name": "stephenreddek/elm-time-picker",
         "summary": "An elm implementation of a time picker",
         "versions": [
+            "1.0.2",
             "1.0.1",
             "1.0.0"
         ]
@@ -10495,6 +10811,9 @@
         "name": "stil4m/elm-syntax",
         "summary": "Elm Syntax in Elm: for parsing and writing Elm in Elm",
         "versions": [
+            "2.1.2",
+            "2.1.1",
+            "2.1.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -10659,6 +10978,7 @@
         "name": "teocollin1995/complex",
         "summary": "An elm module for working with complex numbers.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -10978,6 +11298,7 @@
         "name": "toastal/either",
         "summary": "A more complete Either for representing a structure with two types",
         "versions": [
+            "3.4.0",
             "3.3.0",
             "3.2.0",
             "3.1.1",
@@ -11108,6 +11429,7 @@
         "name": "truqu/elm-base64",
         "summary": "Base64 encoding and decoding",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.0.6",
@@ -11804,6 +12126,13 @@
         ]
     },
     {
+        "name": "zaptic/elm-decode-pipeline-strict",
+        "summary": "A strict version of elm-decode-pipeline",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "zarvunk/tuple-map",
         "summary": "Handy functions for mapping over pairs.",
         "versions": [
@@ -11851,9 +12180,18 @@
         ]
     },
     {
+        "name": "zwilias/elm-reorderable",
+        "summary": "Reorder entries while maintaining a key/value correspondence.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "zwilias/elm-touch-events",
         "summary": "Touch events, in Elm",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -11884,6 +12222,11 @@
         "name": "zwilias/json-decode-exploration",
         "summary": "Exploration: JSON decoding with strong error types",
         "versions": [
+            "4.2.0",
+            "4.1.2",
+            "4.1.1",
+            "4.1.0",
+            "4.0.0",
             "3.0.0",
             "2.0.0",
             "1.0.0"

@@ -1,0 +1,3559 @@
+[
+  {
+    "name": "Tailwind",
+    "comment": " A small library that makes using [tailwind.css](https://tailwindcss.com/docs/what-is-tailwind/) a little easier and a little safer to use within Elm.\n\nYou'll find classes responding to Tailwind rules in Tailwind.Classes.\n\nIn there you'll also find functions for appending responsive qualifiers to those classes. Here's an example of what a div using tailwind might look like:\n\n        div\n            [ tailwind\n                <| withClasses [ \"__login_page\" ] -- __login_page is not a tailwind class, it's just for marking the div's purpose.\n                <| [ m_1, lg m_6 ]\n            ]\n\n@docs stylesheet, tailwind, withClasses, asClasses\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "asClasses",
+        "comment": " Turns tailwind classes into normal strings, for when you just want a list of strings instead of an Html.Attribute.\n",
+        "type": "List Tailwind.Classes.TailwindClass -> List String"
+      },
+      {
+        "name": "stylesheet",
+        "comment": " An HTML \"link\" tag that will import the default tailwind stylesheet\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "tailwind",
+        "comment": " A convenience function for specifying classes as a list of strings\n",
+        "type": "List Tailwind.Classes.TailwindClass -> Html.Attribute msg"
+      },
+      {
+        "name": "withClasses",
+        "comment": " A convenience function for adding non-tailwind classes to an element alongside other tailwind classes.\nCould be used like this:\n\n    div\n        [ tailwind\n            <| withClasses [ \"superfunclass\" ]\n            <| [ sm mt_1 ]\n        ]\n\n",
+        "type": "List String -> List Tailwind.Classes.TailwindClass -> List Tailwind.Classes.TailwindClass"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Tailwind.Classes",
+    "comment": "\n\nThese are all the classes ported from tailwind. __NOTE__: this is a auto-generated file by `scripts/convert.js`\n\n# Useless Docs below:\n\nYes these docs are useless, please look at the [tailwind docs](https://tailwindcss.com/docs) for the definitions of these classes. Keep in mind this was made with a script (not typed by hand).\n\nThey do however show the minifed css definition as their comment.\n\n# Types\n\n@docs TailwindClass\n\n# Responsive helpers\n\n@docs sm, md, lg, xl\n\n# Classes and their Definitions\n\n@docs negm_0, negm_1, negm_2, negm_3, negm_4, negm_6, negm_8, negm_px, neg_mb_0, neg_mb_1, neg_mb_2, neg_mb_3, neg_mb_4, neg_mb_6, neg_mb_8, neg_mb_px, neg_ml_0, neg_ml_1, neg_ml_2, neg_ml_3, neg_ml_4, neg_ml_6, neg_ml_8, neg_ml_px, neg_mr_0, neg_mr_1, neg_mr_2, neg_mr_3, neg_mr_4, neg_mr_6, neg_mr_8, neg_mr_px, neg_mt_0, neg_mt_1, neg_mt_2, neg_mt_3, neg_mt_4, neg_mt_6, neg_mt_8, neg_mt_px, neg_mx_0, neg_mx_1, neg_mx_2, neg_mx_3, neg_mx_4, neg_mx_6, neg_mx_8, neg_mx_px, neg_my_0, neg_my_1, neg_my_2, neg_my_3, neg_my_4, neg_my_6, neg_my_8, neg_my_px, absolute, align_baseline, align_bottom, align_middle, align_text_bottom, align_text_top, align_top, antialiased, appearance_none, bg_black, bg_blue, bg_blue_dark, bg_blue_darker, bg_blue_darkest, bg_blue_light, bg_blue_lighter, bg_blue_lightest, bg_bottom, bg_center, bg_contain, bg_cover, bg_green, bg_green_dark, bg_green_darker, bg_green_darkest, bg_green_light, bg_green_lighter, bg_green_lightest, bg_grey, bg_grey_dark, bg_grey_darker, bg_grey_darkest, bg_grey_light, bg_grey_lighter, bg_grey_lightest, bg_indigo, bg_indigo_dark, bg_indigo_darker, bg_indigo_darkest, bg_indigo_light, bg_indigo_lighter, bg_indigo_lightest, bg_left, bg_left_bottom, bg_left_top, bg_orange, bg_orange_dark, bg_orange_darker, bg_orange_darkest, bg_orange_light, bg_orange_lighter, bg_orange_lightest, bg_pink, bg_pink_dark, bg_pink_darker, bg_pink_darkest, bg_pink_light, bg_pink_lighter, bg_pink_lightest, bg_purple, bg_purple_dark, bg_purple_darker, bg_purple_darkest, bg_purple_light, bg_purple_lighter, bg_purple_lightest, bg_red, bg_red_dark, bg_red_darker, bg_red_darkest, bg_red_light, bg_red_lighter, bg_red_lightest, bg_right, bg_right_bottom, bg_right_top, bg_teal, bg_teal_dark, bg_teal_darker, bg_teal_darkest, bg_teal_light, bg_teal_lighter, bg_teal_lightest, bg_top, bg_transparent, bg_white, bg_yellow, bg_yellow_dark, bg_yellow_darker, bg_yellow_darkest, bg_yellow_light, bg_yellow_lighter, bg_yellow_lightest, block, border, border_0, border_2, border_4, border_8, border_b, border_b_0, border_b_2, border_b_4, border_b_8, border_black, border_blue, border_blue_dark, border_blue_darker, border_blue_darkest, border_blue_light, border_blue_lighter, border_blue_lightest, border_dashed, border_dotted, border_green, border_green_dark, border_green_darker, border_green_darkest, border_green_light, border_green_lighter, border_green_lightest, border_grey, border_grey_dark, border_grey_darker, border_grey_darkest, border_grey_light, border_grey_lighter, border_grey_lightest, border_indigo, border_indigo_dark, border_indigo_darker, border_indigo_darkest, border_indigo_light, border_indigo_lighter, border_indigo_lightest, border_l, border_l_0, border_l_2, border_l_4, border_l_8, border_none, border_orange, border_orange_dark, border_orange_darker, border_orange_darkest, border_orange_light, border_orange_lighter, border_orange_lightest, border_pink, border_pink_dark, border_pink_darker, border_pink_darkest, border_pink_light, border_pink_lighter, border_pink_lightest, border_purple, border_purple_dark, border_purple_darker, border_purple_darkest, border_purple_light, border_purple_lighter, border_purple_lightest, border_r, border_r_0, border_r_2, border_r_4, border_r_8, border_red, border_red_dark, border_red_darker, border_red_darkest, border_red_light, border_red_lighter, border_red_lightest, border_solid, border_t, border_t_0, border_t_2, border_t_4, border_t_8, border_teal, border_teal_dark, border_teal_darker, border_teal_darkest, border_teal_light, border_teal_lighter, border_teal_lightest, border_transparent, border_white, border_yellow, border_yellow_dark, border_yellow_darker, border_yellow_darkest, border_yellow_light, border_yellow_lighter, border_yellow_lightest, break_normal, break_words, capitalize, container, content_around, content_between, content_center, content_end, content_start, cursor_auto, cursor_default, cursor_not_allowed, cursor_pointer, fixed, flex, flex_1, flex_auto, flex_col, flex_col_reverse, flex_grow, flex_initial, flex_no_grow, flex_no_shrink, flex_no_wrap, flex_none, flex_row, flex_row_reverse, flex_shrink, flex_wrap, flex_wrap_reverse, float_left, float_none, float_right, font_black, font_bold, font_extrabold, font_hairline, font_light, font_medium, font_mono, font_normal, font_sans, font_semibold, font_serif, font_thin, h_1, h_10, h_12, h_16, h_2, h_24, h_3, h_32, h_4, h_48, h_6, h_64, h_8, h_auto, h_full, h_px, h_screen, hidden, inline, inline_block, inline_flex, invisible, italic, items_baseline, items_center, items_end, items_start, items_stretch, justify_around, justify_between, justify_center, justify_end, justify_start, leading_loose, leading_none, leading_normal, leading_tight, line_through, list_reset, lowercase, m_0, m_1, m_2, m_3, m_4, m_6, m_8, m_auto, m_px, max_h_full, max_h_screen, max_w_2xl, max_w_3xl, max_w_4xl, max_w_5xl, max_w_full, max_w_lg, max_w_md, max_w_sm, max_w_xl, max_w_xs, mb_0, mb_1, mb_2, mb_3, mb_4, mb_6, mb_8, mb_auto, mb_px, min_h_0, min_h_full, min_h_screen, min_w_0, min_w_full, ml_0, ml_1, ml_2, ml_3, ml_4, ml_6, ml_8, ml_auto, ml_px, mr_0, mr_1, mr_2, mr_3, mr_4, mr_6, mr_8, mr_auto, mr_px, mt_0, mt_1, mt_2, mt_3, mt_4, mt_6, mt_8, mt_auto, mt_px, mx_0, mx_1, mx_2, mx_3, mx_4, mx_6, mx_8, mx_auto, mx_px, my_0, my_1, my_2, my_3, my_4, my_6, my_8, my_auto, my_px, no_underline, normal_case, opacity_0, opacity_100, opacity_25, opacity_50, opacity_75, overflow_auto, overflow_hidden, overflow_scroll, overflow_visible, overflow_x_scroll, overflow_y_scroll, p_0, p_1, p_2, p_3, p_4, p_6, p_8, p_px, pb_0, pb_1, pb_2, pb_3, pb_4, pb_6, pb_8, pb_px, pin, pin_b, pin_l, pin_r, pin_t, pin_x, pin_y, pl_0, pl_1, pl_2, pl_3, pl_4, pl_6, pl_8, pl_px, pointer_events_auto, pointer_events_none, pr_0, pr_1, pr_2, pr_3, pr_4, pr_6, pr_8, pr_px, pt_0, pt_1, pt_2, pt_3, pt_4, pt_6, pt_8, pt_px, px_0, px_1, px_2, px_3, px_4, px_6, px_8, px_px, py_0, py_1, py_2, py_3, py_4, py_6, py_8, py_px, relative, resize_none, resize_x, resize_y, roman, rounded, rounded_b, rounded_b_full, rounded_b_lg, rounded_b_none, rounded_b_sm, rounded_bl, rounded_bl_full, rounded_bl_lg, rounded_bl_none, rounded_bl_sm, rounded_br, rounded_br_full, rounded_br_lg, rounded_br_none, rounded_br_sm, rounded_full, rounded_l, rounded_l_full, rounded_l_lg, rounded_l_none, rounded_l_sm, rounded_lg, rounded_none, rounded_r, rounded_r_full, rounded_r_lg, rounded_r_none, rounded_r_sm, rounded_sm, rounded_t, rounded_t_full, rounded_t_lg, rounded_t_none, rounded_t_sm, rounded_tl, rounded_tl_full, rounded_tl_lg, rounded_tl_none, rounded_tl_sm, rounded_tr, rounded_tr_full, rounded_tr_lg, rounded_tr_none, rounded_tr_sm, scrolling_auto, scrolling_touch, select_none, select_text, self_auto, self_center, self_end, self_start, self_stretch, shadow, shadow_inner, shadow_lg, shadow_md, shadow_none, static, subpixel_antialiased, table, table_cell, table_row, text_2xl, text_3xl, text_4xl, text_5xl, text_base, text_black, text_blue, text_blue_dark, text_blue_darker, text_blue_darkest, text_blue_light, text_blue_lighter, text_blue_lightest, text_center, text_green, text_green_dark, text_green_darker, text_green_darkest, text_green_light, text_green_lighter, text_green_lightest, text_grey, text_grey_dark, text_grey_darker, text_grey_darkest, text_grey_light, text_grey_lighter, text_grey_lightest, text_indigo, text_indigo_dark, text_indigo_darker, text_indigo_darkest, text_indigo_light, text_indigo_lighter, text_indigo_lightest, text_justify, text_left, text_lg, text_orange, text_orange_dark, text_orange_darker, text_orange_darkest, text_orange_light, text_orange_lighter, text_orange_lightest, text_pink, text_pink_dark, text_pink_darker, text_pink_darkest, text_pink_light, text_pink_lighter, text_pink_lightest, text_purple, text_purple_dark, text_purple_darker, text_purple_darkest, text_purple_light, text_purple_lighter, text_purple_lightest, text_red, text_red_dark, text_red_darker, text_red_darkest, text_red_light, text_red_lighter, text_red_lightest, text_right, text_sm, text_teal, text_teal_dark, text_teal_darker, text_teal_darkest, text_teal_light, text_teal_lighter, text_teal_lightest, text_transparent, text_white, text_xl, text_xs, text_yellow, text_yellow_dark, text_yellow_darker, text_yellow_darkest, text_yellow_light, text_yellow_lighter, text_yellow_lightest, tracking_normal, tracking_tight, tracking_wide, truncate, underline, uppercase, visible, w_1, w_10, w_12, w_16, w_1over2, w_1over3, w_1over4, w_1over5, w_1over6, w_2, w_24, w_2over3, w_2over5, w_3, w_32, w_3over4, w_3over5, w_4, w_48, w_4over5, w_5over6, w_6, w_64, w_8, w_auto, w_full, w_px, w_screen, whitespace_no_wrap, whitespace_normal, whitespace_pre, whitespace_pre_line, whitespace_pre_wrap, z_0, z_10, z_20, z_30, z_40, z_50, z_auto\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "TailwindClass",
+        "comment": " A type to help make sure we're passing Tailwind classes to the classes function, and not classes for some other CSS utility library. (Can help with refactoring) ",
+        "args": [],
+        "cases": [
+          [
+            "TailwindClass",
+            [
+              "String"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "absolute",
+        "comment": " This class maps to this CSS definition:\n\n    .absolute {\n     position: absolute;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "align_baseline",
+        "comment": " This class maps to this CSS definition:\n\n    .align-baseline {\n     vertical-align: baseline;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "align_bottom",
+        "comment": " This class maps to this CSS definition:\n\n    .align-bottom {\n     vertical-align: bottom;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "align_middle",
+        "comment": " This class maps to this CSS definition:\n\n    .align-middle {\n     vertical-align: middle;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "align_text_bottom",
+        "comment": " This class maps to this CSS definition:\n\n    .align-text-bottom {\n     vertical-align: text-bottom;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "align_text_top",
+        "comment": " This class maps to this CSS definition:\n\n    .align-text-top {\n     vertical-align: text-top;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "align_top",
+        "comment": " This class maps to this CSS definition:\n\n    .align-top {\n     vertical-align: top;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "antialiased",
+        "comment": " This class maps to this CSS definition:\n\n    .antialiased,\n    .hover\\:antialiased:hover {\n     -webkit-font-smoothing: antialiased;\n     -moz-osx-font-smoothing: grayscale;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "appearance_none",
+        "comment": " This class maps to this CSS definition:\n\n    .appearance-none {\n     -webkit-appearance: none;\n      -moz-appearance: none;\n           appearance: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_black",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-black,\n    .hover\\:bg-black:hover {\n     background-color: #222b2f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_blue",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-blue,\n    .hover\\:bg-blue:hover {\n     background-color: #3490dc;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_blue_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-blue-dark,\n    .hover\\:bg-blue-dark:hover {\n     background-color: #2779bd;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_blue_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-blue-darker,\n    .hover\\:bg-blue-darker:hover {\n     background-color: #103d60;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_blue_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-blue-darkest,\n    .hover\\:bg-blue-darkest:hover {\n     background-color: #05233b;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_blue_light",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-blue-light,\n    .hover\\:bg-blue-light:hover {\n     background-color: #6cb2eb;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_blue_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-blue-lighter,\n    .hover\\:bg-blue-lighter:hover {\n     background-color: #bcdefa;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_blue_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-blue-lightest,\n    .hover\\:bg-blue-lightest:hover {\n     background-color: #eff8ff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_bottom",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-bottom {\n     background-position: bottom;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_center",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-center {\n     background-position: center;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_contain",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-contain {\n     background-size: contain;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_cover",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-cover {\n     background-size: cover;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_green",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-green,\n    .hover\\:bg-green:hover {\n     background-color: #38c172;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_green_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-green-dark,\n    .hover\\:bg-green-dark:hover {\n     background-color: #1f9d55;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_green_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-green-darker,\n    .hover\\:bg-green-darker:hover {\n     background-color: #0b4228;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_green_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-green-darkest,\n    .hover\\:bg-green-darkest:hover {\n     background-color: #032d19;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_green_light",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-green-light,\n    .hover\\:bg-green-light:hover {\n     background-color: #51d88a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_green_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-green-lighter,\n    .hover\\:bg-green-lighter:hover {\n     background-color: #a2f5bf;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_green_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-green-lightest,\n    .hover\\:bg-green-lightest:hover {\n     background-color: #e3fcec;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_grey",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-grey,\n    .hover\\:bg-grey:hover {\n     background-color: #9babb4;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_grey_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-grey-dark,\n    .hover\\:bg-grey-dark:hover {\n     background-color: #70818a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_grey_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-grey-darker,\n    .hover\\:bg-grey-darker:hover {\n     background-color: #596a73;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_grey_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-grey-darkest,\n    .hover\\:bg-grey-darkest:hover {\n     background-color: #364349;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_grey_light",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-grey-light,\n    .hover\\:bg-grey-light:hover {\n     background-color: #dae4e9;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_grey_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-grey-lighter,\n    .hover\\:bg-grey-lighter:hover {\n     background-color: #f3f7f9;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_grey_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-grey-lightest,\n    .hover\\:bg-grey-lightest:hover {\n     background-color: #fafcfc;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_indigo",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-indigo,\n    .hover\\:bg-indigo:hover {\n     background-color: #6574cd;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_indigo_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-indigo-dark,\n    .hover\\:bg-indigo-dark:hover {\n     background-color: #5661b3;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_indigo_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-indigo-darker,\n    .hover\\:bg-indigo-darker:hover {\n     background-color: #2f365f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_indigo_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-indigo-darkest,\n    .hover\\:bg-indigo-darkest:hover {\n     background-color: #191e38;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_indigo_light",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-indigo-light,\n    .hover\\:bg-indigo-light:hover {\n     background-color: #7886d7;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_indigo_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-indigo-lighter,\n    .hover\\:bg-indigo-lighter:hover {\n     background-color: #b2b7ff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_indigo_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-indigo-lightest,\n    .hover\\:bg-indigo-lightest:hover {\n     background-color: #e6e8ff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_left",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-left {\n     background-position: left;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_left_bottom",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-left-bottom {\n     background-position: left bottom;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_left_top",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-left-top {\n     background-position: left top;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_orange",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-orange,\n    .hover\\:bg-orange:hover {\n     background-color: #f6993f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_orange_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-orange-dark,\n    .hover\\:bg-orange-dark:hover {\n     background-color: #de751f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_orange_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-orange-darker,\n    .hover\\:bg-orange-darker:hover {\n     background-color: #7f4012;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_orange_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-orange-darkest,\n    .hover\\:bg-orange-darkest:hover {\n     background-color: #542605;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_orange_light",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-orange-light,\n    .hover\\:bg-orange-light:hover {\n     background-color: #faad63;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_orange_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-orange-lighter,\n    .hover\\:bg-orange-lighter:hover {\n     background-color: #fcd9b6;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_orange_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-orange-lightest,\n    .hover\\:bg-orange-lightest:hover {\n     background-color: #fff5eb;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_pink",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-pink,\n    .hover\\:bg-pink:hover {\n     background-color: #f66d9b;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_pink_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-pink-dark,\n    .hover\\:bg-pink-dark:hover {\n     background-color: #eb5286;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_pink_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-pink-darker,\n    .hover\\:bg-pink-darker:hover {\n     background-color: #72173a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_pink_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-pink-darkest,\n    .hover\\:bg-pink-darkest:hover {\n     background-color: #45051e;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_pink_light",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-pink-light,\n    .hover\\:bg-pink-light:hover {\n     background-color: #fa7ea8;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_pink_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-pink-lighter,\n    .hover\\:bg-pink-lighter:hover {\n     background-color: #ffbbca;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_pink_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-pink-lightest,\n    .hover\\:bg-pink-lightest:hover {\n     background-color: #ffebef;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_purple",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-purple,\n    .hover\\:bg-purple:hover {\n     background-color: #9561e2;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_purple_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-purple-dark,\n    .hover\\:bg-purple-dark:hover {\n     background-color: #794acf;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_purple_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-purple-darker,\n    .hover\\:bg-purple-darker:hover {\n     background-color: #352465;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_purple_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-purple-darkest,\n    .hover\\:bg-purple-darkest:hover {\n     background-color: #1f133f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_purple_light",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-purple-light,\n    .hover\\:bg-purple-light:hover {\n     background-color: #a779e9;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_purple_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-purple-lighter,\n    .hover\\:bg-purple-lighter:hover {\n     background-color: #d6bbfc;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_purple_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-purple-lightest,\n    .hover\\:bg-purple-lightest:hover {\n     background-color: #f3ebff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_red",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-red,\n    .hover\\:bg-red:hover {\n     background-color: #e3342f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_red_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-red-dark,\n    .hover\\:bg-red-dark:hover {\n     background-color: #cc1f1a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_red_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-red-darker,\n    .hover\\:bg-red-darker:hover {\n     background-color: #6a1b19;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_red_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-red-darkest,\n    .hover\\:bg-red-darkest:hover {\n     background-color: #420806;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_red_light",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-red-light,\n    .hover\\:bg-red-light:hover {\n     background-color: #ef5753;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_red_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-red-lighter,\n    .hover\\:bg-red-lighter:hover {\n     background-color: #f9acaa;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_red_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-red-lightest,\n    .hover\\:bg-red-lightest:hover {\n     background-color: #fcebea;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_right",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-right {\n     background-position: right;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_right_bottom",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-right-bottom {\n     background-position: right bottom;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_right_top",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-right-top {\n     background-position: right top;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_teal",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-teal,\n    .hover\\:bg-teal:hover {\n     background-color: #4dc0b5;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_teal_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-teal-dark,\n    .hover\\:bg-teal-dark:hover {\n     background-color: #38a89d;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_teal_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-teal-darker,\n    .hover\\:bg-teal-darker:hover {\n     background-color: #174e4b;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_teal_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-teal-darkest,\n    .hover\\:bg-teal-darkest:hover {\n     background-color: #0d3331;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_teal_light",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-teal-light,\n    .hover\\:bg-teal-light:hover {\n     background-color: #64d5ca;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_teal_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-teal-lighter,\n    .hover\\:bg-teal-lighter:hover {\n     background-color: #a0f0ed;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_teal_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-teal-lightest,\n    .hover\\:bg-teal-lightest:hover {\n     background-color: #e8fffe;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_top",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-top {\n     background-position: top;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_transparent",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-transparent,\n    .hover\\:bg-transparent:hover {\n     background-color: transparent;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_white",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-white,\n    .hover\\:bg-white:hover {\n     background-color: #ffffff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_yellow",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-yellow,\n    .hover\\:bg-yellow:hover {\n     background-color: #ffed4a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_yellow_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-yellow-dark,\n    .hover\\:bg-yellow-dark:hover {\n     background-color: #f2d024;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_yellow_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-yellow-darker,\n    .hover\\:bg-yellow-darker:hover {\n     background-color: #684f1d;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_yellow_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-yellow-darkest,\n    .hover\\:bg-yellow-darkest:hover {\n     background-color: #453411;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_yellow_light",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-yellow-light,\n    .hover\\:bg-yellow-light:hover {\n     background-color: #fff382;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_yellow_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-yellow-lighter,\n    .hover\\:bg-yellow-lighter:hover {\n     background-color: #fff9c2;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "bg_yellow_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .bg-yellow-lightest,\n    .hover\\:bg-yellow-lightest:hover {\n     background-color: #fcfbeb;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "block",
+        "comment": " This class maps to this CSS definition:\n\n    .block {\n     display: block;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border",
+        "comment": " This class maps to this CSS definition:\n\n    .border {\n     border-width: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_0",
+        "comment": " This class maps to this CSS definition:\n\n    .border-0 {\n     border-width: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_2",
+        "comment": " This class maps to this CSS definition:\n\n    .border-2 {\n     border-width: 2px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_4",
+        "comment": " This class maps to this CSS definition:\n\n    .border-4 {\n     border-width: 4px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_8",
+        "comment": " This class maps to this CSS definition:\n\n    .border-8 {\n     border-width: 8px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_b",
+        "comment": " This class maps to this CSS definition:\n\n    .border-b {\n     border-bottom-width: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_b_0",
+        "comment": " This class maps to this CSS definition:\n\n    .border-b-0 {\n     border-bottom-width: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_b_2",
+        "comment": " This class maps to this CSS definition:\n\n    .border-b-2 {\n     border-bottom-width: 2px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_b_4",
+        "comment": " This class maps to this CSS definition:\n\n    .border-b-4 {\n     border-bottom-width: 4px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_b_8",
+        "comment": " This class maps to this CSS definition:\n\n    .border-b-8 {\n     border-bottom-width: 8px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_black",
+        "comment": " This class maps to this CSS definition:\n\n    .border-black,\n    .hover\\:border-black:hover {\n     border-color: #222b2f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_blue",
+        "comment": " This class maps to this CSS definition:\n\n    .border-blue,\n    .hover\\:border-blue:hover {\n     border-color: #3490dc;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_blue_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .border-blue-dark,\n    .hover\\:border-blue-dark:hover {\n     border-color: #2779bd;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_blue_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .border-blue-darker,\n    .hover\\:border-blue-darker:hover {\n     border-color: #103d60;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_blue_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-blue-darkest,\n    .hover\\:border-blue-darkest:hover {\n     border-color: #05233b;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_blue_light",
+        "comment": " This class maps to this CSS definition:\n\n    .border-blue-light,\n    .hover\\:border-blue-light:hover {\n     border-color: #6cb2eb;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_blue_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .border-blue-lighter,\n    .hover\\:border-blue-lighter:hover {\n     border-color: #bcdefa;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_blue_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-blue-lightest,\n    .hover\\:border-blue-lightest:hover {\n     border-color: #eff8ff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_dashed",
+        "comment": " This class maps to this CSS definition:\n\n    .border-dashed {\n     border-style: dashed;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_dotted",
+        "comment": " This class maps to this CSS definition:\n\n    .border-dotted {\n     border-style: dotted;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_green",
+        "comment": " This class maps to this CSS definition:\n\n    .border-green,\n    .hover\\:border-green:hover {\n     border-color: #38c172;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_green_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .border-green-dark,\n    .hover\\:border-green-dark:hover {\n     border-color: #1f9d55;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_green_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .border-green-darker,\n    .hover\\:border-green-darker:hover {\n     border-color: #0b4228;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_green_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-green-darkest,\n    .hover\\:border-green-darkest:hover {\n     border-color: #032d19;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_green_light",
+        "comment": " This class maps to this CSS definition:\n\n    .border-green-light,\n    .hover\\:border-green-light:hover {\n     border-color: #51d88a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_green_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .border-green-lighter,\n    .hover\\:border-green-lighter:hover {\n     border-color: #a2f5bf;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_green_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-green-lightest,\n    .hover\\:border-green-lightest:hover {\n     border-color: #e3fcec;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_grey",
+        "comment": " This class maps to this CSS definition:\n\n    .border-grey,\n    .hover\\:border-grey:hover {\n     border-color: #9babb4;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_grey_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .border-grey-dark,\n    .hover\\:border-grey-dark:hover {\n     border-color: #70818a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_grey_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .border-grey-darker,\n    .hover\\:border-grey-darker:hover {\n     border-color: #596a73;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_grey_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-grey-darkest,\n    .hover\\:border-grey-darkest:hover {\n     border-color: #364349;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_grey_light",
+        "comment": " This class maps to this CSS definition:\n\n    .border-grey-light,\n    .hover\\:border-grey-light:hover {\n     border-color: #dae4e9;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_grey_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .border-grey-lighter,\n    .hover\\:border-grey-lighter:hover {\n     border-color: #f3f7f9;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_grey_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-grey-lightest,\n    .hover\\:border-grey-lightest:hover {\n     border-color: #fafcfc;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_indigo",
+        "comment": " This class maps to this CSS definition:\n\n    .border-indigo,\n    .hover\\:border-indigo:hover {\n     border-color: #6574cd;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_indigo_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .border-indigo-dark,\n    .hover\\:border-indigo-dark:hover {\n     border-color: #5661b3;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_indigo_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .border-indigo-darker,\n    .hover\\:border-indigo-darker:hover {\n     border-color: #2f365f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_indigo_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-indigo-darkest,\n    .hover\\:border-indigo-darkest:hover {\n     border-color: #191e38;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_indigo_light",
+        "comment": " This class maps to this CSS definition:\n\n    .border-indigo-light,\n    .hover\\:border-indigo-light:hover {\n     border-color: #7886d7;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_indigo_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .border-indigo-lighter,\n    .hover\\:border-indigo-lighter:hover {\n     border-color: #b2b7ff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_indigo_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-indigo-lightest,\n    .hover\\:border-indigo-lightest:hover {\n     border-color: #e6e8ff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_l",
+        "comment": " This class maps to this CSS definition:\n\n    .border-l {\n     border-left-width: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_l_0",
+        "comment": " This class maps to this CSS definition:\n\n    .border-l-0 {\n     border-left-width: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_l_2",
+        "comment": " This class maps to this CSS definition:\n\n    .border-l-2 {\n     border-left-width: 2px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_l_4",
+        "comment": " This class maps to this CSS definition:\n\n    .border-l-4 {\n     border-left-width: 4px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_l_8",
+        "comment": " This class maps to this CSS definition:\n\n    .border-l-8 {\n     border-left-width: 8px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_none",
+        "comment": " This class maps to this CSS definition:\n\n    .border-none {\n     border-style: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_orange",
+        "comment": " This class maps to this CSS definition:\n\n    .border-orange,\n    .hover\\:border-orange:hover {\n     border-color: #f6993f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_orange_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .border-orange-dark,\n    .hover\\:border-orange-dark:hover {\n     border-color: #de751f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_orange_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .border-orange-darker,\n    .hover\\:border-orange-darker:hover {\n     border-color: #7f4012;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_orange_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-orange-darkest,\n    .hover\\:border-orange-darkest:hover {\n     border-color: #542605;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_orange_light",
+        "comment": " This class maps to this CSS definition:\n\n    .border-orange-light,\n    .hover\\:border-orange-light:hover {\n     border-color: #faad63;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_orange_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .border-orange-lighter,\n    .hover\\:border-orange-lighter:hover {\n     border-color: #fcd9b6;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_orange_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-orange-lightest,\n    .hover\\:border-orange-lightest:hover {\n     border-color: #fff5eb;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_pink",
+        "comment": " This class maps to this CSS definition:\n\n    .border-pink,\n    .hover\\:border-pink:hover {\n     border-color: #f66d9b;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_pink_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .border-pink-dark,\n    .hover\\:border-pink-dark:hover {\n     border-color: #eb5286;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_pink_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .border-pink-darker,\n    .hover\\:border-pink-darker:hover {\n     border-color: #72173a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_pink_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-pink-darkest,\n    .hover\\:border-pink-darkest:hover {\n     border-color: #45051e;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_pink_light",
+        "comment": " This class maps to this CSS definition:\n\n    .border-pink-light,\n    .hover\\:border-pink-light:hover {\n     border-color: #fa7ea8;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_pink_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .border-pink-lighter,\n    .hover\\:border-pink-lighter:hover {\n     border-color: #ffbbca;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_pink_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-pink-lightest,\n    .hover\\:border-pink-lightest:hover {\n     border-color: #ffebef;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_purple",
+        "comment": " This class maps to this CSS definition:\n\n    .border-purple,\n    .hover\\:border-purple:hover {\n     border-color: #9561e2;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_purple_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .border-purple-dark,\n    .hover\\:border-purple-dark:hover {\n     border-color: #794acf;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_purple_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .border-purple-darker,\n    .hover\\:border-purple-darker:hover {\n     border-color: #352465;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_purple_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-purple-darkest,\n    .hover\\:border-purple-darkest:hover {\n     border-color: #1f133f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_purple_light",
+        "comment": " This class maps to this CSS definition:\n\n    .border-purple-light,\n    .hover\\:border-purple-light:hover {\n     border-color: #a779e9;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_purple_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .border-purple-lighter,\n    .hover\\:border-purple-lighter:hover {\n     border-color: #d6bbfc;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_purple_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-purple-lightest,\n    .hover\\:border-purple-lightest:hover {\n     border-color: #f3ebff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_r",
+        "comment": " This class maps to this CSS definition:\n\n    .border-r {\n     border-right-width: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_r_0",
+        "comment": " This class maps to this CSS definition:\n\n    .border-r-0 {\n     border-right-width: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_r_2",
+        "comment": " This class maps to this CSS definition:\n\n    .border-r-2 {\n     border-right-width: 2px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_r_4",
+        "comment": " This class maps to this CSS definition:\n\n    .border-r-4 {\n     border-right-width: 4px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_r_8",
+        "comment": " This class maps to this CSS definition:\n\n    .border-r-8 {\n     border-right-width: 8px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_red",
+        "comment": " This class maps to this CSS definition:\n\n    .border-red,\n    .hover\\:border-red:hover {\n     border-color: #e3342f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_red_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .border-red-dark,\n    .hover\\:border-red-dark:hover {\n     border-color: #cc1f1a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_red_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .border-red-darker,\n    .hover\\:border-red-darker:hover {\n     border-color: #6a1b19;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_red_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-red-darkest,\n    .hover\\:border-red-darkest:hover {\n     border-color: #420806;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_red_light",
+        "comment": " This class maps to this CSS definition:\n\n    .border-red-light,\n    .hover\\:border-red-light:hover {\n     border-color: #ef5753;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_red_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .border-red-lighter,\n    .hover\\:border-red-lighter:hover {\n     border-color: #f9acaa;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_red_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-red-lightest,\n    .hover\\:border-red-lightest:hover {\n     border-color: #fcebea;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_solid",
+        "comment": " This class maps to this CSS definition:\n\n    .border-solid {\n     border-style: solid;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_t",
+        "comment": " This class maps to this CSS definition:\n\n    .border-t {\n     border-top-width: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_t_0",
+        "comment": " This class maps to this CSS definition:\n\n    .border-t-0 {\n     border-top-width: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_t_2",
+        "comment": " This class maps to this CSS definition:\n\n    .border-t-2 {\n     border-top-width: 2px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_t_4",
+        "comment": " This class maps to this CSS definition:\n\n    .border-t-4 {\n     border-top-width: 4px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_t_8",
+        "comment": " This class maps to this CSS definition:\n\n    .border-t-8 {\n     border-top-width: 8px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_teal",
+        "comment": " This class maps to this CSS definition:\n\n    .border-teal,\n    .hover\\:border-teal:hover {\n     border-color: #4dc0b5;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_teal_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .border-teal-dark,\n    .hover\\:border-teal-dark:hover {\n     border-color: #38a89d;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_teal_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .border-teal-darker,\n    .hover\\:border-teal-darker:hover {\n     border-color: #174e4b;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_teal_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-teal-darkest,\n    .hover\\:border-teal-darkest:hover {\n     border-color: #0d3331;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_teal_light",
+        "comment": " This class maps to this CSS definition:\n\n    .border-teal-light,\n    .hover\\:border-teal-light:hover {\n     border-color: #64d5ca;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_teal_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .border-teal-lighter,\n    .hover\\:border-teal-lighter:hover {\n     border-color: #a0f0ed;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_teal_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-teal-lightest,\n    .hover\\:border-teal-lightest:hover {\n     border-color: #e8fffe;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_transparent",
+        "comment": " This class maps to this CSS definition:\n\n    .border-transparent,\n    .hover\\:border-transparent:hover {\n     border-color: transparent;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_white",
+        "comment": " This class maps to this CSS definition:\n\n    .border-white,\n    .hover\\:border-white:hover {\n     border-color: #ffffff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_yellow",
+        "comment": " This class maps to this CSS definition:\n\n    .border-yellow,\n    .hover\\:border-yellow:hover {\n     border-color: #ffed4a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_yellow_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .border-yellow-dark,\n    .hover\\:border-yellow-dark:hover {\n     border-color: #f2d024;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_yellow_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .border-yellow-darker,\n    .hover\\:border-yellow-darker:hover {\n     border-color: #684f1d;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_yellow_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-yellow-darkest,\n    .hover\\:border-yellow-darkest:hover {\n     border-color: #453411;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_yellow_light",
+        "comment": " This class maps to this CSS definition:\n\n    .border-yellow-light,\n    .hover\\:border-yellow-light:hover {\n     border-color: #fff382;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_yellow_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .border-yellow-lighter,\n    .hover\\:border-yellow-lighter:hover {\n     border-color: #fff9c2;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "border_yellow_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .border-yellow-lightest,\n    .hover\\:border-yellow-lightest:hover {\n     border-color: #fcfbeb;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "break_normal",
+        "comment": " This class maps to this CSS definition:\n\n    .break-normal {\n     word-wrap: normal;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "break_words",
+        "comment": " This class maps to this CSS definition:\n\n    .break-words {\n     word-wrap: break-word;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "capitalize",
+        "comment": " This class maps to this CSS definition:\n\n    .capitalize,\n    .hover\\:capitalize:hover {\n     text-transform: capitalize;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "container",
+        "comment": " This class maps to this CSS definition:\n\n    .container {\n     width: 100%;\n    }\n    .container {\n       max-width: 576px;\n     }\n    .container {\n       max-width: 768px;\n     }\n    .container {\n       max-width: 992px;\n     }\n    .container {\n       max-width: 1200px;\n     }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "content_around",
+        "comment": " This class maps to this CSS definition:\n\n    .content-around {\n     align-content: space-around;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "content_between",
+        "comment": " This class maps to this CSS definition:\n\n    .content-between {\n     align-content: space-between;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "content_center",
+        "comment": " This class maps to this CSS definition:\n\n    .content-center {\n     align-content: center;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "content_end",
+        "comment": " This class maps to this CSS definition:\n\n    .content-end {\n     align-content: flex-end;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "content_start",
+        "comment": " This class maps to this CSS definition:\n\n    .content-start {\n     align-content: flex-start;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "cursor_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .cursor-auto {\n     cursor: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "cursor_default",
+        "comment": " This class maps to this CSS definition:\n\n    .cursor-default {\n     cursor: default;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "cursor_not_allowed",
+        "comment": " This class maps to this CSS definition:\n\n    .cursor-not-allowed {\n     cursor: not-allowed;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "cursor_pointer",
+        "comment": " This class maps to this CSS definition:\n\n    .cursor-pointer {\n     cursor: pointer;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "fixed",
+        "comment": " This class maps to this CSS definition:\n\n    .fixed {\n     position: fixed;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex",
+        "comment": " This class maps to this CSS definition:\n\n    .flex {\n     display: -webkit-box;\n     display: flex;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_1",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-1 {\n     -webkit-box-flex: 1;\n           flex: 1;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-auto {\n     -webkit-box-flex: 1;\n           flex: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_col",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-col {\n     -webkit-box-orient: vertical;\n     -webkit-box-direction: normal;\n           flex-direction: column;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_col_reverse",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-col-reverse {\n     -webkit-box-orient: vertical;\n     -webkit-box-direction: reverse;\n           flex-direction: column-reverse;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_grow",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-grow {\n     -webkit-box-flex: 1;\n           flex-grow: 1;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_initial",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-initial {\n     -webkit-box-flex: initial;\n           flex: initial;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_no_grow",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-no-grow {\n     -webkit-box-flex: 0;\n           flex-grow: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_no_shrink",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-no-shrink {\n     flex-shrink: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_no_wrap",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-no-wrap {\n     flex-wrap: nowrap;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_none",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-none {\n     -webkit-box-flex: 0;\n           flex: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_row",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-row {\n     -webkit-box-orient: horizontal;\n     -webkit-box-direction: normal;\n           flex-direction: row;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_row_reverse",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-row-reverse {\n     -webkit-box-orient: horizontal;\n     -webkit-box-direction: reverse;\n           flex-direction: row-reverse;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_shrink",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-shrink {\n     flex-shrink: 1;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_wrap",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-wrap {\n     flex-wrap: wrap;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "flex_wrap_reverse",
+        "comment": " This class maps to this CSS definition:\n\n    .flex-wrap-reverse {\n     flex-wrap: wrap-reverse;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "float_left",
+        "comment": " This class maps to this CSS definition:\n\n    .float-left {\n     float: left;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "float_none",
+        "comment": " This class maps to this CSS definition:\n\n    .float-none {\n     float: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "float_right",
+        "comment": " This class maps to this CSS definition:\n\n    .float-right {\n     float: right;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_black",
+        "comment": " This class maps to this CSS definition:\n\n    .font-black,\n    .hover\\:font-black:hover {\n     font-weight: 900;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_bold",
+        "comment": " This class maps to this CSS definition:\n\n    .font-bold,\n    .hover\\:font-bold:hover {\n     font-weight: 700;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_extrabold",
+        "comment": " This class maps to this CSS definition:\n\n    .font-extrabold,\n    .hover\\:font-extrabold:hover {\n     font-weight: 800;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_hairline",
+        "comment": " This class maps to this CSS definition:\n\n    .font-hairline,\n    .hover\\:font-hairline:hover {\n     font-weight: 100;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_light",
+        "comment": " This class maps to this CSS definition:\n\n    .font-light,\n    .hover\\:font-light:hover {\n     font-weight: 300;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_medium",
+        "comment": " This class maps to this CSS definition:\n\n    .font-medium,\n    .hover\\:font-medium:hover {\n     font-weight: 500;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_mono",
+        "comment": " This class maps to this CSS definition:\n\n    .font-mono {\n     font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_normal",
+        "comment": " This class maps to this CSS definition:\n\n    .font-normal,\n    .hover\\:font-normal:hover {\n     font-weight: 400;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_sans",
+        "comment": " This class maps to this CSS definition:\n\n    .font-sans {\n     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_semibold",
+        "comment": " This class maps to this CSS definition:\n\n    .font-semibold,\n    .hover\\:font-semibold:hover {\n     font-weight: 600;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_serif",
+        "comment": " This class maps to this CSS definition:\n\n    .font-serif {\n     font-family: Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "font_thin",
+        "comment": " This class maps to this CSS definition:\n\n    .font-thin,\n    .hover\\:font-thin:hover {\n     font-weight: 200;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_1",
+        "comment": " This class maps to this CSS definition:\n\n    .h-1 {\n     height: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_10",
+        "comment": " This class maps to this CSS definition:\n\n    .h-10 {\n     height: 2.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_12",
+        "comment": " This class maps to this CSS definition:\n\n    .h-12 {\n     height: 3rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_16",
+        "comment": " This class maps to this CSS definition:\n\n    .h-16 {\n     height: 4rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_2",
+        "comment": " This class maps to this CSS definition:\n\n    .h-2 {\n     height: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_24",
+        "comment": " This class maps to this CSS definition:\n\n    .h-24 {\n     height: 6rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_3",
+        "comment": " This class maps to this CSS definition:\n\n    .h-3 {\n     height: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_32",
+        "comment": " This class maps to this CSS definition:\n\n    .h-32 {\n     height: 8rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_4",
+        "comment": " This class maps to this CSS definition:\n\n    .h-4 {\n     height: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_48",
+        "comment": " This class maps to this CSS definition:\n\n    .h-48 {\n     height: 12rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_6",
+        "comment": " This class maps to this CSS definition:\n\n    .h-6 {\n     height: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_64",
+        "comment": " This class maps to this CSS definition:\n\n    .h-64 {\n     height: 16rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_8",
+        "comment": " This class maps to this CSS definition:\n\n    .h-8 {\n     height: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .h-auto {\n     height: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_full",
+        "comment": " This class maps to this CSS definition:\n\n    .h-full {\n     height: 100%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_px",
+        "comment": " This class maps to this CSS definition:\n\n    .h-px {\n     height: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "h_screen",
+        "comment": " This class maps to this CSS definition:\n\n    .h-screen {\n     height: 100vh;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "hidden",
+        "comment": " This class maps to this CSS definition:\n\n    .hidden {\n     display: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "inline",
+        "comment": " This class maps to this CSS definition:\n\n    .inline {\n     display: inline;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "inline_block",
+        "comment": " This class maps to this CSS definition:\n\n    .inline-block {\n     display: inline-block;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "inline_flex",
+        "comment": " This class maps to this CSS definition:\n\n    .inline-flex {\n     display: -webkit-inline-box;\n     display: inline-flex;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "invisible",
+        "comment": " This class maps to this CSS definition:\n\n    .invisible {\n     visibility: hidden;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "italic",
+        "comment": " This class maps to this CSS definition:\n\n    .italic,\n    .hover\\:italic:hover {\n     font-style: italic;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "items_baseline",
+        "comment": " This class maps to this CSS definition:\n\n    .items-baseline {\n     -webkit-box-align: baseline;\n           align-items: baseline;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "items_center",
+        "comment": " This class maps to this CSS definition:\n\n    .items-center {\n     -webkit-box-align: center;\n           align-items: center;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "items_end",
+        "comment": " This class maps to this CSS definition:\n\n    .items-end {\n     -webkit-box-align: end;\n           align-items: flex-end;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "items_start",
+        "comment": " This class maps to this CSS definition:\n\n    .items-start {\n     -webkit-box-align: start;\n           align-items: flex-start;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "items_stretch",
+        "comment": " This class maps to this CSS definition:\n\n    .items-stretch {\n     -webkit-box-align: stretch;\n           align-items: stretch;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "justify_around",
+        "comment": " This class maps to this CSS definition:\n\n    .justify-around {\n     justify-content: space-around;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "justify_between",
+        "comment": " This class maps to this CSS definition:\n\n    .justify-between {\n     -webkit-box-pack: justify;\n           justify-content: space-between;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "justify_center",
+        "comment": " This class maps to this CSS definition:\n\n    .justify-center {\n     -webkit-box-pack: center;\n           justify-content: center;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "justify_end",
+        "comment": " This class maps to this CSS definition:\n\n    .justify-end {\n     -webkit-box-pack: end;\n           justify-content: flex-end;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "justify_start",
+        "comment": " This class maps to this CSS definition:\n\n    .justify-start {\n     -webkit-box-pack: start;\n           justify-content: flex-start;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "leading_loose",
+        "comment": " This class maps to this CSS definition:\n\n    .leading-loose {\n     line-height: 2;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "leading_none",
+        "comment": " This class maps to this CSS definition:\n\n    .leading-none {\n     line-height: 1;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "leading_normal",
+        "comment": " This class maps to this CSS definition:\n\n    .leading-normal {\n     line-height: 1.5;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "leading_tight",
+        "comment": " This class maps to this CSS definition:\n\n    .leading-tight {\n     line-height: 1.25;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "lg",
+        "comment": " Add a size prefix to the tailwind rule, making it only apply to that screen size and above.\n  Notice, doesn't make sure the class being passed in is going to work with a responsive prefix.. Not all tailwind rules are responsive-capable.\n",
+        "type": "Tailwind.Classes.TailwindClass -> Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "line_through",
+        "comment": " This class maps to this CSS definition:\n\n    .line-through,\n    .hover\\:line-through:hover {\n     text-decoration: line-through;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "list_reset",
+        "comment": " This class maps to this CSS definition:\n\n    .list-reset {\n     list-style: none;\n     margin: 0;\n     padding: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "lowercase",
+        "comment": " This class maps to this CSS definition:\n\n    .lowercase,\n    .hover\\:lowercase:hover {\n     text-transform: lowercase;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "m_0",
+        "comment": " This class maps to this CSS definition:\n\n    .m-0 {\n     margin: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "m_1",
+        "comment": " This class maps to this CSS definition:\n\n    .m-1 {\n     margin: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "m_2",
+        "comment": " This class maps to this CSS definition:\n\n    .m-2 {\n     margin: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "m_3",
+        "comment": " This class maps to this CSS definition:\n\n    .m-3 {\n     margin: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "m_4",
+        "comment": " This class maps to this CSS definition:\n\n    .m-4 {\n     margin: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "m_6",
+        "comment": " This class maps to this CSS definition:\n\n    .m-6 {\n     margin: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "m_8",
+        "comment": " This class maps to this CSS definition:\n\n    .m-8 {\n     margin: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "m_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .m-auto {\n     margin: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "m_px",
+        "comment": " This class maps to this CSS definition:\n\n    .m-px {\n     margin: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_h_full",
+        "comment": " This class maps to this CSS definition:\n\n    .max-h-full {\n     max-height: 100%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_h_screen",
+        "comment": " This class maps to this CSS definition:\n\n    .max-h-screen {\n     max-height: 100vh;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_w_2xl",
+        "comment": " This class maps to this CSS definition:\n\n    .max-w-2xl {\n     max-width: 70rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_w_3xl",
+        "comment": " This class maps to this CSS definition:\n\n    .max-w-3xl {\n     max-width: 80rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_w_4xl",
+        "comment": " This class maps to this CSS definition:\n\n    .max-w-4xl {\n     max-width: 90rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_w_5xl",
+        "comment": " This class maps to this CSS definition:\n\n    .max-w-5xl {\n     max-width: 100rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_w_full",
+        "comment": " This class maps to this CSS definition:\n\n    .max-w-full {\n     max-width: 100%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_w_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .max-w-lg {\n     max-width: 50rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_w_md",
+        "comment": " This class maps to this CSS definition:\n\n    .max-w-md {\n     max-width: 40rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_w_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .max-w-sm {\n     max-width: 30rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_w_xl",
+        "comment": " This class maps to this CSS definition:\n\n    .max-w-xl {\n     max-width: 60rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "max_w_xs",
+        "comment": " This class maps to this CSS definition:\n\n    .max-w-xs {\n     max-width: 20rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mb_0",
+        "comment": " This class maps to this CSS definition:\n\n    .mb-0 {\n     margin-bottom: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mb_1",
+        "comment": " This class maps to this CSS definition:\n\n    .mb-1 {\n     margin-bottom: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mb_2",
+        "comment": " This class maps to this CSS definition:\n\n    .mb-2 {\n     margin-bottom: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mb_3",
+        "comment": " This class maps to this CSS definition:\n\n    .mb-3 {\n     margin-bottom: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mb_4",
+        "comment": " This class maps to this CSS definition:\n\n    .mb-4 {\n     margin-bottom: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mb_6",
+        "comment": " This class maps to this CSS definition:\n\n    .mb-6 {\n     margin-bottom: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mb_8",
+        "comment": " This class maps to this CSS definition:\n\n    .mb-8 {\n     margin-bottom: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mb_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .mb-auto {\n     margin-bottom: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mb_px",
+        "comment": " This class maps to this CSS definition:\n\n    .mb-px {\n     margin-bottom: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "md",
+        "comment": " Add a size prefix to the tailwind rule, making it only apply to that screen size and above.\n  Notice, doesn't make sure the class being passed in is going to work with a responsive prefix.. Not all tailwind rules are responsive-capable.\n",
+        "type": "Tailwind.Classes.TailwindClass -> Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "min_h_0",
+        "comment": " This class maps to this CSS definition:\n\n    .min-h-0 {\n     min-height: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "min_h_full",
+        "comment": " This class maps to this CSS definition:\n\n    .min-h-full {\n     min-height: 100%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "min_h_screen",
+        "comment": " This class maps to this CSS definition:\n\n    .min-h-screen {\n     min-height: 100vh;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "min_w_0",
+        "comment": " This class maps to this CSS definition:\n\n    .min-w-0 {\n     min-width: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "min_w_full",
+        "comment": " This class maps to this CSS definition:\n\n    .min-w-full {\n     min-width: 100%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "ml_0",
+        "comment": " This class maps to this CSS definition:\n\n    .ml-0 {\n     margin-left: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "ml_1",
+        "comment": " This class maps to this CSS definition:\n\n    .ml-1 {\n     margin-left: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "ml_2",
+        "comment": " This class maps to this CSS definition:\n\n    .ml-2 {\n     margin-left: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "ml_3",
+        "comment": " This class maps to this CSS definition:\n\n    .ml-3 {\n     margin-left: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "ml_4",
+        "comment": " This class maps to this CSS definition:\n\n    .ml-4 {\n     margin-left: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "ml_6",
+        "comment": " This class maps to this CSS definition:\n\n    .ml-6 {\n     margin-left: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "ml_8",
+        "comment": " This class maps to this CSS definition:\n\n    .ml-8 {\n     margin-left: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "ml_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .ml-auto {\n     margin-left: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "ml_px",
+        "comment": " This class maps to this CSS definition:\n\n    .ml-px {\n     margin-left: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mr_0",
+        "comment": " This class maps to this CSS definition:\n\n    .mr-0 {\n     margin-right: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mr_1",
+        "comment": " This class maps to this CSS definition:\n\n    .mr-1 {\n     margin-right: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mr_2",
+        "comment": " This class maps to this CSS definition:\n\n    .mr-2 {\n     margin-right: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mr_3",
+        "comment": " This class maps to this CSS definition:\n\n    .mr-3 {\n     margin-right: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mr_4",
+        "comment": " This class maps to this CSS definition:\n\n    .mr-4 {\n     margin-right: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mr_6",
+        "comment": " This class maps to this CSS definition:\n\n    .mr-6 {\n     margin-right: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mr_8",
+        "comment": " This class maps to this CSS definition:\n\n    .mr-8 {\n     margin-right: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mr_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .mr-auto {\n     margin-right: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mr_px",
+        "comment": " This class maps to this CSS definition:\n\n    .mr-px {\n     margin-right: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mt_0",
+        "comment": " This class maps to this CSS definition:\n\n    .mt-0 {\n     margin-top: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mt_1",
+        "comment": " This class maps to this CSS definition:\n\n    .mt-1 {\n     margin-top: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mt_2",
+        "comment": " This class maps to this CSS definition:\n\n    .mt-2 {\n     margin-top: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mt_3",
+        "comment": " This class maps to this CSS definition:\n\n    .mt-3 {\n     margin-top: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mt_4",
+        "comment": " This class maps to this CSS definition:\n\n    .mt-4 {\n     margin-top: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mt_6",
+        "comment": " This class maps to this CSS definition:\n\n    .mt-6 {\n     margin-top: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mt_8",
+        "comment": " This class maps to this CSS definition:\n\n    .mt-8 {\n     margin-top: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mt_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .mt-auto {\n     margin-top: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mt_px",
+        "comment": " This class maps to this CSS definition:\n\n    .mt-px {\n     margin-top: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mx_0",
+        "comment": " This class maps to this CSS definition:\n\n    .mx-0 {\n     margin-left: 0;\n     margin-right: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mx_1",
+        "comment": " This class maps to this CSS definition:\n\n    .mx-1 {\n     margin-left: 0.25rem;\n     margin-right: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mx_2",
+        "comment": " This class maps to this CSS definition:\n\n    .mx-2 {\n     margin-left: 0.5rem;\n     margin-right: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mx_3",
+        "comment": " This class maps to this CSS definition:\n\n    .mx-3 {\n     margin-left: 0.75rem;\n     margin-right: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mx_4",
+        "comment": " This class maps to this CSS definition:\n\n    .mx-4 {\n     margin-left: 1rem;\n     margin-right: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mx_6",
+        "comment": " This class maps to this CSS definition:\n\n    .mx-6 {\n     margin-left: 1.5rem;\n     margin-right: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mx_8",
+        "comment": " This class maps to this CSS definition:\n\n    .mx-8 {\n     margin-left: 2rem;\n     margin-right: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mx_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .mx-auto {\n     margin-left: auto;\n     margin-right: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "mx_px",
+        "comment": " This class maps to this CSS definition:\n\n    .mx-px {\n     margin-left: 1px;\n     margin-right: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "my_0",
+        "comment": " This class maps to this CSS definition:\n\n    .my-0 {\n     margin-top: 0;\n     margin-bottom: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "my_1",
+        "comment": " This class maps to this CSS definition:\n\n    .my-1 {\n     margin-top: 0.25rem;\n     margin-bottom: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "my_2",
+        "comment": " This class maps to this CSS definition:\n\n    .my-2 {\n     margin-top: 0.5rem;\n     margin-bottom: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "my_3",
+        "comment": " This class maps to this CSS definition:\n\n    .my-3 {\n     margin-top: 0.75rem;\n     margin-bottom: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "my_4",
+        "comment": " This class maps to this CSS definition:\n\n    .my-4 {\n     margin-top: 1rem;\n     margin-bottom: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "my_6",
+        "comment": " This class maps to this CSS definition:\n\n    .my-6 {\n     margin-top: 1.5rem;\n     margin-bottom: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "my_8",
+        "comment": " This class maps to this CSS definition:\n\n    .my-8 {\n     margin-top: 2rem;\n     margin-bottom: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "my_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .my-auto {\n     margin-top: auto;\n     margin-bottom: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "my_px",
+        "comment": " This class maps to this CSS definition:\n\n    .my-px {\n     margin-top: 1px;\n     margin-bottom: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mb_0",
+        "comment": " This class maps to this CSS definition:\n\n    .-mb-0 {\n     margin-bottom: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mb_1",
+        "comment": " This class maps to this CSS definition:\n\n    .-mb-1 {\n     margin-bottom: -0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mb_2",
+        "comment": " This class maps to this CSS definition:\n\n    .-mb-2 {\n     margin-bottom: -0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mb_3",
+        "comment": " This class maps to this CSS definition:\n\n    .-mb-3 {\n     margin-bottom: -0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mb_4",
+        "comment": " This class maps to this CSS definition:\n\n    .-mb-4 {\n     margin-bottom: -1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mb_6",
+        "comment": " This class maps to this CSS definition:\n\n    .-mb-6 {\n     margin-bottom: -1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mb_8",
+        "comment": " This class maps to this CSS definition:\n\n    .-mb-8 {\n     margin-bottom: -2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mb_px",
+        "comment": " This class maps to this CSS definition:\n\n    .-mb-px {\n     margin-bottom: -1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_ml_0",
+        "comment": " This class maps to this CSS definition:\n\n    .-ml-0 {\n     margin-left: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_ml_1",
+        "comment": " This class maps to this CSS definition:\n\n    .-ml-1 {\n     margin-left: -0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_ml_2",
+        "comment": " This class maps to this CSS definition:\n\n    .-ml-2 {\n     margin-left: -0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_ml_3",
+        "comment": " This class maps to this CSS definition:\n\n    .-ml-3 {\n     margin-left: -0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_ml_4",
+        "comment": " This class maps to this CSS definition:\n\n    .-ml-4 {\n     margin-left: -1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_ml_6",
+        "comment": " This class maps to this CSS definition:\n\n    .-ml-6 {\n     margin-left: -1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_ml_8",
+        "comment": " This class maps to this CSS definition:\n\n    .-ml-8 {\n     margin-left: -2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_ml_px",
+        "comment": " This class maps to this CSS definition:\n\n    .-ml-px {\n     margin-left: -1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mr_0",
+        "comment": " This class maps to this CSS definition:\n\n    .-mr-0 {\n     margin-right: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mr_1",
+        "comment": " This class maps to this CSS definition:\n\n    .-mr-1 {\n     margin-right: -0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mr_2",
+        "comment": " This class maps to this CSS definition:\n\n    .-mr-2 {\n     margin-right: -0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mr_3",
+        "comment": " This class maps to this CSS definition:\n\n    .-mr-3 {\n     margin-right: -0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mr_4",
+        "comment": " This class maps to this CSS definition:\n\n    .-mr-4 {\n     margin-right: -1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mr_6",
+        "comment": " This class maps to this CSS definition:\n\n    .-mr-6 {\n     margin-right: -1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mr_8",
+        "comment": " This class maps to this CSS definition:\n\n    .-mr-8 {\n     margin-right: -2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mr_px",
+        "comment": " This class maps to this CSS definition:\n\n    .-mr-px {\n     margin-right: -1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mt_0",
+        "comment": " This class maps to this CSS definition:\n\n    .-mt-0 {\n     margin-top: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mt_1",
+        "comment": " This class maps to this CSS definition:\n\n    .-mt-1 {\n     margin-top: -0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mt_2",
+        "comment": " This class maps to this CSS definition:\n\n    .-mt-2 {\n     margin-top: -0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mt_3",
+        "comment": " This class maps to this CSS definition:\n\n    .-mt-3 {\n     margin-top: -0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mt_4",
+        "comment": " This class maps to this CSS definition:\n\n    .-mt-4 {\n     margin-top: -1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mt_6",
+        "comment": " This class maps to this CSS definition:\n\n    .-mt-6 {\n     margin-top: -1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mt_8",
+        "comment": " This class maps to this CSS definition:\n\n    .-mt-8 {\n     margin-top: -2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mt_px",
+        "comment": " This class maps to this CSS definition:\n\n    .-mt-px {\n     margin-top: -1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mx_0",
+        "comment": " This class maps to this CSS definition:\n\n    .-mx-0 {\n     margin-left: 0;\n     margin-right: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mx_1",
+        "comment": " This class maps to this CSS definition:\n\n    .-mx-1 {\n     margin-left: -0.25rem;\n     margin-right: -0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mx_2",
+        "comment": " This class maps to this CSS definition:\n\n    .-mx-2 {\n     margin-left: -0.5rem;\n     margin-right: -0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mx_3",
+        "comment": " This class maps to this CSS definition:\n\n    .-mx-3 {\n     margin-left: -0.75rem;\n     margin-right: -0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mx_4",
+        "comment": " This class maps to this CSS definition:\n\n    .-mx-4 {\n     margin-left: -1rem;\n     margin-right: -1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mx_6",
+        "comment": " This class maps to this CSS definition:\n\n    .-mx-6 {\n     margin-left: -1.5rem;\n     margin-right: -1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mx_8",
+        "comment": " This class maps to this CSS definition:\n\n    .-mx-8 {\n     margin-left: -2rem;\n     margin-right: -2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_mx_px",
+        "comment": " This class maps to this CSS definition:\n\n    .-mx-px {\n     margin-left: -1px;\n     margin-right: -1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_my_0",
+        "comment": " This class maps to this CSS definition:\n\n    .-my-0 {\n     margin-top: 0;\n     margin-bottom: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_my_1",
+        "comment": " This class maps to this CSS definition:\n\n    .-my-1 {\n     margin-top: -0.25rem;\n     margin-bottom: -0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_my_2",
+        "comment": " This class maps to this CSS definition:\n\n    .-my-2 {\n     margin-top: -0.5rem;\n     margin-bottom: -0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_my_3",
+        "comment": " This class maps to this CSS definition:\n\n    .-my-3 {\n     margin-top: -0.75rem;\n     margin-bottom: -0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_my_4",
+        "comment": " This class maps to this CSS definition:\n\n    .-my-4 {\n     margin-top: -1rem;\n     margin-bottom: -1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_my_6",
+        "comment": " This class maps to this CSS definition:\n\n    .-my-6 {\n     margin-top: -1.5rem;\n     margin-bottom: -1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_my_8",
+        "comment": " This class maps to this CSS definition:\n\n    .-my-8 {\n     margin-top: -2rem;\n     margin-bottom: -2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "neg_my_px",
+        "comment": " This class maps to this CSS definition:\n\n    .-my-px {\n     margin-top: -1px;\n     margin-bottom: -1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "negm_0",
+        "comment": " This class maps to this CSS definition:\n\n    .-m-0 {\n     margin: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "negm_1",
+        "comment": " This class maps to this CSS definition:\n\n    .-m-1 {\n     margin: -0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "negm_2",
+        "comment": " This class maps to this CSS definition:\n\n    .-m-2 {\n     margin: -0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "negm_3",
+        "comment": " This class maps to this CSS definition:\n\n    .-m-3 {\n     margin: -0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "negm_4",
+        "comment": " This class maps to this CSS definition:\n\n    .-m-4 {\n     margin: -1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "negm_6",
+        "comment": " This class maps to this CSS definition:\n\n    .-m-6 {\n     margin: -1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "negm_8",
+        "comment": " This class maps to this CSS definition:\n\n    .-m-8 {\n     margin: -2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "negm_px",
+        "comment": " This class maps to this CSS definition:\n\n    .-m-px {\n     margin: -1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "no_underline",
+        "comment": " This class maps to this CSS definition:\n\n    .no-underline,\n    .hover\\:no-underline:hover {\n     text-decoration: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "normal_case",
+        "comment": " This class maps to this CSS definition:\n\n    .normal-case,\n    .hover\\:normal-case:hover {\n     text-transform: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "opacity_0",
+        "comment": " This class maps to this CSS definition:\n\n    .opacity-0 {\n     opacity: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "opacity_100",
+        "comment": " This class maps to this CSS definition:\n\n    .opacity-100 {\n     opacity: 1;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "opacity_25",
+        "comment": " This class maps to this CSS definition:\n\n    .opacity-25 {\n     opacity: .25;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "opacity_50",
+        "comment": " This class maps to this CSS definition:\n\n    .opacity-50 {\n     opacity: .5;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "opacity_75",
+        "comment": " This class maps to this CSS definition:\n\n    .opacity-75 {\n     opacity: .75;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "overflow_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .overflow-auto {\n     overflow: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "overflow_hidden",
+        "comment": " This class maps to this CSS definition:\n\n    .overflow-hidden {\n     overflow: hidden;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "overflow_scroll",
+        "comment": " This class maps to this CSS definition:\n\n    .overflow-scroll {\n     overflow: scroll;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "overflow_visible",
+        "comment": " This class maps to this CSS definition:\n\n    .overflow-visible {\n     overflow: visible;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "overflow_x_scroll",
+        "comment": " This class maps to this CSS definition:\n\n    .overflow-x-scroll {\n     overflow-x: auto;\n     -ms-overflow-style: -ms-autohiding-scrollbar;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "overflow_y_scroll",
+        "comment": " This class maps to this CSS definition:\n\n    .overflow-y-scroll {\n     overflow-y: auto;\n     -ms-overflow-style: -ms-autohiding-scrollbar;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "p_0",
+        "comment": " This class maps to this CSS definition:\n\n    .p-0 {\n     padding: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "p_1",
+        "comment": " This class maps to this CSS definition:\n\n    .p-1 {\n     padding: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "p_2",
+        "comment": " This class maps to this CSS definition:\n\n    .p-2 {\n     padding: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "p_3",
+        "comment": " This class maps to this CSS definition:\n\n    .p-3 {\n     padding: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "p_4",
+        "comment": " This class maps to this CSS definition:\n\n    .p-4 {\n     padding: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "p_6",
+        "comment": " This class maps to this CSS definition:\n\n    .p-6 {\n     padding: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "p_8",
+        "comment": " This class maps to this CSS definition:\n\n    .p-8 {\n     padding: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "p_px",
+        "comment": " This class maps to this CSS definition:\n\n    .p-px {\n     padding: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pb_0",
+        "comment": " This class maps to this CSS definition:\n\n    .pb-0 {\n     padding-bottom: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pb_1",
+        "comment": " This class maps to this CSS definition:\n\n    .pb-1 {\n     padding-bottom: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pb_2",
+        "comment": " This class maps to this CSS definition:\n\n    .pb-2 {\n     padding-bottom: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pb_3",
+        "comment": " This class maps to this CSS definition:\n\n    .pb-3 {\n     padding-bottom: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pb_4",
+        "comment": " This class maps to this CSS definition:\n\n    .pb-4 {\n     padding-bottom: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pb_6",
+        "comment": " This class maps to this CSS definition:\n\n    .pb-6 {\n     padding-bottom: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pb_8",
+        "comment": " This class maps to this CSS definition:\n\n    .pb-8 {\n     padding-bottom: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pb_px",
+        "comment": " This class maps to this CSS definition:\n\n    .pb-px {\n     padding-bottom: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pin",
+        "comment": " This class maps to this CSS definition:\n\n    .pin {\n     top: 0;\n     right: 0;\n     bottom: 0;\n     left: 0;\n     width: 100%;\n     height: 100%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pin_b",
+        "comment": " This class maps to this CSS definition:\n\n    .pin-b {\n     bottom: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pin_l",
+        "comment": " This class maps to this CSS definition:\n\n    .pin-l {\n     left: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pin_r",
+        "comment": " This class maps to this CSS definition:\n\n    .pin-r {\n     right: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pin_t",
+        "comment": " This class maps to this CSS definition:\n\n    .pin-t {\n     top: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pin_x",
+        "comment": " This class maps to this CSS definition:\n\n    .pin-x {\n     right: 0;\n     left: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pin_y",
+        "comment": " This class maps to this CSS definition:\n\n    .pin-y {\n     top: 0;\n     bottom: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pl_0",
+        "comment": " This class maps to this CSS definition:\n\n    .pl-0 {\n     padding-left: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pl_1",
+        "comment": " This class maps to this CSS definition:\n\n    .pl-1 {\n     padding-left: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pl_2",
+        "comment": " This class maps to this CSS definition:\n\n    .pl-2 {\n     padding-left: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pl_3",
+        "comment": " This class maps to this CSS definition:\n\n    .pl-3 {\n     padding-left: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pl_4",
+        "comment": " This class maps to this CSS definition:\n\n    .pl-4 {\n     padding-left: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pl_6",
+        "comment": " This class maps to this CSS definition:\n\n    .pl-6 {\n     padding-left: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pl_8",
+        "comment": " This class maps to this CSS definition:\n\n    .pl-8 {\n     padding-left: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pl_px",
+        "comment": " This class maps to this CSS definition:\n\n    .pl-px {\n     padding-left: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pointer_events_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .pointer-events-auto {\n     pointer-events: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pointer_events_none",
+        "comment": " This class maps to this CSS definition:\n\n    .pointer-events-none {\n     pointer-events: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pr_0",
+        "comment": " This class maps to this CSS definition:\n\n    .pr-0 {\n     padding-right: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pr_1",
+        "comment": " This class maps to this CSS definition:\n\n    .pr-1 {\n     padding-right: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pr_2",
+        "comment": " This class maps to this CSS definition:\n\n    .pr-2 {\n     padding-right: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pr_3",
+        "comment": " This class maps to this CSS definition:\n\n    .pr-3 {\n     padding-right: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pr_4",
+        "comment": " This class maps to this CSS definition:\n\n    .pr-4 {\n     padding-right: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pr_6",
+        "comment": " This class maps to this CSS definition:\n\n    .pr-6 {\n     padding-right: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pr_8",
+        "comment": " This class maps to this CSS definition:\n\n    .pr-8 {\n     padding-right: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pr_px",
+        "comment": " This class maps to this CSS definition:\n\n    .pr-px {\n     padding-right: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pt_0",
+        "comment": " This class maps to this CSS definition:\n\n    .pt-0 {\n     padding-top: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pt_1",
+        "comment": " This class maps to this CSS definition:\n\n    .pt-1 {\n     padding-top: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pt_2",
+        "comment": " This class maps to this CSS definition:\n\n    .pt-2 {\n     padding-top: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pt_3",
+        "comment": " This class maps to this CSS definition:\n\n    .pt-3 {\n     padding-top: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pt_4",
+        "comment": " This class maps to this CSS definition:\n\n    .pt-4 {\n     padding-top: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pt_6",
+        "comment": " This class maps to this CSS definition:\n\n    .pt-6 {\n     padding-top: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pt_8",
+        "comment": " This class maps to this CSS definition:\n\n    .pt-8 {\n     padding-top: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "pt_px",
+        "comment": " This class maps to this CSS definition:\n\n    .pt-px {\n     padding-top: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "px_0",
+        "comment": " This class maps to this CSS definition:\n\n    .px-0 {\n     padding-left: 0;\n     padding-right: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "px_1",
+        "comment": " This class maps to this CSS definition:\n\n    .px-1 {\n     padding-left: 0.25rem;\n     padding-right: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "px_2",
+        "comment": " This class maps to this CSS definition:\n\n    .px-2 {\n     padding-left: 0.5rem;\n     padding-right: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "px_3",
+        "comment": " This class maps to this CSS definition:\n\n    .px-3 {\n     padding-left: 0.75rem;\n     padding-right: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "px_4",
+        "comment": " This class maps to this CSS definition:\n\n    .px-4 {\n     padding-left: 1rem;\n     padding-right: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "px_6",
+        "comment": " This class maps to this CSS definition:\n\n    .px-6 {\n     padding-left: 1.5rem;\n     padding-right: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "px_8",
+        "comment": " This class maps to this CSS definition:\n\n    .px-8 {\n     padding-left: 2rem;\n     padding-right: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "px_px",
+        "comment": " This class maps to this CSS definition:\n\n    .px-px {\n     padding-left: 1px;\n     padding-right: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "py_0",
+        "comment": " This class maps to this CSS definition:\n\n    .py-0 {\n     padding-top: 0;\n     padding-bottom: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "py_1",
+        "comment": " This class maps to this CSS definition:\n\n    .py-1 {\n     padding-top: 0.25rem;\n     padding-bottom: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "py_2",
+        "comment": " This class maps to this CSS definition:\n\n    .py-2 {\n     padding-top: 0.5rem;\n     padding-bottom: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "py_3",
+        "comment": " This class maps to this CSS definition:\n\n    .py-3 {\n     padding-top: 0.75rem;\n     padding-bottom: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "py_4",
+        "comment": " This class maps to this CSS definition:\n\n    .py-4 {\n     padding-top: 1rem;\n     padding-bottom: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "py_6",
+        "comment": " This class maps to this CSS definition:\n\n    .py-6 {\n     padding-top: 1.5rem;\n     padding-bottom: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "py_8",
+        "comment": " This class maps to this CSS definition:\n\n    .py-8 {\n     padding-top: 2rem;\n     padding-bottom: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "py_px",
+        "comment": " This class maps to this CSS definition:\n\n    .py-px {\n     padding-top: 1px;\n     padding-bottom: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "relative",
+        "comment": " This class maps to this CSS definition:\n\n    .relative {\n     position: relative;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "resize_none",
+        "comment": " This class maps to this CSS definition:\n\n    .resize-none {\n     resize: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "resize_x",
+        "comment": " This class maps to this CSS definition:\n\n    .resize-x {\n     resize: horizontal;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "resize_y",
+        "comment": " This class maps to this CSS definition:\n\n    .resize-y {\n     resize: vertical;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "roman",
+        "comment": " This class maps to this CSS definition:\n\n    .roman,\n    .hover\\:roman:hover {\n     font-style: normal;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded {\n     border-radius: .25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_b",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-b {\n     border-bottom-right-radius: .25rem;\n     border-bottom-left-radius: .25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_b_full",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-b-full {\n     border-bottom-right-radius: 9999px;\n     border-bottom-left-radius: 9999px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_b_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-b-lg {\n     border-bottom-right-radius: .5rem;\n     border-bottom-left-radius: .5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_b_none",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-b-none {\n     border-bottom-right-radius: 0;\n     border-bottom-left-radius: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_b_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-b-sm {\n     border-bottom-right-radius: .125rem;\n     border-bottom-left-radius: .125rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_bl",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-bl {\n     border-bottom-left-radius: .25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_bl_full",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-bl-full {\n     border-bottom-left-radius: 9999px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_bl_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-bl-lg {\n     border-bottom-left-radius: .5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_bl_none",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-bl-none {\n     border-bottom-left-radius: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_bl_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-bl-sm {\n     border-bottom-left-radius: .125rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_br",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-br {\n     border-bottom-right-radius: .25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_br_full",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-br-full {\n     border-bottom-right-radius: 9999px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_br_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-br-lg {\n     border-bottom-right-radius: .5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_br_none",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-br-none {\n     border-bottom-right-radius: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_br_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-br-sm {\n     border-bottom-right-radius: .125rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_full",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-full {\n     border-radius: 9999px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_l",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-l {\n     border-top-left-radius: .25rem;\n     border-bottom-left-radius: .25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_l_full",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-l-full {\n     border-top-left-radius: 9999px;\n     border-bottom-left-radius: 9999px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_l_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-l-lg {\n     border-top-left-radius: .5rem;\n     border-bottom-left-radius: .5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_l_none",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-l-none {\n     border-top-left-radius: 0;\n     border-bottom-left-radius: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_l_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-l-sm {\n     border-top-left-radius: .125rem;\n     border-bottom-left-radius: .125rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-lg {\n     border-radius: .5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_none",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-none {\n     border-radius: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_r",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-r {\n     border-top-right-radius: .25rem;\n     border-bottom-right-radius: .25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_r_full",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-r-full {\n     border-top-right-radius: 9999px;\n     border-bottom-right-radius: 9999px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_r_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-r-lg {\n     border-top-right-radius: .5rem;\n     border-bottom-right-radius: .5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_r_none",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-r-none {\n     border-top-right-radius: 0;\n     border-bottom-right-radius: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_r_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-r-sm {\n     border-top-right-radius: .125rem;\n     border-bottom-right-radius: .125rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-sm {\n     border-radius: .125rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_t",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-t {\n     border-top-left-radius: .25rem;\n     border-top-right-radius: .25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_t_full",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-t-full {\n     border-top-left-radius: 9999px;\n     border-top-right-radius: 9999px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_t_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-t-lg {\n     border-top-left-radius: .5rem;\n     border-top-right-radius: .5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_t_none",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-t-none {\n     border-top-left-radius: 0;\n     border-top-right-radius: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_t_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-t-sm {\n     border-top-left-radius: .125rem;\n     border-top-right-radius: .125rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_tl",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-tl {\n     border-top-left-radius: .25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_tl_full",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-tl-full {\n     border-top-left-radius: 9999px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_tl_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-tl-lg {\n     border-top-left-radius: .5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_tl_none",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-tl-none {\n     border-top-left-radius: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_tl_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-tl-sm {\n     border-top-left-radius: .125rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_tr",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-tr {\n     border-top-right-radius: .25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_tr_full",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-tr-full {\n     border-top-right-radius: 9999px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_tr_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-tr-lg {\n     border-top-right-radius: .5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_tr_none",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-tr-none {\n     border-top-right-radius: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "rounded_tr_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .rounded-tr-sm {\n     border-top-right-radius: .125rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "scrolling_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .scrolling-auto {\n     -webkit-overflow-scrolling: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "scrolling_touch",
+        "comment": " This class maps to this CSS definition:\n\n    .scrolling-touch {\n     -webkit-overflow-scrolling: touch;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "select_none",
+        "comment": " This class maps to this CSS definition:\n\n    .select-none {\n     -webkit-user-select: none;\n      -moz-user-select: none;\n       -ms-user-select: none;\n           user-select: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "select_text",
+        "comment": " This class maps to this CSS definition:\n\n    .select-text {\n     -webkit-user-select: text;\n      -moz-user-select: text;\n       -ms-user-select: text;\n           user-select: text;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "self_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .self-auto {\n     align-self: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "self_center",
+        "comment": " This class maps to this CSS definition:\n\n    .self-center {\n     align-self: center;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "self_end",
+        "comment": " This class maps to this CSS definition:\n\n    .self-end {\n     align-self: flex-end;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "self_start",
+        "comment": " This class maps to this CSS definition:\n\n    .self-start {\n     align-self: flex-start;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "self_stretch",
+        "comment": " This class maps to this CSS definition:\n\n    .self-stretch {\n     align-self: stretch;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "shadow",
+        "comment": " This class maps to this CSS definition:\n\n    .shadow {\n     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "shadow_inner",
+        "comment": " This class maps to this CSS definition:\n\n    .shadow-inner {\n     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "shadow_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .shadow-lg {\n     box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11), 0 5px 15px 0 rgba(0, 0, 0, 0.08);\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "shadow_md",
+        "comment": " This class maps to this CSS definition:\n\n    .shadow-md {\n     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "shadow_none",
+        "comment": " This class maps to this CSS definition:\n\n    .shadow-none {\n     box-shadow: none;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "sm",
+        "comment": " Add a size prefix to the tailwind rule, making it only apply to that screen size and above.\n  Notice, doesn't make sure the class being passed in is going to work with a responsive prefix.. Not all tailwind rules are responsive-capable.\n",
+        "type": "Tailwind.Classes.TailwindClass -> Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "static",
+        "comment": " This class maps to this CSS definition:\n\n    .static {\n     position: static;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "subpixel_antialiased",
+        "comment": " This class maps to this CSS definition:\n\n    .subpixel-antialiased,\n    .hover\\:subpixel-antialiased:hover {\n     -webkit-font-smoothing: auto;\n     -moz-osx-font-smoothing: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "table",
+        "comment": " This class maps to this CSS definition:\n\n    .table {\n     display: table;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "table_cell",
+        "comment": " This class maps to this CSS definition:\n\n    .table-cell {\n     display: table-cell;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "table_row",
+        "comment": " This class maps to this CSS definition:\n\n    .table-row {\n     display: table-row;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_2xl",
+        "comment": " This class maps to this CSS definition:\n\n    .text-2xl {\n     font-size: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_3xl",
+        "comment": " This class maps to this CSS definition:\n\n    .text-3xl {\n     font-size: 1.875rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_4xl",
+        "comment": " This class maps to this CSS definition:\n\n    .text-4xl {\n     font-size: 2.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_5xl",
+        "comment": " This class maps to this CSS definition:\n\n    .text-5xl {\n     font-size: 3rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_base",
+        "comment": " This class maps to this CSS definition:\n\n    .text-base {\n     font-size: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_black",
+        "comment": " This class maps to this CSS definition:\n\n    .text-black,\n    .hover\\:text-black:hover {\n     color: #222b2f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_blue",
+        "comment": " This class maps to this CSS definition:\n\n    .text-blue,\n    .hover\\:text-blue:hover {\n     color: #3490dc;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_blue_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .text-blue-dark,\n    .hover\\:text-blue-dark:hover {\n     color: #2779bd;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_blue_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .text-blue-darker,\n    .hover\\:text-blue-darker:hover {\n     color: #103d60;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_blue_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-blue-darkest,\n    .hover\\:text-blue-darkest:hover {\n     color: #05233b;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_blue_light",
+        "comment": " This class maps to this CSS definition:\n\n    .text-blue-light,\n    .hover\\:text-blue-light:hover {\n     color: #6cb2eb;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_blue_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .text-blue-lighter,\n    .hover\\:text-blue-lighter:hover {\n     color: #bcdefa;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_blue_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-blue-lightest,\n    .hover\\:text-blue-lightest:hover {\n     color: #eff8ff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_center",
+        "comment": " This class maps to this CSS definition:\n\n    .text-center {\n     text-align: center;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_green",
+        "comment": " This class maps to this CSS definition:\n\n    .text-green,\n    .hover\\:text-green:hover {\n     color: #38c172;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_green_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .text-green-dark,\n    .hover\\:text-green-dark:hover {\n     color: #1f9d55;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_green_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .text-green-darker,\n    .hover\\:text-green-darker:hover {\n     color: #0b4228;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_green_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-green-darkest,\n    .hover\\:text-green-darkest:hover {\n     color: #032d19;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_green_light",
+        "comment": " This class maps to this CSS definition:\n\n    .text-green-light,\n    .hover\\:text-green-light:hover {\n     color: #51d88a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_green_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .text-green-lighter,\n    .hover\\:text-green-lighter:hover {\n     color: #a2f5bf;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_green_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-green-lightest,\n    .hover\\:text-green-lightest:hover {\n     color: #e3fcec;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_grey",
+        "comment": " This class maps to this CSS definition:\n\n    .text-grey,\n    .hover\\:text-grey:hover {\n     color: #9babb4;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_grey_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .text-grey-dark,\n    .hover\\:text-grey-dark:hover {\n     color: #70818a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_grey_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .text-grey-darker,\n    .hover\\:text-grey-darker:hover {\n     color: #596a73;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_grey_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-grey-darkest,\n    .hover\\:text-grey-darkest:hover {\n     color: #364349;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_grey_light",
+        "comment": " This class maps to this CSS definition:\n\n    .text-grey-light,\n    .hover\\:text-grey-light:hover {\n     color: #dae4e9;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_grey_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .text-grey-lighter,\n    .hover\\:text-grey-lighter:hover {\n     color: #f3f7f9;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_grey_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-grey-lightest,\n    .hover\\:text-grey-lightest:hover {\n     color: #fafcfc;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_indigo",
+        "comment": " This class maps to this CSS definition:\n\n    .text-indigo,\n    .hover\\:text-indigo:hover {\n     color: #6574cd;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_indigo_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .text-indigo-dark,\n    .hover\\:text-indigo-dark:hover {\n     color: #5661b3;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_indigo_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .text-indigo-darker,\n    .hover\\:text-indigo-darker:hover {\n     color: #2f365f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_indigo_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-indigo-darkest,\n    .hover\\:text-indigo-darkest:hover {\n     color: #191e38;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_indigo_light",
+        "comment": " This class maps to this CSS definition:\n\n    .text-indigo-light,\n    .hover\\:text-indigo-light:hover {\n     color: #7886d7;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_indigo_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .text-indigo-lighter,\n    .hover\\:text-indigo-lighter:hover {\n     color: #b2b7ff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_indigo_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-indigo-lightest,\n    .hover\\:text-indigo-lightest:hover {\n     color: #e6e8ff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_justify",
+        "comment": " This class maps to this CSS definition:\n\n    .text-justify {\n     text-align: justify;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_left",
+        "comment": " This class maps to this CSS definition:\n\n    .text-left {\n     text-align: left;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_lg",
+        "comment": " This class maps to this CSS definition:\n\n    .text-lg {\n     font-size: 1.125rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_orange",
+        "comment": " This class maps to this CSS definition:\n\n    .text-orange,\n    .hover\\:text-orange:hover {\n     color: #f6993f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_orange_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .text-orange-dark,\n    .hover\\:text-orange-dark:hover {\n     color: #de751f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_orange_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .text-orange-darker,\n    .hover\\:text-orange-darker:hover {\n     color: #7f4012;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_orange_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-orange-darkest,\n    .hover\\:text-orange-darkest:hover {\n     color: #542605;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_orange_light",
+        "comment": " This class maps to this CSS definition:\n\n    .text-orange-light,\n    .hover\\:text-orange-light:hover {\n     color: #faad63;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_orange_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .text-orange-lighter,\n    .hover\\:text-orange-lighter:hover {\n     color: #fcd9b6;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_orange_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-orange-lightest,\n    .hover\\:text-orange-lightest:hover {\n     color: #fff5eb;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_pink",
+        "comment": " This class maps to this CSS definition:\n\n    .text-pink,\n    .hover\\:text-pink:hover {\n     color: #f66d9b;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_pink_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .text-pink-dark,\n    .hover\\:text-pink-dark:hover {\n     color: #eb5286;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_pink_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .text-pink-darker,\n    .hover\\:text-pink-darker:hover {\n     color: #72173a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_pink_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-pink-darkest,\n    .hover\\:text-pink-darkest:hover {\n     color: #45051e;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_pink_light",
+        "comment": " This class maps to this CSS definition:\n\n    .text-pink-light,\n    .hover\\:text-pink-light:hover {\n     color: #fa7ea8;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_pink_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .text-pink-lighter,\n    .hover\\:text-pink-lighter:hover {\n     color: #ffbbca;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_pink_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-pink-lightest,\n    .hover\\:text-pink-lightest:hover {\n     color: #ffebef;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_purple",
+        "comment": " This class maps to this CSS definition:\n\n    .text-purple,\n    .hover\\:text-purple:hover {\n     color: #9561e2;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_purple_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .text-purple-dark,\n    .hover\\:text-purple-dark:hover {\n     color: #794acf;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_purple_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .text-purple-darker,\n    .hover\\:text-purple-darker:hover {\n     color: #352465;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_purple_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-purple-darkest,\n    .hover\\:text-purple-darkest:hover {\n     color: #1f133f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_purple_light",
+        "comment": " This class maps to this CSS definition:\n\n    .text-purple-light,\n    .hover\\:text-purple-light:hover {\n     color: #a779e9;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_purple_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .text-purple-lighter,\n    .hover\\:text-purple-lighter:hover {\n     color: #d6bbfc;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_purple_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-purple-lightest,\n    .hover\\:text-purple-lightest:hover {\n     color: #f3ebff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_red",
+        "comment": " This class maps to this CSS definition:\n\n    .text-red,\n    .hover\\:text-red:hover {\n     color: #e3342f;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_red_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .text-red-dark,\n    .hover\\:text-red-dark:hover {\n     color: #cc1f1a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_red_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .text-red-darker,\n    .hover\\:text-red-darker:hover {\n     color: #6a1b19;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_red_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-red-darkest,\n    .hover\\:text-red-darkest:hover {\n     color: #420806;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_red_light",
+        "comment": " This class maps to this CSS definition:\n\n    .text-red-light,\n    .hover\\:text-red-light:hover {\n     color: #ef5753;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_red_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .text-red-lighter,\n    .hover\\:text-red-lighter:hover {\n     color: #f9acaa;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_red_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-red-lightest,\n    .hover\\:text-red-lightest:hover {\n     color: #fcebea;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_right",
+        "comment": " This class maps to this CSS definition:\n\n    .text-right {\n     text-align: right;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_sm",
+        "comment": " This class maps to this CSS definition:\n\n    .text-sm {\n     font-size: .875rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_teal",
+        "comment": " This class maps to this CSS definition:\n\n    .text-teal,\n    .hover\\:text-teal:hover {\n     color: #4dc0b5;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_teal_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .text-teal-dark,\n    .hover\\:text-teal-dark:hover {\n     color: #38a89d;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_teal_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .text-teal-darker,\n    .hover\\:text-teal-darker:hover {\n     color: #174e4b;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_teal_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-teal-darkest,\n    .hover\\:text-teal-darkest:hover {\n     color: #0d3331;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_teal_light",
+        "comment": " This class maps to this CSS definition:\n\n    .text-teal-light,\n    .hover\\:text-teal-light:hover {\n     color: #64d5ca;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_teal_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .text-teal-lighter,\n    .hover\\:text-teal-lighter:hover {\n     color: #a0f0ed;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_teal_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-teal-lightest,\n    .hover\\:text-teal-lightest:hover {\n     color: #e8fffe;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_transparent",
+        "comment": " This class maps to this CSS definition:\n\n    .text-transparent,\n    .hover\\:text-transparent:hover {\n     color: transparent;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_white",
+        "comment": " This class maps to this CSS definition:\n\n    .text-white,\n    .hover\\:text-white:hover {\n     color: #ffffff;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_xl",
+        "comment": " This class maps to this CSS definition:\n\n    .text-xl {\n     font-size: 1.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_xs",
+        "comment": " This class maps to this CSS definition:\n\n    .text-xs {\n     font-size: .75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_yellow",
+        "comment": " This class maps to this CSS definition:\n\n    .text-yellow,\n    .hover\\:text-yellow:hover {\n     color: #ffed4a;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_yellow_dark",
+        "comment": " This class maps to this CSS definition:\n\n    .text-yellow-dark,\n    .hover\\:text-yellow-dark:hover {\n     color: #f2d024;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_yellow_darker",
+        "comment": " This class maps to this CSS definition:\n\n    .text-yellow-darker,\n    .hover\\:text-yellow-darker:hover {\n     color: #684f1d;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_yellow_darkest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-yellow-darkest,\n    .hover\\:text-yellow-darkest:hover {\n     color: #453411;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_yellow_light",
+        "comment": " This class maps to this CSS definition:\n\n    .text-yellow-light,\n    .hover\\:text-yellow-light:hover {\n     color: #fff382;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_yellow_lighter",
+        "comment": " This class maps to this CSS definition:\n\n    .text-yellow-lighter,\n    .hover\\:text-yellow-lighter:hover {\n     color: #fff9c2;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "text_yellow_lightest",
+        "comment": " This class maps to this CSS definition:\n\n    .text-yellow-lightest,\n    .hover\\:text-yellow-lightest:hover {\n     color: #fcfbeb;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "tracking_normal",
+        "comment": " This class maps to this CSS definition:\n\n    .tracking-normal {\n     letter-spacing: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "tracking_tight",
+        "comment": " This class maps to this CSS definition:\n\n    .tracking-tight {\n     letter-spacing: -0.05em;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "tracking_wide",
+        "comment": " This class maps to this CSS definition:\n\n    .tracking-wide {\n     letter-spacing: 0.05em;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "truncate",
+        "comment": " This class maps to this CSS definition:\n\n    .truncate {\n     overflow: hidden;\n     text-overflow: ellipsis;\n     white-space: nowrap;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "underline",
+        "comment": " This class maps to this CSS definition:\n\n    .underline,\n    .hover\\:underline:hover {\n     text-decoration: underline;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "uppercase",
+        "comment": " This class maps to this CSS definition:\n\n    .uppercase,\n    .hover\\:uppercase:hover {\n     text-transform: uppercase;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "visible",
+        "comment": " This class maps to this CSS definition:\n\n    .visible {\n     visibility: visible;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_1",
+        "comment": " This class maps to this CSS definition:\n\n    .w-1 {\n     width: 0.25rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_10",
+        "comment": " This class maps to this CSS definition:\n\n    .w-10 {\n     width: 2.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_12",
+        "comment": " This class maps to this CSS definition:\n\n    .w-12 {\n     width: 3rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_16",
+        "comment": " This class maps to this CSS definition:\n\n    .w-16 {\n     width: 4rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_1over2",
+        "comment": " This class maps to this CSS definition:\n\n    .w-1\\/2 {\n     width: 50%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_1over3",
+        "comment": " This class maps to this CSS definition:\n\n    .w-1\\/3 {\n     width: 33.33333%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_1over4",
+        "comment": " This class maps to this CSS definition:\n\n    .w-1\\/4 {\n     width: 25%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_1over5",
+        "comment": " This class maps to this CSS definition:\n\n    .w-1\\/5 {\n     width: 20%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_1over6",
+        "comment": " This class maps to this CSS definition:\n\n    .w-1\\/6 {\n     width: 16.66667%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_2",
+        "comment": " This class maps to this CSS definition:\n\n    .w-2 {\n     width: 0.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_24",
+        "comment": " This class maps to this CSS definition:\n\n    .w-24 {\n     width: 6rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_2over3",
+        "comment": " This class maps to this CSS definition:\n\n    .w-2\\/3 {\n     width: 66.66667%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_2over5",
+        "comment": " This class maps to this CSS definition:\n\n    .w-2\\/5 {\n     width: 40%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_3",
+        "comment": " This class maps to this CSS definition:\n\n    .w-3 {\n     width: 0.75rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_32",
+        "comment": " This class maps to this CSS definition:\n\n    .w-32 {\n     width: 8rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_3over4",
+        "comment": " This class maps to this CSS definition:\n\n    .w-3\\/4 {\n     width: 75%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_3over5",
+        "comment": " This class maps to this CSS definition:\n\n    .w-3\\/5 {\n     width: 60%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_4",
+        "comment": " This class maps to this CSS definition:\n\n    .w-4 {\n     width: 1rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_48",
+        "comment": " This class maps to this CSS definition:\n\n    .w-48 {\n     width: 12rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_4over5",
+        "comment": " This class maps to this CSS definition:\n\n    .w-4\\/5 {\n     width: 80%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_5over6",
+        "comment": " This class maps to this CSS definition:\n\n    .w-5\\/6 {\n     width: 83.33333%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_6",
+        "comment": " This class maps to this CSS definition:\n\n    .w-6 {\n     width: 1.5rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_64",
+        "comment": " This class maps to this CSS definition:\n\n    .w-64 {\n     width: 16rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_8",
+        "comment": " This class maps to this CSS definition:\n\n    .w-8 {\n     width: 2rem;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .w-auto {\n     width: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_full",
+        "comment": " This class maps to this CSS definition:\n\n    .w-full {\n     width: 100%;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_px",
+        "comment": " This class maps to this CSS definition:\n\n    .w-px {\n     width: 1px;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "w_screen",
+        "comment": " This class maps to this CSS definition:\n\n    .w-screen {\n     width: 100vw;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "whitespace_no_wrap",
+        "comment": " This class maps to this CSS definition:\n\n    .whitespace-no-wrap {\n     white-space: nowrap;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "whitespace_normal",
+        "comment": " This class maps to this CSS definition:\n\n    .whitespace-normal {\n     white-space: normal;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "whitespace_pre",
+        "comment": " This class maps to this CSS definition:\n\n    .whitespace-pre {\n     white-space: pre;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "whitespace_pre_line",
+        "comment": " This class maps to this CSS definition:\n\n    .whitespace-pre-line {\n     white-space: pre-line;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "whitespace_pre_wrap",
+        "comment": " This class maps to this CSS definition:\n\n    .whitespace-pre-wrap {\n     white-space: pre-wrap;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "xl",
+        "comment": " Add a size prefix to the tailwind rule, making it only apply to that screen size and above.\n  Notice, doesn't make sure the class being passed in is going to work with a responsive prefix.. Not all tailwind rules are responsive-capable.\n",
+        "type": "Tailwind.Classes.TailwindClass -> Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "z_0",
+        "comment": " This class maps to this CSS definition:\n\n    .z-0 {\n     z-index: 0;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "z_10",
+        "comment": " This class maps to this CSS definition:\n\n    .z-10 {\n     z-index: 10;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "z_20",
+        "comment": " This class maps to this CSS definition:\n\n    .z-20 {\n     z-index: 20;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "z_30",
+        "comment": " This class maps to this CSS definition:\n\n    .z-30 {\n     z-index: 30;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "z_40",
+        "comment": " This class maps to this CSS definition:\n\n    .z-40 {\n     z-index: 40;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "z_50",
+        "comment": " This class maps to this CSS definition:\n\n    .z-50 {\n     z-index: 50;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      },
+      {
+        "name": "z_auto",
+        "comment": " This class maps to this CSS definition:\n\n    .z-auto {\n     z-index: auto;\n    }\n\n",
+        "type": "Tailwind.Classes.TailwindClass"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Geoip",
+    "comment": " This is a library to detect the user location based on its IP address.\n\n\n# Definition\n\n@docs Geoip, empty\n\n\n# Detection\n\n@docs detect\n\n",
+    "aliases": [
+      {
+        "name": "Geoip",
+        "comment": " User location detected information.\n",
+        "args": [],
+        "type": "{ ip : Maybe.Maybe String , countryCode : Maybe.Maybe String , countryName : Maybe.Maybe String , regionCode : Maybe.Maybe String , regionName : Maybe.Maybe String , city : Maybe.Maybe String , zipCode : Maybe.Maybe String , timeZone : Maybe.Maybe String , latitude : Maybe.Maybe Float , longitude : Maybe.Maybe Float , metroCode : Maybe.Maybe Int }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "detect",
+        "comment": " Detect the user location.\n",
+        "type": "Task.Task Basics.Never Geoip.Geoip"
+      },
+      {
+        "name": "empty",
+        "comment": " No information on user location yet.\n",
+        "type": "Geoip.Geoip"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

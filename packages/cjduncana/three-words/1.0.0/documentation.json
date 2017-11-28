@@ -1,0 +1,40 @@
+[
+  {
+    "name": "ThreeWords",
+    "comment": " With this library, you can create HTTP requests that will convert 3 word\naddresses to latitude, longitude coordinates and vice-versa.\n\n\n# Type Aliases\n\n@docs ThreeWords, Position, Key\n\n\n# Converters\n\n@docs fromPosition, toPosition\n\n",
+    "aliases": [
+      {
+        "name": "Key",
+        "comment": " Before you get started, you'll need to register at\n[what3words](https://accounts.what3words.com/register). This will give you a\nunique key which is needed for using the API.\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Position",
+        "comment": " Use this record to express latitude and longitude coordinates.\n",
+        "args": [],
+        "type": "{ latitude : Float, longitude : Float }"
+      },
+      {
+        "name": "ThreeWords",
+        "comment": " Use this three string tuple to express the three word address.\n",
+        "args": [],
+        "type": "( String, String, String )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "fromPosition",
+        "comment": " Create a request that returns a 3 word address when successful. If given a\nvalid position and validation key, the command will result in a successful\naddress.\n\n    Position 51.521251 -0.203586\n        |> ThreeWords.fromPosition \"Example Key\"\n        |> Http.send ThreeWordsReceived\n\n    -- Ok (\"index\", \"home\", \"raft\")\n\n",
+        "type": "ThreeWords.Key -> ThreeWords.Position -> Http.Request ThreeWords.ThreeWords"
+      },
+      {
+        "name": "toPosition",
+        "comment": " Create a request that given a 3 word address return coordinates when\nsuccessful. If given a valid address and validation key, the command will result\nin successful coordinates.\n\n    (\"index\", \"home\", \"raft\")\n        |> ThreeWords.toPosition \"Example Key\"\n        |> Http.send PositionReceived\n\n    -- Ok { latitude = 51.521251, longitude = -0.203586 }\n\n",
+        "type": "ThreeWords.Key -> ThreeWords.ThreeWords -> Http.Request ThreeWords.Position"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

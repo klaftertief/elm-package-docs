@@ -1,0 +1,225 @@
+[
+  {
+    "name": "Layout.Flex",
+    "comment": " Functions for creating flexible box layouts.\n\n# Options\n\n## Containers\n\n@docs Wrap\n@docs alignContent\n@docs alignItems\n@docs justifyContent\n@docs wrap\n\n## Items\n\n@docs Basis\n@docs alignSelf\n@docs flex\n@docs basis\n@docs grow\n@docs shrink\n@docs order\n\n# Nodes\n\n@docs column\n@docs columnReverse\n@docs row\n@docs rowReverse\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Basis",
+        "comment": " Specifies the size of an item before remaining space is distributed. ",
+        "args": [],
+        "cases": [
+          [
+            "Auto",
+            []
+          ],
+          [
+            "Size",
+            [
+              "String"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Wrap",
+        "comment": " Specifies the wrapping of the items in a container. ",
+        "args": [],
+        "cases": [
+          [
+            "Forward",
+            []
+          ],
+          [
+            "Reverse",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "alignContent",
+        "comment": " Specifies the alignment of the lines of items in a container along the cross axis. ",
+        "type": "Layout.Common.Align -> Layout.Common.Rule"
+      },
+      {
+        "name": "alignItems",
+        "comment": " Specifies the alignment of the items in a container along the cross axis. ",
+        "type": "Layout.Common.Align -> Layout.Common.Rule"
+      },
+      {
+        "name": "alignSelf",
+        "comment": " Specifies the alignment of an item in a container along the cross axis.  ",
+        "type": "Layout.Common.Align -> Layout.Common.Rule"
+      },
+      {
+        "name": "basis",
+        "comment": " Specifies the proportion of total space an item in a container should initially occupy. ",
+        "type": "String -> Layout.Common.Rule"
+      },
+      {
+        "name": "column",
+        "comment": " Returns a `div` node which is styled as a flexible box with a column layout. ",
+        "type": "List Layout.Common.Rule -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "columnReverse",
+        "comment": " Returns a `div` node which is styled as a flexible box with a reverse column layout. ",
+        "type": "List Layout.Common.Rule -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "flex",
+        "comment": " Shorthand for the combination of `grow`, `shrink`, and `basis`. ",
+        "type": "Int -> Float -> String -> Layout.Common.Rule"
+      },
+      {
+        "name": "grow",
+        "comment": " Specifies the proportion of available space an item in a container should grow into. ",
+        "type": "Int -> Layout.Common.Rule"
+      },
+      {
+        "name": "justifyContent",
+        "comment": " Specifies the alignment of the items in a container along the main axis. ",
+        "type": "Layout.Common.Align -> Layout.Common.Rule"
+      },
+      {
+        "name": "order",
+        "comment": " Specifies the relative order an item in a container should appear in. ",
+        "type": "Int -> Layout.Common.Rule"
+      },
+      {
+        "name": "row",
+        "comment": " Returns a `div` node which is styled as a flexible box with a row layout. ",
+        "type": "List Layout.Common.Rule -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "rowReverse",
+        "comment": " Returns a `div` node which is styled as a flexible box with a reverse row layout. ",
+        "type": "List Layout.Common.Rule -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "shrink",
+        "comment": " Specifies the proportion of missing space an item in a container should shrink into. ",
+        "type": "Float -> Layout.Common.Rule"
+      },
+      {
+        "name": "wrap",
+        "comment": " Specifies the wrapping of the items in a container. ",
+        "type": "Maybe.Maybe Layout.Flex.Wrap -> Layout.Common.Rule"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Layout.Grid",
+    "comment": " Functions for creating grid layouts.\n\n# Options\n\n## Containers\n\n@docs alignContent\n@docs alignItems\n@docs justifyContent\n@docs justifyItems\n@docs gap\n@docs gapRow\n@docs gapColumn\n\n## Items\n\n@docs alignSelf\n@docs justifySelf\n\n# Nodes\n\n@docs grid\n@docs cell\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "alignContent",
+        "comment": " Specifies the alignment of content in a container along the row axis. ",
+        "type": "Layout.Common.Align -> Layout.Common.Rule"
+      },
+      {
+        "name": "alignItems",
+        "comment": " Specifies the alignment of content in items along the column axis. ",
+        "type": "Layout.Common.Align -> Layout.Common.Rule"
+      },
+      {
+        "name": "alignSelf",
+        "comment": " Specifies the alignment of content in an item in a container along the column axis. ",
+        "type": "Layout.Common.Align -> Layout.Common.Rule"
+      },
+      {
+        "name": "cell",
+        "comment": " Returns a `div` node which is styled as a cell in a grid. ",
+        "type": "String -> List Layout.Common.Rule -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "gap",
+        "comment": " Shorthand for the combination of `gapRow` and `gapColumn`. ",
+        "type": "String -> String -> Layout.Common.Rule"
+      },
+      {
+        "name": "gapColumn",
+        "comment": " Specifies the size of the gaps between columns. ",
+        "type": "String -> Layout.Common.Rule"
+      },
+      {
+        "name": "gapRow",
+        "comment": " Specifies the size of the gaps between rows. ",
+        "type": "String -> Layout.Common.Rule"
+      },
+      {
+        "name": "grid",
+        "comment": " Returns a `div` node which is styled as grid. ",
+        "type": "List String -> List String -> List (List String) -> List Layout.Common.Rule -> List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "justifyContent",
+        "comment": " Specifies the alignment of content in a container along the row axis. ",
+        "type": "Layout.Common.Align -> Layout.Common.Rule"
+      },
+      {
+        "name": "justifyItems",
+        "comment": " Specifies the alignment of content in items along the row axis. ",
+        "type": "Layout.Common.Align -> Layout.Common.Rule"
+      },
+      {
+        "name": "justifySelf",
+        "comment": " Specifies the alignment of content in an item in a container along the column axis. ",
+        "type": "Layout.Common.Align -> Layout.Common.Rule"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Layout.Common",
+    "comment": " Definitions shared by multiple modules.\n\n# Options\n\n@docs Rule\n@docs Align\n\n",
+    "aliases": [
+      {
+        "name": "Rule",
+        "comment": " An optional CSS rule. ",
+        "args": [],
+        "type": "Maybe.Maybe ( String, String )"
+      }
+    ],
+    "types": [
+      {
+        "name": "Align",
+        "comment": " Specifies the alignment of a container or item. ",
+        "args": [],
+        "cases": [
+          [
+            "Start",
+            []
+          ],
+          [
+            "Center",
+            []
+          ],
+          [
+            "End",
+            []
+          ],
+          [
+            "Around",
+            []
+          ],
+          [
+            "Between",
+            []
+          ],
+          [
+            "Stretch",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

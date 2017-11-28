@@ -1,0 +1,96 @@
+[
+  {
+    "name": "HSLuv",
+    "comment": " Convert color between HSLuv and RGB spaces\n\n\n# High level functions\n\n@docs hsluv, hsluva, toHsluv\n\n\n# Low level functions\n\n@docs hsluvToRgb, hpluvToRgb, rgbToHsluv, rgbToHpluv\n\n\n# Low level intermediate conversion functions\n\n@docs lchToLuv, luvToLch, xyzToRgb, rgbToXyz, xyzToLuv, luvToXyz\n@docs hsluvToLch, lchToHsluv, hpluvToLch, lchToHpluv\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "hpluvToLch",
+        "comment": " `hpluvToLch` convert HPLuv components to LCH\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "hpluvToRgb",
+        "comment": " `hpluvToRgb` convert HSLuv components to RGB\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "hsluv",
+        "comment": " `hsluv` create a Color with HSLuv components\n",
+        "type": "Float -> Float -> Float -> Color.Color"
+      },
+      {
+        "name": "hsluvToLch",
+        "comment": " `hsluvToLch` convert HSLuv components to LCH\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "hsluvToRgb",
+        "comment": " `hsluvToRgb` convert HSLuv components to RGB\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "hsluva",
+        "comment": " `hsluva` create a Color with HSLuv components and an alpha channel\n",
+        "type": "Float -> Float -> Float -> Float -> Color.Color"
+      },
+      {
+        "name": "lchToHpluv",
+        "comment": " `lchToHpluv` convert LCH components to HPLuv\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "lchToHsluv",
+        "comment": " `lchToHsluv` convert LCH components to HSLuv\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "lchToLuv",
+        "comment": " `lchToLuv` convert LCH components to LUV\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "luvToLch",
+        "comment": " `luvToLch` convert LUV components to LCH\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "luvToXyz",
+        "comment": " `luvToXyz` convert LUV components to XYZ\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "rgbToHpluv",
+        "comment": " `rgbToHpluv` convert RGB components to HSLuv\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "rgbToHsluv",
+        "comment": " `rgbToHsluv` convert RGB components to HSLuv\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "rgbToXyz",
+        "comment": " `rgbToXyz` convert RGB components to XYZ\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "toHsluv",
+        "comment": " `toHsluv` extract the components of a color in the HSLuv format\n",
+        "type": "Color.Color -> { hue : Float , saturation : Float , lightness : Float , alpha : Float }"
+      },
+      {
+        "name": "xyzToLuv",
+        "comment": " `xyzToLuv` convert XYZ components to LUV\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      },
+      {
+        "name": "xyzToRgb",
+        "comment": " `xyzToRgb` convert XYZ components to RGB\n",
+        "type": "HSLuv.Vec3 -> HSLuv.Vec3"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

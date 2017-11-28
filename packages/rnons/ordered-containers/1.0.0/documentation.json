@@ -1,0 +1,229 @@
+[
+  {
+    "name": "OrderedSet",
+    "comment": " A set of unique values that when iterated or converted to a list, the order of\nvalues will be the same as the order they were inserted.\n\nAs it uses `Dict` under the hood, the keys can only be comparable types, which\ninclude `Int`, `Float`, `Time`, `Char`, `String`, and tuples or lists of\ncomparable types.\n\n\n# Sets\n\n@docs OrderedSet\n\n\n# Build\n\n@docs empty, singleton, insert, remove\n\n\n# Query\n\n@docs isEmpty, member, size\n\n\n# Lists\n\n@docs toList, fromList\n\n\n# Transform\n\n@docs map, foldl, foldr, filter, partition\n\n\n# Combine\n\n@docs union, intersect, diff\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "OrderedSet",
+        "comment": " A type of `Set` that is iterated by the order of insertion.\n",
+        "args": [
+          "comparable"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "diff",
+        "comment": " Keep values of the first set that do not appear in the second set.\n",
+        "type": "OrderedSet.OrderedSet comparable -> OrderedSet.OrderedSet comparable -> OrderedSet.OrderedSet comparable"
+      },
+      {
+        "name": "empty",
+        "comment": " Create an empty set.\n",
+        "type": "OrderedSet.OrderedSet comparable"
+      },
+      {
+        "name": "filter",
+        "comment": " Return a new `OrderedSet` that only contains values that satisfy a predicate.\n",
+        "type": "(comparable -> Bool) -> OrderedSet.OrderedSet comparable -> OrderedSet.OrderedSet comparable"
+      },
+      {
+        "name": "foldl",
+        "comment": " Fold the values in a set, in insertion order.\n",
+        "type": "(comparable -> b -> b) -> b -> OrderedSet.OrderedSet comparable -> b"
+      },
+      {
+        "name": "foldr",
+        "comment": " Fold the values in a set, in reverse insertion order.\n",
+        "type": "(comparable -> b -> b) -> b -> OrderedSet.OrderedSet comparable -> b"
+      },
+      {
+        "name": "fromList",
+        "comment": " Convert a list into a set, removing any duplicates.\n",
+        "type": "List comparable -> OrderedSet.OrderedSet comparable"
+      },
+      {
+        "name": "insert",
+        "comment": " Insert a value into a set.\n",
+        "type": "comparable -> OrderedSet.OrderedSet comparable -> OrderedSet.OrderedSet comparable"
+      },
+      {
+        "name": "intersect",
+        "comment": " Combine two sets. Keep values that appear in both sets.\n",
+        "type": "OrderedSet.OrderedSet comparable -> OrderedSet.OrderedSet comparable -> OrderedSet.OrderedSet comparable"
+      },
+      {
+        "name": "isEmpty",
+        "comment": " Check if a set is empty.\n",
+        "type": "OrderedSet.OrderedSet comparable -> Bool"
+      },
+      {
+        "name": "map",
+        "comment": " Apply a function to all values in a set.\n",
+        "type": "(comparable -> comparable2) -> OrderedSet.OrderedSet comparable -> OrderedSet.OrderedSet comparable2"
+      },
+      {
+        "name": "member",
+        "comment": " Check if a value is in a set.\n",
+        "type": "comparable -> OrderedSet.OrderedSet comparable -> Bool"
+      },
+      {
+        "name": "partition",
+        "comment": " Split a `OrderedSet` to a tuple of `OrderedSet`. The first contains all\nvalues that satisfy the predicate, and the second contains the rest.\n",
+        "type": "(comparable -> Bool) -> OrderedSet.OrderedSet comparable -> ( OrderedSet.OrderedSet comparable , OrderedSet.OrderedSet comparable )"
+      },
+      {
+        "name": "remove",
+        "comment": " Remove a value from a set. If the value doesn't exist,\nno changes are made.\n",
+        "type": "comparable -> OrderedSet.OrderedSet comparable -> OrderedSet.OrderedSet comparable"
+      },
+      {
+        "name": "singleton",
+        "comment": " Create a set with one value.\n",
+        "type": "comparable -> OrderedSet.OrderedSet comparable"
+      },
+      {
+        "name": "size",
+        "comment": " Get the number of values in the set.\n",
+        "type": "OrderedSet.OrderedSet comparable -> Int"
+      },
+      {
+        "name": "toList",
+        "comment": " Convert a set into a list, sorted by insertion order.\n",
+        "type": "OrderedSet.OrderedSet comparable -> List comparable"
+      },
+      {
+        "name": "union",
+        "comment": " Combine two sets. Keep all values while removing any duplicates.\n",
+        "type": "OrderedSet.OrderedSet comparable -> OrderedSet.OrderedSet comparable -> OrderedSet.OrderedSet comparable"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "OrderedDict",
+    "comment": " A dictionary type that when iterated or converted to a list, the order of\nentries will be the same as the order they were inserted.\n\nAs it uses `Dict` under the hood, the keys can only be comparable types, which\ninclude `Int`, `Float`, `Time`, `Char`, `String`, and tuples or lists of\ncomparable types.\n\n\n# Dictionaries\n\n@docs OrderedDict\n\n\n# Build\n\n@docs empty, singleton, insert, update, remove\n\n\n# Query\n\n@docs isEmpty, member, get, size\n\n\n# Lists\n\n@docs keys, values, toList, fromList\n\n\n# Transform\n\n@docs map, foldl, foldr, filter, partition\n\n\n# Combine\n\n@docs union, intersect, diff\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "OrderedDict",
+        "comment": " A type of `Dict` that is iterated by the order of insertion.\n",
+        "args": [
+          "comparable",
+          "v"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "diff",
+        "comment": " Keep a key-value pair when its key does not appear in the second dictionary.\n",
+        "type": "OrderedDict.OrderedDict comparable v -> OrderedDict.OrderedDict comparable v -> OrderedDict.OrderedDict comparable v"
+      },
+      {
+        "name": "empty",
+        "comment": " Create an empty dictionary.\n",
+        "type": "OrderedDict.OrderedDict comparable v"
+      },
+      {
+        "name": "filter",
+        "comment": " Return a new `OrderedDict` that only contains entries that satisfy a predicate.\n",
+        "type": "(comparable -> v -> Bool) -> OrderedDict.OrderedDict comparable v -> OrderedDict.OrderedDict comparable v"
+      },
+      {
+        "name": "foldl",
+        "comment": " Fold the key-value pairs in a dictionary, in insertion order.\n",
+        "type": "(comparable -> v -> b -> b) -> b -> OrderedDict.OrderedDict comparable v -> b"
+      },
+      {
+        "name": "foldr",
+        "comment": " Fold the key-value pairs in a dictionary, in reverse insertion order.\n",
+        "type": "(comparable -> v -> b -> b) -> b -> OrderedDict.OrderedDict comparable v -> b"
+      },
+      {
+        "name": "fromList",
+        "comment": " Convert an association list into a dictionary.\n",
+        "type": "List ( comparable, v ) -> OrderedDict.OrderedDict comparable v"
+      },
+      {
+        "name": "get",
+        "comment": " Get the value associated with a key. Return `Nothing` if the key is not found.\n",
+        "type": "comparable -> OrderedDict.OrderedDict comparable v -> Maybe.Maybe v"
+      },
+      {
+        "name": "insert",
+        "comment": " Insert a key-value pair into a dictionary. Replace the value if the key\nalready exists.\n",
+        "type": "comparable -> v -> OrderedDict.OrderedDict comparable v -> OrderedDict.OrderedDict comparable v"
+      },
+      {
+        "name": "intersect",
+        "comment": " Keep a key-value pair when its key appears in the second dictionary.\nPreference is given to values in the first dictionary.\n",
+        "type": "OrderedDict.OrderedDict comparable v -> OrderedDict.OrderedDict comparable v -> OrderedDict.OrderedDict comparable v"
+      },
+      {
+        "name": "isEmpty",
+        "comment": " Check if a dictionary is empty.\n",
+        "type": "OrderedDict.OrderedDict comparable v -> Bool"
+      },
+      {
+        "name": "keys",
+        "comment": " Get all of the keys in a dictionary, in insertion order.\n",
+        "type": "OrderedDict.OrderedDict comparable v -> List comparable"
+      },
+      {
+        "name": "map",
+        "comment": " Apply a function to all values in a dictionary.\n",
+        "type": "(comparable -> a -> b) -> OrderedDict.OrderedDict comparable a -> OrderedDict.OrderedDict comparable b"
+      },
+      {
+        "name": "member",
+        "comment": " Check if a key is in a dictionary.\n",
+        "type": "comparable -> OrderedDict.OrderedDict comparable v -> Bool"
+      },
+      {
+        "name": "partition",
+        "comment": " Split a `OrderedDict` to a tuple of `OrderedDict`. The first contains all\nentries that satisfy the predicate, and the second contains the rest.\n",
+        "type": "(comparable -> v -> Bool) -> OrderedDict.OrderedDict comparable v -> ( OrderedDict.OrderedDict comparable v , OrderedDict.OrderedDict comparable v )"
+      },
+      {
+        "name": "remove",
+        "comment": " Remove a key-value pair from a dictionary. If the key doesn't exist,\nno changes are made.\n",
+        "type": "comparable -> OrderedDict.OrderedDict comparable v -> OrderedDict.OrderedDict comparable v"
+      },
+      {
+        "name": "singleton",
+        "comment": " Create a dictionary with one key-value pair.\n",
+        "type": "comparable -> v -> OrderedDict.OrderedDict comparable v"
+      },
+      {
+        "name": "size",
+        "comment": " Get the number of key-value pairs in the dictionary.\n",
+        "type": "OrderedDict.OrderedDict comparable v -> Int"
+      },
+      {
+        "name": "toList",
+        "comment": " Convert a dictionary into an association list of key-value pairs, in insertion order.\n",
+        "type": "OrderedDict.OrderedDict comparable v -> List ( comparable, v )"
+      },
+      {
+        "name": "union",
+        "comment": " Combine two dictionaries. If there is a collision, preference is given\nto the first dictionary.\n\n    union (singleton \"x\" 1) (singleton \"x\" 2) == singleton \"x\" 1\n\n",
+        "type": "OrderedDict.OrderedDict comparable v -> OrderedDict.OrderedDict comparable v -> OrderedDict.OrderedDict comparable v"
+      },
+      {
+        "name": "update",
+        "comment": " Update the value of a specific key with an updater function.\n\nSince the key may not exist before or after the update, the updater function\ntakes a `Maybe v` and returns a `Maybe v`.\n\n",
+        "type": "comparable -> (Maybe.Maybe v -> Maybe.Maybe v) -> OrderedDict.OrderedDict comparable v -> OrderedDict.OrderedDict comparable v"
+      },
+      {
+        "name": "values",
+        "comment": " Get all of the values in a dictionary, in insertion order.\n",
+        "type": "OrderedDict.OrderedDict comparable v -> List v"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

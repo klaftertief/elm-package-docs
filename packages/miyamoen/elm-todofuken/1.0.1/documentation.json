@@ -1,0 +1,154 @@
+[
+  {
+    "name": "Todofuken",
+    "comment": " A searchable [ISO 3166-2:JP](https://en.wikipedia.org/wiki/ISO_3166-2:JP) based list of prefectures and areas.\n\n\n# Types\n\n@docs Prefecture, Unit, Area\n\n\n# Find helpers\n\n@docs fromCode, search, fromArea, fromAreaId\n\n\n# toString\n\n@docs Format, toString\n\n\n# Data set\n\n@docs allPrefectures, allAreas, areaPrefectures\n@docs hokkaidoTohokuArea, kantoArea, chubuArea, kinkiArea, chugokuArea, shikokuArea,kyushuOkinawaArea\n\n",
+    "aliases": [
+      {
+        "name": "Area",
+        "comment": " The areas group prefectures.\n",
+        "args": [],
+        "type": "{ id : Int, name : String, kana : String, en : String }"
+      },
+      {
+        "name": "Prefecture",
+        "comment": " ",
+        "args": [],
+        "type": "{ code : Int , name : String , unit : Todofuken.Unit , kana : String , en : String , area : Todofuken.Area }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Format",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "LongJa",
+            []
+          ],
+          [
+            "ShortJa",
+            []
+          ],
+          [
+            "LongKana",
+            []
+          ],
+          [
+            "ShortKana",
+            []
+          ],
+          [
+            "LongEn",
+            []
+          ],
+          [
+            "ShortEn",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Unit",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "To",
+            []
+          ],
+          [
+            "Do",
+            []
+          ],
+          [
+            "Fu",
+            []
+          ],
+          [
+            "Ken",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "allAreas",
+        "comment": " The full list of all 7 Area records.\n",
+        "type": "List Todofuken.Area"
+      },
+      {
+        "name": "allPrefectures",
+        "comment": " The full list of all 47 Prefecture records.\n",
+        "type": "List Todofuken.Prefecture"
+      },
+      {
+        "name": "areaPrefectures",
+        "comment": " List all areas having prefectures.\n",
+        "type": "List { area : Todofuken.Area, prefectures : List Todofuken.Prefecture }"
+      },
+      {
+        "name": "chubuArea",
+        "comment": " ",
+        "type": "Todofuken.Area"
+      },
+      {
+        "name": "chugokuArea",
+        "comment": " ",
+        "type": "Todofuken.Area"
+      },
+      {
+        "name": "fromArea",
+        "comment": " Find a prefecture by area.\n",
+        "type": "Todofuken.Area -> List Todofuken.Prefecture"
+      },
+      {
+        "name": "fromAreaId",
+        "comment": " Find a prefecture by area id.\n",
+        "type": "Int -> List Todofuken.Prefecture"
+      },
+      {
+        "name": "fromCode",
+        "comment": " Find a prefecture by its [ISO 3166-2:JP](https://en.wikipedia.org/wiki/ISO_3166-2:JP).\n",
+        "type": "Int -> Maybe.Maybe Todofuken.Prefecture"
+      },
+      {
+        "name": "hokkaidoTohokuArea",
+        "comment": " ",
+        "type": "Todofuken.Area"
+      },
+      {
+        "name": "kantoArea",
+        "comment": " ",
+        "type": "Todofuken.Area"
+      },
+      {
+        "name": "kinkiArea",
+        "comment": " ",
+        "type": "Todofuken.Area"
+      },
+      {
+        "name": "kyushuOkinawaArea",
+        "comment": " ",
+        "type": "Todofuken.Area"
+      },
+      {
+        "name": "search",
+        "comment": " Search all Prefectures by case-insensitive string matching on name, kana and en.\n",
+        "type": "String -> List Todofuken.Prefecture"
+      },
+      {
+        "name": "shikokuArea",
+        "comment": " ",
+        "type": "Todofuken.Area"
+      },
+      {
+        "name": "toString",
+        "comment": "\n\n    toString LongJa aichi -- 愛知県\n    toString ShortJa aichi -- 愛知\n    toString LongKana aichi -- アイチケン\n    toString ShortKana aichi -- アイチ\n    toString LongEn aichi -- aichiken\n    toString ShortEn aichi -- aichi\n\n",
+        "type": "Todofuken.Format -> Todofuken.Prefecture -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
