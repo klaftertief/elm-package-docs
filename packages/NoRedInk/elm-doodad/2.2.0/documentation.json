@@ -1,0 +1,304 @@
+[
+  {
+    "name": "Nri.Text",
+    "comment": " Text types:\n\n@docs caption\n@docs heading\n@docs mediumBody\n@docs smallBody\n@docs smallBodyGray\n@docs subHeading\n@docs tagline\n\nText class strings:\n\n@docs captionClassString\n@docs mediumBodyClassString\n@docs smallBodyClassString\n\n@docs styles\n\nModifying strings to display nicely:\n\n@docs noWidow\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "caption",
+        "comment": " This is a little note or caption.\n",
+        "type": "List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "captionClassString",
+        "comment": " Stringified version of `captionClasses`.\nNecessary because <https://github.com/rtfeldman/elm-css-helpers/issues/2>\n",
+        "type": "String"
+      },
+      {
+        "name": "heading",
+        "comment": " This is a Page Heading.\n",
+        "type": "List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "mediumBody",
+        "comment": " This is some medium body copy.\n",
+        "type": "List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "mediumBodyClassString",
+        "comment": " Stringified version of `mediumBodyClasses`.\nNecessary because <https://github.com/rtfeldman/elm-css-helpers/issues/2>\n",
+        "type": "String"
+      },
+      {
+        "name": "noWidow",
+        "comment": " Eliminate widows (single words on their own line caused by\nwrapping) by inserting a non-breaking space if there are at least two\nwords.\n",
+        "type": "String -> String"
+      },
+      {
+        "name": "smallBody",
+        "comment": " This is some small body copy.\n",
+        "type": "List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "smallBodyClassString",
+        "comment": " Stringified version of `smallBodyClasses`.\nNecessary because <https://github.com/rtfeldman/elm-css-helpers/issues/2>\n",
+        "type": "String"
+      },
+      {
+        "name": "smallBodyGray",
+        "comment": " This is some small body copy but it's gray.\n",
+        "type": "List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "styles",
+        "comment": " ",
+        "type": "Nri.Styles.Styles Basics.Never Nri.Text.CssClasses msg"
+      },
+      {
+        "name": "subHeading",
+        "comment": " This is a subhead.\n",
+        "type": "List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "tagline",
+        "comment": " This is a tagline for a page heading.\n",
+        "type": "List (Html.Html msg) -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri.TextInput",
+    "comment": "\n\n@docs InputType\n@docs Model\n@docs styles\n@docs view\n@docs withInvisibleLabel\n\n\n## Input types\n\n@docs number\n@docs text\n\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " ",
+        "args": [
+          "value",
+          "msg"
+        ],
+        "type": "{ label : String , isInError : Bool , onInput : value -> msg , placeholder : String , value : value , autofocus : Bool , type_ : Nri.TextInput.InputType value }"
+      }
+    ],
+    "types": [
+      {
+        "name": "InputType",
+        "comment": " ",
+        "args": [
+          "value"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "number",
+        "comment": " An input that allows number entry\n",
+        "type": "Nri.TextInput.InputType (Maybe.Maybe Int)"
+      },
+      {
+        "name": "styles",
+        "comment": " ",
+        "type": "Nri.Styles.Styles Basics.Never Nri.TextInput.CssClasses msg"
+      },
+      {
+        "name": "text",
+        "comment": " An input that allows text entry\n",
+        "type": "Nri.TextInput.InputType String"
+      },
+      {
+        "name": "view",
+        "comment": " ",
+        "type": "Nri.TextInput.Model value msg -> Html.Html msg"
+      },
+      {
+        "name": "withInvisibleLabel",
+        "comment": " ",
+        "type": "Nri.TextInput.Model value msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri.BannerAlert",
+    "comment": "\n\n@docs error\n@docs neutral\n@docs styles\n@docs success\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "error",
+        "comment": " A banner to show error alerts\n",
+        "type": "String -> Html.Html msg"
+      },
+      {
+        "name": "neutral",
+        "comment": " A banner to show neutral alerts\n",
+        "type": "String -> Html.Html msg"
+      },
+      {
+        "name": "styles",
+        "comment": " ",
+        "type": "Nri.Styles.Styles Basics.Never Nri.BannerAlert.CssClasses b"
+      },
+      {
+        "name": "success",
+        "comment": " A banner for success alerts\n",
+        "type": "String -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri.Button",
+    "comment": " Common NoRedInk buttons. For accessibility purposes, buttons that perform an\naction on the current page should be HTML `<button>` elements and are created here\nwith `*Button` functions. Buttons that take the user to a new page should be\nHTML `<a>` elements and are created here with `*Link` functions. Both versions\nshould be able to use the same CSS class in all cases.\n\nThere will generally be a `*Button` and `*Link` version of each button style.\n(These will be created as they are needed.)\n\n\n## Required styles\n\n@docs styles\n\n\n## Common configs\n\n@docs ButtonContent\n@docs ButtonSize\n@docs ButtonState\n@docs ButtonStyle\n\n\n## `<button>` Buttons\n\n@docs button\n\n",
+    "aliases": [
+      {
+        "name": "ButtonContent",
+        "comment": " ButtonContent, often changes based on ButtonState.\nFor example, a button in the \"Success\" state\nmay have a different label than a button in the \"Error\" state\n",
+        "args": [],
+        "type": "{ label : String, state : Nri.Button.ButtonState }"
+      }
+    ],
+    "types": [
+      {
+        "name": "ButtonSize",
+        "comment": " Sizes for buttons that have button classes\n\nNOTE: if you add a size here, you need to add Css styles using the sizeStyle helper in the styles definition.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "Tiny",
+            []
+          ],
+          [
+            "Small",
+            []
+          ],
+          [
+            "Medium",
+            []
+          ],
+          [
+            "Large",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "ButtonState",
+        "comment": " Describes the state of a button. Has consequences for appearance and disabled attribute.\n\n  - Enabled: An enabled button. Takes the appearance of ButtonStyle\n  - Unfulfilled: A button which appears with the InactiveColors palette but is not disabled.\n  - Disabled: A button which appears with the InactiveColors palette and is disabled.\n  - Error: A button which appears with the ErrorColors palette and is not disabled.\n  - Loading: A button which appears with the LoadingColors palette and is disabled\n  - Success: A button which appears with the InactiveColors palette and is disabled\n\n",
+        "args": [],
+        "cases": [
+          [
+            "Enabled",
+            []
+          ],
+          [
+            "Unfulfilled",
+            []
+          ],
+          [
+            "Disabled",
+            []
+          ],
+          [
+            "Error",
+            []
+          ],
+          [
+            "Loading",
+            []
+          ],
+          [
+            "Success",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "ButtonStyle",
+        "comment": " Styleguide-approved styles for your buttons!\n\nNote on borderless buttons:\nA borderless button that performs an action on the current page\nThis button is intended to look like a link.\nOnly use a borderless button when the clickable text in question follows the same layout/margin/padding as a bordered button\n\n",
+        "args": [],
+        "cases": [
+          [
+            "Primary",
+            []
+          ],
+          [
+            "Secondary",
+            []
+          ],
+          [
+            "Borderless",
+            []
+          ],
+          [
+            "Danger",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "button",
+        "comment": " A delightful button which can trigger an effect when clicked!\n\nThis button will trigger the passed-in message if the button state is:\n\n  - Enabled\n  - Unfulfilled\n\nThis button will be Disabled if the button state is:\n\n  - Disabled\n  - Error\n  - Loading\n  - Success\n\n",
+        "type": "Nri.Button.ButtonConfig msg -> Nri.Button.ButtonContent -> Accessibility.Html msg"
+      },
+      {
+        "name": "styles",
+        "comment": " Required CSS styles for `Nri.Button`.\n",
+        "type": "Nri.Styles.Styles Basics.Never Nri.Button.CssClasses msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Nri.Styles",
+    "comment": " Simplifies using elm-css in modules that expose views\n\n\n## Creating namespaces stylesheets\n\n@docs Styles, styles, stylesWithExtraStylesheets\n\n\n## Helpers for CSS\n\n\n### Keyframe animations\n\n@docs Keyframe, keyframes, toString\n\n",
+    "aliases": [
+      {
+        "name": "Styles",
+        "comment": "\n\n  - `css`: The resulting stylesheets to add to `Nri.Css.Site`\n  - `id`, `class`, `classList`: The Html.Attribute helper functions\n\n",
+        "args": [
+          "id",
+          "class",
+          "msg"
+        ],
+        "type": "{ css : List Css.Stylesheet , id : id -> Html.Attribute msg , class : List class -> Html.Attribute msg , classList : List ( class, Bool ) -> Html.Attribute msg , div : class -> List (Html.Html msg) -> Html.Html msg , span : class -> List (Html.Html msg) -> Html.Html msg }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Keyframe",
+        "comment": " A CSS keyframe animation that will have vendor prefixes automatically added.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "keyframes",
+        "comment": " Create a CSS keyframe animation with appropriate vendor prefixes\n",
+        "type": "String -> List ( String, String ) -> Nri.Styles.Keyframe"
+      },
+      {
+        "name": "styles",
+        "comment": " Use this instead of Html.CssHelpers.\nThis will help you make sure you don't mismatch the namespace you're using.\n\n    { css, class } =\n        Nri.Styles.styles \"Nri-MyWidget-\"\n            [ Css.class Container\n                [ backgroundColor Nri.Colors.ochre ]\n            ]\n\n",
+        "type": "String -> List Css.Snippet -> Nri.Styles.Styles id class msg"
+      },
+      {
+        "name": "stylesWithExtraStylesheets",
+        "comment": " Use this instead of [`styles`](#styles) if you need to\ninclude Css.Stylesheets from external packages,\nor if you need to add styles without a namespace.\nRemember, all stylesheets given here will be included\non all pages of the site.\n",
+        "type": "String -> List Css.Stylesheet -> List Css.Snippet -> Nri.Styles.Styles id class msg"
+      },
+      {
+        "name": "toString",
+        "comment": " Turn a [`Keyframe`](#Keyframe) into a string that can be included in a CSS stylesheet.\n",
+        "type": "Nri.Styles.Keyframe -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

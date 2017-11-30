@@ -833,6 +833,7 @@
         "name": "JohnBugner/elm-bag",
         "summary": "A bag, also known as a multiset.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -1077,6 +1078,8 @@
         "name": "NoRedInk/elm-doodad",
         "summary": "Doodads we use at NRI",
         "versions": [
+            "2.2.0",
+            "2.1.0",
             "2.0.0",
             "1.2.0",
             "1.1.1",
@@ -2136,8 +2139,9 @@
     },
     {
         "name": "amilner42/keyboard-extra",
-        "summary": "Convenience helpers for working with Keyboard",
+        "summary": "Work with keyboard events and keep track of recent keys.",
         "versions": [
+            "2.1.1",
             "2.1.0",
             "2.0.1",
             "2.0.0",
@@ -2249,6 +2253,13 @@
     {
         "name": "arowM/elm-check-button",
         "summary": "A button component that can be checked or unchecked.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "arowM/elm-default",
+        "summary": "A module to handle default values for any types",
         "versions": [
             "1.0.0"
         ]
@@ -2771,6 +2782,7 @@
         "name": "billstclair/elm-xml-extra",
         "summary": "Extend eeue56/elm-xml to simplify building Decoders for XML input.",
         "versions": [
+            "2.1.0",
             "2.0.0",
             "1.1.0",
             "1.0.0"
@@ -2949,6 +2961,8 @@
         "name": "carwow/elm-core",
         "summary": "Elm components used by carwow",
         "versions": [
+            "4.1.2",
+            "4.1.1",
             "4.1.0",
             "4.0.6",
             "4.0.5",
@@ -2980,6 +2994,7 @@
         "name": "carwow/elm-theme",
         "summary": "Elm helpers to render carwow theme ui components",
         "versions": [
+            "4.3.1",
             "4.3.0",
             "4.2.0",
             "4.1.1",
@@ -7513,6 +7528,7 @@
         "name": "ktonon/elm-crypto",
         "summary": "Compute HMAC with SHA-2 hash functions or use SHA-2 directly.",
         "versions": [
+            "1.1.1",
             "1.1.0",
             "1.0.0"
         ]
@@ -7603,6 +7619,7 @@
         "name": "ktonon/elm-word",
         "summary": "Unsigned 32 or 64 bit integers and related operations",
         "versions": [
+            "2.1.1",
             "2.1.0",
             "2.0.0",
             "1.0.0"
@@ -8163,6 +8180,13 @@
         "summary": "Implementation of the DisjointSet data structure",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "maximoleinyk/elm-parser-utils",
+        "summary": "Simple library for complicated text parsing",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -10811,6 +10835,7 @@
         "name": "stil4m/elm-syntax",
         "summary": "Elm Syntax in Elm: for parsing and writing Elm in Elm",
         "versions": [
+            "2.1.3",
             "2.1.2",
             "2.1.1",
             "2.1.0",
@@ -12191,6 +12216,7 @@
         "name": "zwilias/elm-touch-events",
         "summary": "Touch events, in Elm",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"

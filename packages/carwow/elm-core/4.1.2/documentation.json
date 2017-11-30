@@ -1,0 +1,215 @@
+[
+  {
+    "name": "Core.MakeModelMenu",
+    "comment": " Make/Model menu component\n\n\n# Exported\n\n@docs init, update, subscriptions, view, Flags, Model, Msg\n\n",
+    "aliases": [
+      {
+        "name": "Flags",
+        "comment": " Flags which are used to retrieve and display the Make & Model data\n",
+        "args": [],
+        "type": "{ id : String , apiEndpointUrl : String , apiFilterField : String , baseLinkUrl : String , redirectUrl : String }"
+      },
+      {
+        "name": "Model",
+        "comment": " A representation of the MakeModelMenu\n\nmodal - The modal component that the MakeModelMenu will use\napiEndpointUrl - The url of the API endpoint to retrieve the Make/Model data from\napiFilterField - The filter field used in the API request\nbaseLinkUrl - The path to re-direct to once the Make Model has been selected\nredirectUrl - The url that the Menu should re-direct to once the Make & Model has been selected, e.g https://quotes.carwow.co.uk/\n",
+        "args": [],
+        "type": "{ state : Core.MakeModelMenu.State , modal : CarwowTheme.Modal.Model , apiEndpointUrl : Erl.Url , apiFilterField : String , baseLinkUrl : Erl.Url , redirectUrl : String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " The different messages the Make Model Menu accepts\n\nModalBackClicked - The back button is clicked by the user\nMakesResponse - A response is received from the Makes endpoint\nModelsResponse -A response is received from the Models endpoint\nModalMsg - A message is received by the underlying Modal component\n\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Initialise the model\n",
+        "type": "Core.MakeModelMenu.Flags -> ( Core.MakeModelMenu.Model , Platform.Cmd.Cmd Core.MakeModelMenu.Msg )"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " The subscriptions of this model\n",
+        "type": "Core.MakeModelMenu.Model -> Platform.Sub.Sub Core.MakeModelMenu.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " Update the component if a message is received\n",
+        "type": "Core.MakeModelMenu.Msg -> Core.MakeModelMenu.Model -> ( Core.MakeModelMenu.Model , Platform.Cmd.Cmd Core.MakeModelMenu.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " A view representing the whole model\n",
+        "type": "Core.MakeModelMenu.Model -> Html.Html Core.MakeModelMenu.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Core.NotificationDrawer",
+    "comment": " Displays latest notifications\n\n\n# Exported\n\n@docs Msg, Model, Flags, subscriptions, view, update, init, isDrawerOpen\n\n",
+    "aliases": [
+      {
+        "name": "Flags",
+        "comment": " A flag to represent the API endpoint to retreive notifications\n",
+        "args": [],
+        "type": "{ notifierApiEndpoint : String }"
+      },
+      {
+        "name": "Model",
+        "comment": " A representation of the NotificationDrawer\n",
+        "args": [],
+        "type": "{ flags : Core.NotificationDrawer.Flags , notifications : Core.NotificationDrawer.PaginatedResponse , currentPage : Int , drawer : CarwowTheme.Drawer.Model , loadMoreDisabled : Bool }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " The different messages the Notification Drawer accepts\n\nNewNotification — A new notification has occured\nNotificationsResponse — A response has been received from the external notifications API\nDrawerMsg — An action has occured on the drawer element\nLoadMoreNotifications — The user has requested more notifications\n\n",
+        "args": [],
+        "cases": [
+          [
+            "NewNotification",
+            [
+              "String"
+            ]
+          ],
+          [
+            "DrawerMsg",
+            [
+              "CarwowTheme.Drawer.Msg"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Initialise the model\n",
+        "type": "Core.NotificationDrawer.Flags -> ( Core.NotificationDrawer.Model , Platform.Cmd.Cmd Core.NotificationDrawer.Msg )"
+      },
+      {
+        "name": "isDrawerOpen",
+        "comment": " The current state of the drawer.\n\nReturns true if the drawer is opened, false if it isn't\n\n",
+        "type": "Core.NotificationDrawer.Model -> Bool"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Placeholder\n",
+        "type": "Core.NotificationDrawer.Model -> Platform.Sub.Sub Core.NotificationDrawer.Msg"
+      },
+      {
+        "name": "update",
+        "comment": " Update the model based on the message received\n",
+        "type": "Core.NotificationDrawer.Msg -> Core.NotificationDrawer.Model -> ( Core.NotificationDrawer.Model , Platform.Cmd.Cmd Core.NotificationDrawer.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " The view for the notification drawer component\n",
+        "type": "Core.NotificationDrawer.Model -> Html.Html Core.NotificationDrawer.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Core.NotificationMenu",
+    "comment": " Displays notification alerts\n\n\n# Exported\n\n@docs view, Model, update, Msg, init\n\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " Placeholder\n",
+        "args": [],
+        "type": "{ unseenCount : Maybe.Maybe Int }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Placeholder\n",
+        "args": [],
+        "cases": [
+          [
+            "UpdateBadge",
+            [
+              "Json.Decode.Value"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Placeholder\n",
+        "type": "( Core.NotificationMenu.Model , Platform.Cmd.Cmd Core.NotificationMenu.Msg )"
+      },
+      {
+        "name": "update",
+        "comment": " Placeholder\n",
+        "type": "Core.NotificationMenu.Msg -> Core.NotificationMenu.Model -> ( Core.NotificationMenu.Model , Platform.Cmd.Cmd Core.NotificationMenu.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " Placeholder\n",
+        "type": "Core.NotificationMenu.Model -> Html.Html Core.NotificationMenu.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Core.Data.Model",
+    "comment": " Model menu component\n\n\n# Exported\n\n@docs Model, listDecoder, decoder\n\n",
+    "aliases": [
+      {
+        "name": "Model",
+        "comment": " A representation of the Model\n",
+        "args": [],
+        "type": "{ name : String , slug : String , leaseDealsAvailable : Bool , stockAvailable : Bool , factoryOrderAvailable : Bool }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "decoder",
+        "comment": " Model decoder\n",
+        "type": "Json.Decode.Decoder Core.Data.Model.Model"
+      },
+      {
+        "name": "listDecoder",
+        "comment": " Decode the list of Models\n",
+        "type": "Json.Decode.Decoder (List Core.Data.Model.Model)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Core.Data.Make",
+    "comment": " Make menu component\n\n\n# Exported\n\n@docs Make, listDecoder, decoder\n\n",
+    "aliases": [
+      {
+        "name": "Make",
+        "comment": " A representation of the Make\n",
+        "args": [],
+        "type": "{ name : String , slug : String , leaseDealsAvailable : Bool , stockAvailable : Bool , factoryOrderAvailable : Bool }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "decoder",
+        "comment": " Make decoder\n",
+        "type": "Json.Decode.Decoder Core.Data.Make.Make"
+      },
+      {
+        "name": "listDecoder",
+        "comment": " Decode the list of Makes\n",
+        "type": "Json.Decode.Decoder (List Core.Data.Make.Make)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

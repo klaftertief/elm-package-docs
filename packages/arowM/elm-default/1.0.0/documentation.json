@@ -1,0 +1,70 @@
+[
+  {
+    "name": "Default",
+    "comment": " A module to handle default values for any types.\n\nAssume that you want stub functions when you are developing some applications.\nYou would declare dummy function that does not actualy execute `Task` but simply returns dummy value as follows.\n\n```\nstubInt : Task error Int -> Int\nstubInt _ =\n    0\n\n\nstubString : Task error String -> String\nstubString _ =\n    \"\"\n```\n\nBut are you still enough patient to define all of types even if you need `stubMaybeMaybeListInt` or many of combined types?\n\nThis is when you need this module.\n\nYou can declare general stub function and easily build any combined types.\n\n    import Task exposing (Task)\n\n    stubTask : Default a -> Task error a -> a\n    stubTask def _ =\n        default def\n\n    stubTask int (Task.succeed 10)\n    --> 0\n\n    stubTask string (Task.succeed \"foo\")\n    --> \"\"\n\n    stubTask (maybe string) (Task.succeed <| Nothing)\n    --> Just \"\"\n\n    stubTask (maybe (maybe int)) (Task.succeed <| Just (Just 3))\n    --> Just (Just 0)\n\n# Types\n\n@docs Default\n\n# Getters\n\n@docs default\n\n# Basic default values\n\n@docs int\n@docs float\n@docs string\n\n# Combinators\n\n@docs maybe\n@docs list\n@docs array\n@docs dict\n@docs tuple2\n@docs tuple3\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Default",
+        "comment": " Phantom type to define default value for type `a`.\n",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "array",
+        "comment": "\n    import Array\n\n    default (array (maybe int))\n    --> Array.fromList [ Just 0 ]\n",
+        "type": "Default.Default a -> Default.Default (Array.Array a)"
+      },
+      {
+        "name": "default",
+        "comment": " A getter function to unpack `Default`.\n    default int\n    --> 0\n\n    default string\n    --> \"\"\n\n    default (maybe string)\n    --> Just \"\"\n",
+        "type": "Default.Default a -> a"
+      },
+      {
+        "name": "dict",
+        "comment": "\n    import Dict\n\n    default (dict int string)\n    --> Dict.singleton 0 \"\"\n",
+        "type": "Default.Default comparable -> Default.Default a -> Default.Default (Dict.Dict comparable a)"
+      },
+      {
+        "name": "float",
+        "comment": "\n    default float\n    --> 0\n",
+        "type": "Default.Default Float"
+      },
+      {
+        "name": "int",
+        "comment": "\n    default int\n    --> 0\n",
+        "type": "Default.Default Int"
+      },
+      {
+        "name": "list",
+        "comment": "\n    default (list int)\n    --> [ 0 ]\n",
+        "type": "Default.Default a -> Default.Default (List a)"
+      },
+      {
+        "name": "maybe",
+        "comment": "\n    default (maybe string)\n    --> Just \"\"\n",
+        "type": "Default.Default a -> Default.Default (Maybe.Maybe a)"
+      },
+      {
+        "name": "string",
+        "comment": "\n    default string\n    --> \"\"\n",
+        "type": "Default.Default String"
+      },
+      {
+        "name": "tuple2",
+        "comment": "\n    default (tuple2 int string)\n    --> ( 0, \"\" )\n",
+        "type": "Default.Default a -> Default.Default b -> Default.Default ( a, b )"
+      },
+      {
+        "name": "tuple3",
+        "comment": "\n    default (tuple3 int string (maybe int))\n    --> ( 0, \"\", Just 0 )\n",
+        "type": "Default.Default a -> Default.Default b -> Default.Default c -> Default.Default ( a, b, c )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
