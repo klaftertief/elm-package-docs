@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Hfnss",
+    "comment": " Hfnss is my monospace pixel font I use everywhere. For some projects, its prohibitive to use a vector font version of Hfnss. This module contains the pixel data for every letter in Hfnss, which can be read and drawn onto a screen. The data of each letter is stored as a `List (List Pixel)` where `Pixel = Black | Gray` and the lists represent rows and columns.\n\n\n# Pixel\n\n@docs Pixel\n\n\n# Get\n\n@docs get\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Pixel",
+        "comment": " This just represents whether a pixel is filled or not. Most implementations of Hfnss are gray text on a black background so `Gray` and `Black` are used. \"Gray\" and \"Black\" are colors obviously, but here they are just stand ins for a pixel being drawn or not. Any color would do.\n",
+        "args": [],
+        "cases": [
+          [
+            "Gray",
+            []
+          ],
+          [
+            "Black",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "get",
+        "comment": " Give `get` a char, and youll get the data for that character.\n",
+        "type": "Char -> List (List Hfnss.Pixel)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

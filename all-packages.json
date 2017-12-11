@@ -3,6 +3,9 @@
         "name": "1602/elm-feather",
         "summary": "Feather icons for elm",
         "versions": [
+            "2.1.0",
+            "2.0.1",
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -252,6 +255,7 @@
         "name": "BrianHicks/elm-trend",
         "summary": "generate trend lines for two-dimensional data",
         "versions": [
+            "2.1.1",
             "2.1.0",
             "2.0.1",
             "2.0.0",
@@ -295,6 +299,12 @@
         "name": "Chadtech/ctpaint-keys",
         "summary": "Keys module for CtPaint project",
         "versions": [
+            "4.0.0",
+            "3.0.0",
+            "2.0.3",
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -333,6 +343,14 @@
         ]
     },
     {
+        "name": "Chadtech/hfnss",
+        "summary": "Monospace Pixel font",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Chadtech/order",
         "summary": "DEPRECIATED : A type to arrange things in order",
         "versions": [
@@ -347,6 +365,8 @@
         "name": "Chadtech/tuple-infix",
         "summary": "Infix functions for tupling",
         "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -1078,6 +1098,8 @@
         "name": "NoRedInk/elm-doodad",
         "summary": "Doodads we use at NRI",
         "versions": [
+            "2.4.0",
+            "2.3.0",
             "2.2.0",
             "2.1.0",
             "2.0.0",
@@ -1236,6 +1258,7 @@
         "name": "NoRedInk/list-selection",
         "summary": "A list that might have at most one selected item",
         "versions": [
+            "1.2.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -1435,6 +1458,7 @@
         "name": "Skinney/elm-dict-exploration",
         "summary": "Exploring the dict implementation",
         "versions": [
+            "1.0.4",
             "1.0.3",
             "1.0.2",
             "1.0.1",
@@ -1862,6 +1886,7 @@
         "name": "abadi199/datetimepicker",
         "summary": "Reusable date and time picker view",
         "versions": [
+            "6.0.0",
             "5.0.0",
             "4.0.1",
             "4.0.0",
@@ -1880,6 +1905,15 @@
             "1.0.4",
             "1.0.3",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "abadi199/datetimepicker-css",
+        "summary": "CSS package for DateTimePicker",
+        "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -2279,6 +2313,14 @@
         "summary": "A module to define generic functions for monoid.",
         "versions": [
             "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "arowM/elm-raw-html",
+        "summary": "An unsafe and unrecommended module to render read-only raw html in Elm view.",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
@@ -2697,6 +2739,32 @@
         ]
     },
     {
+        "name": "billstclair/elm-crypto-aes",
+        "summary": "elm-crypto-aes is a pure Elm implementation of the Advanced Encryption Standard",
+        "versions": [
+            "1.0.5",
+            "1.0.4",
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "billstclair/elm-crypto-string",
+        "summary": "elm-crypto-string does block chaining for string encryption.",
+        "versions": [
+            "2.1.0",
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "billstclair/elm-dev-random",
         "summary": "Cryptographically secure random-number generator.",
         "versions": [
@@ -2742,6 +2810,13 @@
             "2.0.0",
             "1.0.2",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "billstclair/elm-s3",
+        "summary": "elm-s3 is a pure Elm client library for Amazon S3 and Digital Ocean Spaces.",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2808,6 +2883,10 @@
         "name": "bloom/aviators",
         "summary": "The best UI library in Elm made specifically for Bloom Built.",
         "versions": [
+            "2.0.1",
+            "2.0.0",
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -2961,6 +3040,7 @@
         "name": "carwow/elm-core",
         "summary": "Elm components used by carwow",
         "versions": [
+            "4.1.3",
             "4.1.2",
             "4.1.1",
             "4.1.0",
@@ -2994,6 +3074,7 @@
         "name": "carwow/elm-theme",
         "summary": "Elm helpers to render carwow theme ui components",
         "versions": [
+            "5.0.0",
             "4.3.1",
             "4.3.0",
             "4.2.0",
@@ -3096,6 +3177,16 @@
         "summary": "Library exposing directional signals of numpad",
         "versions": [
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "chrilves/elm-io",
+        "summary": "Monadic interface for commands and The Elm Architecture",
+        "versions": [
+            "1.2.1",
+            "1.2.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -3717,6 +3808,7 @@
         "name": "danielnarey/elm-semantic-content",
         "summary": "Semantically structured helpers to construct basic HTML content",
         "versions": [
+            "1.4.0",
             "1.3.0",
             "1.2.0",
             "1.1.0",
@@ -3727,6 +3819,7 @@
         "name": "danielnarey/elm-semantic-dom",
         "summary": "Syntactic sugar for cooking with Elm VirtualDom",
         "versions": [
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -3827,6 +3920,7 @@
         "name": "danyx23/elm-mimetype",
         "summary": "Modelling the most common Mime Types as union types",
         "versions": [
+            "4.0.0",
             "3.0.2",
             "3.0.1",
             "3.0.0",
@@ -4224,6 +4318,7 @@
         "name": "eeue56/elm-html-test",
         "summary": "Write tests for your Html.",
         "versions": [
+            "5.1.2",
             "5.1.1",
             "5.1.0",
             "5.0.1",
@@ -4299,6 +4394,7 @@
         "name": "eeue56/elm-xml",
         "summary": "XML parser, encoder/decoder and queries in Elm",
         "versions": [
+            "2.2.3",
             "2.2.2",
             "2.2.1",
             "2.2.0",
@@ -4327,6 +4423,8 @@
         "name": "elm-bodybuilder/elegant",
         "summary": "Framework for inline CSS",
         "versions": [
+            "7.1.2",
+            "7.1.1",
             "7.1.0",
             "7.0.0",
             "6.0.0",
@@ -4406,6 +4504,7 @@
         "name": "elm-community/basics-extra",
         "summary": "Additional basic functions",
         "versions": [
+            "2.2.0",
             "2.1.2",
             "2.1.1",
             "2.1.0",
@@ -4458,6 +4557,7 @@
         "name": "elm-community/elm-datepicker",
         "summary": "A reusable date picker component",
         "versions": [
+            "7.2.5",
             "7.2.4",
             "7.2.3",
             "7.2.2",
@@ -4549,6 +4649,14 @@
         "summary": "[DEPRECATED] Extra functionality for the core Random library",
         "versions": [
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "elm-community/elm-route",
+        "summary": "A route parsing library",
+        "versions": [
             "1.0.1",
             "1.0.0"
         ]
@@ -4698,6 +4806,7 @@
         "name": "elm-community/list-extra",
         "summary": "Convenience functions for working with List",
         "versions": [
+            "7.0.0",
             "6.1.0",
             "6.0.0",
             "5.0.1",
@@ -4744,6 +4853,7 @@
         "name": "elm-community/parser-combinators",
         "summary": "A parser combinator library",
         "versions": [
+            "2.0.0",
             "1.1.0",
             "1.0.0"
         ]
@@ -5103,6 +5213,7 @@
         "name": "ersocon/creditcard-validation",
         "summary": "CreditCard validation",
         "versions": [
+            "2.0.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -6463,6 +6574,15 @@
         ]
     },
     {
+        "name": "jfairbank/elm-stream",
+        "summary": "Fast and simple stream library for Elm.",
+        "versions": [
+            "1.1.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jfmengels/elm-ast",
         "summary": "A parser for Elm code",
         "versions": [
@@ -6774,6 +6894,8 @@
         "name": "joneshf/elm-these",
         "summary": "Values that can be one of two types or both at once",
         "versions": [
+            "1.2.0",
+            "1.1.2",
             "1.1.1",
             "1.1.0",
             "1.0.2",
@@ -6803,6 +6925,20 @@
     {
         "name": "jpagex/elm-geoip",
         "summary": "User location detecting based on IP address",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jpagex/elm-loader",
+        "summary": "Different loaders with Elm SVG",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "jpagex/elm-material-color",
+        "summary": "Material Colors",
         "versions": [
             "1.0.0"
         ]
@@ -7496,6 +7632,8 @@
         "name": "krisajenkins/remotedata",
         "summary": "Tools for fetching data from remote sources (incl. HTTP).",
         "versions": [
+            "4.3.3",
+            "4.3.2",
             "4.3.1",
             "4.3.0",
             "4.2.1",
@@ -7512,6 +7650,14 @@
             "2.1.0",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ktonon/elm-aws-core",
+        "summary": "Make authenticated REST requests to AWS services.",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -7651,6 +7797,16 @@
         ]
     },
     {
+        "name": "kuzminadya/mogeefont",
+        "summary": "A bitmap font for the Mogee game",
+        "versions": [
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "kuzzmi/elm-gravatar",
         "summary": "Get Gravatar image source URL or DOM image element",
         "versions": [
@@ -7720,6 +7876,16 @@
         "versions": [
             "1.0.3",
             "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "layer6ai/elm-filter-box",
+        "summary": "Search box that supports key value filtering",
+        "versions": [
+            "1.1.1",
+            "1.1.0",
             "1.0.1",
             "1.0.0"
         ]
@@ -8187,6 +8353,7 @@
         "name": "maximoleinyk/elm-parser-utils",
         "summary": "Simple library for complicated text parsing",
         "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -9608,6 +9775,13 @@
         ]
     },
     {
+        "name": "r-k-b/map-accumulate",
+        "summary": "\"map accumulate\" helpers for Elm.",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "r31gN/elm-dropdown",
         "summary": "Elm dropdown component",
         "versions": [
@@ -9904,6 +10078,7 @@
         "name": "rnons/elm-svg-parser",
         "summary": "parse String to SVG",
         "versions": [
+            "1.2.1",
             "1.2.0",
             "1.1.0",
             "1.0.0"
@@ -9973,6 +10148,7 @@
         "name": "rogeriochaves/elm-test-bdd-style",
         "summary": "BDD-style matchers for elm-test",
         "versions": [
+            "6.1.0",
             "6.0.3",
             "6.0.2",
             "6.0.1",
@@ -10049,8 +10225,11 @@
     },
     {
         "name": "rtfeldman/elm-css",
-        "summary": "CSS Preprocessor for Elm",
+        "summary": "Typed CSS in Elm.",
         "versions": [
+            "13.0.1",
+            "13.0.0",
+            "12.0.1",
             "12.0.0",
             "11.2.0",
             "11.1.0",
@@ -10787,6 +10966,13 @@
         ]
     },
     {
+        "name": "sporto/qs",
+        "summary": "Parse and serialize query strings",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "stasdavydov/elm-cart",
         "summary": "Elm lang shopping Cart",
         "versions": [
@@ -10835,6 +11021,9 @@
         "name": "stil4m/elm-syntax",
         "summary": "Elm Syntax in Elm: for parsing and writing Elm in Elm",
         "versions": [
+            "3.1.1",
+            "3.1.0",
+            "3.0.0",
             "2.1.3",
             "2.1.2",
             "2.1.1",
@@ -10866,6 +11055,16 @@
             "2.0.0",
             "1.2.0",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "stoeffel/elm-verify",
+        "summary": "Validate a model into a structure that makes forbidden states impossible.",
+        "versions": [
+            "3.0.0",
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -11596,6 +11795,16 @@
         ]
     },
     {
+        "name": "valberg/elm-django-channels",
+        "summary": "Utilities to ease the communication with Django Channels.",
+        "versions": [
+            "3.0.0",
+            "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "vieiralucas/elm-collections",
         "summary": "A package that implements a bunch of collections",
         "versions": [
@@ -12087,6 +12296,20 @@
         ]
     },
     {
+        "name": "ymtszw/elm-http-xml",
+        "summary": "Http client for XML API",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ymtszw/elm-xml-decode",
+        "summary": "Xml decoder sharing the spirit of Json.Decode",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "yotamDvir/elm-katex",
         "summary": "KaTeX in elm (without ports): a fast LaTeX rendering library from Kahn Academy.",
         "versions": [
@@ -12201,6 +12424,8 @@
         "name": "zwilias/elm-html-string",
         "summary": "A drop-in elm-lang/html replacement that can stringify to a pretty HTML string",
         "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },

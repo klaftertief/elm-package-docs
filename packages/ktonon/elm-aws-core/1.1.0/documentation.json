@@ -1,0 +1,392 @@
+[
+  {
+    "name": "AWS.Core.Http",
+    "comment": " AWS requests and responses.\n\n\n# Table of Contents\n\n  - [Requests](#requests)\n  - [Body](#body)\n\nExamples assume the following imports:\n\n    import Json.Decode\n\n\n# Requests\n\n@docs Request, request, addHeaders, addQuery, setResponseParser, send, Method, Path\n\n\n# Body\n\n@docs Body, MimeType, emptyBody, stringBody, jsonBody\n\n",
+    "aliases": [
+      {
+        "name": "Body",
+        "comment": " Holds a request body.\n",
+        "args": [],
+        "type": "AWS.Core.Body.Body"
+      },
+      {
+        "name": "MimeType",
+        "comment": " MIME type.\n\nSee <https://en.wikipedia.org/wiki/Media_type>\n\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Path",
+        "comment": " Request path.\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Request",
+        "comment": " Holds an unsigned AWS HTTP request.\n",
+        "args": [
+          "a"
+        ],
+        "type": "AWS.Core.Request.Unsigned a"
+      }
+    ],
+    "types": [
+      {
+        "name": "Method",
+        "comment": " HTTP request methods.\n",
+        "args": [],
+        "cases": [
+          [
+            "DELETE",
+            []
+          ],
+          [
+            "GET",
+            []
+          ],
+          [
+            "HEAD",
+            []
+          ],
+          [
+            "OPTIONS",
+            []
+          ],
+          [
+            "POST",
+            []
+          ],
+          [
+            "PUT",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "addHeaders",
+        "comment": " Appends headers to an AWS HTTP unsigned request.\n\n    request GET \"/\" emptyBody Json.Decode.value\n        |> addHeaders\n            [ ( \"x-custom-1\", \"value 1\" )\n            , ( \"x-Custom-2\", \"value 2\" )\n            ]\n        |> addHeaders\n            [ ( \"x-custom-3\", \"value 3\" )\n            ]\n        |> toString\n    --> \"{ method = \\\"GET\\\", path = \\\"/\\\", body = Empty, decoder = <decoder>, headers = [(\\\"x-custom-1\\\",\\\"value 1\\\"),(\\\"x-Custom-2\\\",\\\"value 2\\\"),(\\\"x-custom-3\\\",\\\"value 3\\\")], query = [], responseParser = Nothing }\"\n\n",
+        "type": "List ( String, String ) -> AWS.Core.Http.Request a -> AWS.Core.Http.Request a"
+      },
+      {
+        "name": "addQuery",
+        "comment": " Appends query arguments to an AWS HTTP unsigned request.\n\n    request GET \"/\" emptyBody Json.Decode.value\n        |> addQuery\n            [ ( \"key1\", \"value 1\" )\n            , ( \"Key2\", \"value 2\" )\n            ]\n        |> addQuery\n            [ ( \"key3\", \"value 3\" )\n            ]\n        |> toString\n    --> \"{ method = \\\"GET\\\", path = \\\"/\\\", body = Empty, decoder = <decoder>, headers = [], query = [(\\\"key1\\\",\\\"value 1\\\"),(\\\"Key2\\\",\\\"value 2\\\"),(\\\"key3\\\",\\\"value 3\\\")], responseParser = Nothing }\"\n\n",
+        "type": "List ( String, String ) -> AWS.Core.Http.Request a -> AWS.Core.Http.Request a"
+      },
+      {
+        "name": "emptyBody",
+        "comment": " Create an empty body.\n",
+        "type": "AWS.Core.Http.Body"
+      },
+      {
+        "name": "jsonBody",
+        "comment": " Create a body containing a JSON value.\n\nThis will automatically add the `Content-Type: application/json` header.\n\n",
+        "type": "Json.Encode.Value -> AWS.Core.Http.Body"
+      },
+      {
+        "name": "request",
+        "comment": " Create an AWS HTTP unsigned request.\n\n    request GET \"/\" emptyBody Json.Decode.value\n        |> toString\n    --> \"{ method = \\\"GET\\\", path = \\\"/\\\", body = Empty, decoder = <decoder>, headers = [], query = [], responseParser = Nothing }\"\n\n",
+        "type": "AWS.Core.Http.Method -> AWS.Core.Http.Path -> AWS.Core.Http.Body -> Json.Decode.Decoder a -> AWS.Core.Http.Request a"
+      },
+      {
+        "name": "send",
+        "comment": " Signs and sends an AWS Request.\n",
+        "type": "AWS.Core.Service.Service -> AWS.Core.Credentials.Credentials -> AWS.Core.Http.Request a -> Task.Task Http.Error a"
+      },
+      {
+        "name": "setResponseParser",
+        "comment": " Set a parser for the entire Http.Response. Overrides the request decoder.\n",
+        "type": "(Http.Response String -> Result.Result String a) -> AWS.Core.Http.Request a -> AWS.Core.Http.Request a"
+      },
+      {
+        "name": "stringBody",
+        "comment": " Create a body with a custom MIME type and the given string as content.\n\n    stringBody \"text/html\" \"<html><body><h1>Hello</h1></body></html>\"\n\n",
+        "type": "AWS.Core.Http.MimeType -> String -> AWS.Core.Http.Body"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "AWS.Core.Credentials",
+    "comment": " AWS credentials.\n\n\n# Types\n\n@docs Credentials, AccessKeyId, SecretAccessKey, SessionToken\n\n\n# Building\n\n@docs fromAccessKeys, setSessionToken\n\n\n# Accessing\n\n@docs accessKeyId, secretAccessKey, sessionToken\n\n",
+    "aliases": [
+      {
+        "name": "AccessKeyId",
+        "comment": " The AWS access key ID.\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "SecretAccessKey",
+        "comment": " The AWS secret access key.\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "SessionToken",
+        "comment": " An optional AWS session token.\n",
+        "args": [],
+        "type": "String"
+      }
+    ],
+    "types": [
+      {
+        "name": "Credentials",
+        "comment": " Holds AWS credentials.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "accessKeyId",
+        "comment": " Gets the access key.\n",
+        "type": "AWS.Core.Credentials.Credentials -> AWS.Core.Credentials.AccessKeyId"
+      },
+      {
+        "name": "fromAccessKeys",
+        "comment": " Create AWS credentials given an access key and secret key.\n",
+        "type": "AWS.Core.Credentials.AccessKeyId -> AWS.Core.Credentials.SecretAccessKey -> AWS.Core.Credentials.Credentials"
+      },
+      {
+        "name": "secretAccessKey",
+        "comment": " Gets the secret.\n",
+        "type": "AWS.Core.Credentials.Credentials -> AWS.Core.Credentials.SecretAccessKey"
+      },
+      {
+        "name": "sessionToken",
+        "comment": " Gets the session token.\n",
+        "type": "AWS.Core.Credentials.Credentials -> Maybe.Maybe AWS.Core.Credentials.SessionToken"
+      },
+      {
+        "name": "setSessionToken",
+        "comment": " Set the session token.\n",
+        "type": "AWS.Core.Credentials.SessionToken -> AWS.Core.Credentials.Credentials -> AWS.Core.Credentials.Credentials"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "AWS.Core.Service",
+    "comment": " AWS service configuration.\n\n\n# Table of Contents\n\n  - [Types](#types)\n  - [Constructors](#constructors)\n  - [Property Setters](#property-setters)\n  - [Protocols](#protocols)\n  - [Signatures](#signatures)\n  - [Timestamp Formats](#timestamp-formats)\n  - [Attributes](#attributes)\n\n\n# Types\n\n@docs Service, ApiVersion, Region, Protocol, Signer, TimestampFormat, Endpoint\n\n\n# Constructors\n\nUse either one of these to create a service definition.\n\n@docs defineGlobal, defineRegional\n\n\n# Property Setters\n\n@docs setJsonVersion, setSigningName, setTargetPrefix, setTimestampFormat, setXmlNamespace, toDigitalOceanSpaces\n\n\n# Protocols\n\nUse these functions to specify the AWS request protocol used by the service.\n\n@docs ec2, json, query, restJson, restXml\n\n\n# Signatures\n\nUse these functions to specify the signature version used by a service.\n\n@docs signV4, signS3\n\n\n# Timestamp Formats\n\nUse these functions to specify the timestamp format used by a service.\n\n@docs iso8601, rfc822, unixTimestamp\n\n\n# Attributes\n\nThese functions are exposed so that [AWS.Core.Http](AWS-Core-Http) can properly\nsign requests. They can be useful for debugging, testing, and logging, but\notherwise are not required.\n\n@docs endpointPrefix, region, host, signer, targetPrefix, jsonContentType, acceptType\n\n",
+    "aliases": [
+      {
+        "name": "ApiVersion",
+        "comment": " Version of a service.\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Protocol",
+        "comment": " Enumerates AWS request protocols.\n\nSee [Protocols](#protocols) for constructors.\n\n",
+        "args": [],
+        "type": "AWS.Core.InternalTypes.Protocol"
+      },
+      {
+        "name": "Region",
+        "comment": " An AWS region string.\n\nFor example `\"us-east-1\"`.\n\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Signer",
+        "comment": " Enumerates AWS signature versions.\n\nSee [Signatures](#signatures) for constructors.\n\n",
+        "args": [],
+        "type": "AWS.Core.InternalTypes.Signer"
+      },
+      {
+        "name": "TimestampFormat",
+        "comment": " Enumerates timestamp formats.\n\nSee [Timestamp Formats](#timestamp-formats) for constructors.\n\n",
+        "args": [],
+        "type": "AWS.Core.InternalTypes.TimestampFormat"
+      }
+    ],
+    "types": [
+      {
+        "name": "Endpoint",
+        "comment": " Defines an AWS service endpoint.\n",
+        "args": [],
+        "cases": [
+          [
+            "GlobalEndpoint",
+            []
+          ],
+          [
+            "RegionalEndpoint",
+            [
+              "AWS.Core.Service.Region"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Service",
+        "comment": " Defines an AWS service.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "acceptType",
+        "comment": " Gets the service Accept header value.\n",
+        "type": "AWS.Core.Service.Service -> String"
+      },
+      {
+        "name": "defineGlobal",
+        "comment": " Creates a global service definition.\n\n    let\n        service = defineGlobal \"sts\" \"2011-06-15\" query signV4\n            (setXmlNamespace \"https://sts.amazonaws.com/doc/2011-06-15/\")\n    in\n    ( service |> endpointPrefix\n    , service |> host\n    , service |> targetPrefix\n    )\n    --> ( \"sts\"\n    --> , \"sts.amazonaws.com\"\n    --> , \"AWSSTS_20110615\"\n    --> )\n\n",
+        "type": "String -> AWS.Core.Service.ApiVersion -> AWS.Core.Service.Protocol -> AWS.Core.Service.Signer -> (AWS.Core.Service.Service -> AWS.Core.Service.Service) -> AWS.Core.Service.Service"
+      },
+      {
+        "name": "defineRegional",
+        "comment": " Creates a regional service definition.\n\n    let\n        acm = defineRegional \"acm\" \"2015-12-08\" json signV4\n            (setJsonVersion \"1.1\" >> setTargetPrefix \"CertificateManager\")\n        service = acm \"ca-central-1\"\n    in\n    ( service |> endpointPrefix\n    , service |> host\n    , service |> targetPrefix\n    )\n    --> ( \"acm\"\n    --> , \"acm.ca-central-1.amazonaws.com\"\n    --> , \"CertificateManager\"\n    --> )\n\nYour client library should not provide the region. Instead it should expose\na function `Region -> Service` by leaving out the last argument.\n\n",
+        "type": "String -> AWS.Core.Service.ApiVersion -> AWS.Core.Service.Protocol -> AWS.Core.Service.Signer -> (AWS.Core.Service.Service -> AWS.Core.Service.Service) -> AWS.Core.Service.Region -> AWS.Core.Service.Service"
+      },
+      {
+        "name": "ec2",
+        "comment": " EC2 request protocol.\n",
+        "type": "AWS.Core.Service.Protocol"
+      },
+      {
+        "name": "endpointPrefix",
+        "comment": " Name of the service.\n",
+        "type": "AWS.Core.Service.Service -> String"
+      },
+      {
+        "name": "host",
+        "comment": " Service endpoint as a hostname.\n",
+        "type": "AWS.Core.Service.Service -> String"
+      },
+      {
+        "name": "iso8601",
+        "comment": " Use the timestamp format ISO8601.\n",
+        "type": "AWS.Core.Service.TimestampFormat"
+      },
+      {
+        "name": "json",
+        "comment": " JSON request protocol.\n",
+        "type": "AWS.Core.Service.Protocol"
+      },
+      {
+        "name": "jsonContentType",
+        "comment": " Gets the service JSON content type header value.\n",
+        "type": "AWS.Core.Service.Service -> String"
+      },
+      {
+        "name": "query",
+        "comment": " QUERY request protocol.\n",
+        "type": "AWS.Core.Service.Protocol"
+      },
+      {
+        "name": "region",
+        "comment": " Service region.\n",
+        "type": "AWS.Core.Service.Service -> String"
+      },
+      {
+        "name": "restJson",
+        "comment": " REST_JSON request protocol.\n",
+        "type": "AWS.Core.Service.Protocol"
+      },
+      {
+        "name": "restXml",
+        "comment": " REST_XML request protocol.\n",
+        "type": "AWS.Core.Service.Protocol"
+      },
+      {
+        "name": "rfc822",
+        "comment": " Use the timestamp format RCF822.\n",
+        "type": "AWS.Core.Service.TimestampFormat"
+      },
+      {
+        "name": "setJsonVersion",
+        "comment": " Set the JSON apiVersion.\n\nUse this if `jsonVersion` is provided in the metadata.\n\n",
+        "type": "String -> AWS.Core.Service.Service -> AWS.Core.Service.Service"
+      },
+      {
+        "name": "setSigningName",
+        "comment": " Set the signing name for the service.\n\nUse this if `signingName` is provided in the metadata.\n\n",
+        "type": "String -> AWS.Core.Service.Service -> AWS.Core.Service.Service"
+      },
+      {
+        "name": "setTargetPrefix",
+        "comment": " Set the target prefix for the service.\n\nUse this if `targetPrefix` is provided in the metadata.\n\n",
+        "type": "String -> AWS.Core.Service.Service -> AWS.Core.Service.Service"
+      },
+      {
+        "name": "setTimestampFormat",
+        "comment": " Set the timestamp format for the service.\n\nUse this if `timestampFormat` is provided in the metadata.\n\n",
+        "type": "AWS.Core.Service.TimestampFormat -> AWS.Core.Service.Service -> AWS.Core.Service.Service"
+      },
+      {
+        "name": "setXmlNamespace",
+        "comment": " Set the XML namespace for the service.\n\nUse this if `xmlNamespace` is provided in the metadata.\n\n",
+        "type": "String -> AWS.Core.Service.Service -> AWS.Core.Service.Service"
+      },
+      {
+        "name": "signS3",
+        "comment": " A variation on V4 signing for use with AWS S3.\n\nSee <http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-header-based-auth.html#canonical-request>\n\n",
+        "type": "AWS.Core.Service.Signer"
+      },
+      {
+        "name": "signV4",
+        "comment": " Use V4 signing.\n",
+        "type": "AWS.Core.Service.Signer"
+      },
+      {
+        "name": "signer",
+        "comment": " Service signature version.\n",
+        "type": "AWS.Core.Service.Service -> AWS.Core.Service.Signer"
+      },
+      {
+        "name": "targetPrefix",
+        "comment": " Set the target prefix.\n",
+        "type": "AWS.Core.Service.Service -> String"
+      },
+      {
+        "name": "toDigitalOceanSpaces",
+        "comment": " Use Digital Ocean Spaces as the backend service provider.\n\nChanges the way hostnames are resolved.\n\n",
+        "type": "AWS.Core.Service.Service -> AWS.Core.Service.Service"
+      },
+      {
+        "name": "unixTimestamp",
+        "comment": " Use the timestamp format UnixTimestamp.\n",
+        "type": "AWS.Core.Service.TimestampFormat"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "AWS.Core.Enum",
+    "comment": " Convert AWS enums values to basic values\n\n@docs toString, toFloat\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "toFloat",
+        "comment": " Convert an AWS enum value to a float\n\n    Enum.toFloat CacheClusterSize_0_5 -- Ok 0.5\n\n",
+        "type": "a -> Result.Result String Float"
+      },
+      {
+        "name": "toString",
+        "comment": " Convert an AWS enum value to a string\n\n    Enum.toString IntegrationType_HTTP_PROXY -- Ok \"HTTP_PROXY\"\n\n",
+        "type": "a -> Result.Result String String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "AWS",
+    "comment": " AWS SDK for elm.\n\nThe elm-aws-core package provides functions and types that facilitate making\nHTTP requests to AWS services. Use it to create user-friendly clients to\nspecific AWS services.\n\n\n## Modules in this package\n\n  - [AWS.Core.Service](AWS-Core-Service): Create a service definition. Every service client should define its own `Service` definition.\n  - [AWS.Core.Credentials](AWS-Core-Credentials): Create AWS credentials used to sign requests.\n  - [AWS.Core.Http](AWS-Core-Http): Create requests, sign, and send them. Signing and sending a request requires both a `Service` and `Credentials`.\n  - [AWS.Core.Enum](AWS-Core-Enum): Many AWS services define enumerations. This small module provides functions to convert from Elm types to string values.\n\n\n## Usage example\n\n    import AWS.Core.Credentials as Credentials\n    import AWS.Core.Http as Http exposing (Method(..))\n    import AWS.Core.Service as Service\n    import Json.Decode\n    import Task\n\n    let\n        creds =\n            Credentials.fromAccessKeys\n                \"ACCESS KEY ID\"\n                \"SECRET ACCESS KEY\"\n        service =\n            Service.defineGlobal\n                \"sts\"\n                \"2011-06-15\"\n                Service.query\n                Service.signV4\n                (Service.setXmlNamespace \"https://sts.amazonaws.com/doc/2011-06-15/\")\n        handler =\n            \\result ->\n                case result of\n                    Ok someValue ->\n                        -- someValue is what you get from the decoder\n                        -- that is provided to the request call below.\n                        -- In this case, it would be an Int because\n                        -- we are using Json.Decode.int as the decoder.\n                        someValue /= -1\n                    Err err ->\n                        -- err is an Http.Error\n                        -- See: http://package.elm-lang.org/packages/elm-lang/http/latest/Http#Error\n                        False\n    in\n    Http.request\n        GET\n        \"/some/path\"\n        Http.emptyBody\n        Json.Decode.int\n        |> Http.send service creds\n        |> Task.attempt handler\n        |> (/=) Cmd.none\n    --> True\n\n@docs version\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "version",
+        "comment": " elm-aws-core package version.\n\n    AWS.version\n    --> \"1.1.0\"\n\n",
+        "type": "String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

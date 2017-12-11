@@ -1,0 +1,465 @@
+[
+  {
+    "name": "IO.Infix",
+    "comment": "Infix notation for *IO*\n@docs (<$>), (>>=), (<*>), (<+>)\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "<$>",
+        "comment": "Infix notation for *IO.map*.",
+        "type": "IO.IO model a -> (a -> b) -> IO.IO model b"
+      },
+      {
+        "name": "<*>",
+        "comment": "Infix notation for *IO.ap*.",
+        "type": "IO.IO model (a -> b) -> IO.IO model a -> IO.IO model b"
+      },
+      {
+        "name": "<+>",
+        "comment": "Infix notation for *IO.combine*.",
+        "type": "IO.IO model a -> IO.IO model a -> IO.IO model a"
+      },
+      {
+        "name": ">>=",
+        "comment": "Infix notation for *IO.bind*.",
+        "type": "IO.IO model a -> (a -> IO.IO model b) -> IO.IO model b"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Select.Infix",
+    "comment": "Infix notation for *Select*\n@docs (<°>)\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "<°>",
+        "comment": "Infix notation for *Select.compose*.",
+        "type": "Select.Select a b -> Select.Select b c -> Select.Select a c"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "IO",
+    "comment": "This module provides a monadic interface for *The Elm Architecture*.\n\nBasically *IO* is a monad enabing two kinds of effects :\n- model modification (it is a state monad)\n- *Cmd* commands\n@docs IO\n\n# Runing an Elm application with *IO*\nThis module port the two main ways of running an Elm application to *IO*.\n@docs Program, beginnerVDomProgram, vDomProgram, beginnerVDomProgramWithFlags, vDomProgramWithFlags\n\n# Lifting values and commands into *IO*\n@docs pure, lift, liftM, liftUpdate\n\n# The model as a state\n@docs get, set, modify\n\n# Classic monadic operations\n@docs map, bind, join, ap, traverse, mapM\n\n# Passing from a model to another\n@docs lens, select\n\n# Dummy values\n@docs none, dummyUpdate, dummySub\n\n# Transform IO into regular Elm\n@docs transform, transformWithFlags\n\n# Runing an headless Elm application with *IO*\nThis module port the four main ways of running an headless Elm application to *IO*.\n@docs beginnerProgram, program, beginnerProgramWithFlags, programWithFlags\n\n# Unsafe operations (You've been warned!)\n@docs batch, combine\n",
+    "aliases": [
+      {
+        "name": "Program",
+        "comment": "Program using *IO*.",
+        "args": [
+          "flags",
+          "model",
+          "msg"
+        ],
+        "type": "Platform.Program flags model (IO.IO model msg)"
+      }
+    ],
+    "types": [
+      {
+        "name": "IO",
+        "comment": "Monadic interface for *The Elm Architecture*.\n\nA value of type `IO model a` is an effectful\ncomputation that can modify the model `model`,\nperform commands and contains values of type `a`.\n",
+        "args": [
+          "model",
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "ap",
+        "comment": "Transform an *IO* containing functions into functions on *IO*\nIt enable to easily lift functions to *IO*.\n\n**Laws**\n- ```ap (pure identity) = identity```\n- ```ap (pure (f >> g)) = ap (pure f) >> ap (pure g)```\n",
+        "type": "IO.IO model (a -> b) -> IO.IO model a -> IO.IO model b"
+      },
+      {
+        "name": "batch",
+        "comment": "Combine a list of *IO*. Its use is strongly discouraged!\nUse *mapM* instead!\n",
+        "type": "List (IO.IO model a) -> IO.IO model a"
+      },
+      {
+        "name": "beginnerProgram",
+        "comment": "Port of *Platform.program* with *IO* with *dummyUpdate*.",
+        "type": "{ init : model , main : IO.IO model msg , subscriptions : model -> Platform.Sub.Sub (IO.IO model msg) } -> IO.Program Basics.Never model msg"
+      },
+      {
+        "name": "beginnerProgramWithFlags",
+        "comment": "Port of *Platform.programWithFlags* with *IO* with *dummyUpdate*.",
+        "type": "{ init : flags -> model , main : IO.IO model msg , subscriptions : model -> Platform.Sub.Sub (IO.IO model msg) } -> IO.Program flags model msg"
+      },
+      {
+        "name": "beginnerVDomProgram",
+        "comment": "Port of *VirtualDom.program* with *IO* with *dummyUpdate* (also works with *Html*).",
+        "type": "{ init : model , view : model -> VirtualDom.Node (IO.IO model msg) , subscriptions : model -> Platform.Sub.Sub (IO.IO model msg) } -> IO.Program Basics.Never model msg"
+      },
+      {
+        "name": "beginnerVDomProgramWithFlags",
+        "comment": "Port of *VirtualDom.programWithFlags* with *IO* (also works with *Html*).",
+        "type": "{ init : flags -> model , view : model -> VirtualDom.Node (IO.IO model msg) , subscriptions : model -> Platform.Sub.Sub (IO.IO model msg) } -> IO.Program flags model msg"
+      },
+      {
+        "name": "bind",
+        "comment": "Chains *IO*s.\n\nIf you have an *IO model a* and a function which given\na *a* can give you an *IO model b* depending on the value\nof type *a* given to the function. Then *bind* gives you\nan *IO model b* that will run the first *IO* and then apply\nthe function.\n\n**Laws**\n- ```bind pure = identity```\n- ```bind (f >> pure) = map f```\n- ```(bind f) >> (bind g) = bind (a -> bind g (f a))```\n",
+        "type": "(a -> IO.IO model b) -> IO.IO model a -> IO.IO model b"
+      },
+      {
+        "name": "combine",
+        "comment": "Combine two *IO*. Its use is strongly discouraged!\nUse *mapM instead!\n",
+        "type": "IO.IO model a -> IO.IO model a -> IO.IO model a"
+      },
+      {
+        "name": "dummySub",
+        "comment": "Dummy subscription function",
+        "type": "a -> Platform.Sub.Sub b"
+      },
+      {
+        "name": "dummyUpdate",
+        "comment": "Dummy update function.",
+        "type": "a -> IO.IO b c"
+      },
+      {
+        "name": "get",
+        "comment": "An *IO* that returns the current model.",
+        "type": "IO.IO model model"
+      },
+      {
+        "name": "join",
+        "comment": "Flatten an *IO* containing an *IO* into a simple *IO*.\n\n**Laws**\n- ```join (pure m) = m```\n",
+        "type": "IO.IO model (IO.IO model a) -> IO.IO model a"
+      },
+      {
+        "name": "lens",
+        "comment": "Congruence by a *Lens* on an *IO*.\n\nIt would be silly to force users to redefine every *IO*\nfor each application model. Lenses enable to lift an *IO*\naction on a model *a* to the same *IO* but action on a\nmodel *b*.\n\nYou can then define your *IO* on the minimal model and\nlift them to you real application's model when needed.\n",
+        "type": "Lens.Lens a b -> IO.IO a msg -> IO.IO b msg"
+      },
+      {
+        "name": "lift",
+        "comment": "Lift a *Cmd* as an  *IO*.",
+        "type": "Platform.Cmd.Cmd a -> IO.IO model a"
+      },
+      {
+        "name": "liftM",
+        "comment": "Lift a *CmdM* as an *IO*.",
+        "type": "CmdM.CmdM a -> IO.IO model a"
+      },
+      {
+        "name": "liftUpdate",
+        "comment": "Lift a classic update function into an *IO*.",
+        "type": "(model -> ( model, Platform.Cmd.Cmd a )) -> IO.IO model a"
+      },
+      {
+        "name": "map",
+        "comment": "Map a function over an *IO*.\n\n**Laws**\n- ```map (f >> g) = (map f) >> (map g)```\n- ```map identity = identity```\n",
+        "type": "(a -> b) -> IO.IO model a -> IO.IO model b"
+      },
+      {
+        "name": "mapM",
+        "comment": "Transform a list of `IO` into an `IO` of list.",
+        "type": "List (IO.IO model a) -> IO.IO model (List a)"
+      },
+      {
+        "name": "modify",
+        "comment": "A *IO* that modify the model.",
+        "type": "(model -> model) -> IO.IO model ()"
+      },
+      {
+        "name": "none",
+        "comment": "An *IO* doing nothing (an containing no values!).",
+        "type": "IO.IO model a"
+      },
+      {
+        "name": "program",
+        "comment": "Port of *Platform.program* with *IO*.",
+        "type": "{ init : ( model, IO.IO model msg ) , update : msg -> IO.IO model msg , subscriptions : model -> Platform.Sub.Sub (IO.IO model msg) } -> IO.Program Basics.Never model msg"
+      },
+      {
+        "name": "programWithFlags",
+        "comment": "Port of *Platform.programWithFlags* with *IO*.",
+        "type": "{ init : flags -> ( model, IO.IO model msg ) , update : msg -> IO.IO model msg , subscriptions : model -> Platform.Sub.Sub (IO.IO model msg) } -> IO.Program flags model msg"
+      },
+      {
+        "name": "pure",
+        "comment": "Returns an *IO* whose only effect is containing the value given to *pure*.",
+        "type": "a -> IO.IO model a"
+      },
+      {
+        "name": "select",
+        "comment": "Congruence by a *Select* on an *IO*.\nJust like lenses but with *Select*.\n",
+        "type": "Select.Select a b -> IO.IO a msg -> IO.IO b msg"
+      },
+      {
+        "name": "set",
+        "comment": "An *IO* that sets the model.",
+        "type": "model -> IO.IO model ()"
+      },
+      {
+        "name": "transform",
+        "comment": "Transform a program using *IO* into a normal program.",
+        "type": "{ y | init : ( model, IO.IO model msg ), update : msg -> IO.IO model msg } -> { y | init : ( model, Platform.Cmd.Cmd (IO.IO model msg) ), update : IO.IO model msg -> model -> ( model, Platform.Cmd.Cmd (IO.IO model msg) ) }"
+      },
+      {
+        "name": "transformWithFlags",
+        "comment": "Transform a program using *IO* into a normal program.",
+        "type": "{ y | init : flags -> ( model, IO.IO model msg ), update : msg -> IO.IO model msg } -> { y | init : flags -> ( model, Platform.Cmd.Cmd (IO.IO model msg) ), update : IO.IO model msg -> model -> ( model, Platform.Cmd.Cmd (IO.IO model msg) ) }"
+      },
+      {
+        "name": "traverse",
+        "comment": "You can think of traverse like a *map* but with effects.\nIt maps a function performing *IO* effects over a list.\n",
+        "type": "(a -> IO.IO model b) -> List a -> IO.IO model (List b)"
+      },
+      {
+        "name": "vDomProgram",
+        "comment": "Port of *VirtualDom.program* with *IO* (also works with *Html*).",
+        "type": "{ init : ( model, IO.IO model msg ) , update : msg -> IO.IO model msg , subscriptions : model -> Platform.Sub.Sub (IO.IO model msg) , view : model -> VirtualDom.Node (IO.IO model msg) } -> IO.Program Basics.Never model msg"
+      },
+      {
+        "name": "vDomProgramWithFlags",
+        "comment": "Port of *VirtualDom.programWithFlags* with *IO* (also works with *Html*).",
+        "type": "{ init : flags -> ( model, IO.IO model msg ) , update : msg -> IO.IO model msg , subscriptions : model -> Platform.Sub.Sub (IO.IO model msg) , view : model -> VirtualDom.Node (IO.IO model msg) } -> IO.Program flags model msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "CmdM.Infix",
+    "comment": "Infix notation for `CmdM`\n@docs (<$>), (>>=), (<*>), (<+>)\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "<$>",
+        "comment": "Infix notation for *CmdM.map*.",
+        "type": "CmdM.CmdM a -> (a -> b) -> CmdM.CmdM b"
+      },
+      {
+        "name": "<*>",
+        "comment": "Infix notation for *CmdM.ap*.",
+        "type": "CmdM.CmdM (a -> b) -> CmdM.CmdM a -> CmdM.CmdM b"
+      },
+      {
+        "name": "<+>",
+        "comment": "Infix notation for *CmdM.combine*.",
+        "type": "CmdM.CmdM a -> CmdM.CmdM a -> CmdM.CmdM a"
+      },
+      {
+        "name": ">>=",
+        "comment": "Infix notation for *CmdM.bind*.",
+        "type": "CmdM.CmdM a -> (a -> CmdM.CmdM b) -> CmdM.CmdM b"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Select",
+    "comment": " Selects are a lot like lenses but in a select\nfrom type *a* to *b*, the *a* part may not exist\nin *b*.\n\n@docs Select, lift, nothing, compose, congruence\n",
+    "aliases": [
+      {
+        "name": "Select",
+        "comment": " The type of a slects.",
+        "args": [
+          "a",
+          "b"
+        ],
+        "type": "b -> Maybe.Maybe ( a, a -> b )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "compose",
+        "comment": " Compose two selects.",
+        "type": "Select.Select a b -> Select.Select b c -> Select.Select a c"
+      },
+      {
+        "name": "congruence",
+        "comment": " If you have a lens from *a* to *b* and a function on *a*\nthen you get a function on *b*.\n",
+        "type": "Select.Select a b -> (a -> a) -> b -> b"
+      },
+      {
+        "name": "lift",
+        "comment": " Build a lens from an equivalence between types *a* and *b*.",
+        "type": "Lens.Lens a b -> Select.Select a b"
+      },
+      {
+        "name": "nothing",
+        "comment": " A select that always fails.",
+        "type": "Select.Select a b"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Lens.Infix",
+    "comment": "Infix notation for *Lens*\n@docs (<°>)\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "<°>",
+        "comment": "Infix notation for *Lens.compose*.",
+        "type": "Lens.Lens a b -> Lens.Lens b c -> Lens.Lens a c"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "CmdM",
+    "comment": "This module provides a monadic interface for commands.\n\nBasically `CmdM` is like `Cmd` but is a monad, which means\nyou can chain effects as you like!\n@docs CmdM\n\n# Runing an Elm application with *CmdM*\nThis module port the four main way of running an Elm application to *CmdM*.\n@docs Program, program, vDomProgram, programWithFlags, vDomProgramWithFlags\n\n# Lifting values and commands into *CmdM*\n@docs pure, lift, none\n\n# Classic monadic operations\n@docs map, bind, join, ap, traverse, mapM\n\n# Transform IO into regular Elm\n@docs transform, transformWithFlags\n\n# Folding\nIf you need to convert *CmdM* to something else, this is the way.\n@docs fold, lazyFold\n\n# Unsafe operations (You've been warned!)\n@docs batch, combine\n",
+    "aliases": [
+      {
+        "name": "Program",
+        "comment": "Program using *IO*.",
+        "args": [
+          "flags",
+          "model",
+          "msg"
+        ],
+        "type": "Platform.Program flags model (CmdM.CmdM msg)"
+      }
+    ],
+    "types": [
+      {
+        "name": "CmdM",
+        "comment": " Monadic interface for commands.\n\nA value of type `CmdM msg` is an effectful\ncomputation that can perform commands and\ncontains values of type `msg`.\n",
+        "args": [
+          "msg"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "ap",
+        "comment": "Transform a *CmdM* containing functions into functions on *CmdM*.\nIt enable to easily lift functions to *CmdM*.\n\n**Laws**\n- ```ap (pure identity) = identity```\n- ```ap (pure (f >> g)) = ap (pure f) >> ap (pure g)```\n",
+        "type": "CmdM.CmdM (a -> b) -> CmdM.CmdM a -> CmdM.CmdM b"
+      },
+      {
+        "name": "batch",
+        "comment": "Group commands in a batch. Its behavior may not be what you expect!\nI strongly discourage you from using it. Use *mapM* instead.\n",
+        "type": "List (CmdM.CmdM a) -> CmdM.CmdM a"
+      },
+      {
+        "name": "bind",
+        "comment": "Chains *CmdM*s.\n\nIf you have a `CmdM a` and a function which given\na `a` can give you a `CmdM b` depending on the value\nof type `a` given to the function. Then `bind` gives you\na `CmdM b` that will run the first `CmdM` and then apply\nthe function.\n\n**Laws**\n- ```bind pure = identity```\n- ```bind (f >> pure) = map f```\n- ```(bind f) >> (bind g) = bind (a -> bind g (f a))```\n",
+        "type": "(a -> CmdM.CmdM b) -> CmdM.CmdM a -> CmdM.CmdM b"
+      },
+      {
+        "name": "combine",
+        "comment": "Group commands in a batch. Its behavior may not be what you expect!\nI strongly discourage you from using it. Use *mapM* instead.\n",
+        "type": "CmdM.CmdM a -> CmdM.CmdM a -> CmdM.CmdM a"
+      },
+      {
+        "name": "fold",
+        "comment": " Catamorphism for *CmdM*. Strict version.",
+        "type": "(a -> r) -> (Platform.Cmd.Cmd r -> r) -> CmdM.CmdM a -> r"
+      },
+      {
+        "name": "join",
+        "comment": "Flatten a *CmdM* containing a *CmdM* into a simple *CmdM*.\n\n**Laws**\n- ```join (pure m) = m```\n",
+        "type": "CmdM.CmdM (CmdM.CmdM a) -> CmdM.CmdM a"
+      },
+      {
+        "name": "lazyFold",
+        "comment": " Catamorphism for *CmdM*. Lazy version.",
+        "type": "(a -> r) -> ((() -> Platform.Cmd.Cmd r) -> r) -> CmdM.CmdM a -> r"
+      },
+      {
+        "name": "lift",
+        "comment": " Transforms an Elm command into a monadic command *CmdM*.",
+        "type": "Platform.Cmd.Cmd a -> CmdM.CmdM a"
+      },
+      {
+        "name": "map",
+        "comment": "Map a function over an *CmdM*.\n\n**Laws**\n- ```map (f >> g) = (map f) >> (map g)```\n- ```map identity = identity```\n",
+        "type": "(a -> b) -> CmdM.CmdM a -> CmdM.CmdM b"
+      },
+      {
+        "name": "mapM",
+        "comment": "Transform a list of *CmdM* into an *CmdM* of list.",
+        "type": "List (CmdM.CmdM a) -> CmdM.CmdM (List a)"
+      },
+      {
+        "name": "none",
+        "comment": "A *CmdM* doing nothing (an containing no values!).",
+        "type": "CmdM.CmdM a"
+      },
+      {
+        "name": "program",
+        "comment": "Port of *Platform*.program with *IO*.",
+        "type": "{ init : ( model, CmdM.CmdM msg ) , update : msg -> model -> ( model, CmdM.CmdM msg ) , subscriptions : model -> Platform.Sub.Sub (CmdM.CmdM msg) } -> CmdM.Program Basics.Never model msg"
+      },
+      {
+        "name": "programWithFlags",
+        "comment": "Port of *Platform.programWithFlags* with *CmdM*.",
+        "type": "{ init : flags -> ( model, CmdM.CmdM msg ) , update : msg -> model -> ( model, CmdM.CmdM msg ) , subscriptions : model -> Platform.Sub.Sub (CmdM.CmdM msg) } -> CmdM.Program flags model msg"
+      },
+      {
+        "name": "pure",
+        "comment": "Returns a *CmdM* whose only effect is containing the value given to *pure*.",
+        "type": "a -> CmdM.CmdM a"
+      },
+      {
+        "name": "transform",
+        "comment": "Transform a program using *IO* into a normal program.",
+        "type": "{ y | init : ( model, CmdM.CmdM msg ), update : msg -> model -> ( model, CmdM.CmdM msg ) } -> { y | init : ( model, Platform.Cmd.Cmd (CmdM.CmdM msg) ), update : CmdM.CmdM msg -> model -> ( model, Platform.Cmd.Cmd (CmdM.CmdM msg) ) }"
+      },
+      {
+        "name": "transformWithFlags",
+        "comment": "Transform a program using *CmdM* into a normal program.",
+        "type": "{ y | init : flags -> ( model, CmdM.CmdM msg ), update : msg -> model -> ( model, CmdM.CmdM msg ) } -> { y | init : flags -> ( model, Platform.Cmd.Cmd (CmdM.CmdM msg) ), update : CmdM.CmdM msg -> model -> ( model, Platform.Cmd.Cmd (CmdM.CmdM msg) ) }"
+      },
+      {
+        "name": "traverse",
+        "comment": "You can think of traverse like a *map* but with effects.\nIt maps a function performing `CmdM` effects over a list.\n",
+        "type": "(a -> CmdM.CmdM b) -> List a -> CmdM.CmdM (List b)"
+      },
+      {
+        "name": "vDomProgram",
+        "comment": "Port of *VirtualDom*.program with *CmdM* (also works with *HTML*).",
+        "type": "{ init : ( model, CmdM.CmdM msg ) , update : msg -> model -> ( model, CmdM.CmdM msg ) , subscriptions : model -> Platform.Sub.Sub (CmdM.CmdM msg) , view : model -> VirtualDom.Node (CmdM.CmdM msg) } -> CmdM.Program Basics.Never model msg"
+      },
+      {
+        "name": "vDomProgramWithFlags",
+        "comment": "Port of *VirtualDom.programWithFlags* with *CmdM* (also works with *Html*).",
+        "type": "{ init : flags -> ( model, CmdM.CmdM msg ) , update : msg -> model -> ( model, CmdM.CmdM msg ) , subscriptions : model -> Platform.Sub.Sub (CmdM.CmdM msg) , view : model -> VirtualDom.Node (CmdM.CmdM msg) } -> CmdM.Program flags model msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Lens",
+    "comment": " Imagine the type `a = {name: String, age : Int}`.\nIf you want to access the *age* part of this type\nor modify only the *age* this is simple you would use\n**Elm** syntax like `x.age` or `{x | age = 7 }` to ease\nthe process.\n\nNow imagine that the *a* is much much more complex, like\na record whose fields are also records and so on for 10 levels.\nElm does not have buitin syntax to ease this case. That's\nwhere lenses comes in.\n\nA lens is like zooming on a part of a type, enabling to access\nor modify this part with ease. It is strongly related to Huet's\nzipper.\n\nTake the a lens of type `Lens a b`. It enable to access the *a*\npart of *b* and modify it simply. The benefits of lenses is they\ncompose naturally.\n\n@docs Lens, lift, compose, congruence\n",
+    "aliases": [
+      {
+        "name": "Lens",
+        "comment": " The type of a lens ",
+        "args": [
+          "a",
+          "b"
+        ],
+        "type": "b -> ( a, a -> b )"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "compose",
+        "comment": " Compose two lenses.",
+        "type": "Lens.Lens a b -> Lens.Lens b c -> Lens.Lens a c"
+      },
+      {
+        "name": "congruence",
+        "comment": " If you have a lens from *a* to *b* and a function on *a*\nthen you get a function on *b*.\n",
+        "type": "Lens.Lens a b -> (a -> a) -> b -> b"
+      },
+      {
+        "name": "lift",
+        "comment": " Build a lens from an equivalence between types *a* and *b*.",
+        "type": "(a -> b) -> (b -> a) -> Lens.Lens a b"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

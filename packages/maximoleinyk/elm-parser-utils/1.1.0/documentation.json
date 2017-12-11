@@ -1,0 +1,351 @@
+[
+  {
+    "name": "BasicParsers",
+    "comment": " A set of simple parsers.\n\n\n# Character parsers\n\n@docs space, ampersand, apostrophe, at, backslash, circumflexAccent, closeBracket, colon, comma, dollar, doubleQuote, equals, exclamation, fullStop, graveAccent, greaterThan, hash, leftCurlyBracket, leftParenthesis, lessThan, minus, openBracket, percent, plus, questionMark, rightCurlyBracket, rightParenthesis, semicolon, slash, tilde, underscore, verticalBar, space\n\n\n# Number parsers\n\n@docs int, float\n\n\n# List parsers\n\n@docs commaSepList\n\n\n# Helper parsers\n\n@docs keyword, symbol, notSymbol\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "ampersand",
+        "comment": " Parser for `&` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "apostrophe",
+        "comment": " Parser for `'` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "at",
+        "comment": " Parser for `@` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "backslash",
+        "comment": " Parser for `` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "circumflexAccent",
+        "comment": " Parser for `^` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "closeBracket",
+        "comment": " Parser for `]` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "colon",
+        "comment": " Parser for `:` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "comma",
+        "comment": " Parser for `,` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "commaSepList",
+        "comment": " Parser for list of comma separated values. Type can be defined by a parameter\n\n    commaSepList IntList int\n    commaSepList FloatList float\n\n",
+        "type": "a -> ParserUtils.Parser a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "dollar",
+        "comment": " Parser for `$` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "doubleQuote",
+        "comment": " Parser for `\"` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "equals",
+        "comment": " Parser for `=` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "exclamation",
+        "comment": " Parser for `!` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "float",
+        "comment": " Parser for decimal number.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "fullStop",
+        "comment": " Parser for `.` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "graveAccent",
+        "comment": " Parser for ``` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "greaterThan",
+        "comment": " Parser for `>` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "hash",
+        "comment": " Parser for `#` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "int",
+        "comment": " Parser for integer number.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "keyword",
+        "comment": " Parser for string keys.\n",
+        "type": "String -> a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "leftCurlyBracket",
+        "comment": " Parser for `{` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "leftParenthesis",
+        "comment": " Parser for `(` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "lessThan",
+        "comment": " Parser for `<` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "minus",
+        "comment": " Parser for `-` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "notSymbol",
+        "comment": " Symbol parser that returns Ok if `char` parameter does not equal to\nthe next character in the sequence.\n",
+        "type": "Char -> a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "openBracket",
+        "comment": " Parser for `[` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "percent",
+        "comment": " Parser for `%` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "plus",
+        "comment": " Parser for `+` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "questionMark",
+        "comment": " Parser for `?` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "rightCurlyBracket",
+        "comment": " Parser for `}` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "rightParenthesis",
+        "comment": " Parser for `)` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "semicolon",
+        "comment": " Parser for `;` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "slash",
+        "comment": " Parser for `/` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "space",
+        "comment": " Parser for space symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "symbol",
+        "comment": " Symbol parser that returns Ok if `char` parameter equals to the next\ncharacter in the sequence.\n",
+        "type": "Char -> a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "tilde",
+        "comment": " Parser for `~` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "underscore",
+        "comment": " Parser for `_` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "verticalBar",
+        "comment": " Parser for `|` symbol.\n",
+        "type": "a -> ParserUtils.Parser a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "ParserUtils",
+    "comment": " A utility library for writing custom parsers.\n\n\n# Types\n\n@docs Parser, State, Token, Problem, Expecting\n\n\n# Basic parsers\n\n@docs identity, symbol, end\n\n\n# Utility parsers\n\n@docs maybeOne, oneOrMore, zeroOrMore, oneOf, sequence, repeat, squash, apply\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Expecting",
+        "comment": " Defines a token that is expected to be parsed next in the parser sequence.\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "ExpectingEnd",
+            []
+          ],
+          [
+            "ExpectingSingle",
+            [
+              "a"
+            ]
+          ],
+          [
+            "ExpectingList",
+            [
+              "List a"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Parser",
+        "comment": " Basic type which defined a parser.\n\nEach parser takes some state and produces result. Result can be either\npositive or negative (@see Result module). Positive means provided text\nwas parsed successfully, or negative - parse operation was failed. In\ncase of positive result there will be a new state returned (@see State).\nIn case of fail Problem type would be returned (@see Problem).\n\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Parser",
+            [
+              "ParserUtils.State a -> Result.Result (ParserUtils.Problem a) (ParserUtils.State a)"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Problem",
+        "comment": " Problem type which represents an error that occurred during parsing.\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Problem",
+            [
+              "{ latestState : ParserUtils.State a , expecting : ParserUtils.Expecting a , offset : Int }"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "State",
+        "comment": " A type which represents state of parsed text.\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "State",
+            [
+              "{ source : String , offset : Int , tokens : List (ParserUtils.Token a) }"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Token",
+        "comment": " A type which represents parsed token.\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Token",
+            [
+              "{ state : a, position : Int, value : String }"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "apply",
+        "comment": " Utility function that calls parser with a given state.\n\n    let\n        initialState =\n            State\n                { source = source\n                , offset = 0\n                , tokens = []\n                }\n        parser =\n            Parser <| \\state -> Ok state\n\n    in\n    apply state parser\n\n",
+        "type": "ParserUtils.State a -> ParserUtils.Parser a -> Result.Result (ParserUtils.Problem a) (ParserUtils.State a)"
+      },
+      {
+        "name": "end",
+        "comment": " Parser that throws an error in case if we have more characters to parse\nbut we reached the end of the parser chain.\n\n    let\n        start =\n            keyword \"string\" StringWord\n\n        initialState =\n            State\n                { source = \"string to be parsed\"\n                , offset = 0\n                , tokens = []\n                }\n    in\n    apply initialState <| sequence [ start, end ]\n\n",
+        "type": "ParserUtils.Parser a"
+      },
+      {
+        "name": "identity",
+        "comment": " } A parser which always returns Ok with a given state. It can be used in\ncases where you just need to return some parser while nothing should be parsed.\n\n    let\n        parser =\n            if condition then\n                symbol (\\c -> c == '.') DotToken\n            else\n                identity\n    in\n    apply state parser\n\n",
+        "type": "ParserUtils.Parser a"
+      },
+      {
+        "name": "maybeOne",
+        "comment": " Calls given parser exactly once. In case of fail returns initial state.\n\n    number : Parser Token\n    number =\n        sequence\n            [ maybeOne <|\n                oneOf\n                    [ plus\n                    , minus\n                    ]\n            , digits\n            ]\n\n",
+        "type": "ParserUtils.Parser a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "oneOf",
+        "comment": " Tries to parse one by one parsers provided in the list and fails if non of\nthem were successful.\n\n    numberParser : Parser\n    numberParser =\n        oneOf\n            [ float\n            , int\n            ]\n\n",
+        "type": "List (ParserUtils.Parser a) -> ParserUtils.Parser a"
+      },
+      {
+        "name": "oneOrMore",
+        "comment": " Calls parser at least once. Returns (Err Problem) if was unable to parse\nat least once.\n\n      oneOrMoreSpaces : Parser Spaces\n      oneOrMoreSpaces =\n          oneOrMore <| symbol (\\c -> c == ' ') Spaces\n\n",
+        "type": "ParserUtils.Parser a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "repeat",
+        "comment": " Keeps calling a given parser as many times as possible. Returns Err\nif nothing was parsed.\n\n    nonBreakingWord : Parser Symbol\n    nonBreakingWord =\n        let\n            notSpace =\n                symbol (\\c -> c /= ' ') Symbol\n        in\n        repeat notSpace\n\n",
+        "type": "ParserUtils.Parser a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "sequence",
+        "comment": " Calls sequence of parsers in defined order. Returns Ok in case if all of\nthem returned Ok result. Returns Err if any of parsers returned false result.\n\n    keyword : String -> a -> Parser a\n    keyword key context =\n        let\n            mapper =\n                \\char -> symbol char context\n\n            chars =\n                String.toList key\n        in\n        squash context <|\n            sequence <|\n                List.map mapper chars\n\n",
+        "type": "List (ParserUtils.Parser a) -> ParserUtils.Parser a"
+      },
+      {
+        "name": "squash",
+        "comment": " After parsing multiple symbols state will be updated with multiple items\naka tokens. This function allows to merged (squash) multiple tokens into a\nsingle one.\n\n    isNotOperator : Parser Operator\n    isNotOperator =\n        let\n            context =\n                Operator\n        in\n        squash context <|\n            sequence\n                [ keyword \"is\" context\n                , spaces AtLeastOne\n                , keyword \"not\" context\n                ]\n\n",
+        "type": "a -> ParserUtils.Parser a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "symbol",
+        "comment": " A single character parser. You can use `sequence` parser to achieve more\ncomplicated logic (@see sequence).\n\n    space : Parser Space\n    space =\n        symbol (\\c -> c == ' ') Space\n\n",
+        "type": "(Char -> Bool) -> a -> ParserUtils.Parser a"
+      },
+      {
+        "name": "zeroOrMore",
+        "comment": " Calls parser zero or more times. Always returns (Ok State).\n\n    zeroOrMoreSpaces : Parser Spaces\n    zeroOrMoreSpaces =\n        zeroOrMore <| symbol (\\c -> c == ' ') Spaces\n\n",
+        "type": "ParserUtils.Parser a -> ParserUtils.Parser a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

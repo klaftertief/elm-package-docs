@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Tuple.Infix",
+    "comment": " Helpers functions I like to use in my projects\n\n\n# Infix functions\n\n@docs (&), (:=), (|&)\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "&",
+        "comment": " An infix function that tuples two elements, often used at the end of an update function\n\n    model & cmd == (model, cmd)\n\n",
+        "type": "a -> b -> ( a, b )",
+        "associativity": "left",
+        "precedence": 0
+      },
+      {
+        "name": ":=",
+        "comment": " An infix function that tuples two elements, used to convey \"defined as\" like in inline styles and Json encoding\n\n    [ \"type\" := Encode.string type_\n    , \"payload\" := payload\n    ]\n        |> Encode.object\n\n",
+        "type": "a -> b -> ( a, b )",
+        "associativity": "left",
+        "precedence": 0
+      },
+      {
+        "name": "|&",
+        "comment": " Sometimes `Msg` lead to complicated cmds, but not complicated model updates, and its hard to pipe stuff together when the second part of a tuple is complicated. `|&` tuples but it switches the elements.\n\n    YahooDotCom\n        |> Page.toUrl\n        |> GoToPage\n        |> Ports.send\n        |& model\n\n",
+        "type": "a -> b -> ( b, a )",
+        "associativity": "left",
+        "precedence": 0
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

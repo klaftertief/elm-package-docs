@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Stream",
+    "comment": " Fast and simple stream library for Elm. Create streams of data or flatten\nmultiple operations over lists.\n\n\n# Stream Type\n\n@docs Stream\n\n\n# Use Streams with Lists\n\n@docs fromList, toList\n\n\n# Create Streams\n\n@docs singleton, empty, range, create, continue, stop\n\n\n# Add to Streams\n\n@docs cons, append\n\n\n# Transform Streams\n\n@docs map, filter, take, takeWhile, concatMap\n\n",
+    "aliases": [
+      {
+        "name": "Stream",
+        "comment": " Represent a stream with a thunk. Streams let you efficiently and lazily\ntransform values. Streams flatten operations like [`map`](#map) and\n[`filter`](#filter) so you don't have to iterate through a stream multiple\ntimes like a list.\n\n    Stream.range 1 1000\n        |> Stream.map (\\n -> n * 2)\n        |> Stream.filter (\\n -> n > 10)\n        |> Stream.take 3\n        |> Stream.toList == [12, 14, 16]\n\nYou can use streams with lists of data too.\n\n    [1, 2, 3, 4, 5]\n        |> Stream.fromList\n        |> Stream.map (\\n -> 2 ^ n)\n        |> Stream.filter (\\n -> n > 8)\n        |> Stream.toList == [16, 32]\n\n",
+        "args": [
+          "a"
+        ],
+        "type": "() -> Stream.StreamElement a"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "append",
+        "comment": " Combine two streams.\n\n    append (range 1 3) (range 4 6)\n        |> toList == [1, 2, 3, 4, 5, 6]\n\n",
+        "type": "Stream.Stream a -> Stream.Stream a -> Stream.Stream a"
+      },
+      {
+        "name": "concatMap",
+        "comment": " Map values to streams and flatten the resulting streams.\n\n    -- Convert list of words to stream of letters\n    [\"hello\", \"there\"]\n        |> fromList\n        |> concatMap (\\word -> word |> String.split \"\" |> fromList)\n        |> toList == [\"h\", \"e\", \"l\", \"l\", \"o\", \"t\", \"h\", \"e\", \"r\", \"e\"]\n\n    -- Flatten inner stream ranges\n    range 1 3\n        |> concatMap (\\n -> range n (n + 2))\n        |> toList == [1, 2, 3, 2, 3, 4, 3, 4, 5]\n\n    -- Skip values with `empty`\n    range 1 10\n        |> concatMap\n            (\\n ->\n                if n < 6 then\n                    empty\n                else\n                    singleton n\n            )\n        |> toList [6, 7, 8, 9, 10]\n\n",
+        "type": "(a -> Stream.Stream b) -> Stream.Stream a -> Stream.Stream b"
+      },
+      {
+        "name": "cons",
+        "comment": " Add a value to the beginning of a stream.\n\n    cons (singleton 1) (singleton 2)\n        |> toList == [1, 2]\n\n",
+        "type": "a -> Stream.Stream a -> Stream.Stream a"
+      },
+      {
+        "name": "continue",
+        "comment": " Used with [`create`](#create) to continue the stream with a new value.\n\n    naturalNumbers =\n        create (\\n -> continue (n + 1)) 1\n\n",
+        "type": "a -> Stream.Next a"
+      },
+      {
+        "name": "create",
+        "comment": " Create a stream with a generator function to produce\neach value based on the previous value. Return the next value wrapped in\n[`continue`](#continue) or stop the stream by returning [`stop`](#stop).\nProvide the initial value as the second argument to `create`.\n\n    naturalNumbers =\n        create (\\n -> continue (n + 1)) 1\n\n    upTo5 =\n        create\n            (\\n ->\n                if n < 5 then\n                    continue (n + 1)\n                else\n                    stop\n            )\n            1\n\n",
+        "type": "(a -> Stream.Next a) -> a -> Stream.Stream a"
+      },
+      {
+        "name": "empty",
+        "comment": " A stream with no values.\n\n    empty\n        |> toList == []\n\n",
+        "type": "Stream.Stream a"
+      },
+      {
+        "name": "filter",
+        "comment": " Keep values that return `True` for the provided function.\n\n    range 1 10\n        |> filter (\\n -> n > 7)\n        |> toList == [8, 9, 10]\n\n",
+        "type": "(a -> Bool) -> Stream.Stream a -> Stream.Stream a"
+      },
+      {
+        "name": "fromList",
+        "comment": " Create a stream from a list.\n\n    fromList [1, 2, 3]\n\n",
+        "type": "List a -> Stream.Stream a"
+      },
+      {
+        "name": "map",
+        "comment": " Transform every value in a stream with a function.\n\n    [1, 2, 3]\n        |> fromList\n        |> map (\\n -> n * 2)\n        |> toList == [2, 4, 6]\n\n",
+        "type": "(a -> b) -> Stream.Stream a -> Stream.Stream b"
+      },
+      {
+        "name": "range",
+        "comment": " Create a stream of numbers with each number increasing by one. Provide the\nstarting and ending number as arguments.\n\n    range 1 10\n        |> toList == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\n",
+        "type": "Int -> Int -> Stream.Stream Int"
+      },
+      {
+        "name": "singleton",
+        "comment": " Create a stream with a single value.\n\n    singleton 42\n        |> toList == [42]\n\n",
+        "type": "a -> Stream.Stream a"
+      },
+      {
+        "name": "stop",
+        "comment": " Used with [`create`](#create) to stop the stream.\n\n    upTo5 =\n        create\n            (\\n ->\n                if n < 5 then\n                    continue (n + 1)\n                else\n                    stop\n            )\n            1\n\n",
+        "type": "Stream.Next a"
+      },
+      {
+        "name": "take",
+        "comment": " Take only up to *n* values from the stream. Useful for consuming infinite\nstreams.\n\n    naturalNumbers =\n        create (\\n -> continue (n + 1)) 1\n\n    naturalNumbers\n        |> take 3\n        |> toList == [1, 2, 3]\n\n",
+        "type": "Int -> Stream.Stream a -> Stream.Stream a"
+      },
+      {
+        "name": "takeWhile",
+        "comment": " Take values as long as the predicate function returns true.\n\n    range 1 10\n        |> takeWhile (\\n -> n < 6)\n        |> toList == [1, 2, 3, 4, 5]\n\n",
+        "type": "(a -> Bool) -> Stream.Stream a -> Stream.Stream a"
+      },
+      {
+        "name": "toList",
+        "comment": " Convert a stream into a list. Evaluates every value in a stream. Be careful\nwith infinite streams, so use [`take`](#take) before calling.\n\n    [1, 2, 3]\n        |> fromList\n        |> toList == [1, 2, 3]\n\n",
+        "type": "Stream.Stream a -> List a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

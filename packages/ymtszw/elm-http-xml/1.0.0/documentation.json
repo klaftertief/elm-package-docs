@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Http.Xml",
+    "comment": " Generates HTTP request for XML API.\n\nUsing [`Xml.Decode`][xd] for decoding XML response into Elm value.\n\n[xd]: http://package.elm-lang.org/packages/ymtszw/elm-xml-decode/latest/Xml-Decode\n\n\n# Request Builders\n\n@docs request, get, post, put, patch\n\n\n# Request Body\n\n@docs xmlBody\n\n\n# Response Expectation\n\n@docs expectXml\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "expectXml",
+        "comment": " Expect the response body to be XML.\n\nYou provide [`Xml.Decode.Decoder`][xdd] to decode that XML into Elm value.\n\n[xdd]: http://package.elm-lang.org/packages/ymtszw/elm-xml-decode/latest/Xml-Decode#Decoder\n\n",
+        "type": "Xml.Decode.Decoder a -> Http.Expect a"
+      },
+      {
+        "name": "get",
+        "comment": " Create a GET request.\n",
+        "type": "String -> Xml.Decode.Decoder a -> Http.Request a"
+      },
+      {
+        "name": "patch",
+        "comment": " Create a PATCH request.\n",
+        "type": "String -> Http.Body -> Xml.Decode.Decoder a -> Http.Request a"
+      },
+      {
+        "name": "post",
+        "comment": " Create a POST request.\n",
+        "type": "String -> Http.Body -> Xml.Decode.Decoder a -> Http.Request a"
+      },
+      {
+        "name": "put",
+        "comment": " Create a PUT request.\n",
+        "type": "String -> Http.Body -> Xml.Decode.Decoder a -> Http.Request a"
+      },
+      {
+        "name": "request",
+        "comment": " Create a request to URL that returns XML. Adding `Accept: application/xml` header.\n\nIt tries to decode XML response to Elm value.\n\n    import Http\n    import Xml.Decode exposing (single, string)\n\n    getXml : Request String\n    getXml =\n        request \"GET\" [] \"https://example.com/xml\" Http.emptyBody (single string)\n\n",
+        "type": "String -> List Http.Header -> String -> Http.Body -> Xml.Decode.Decoder a -> Http.Request a"
+      },
+      {
+        "name": "xmlBody",
+        "comment": " Put an XML string in the body. Adding `Content-type: application/xml` header.\n",
+        "type": "String -> Http.Body"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

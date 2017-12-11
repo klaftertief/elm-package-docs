@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Loader",
+    "comment": " This library allow to show different SVG loaders.\n\nSource: <https://codepen.io/aurer/pen/jEGbA>\n\n\n# Definition\n\n@docs Style, Options, defaultOptions\n\n\n# Loader\n\n@docs loader, loaderWithOptions\n\n",
+    "aliases": [
+      {
+        "name": "Options",
+        "comment": " Options to customize the loader\n",
+        "args": [],
+        "type": "{ scale : Float, color : Color.Color, style : Loader.Style }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Style",
+        "comment": " Different loader styles\n",
+        "args": [],
+        "cases": [
+          [
+            "Style1",
+            []
+          ],
+          [
+            "Style2",
+            []
+          ],
+          [
+            "Style3",
+            []
+          ],
+          [
+            "Style4",
+            []
+          ],
+          [
+            "Style5",
+            []
+          ],
+          [
+            "Style6",
+            []
+          ],
+          [
+            "Style7",
+            []
+          ],
+          [
+            "Style8",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultOptions",
+        "comment": " Default options\n",
+        "type": "Loader.Options"
+      },
+      {
+        "name": "loader",
+        "comment": " Include a loader with default options\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "loaderWithOptions",
+        "comment": " Include a loader with passed options\n",
+        "type": "Loader.Options -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

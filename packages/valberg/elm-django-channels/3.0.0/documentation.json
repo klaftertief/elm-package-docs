@@ -1,0 +1,94 @@
+[
+  {
+    "name": "DjangoChannels.Initial",
+    "comment": "\n\n# Definition\n@docs InitialStreamHandler\n\n# Utilities\n@docs handleInitialStream\n\n",
+    "aliases": [
+      {
+        "name": "InitialStreamHandler",
+        "comment": " ",
+        "args": [
+          "pkType",
+          "instanceType"
+        ],
+        "type": "{ instanceDecoder : Json.Decode.Decoder instanceType , pkDecoder : Json.Decode.Decoder pkType }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "handleInitialStream",
+        "comment": " ",
+        "type": "DjangoChannels.Initial.InitialStreamHandler pkType instanceType -> String -> List ( pkType, instanceType )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "DjangoChannels.Binding",
+    "comment": "\n\n# Definition\n@docs BindingStreamHandler\n\n# Utilities\n@docs handleBindingStream\n\n# Default operations\n@docs defaultCreate, defaultUpdate, defaultDelete\n\n# Functions for sending data back to server\n@docs createInstance, updateInstance, deleteInstance\n\n",
+    "aliases": [
+      {
+        "name": "BindingStreamHandler",
+        "comment": " BindingStreamHandler defines how we should deal with a specific WebsocketBinding stream.\n",
+        "args": [
+          "pkType",
+          "instanceType"
+        ],
+        "type": "{ websocketServer : String , streamName : String , instanceDecoder : Json.Decode.Decoder instanceType , instanceEncoder : instanceType -> Json.Encode.Value , pkDecoder : Json.Decode.Decoder pkType , pkEncoder : pkType -> Json.Encode.Value , createFunc : instanceType -> pkType -> List ( pkType, instanceType ) -> List ( pkType, instanceType ) , updateFunc : instanceType -> pkType -> List ( pkType, instanceType ) -> List ( pkType, instanceType ) , deleteFunc : pkType -> List ( pkType, instanceType ) -> List ( pkType, instanceType ) }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "createInstance",
+        "comment": " ",
+        "type": "DjangoChannels.Binding.BindingStreamHandler pkType instanceType -> instanceType -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "defaultCreate",
+        "comment": " Default function for creating an instance.\n",
+        "type": "instanceType -> pkType -> List ( pkType, instanceType ) -> List ( pkType, instanceType )"
+      },
+      {
+        "name": "defaultDelete",
+        "comment": " Default function for deleting an instance given a pk.\n",
+        "type": "pkType -> List ( pkType, instanceType ) -> List ( pkType, instanceType )"
+      },
+      {
+        "name": "defaultUpdate",
+        "comment": " Default function for updating an instance.\n",
+        "type": "instanceType -> pkType -> List ( pkType, instanceType ) -> List ( pkType, instanceType )"
+      },
+      {
+        "name": "deleteInstance",
+        "comment": " ",
+        "type": "DjangoChannels.Binding.BindingStreamHandler pkType instanceType -> pkType -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "handleBindingStream",
+        "comment": " Handle data on a given BindingStreamHandler.\n",
+        "type": "DjangoChannels.Binding.BindingStreamHandler pkType instanceType -> String -> List ( pkType, instanceType ) -> List ( pkType, instanceType )"
+      },
+      {
+        "name": "updateInstance",
+        "comment": " ",
+        "type": "DjangoChannels.Binding.BindingStreamHandler pkType instanceType -> pkType -> instanceType -> Platform.Cmd.Cmd msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "DjangoChannels",
+    "comment": "\n\n# Utilities\n@docs streamDemultiplexer\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "streamDemultiplexer",
+        "comment": " Deal with streams from a WebsocketDemultiplexer.\n",
+        "type": "String -> (String -> streamType) -> streamType -> streamType"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
