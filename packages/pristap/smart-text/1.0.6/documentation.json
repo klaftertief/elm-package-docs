@@ -1,0 +1,42 @@
+[
+  {
+    "name": "SmartText",
+    "comment": " Parse message content using the `parse` function. Returns elements that can be rendered.\n# Parsing Function\n@docs parse\n# Return Type\n@docs Element\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Element",
+        "comment": "",
+        "args": [],
+        "cases": [
+          [
+            "HashTag",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Mention",
+            [
+              "String"
+            ]
+          ],
+          [
+            "Text",
+            [
+              "String"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "parse",
+        "comment": " Parsing Function\n    tweet = SmartText.parse \"Sample #smart_text 👨🏻‍💻 with ❤️ by @kexoth.\"\n    > [Text \"Sample \",HashTag \"#smart_text\",Text \" 👨🏻‍💻 with ❤️ by \",Mention \"@kexoth\",Text \".\"]\n        : List SmartText.Element\n",
+        "type": "String -> List SmartText.Element"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

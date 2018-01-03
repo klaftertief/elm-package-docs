@@ -1,0 +1,112 @@
+[
+  {
+    "name": "PAAPI",
+    "comment": " Amazon Product Advertising API (PAAPI) Client module.\n\nPerforms AWS V2 signing for request authentication.\n\n<http://docs.aws.amazon.com/AWSECommerceService/latest/DG/Query_QueryAuth.html>\n\nIt uses GET request with query strings in URL.\n\n\n## Types\n\n@docs Locale, Credentials, AssociateTag, Error\n\n\n## APIs\n\n@docs get, doGet\n\n\n## Helpers\n\n@docs endpoint\n\n",
+    "aliases": [
+      {
+        "name": "AssociateTag",
+        "comment": " Associate tag required for PAAPI.\n\n<https://docs.aws.amazon.com/AWSECommerceService/latest/DG/AssociateTag.html>\n\n",
+        "args": [],
+        "type": "String"
+      },
+      {
+        "name": "Credentials",
+        "comment": " Credentials required for PAAPI.\n",
+        "args": [],
+        "type": "{ accessKeyId : String, secretAccessKey : String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Error",
+        "comment": " Error representation of PAAPI.\n\nIn case of rate-limit, PAAPI returns HTTP 503,\nthat will be translated to `RateLimit`.\nOther `Http.Error` will be wrapped in `HttpError`.\n\n",
+        "args": [],
+        "cases": [
+          [
+            "RateLimit",
+            []
+          ],
+          [
+            "HttpError",
+            [
+              "Http.Error"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Locale",
+        "comment": " Locales available in PAAPI.\n\n<https://docs.aws.amazon.com/AWSECommerceService/latest/DG/Locales.html>\n\n",
+        "args": [],
+        "cases": [
+          [
+            "BR",
+            []
+          ],
+          [
+            "CA",
+            []
+          ],
+          [
+            "CN",
+            []
+          ],
+          [
+            "FR",
+            []
+          ],
+          [
+            "DE",
+            []
+          ],
+          [
+            "IN",
+            []
+          ],
+          [
+            "IT",
+            []
+          ],
+          [
+            "JP",
+            []
+          ],
+          [
+            "MX",
+            []
+          ],
+          [
+            "ES",
+            []
+          ],
+          [
+            "UK",
+            []
+          ],
+          [
+            "US",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "doGet",
+        "comment": " Task to attempt requesting PAAPI.\n\nIt fetches current time and generate GET request to PAAPI, then send it.\n\n",
+        "type": "PAAPI.Locale -> PAAPI.Credentials -> PAAPI.AssociateTag -> Xml.Decode.Decoder a -> List ( String, String ) -> Task.Task PAAPI.Error a"
+      },
+      {
+        "name": "endpoint",
+        "comment": " Dict of `Locale` to endpoint domain.\n",
+        "type": "PAAPI.Locale -> String"
+      },
+      {
+        "name": "get",
+        "comment": " Generate `Http.Request` to PAAPI.\n\nAlways uses GET method.\n\n",
+        "type": "Time.Time -> PAAPI.Locale -> PAAPI.Credentials -> PAAPI.AssociateTag -> Xml.Decode.Decoder a -> List ( String, String ) -> Http.Request a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

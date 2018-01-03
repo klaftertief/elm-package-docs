@@ -1,0 +1,313 @@
+[
+  {
+    "name": "QueryBuilder.Update",
+    "comment": "\n\n\n# Update\n\n@docs update, initState\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "initState",
+        "comment": " initState\n",
+        "type": "QueryBuilder.State.Config -> QueryBuilder.State.Predicate -> List ( String, QueryBuilder.State.OperandType ) -> QueryBuilder.State.State"
+      },
+      {
+        "name": "update",
+        "comment": " update\n",
+        "type": "QueryBuilder.State.Msg -> QueryBuilder.State.State -> ( QueryBuilder.State.State , Platform.Cmd.Cmd QueryBuilder.State.Msg )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "QueryBuilder.View",
+    "comment": "\n\n\n# Update\n\n@docs queryBuilder, dropdownCss\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "dropdownCss",
+        "comment": " dropdownCss\n",
+        "type": "Html.Styled.Attribute QueryBuilder.State.Msg"
+      },
+      {
+        "name": "queryBuilder",
+        "comment": " queryBuilder\n",
+        "type": "QueryBuilder.State.State -> Html.Styled.Html QueryBuilder.State.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "QueryBuilder.State",
+    "comment": "\n\n\n# State\n\n@docs State, OperandType, PredicateOperator, Predicate, Operand, StringOperand, StringOperator, OptionOperand, NumberOperand, NumberOperator, BooleanOperand, Selector, Operator, Config, Msg\n\n",
+    "aliases": [
+      {
+        "name": "BooleanOperand",
+        "comment": " BooleanOperand\n",
+        "args": [],
+        "type": "{ attribute : String, negated : Bool, operator : Bool }"
+      },
+      {
+        "name": "Config",
+        "comment": " Config\n",
+        "args": [],
+        "type": "{ dropdownCss : Maybe.Maybe (Html.Styled.Attribute QueryBuilder.State.Msg) , removeClass : Maybe.Maybe String , addClass : Maybe.Maybe String , allowNegation : Bool }"
+      },
+      {
+        "name": "NumberOperand",
+        "comment": " NumberOperand\n",
+        "args": [],
+        "type": "{ attribute : String , operator : QueryBuilder.State.NumberOperator , negated : Bool , value : String }"
+      },
+      {
+        "name": "OptionOperand",
+        "comment": " OptionOperand\n",
+        "args": [],
+        "type": "{ attribute : String, negated : Bool, operator : String }"
+      },
+      {
+        "name": "Predicate",
+        "comment": " Predicate\n",
+        "args": [],
+        "type": "List QueryBuilder.State.Operand"
+      },
+      {
+        "name": "Selector",
+        "comment": " Selector\n",
+        "args": [],
+        "type": "{ dropdown : Dropdown.State , dropdownId : String , options : List QueryBuilder.State.Operator }"
+      },
+      {
+        "name": "State",
+        "comment": " State\n",
+        "args": [],
+        "type": "{ predicate : QueryBuilder.State.Predicate , predicateOperator : QueryBuilder.State.PredicateOperator , selectorState : List QueryBuilder.State.Selector , allAttributes : List ( String, QueryBuilder.State.OperandType ) , dropdownConfig : Int -> Dropdown.Config QueryBuilder.State.Msg QueryBuilder.State.Operator , config : QueryBuilder.State.Config , nextId : String }"
+      },
+      {
+        "name": "StringOperand",
+        "comment": " StringOperand\n",
+        "args": [],
+        "type": "{ attribute : String , operator : QueryBuilder.State.StringOperator , value : String }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Msg",
+        "comment": " Msg\n",
+        "args": [],
+        "cases": [
+          [
+            "AddOp",
+            []
+          ],
+          [
+            "RemoveOp",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "Negated",
+            [
+              "Int"
+            ]
+          ],
+          [
+            "UpdateValue",
+            [
+              "Int",
+              "String"
+            ]
+          ],
+          [
+            "OnSelect",
+            [
+              "Int",
+              "Maybe.Maybe QueryBuilder.State.Operator"
+            ]
+          ],
+          [
+            "DropdownMsg",
+            [
+              "Int",
+              "Dropdown.Msg QueryBuilder.State.Operator"
+            ]
+          ],
+          [
+            "UpdatePredicateOperator",
+            [
+              "QueryBuilder.State.PredicateOperator"
+            ]
+          ],
+          [
+            "RandomId",
+            [
+              "String"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "NumberOperator",
+        "comment": " NumberOperator\n",
+        "args": [],
+        "cases": [
+          [
+            "EqualTo",
+            []
+          ],
+          [
+            "GreaterThan",
+            []
+          ],
+          [
+            "GreaterThanOrEqualTo",
+            []
+          ],
+          [
+            "LessThan",
+            []
+          ],
+          [
+            "LessThanOrEqualTo",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Operand",
+        "comment": " Operand\n",
+        "args": [],
+        "cases": [
+          [
+            "NoOp",
+            []
+          ],
+          [
+            "StringOp",
+            [
+              "QueryBuilder.State.StringOperand"
+            ]
+          ],
+          [
+            "OptionOp",
+            [
+              "List String",
+              "QueryBuilder.State.OptionOperand"
+            ]
+          ],
+          [
+            "NumOp",
+            [
+              "QueryBuilder.State.NumberOperand"
+            ]
+          ],
+          [
+            "BoolOp",
+            [
+              "QueryBuilder.State.BooleanOperand"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "OperandType",
+        "comment": " OperandType\n",
+        "args": [],
+        "cases": [
+          [
+            "IsString",
+            []
+          ],
+          [
+            "IsOption",
+            [
+              "List String"
+            ]
+          ],
+          [
+            "IsNumber",
+            []
+          ],
+          [
+            "IsBoolean",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Operator",
+        "comment": " Operator\n",
+        "args": [],
+        "cases": [
+          [
+            "ChooseRator",
+            [
+              "( String, QueryBuilder.State.OperandType )"
+            ]
+          ],
+          [
+            "StringRator",
+            [
+              "QueryBuilder.State.StringOperator"
+            ]
+          ],
+          [
+            "OptionRator",
+            [
+              "String"
+            ]
+          ],
+          [
+            "NumberRator",
+            [
+              "QueryBuilder.State.NumberOperator"
+            ]
+          ],
+          [
+            "BooleanRator",
+            [
+              "Bool"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "PredicateOperator",
+        "comment": " PredicateOperator\n",
+        "args": [],
+        "cases": [
+          [
+            "And",
+            []
+          ],
+          [
+            "Or",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "StringOperator",
+        "comment": " StringOperator\n",
+        "args": [],
+        "cases": [
+          [
+            "ExactMatch",
+            []
+          ],
+          [
+            "Contains",
+            []
+          ],
+          [
+            "DoesNotContain",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

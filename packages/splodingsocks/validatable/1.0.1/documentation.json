@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Validatable",
+    "comment": " A library for storing data that can be invalid, and for checking it.\n\nSee the README for an example.\n\n\n# Types\n\n@docs Validatable, Validator, SimpleValidatableString\n\n\n# For getting data onto the model initially\n\nYou can use `init`, or use the constructors for `Validatable` by hand.\n\n@docs init\n\n\n# For resetting a field's state\n\n@docs reset\n\n\n# Building validators\n\n@docs validator, withDelayed, withLive\n\n\n# For the update function\n\n@docs runAll, runLive\n\n\n# For the view function\n\n@docs getValue, getOneError, isValid, getErrors\n\n",
+    "aliases": [
+      {
+        "name": "SimpleValidatableString",
+        "comment": " A Shortcut for `Validatable String String`. It just means that your errors are human-readable strings, and your value is a string as well, which is a common configuration.\n",
+        "args": [],
+        "type": "Validatable.Validatable String String"
+      }
+    ],
+    "types": [
+      {
+        "name": "Validatable",
+        "comment": " A type that represents a value that can possibly be invalid, and its associated errors.\nYou'll want to check this value in your update function with `reset`, `runAll`, or `runLive`\n",
+        "args": [
+          "error",
+          "value"
+        ],
+        "cases": [
+          [
+            "Valid",
+            [
+              "value"
+            ]
+          ],
+          [
+            "Invalid",
+            [
+              "value",
+              "List error"
+            ]
+          ],
+          [
+            "Debouncing",
+            [
+              "value",
+              "{ liveErrors : List error }"
+            ]
+          ],
+          [
+            "NotChecked",
+            [
+              "value"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Validator",
+        "comment": " An opaque type which represents a number of checks, both live and delayed, that can be run on a `Validatable`.\n",
+        "args": [
+          "error",
+          "value"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "getErrors",
+        "comment": " Gets any errors for this field. If the field has no errors, produces an empty list.\n",
+        "type": "Validatable.Validatable error value -> List error"
+      },
+      {
+        "name": "getOneError",
+        "comment": " Gets the first error for the field, giving precedence to live errors.\n",
+        "type": "Validatable.Validatable error value -> Maybe.Maybe error"
+      },
+      {
+        "name": "getValue",
+        "comment": " Returns the value of a validatable, no matter what state it's in.\n",
+        "type": "Validatable.Validatable error value -> value"
+      },
+      {
+        "name": "init",
+        "comment": " Puts a field into a not-checked state\n",
+        "type": "value -> Validatable.Validatable error value"
+      },
+      {
+        "name": "isValid",
+        "comment": " Returns True if the field has no errors, and has been debounced (if necessary). Otherwise returns tacos. Just kidding. False. Otherwise it returns False.\n",
+        "type": "Validatable.Validatable error value -> Bool"
+      },
+      {
+        "name": "reset",
+        "comment": " Puts the field back into a \"NotChecked\" state. Good for forms that the user hasn't edited yet,\nso you don't want to show any errors, but the form isn't valid, either.\n",
+        "type": "Validatable.Validatable error value -> Validatable.Validatable error value"
+      },
+      {
+        "name": "runAll",
+        "comment": " Runs both live and delayed validations. Use this when your field has debounced.\n",
+        "type": "Validatable.Validator error value -> Validatable.Validatable error value -> Validatable.Validatable error value"
+      },
+      {
+        "name": "runLive",
+        "comment": " Runs only the live validations. Use this immediately when your field is edited, whether it also uses delayed validations or not.\n",
+        "type": "Validatable.Validator error value -> Validatable.Validatable error value -> Validatable.Validatable error value"
+      },
+      {
+        "name": "validator",
+        "comment": " A basic validator that checks nothing. It's intended to be augmented with `withLive` or `withDelayed`.\n",
+        "type": "Validatable.Validator error value"
+      },
+      {
+        "name": "withDelayed",
+        "comment": " Augment a validator with a new delayed validation. Something like this:\n\n(`ifInvalidEmail` comes from [elm-validate](http://package.elm-lang.org/packages/rtfeldman/elm-validate/1.1.3/Validate))\n\n    emailValidator : Validator String String\n    emailValidator =\n        validator\n            |> withLive (ifBlank \"Hey, I need an email!\")\n            |> withDelayed (ifInvalidEmail \"Sorry, that doesn't look like an email\")\n\n",
+        "type": "Validate.Validator error value -> Validatable.Validator error value -> Validatable.Validator error value"
+      },
+      {
+        "name": "withLive",
+        "comment": " Augment a validator with a new live validation. Something like this:\n\n(`ifBlank` comes from [elm-validate](http://package.elm-lang.org/packages/rtfeldman/elm-validate/1.1.3/Validate))\n\n    emailValidator : Validator String String\n    emailValidator =\n        validator\n            |> withLive (ifBlank \"Hey, I need an email!\")\n\n\n    -- Don't worry. in the example for `withDelayed` we'll actually validate that it's an email.\n\n",
+        "type": "Validate.Validator error value -> Validatable.Validator error value -> Validatable.Validator error value"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

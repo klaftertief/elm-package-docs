@@ -1,0 +1,453 @@
+[
+  {
+    "name": "Dom.Keyed",
+    "comment": " Support for the VirtualDom `keyedNode` optimization\n\nFrom the *elm-lang/html* documentation:\n\n> A keyed node helps optimize cases where children are getting added, moved,\n> removed, etc. Common examples include:\n>\n>  - The user can delete items from a list.\n>  - The user can create new items in a list.\n>  - You can sort a list based on name or date or whatever.\n>\n> When you use a keyed node, every child is paired with a string identifier. This\n> makes it possible for the underlying diffing algorithm to reuse nodes more\n> efficiently.\"\n\n@docs container, node\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "container",
+        "comment": " Construct a container element where the child nodes are keyed with unique\nidentifiers in order to optimize updates to the Dom; the first argument gives\nthe tag, the second argument is a boolean indicating whether the `lazy`\noptimization should also be applied to the keyed children, and the third\nargument is a list of keyed element records.\n\n",
+        "type": "String -> Bool -> List ( String, Dom.Element msg ) -> Dom.Element msg"
+      },
+      {
+        "name": "node",
+        "comment": " Alias for `VirtualDom.keyedNode`\n",
+        "type": "String -> List (Dom.Property msg) -> List ( String, Dom.Node msg ) -> Dom.Node msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Svg",
+    "comment": "\n\nThis module contains helper functions for constructing `Dom.Element`\nrecords with the SVG namespace designation. Use these functions for any SVG\ntags in your DOM.\n\n# Dom.Node constructors\nThese constructors wrap `VirtualDom.node`, with the same pattern as the\nfunctions in the Dom.Node module\n@docs leaf, textWrapper, container\n\n# Dom.Element constructors\n@docs element, wrapNodes\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "container",
+        "comment": " Construct a node in the SVG namespace that contains other nodes\n\n",
+        "type": "String -> List (Dom.Property msg) -> List (Dom.Node msg) -> Dom.Node msg"
+      },
+      {
+        "name": "element",
+        "comment": " Construct an element record in the SVG namespace, with the tag given as a\nstring argument; same pattern as `Dom.Element.leaf`\n\n    \"circle\"\n      |> Dom.Svg.element\n\n",
+        "type": "String -> Dom.Element msg"
+      },
+      {
+        "name": "leaf",
+        "comment": " Construct a leaf node in the SVG namespace\n\n",
+        "type": "String -> List (Dom.Property msg) -> Dom.Node msg"
+      },
+      {
+        "name": "textWrapper",
+        "comment": " Construct a node with internal text in the SVG namespace\n\n",
+        "type": "String -> List (Dom.Property msg) -> String -> Dom.Node msg"
+      },
+      {
+        "name": "wrapNodes",
+        "comment": " Wrap a list of SVG nodes in an SVG container element; the first\nargument gives the tag, and the second argument gives a list of child nodes\n\n    myPolygonNodes\n      |> Dom.Svg.wrapNodes \"g\"\n\n",
+        "type": "String -> List (Dom.Node msg) -> Dom.Element msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Lazy",
+    "comment": " Support for the VirtualDom `lazy` optimization\n\nFrom *elm-lang/html* documentation:\n\n> Since all Elm functions are pure we have a guarantee that the same input\n> will always result in the same output. This module gives us tools to be lazy\n> about building `Html` that utilize this fact.\n>\n> Rather than immediately applying functions to their arguments, the `lazy`\n> functions just bundle the function and arguments up for later. When diffing\n> the old and new virtual Dom, it checks to see if all the arguments are equal.\n> If so, it skips calling the function!\n>\n> This is a really cheap test and often makes things a lot faster, but definitely\n> benchmark to be sure!\"\n\n@docs toNode, container, eval\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "container",
+        "comment": " Apply `Dom.Lazy.toNode` to all of the child nodes when constructing an\nelement container\n",
+        "type": "String -> List (Dom.Element msg) -> Dom.Element msg"
+      },
+      {
+        "name": "eval",
+        "comment": " Alias for `VirtualDom.lazy`\n",
+        "type": "(a -> Dom.Node msg) -> a -> Dom.Node msg"
+      },
+      {
+        "name": "toNode",
+        "comment": " A lazy version of `Dom.Element.toNode`\n",
+        "type": "Dom.Element msg -> VirtualDom.Node msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Text",
+    "comment": " Construct a text node\n\n@docs node\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "node",
+        "comment": " Alias for `VirtualDom.text`\n",
+        "type": "String -> Dom.Node msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Style",
+    "comment": " Construct a `style` property from a list of style declarations\n\n@docs toProperty\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "toProperty",
+        "comment": " Alias for `VirtualDom.style`\n",
+        "type": "List ( String, String ) -> Dom.Property msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Program",
+    "comment": "\n\nThis module contains pipeline functions that can be helpful when setting up an\nElm program for initial testing and adding features as you go.\n\nConstruct a static program with just `setup` and `run` to test your initial\nmodel and view. Then add interaction with `update`. Add Dom effects, HTTP\nrequests, and so on with `onLoad` and `updateWithCmds`. Add ports with\n`subscribe` or `subscribeWithParams`. Use `runWithFlags` to pass data to your\ninitial model.\n\nThe `Dom.Program.run` function is an alias for `VirtualDom.program`, so just use\nthat if you want to set up a program in the standard way.\n\n# Basic\n@docs setup, update, run\n\n# Commands\n@docs onLoad, updateWithCmds\n\n# Subscriptions\n@docs subscribe, subscribeWithParams\n\n# Flags\n@docs runWithFlags, customWithFlags\n\n# Type alias\n@docs Setup\n\n",
+    "aliases": [
+      {
+        "name": "Setup",
+        "comment": " Type alias for arguments to `VirtualDom.program`\n",
+        "args": [
+          "model",
+          "msg"
+        ],
+        "type": "{ init : ( model, Platform.Cmd.Cmd msg ) , update : msg -> model -> ( model, Platform.Cmd.Cmd msg ) , subscriptions : model -> Platform.Sub.Sub msg , view : model -> Dom.Node msg }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "customWithFlags",
+        "comment": " Alias for `VirtualDom.programWithFlags`\n",
+        "type": "{ init : flags -> ( model, Platform.Cmd.Cmd msg ) , update : msg -> model -> ( model, Platform.Cmd.Cmd msg ) , subscriptions : model -> Platform.Sub.Sub msg , view : model -> Dom.Node msg } -> Platform.Program flags model msg"
+      },
+      {
+        "name": "onLoad",
+        "comment": " Modify your program setup to perform a list of commands when the program\nloads\n\n    main =\n      initialModel\n        |> Dom.Program.setup view\n        |> Dom.Program.onLoad\n          [ doSomething\n          , doSomethingElse\n          ]\n        |> Dom.Program.update update\n        |> Dom.Program.run\n\nSee the\n[Elm Architecture](https://guide.elm-lang.org/architecture/)\ndocumentation to find out more about commands.\n\n",
+        "type": "List (Platform.Cmd.Cmd msg) -> Dom.Program.Setup model msg -> Dom.Program.Setup model msg"
+      },
+      {
+        "name": "run",
+        "comment": " Tell the Elm compiler to generate a program from your setup\n\nAlias for `VirtualDom.program`\n\n",
+        "type": "Dom.Program.Setup model msg -> Platform.Program Basics.Never model msg"
+      },
+      {
+        "name": "runWithFlags",
+        "comment": " Generate your initial model with data passed to your Elm program from the\nJavaScript side, with the initial model specified in your setup as a fallback\nif anything goes wrong\n\n    defaultSettings\n      |> initializer\n      |> Dom.Program.setup view\n      |> Dom.Program.updateWithCmds update\n      |> Dom.Program.subscribeWithParams subscribe\n      |> Dom.Program.runWithFlags initializer\n\nSee the\n[Elm Architecture](https://guide.elm-lang.org/architecture/)\ndocumentation to find out more about flags.\n\n",
+        "type": "(flags -> Maybe.Maybe model) -> Dom.Program.Setup model msg -> Platform.Program flags model msg"
+      },
+      {
+        "name": "setup",
+        "comment": " Generate a record that describes the setup of an Elm program; the first\nargument is a function that takes a model and generates a view, and the second\nargument is an initial model to pass to that function\n\nThese two function calls will setup and run a static program (a program where\nthe view doesn't update):\n\n    main =\n      initialModel\n        |> Dom.Program.setup view\n        |> Dom.Program.run\n\n",
+        "type": "(model -> Dom.Node msg) -> model -> Dom.Program.Setup model msg"
+      },
+      {
+        "name": "subscribe",
+        "comment": " Receive data from ports\n\n    initialModel\n      |> Dom.Program.setup view\n      |> Dom.Program.updateWithCmds update\n      |> Dom.Program.subscribe\n        [ listener1\n        , listener2\n        ]\n      |> Dom.Program.run\n\nSee the\n[Elm Architecture](https://guide.elm-lang.org/architecture/)\ndocumentation to find out more about ports and subscriptions.\n\n",
+        "type": "List (Platform.Sub.Sub msg) -> Dom.Program.Setup model msg -> Dom.Program.Setup model msg"
+      },
+      {
+        "name": "subscribeWithParams",
+        "comment": " Apply a custom function to control data flow from ports\n\n    initialModel\n      |> Dom.Program.setup view\n      |> Dom.Program.updateWithCmds update\n      |> Dom.Program.subscribeWithParams subscribe\n      |> Dom.Program.run\n\nSee the\n[Elm Architecture](https://guide.elm-lang.org/architecture/)\ndocumentation to find out more about ports and subscriptions.\n\n",
+        "type": "(model -> Platform.Sub.Sub msg) -> Dom.Program.Setup model msg -> Dom.Program.Setup model msg"
+      },
+      {
+        "name": "update",
+        "comment": " Route messages generated in the program to a function that will update the\ninitial model; the first argument is the update function, and the second\nargument is the setup record\n\n    main =\n      initialModel\n        |> Dom.Program.setup view\n        |> Dom.Program.update update\n        |> Dom.Program.run\n\n",
+        "type": "(msg -> model -> model) -> Dom.Program.Setup model msg -> Dom.Program.Setup model msg"
+      },
+      {
+        "name": "updateWithCmds",
+        "comment": " Handle updates in a with a function that can also produce commands in\nresponse to messages\n\n      initialModel\n        |> Dom.Program.setup view\n        |> Dom.Program.updateWithCmds update\n        |> Dom.Program.run\n\nSee the\n[Elm Architecture](https://guide.elm-lang.org/architecture/)\ndocumentation to find out more about commands.\n\n",
+        "type": "(msg -> model -> ( model, Platform.Cmd.Cmd msg )) -> Dom.Program.Setup model msg -> Dom.Program.Setup model msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Node",
+    "comment": " Construct native `VirtualDom` nodes\n\nUsing the constructors in this module is the more efficient way of building your\nElm program's Dom, but unlike Dom.Element records, native `VirtualDom` nodes\ncannot be modified (within an Elm program) after they are constructed.\n\n@docs leaf, textWrapper, container\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "container",
+        "comment": " Construct a node that contains other nodes; the first argument gives the\ntag, the second argument gives a list of attributes, and the third argument\ngives a list of child nodes\n\nThis function is just an alias for `VirtualDom.node`.\n\n    [ \"Hello World!\"\n      |> Dom.Node.textWrapper \"p\" []\n    ]\n      |> Dom.Node.container \"div\" []\n\n",
+        "type": "String -> List (Dom.Property msg) -> List (Dom.Node msg) -> Dom.Node msg"
+      },
+      {
+        "name": "leaf",
+        "comment": " Construct a leaf node (a node without children); the first argument gives\nthe tag and the second argument gives a list of attributes\n\nThis function is an alias for `VirtualDom.node` with an empty list of child\nnodes.\n\n    Dom.Node.leaf \"hr\" []\n\n",
+        "type": "String -> List (Dom.Property msg) -> Dom.Node msg"
+      },
+      {
+        "name": "textWrapper",
+        "comment": " Construct a node that wraps text; the first argument gives the tag, the\nsecond argument gives a list of attributes, and the third argument gives the\ninternal text\n\nThis function is an alias for `VirtualDom.node` with a single text node as the\nonly child.\n\n    \"Hello World!\"\n      |> Dom.Node.textWrapper \"p\" []\n\n",
+        "type": "String -> List (Dom.Property msg) -> String -> Dom.Node msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Class",
+    "comment": " Construct a `className` property from a list of classes\n\n@docs toProperty\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "toProperty",
+        "comment": " Bundles up a list of class names and returns a `Dom.Property`\n",
+        "type": "List String -> Dom.Property msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Element",
+    "comment": "\n\nThis module contains functions for constructing, modifying, and rendering\n`Dom.Element` records.\n\nBy using a record to temporarily store data about a node, we can partially\nconstruct that node with some data, but delay building it until all of the data\nhas been assembled. In this way, all of a node's data is available to be\nmodified until it is either placed in a container element or passed as an\nargument to the `Dom.Element.toNode` function.\n\nThe rendering function wraps up the data collected in the element record as\narguments to `VirtualDom.node`. There is minimal overhead with this approach,\nbut where performance or memory use is of particular concern, it will be better\nto construct nodes directly with the functions in module `Dom.Node`, or by using\nthe standard *elm-lang/html* and *elm-lang/svg* packages.\n\n\n# Constructors\n\n@docs leaf, textWrapper, container, wrapNodes\n\n# Rendering\n\n@docs toNode\n\n# Modifiers\n\n## Id\n@docs setId\n\n## Classes\n\n@docs withClasses, addClass, removeClass\n\n## Attributes\n\n@docs withAttributes, addAttribute\n\n## Text\n\n@docs withText, appendText, prependText\n\n## Children\n\n@docs withChildren, appendChild, prependChild, withChildNodes\n\n## Namespace\n\n@docs setNamespace\n\n# Queries\n\n@docs hasChildren, hasText, hasClass\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "addAttribute",
+        "comment": " Add a new attribute to the existing attributes of an element\n",
+        "type": "VirtualDom.Property msg -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "addClass",
+        "comment": " Add a new class to the existing classes of an element\n\n    myElement\n      |> Dom.Element.addClass \"bordered-box\"\n\n",
+        "type": "String -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "appendChild",
+        "comment": " Append a new child to an element, after any existing children\n",
+        "type": "Dom.Element msg -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "appendText",
+        "comment": " Append new text to an element, after any existing text\n",
+        "type": "String -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "container",
+        "comment": " Construct an element that contains other elements; the first argument gives\nthe tag, and the second argument gives a list of child elements\n\n    [ \"Hello World!\"\n      |> Dom.Element.textWrapper \"p\"\n    ]\n      |> Dom.Element.container \"div\"\n\n",
+        "type": "String -> List (Dom.Element msg) -> Dom.Element msg"
+      },
+      {
+        "name": "hasChildren",
+        "comment": " Returns `True` if the element has children\n",
+        "type": "Dom.Element msg -> Bool"
+      },
+      {
+        "name": "hasClass",
+        "comment": " Returns `True` if the element's class list contains the name given in the\nfirst argument\n",
+        "type": "String -> Dom.Element msg -> Bool"
+      },
+      {
+        "name": "hasText",
+        "comment": " Returns `True` if the element has text\n",
+        "type": "Dom.Element msg -> Bool"
+      },
+      {
+        "name": "leaf",
+        "comment": " Construct a leaf element (an element without children), with the tag given\nas a string argument\n\n    Dom.Element.leaf \"hr\"\n\n",
+        "type": "String -> Dom.Element msg"
+      },
+      {
+        "name": "prependChild",
+        "comment": " Prepend a new child to an element, before any existing children\n",
+        "type": "Dom.Element msg -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "prependText",
+        "comment": " Prepend new text to an element, before any existing text\n",
+        "type": "String -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "removeClass",
+        "comment": " Remove a particular class from an element, retaining other assigned classes\n\n    myElement\n      |> Dom.Element.removeClass \"bordered-box\"\n\n",
+        "type": "String -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "setId",
+        "comment": " Assign a unique identifier to an element; when the rendering function is\ncalled, the resulting node's *id* attribute will be set to this value\n\n",
+        "type": "String -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "setNamespace",
+        "comment": " Set an element's XML namespace\n",
+        "type": "String -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "textWrapper",
+        "comment": " Construct an element that wraps text; the first argument gives the tag, and\nthe second argument gives the internal text\n\n    \"Hello World!\"\n      |> Dom.Element.textWrapper \"p\"\n\n",
+        "type": "String -> String -> Dom.Element msg"
+      },
+      {
+        "name": "toNode",
+        "comment": " Generate a `VirtualDom.Node` from a `Dom.Element` record\n\n    [ \"Hello World!\"\n      |> Dom.Element.textWrapper \"p\"\n    ]\n      |> Dom.Element.container \"div\"\n      |> Dom.Element.toNode\n\n",
+        "type": "Dom.Element msg -> VirtualDom.Node msg"
+      },
+      {
+        "name": "withAttributes",
+        "comment": " Update an element's attributes, replacing any existing attributes\n\n    (You get the pattern by this point...)\n",
+        "type": "List (VirtualDom.Property msg) -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "withChildNodes",
+        "comment": " Update an element's children, with a list of native `VirtualDom` nodes given\nas the first argument in place of a list of element records\n",
+        "type": "List (Dom.Node msg) -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "withChildren",
+        "comment": " Update an element's children, replacing any existing children\n",
+        "type": "List (Dom.Element msg) -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "withClasses",
+        "comment": " Update an element's classes, replacing any existing classes; classes are\ncombined into a single `className` property when the rendering function is\ncalled\n\n    myElement =\n      [ \"Hello World!\"\n        |> Dom.Element.textWrapper \"p\"\n        |> Dom.Element.withClasses\n          [ \"size-large\"\n          , \"weight-bold\"\n          ]\n      ]\n        |> Dom.Element.container \"div\"\n\n",
+        "type": "List String -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "withText",
+        "comment": " Update an element's text, replacing any existing text\n",
+        "type": "String -> Dom.Element msg -> Dom.Element msg"
+      },
+      {
+        "name": "wrapNodes",
+        "comment": " Wrap a list of native `VirtualDom` nodes in a container element; the first\nargument gives the tag, and the second argument gives a list of child nodes\n\n    [ \"Hello World!\"\n      |> Dom.Node.textWrapper \"p\" []\n    ]\n      |> Dom.Element.wrapNodes \"div\"\n\n",
+        "type": "String -> List (Dom.Node msg) -> Dom.Element msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Event",
+    "comment": " The functions in this module may be used to construct event attributes,\nas described [here](https://developer.mozilla.org/en-US/docs/Web/Events).\n\nSee the\n[Elm Architecture](https://guide.elm-lang.org/architecture/)\ndocumentation to find out more about how events are handled in Elm.\n\n@docs action, capture, submit, custom, customWithOptions\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "action",
+        "comment": " Let's define an *action* as an DOM event that triggers something else to\nhappen, but does not capture an input value. To handle an action on a DOM\nelement, we need to construct an attribute with an\n[event name](https://developer.mozilla.org/en-US/docs/Web/Events) and a\nmessage that will be sent to the Elm program's update function.\n\n*How do we know what message to send?* The message will be one of a set of\nvalues belonging to a programmer-defined type. Here's an abbreviated example:\n\n    type Msg\n      = Increment\n      | Decrement\n\n    plusButton =\n      \"+\"\n        |> Dom.Node.textWrapper \"button\"\n          [ \"click\"\n            |> Dom.Event.action Increment\n          ]\n\nSee the\n[Elm Architecture](https://guide.elm-lang.org/architecture/)\ndocumentation for further explanation.\n\n",
+        "type": "msg -> String -> VirtualDom.Property msg"
+      },
+      {
+        "name": "capture",
+        "comment": " When we do want to capture an input value from the user, we need to set\nthings up a little differently. To send the message, the program needs to get\nthe input value first, so the first argument here is actually a function that\ntakes a string (the input value) and returns a programmer-defined message. In\nmost cases, the event name given in the second argument will be \"input\", because\nthe idea is to capture the value whenever it changes.\n\nAgain, the message will be handled by the Elm program's update function, which\nwill grab the current value of the element's `value` attribute.\n\nHere's another abbreviated example:\n\n    type Msg\n      = Input String\n\n    inputElement =\n      [ \"input\"\n        |> Dom.Event.capture Input\n      ]\n        |> Dom.Node.leaf \"input\"\n\n\nSee the\n[Elm Architecture](https://guide.elm-lang.org/architecture/)\ndocumentation for further explanation.\n\n",
+        "type": "(String -> msg) -> String -> VirtualDom.Property msg"
+      },
+      {
+        "name": "custom",
+        "comment": " Handle an event with a custom JSON decoder; alias for `VirtualDom.on` with\nthe arguments flipped\n\n",
+        "type": "Json.Decode.Decoder msg -> String -> VirtualDom.Property msg"
+      },
+      {
+        "name": "customWithOptions",
+        "comment": " Handle an event with a custom JSON decoder and specified options; alias for\n`VirtualDom.onWithOptions` with the first and last arguments flipped\n\nThe `Options` argument is a record defined as follows:\n\n    type alias Options =\n      { stopPropagation : Bool\n      , preventDefault : Bool\n      }\n\nBoth values default to false where not specified.\n\n",
+        "type": "Json.Decode.Decoder msg -> Dom.Event.Options -> String -> VirtualDom.Property msg"
+      },
+      {
+        "name": "submit",
+        "comment": " Sometimes, instead of capturing input as the user enters it, it is\npreferable to wait until a set of input fields have been completed, then\ncollect all of the input values at once. The `submit` event on an HTML `<form>`\nprovides an easy way to do this, but the Elm Architecture currently lacks a\nstandard approach to capturing input in response to a `submit` event. This\nfunction offers one solution.\n\nThe function works by taking a list of id strings corresponding to the `id`\nattributes of the form's input elements and constructing a decoder that will\ncapture input from all of the fields at once in response to a `submit` event.\nThe input is sent to the Elm program's update function as a `Dict` with the\nid strings as the keys.\n\nHere's another abbreviated example:\n\n    type Msg\n      = SubmitForm (Dict String String)\n\n    formElementIds =\n      [ \"name\"\n      , \"address\"\n      , \"city\"\n      , \"state\"\n      , \"zip\"\n      , \"email\"\n      ]\n\n    myForm =\n      formElements\n        |> Dom.Element.container \"form\"\n        |> Dom.Element.withAttributes\n          [ formElementIds\n            |> Dom.Event.submit SubmitForm\n          ]\n\n",
+        "type": "(Dict.Dict String String -> msg) -> List String -> VirtualDom.Property msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Property",
+    "comment": "\n\nSet the value of an\n[IDL attribute](http://developer.mozilla.org/en-US/docs/Web/HTML/Attributes#Content_versus_IDL_attributes)\n(a.k.a. \"JavaScript property\").\n\nThe functions in this module wrap `VirtualDom.property`.\n\nSee\n[here](https://stackoverflow.com/questions/3919291/when-to-use-setattribute-vs-attribute-in-javascript)\nfor some background on when to use the functions in this module versus the\nfunctions in `Dom.Attribute`.\n\n@docs bool, string, int, float\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "bool",
+        "comment": " Set a property that takes a boolean value; the first argument gives the\n*value* and the second argument gives the *key*\n\n    [ \"controls\"\n      |> Dom.Property.bool True\n    ]\n      |> Dom.Node.leaf \"video\"\n\n",
+        "type": "Bool -> String -> VirtualDom.Property msg"
+      },
+      {
+        "name": "float",
+        "comment": " Set a property that takes a floating point value; the first argument gives\nthe *value* and the second argument gives the *key*\n\n    [ \"type\"\n      |> Dom.Property.string \"number\"\n    , \"min\"\n      |> Dom.Property.int 0\n    , \"max\"\n      |> Dom.Property.int 1\n    , \"step\"\n      |> Dom.Property.float 0.1\n    ]\n      |> Dom.Node.leaf \"input\"\n\n",
+        "type": "Float -> String -> VirtualDom.Property msg"
+      },
+      {
+        "name": "int",
+        "comment": " Set a property that takes an integer value; the first argument gives the\n*value* and the second argument gives the *key*\n\n    [ \"rows\"\n      |> Dom.Property.int 10\n    ]\n      |> Dom.Node.leaf \"textarea\"\n\n\n",
+        "type": "Int -> String -> VirtualDom.Property msg"
+      },
+      {
+        "name": "string",
+        "comment": " Set a property that takes a string value; the first argument gives the\n*value* and the second argument gives the *key*\n\n    \"Hello World!\"\n      |> Dom.Element.textWrapper \"p\"\n      |> Dom.Element.withAttributes\n        [ \"title\"\n          |> Dom.Property.string \"Hello, again!\"\n        ]\n\n",
+        "type": "String -> String -> VirtualDom.Property msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom.Attribute",
+    "comment": "\n\nSet the value of a\n[content attribute](http://developer.mozilla.org/en-US/docs/Web/HTML/Attributes#Content_versus_IDL_attributes)\n\nThe functions in this module wrap `VirtualDom.attribute`, which should always\nbe used when setting attributes on SVG nodes and may also be used to set\nnonstandard HTML attributes.\n\nSee\n[here](https://stackoverflow.com/questions/3919291/when-to-use-setattribute-vs-attribute-in-javascript)\nfor some background on when to use the functions in this module versus the\nfunctions in `Dom.Property`.\n\n@docs string, int, float, namespaced\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "float",
+        "comment": " Set an attribute by giving its value as a floating point number, which will\nbe converted to a string; the first argument gives the *value* and the second\nargument gives the *key*\n\n    myShapeElement\n      |> Dom.Element.addAttribute\n        ( \"stroke-width\"\n          |> Dom.Attribute.float 0.5\n        )\n\n",
+        "type": "Float -> String -> VirtualDom.Property msg"
+      },
+      {
+        "name": "int",
+        "comment": " Set an attribute by giving its value as an integer, which will be converted\nto a string; the first argument gives the *value* and the second argument gives\nthe *key*\n\n    \"Hello World!\"\n      |> Dom.Svg.textWrapper \"text\"\n        [ \"x\"\n          |> Dom.Attribute.int 200\n        , \"y\"\n          |> Dom.Attribute.int 200\n        ]\n\n",
+        "type": "Int -> String -> VirtualDom.Property msg"
+      },
+      {
+        "name": "namespaced",
+        "comment": " Set an attribute in a given namespace; the first argument gives the\nnamespace prefix and URL, the second argument is the value, and the third\nargument is the key\n\n    \"script\"\n      |> Dom.Element.leaf\n      |> Dom.Element.withAttributes\n        [ \"href\"\n          |> Dom.Attribute.namespaced (\"xlink\", \"http://www.w3.org/1999/xlink\") \"cool-script.js\"\n        , \"type\"\n          |> Dom.Attribute.string \"text/ecmascript\"\n        ]\n\nSee\n[here](https://developer.mozilla.org/en-US/docs/Web/SVG/Namespaces_Crash_Course)\nfor an explanation of the use of namespaces in XML generally, and in SVG more\nspecifically.\n\n",
+        "type": "( String, String ) -> String -> String -> VirtualDom.Property msg"
+      },
+      {
+        "name": "string",
+        "comment": " Set an attribute by giving its value as a string; the first argument gives\nthe *value* and the second argument gives the *key*\n\n    myGraphics\n      |> Dom.Svg.container \"svg\"\n        [ \"viewbox\"\n          |> Dom.Attribute.string \"0 0 400 400\"\n        ]\n\n",
+        "type": "String -> String -> VirtualDom.Property msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Dom",
+    "comment": " Type declarations\n\n@docs Node, Property, Element\n\n",
+    "aliases": [
+      {
+        "name": "Element",
+        "comment": " An Elm record that contains all of the data needed to construct a\n`VirtualDom.Node`\n\nBy using a record to temporarily store data about a node, we can partially\nconstruct that node with some data, but delay building it until all of the data\nhas been assembled. In this way, all of a node's data is available to be\nmodified until it is either placed in a container element or passed as an\nargument to the `Dom.Element.toNode` function.\n\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ tag : String , id : String , attributes : List (Dom.Property msg) , classes : List String , children : List (Dom.Node msg) , text : String , namespace : String , keys : List String }"
+      },
+      {
+        "name": "Node",
+        "comment": " Alias for `VirtualDom.Node` — the native data structure Elm uses to\nrepresent HTML, SVG, and potentially other namespaced elements\n\n",
+        "args": [
+          "msg"
+        ],
+        "type": "VirtualDom.Node msg"
+      },
+      {
+        "name": "Property",
+        "comment": " Alias for `VirtualDom.Property` — the native data structure Elm uses to\nrepresent both\n[content attributes](http://developer.mozilla.org/en-US/docs/Web/HTML/Attributes#Content_versus_IDL_attributes)\nand\n[IDL attributes](http://developer.mozilla.org/en-US/docs/Web/HTML/Attributes#Content_versus_IDL_attributes)\n(a.k.a. \"JavaScript properties\")\n\n\n",
+        "args": [
+          "msg"
+        ],
+        "type": "VirtualDom.Property msg"
+      }
+    ],
+    "types": [],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

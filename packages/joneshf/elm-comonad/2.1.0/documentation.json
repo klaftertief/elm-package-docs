@@ -1,0 +1,238 @@
+[
+  {
+    "name": "Env",
+    "comment": "\n\n\n# Data type\n\n@docs Env\n\n\n# Useful functions\n\n@docs duplicate\n@docs extract\n@docs map\n@docs move\n@docs set\n\n\n# Using with `Html a`\n\n@docs toBeginnerProgram\n\n",
+    "aliases": [
+      {
+        "name": "Env",
+        "comment": " Pack together the current value along with a computed view of said value.\n\nWe can specialize the `a` to be `Html a`\nand get something that works for top level programs.\n\nWe can also not do that.\nWe can describe many UIs and they don't have to be `Html a`.\n\n",
+        "args": [
+          "e",
+          "a"
+        ],
+        "type": "{ here : e, view : a }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "duplicate",
+        "comment": " Create a new env where the view is another env.\n\nGives us the lazy unfolding of all future states of a given env.\n\n",
+        "type": "Env.Env e a -> Env.Env e (Env.Env e a)"
+      },
+      {
+        "name": "extract",
+        "comment": " View the current value.\n",
+        "type": "Env.Env e a -> a"
+      },
+      {
+        "name": "map",
+        "comment": " Transform the view.\n\nUseful when you want to change the view of an already defined env.\n\n",
+        "type": "(a -> b) -> Env.Env e a -> Env.Env e b"
+      },
+      {
+        "name": "move",
+        "comment": " Move to the new given value.\n\nThis is how we make progress in the UI.\n\n",
+        "type": "e -> Env.Env e a -> Env.Env e a"
+      },
+      {
+        "name": "set",
+        "comment": " Replace the view.\n\nA common pattern is to just replace the old view without depending on it:\n`set x = map (\\_ -> x)`\n\n",
+        "type": "b -> Env.Env s a -> Env.Env s b"
+      },
+      {
+        "name": "toBeginnerProgram",
+        "comment": " Convert to a \"beginner program\" for use in a `main` function.\n\n    import Env exposing (Env)\n    import Html exposing (Html)\n    import Html.Events\n    import String.Extra\n\n    main : Program Never (Env Int (Int -> Html Int)) Int\n    main =\n        Html.beginnerProgram\n            (Env.toBeginnerProgram { here = 0, view = view })\n\n    view : Int -> Html Int\n    view n =\n        Html.div\n            []\n            [ Html.button\n                [ Html.Events.onClick (n - 1) ]\n                [ Html.text \"-\" ]\n            , Html.div\n                []\n                [ Html.text (String.Extra.fromInt n) ]\n            , Html.button\n                [ Html.Events.onClick (n + 1) ]\n                [ Html.text \"+\" ]\n            ]\n\nView this example on Ellie: <https://ellie-app.com/fLBqHbdNLa1/0>\n\n",
+        "type": "Env.Env e (e -> Html.Html a) -> { model : Env.Env e (e -> Html.Html a) , update : e -> Env.Env e (e -> Html.Html a) -> Env.Env e (e -> Html.Html a) , view : Env.Env e (e -> Html.Html a) -> Html.Html a }"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Traced",
+    "comment": "\n\n\n# Data type\n\n@docs Traced\n\n\n# Useful functions\n\n@docs duplicate\n@docs extract\n@docs map\n@docs move\n@docs set\n@docs view\n\n\n# Defined traces\n\n@docs addition\n@docs list\n@docs multiplication\n@docs string\n\n\n# Using with `Html a`\n\n@docs toBeginnerProgram\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Traced",
+        "comment": " Pack together an accumulator, a unique value,\nand a function to view the value.\n\nAccumulates new values together in most operations.\n\nThis is very similar to `Store a b`.\nThe difference being that a `Traced a b` accumulates the `a`\nas it unfolds all future states,\nwhereas a `Store a b` replaces all `a`s as it unfolds all future states.\n\n",
+        "args": [
+          "m",
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "addition",
+        "comment": " Creates a traced that accumulates with addition.\n\nThe unique value is 0.\n\n",
+        "type": "Traced.Traced number number"
+      },
+      {
+        "name": "duplicate",
+        "comment": " Create a new traced where the view is another traced.\n\nGives us the lazy unfolding of all future states of a given traced.\n\n",
+        "type": "Traced.Traced m a -> Traced.Traced m (Traced.Traced m a)"
+      },
+      {
+        "name": "extract",
+        "comment": " View the current value.\n",
+        "type": "Traced.Traced m a -> a"
+      },
+      {
+        "name": "list",
+        "comment": " Creates a traced that accumulates lists.\n\nThe unique value is the empty list.\n\n",
+        "type": "Traced.Traced (List a) (List a)"
+      },
+      {
+        "name": "map",
+        "comment": " Transform the view.\n\nUseful when you want to change the view of an already defined traced.\n\n",
+        "type": "(a -> b) -> Traced.Traced m a -> Traced.Traced m b"
+      },
+      {
+        "name": "move",
+        "comment": " Move to the new given value.\n\nThis is how we make progress in the UI.\n\n",
+        "type": "m -> Traced.Traced m a -> Traced.Traced m a"
+      },
+      {
+        "name": "multiplication",
+        "comment": " Creates a traced that accumulates with multiplication.\n\nThe unique value is 1.\n\n",
+        "type": "Traced.Traced number number"
+      },
+      {
+        "name": "set",
+        "comment": " Replace the view.\n\nA common pattern is to just replace the old view without depending on it:\n`set x = map (\\_ -> x)`\n\n",
+        "type": "b -> Traced.Traced m a -> Traced.Traced m b"
+      },
+      {
+        "name": "string",
+        "comment": " Creates a traced that accumulates strings.\n\nThe unique value is the empty string.\n\n",
+        "type": "Traced.Traced String String"
+      },
+      {
+        "name": "toBeginnerProgram",
+        "comment": " Convert to a \"beginner program\" for use in a `main` function\n\n    import Html exposing (Html)\n    import Html.Events\n    import String.Extra\n    import Traced exposing (Traced)\n\n    main : Program Never (Traced Int (Html Int)) Int\n    main =\n        Html.beginnerProgram\n            (Traced.toBeginnerProgram (Traced.map view Traced.addition))\n\n    view : Int -> Html Int\n    view n =\n        Html.div\n            []\n            [ Html.button\n                [ Html.Events.onClick -1 ]\n                [ Html.text \"-\" ]\n            , Html.div\n                []\n                [ Html.text (String.Extra.fromInt n) ]\n            , Html.button\n                [ Html.Events.onClick 1 ]\n                [ Html.text \"+\" ]\n            ]\n\nView this example on Ellie: <https://ellie-app.com/Mx3LhD8Fa1/0>\n\n",
+        "type": "Traced.Traced m (Html.Html a) -> { model : Traced.Traced m (Html.Html a) , update : m -> Traced.Traced m (Html.Html a) -> Traced.Traced m (Html.Html a) , view : Traced.Traced m (Html.Html a) -> Html.Html a }"
+      },
+      {
+        "name": "view",
+        "comment": " Returns the view of a traced.\n\nUseful when you want to view the value,\nwith something other than the unique value of the traced.\n\n",
+        "type": "Traced.Traced m a -> m -> a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Platform.Alternative",
+    "comment": "\n\n@docs Program\n@docs program\n\n",
+    "aliases": [
+      {
+        "name": "Program",
+        "comment": " An alternative representation of a program.\n\nIf we generate a new `model` in both Commands and Subscriptions,\nit turns out that we don't need to write an `update` function at all.\n\nThis representation will also push us to write a more declarative program\nby expressing the model as distinct states.\nRather than thinking, \"when we get this message, create this command;\"\nwe start to think, \"all models of this shape, produce this command.\"\n\n",
+        "args": [
+          "model"
+        ],
+        "type": "{ commands : model -> Platform.Cmd.Cmd model , model : model , subscriptions : model -> Platform.Sub.Sub model }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "program",
+        "comment": " Create a headless program from an alternative program.\n",
+        "type": "{ commands : model -> Platform.Cmd.Cmd model , model : model , subscriptions : model -> Platform.Sub.Sub model } -> Platform.Program Basics.Never model model"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Store",
+    "comment": "\n\n\n# Data type\n\n@docs Store\n\n\n# Useful functions\n\n@docs duplicate\n@docs extract\n@docs map\n@docs move\n@docs set\n\n\n# Using with `Html a`\n\n@docs toBeginnerProgram\n\n",
+    "aliases": [
+      {
+        "name": "Store",
+        "comment": " Pack together the current value along with a function to view said value.\n\nWe can specialize the `a` to be `Html a`\nand get something that works for top level programs.\n\nWe can also not do that.\nWe can describe many UIs and they don't have to be `Html a`.\n\n",
+        "args": [
+          "s",
+          "a"
+        ],
+        "type": "{ here : s, view : s -> a }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "duplicate",
+        "comment": " Create a new store where the view is another store.\n\nGives us the lazy unfolding of all future states of a given store.\n\n",
+        "type": "Store.Store s a -> Store.Store s (Store.Store s a)"
+      },
+      {
+        "name": "extract",
+        "comment": " View the current value.\n",
+        "type": "Store.Store s a -> a"
+      },
+      {
+        "name": "map",
+        "comment": " Transform the view.\n\nUseful when you want to change the view of an already defined store.\n\n",
+        "type": "(a -> b) -> Store.Store s a -> Store.Store s b"
+      },
+      {
+        "name": "move",
+        "comment": " Move to the new given value.\n\nThis is how we make progress in the UI.\n\n",
+        "type": "s -> Store.Store s a -> Store.Store s a"
+      },
+      {
+        "name": "set",
+        "comment": " Replace the view.\n\nA common pattern is to just replace the old view without depending on it:\n`set x = map (\\_ -> x)`\n\n",
+        "type": "b -> Store.Store m a -> Store.Store m b"
+      },
+      {
+        "name": "toBeginnerProgram",
+        "comment": " Convert to a \"beginner program\" for use in a `main` function.\n\n    import Html exposing (Html)\n    import Html.Events\n    import Store exposing (Store)\n    import String.Extra\n\n    main : Program Never (Store Int (Html Int)) Int\n    main =\n        Html.beginnerProgram\n            (Store.toBeginnerProgram { here = 0, view = view })\n\n    view : Int -> Html Int\n    view n =\n        Html.div\n            []\n            [ Html.button\n                [ Html.Events.onClick (n - 1) ]\n                [ Html.text \"-\" ]\n            , Html.div\n                []\n                [ Html.text (String.Extra.fromInt n) ]\n            , Html.button\n                [ Html.Events.onClick (n + 1) ]\n                [ Html.text \"+\" ]\n            ]\n\nView this example on Ellie: <https://ellie-app.com/cDGbmY8Ca1/0>\n\n",
+        "type": "Store.Store s (Html.Html a) -> { model : Store.Store s (Html.Html a) , update : s -> Store.Store s (Html.Html a) -> Store.Store s (Html.Html a) , view : Store.Store s (Html.Html a) -> Html.Html a }"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Html.Alternative",
+    "comment": "\n\n\n# Alternative definitions of programs\n\n@docs BeginnerProgram\n@docs Program\n\n\n# Useful functions\n\n@docs beginnerProgram\n@docs program\n@docs tuple2\n\n",
+    "aliases": [
+      {
+        "name": "BeginnerProgram",
+        "comment": " An alternative representation of a \"beginner\" program.\n\nIf we generate a new `model` in the HTML,\nit turns out that we don't need to write an `update` function at all.\n\nThis representation will push us to write a more declarative UI\nby expressing the model as distinct states.\n\n",
+        "args": [
+          "model"
+        ],
+        "type": "{ model : model, view : model -> Html.Html model }"
+      },
+      {
+        "name": "Program",
+        "comment": " An alternative representation of a program.\n\nWe can extend the idea of a `BeginnerProgram model`\nto other contexts like `Sub` and `Cmd`.\n\nIf we again generate a new `model` in all of these contexts:\nCommands, HTML, and Subscriptions;\nit turns out that we don't need to write an `update` function here either.\n\nThis representation will also push us to write a more declarative UI\nby expressing the model as distinct states.\nRather than thinking, \"when we get this message, create this command;\"\nwe start to think, \"all models of this shape, produce this command.\"\n\n",
+        "args": [
+          "model"
+        ],
+        "type": "{ commands : model -> Platform.Cmd.Cmd model , model : model , subscriptions : model -> Platform.Sub.Sub model , view : model -> Html.Html model }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "beginnerProgram",
+        "comment": " Create a \"beginner\" program from an alternative program.\n",
+        "type": "Html.Alternative.BeginnerProgram model -> Platform.Program Basics.Never model model"
+      },
+      {
+        "name": "program",
+        "comment": " Create a program from an alternative program.\n",
+        "type": "Html.Alternative.Program model -> Platform.Program Basics.Never model model"
+      },
+      {
+        "name": "tuple2",
+        "comment": " Combine two programs together so both are displayed at once.\n\nThis lets us think about programs separately,\nyet still combine them declaratively.\n\nIf you've read the paper,\nthis is the Day convolution of two programs with a pre-determined convolution.\n\nIf you haven't read the paper,\ncongratulations, you're using Day convolution without having to understand it!\n\n",
+        "type": "Html.Alternative.Program a -> Html.Alternative.Program b -> Html.Alternative.Program ( a, b )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

@@ -3,6 +3,7 @@
         "name": "1602/elm-feather",
         "summary": "Feather icons for elm",
         "versions": [
+            "2.2.0",
             "2.1.0",
             "2.0.1",
             "2.0.0",
@@ -25,6 +26,16 @@
         "name": "1602/json-value",
         "summary": "Reading and manipulation with json values",
         "versions": [
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "2mol/elm-colormaps",
+        "summary": "Colormaps in Elm geared towards data visualization and scientific plotting.",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -246,6 +257,9 @@
         "name": "BrianHicks/elm-benchmark",
         "summary": "benchmark Elm code",
         "versions": [
+            "2.0.2",
+            "2.0.1",
+            "2.0.0",
             "1.0.2",
             "1.0.1",
             "1.0.0"
@@ -443,6 +457,13 @@
         "versions": [
             "3.0.0",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "DrBearhands/elm-json-editor",
+        "summary": "A package providing a view for editing JSON documents with unknown structure",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -876,6 +897,15 @@
         ]
     },
     {
+        "name": "JordyMoos/elm-pageloader",
+        "summary": "Elm PageLoader utility",
+        "versions": [
+            "2.0.1",
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "JulianKniephoff/elm-time-extra",
         "summary": "Convenience functions for working with time",
         "versions": [
@@ -992,6 +1022,14 @@
         ]
     },
     {
+        "name": "MartinKavik/elm-combinatorics",
+        "summary": "Combinatorics - Combinations, Permutations and Variations",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "MatthewJohnHeath/elm-fingertree",
         "summary": "A fingertree, priority queue and deque. ",
         "versions": [
@@ -1098,6 +1136,12 @@
         "name": "NoRedInk/elm-doodad",
         "summary": "Doodads we use at NRI",
         "versions": [
+            "2.7.1",
+            "2.7.0",
+            "2.6.0",
+            "2.5.1",
+            "2.5.0",
+            "2.4.1",
             "2.4.0",
             "2.3.0",
             "2.2.0",
@@ -1243,6 +1287,7 @@
         "name": "NoRedInk/json-elm-schema",
         "summary": "write json schemas in elm",
         "versions": [
+            "2.2.1",
             "2.2.0",
             "2.1.0",
             "2.0.0",
@@ -1848,6 +1893,24 @@
         ]
     },
     {
+        "name": "Zinggi/elm-random-general",
+        "summary": "A general random number generator, allows to experiment with different RNGs",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "Zinggi/elm-random-pcg-extended",
+        "summary": "PCG-Extended, more bits of randomness for you!",
+        "versions": [
+            "2.0.1",
+            "2.0.0",
+            "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "Zinggi/elm-webgl-math",
         "summary": "Vector and matrix library for 3D and 2D math",
         "versions": [
@@ -2042,6 +2105,13 @@
             "3.0.0",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ahstro/elm-luhn",
+        "summary": "Luhn Algorithm validator",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -2337,6 +2407,7 @@
         "name": "arturopala/elm-monocle",
         "summary": "Library providing functional tools to manipulate complex records",
         "versions": [
+            "1.5.0",
             "1.4.0",
             "1.3.2",
             "1.3.1",
@@ -2640,6 +2711,7 @@
         "name": "basti1302/elm-non-empty-array",
         "summary": "An array that has at least one element.",
         "versions": [
+            "1.4.0",
             "1.3.1",
             "1.3.0",
             "1.2.0",
@@ -2814,6 +2886,15 @@
         ]
     },
     {
+        "name": "billstclair/elm-oauth-middleware",
+        "summary": "elm-oauth-middleware implements an OAuth authorization scheme.",
+        "versions": [
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "billstclair/elm-s3",
         "summary": "elm-s3 is a pure Elm client library for Amazon S3 and Digital Ocean Spaces.",
         "versions": [
@@ -2883,6 +2964,11 @@
         "name": "bloom/aviators",
         "summary": "The best UI library in Elm made specifically for Bloom Built.",
         "versions": [
+            "3.1.0",
+            "3.0.3",
+            "3.0.2",
+            "3.0.1",
+            "3.0.0",
             "2.0.1",
             "2.0.0",
             "1.0.2",
@@ -3599,6 +3685,7 @@
         "name": "cultureamp/elm-css-modules-loader",
         "summary": "Use Webpack-powered CSS Modules inside your Elm views",
         "versions": [
+            "2.0.2",
             "2.0.1",
             "2.0.0",
             "1.1.2",
@@ -3808,6 +3895,7 @@
         "name": "danielnarey/elm-semantic-content",
         "summary": "Semantically structured helpers to construct basic HTML content",
         "versions": [
+            "1.4.1",
             "1.4.0",
             "1.3.0",
             "1.2.0",
@@ -3819,6 +3907,8 @@
         "name": "danielnarey/elm-semantic-dom",
         "summary": "Syntactic sugar for cooking with Elm VirtualDom",
         "versions": [
+            "3.0.0",
+            "2.0.0",
             "1.1.0",
             "1.0.1",
             "1.0.0"
@@ -4065,6 +4155,26 @@
             "2.1.0",
             "2.0.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "dillonkearns/graphqelm",
+        "summary": "Type-safe GraphQL queries in Elm.",
+        "versions": [
+            "3.0.0",
+            "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "dillonkearns/graphqelm-demo",
+        "summary": "Demo to support ellie examples. Code generated by Graphqelm.",
+        "versions": [
+            "3.0.0",
+            "2.0.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -4365,6 +4475,13 @@
         ]
     },
     {
+        "name": "eeue56/elm-pretty-print-json",
+        "summary": "A way to pretty print JSON objects",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "eeue56/elm-shrink",
         "summary": "A shrinker for use with tests, written in pure Elm",
         "versions": [
@@ -4402,6 +4519,15 @@
             "2.0.0",
             "1.2.0",
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "egillet/elm-sortable-table",
+        "summary": "Sortable tables for data of any shape.",
+        "versions": [
+            "2.0.1",
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -4519,6 +4645,7 @@
         "name": "elm-community/dict-extra",
         "summary": "Convenience functions for working with Dict",
         "versions": [
+            "2.3.0",
             "2.2.0",
             "2.1.0",
             "2.0.0",
@@ -4683,6 +4810,7 @@
         "name": "elm-community/elm-time",
         "summary": "A pure Elm date and time library.",
         "versions": [
+            "1.0.12",
             "1.0.11",
             "1.0.10",
             "1.0.9",
@@ -4709,6 +4837,7 @@
         "name": "elm-community/elm-webgl",
         "summary": "A library for general 3D rendering with WebGL",
         "versions": [
+            "3.0.4",
             "3.0.3",
             "3.0.2",
             "3.0.1",
@@ -4806,6 +4935,7 @@
         "name": "elm-community/list-extra",
         "summary": "Convenience functions for working with List",
         "versions": [
+            "7.0.1",
             "7.0.0",
             "6.1.0",
             "6.0.0",
@@ -4943,6 +5073,7 @@
         "name": "elm-community/webgl",
         "summary": "A library for general 3D rendering with WebGL",
         "versions": [
+            "2.0.5",
             "2.0.4",
             "2.0.3",
             "2.0.2",
@@ -5685,6 +5816,13 @@
         ]
     },
     {
+        "name": "folkertdev/elm-treemap",
+        "summary": "A treemap package for Elm",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "folkertdev/one-true-path-experiment",
         "summary": "An experimental package for building paths and curves in elm",
         "versions": [
@@ -5923,6 +6061,14 @@
             "2.1.0",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "ghivert/elm-colors",
+        "summary": "New improved colors to use in web prototyping or everyday use",
+        "versions": [
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -6277,6 +6423,8 @@
         "name": "inkuzmin/elm-multiselect",
         "summary": "multiselect control",
         "versions": [
+            "1.1.3",
+            "1.1.2",
             "1.1.1",
             "1.1.0",
             "1.0.7",
@@ -6390,6 +6538,14 @@
         ]
     },
     {
+        "name": "jackwillis/elm-dialog",
+        "summary": "A modal dialog widget for Elm.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "jahewson/elm-graphql-module",
         "summary": "Support module for elm-graphql",
         "versions": [
@@ -6414,6 +6570,7 @@
         "name": "jamesmacaulay/elm-graphql",
         "summary": "A GraphQL request builder and HTTP client",
         "versions": [
+            "1.8.0",
             "1.7.0",
             "1.6.1",
             "1.6.0",
@@ -6460,6 +6617,7 @@
         "name": "janjelinek/creditcard-validation",
         "summary": "CreditCard validation",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -6831,6 +6989,21 @@
         "name": "joneshf/elm-",
         "summary": "Converts -- and --- to – and — respectively",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "joneshf/elm-comonad",
+        "summary": "Declarative UIs are the Future — And the Future is Comonadic!",
+        "versions": [
+            "2.1.0",
+            "2.0.1",
+            "2.0.0",
+            "1.3.0",
+            "1.2.2",
+            "1.2.1",
+            "1.2.0",
+            "1.1.0",
             "1.0.0"
         ]
     },
@@ -7884,9 +8057,18 @@
         "name": "layer6ai/elm-filter-box",
         "summary": "Search box that supports key value filtering",
         "versions": [
+            "1.1.2",
             "1.1.1",
             "1.1.0",
             "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "layer6ai/elm-query-builder",
+        "summary": "Element for building structured queries",
+        "versions": [
+            "2.0.0",
             "1.0.0"
         ]
     },
@@ -8841,8 +9023,9 @@
     },
     {
         "name": "mpizenberg/elm-mouse-events",
-        "summary": "Handle mouse events with coordinates",
+        "summary": "Will deprecate in favor of elm-pointer-events in elm 0.19",
         "versions": [
+            "2.0.0",
             "1.1.1",
             "1.1.0",
             "1.0.0"
@@ -8852,6 +9035,7 @@
         "name": "mpizenberg/elm-pointer-events",
         "summary": "Pointer events",
         "versions": [
+            "1.0.5",
             "1.0.4",
             "1.0.3",
             "1.0.2",
@@ -8957,9 +9141,18 @@
         ]
     },
     {
+        "name": "naddeoa/quick-cache",
+        "summary": "A simple, LRU cache with O(1) get, put and remove operations",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "naddeoa/stream",
         "summary": "Functional, infinite streams of data that won't overflow the stack",
         "versions": [
+            "2.4.0",
+            "2.3.0",
             "2.2.1",
             "2.2.0",
             "2.1.0",
@@ -8983,6 +9176,16 @@
         ]
     },
     {
+        "name": "nathanjohnson320/elmark",
+        "summary": "Ark API client in Elm",
+        "versions": [
+            "4.0.0",
+            "3.0.0",
+            "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ndr-qef/microkanren.elm",
         "summary": "A minimal functional core for relational programming",
         "versions": [
@@ -8995,6 +9198,13 @@
         "summary": "library for parsing ABC documents",
         "versions": [
             "1.1.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "newlandsvalley/elm-binary-base64",
+        "summary": "Experimental library for Binary Base64",
+        "versions": [
             "1.0.0"
         ]
     },
@@ -9057,6 +9267,7 @@
         "name": "nonpop/elm-purl",
         "summary": "A tiny library for building parameterized URLs",
         "versions": [
+            "2.1.0",
             "2.0.3",
             "2.0.2",
             "2.0.1",
@@ -9311,6 +9522,7 @@
         "name": "opensolid/mesh",
         "summary": "Generic indexed triangular mesh data structure",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -9410,6 +9622,7 @@
         "name": "pablohirafuji/elm-syntax-highlight",
         "summary": "Syntax highlighting in Elm",
         "versions": [
+            "2.1.0",
             "2.0.1",
             "2.0.0",
             "1.1.0",
@@ -9489,6 +9702,7 @@
         "name": "peterszerzo/elm-arborist",
         "summary": "Tree-editing interface for Elm",
         "versions": [
+            "2.1.0",
             "2.0.2",
             "2.0.1",
             "2.0.0",
@@ -9513,6 +9727,19 @@
             "3.0.0",
             "2.0.1",
             "2.0.0",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "peterszerzo/elm-natural-ui",
+        "summary": "Easy-going, opinionated UI kit",
+        "versions": [
+            "3.0.0",
+            "2.2.1",
+            "2.2.0",
+            "2.1.0",
+            "2.0.0",
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -9634,6 +9861,19 @@
         ]
     },
     {
+        "name": "pristap/smart-text",
+        "summary": "SmartText is a library for parsing hashtags & mentions from plain text input.",
+        "versions": [
+            "1.0.6",
+            "1.0.5",
+            "1.0.4",
+            "1.0.3",
+            "1.0.2",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "pro100filipp/elm-graphql",
         "summary": "Fork from jamesmacaulay/elm-graphql to support custom variable types",
         "versions": [
@@ -9748,6 +9988,7 @@
         "name": "pwentz/elm-pretty-printer",
         "summary": "A combinator library for pretty printing to the terminal",
         "versions": [
+            "3.0.0",
             "2.0.0",
             "1.0.0"
         ]
@@ -10630,6 +10871,7 @@
         "name": "simonh1000/elm-jwt",
         "summary": "Supports decoding Jwt tokens & making authenticated HTTP requests",
         "versions": [
+            "5.3.0",
             "5.2.2",
             "5.2.1",
             "5.2.0",
@@ -10848,6 +11090,7 @@
         "name": "splodingsocks/validatable",
         "summary": "A library for storing and checking validatable data, live or delayed.",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -11021,6 +11264,8 @@
         "name": "stil4m/elm-syntax",
         "summary": "Elm Syntax in Elm: for parsing and writing Elm in Elm",
         "versions": [
+            "3.1.3",
+            "3.1.2",
             "3.1.1",
             "3.1.0",
             "3.0.0",
@@ -11286,6 +11531,7 @@
         "name": "tesk9/accessible-html",
         "summary": "view helpers enforcing accessible practices",
         "versions": [
+            "3.1.0",
             "3.0.0",
             "2.0.0",
             "1.1.0",
@@ -11410,6 +11656,22 @@
         "name": "the-sett/auth-elm",
         "summary": "Elm auth module for interacting with the-sett/auth-service.",
         "versions": [
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "the-sett/elm-pretty-printer",
+        "summary": "A combinator library for pretty printing.",
+        "versions": [
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
+        "name": "the-sett/elm-string-case",
+        "summary": "A library for converting between camel-case, snake-case, kebab-case and so on.",
+        "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -11691,6 +11953,8 @@
         "name": "truqu/elm-oauth2",
         "summary": "OAuth 2.0 client-side utils",
         "versions": [
+            "2.2.0",
+            "2.1.0",
             "2.0.3",
             "2.0.2",
             "2.0.1",
@@ -12233,6 +12497,16 @@
         ]
     },
     {
+        "name": "wjdhamilton/elm-json-api-helpers",
+        "summary": "Set of encode and decode helper functions for working with json api",
+        "versions": [
+            "2.0.1",
+            "2.0.0",
+            "1.0.1",
+            "1.0.0"
+        ]
+    },
+    {
         "name": "wuct/elm-charts",
         "summary": "A pure Elm Chart library",
         "versions": [
@@ -12296,9 +12570,17 @@
         ]
     },
     {
+        "name": "ymtszw/elm-amazon-product-advertising",
+        "summary": "Client for Amazon Product Advertising API",
+        "versions": [
+            "1.0.0"
+        ]
+    },
+    {
         "name": "ymtszw/elm-http-xml",
         "summary": "Http client for XML API",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -12306,6 +12588,7 @@
         "name": "ymtszw/elm-xml-decode",
         "summary": "Xml decoder sharing the spirit of Json.Decode",
         "versions": [
+            "1.0.1",
             "1.0.0"
         ]
     },
@@ -12473,6 +12756,9 @@
         "name": "zwilias/json-decode-exploration",
         "summary": "Exploration: JSON decoding with strong error types",
         "versions": [
+            "5.0.0",
+            "4.3.0",
+            "4.2.1",
             "4.2.0",
             "4.1.2",
             "4.1.1",

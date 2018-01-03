@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Treemap",
+    "comment": " Draw Treemaps\n\n<img style=\"max-width: 100%;\" src=\"https://rawgit.com/folkertdev/elm-treemap/master/docs/smallEuropeanGDP.svg\" />\n\nThe algorithm for making tree maps origionally comes from the [Squarified Treemaps] paper by Bruls, Huizing, and van Wijk.\n(it has good visual explanations of how this algorithm works, check it out!)\nThe code is inspired by [imranghory/treemap-squared](https://github.com/imranghory/treemap-squared).\n\n**The order of the input can matter**. The paper authors found that a decreasing order\ngave the best results. This function doesn't sort automatically, so the ordering is something\nyou can play around with if the generated treemap doesn't look quite right.\n\nA deviation from the paper is that **your data will be normalized**, so the input `[1, 2]` is the same as `[2, 4]`, because\nthe numbers represent a fraction of the total area, not absolute area values.\n\n[Squarified Treemaps]: https://www.win.tue.nl/~vanwijk/stm.pdf\n\n\n@docs draw\n\n# Boxes\n@docs generate, Box, Point\n\n# Fancy Drawing\n@docs drawWithOptions, Options, defaultOptions\n@docs BreakLabel, floatInterpolate, colorInterpolate\n\n# Customized rendering\n@docs renderLabel, renderBox\n",
+    "aliases": [
+      {
+        "name": "Box",
+        "comment": " A box in a treemap, defined by its bottomLeft and topRight corners\n",
+        "args": [],
+        "type": "{ bottomLeft : Treemap.Point, topRight : Treemap.Point }"
+      },
+      {
+        "name": "Options",
+        "comment": " Styling options for a Treemap\n\nA bunch of the fields of this record expect functions of the pattern `Float -> *`. This\nfloat value is the normalized size of the box relative to the largest box.\n\nSo the largest box gets value 1, a box half as big (in area) gets 0.5, an empty box gets 0.\nThis is perfect for interpolation.\n",
+        "args": [],
+        "type": "{ fontSize : Float -> Float , fontColor : Float -> Color.Color , boxColor : Float -> Color.Color , breakLabel : Treemap.BreakLabel , border : Float -> { width : Float, color : Color.Color } }"
+      },
+      {
+        "name": "Point",
+        "comment": " A point in 2d space\n",
+        "args": [],
+        "type": "{ x : Float, y : Float }"
+      }
+    ],
+    "types": [
+      {
+        "name": "BreakLabel",
+        "comment": " When to break the text in a label\n\nWhen boxes get smaller and more narrow, you'll probably want to\nbreak the text. This is quite complicated in svg, so this setting\ndoes not take into account actual available space, it will blindly\nsplit and break where you tell it to.\n",
+        "args": [],
+        "cases": [
+          [
+            "Never",
+            []
+          ],
+          [
+            "OnWhiteSpace",
+            []
+          ],
+          [
+            "OnRegex",
+            [
+              "Regex.Regex"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "colorInterpolate",
+        "comment": " A color value between minimum and maximum, based on the relative size of a box\n",
+        "type": "Color.Color -> Color.Color -> Float -> Color.Color"
+      },
+      {
+        "name": "defaultOptions",
+        "comment": " The default options\n\n    defaultOptions : Options\n    defaultOptions =\n        { fontSize = \\_ -> 14\n        , fontColor = \\_ -> Color.black\n        , boxColor = \\_ -> Color.white\n        , breakLabel = OnWhiteSpace\n        , border = \\_ -> { width = 1, color = Color.black }\n        }\n",
+        "type": "Treemap.Options"
+      },
+      {
+        "name": "draw",
+        "comment": " Construct a treemap\n\n    Svg.svg [ Svg.Attributes.width \"200\", Svg.Attributes.height \"200\" ]\n        [ Treemap.draw { width = 200, height = 200 }\n            [ ( \"1\", 1 ), ( \"2\", 2 ), ( \"4\", 4 ), ( \"8\", 8 ) ]\n        ]\n\nThe styling is pretty spartan, see `drawWithOptions` for styling options.\n",
+        "type": "{ width : Float, height : Float } -> List ( String, Float ) -> Svg.Svg msg"
+      },
+      {
+        "name": "drawWithOptions",
+        "comment": " Drawing with styling options\n\n    options =\n        { defaultOptions\n            | fontSize = Treemap.floatInterpolate { minimum = 8, maximum = 20 }\n            , breakLabel = Treemap.OnWhiteSpace\n        }\n    Svg.svg [ Svg.Attributes.width \"600\", Svg.Attributes.height \"500\" ] <|\n        Treemap.drawWithOptions options { width = 600, height = 500 } data\n\n",
+        "type": "Treemap.Options -> { width : Float, height : Float } -> List ( String, Float ) -> List (Svg.Svg msg)"
+      },
+      {
+        "name": "floatInterpolate",
+        "comment": " A float value between minimum and maximum, based on the relative size of a box\n",
+        "type": "{ minimum : Float, maximum : Float } -> Float -> Float"
+      },
+      {
+        "name": "generate",
+        "comment": " Generate boxes from a region and a list of data, if that's all you need.\n\n    generate { width = 100, height = 100 } [ 1, 1, 2 ]\n    --> [ { bottomLeft = { x = 0, y = 0 }, topRight = { x = 50, y = 50 } }\n    --> , { bottomLeft = { x = 0, y = 50 }, topRight = { x = 50, y = 100 } }\n    --> , { bottomLeft = { x = 50, y = 0 }, topRight = { x = 100, y = 100 } }\n    --> ]\n",
+        "type": "{ width : Float, height : Float } -> List Float -> List Treemap.Box"
+      },
+      {
+        "name": "renderBox",
+        "comment": " Helper that only renders the box.\n\nUseful if you want this package to render the boxes, but use your own custom label\n",
+        "type": "Color.Color -> { width : Float, color : Color.Color } -> Treemap.Box -> Svg.Svg msg"
+      },
+      {
+        "name": "renderLabel",
+        "comment": " Helper that only renders the label.\n\nUseful if you want this package to render the labels, but use your own custom box\n",
+        "type": "Treemap.BreakLabel -> Float -> Color.Color -> String -> Treemap.Box -> Svg.Svg msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Pretty",
+    "comment": " Pretty printer.\n@docs Doc\n\nFunctions for building pieces of documents from string data.\n@docs empty, space, string, char\n\nFunctions for joining documents together\n@docs (|+), append, join\n\nFunctions for fitting documents onto lines as space allows.\n@docs group, line, softline\n\nFunctions for indenting and alinging documents.\n@docs align, nest, hang, indent\n\nFunctions for putting brackets around documents.\n@docs surround, parens, braces, pretty\n\nFunctions for pretty printing documents.\n@docs pretty\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Doc",
+        "comment": " The type of documents that can be pretty printed.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "align",
+        "comment": " Adds an indent of the current column position to all line breaks in the document.\nThe first line will not be indented, only subsequent nested lines will be.\n",
+        "type": "Pretty.Doc -> Pretty.Doc"
+      },
+      {
+        "name": "append",
+        "comment": " Appends two documents together.\n",
+        "type": "Pretty.Doc -> Pretty.Doc -> Pretty.Doc"
+      },
+      {
+        "name": "braces",
+        "comment": " Wraps a document in braces.\n",
+        "type": "Pretty.Doc -> Pretty.Doc"
+      },
+      {
+        "name": "char",
+        "comment": " Creates a document from a character.\n",
+        "type": "Char -> Pretty.Doc"
+      },
+      {
+        "name": "empty",
+        "comment": " Creates an empty document.\n\n    pretty 10 empty == \"\"\n\n",
+        "type": "Pretty.Doc"
+      },
+      {
+        "name": "group",
+        "comment": " Tries to fit a document on a single line, replacing line breaks with single spaces\nwhere possible to achieve this.\n",
+        "type": "Pretty.Doc -> Pretty.Doc"
+      },
+      {
+        "name": "hang",
+        "comment": " Adds an indent of the current column position to all line breaks in the document and\na further indent of the specified number of columns.\nThe first line will not be indented, only subsequent nested lines will be.\n",
+        "type": "Int -> Pretty.Doc -> Pretty.Doc"
+      },
+      {
+        "name": "indent",
+        "comment": " Indents a whole document by a given number of spaces.\n",
+        "type": "Int -> Pretty.Doc -> Pretty.Doc"
+      },
+      {
+        "name": "join",
+        "comment": " Concatenates a list of documents together interspersed with a separator document.\n",
+        "type": "Pretty.Doc -> List Pretty.Doc -> Pretty.Doc"
+      },
+      {
+        "name": "line",
+        "comment": " Creates a hard line break. This always creates a new line, with subsequent text\nat the current indentation level.\n",
+        "type": "Pretty.Doc"
+      },
+      {
+        "name": "nest",
+        "comment": " Adds an indent of the given number of spaces to all line breakss in the document.\nThe first line will not be indented, only subsequent nested lines will be.\n",
+        "type": "Int -> Pretty.Doc -> Pretty.Doc"
+      },
+      {
+        "name": "parens",
+        "comment": " Wraps a document in parnethesese\n",
+        "type": "Pretty.Doc -> Pretty.Doc"
+      },
+      {
+        "name": "pretty",
+        "comment": " Pretty prints a document trying to fit it as best as possible to the specified\ncolumn width of the page.\n",
+        "type": "Int -> Pretty.Doc -> String"
+      },
+      {
+        "name": "softline",
+        "comment": " Creates a line break that will render to a single space if the documents it\nsepartes can be fitted onto one line, or a line break otherwise.\n",
+        "type": "Pretty.Doc"
+      },
+      {
+        "name": "space",
+        "comment": " Creates a document consisting of a single space.\n",
+        "type": "Pretty.Doc"
+      },
+      {
+        "name": "string",
+        "comment": " Creates a document from a string.\n",
+        "type": "String -> Pretty.Doc"
+      },
+      {
+        "name": "surround",
+        "comment": " Places a document inside left and right book ends.\n\n    pretty 100 (surround (char '\\') (char '/') string \"hello\")\n      == \"\\hello/\"\n\n",
+        "type": "Pretty.Doc -> Pretty.Doc -> Pretty.Doc -> Pretty.Doc"
+      },
+      {
+        "name": "|+",
+        "comment": " Appends two documents together.\n",
+        "type": "Pretty.Doc -> Pretty.Doc -> Pretty.Doc",
+        "associativity": "right",
+        "precedence": 6
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

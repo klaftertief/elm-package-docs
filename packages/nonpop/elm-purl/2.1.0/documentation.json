@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Url",
+    "comment": " A tiny library for building parameterized URLs. It is intended to be used\nwith records to give the parameters names and therefore reducing errors.\n\n    userUrl : Url { id : Int, show : Bool }\n    userUrl = root </> s \"users\" </> int .id <?> (\"show\", bool .show)\n\n    userUrl @ { id = 42, show = True } --> \"/users/42?show=true\"\n\n\n# Types\n\n@docs Url, Part\n\n\n# Builders\n\n@docs root, append, s, int, string, bool, hash, custom, appendParam, (</>), (<#>), (<?>)\n\n\n# Presenting\n\n@docs toString, (@)\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Part",
+        "comment": " A parameterized part (segment or query value) of a URL.\n",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      },
+      {
+        "name": "Url",
+        "comment": " A URL parameterized over the type `a`, which is typically a record containing\na field for each parameterized `Part`.\n",
+        "args": [
+          "a"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "<#>",
+        "comment": " Infix operator to inject a hash.\n\n    root </> s \"base\" <#> s \"page\" </> int .page\n        |> Url.toString { page = 42 }\n    --> \"/base/#/page/42\"\n\n",
+        "type": "Url.Url a -> Url.Part a -> Url.Url a"
+      },
+      {
+        "name": "</>",
+        "comment": " Infix version of `append`.\n",
+        "type": "Url.Url a -> Url.Part a -> Url.Url a"
+      },
+      {
+        "name": "<?>",
+        "comment": " Infix version of `appendParam`\n",
+        "type": "Url.Url a -> ( String, Url.Part a ) -> Url.Url a"
+      },
+      {
+        "name": "@",
+        "comment": " Infix version of `Url.toString` (\"evaluate at\").\n",
+        "type": "Url.Url a -> a -> String"
+      },
+      {
+        "name": "append",
+        "comment": " Append a segment to the URL.\n",
+        "type": "Url.Part a -> Url.Url a -> Url.Url a"
+      },
+      {
+        "name": "appendParam",
+        "comment": " Append a query parameter to the URL.\n\n    root\n        |> append (s \"part\")\n        |> appendParam \"show\" (bool .show)\n        |> Url.toString { show = True }\n        --> \"/part?show=true\"\n\n",
+        "type": "String -> Url.Part a -> Url.Url a -> Url.Url a"
+      },
+      {
+        "name": "bool",
+        "comment": " A parameterized boolean part.\n\n    root\n        |> append (bool .show)\n        |> Url.toString { show = True }\n        --> \"/true\"\n\n",
+        "type": "(a -> Bool) -> Url.Part a"
+      },
+      {
+        "name": "custom",
+        "comment": " Build a custom part.\n\n    import String.Extra exposing (fromInt)\n\n    root\n        |> append (custom (.ids >> List.map fromInt >> String.join \";\"))\n        |> Url.toString { ids = [1, 2, 3] }\n        --> \"/1%3B2%3B3\"\n\n",
+        "type": "(a -> String) -> Url.Part a"
+      },
+      {
+        "name": "hash",
+        "comment": " A hash-only part.\n\n    root\n        |> append (s \"base\")\n        |> append hash\n        |> append (s \"page\")\n        |> Url.toString {}\n        --> \"/base/#/page\"\n\n",
+        "type": "Url.Part a"
+      },
+      {
+        "name": "int",
+        "comment": " A parameterized (variable) integer part.\n\n    root\n        |> append (s \"users\")\n        |> append (int .id)\n        |> Url.toString { id = 42 }\n        --> \"/users/42\"\n\n",
+        "type": "(a -> Int) -> Url.Part a"
+      },
+      {
+        "name": "root",
+        "comment": " The root URL.\n\n    root |> Url.toString () --> \"/\"\n\n",
+        "type": "Url.Url a"
+      },
+      {
+        "name": "s",
+        "comment": " An unparameterized (static) part.\n\n    root |> append (s \"users\") |> Url.toString () --> \"/users\"\n\n",
+        "type": "String -> Url.Part a"
+      },
+      {
+        "name": "string",
+        "comment": " A parameterized string part.\n\n    root\n        |> append (s \"say\")\n        |> append (string .word)\n        |> Url.toString { word = \"Hello\" }\n        --> \"/say/Hello\"\n\n",
+        "type": "(a -> String) -> Url.Part a"
+      },
+      {
+        "name": "toString",
+        "comment": " Give a string representation of the URL, given a value for the parameter.\n",
+        "type": "a -> Url.Url a -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

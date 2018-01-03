@@ -1,0 +1,90 @@
+[
+  {
+    "name": "FilterBox.Helpers",
+    "comment": " Helper functions to make basic cofig\n\n\n# Getters\n\n@docs getKeys, getValues\n\n\n# Matchers\n\n@docs simple, basic, caseInsensitive\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "basic",
+        "comment": " Basic matching using current text as a regex\n",
+        "type": "String -> List String -> List FilterBox.InputMatch"
+      },
+      {
+        "name": "caseInsensitive",
+        "comment": " Same as basic matching but case insensitive\n",
+        "type": "String -> List String -> List FilterBox.InputMatch"
+      },
+      {
+        "name": "getKeys",
+        "comment": " Helper function to create a `getFilterKeys` function out of a static list of matches.\n",
+        "type": "(String -> List String -> List FilterBox.InputMatch) -> List String -> String -> Task.Task String (List FilterBox.InputMatch)"
+      },
+      {
+        "name": "getValues",
+        "comment": " Helper function to create a `getFilterValues` function out of a static dictionary of matches.\n",
+        "type": "(String -> List String -> List FilterBox.InputMatch) -> Dict.Dict String (List String) -> String -> String -> Task.Task String (List FilterBox.InputMatch)"
+      },
+      {
+        "name": "simple",
+        "comment": " The sample list of matches regardless of current text\n",
+        "type": "String -> List String -> List FilterBox.InputMatch"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "FilterBox",
+    "comment": " Search box that supports key value filtering\n\n\n# Model\n\n@docs Model, InputMatch, Config, init\n\n\n# View\n\n@docs view\n\n\n# State\n\n@docs Msg, update, detectFiltersChanged\n\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " All configuration options for the filter box\n\n    { getFilterKeys : Maybe (String -> Task String (List InputMatch))\n    , getFilterValues : Maybe (String -> String -> Task String (List InputMatch))\n    }\n\nIf `getFilterKeys` is specified, it will be passed the current text to provide a list of matches.\n\nIf `getFilterValues` is specified, it will be passed the selected key and current text to provide a list of matches.\n\n",
+        "args": [],
+        "type": "FilterBox.Model.Config"
+      },
+      {
+        "name": "InputMatch",
+        "comment": " InputMatches are displayed underneath the search box as suggestions when available.\n\n    { match : List ( String, Bool )\n    , description : Maybe String\n    }\n\nWhen all the strings in `match` are joined together they form the suggestion. If the boolean with each string is `True` then that section of the string will be bolded indicating the matching section of the string. See FilterBox.Helpers for an example.\n\n`description` is an optional description of the suggestion. If provided it will be displayed beside the suggestion.\n\n",
+        "args": [],
+        "type": "FilterBox.Model.InputMatch"
+      },
+      {
+        "name": "Model",
+        "comment": " Holds the state of the filter search box\n\n    { filters : List ( String, String )\n    ...\n    }\n\n`filters` is where all of the added filters are stored as a list of `(key, value)`.\n\n",
+        "args": [],
+        "type": "FilterBox.Model.Model"
+      },
+      {
+        "name": "Msg",
+        "comment": " Filter box messages\n",
+        "args": [],
+        "type": "FilterBox.Update.Msg"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "detectFiltersChanged",
+        "comment": " Use alongside `update` and `.filters` in order to trigger events when a filter is added\n\n    update : Msg -> Model -> ( Model, Cmd Msg )\n    update msg model =\n        case msg of\n            FilterBoxMsg subMsg ->\n                let\n                    filtersChanged =\n                        detectFiltersChanged subMsg model.filterBox\n\n                    ( nextFilterBox, filterBoxCmd ) =\n                        FilterBox.update subMsg model.filterBox\n\n                    doSomethingCmd =\n                        if filtersChanged then\n                            doSomething nextFilterBox.filters\n                        else\n                            Cmd.none\n\n                    cmd =\n                        Cmd.batch\n                            [ doSomethingCmd\n                            , Cmd.map FilterBoxMsg filterBoxCmd\n                            ]\n                in\n                    ( { model | filterBox = nextFilterBox }, cmd )\n\n",
+        "type": "FilterBox.Msg -> FilterBox.Model -> Bool"
+      },
+      {
+        "name": "init",
+        "comment": " Initializes the filter box\n",
+        "type": "FilterBox.Config -> ( FilterBox.Model, Platform.Cmd.Cmd FilterBox.Msg )"
+      },
+      {
+        "name": "update",
+        "comment": " Update the filter box\n",
+        "type": "FilterBox.Msg -> FilterBox.Model -> ( FilterBox.Model, Platform.Cmd.Cmd FilterBox.Msg )"
+      },
+      {
+        "name": "view",
+        "comment": " The view takes the model and displays a filter box\n",
+        "type": "FilterBox.Model -> Html.Styled.Html FilterBox.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

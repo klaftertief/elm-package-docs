@@ -1,0 +1,327 @@
+[
+  {
+    "name": "Graphqelm.Http",
+    "comment": " Send requests to your GraphQL endpoint. See the\n[`examples/`](https://github.com/dillonkearns/graphqelm/tree/master/examples)\nfolder for some end-to-end examples.\nThe builder syntax is inspired by Luke Westby's\n[elm-http-builder package](http://package.elm-lang.org/packages/lukewestby/elm-http-builder/latest).\n\n@docs buildQueryRequest, buildMutationRequest, send, withHeader, withTimeout\n@docs Request, Error\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Error",
+        "comment": " Represents the two types of errors you can get, an Http error or a GraphQL error.\nSee the `Graphqelm.Http.GraphqlError` module docs for more details.\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "Request",
+        "comment": " An internal request as its built up. Once its built up, send the\nrequest with `Graphqelm.Http.send`.\n",
+        "args": [
+          "decodesTo"
+        ],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "buildMutationRequest",
+        "comment": " Initialize a basic request from a Mutation. You can add on options with `withHeader`,\n`withTimeout`, `withCredentials`, and send it with `Graphqelm.Http.send`.\n",
+        "type": "String -> Graphqelm.SelectionSet.SelectionSet decodesTo Graphqelm.RootMutation -> Graphqelm.Http.Request decodesTo"
+      },
+      {
+        "name": "buildQueryRequest",
+        "comment": " Initialize a basic request from a Query. You can add on options with `withHeader`,\n`withTimeout`, `withCredentials`, and send it with `Graphqelm.Http.send`.\n",
+        "type": "String -> Graphqelm.SelectionSet.SelectionSet decodesTo Graphqelm.RootQuery -> Graphqelm.Http.Request decodesTo"
+      },
+      {
+        "name": "send",
+        "comment": " Send the `Graphqelm.Request`\nYou can use it on its own, or with a library like\n[RemoteData](http://package.elm-lang.org/packages/krisajenkins/remotedata/latest/).\n\n\n## With RemoteData\n\n    import Graphqelm.Http\n    import Graphqelm.OptionalArgument exposing (OptionalArgument(Null, Present))\n    import RemoteData exposing (RemoteData)\n\n    type Msg\n        = GotResponse RemoteData Graphqelm.Http.Error Response\n\n    makeRequest : Cmd Msg\n    makeRequest =\n        query\n            |> Graphqelm.Http.buildQueryRequest \"https://graphqelm.herokuapp.com/\"\n            |> Graphqelm.Http.withHeader \"authorization\" \"Bearer abcdefgh12345678\"\n            -- If you're not using remote data, it's just\n            -- |> Graphqelm.Http.send GotResponse\n            -- Otherwise, it's as below\n            |> Graphqelm.Http.send (RemoteData.fromResult >> GotResponse)\n\n",
+        "type": "(Result.Result Graphqelm.Http.Error a -> msg) -> Graphqelm.Http.Request a -> Platform.Cmd.Cmd msg"
+      },
+      {
+        "name": "withHeader",
+        "comment": " Add a header.\n",
+        "type": "String -> String -> Graphqelm.Http.Request decodesTo -> Graphqelm.Http.Request decodesTo"
+      },
+      {
+        "name": "withTimeout",
+        "comment": " Add a timeout.\n",
+        "type": "Time.Time -> Graphqelm.Http.Request decodesTo -> Graphqelm.Http.Request decodesTo"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graphqelm.Builder.Object",
+    "comment": " Internal functions for use by auto-generated code from the `graphqelm` CLI.\n@docs fieldDecoder, object, selectionFieldDecoder\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "fieldDecoder",
+        "comment": " Refer to a field in auto-generated code.\n",
+        "type": "String -> List Graphqelm.Builder.Argument.Argument -> Json.Decode.Decoder decodesTo -> Graphqelm.FieldDecoder.FieldDecoder decodesTo lockedTo"
+      },
+      {
+        "name": "object",
+        "comment": " Used to create the `selection` functions in auto-generated code.\n",
+        "type": "(a -> constructor) -> Graphqelm.SelectionSet.SelectionSet (a -> constructor) typeLock"
+      },
+      {
+        "name": "selectionFieldDecoder",
+        "comment": " Refer to an object in auto-generated code.\n",
+        "type": "String -> List Graphqelm.Builder.Argument.Argument -> Graphqelm.SelectionSet.SelectionSet a objectTypeLock -> (Json.Decode.Decoder a -> Json.Decode.Decoder b) -> Graphqelm.FieldDecoder.FieldDecoder b lockedTo"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graphqelm.Document",
+    "comment": " You'll usually want to use `Graphqelm.Http` to perform your queries directly.\nThis package provides low-level functions for generating GraphQL documents that\nare helpful for debugging and demo purposes.\n\n@docs serializeQuery, serializeMutation\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "serializeMutation",
+        "comment": " Serialize a mutation selection set into a string for a GraphQL endpoint.\n",
+        "type": "Graphqelm.SelectionSet.SelectionSet decodesTo Graphqelm.RootMutation -> String"
+      },
+      {
+        "name": "serializeQuery",
+        "comment": " Serialize a query selection set into a string for a GraphQL endpoint.\n",
+        "type": "Graphqelm.SelectionSet.SelectionSet decodesTo Graphqelm.RootQuery -> String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graphqelm.SelectionSet",
+    "comment": " The auto-generated code from the `graphqelm` CLI will provide `selection`\nfunctions for Objects in your GraphQL schema. These functions take a `Graphqelm.SelectionSet`\nwhich describes which fields to retrieve on that SelectionSet.\n@docs SelectionSet, with\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "SelectionSet",
+        "comment": " SelectionSet type\n",
+        "args": [
+          "decodesTo",
+          "typeLock"
+        ],
+        "cases": [
+          [
+            "SelectionSet",
+            [
+              "List Graphqelm.Field.Field",
+              "Json.Decode.Decoder decodesTo"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "with",
+        "comment": " Used to pick out fields on an object.\n\n    import Api.Enum.Episode as Episode exposing (Episode)\n    import Api.Object\n    import Graphqelm.SelectionSet exposing (SelectionSet, with)\n\n    type alias Hero =\n        { name : String\n        , id : String\n        , appearsIn : List Episode\n        }\n\n    hero : SelectionSet Hero Api.Object.Character\n    hero =\n        Character.selection Hero\n            |> with Character.name\n            |> with Character.id\n            |> with Character.appearsIn\n\n",
+        "type": "Graphqelm.FieldDecoder.FieldDecoder a typeLock -> Graphqelm.SelectionSet.SelectionSet (a -> b) typeLock -> Graphqelm.SelectionSet.SelectionSet b typeLock"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graphqelm.FieldDecoder",
+    "comment": " `FieldDecoder`s are automatically generated by the `graphqelm` CLI command.\nYou can use `Graphqelm.FieldDecoder.map` to transform a value.\n@docs map, FieldDecoder\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "FieldDecoder",
+        "comment": " ",
+        "args": [
+          "decodesTo",
+          "typeLock"
+        ],
+        "cases": [
+          [
+            "FieldDecoder",
+            [
+              "Graphqelm.Field.Field",
+              "Json.Decode.Decoder decodesTo"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "map",
+        "comment": " Maps the data coming back from the GraphQL endpoint. In this example,\n`User.name` is a module that the `graphqelm` CLI tool created which tells us\nthat the `name` field on a `User` object is a String according to your GraphQL\nschema.\n\n    import Api.Object\n    import Api.Object.User as User\n    import Graphqelm.FieldDecoder as FieldDecoder\n    import Graphqelm.SelectionSet exposing (SelectionSet, with)\n\n    human : SelectionSet String Api.Object.User\n    human =\n        User.selection identity\n            |> with\n                (User.name\n                    |> FieldDecoder.map String.toUpper\n                )\n\n",
+        "type": "(decodesTo -> mapsTo) -> Graphqelm.FieldDecoder.FieldDecoder decodesTo typeLock -> Graphqelm.FieldDecoder.FieldDecoder mapsTo typeLock"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graphqelm.Builder.Argument",
+    "comment": " Internal functions for use by auto-generated code from the `graphqelm` CLI.\n@docs Argument, optional, required\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Argument",
+        "comment": " Argument type.\n",
+        "args": [],
+        "cases": [
+          [
+            "Argument",
+            [
+              "String",
+              "Graphqelm.Encode.Value"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "optional",
+        "comment": " Used for passing optional arguments in generated code.\n",
+        "type": "String -> Graphqelm.OptionalArgument.OptionalArgument a -> (a -> Graphqelm.Encode.Value) -> Maybe.Maybe Graphqelm.Builder.Argument.Argument"
+      },
+      {
+        "name": "required",
+        "comment": " Used for passing required arguments in generated code.\n",
+        "type": "String -> a -> (a -> Graphqelm.Encode.Value) -> Graphqelm.Builder.Argument.Argument"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graphqelm.Http.GraphqlError",
+    "comment": " See the [Errors section in the GraphQL spec](http://facebook.github.io/graphql/October2016/#sec-Errors).\n@docs GraphqlError, decoder\n",
+    "aliases": [
+      {
+        "name": "GraphqlError",
+        "comment": " Represents an error from the GraphQL endpoint. Also see `Graphqelm.Http`.\n\nThe code generated by Graphqelm\nguarantees that your requests are valid according to the server's schema, so\nthe two cases where you will get a GraphqlError are 1) when there is an implicit\nconstraint that the schema doesn't specify, or 2) when your generated code is\nout of date with the schema.\n\n",
+        "args": [],
+        "type": "{ message : String , locations : Maybe.Maybe (List Graphqelm.Http.GraphqlError.Location) , details : Dict.Dict String Json.Decode.Value }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "decoder",
+        "comment": " For internal use only.\n",
+        "type": "Json.Decode.Decoder (List Graphqelm.Http.GraphqlError.GraphqlError)"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graphqelm.Encode",
+    "comment": " `Graphqelm.Encode.Value`s are usually low-level details used by generated code.\nCurrently users need to pass Encode Values in for InputObject arguments, but\notherwise they are only used by the code generated by the `graphqelm` CLI tool.\n\n@docs null, bool, enum, int, list, string, object, maybe\n@docs Value\n\n\n## Low-Level\n\n@docs serialize\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Value",
+        "comment": " Values\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "bool",
+        "comment": " Encode a bool\n",
+        "type": "Bool -> Graphqelm.Encode.Value"
+      },
+      {
+        "name": "enum",
+        "comment": " Encode an enum. The first argument is the toString function for that enum.\n",
+        "type": "(a -> String) -> a -> Graphqelm.Encode.Value"
+      },
+      {
+        "name": "int",
+        "comment": " Encode an int\n",
+        "type": "Int -> Graphqelm.Encode.Value"
+      },
+      {
+        "name": "list",
+        "comment": " Encode a list of Values\n",
+        "type": "(a -> Graphqelm.Encode.Value) -> List a -> Graphqelm.Encode.Value"
+      },
+      {
+        "name": "maybe",
+        "comment": " Encode a Maybe. Uses encoder for `Just`, or `Encode.null` for `Nothing`.\n",
+        "type": "(a -> Graphqelm.Encode.Value) -> Maybe.Maybe a -> Graphqelm.Encode.Value"
+      },
+      {
+        "name": "null",
+        "comment": " Encode null\n",
+        "type": "Graphqelm.Encode.Value"
+      },
+      {
+        "name": "object",
+        "comment": " Encode a list of key-value pairs into an object\n",
+        "type": "List ( String, Graphqelm.Encode.Value ) -> Graphqelm.Encode.Value"
+      },
+      {
+        "name": "serialize",
+        "comment": " Low-level function for serializing a `Graphqelm.Encode.Value`s.\n",
+        "type": "Graphqelm.Encode.Value -> String"
+      },
+      {
+        "name": "string",
+        "comment": " Encode a string\n",
+        "type": "String -> Graphqelm.Encode.Value"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graphqelm",
+    "comment": "\n\n\n## Top-Level Types\n\n@docs RootMutation, RootQuery\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "RootMutation",
+        "comment": " Type for top-level mutations which can be sent using functions\nfrom `Graphqelm.Http`.\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "RootQuery",
+        "comment": " Type for top-level queries which can be sent using functions\nfrom `Graphqelm.Http`.\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Graphqelm.OptionalArgument",
+    "comment": "\n\n@docs OptionalArgument\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "OptionalArgument",
+        "comment": " This type is used to create values to pass in optional arguments.\n\n      import Api.Enum.Episode as Episode exposing (Episode)\n      import Api.Query as Query\n      import Graphqelm exposing (RootQuery)\n      import Graphqelm.OptionalArgument exposing (OptionalArgument(Null, Present))\n      import Graphqelm.SelectionSet exposing (SelectionSet, with)\n\n\n      query : SelectionSet Response RootQuery\n      query =\n          Query.selection Response\n              |> with (Query.human { id = \"1004\" } human)\n              |> with (Query.human { id = \"1001\" } human)\n              |> with\n                  (Query.hero\n                      (\\optionals ->\n                          { optionals\n                              | episode = Present Episode.EMPIRE\n                          }\n                      )\n                      hero\n                  )\n\nAn optional argument can be either present, absent, or null, so using a Maybe does not\nfully capture the GraphQL concept of an optional argument. For example, you could have\na mutation that deletes an entry if a null argument is provided, or does nothing if\nthe argument is absent. See\n[The official GraphQL spec section on null](http://facebook.github.io/graphql/October2016/#sec-Null-Value)\nfor details.\n\n",
+        "args": [
+          "a"
+        ],
+        "cases": [
+          [
+            "Present",
+            [
+              "a"
+            ]
+          ],
+          [
+            "Absent",
+            []
+          ],
+          [
+            "Null",
+            []
+          ]
+        ]
+      }
+    ],
+    "values": [],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

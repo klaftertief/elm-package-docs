@@ -1,0 +1,49 @@
+[
+  {
+    "name": "EditableValue",
+    "comment": " This package allows editing JSON files with unknown structure in an Elm view.\nThis might be necessary e.g. for managing a noSQL server with varying document structures.\n\n# Types\n@docs EditableValue\n@docs Config\n\n# Encoding/Decoding\n@docs decoder\n@docs encode\n\n# Config\n@docs config\n\n# Views\n@docs view\n@docs editableView\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Config",
+        "comment": " Opaque type used for configuring the view functions\n",
+        "args": [],
+        "cases": []
+      },
+      {
+        "name": "EditableValue",
+        "comment": " Opaque type holding the state of the JSON\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "config",
+        "comment": " Basic constructor for Config\n",
+        "type": "EditableValue.Config"
+      },
+      {
+        "name": "decoder",
+        "comment": "\n",
+        "type": "Json.Decode.Decoder EditableValue.EditableValue"
+      },
+      {
+        "name": "editableView",
+        "comment": " View function that allows editing the JSON. The EditableValue cmd produced by this HTML should be used as the new EditableValue.\nE.g.\n```\ntype Msg\n  = SetEditableValue EditableValue\n  ...\n\nupdate : Msg -> Model -> (Model, Cmd Msg)\nupdate msg model =\n  case msg of\n    SetEditableValue newViewer -> ({model | editableValue = newViewer}, Cmd.none)\n    ...\n```\n",
+        "type": "EditableValue.Config -> EditableValue.EditableValue -> Html.Html EditableValue.EditableValue"
+      },
+      {
+        "name": "encode",
+        "comment": "\n",
+        "type": "EditableValue.EditableValue -> Json.Encode.Value"
+      },
+      {
+        "name": "view",
+        "comment": " Basic view function, does not allow editing the JSON\n",
+        "type": "EditableValue.Config -> EditableValue.EditableValue -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

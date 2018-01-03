@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Pointer",
+    "comment": " Handling pointer events.\n\n\n# Simple default usage\n\n@docs Event, onDown, onMove, onUp\n\n\n# Advanced personalized usage\n\n@docs onWithOptions, eventDecoder\n\n",
+    "aliases": [
+      {
+        "name": "Event",
+        "comment": " Type that get returned by a pointer event.\n\nSince the JS class [`PointerEvent`][PointerEvent] inherits from [`MouseEvent`][MouseEvent],\nthe `pointer` attribute here is of type [`Mouse.Event`][Mouse-Event].\n\nSo to get the relative (offset) position of a pointer event for example:\n\n    relativePos : Pointer.Event -> ( Float, Float )\n    relativePos event =\n        event.pointer.offsetPos\n\nAnd to know if the shift key was pressed:\n\n    isShiftKeyPressed : Pointer.Event -> Bool\n    isShiftKeyPressed event =\n        event.pointer.key.shift\n\n[PointerEvent]: https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent\n[MouseEvent]: https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent\n[Mouse-Event]: http://package.elm-lang.org/packages/mpizenberg/elm-mouse-events/latest/Mouse#Event\n\n",
+        "args": [],
+        "type": "{ isPrimary : Bool, pointerId : Int, pointer : Mouse.Event }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "eventDecoder",
+        "comment": " An Event decoder for pointer events.\n\nSimilarly than with the [`elm-mouse-events`][Mouse-Event] package,\nThe decoder is provided so that you can extend `Pointer.Event` with\nspecific properties you need. If you need for example the [`pressure`][pressure]\nattribute of the pointer event, you could extend the present decoder like:\n\n    type alias MyPointerEvent =\n        { pointerEvent : Pointer.Event\n        , pressure : Float\n        }\n\n    myEventDecoder : Decoder MyPointerEvent\n    myEventDecoder =\n        Decode.map2 MyPointerEvent\n            Pointer.eventDecoder\n            (Decode.field \"pressure\" Decode.float)\n\nAnd use it like as follows:\n\n    type Msg\n        = PressureMsg Float\n\n    div\n        [ myOnDown (.pressure >> PressureMsg) ]\n        [ text \"click here to measure pressure\" ]\n\n    myOnDown : (MyPointerEvent -> msg) -> Html.Attribute msg\n    myOnDown tag =\n        Decode.map tag myEventDecoder\n            |> Html.Events.onWithOptions \"pointerdown\" stopOptions\n\n    stopOptions : Html.Events.Options\n    stopOptions =\n        { stopPropagation = True\n        , preventDefault = True\n        }\n\nBEWARE that the minimalist [elm-pep] polyfill may not support\nthis property. So if you rely on it for compatibility with browsers\nnot supporting pointer events, a decoder with an unsupported attribute\nwill silently fail.\nIf such a need arises, please open an issue in [elm-pep].\n\n[Mouse-Event]: http://package.elm-lang.org/packages/mpizenberg/elm-mouse-events/latest/Mouse#Event\n[pressure]: https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent/pressure\n[elm-pep]: https://github.com/mpizenberg/elm-pep\n\n",
+        "type": "Json.Decode.Decoder Pointer.Event"
+      },
+      {
+        "name": "onDown",
+        "comment": " Listen to `pointerdown` events.\n\nLet's say that we have a message type like this:\n\n    type Msg\n        = DownMsg ( Float, Float )\n        | MoveMsg ( Float, Float )\n        | UpMsg ( Float, Float )\n\nAnd we already have defined the `relativePos : Pointer.Event -> ( Float, Float )`\nfunction (see [`Pointer.Event`](#Event) doc). Then we could listen to `pointerdown`\nevents with something like:\n\n    div [ Pointer.onDown (relativePos >> DownMsg) ] [ text \"click here\" ]\n\nHowever, since the [Pointer API][pointer-events]\nis not well [supported by all browsers][caniuse-pointer],\nI strongly recommend to use it in pair with the [elm-pep polyfill][elm-pep]\nfor compatibility with all major browsers.\nIt is also recommended that you deactivate `touch-action`\nto disable browsers scroll behaviors.\n\n    div\n        [ Pointer.onDown ...\n        , Pointer.onMove ...\n        , Pointer.onUp ...\n\n        -- no touch-action\n        , Html.Attributes.style [ ( \"touch-action\", \"none\" ) ]\n\n        -- use elm-pep polyfill\n        , Html.Attributes.attribute \"elm-pep\" \"true\"\n        ]\n        []\n\n[pointer-events]: https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent\n[caniuse-pointer]: https://caniuse.com/#feat=pointer\n[elm-pep]: https://github.com/mpizenberg/elm-pep\n\n",
+        "type": "(Pointer.Event -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onMove",
+        "comment": " Listen to `pointermove` events.\n\nSimilarly than with [`onDown`](#onDown), we can write something like:\n\n    div [ Pointer.onMove (relativePos >> MoveMsg) ] [ text \"move here\" ]\n\n",
+        "type": "(Pointer.Event -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onUp",
+        "comment": " Listen to `pointerup` events.\n\nSimilarly than with [`onDown`](#onDown), we can write something like:\n\n    div [ Pointer.onUp (relativePos >> UpMsg) ] [ text \"click here\" ]\n\n",
+        "type": "(Pointer.Event -> msg) -> Html.Attribute msg"
+      },
+      {
+        "name": "onWithOptions",
+        "comment": " Choose the pointer event to listen to, and specify the event options.\n\nThe `Options` type here is the standard [`Html.Events.Options`][html-options] type.\nIf for some reason the default behavior of this lib\n(stop propagation and prevent default) does not fit your needs,\nyou can change it with for example:\n\n    myOnDown : (Pointer.Event -> msg) -> Html.Attribute msg\n    myOnDown =\n        { stopPropagation = False, preventDefault = True }\n            |> Pointer.onWithOptions \"pointerdown\"\n\nYou can also use `Pointer.onWithOptions` to listen to an event not\nalready covered by the functions in this package, like `pointercancel`:\n\n    onCancel : (Pointer.Event -> msg) -> Html.Attribute msg\n    onCancel =\n        { stopPropagation = True, preventDefault = True }\n            |> Pointer.onWithOptions \"pointercancel\"\n\nBEWARE that the minimalist [elm-pep] polyfill may not support\nthis event. So if you rely on it for compatibility with browsers\nnot supporting pointer events, such event may never get triggered.\nIf such a need arises, please open an issue in [elm-pep].\n\n[html-options]: http://package.elm-lang.org/packages/elm-lang/html/2.0.0/Html-Events#Options\n\n",
+        "type": "String -> Html.Events.Options -> (Pointer.Event -> msg) -> Html.Attribute msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

@@ -1,0 +1,315 @@
+[
+  {
+    "name": "Aviators",
+    "comment": " Aviators! The best UI Library made specifically for Bloom Built in Elm.\n\n@docs Debounce, button, buttonCfg, callout, calloutCfg, calloutCfg_ok, calloutCfg_error, column, columnCfg, empty, errorText, floatingPage, floatingPageCfg, ghostButton, ghostButtonCfg, img, imgCfg, input, inputCfg, inputCfg_password, inputCfg_text, link, linkCfg, nav, navCfg, outlineButton, OutlineButtonCfg, outlineButtonCfg, paragraph, paragraphCfg, pickOneFromFew, pickOneFromFewCfg, root, row, rowCfg, solidButton, solidButtonCfg, headline, headlineCfg, subheadline, subheadlineCfg, wrapWithClasses, el, wrapWithTailwind, Arrangement, RowCfg, autoCell, ratioCell, Cell, rowWithCells, Flex\n\n",
+    "aliases": [
+      {
+        "name": "Cell",
+        "comment": " ",
+        "args": [
+          "msg"
+        ],
+        "type": "{ content : Html.Html msg, flex : Aviators.Flex }"
+      },
+      {
+        "name": "OutlineButtonCfg",
+        "comment": " ",
+        "args": [
+          "msg"
+        ],
+        "type": "{ paddingV : Int , paddingH : Int , maxWidth : String , color : String , disabledColor : String , onClick : Maybe.Maybe msg , htmlNode : List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg , disabled : Bool , outlineThickness : Int , attributes : List (Html.Attribute msg) }"
+      },
+      {
+        "name": "RowCfg",
+        "comment": " ",
+        "args": [
+          "msg"
+        ],
+        "type": "{ spacing : Int , stackWhenSmall : Bool , arrangement : Aviators.Arrangement , crossArrangement : Aviators.Arrangement , attributes : List (Html.Attribute msg) }"
+      }
+    ],
+    "types": [
+      {
+        "name": "Arrangement",
+        "comment": " ",
+        "args": [],
+        "cases": [
+          [
+            "Expand",
+            []
+          ],
+          [
+            "Isolate",
+            []
+          ],
+          [
+            "Start",
+            []
+          ],
+          [
+            "End",
+            []
+          ],
+          [
+            "Middle",
+            []
+          ]
+        ]
+      },
+      {
+        "name": "Debounce",
+        "comment": " Used for passing to inputs to indicate that a message should be fired after a debounce interval\n",
+        "args": [
+          "msg"
+        ],
+        "cases": [
+          [
+            "NoDebounce",
+            []
+          ],
+          [
+            "DebounceAfter",
+            [
+              "Int",
+              "msg"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "Flex",
+        "comment": " ",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "autoCell",
+        "comment": " ",
+        "type": "Html.Html msg -> Aviators.Cell msg"
+      },
+      {
+        "name": "button",
+        "comment": " ",
+        "type": "Aviators.ButtonCfg msg -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "buttonCfg",
+        "comment": " ",
+        "type": "Aviators.ButtonCfg msg"
+      },
+      {
+        "name": "callout",
+        "comment": " ",
+        "type": "{ a | backgroundColor : String, textColor : String } -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "calloutCfg",
+        "comment": " ",
+        "type": "{ backgroundColor : String, textColor : String }"
+      },
+      {
+        "name": "calloutCfg_error",
+        "comment": " ",
+        "type": "{ textColor : String, backgroundColor : String }"
+      },
+      {
+        "name": "calloutCfg_ok",
+        "comment": " ",
+        "type": "{ textColor : String, backgroundColor : String }"
+      },
+      {
+        "name": "column",
+        "comment": " ",
+        "type": "Aviators.ColumnCfg msg -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "columnCfg",
+        "comment": " ",
+        "type": "Aviators.ColumnCfg msg"
+      },
+      {
+        "name": "el",
+        "comment": " ",
+        "type": "List (Html.Attribute msg) -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "empty",
+        "comment": " ",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "errorText",
+        "comment": " ",
+        "type": "String -> Html.Html msg"
+      },
+      {
+        "name": "floatingPage",
+        "comment": " ",
+        "type": "Aviators.FloatingPageCfg -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "floatingPageCfg",
+        "comment": " ",
+        "type": "Aviators.FloatingPageCfg"
+      },
+      {
+        "name": "ghostButton",
+        "comment": " Intended to just be a transparent button around other things that look like buttons, but aren't (for accessibilty purposes).\nFor example: logo image\n",
+        "type": "Aviators.GhostButtonCfg msg -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "ghostButtonCfg",
+        "comment": " ",
+        "type": "Aviators.GhostButtonCfg msg"
+      },
+      {
+        "name": "headline",
+        "comment": " ",
+        "type": "{ a | color : String } -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "headlineCfg",
+        "comment": " ",
+        "type": "{ color : String }"
+      },
+      {
+        "name": "img",
+        "comment": " ",
+        "type": "{ a | alt : String, src : String } -> Html.Html msg"
+      },
+      {
+        "name": "imgCfg",
+        "comment": " ",
+        "type": "{ alt : String, src : String }"
+      },
+      {
+        "name": "input",
+        "comment": " ",
+        "type": "Aviators.InputConfig msg -> Html.Html msg"
+      },
+      {
+        "name": "inputCfg",
+        "comment": " ",
+        "type": "Aviators.InputConfig msg"
+      },
+      {
+        "name": "inputCfg_password",
+        "comment": " ",
+        "type": "Aviators.InputConfig msg"
+      },
+      {
+        "name": "inputCfg_text",
+        "comment": " ",
+        "type": "Aviators.InputConfig msg"
+      },
+      {
+        "name": "link",
+        "comment": " ",
+        "type": "{ a | color : String, target : String } -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "linkCfg",
+        "comment": " ",
+        "type": "{ color : String, target : String }"
+      },
+      {
+        "name": "nav",
+        "comment": " ",
+        "type": "Aviators.NavCfg msg -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "navCfg",
+        "comment": " ",
+        "type": "{ logo : String, logoAltText : String, onClickLogo : Maybe.Maybe a }"
+      },
+      {
+        "name": "outlineButton",
+        "comment": " ",
+        "type": "Aviators.OutlineButtonCfg msg -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "outlineButtonCfg",
+        "comment": " ",
+        "type": "Aviators.OutlineButtonCfg msg"
+      },
+      {
+        "name": "paragraph",
+        "comment": " ",
+        "type": "{ a | color : String } -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "paragraphCfg",
+        "comment": " ",
+        "type": "{ color : String }"
+      },
+      {
+        "name": "pickOneFromFew",
+        "comment": " ",
+        "type": "{ b | label : String, labelForOption : a -> String, onChange : Maybe.Maybe (SelectList.SelectList a -> msg), options : SelectList.SelectList a } -> Html.Html msg"
+      },
+      {
+        "name": "pickOneFromFewCfg",
+        "comment": " ",
+        "type": "{ label : String , labelForOption : a -> String , onChange : Maybe.Maybe a1 , options : SelectList.SelectList number , stackWhenSmall : Bool }"
+      },
+      {
+        "name": "ratioCell",
+        "comment": " ",
+        "type": "Float -> Html.Html msg -> Aviators.Cell msg"
+      },
+      {
+        "name": "root",
+        "comment": " ",
+        "type": "Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "row",
+        "comment": " ",
+        "type": "Aviators.RowCfg msg -> List (Html.Html msg) -> Html.Html msg"
+      },
+      {
+        "name": "rowCfg",
+        "comment": " ",
+        "type": "Aviators.RowCfg msg"
+      },
+      {
+        "name": "rowWithCells",
+        "comment": " ",
+        "type": "Aviators.RowCfg msg -> List (Aviators.Cell msg) -> Html.Html msg"
+      },
+      {
+        "name": "solidButton",
+        "comment": " ",
+        "type": "{ a | color : String, disabled : Bool, disabledColor : String, htmlNode : List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg, maxWidth : String, onClick : Maybe.Maybe msg, paddingH : Int, paddingV : Int } -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "solidButtonCfg",
+        "comment": " ",
+        "type": "{ color : String , disabled : Bool , disabledColor : String , htmlNode : List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg , maxWidth : String , onClick : Maybe.Maybe msg , paddingH : Int , paddingV : Int }"
+      },
+      {
+        "name": "subheadline",
+        "comment": " ",
+        "type": "{ a | color : String } -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "subheadlineCfg",
+        "comment": " ",
+        "type": "{ color : String }"
+      },
+      {
+        "name": "wrapWithClasses",
+        "comment": " ",
+        "type": "List String -> Html.Html msg -> Html.Html msg"
+      },
+      {
+        "name": "wrapWithTailwind",
+        "comment": " ",
+        "type": "List Tailwind.Classes.TailwindClass -> Html.Html msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

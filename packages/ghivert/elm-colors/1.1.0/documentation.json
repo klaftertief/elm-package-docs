@@ -1,0 +1,96 @@
+[
+  {
+    "name": "Colors",
+    "comment": " This module provides new, better, improved colors to use in web prototyping and everyday use.\nIt aims to completely overrides default colors for the greater good.\nCurrently, it is the elm version of [mrmrs/colors](https://github.com/mrmrs/colors).\n\n# Colors\n\nThis package provides real colors, not strings, making them easy to manipulate in elm, with the help of [eskimoblood/elm-color-extra](https://github.com/eskimoblood/elm-color-extra) for example.\n\n@docs navy\n@docs blue\n@docs aqua\n@docs teal\n@docs olive\n@docs green\n@docs lime\n@docs yellow\n@docs orange\n@docs red\n@docs maroon\n@docs fuchsia\n@docs purple\n@docs black\n@docs gray\n@docs silver\n@docs white\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "aqua",
+        "comment": " Aqua is defined as `Color.rgb 128 219 255` and its hex representation is `#7FDBFF`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "black",
+        "comment": " Black is defined as `Color.rgb 17 17 17` and its hex representation is `#111111`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "blue",
+        "comment": " Blue is defined as `Color.rgb 0 116 217` and its hex representation is `#0074D9`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "fuchsia",
+        "comment": " Fuchsia is defined as `Color.rgb 240 18 190` and its hex representation is `#F012BE`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "gray",
+        "comment": " Gray is defined as `Color.rgb 170 170 170` and its hex representation is `#AAAAAA`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "green",
+        "comment": " Green is defined as `Color.rgb 46 204 64` and its hex representation is `#2ECC40`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "lime",
+        "comment": " Lime is defined as `Color.rgb 1 255 112` and its hex representation is `#01FF70`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "maroon",
+        "comment": " Maroon is defined as `Color.rgb 133 20 75` and its hex representation is `#85144b`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "navy",
+        "comment": " Navy is defined as `Color.rgb 0 31 62` and its hex representation is `#001f3f`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "olive",
+        "comment": " Olive is defined as `Color.rgb 61 153 112` and its hex representation is `#3D9970`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "orange",
+        "comment": " Orange is defined as `Color.rgb 255 133 27` and its hex representation is `#FFDC00`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "purple",
+        "comment": " Purple is defined as `Color.rgb 177 13 201` and its hex representation is `#B10DC9`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "red",
+        "comment": " Red is defined as `Color.rgb 255 65 54` and its hex representation is `#FF4136`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "silver",
+        "comment": " Silver is defined as `Color.rgb 221 221 221` and its hex representation is `#DDDDDD`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "teal",
+        "comment": " Teal is defined as `Color.rgb 57 204 204` and its hex representation is `#39CCCC`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "white",
+        "comment": " White is defined as `Color.rgb 255 255 255` and its hex representation is `#FFFFFF`. ",
+        "type": "Color.Color"
+      },
+      {
+        "name": "yellow",
+        "comment": " Yellow is defined as `Color.rgb 255 220 0` and its hex representation is `#FFDC00`. ",
+        "type": "Color.Color"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

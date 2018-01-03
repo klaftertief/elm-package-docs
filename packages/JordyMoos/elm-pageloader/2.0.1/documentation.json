@@ -1,0 +1,186 @@
+[
+  {
+    "name": "PageLoader.DependencyStatus.RemoteDataExt",
+    "comment": " Convert a `RemoteData` to a `PageLoader.DependencyStatus.Status`\n\nThis is only useful when you use the `RemoteData` library, but this will add `RemoteData` as a dependency.\nTherefor this should be moved to an additional optional dependency.\n\n\n# RemoteDataExt\n\n@docs asStatus\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "asStatus",
+        "comment": " Converts a `RemoteData` to `PageLoader.DependencyStatus.Status`.\n",
+        "type": "RemoteData.RemoteData e a -> PageLoader.DependencyStatus.Status"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "PageLoader",
+    "comment": " `PageLoader` is a utility library to make loading of pages with dependencies clearer.\n\n\n# PageLoader\n\n@docs PageState, visualPage\n@docs TransitionStatus\n@docs defaultDependencyStatusHandler, defaultDependencyStatusListHandler\n@docs defaultProcessLoading\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "PageState",
+        "comment": " `PageState`\nA page can either be `Loaded` or `Transitioning`.\n\n`Loaded` has a `page` as payload.\n`Loaded` is used to display a page when all dependencies are loaded.\n\n`Transitioning` has a `page` (which usually is the previous page) and a `loader` (for the next page) as payload.\nThe `Transitioning`s job is wait wait until the loader is been promoted to the new page.\nIn the meantime the transition also holds a previous loaded page which can be used to display to the users.\n\n",
+        "args": [
+          "page",
+          "loader"
+        ],
+        "cases": [
+          [
+            "Loaded",
+            [
+              "page"
+            ]
+          ],
+          [
+            "Transitioning",
+            [
+              "page",
+              "loader"
+            ]
+          ]
+        ]
+      },
+      {
+        "name": "TransitionStatus",
+        "comment": " `TransitionStatus` is the result after an loader handles a msg.\nThe `TransitionStatus` holds the loading data when it is `Pending`.\nIt hold `data` (often the model of the new page) when the `TransitionStatus` is `Success`.\nAnd it holds an `String` representing an error message when the `TransitionStatus` is `Failed`.\n",
+        "args": [
+          "model",
+          "msg",
+          "data"
+        ],
+        "cases": [
+          [
+            "Pending",
+            [
+              "( model, Platform.Cmd.Cmd msg )",
+              "PageLoader.Progression.Progression"
+            ]
+          ],
+          [
+            "Success",
+            [
+              "data"
+            ]
+          ],
+          [
+            "Failed",
+            [
+              "String"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "defaultDependencyStatusHandler",
+        "comment": " `defaultDependencyStatusHandler` almost the same as `defaultDependencyStatusListHandler` with the only difference that this function received a single `DependencyStatus.Status` instead of a list.\n\n@see defaultDependencyStatusListHandler\n\n",
+        "type": "( model, Platform.Cmd.Cmd msg ) -> PageLoader.DependencyStatus.Status -> (() -> successData) -> PageLoader.TransitionStatus model msg successData"
+      },
+      {
+        "name": "defaultDependencyStatusListHandler",
+        "comment": " `defaultDependencyStatusListHandler` is used by the loader to create a new `TransitionStatus` based on the data of the loader.\n\nGiven are:\n\n  - A tuple of (Model, Cmd Msg) which is the model and cmd of the loader.\n  - A list of `DependencyStatus.Status`\n  - A closure that will be called to create the new data (often the Model of the page when loaded)\n\nThe function will return a new `TransitionStatus`.\n\n",
+        "type": "( model, Platform.Cmd.Cmd msg ) -> List PageLoader.DependencyStatus.Status -> (() -> successData) -> PageLoader.TransitionStatus model msg successData"
+      },
+      {
+        "name": "defaultProcessLoading",
+        "comment": " `defaultProcessLoading`\n\nThe `defaultProcessLoading` takes the `TransitionStatus` and will convert that to a new `PageState`.\nIn order to do that it need a couple of configurations about the loader, the page you want to go to and the error page.\n\nGiven are:\n\n  - errorPage. A page that requires a String which is the error description. And that will be set as the Loaded PageState is the TransitionStatus is Failed\n  - loaderPage. The loader page required a loaders.Model and a Progression.Progression. Will be used when the TransitionStatus is still is Pending.\n  - loaderMsg. The msg tagger for the loaderPage.\n  - successPage. The page that used if the TransitionStatus is Success.\n  - successPageInit. The init function of the successPage. The init function will be called with the result data of the loader. That is often the model of the successPage but that is not required.\n  - successPageMsg. The msg tagger for the successPage.\n  - oldPage. A page that is visual in the mean time.\n  - TransitionStatus. The transition status returned by the loader or the page.\n\nThe function will return a new PageState based on all this information.\n\nPlease see <https://github.com/JordyMoos/elm-pageloader-demo-site/blob/master/src/Main.elm> for an example usage.\n\n",
+        "type": "(String -> page) -> (loadingModel -> PageLoader.Progression.Progression -> loader) -> (loadingMsg -> msg) -> (newModel -> page) -> (newData -> ( newModel, Platform.Cmd.Cmd newMsg )) -> (newMsg -> msg) -> page -> PageLoader.TransitionStatus loadingModel loadingMsg newData -> ( PageLoader.PageState page loader, Platform.Cmd.Cmd msg )"
+      },
+      {
+        "name": "visualPage",
+        "comment": " `visualPage` extracts the `page` from a `PageState`.\n",
+        "type": "PageLoader.PageState page loader -> page"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "PageLoader.DependencyStatus",
+    "comment": " `PageLoader.DependencyStatus.Status` holds the status of one or more dependencies.\n\nA dependency can be everything like some `HTTP`, `RemoteData` or any `Cmd` that expects an answer.\nFor all of those we need to know if they are succeeded or not. Therefor a smaller type of record is needed that hold only the status of the dependency.\n\nAny dependency should be able to convert to a `Status` which is used by the `PageLoader`.\n\n\n# DependencyStatus\n\n@docs Status\n@docs isFailed, isSuccess, isPending\n@docs reduce, addFinished\n\n",
+    "aliases": [],
+    "types": [
+      {
+        "name": "Status",
+        "comment": " `Status` represents the types a dependency can be in.\nIt can either be `Success` if the dependency is fulfilled.\n`Failed` if something went wrong and it won't be fixed automatically.\n`Pending` if the dependency is not yet success or failed.\n\nThe `Pending` status also holds a `Progression`.\nsee `PageLoader.Progression`\n\n",
+        "args": [],
+        "cases": [
+          [
+            "Success",
+            []
+          ],
+          [
+            "Failed",
+            []
+          ],
+          [
+            "Pending",
+            [
+              "PageLoader.Progression.Progression"
+            ]
+          ]
+        ]
+      }
+    ],
+    "values": [
+      {
+        "name": "addFinished",
+        "comment": " addFinished adds 1 to the finished property of the progression.\n\nThis is useful when you have a dependency with a `Progression.total` higher then 1.\nThen whenever something for it is resolved, you can call `addFinished`.\nAnd when `total` is the same as `finished` then the status will me converted to a `Success` status.\n\nIf the given status was already success of failed then the return value will be the same as the given value.\n\n",
+        "type": "PageLoader.DependencyStatus.Status -> PageLoader.DependencyStatus.Status"
+      },
+      {
+        "name": "isFailed",
+        "comment": " Returns `True` if the `Status` is `Failed`\n",
+        "type": "PageLoader.DependencyStatus.Status -> Bool"
+      },
+      {
+        "name": "isPending",
+        "comment": " Returns `True` if the `Status` is `Pending`\n",
+        "type": "PageLoader.DependencyStatus.Status -> Bool"
+      },
+      {
+        "name": "isSuccess",
+        "comment": " Returns `True` if the `Status` is `Success`\n",
+        "type": "PageLoader.DependencyStatus.Status -> Bool"
+      },
+      {
+        "name": "reduce",
+        "comment": " Reduces a `List Status` to a single `Status`.\n\nIf any of the `Status` are `Failed` then the result is also `Failed`.\nIf all of the `Status` are `Success` then the result is also `Success`.\nElse the `Progression` of the `Pending` statuses are added together for the `Pending` result.\n\n",
+        "type": "List PageLoader.DependencyStatus.Status -> PageLoader.DependencyStatus.Status"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "PageLoader.Progression",
+    "comment": " A simple Progression record that shows counts of how many dependencies there are, and how many are already finished.\nProgression is hold by DependencyStatus.Pending and TransitionStatus.Pending, which gives you some information about the progression of the dependencies.\nAnd thereby allows you to show some kind of feedback to the user.\n\nYou probably should not create a Progression on your own, but should try to use some kind of extension like RemoteDataExt to do the work for you.\nIf you are using something else than what is already supported, then off course you must do it on your own.\n\n\n# Progression\n\n@docs Progression\n@docs singlePending, empty\n@docs add\n\n",
+    "aliases": [
+      {
+        "name": "Progression",
+        "comment": " The Progression record which gives information about the dependency status to other parts of the program\n",
+        "args": [],
+        "type": "{ total : Int, finished : Int }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "add",
+        "comment": " Adds two Progression records together\n",
+        "type": "PageLoader.Progression.Progression -> PageLoader.Progression.Progression -> PageLoader.Progression.Progression"
+      },
+      {
+        "name": "empty",
+        "comment": " Creates an empty Progression record. The total and finished properties are both set to 0\n",
+        "type": "PageLoader.Progression.Progression"
+      },
+      {
+        "name": "singlePending",
+        "comment": " Creates a Progression record with a total of 1 and a finished of 0.\nThis is what you use when creating a new dependencies that is not met yet.\n",
+        "type": "PageLoader.Progression.Progression"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

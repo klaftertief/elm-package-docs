@@ -1,0 +1,99 @@
+[
+  {
+    "name": "Combinatorics.Counts",
+    "comment": " **count* functions** - calculate the number of all possible comb. / permut. / variat.\n\nAll functions return `Ok Int` or `Err String`.\n\nError example: `\"countVariations limitation: k >= 0, your k = -2\"`\n\n_All functions are mirrored mathemetical formulas, create issue / pull requests for more effective computations._\n\n\n# Variations\n\n@docs countVariationsWithReps, countVariations\n\n\n# Permutations\n\n@docs countPermutationsWithReps, countPermutations\n\n\n# Combinations\n\n@docs countCombinationsWithReps, countCombinations\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "countCombinations",
+        "comment": " Calculates the number of combinations.\n\nLimitations: k >= 0, n >= 0, n >= k\n\nFormula: C(k,n) = n! / k!(n-k)!\n\n    countCombinations 2 4 == Ok 6\n\n",
+        "type": "Int -> Int -> Result.Result String Int"
+      },
+      {
+        "name": "countCombinationsWithReps",
+        "comment": " Calculates the number of combinations with repetitions.\n\nLimitations: k >= 0, n > 0\n\nFormula: C'(k,n) = (n+k-1)! / k!(n-1)!\n\n    countCombinationsWithReps 2 4 == Ok 10\n\n",
+        "type": "Int -> Int -> Result.Result String Int"
+      },
+      {
+        "name": "countPermutations",
+        "comment": " Calculates the number of permutations.\n\nLimitations: n >= 0\n\nFormula: P(n) = n!\n\n    countPermutations 3 == Ok 6\n\n",
+        "type": "Int -> Result.Result String Int"
+      },
+      {
+        "name": "countPermutationsWithReps",
+        "comment": " Calculates the number of permutations with repetitions.\n\nLimitations: kx >= 0\n\nFormula: P'(k1,k2,...,kn) = (k1+k2+,...,+kn)! / k1! . k2! . ,..., . kn!\n\n    countPermutationsWithReps [ 2, 2 ] == Ok 6\n\n",
+        "type": "List Int -> Result.Result String Int"
+      },
+      {
+        "name": "countVariations",
+        "comment": " Calculates the number of variations.\n\nLimitations: k >= 0, n >= 0, n >= k\n\nFormula: V'(k,n) = n! / (n-k)!\n\n    countVariations 2 3 == Ok 6\n\n",
+        "type": "Int -> Int -> Result.Result String Int"
+      },
+      {
+        "name": "countVariationsWithReps",
+        "comment": " Calculates the number of variations with repetitions.\n\nLimitations: k >= 0, n >= 0\n\nFormula: V'(k,n) = n ^ k\n\n    countVariationsWithReps 2 3 == Ok 9\n\n",
+        "type": "Int -> Int -> Result.Result String Int"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Combinatorics.Helpers",
+    "comment": " Helper functions\n\n\n# Combinatorics computations\n\n@docs factorial\n\n\n# Other\n\n@docs isValidResult\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "factorial",
+        "comment": " Calculates the factorial of the given number.\n\nLimitations: n >= 0\n\n    factorial 5 == Ok 120\n\n",
+        "type": "Int -> Result.Result String Int"
+      },
+      {
+        "name": "isValidResult",
+        "comment": " Is result valid?\n\n    isValidResult (Err \"some error\") == False\n\n",
+        "type": "Result.Result error value -> Bool"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "Combinatorics.Lists",
+    "comment": " **get* functions** - generate the list of all possible comb. / permut. / variat.\n\nAll functions return `Ok List` or `Err String`.\n\nError example: `\"getVariations limitation: k >= 0, your k = -2\"`\n\n_Create issue / pull requests for more effective computations, lazy loadings, etc._\n\n\n# Variations\n\n@docs getVariationsWithReps, getVariations\n\n\n# Permutations\n\n@docs getPermutationsWithReps, getPermutations\n\n\n# Combinations\n\n@docs getCombinationsWithReps, getCombinations\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "getCombinations",
+        "comment": " Get list number of combinations.\n\nLimitations: k >= 0, n >= 0, (List.length set) >= k\n\n    getCombinations 2 [ \"a\", \"b\", \"c\" ] == Ok [[\"a\",\"b\"],[\"a\",\"c\"],[\"b\",\"c\"]]\n\n",
+        "type": "Int -> List a -> Result.Result String (List (List a))"
+      },
+      {
+        "name": "getCombinationsWithReps",
+        "comment": " Get list of combinations with repetitions.\n\nLimitations: k >= 0, (List.length set) > 0\n\n    getCombinationsWithReps 2 [ \"a\", \"b\" ] == Ok [[\"a\",\"a\"],[\"a\",\"b\"],[\"b\",\"b\"]]\n\n",
+        "type": "Int -> List a -> Result.Result String (List (List a))"
+      },
+      {
+        "name": "getPermutations",
+        "comment": " Get list of permutations.\n\n    getPermutations [ \"a\", \"b\" ] == Ok [[\"a\",\"b\"],[\"b\",\"a\"]]\n\n",
+        "type": "List a -> Result.Result String (List (List a))"
+      },
+      {
+        "name": "getPermutationsWithReps",
+        "comment": " Get list of permutations with repetitions.\n\nLimitations: kx >= 0 (kx is 2nd value in tuple), a is unique (a is 1st value in tuple)\n\n    getPermutationsWithReps [ ( \"a\", 1 ), ( \"b\", 2 ) ] == Ok [[\"a\",\"b\",\"b\"],[\"b\",\"a\",\"b\"],[\"b\",\"b\",\"a\"]]\n\n",
+        "type": "List ( comparable, Int ) -> Result.Result String (List (List comparable))"
+      },
+      {
+        "name": "getVariations",
+        "comment": " Get list of variations.\n\nLimitations: k >= 0, (List.length set) >= k\n\n    getVariations 2 [ \"a\", \"b\" ] == Ok [[\"a\",\"b\"],[\"b\",\"a\"]]\n\n",
+        "type": "Int -> List a -> Result.Result String (List (List a))"
+      },
+      {
+        "name": "getVariationsWithReps",
+        "comment": " Get list of variations with repetitions.\n\nLimitations: k >= 0, n >= 0\n\n    getVariationsWithReps 2 [ \"a\", \"b\" ] == Ok [[\"a\",\"a\"],[\"a\",\"b\"],[\"b\",\"a\"],[\"b\",\"b\"]]\n\n",
+        "type": "Int -> List a -> Result.Result String (List (List a))"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Cache",
+    "comment": " A simple, least recently used (LRU) cache with O(1) get, put and remove operations.\n\nAn LRU cache is one that has a fixed size at any point in time and evicts entries\nwhen the size gets over that limit. It will always get rid of the least recently used\nentry.\n\n    myCache =\n        Cache.newCache 3\n            |> Cache.put \"a\" 1\n            |> Cache.put \"b\" 2\n            |> Cache.put \"c\" 3\n            |> Cache.put \"d\" 4\n\n    Cache.get \"a\" => (newCacheState, Nothing)\n    Cache.get \"b\" => (newCacheState, Just 2)\n    Cache.get \"c\" => (newCacheState, Just 3)\n    Cache.get \"d\" => (newCacheState, Just 4)\n\nSince this library depends on dictionaries internally that require that keys be\ncomparable you'll have to use `String` as keys for now.\n\n@docs newCache, toDict, get, put, remove\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "get",
+        "comment": " Get an item out of the cache.\nThis returns both a new Cache state and a Maybe for the value. Since this is\na least recently used (LRU) cache, anything that is touched will become the\nmost recently used and the cache's internal state reflects that. Make sure\nto use this new reference afterwords and not the original.\n",
+        "type": "String -> Cache.Cache a -> ( Cache.Cache a, Maybe.Maybe a )"
+      },
+      {
+        "name": "newCache",
+        "comment": " Create a new empty cache with a maximum size.\n",
+        "type": "Int -> Cache.Cache a"
+      },
+      {
+        "name": "put",
+        "comment": " Put a new item in the cache.\nThis may result in another item being evicted if the new size is\ngreater than the maximum size. If there was a value previously then\nit is over written.\n",
+        "type": "String -> a -> Cache.Cache a -> Cache.Cache a"
+      },
+      {
+        "name": "remove",
+        "comment": " Remove an item from the cache.\n",
+        "type": "String -> Cache.Cache a -> Cache.Cache a"
+      },
+      {
+        "name": "toDict",
+        "comment": " Get the dict that represents this cache.\n",
+        "type": "Cache.Cache a -> Dict.Dict String a"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]

@@ -1,0 +1,838 @@
+[
+  {
+    "name": "NaturalUi",
+    "comment": " Easy-going, opinionated UI kit.\n\n\n# UI elements\n\n@docs authScreen, appLayout, button, card, input, checkbox, searchBar, loader, select, link, barChart, lineChart, loaderWrapper, formPack, listEditor, sidebar, tabs, switch, toggle, smartTable, simpleLink, notification\n\n\n# Attributes\n\n@docs title, body, addNewItemLabel, help, addNewItemPlaceholder, state, data, children, toMsg, warning, error, enabled, placeholder, htmlAttrs, icon, id, label, navigate, onClick, onSuggestion, suggestions, url, discrete, options\n\n\n# Icons\n\n@docs plusInCircle, barbell, webhook, checkmarkInCircle, variable, slot, duplicate, trash, target, channels, pen, gear, tree, chip, bot, caretLeft, chevronLeft, chevronRight, chevronUp, chevronDown, search, close, pen, questionInCircle, chart, logout, person\n\n\n# Misc\n\n@docs styles\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "addNewItemLabel",
+        "comment": " Label for an 'add new item' prompt\n",
+        "type": "String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "addNewItemPlaceholder",
+        "comment": " Placeholder for an 'add new item' form field placeholder\n",
+        "type": "String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "appLayout",
+        "comment": " AppLayout element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "authScreen",
+        "comment": " AuthScreen element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "barChart",
+        "comment": " Bar chart element\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.BarChart.State NaturalUi.BarChart.Data msg) -> Html.Html msg"
+      },
+      {
+        "name": "barbell",
+        "comment": " Barbell icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "body",
+        "comment": " Content body attribute\n",
+        "type": "String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "bot",
+        "comment": " Tree icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "button",
+        "comment": " Button element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "card",
+        "comment": " Card element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "caretLeft",
+        "comment": " Caret left icon - deprecated, use [chevronLeft](#chevronLeft)\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "channels",
+        "comment": " Channels icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "chart",
+        "comment": " Chart icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "checkbox",
+        "comment": " Checkbox element\n",
+        "type": "List (NaturalUi.Settings.Setting {} (List String) msg) -> Html.Html msg"
+      },
+      {
+        "name": "checkmarkInCircle",
+        "comment": " Checkmark icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "chevronDown",
+        "comment": " ChevronDown icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "chevronLeft",
+        "comment": " ChevronLeft icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "chevronRight",
+        "comment": " ChevronRight icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "chevronUp",
+        "comment": " ChevronUp icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "children",
+        "comment": " Html children\n",
+        "type": "List (Html.Html msg) -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "chip",
+        "comment": " Chip icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "close",
+        "comment": " Close icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "data",
+        "comment": " View data 'owned' by the outside application. Of course, all state is owned by the outside app, but contrary to [state](#state), this holds core application data that may reach servers later.\n",
+        "type": "data -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "discrete",
+        "comment": " Discrete theme\n",
+        "type": "NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "duplicate",
+        "comment": " Duplicate icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "enabled",
+        "comment": " Enabled state\n",
+        "type": "Bool -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "error",
+        "comment": " Error theme\n",
+        "type": "NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "formPack",
+        "comment": " FormPack element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "gear",
+        "comment": " Gear icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "help",
+        "comment": " Help text\n",
+        "type": "String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "htmlAttrs",
+        "comment": " Html attributes for the UI element's container node (style, class name, etc.)\n",
+        "type": "List (Html.Attribute msg) -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "icon",
+        "comment": " SVG icon\n",
+        "type": "Html.Html msg -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "id",
+        "comment": " Id\n",
+        "type": "String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "input",
+        "comment": " Input element\n",
+        "type": "List (NaturalUi.Settings.Setting Int String msg) -> Html.Html msg"
+      },
+      {
+        "name": "label",
+        "comment": " Labels, used for forms and sections\n",
+        "type": "String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "lineChart",
+        "comment": " Line chart element\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.LineChart.State NaturalUi.LineChart.Data msg) -> Html.Html msg"
+      },
+      {
+        "name": "link",
+        "comment": " Link element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "listEditor",
+        "comment": " List editor element\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.ListEditor.State NaturalUi.ListEditor.Data msg) -> Html.Html msg"
+      },
+      {
+        "name": "loader",
+        "comment": " Loader element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "loaderWrapper",
+        "comment": " LoaderWrapper element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "logout",
+        "comment": " Logout icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "navigate",
+        "comment": " Client-side navigation message, taking a path string as a parameter\n",
+        "type": "(String -> msg) -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "notification",
+        "comment": " Notification element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "onClick",
+        "comment": " Click handler\n",
+        "type": "msg -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "onSuggestion",
+        "comment": " Handler for when the user accepts a suggestion\n",
+        "type": "(String -> msg) -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "options",
+        "comment": " List of options, e.g. for select\n",
+        "type": "List String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "pen",
+        "comment": " Pen icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "person",
+        "comment": " Person icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "placeholder",
+        "comment": " Placeholder\n",
+        "type": "String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "plusInCircle",
+        "comment": " PlusInCircle icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "questionInCircle",
+        "comment": " QuestionInCircle icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "search",
+        "comment": " Search icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "searchBar",
+        "comment": " SearchBar element\n",
+        "type": "List (NaturalUi.Settings.Setting {} String msg) -> Html.Html msg"
+      },
+      {
+        "name": "select",
+        "comment": " Select element\n",
+        "type": "List (NaturalUi.Settings.Setting {} String msg) -> Html.Html msg"
+      },
+      {
+        "name": "sidebar",
+        "comment": " Sidebar element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never (NaturalUi.Sidebar.Data msg) msg) -> Html.Html msg"
+      },
+      {
+        "name": "simpleLink",
+        "comment": " Simple link element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "slot",
+        "comment": " Slot icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "smartTable",
+        "comment": " Button element\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.SmartTable.State (NaturalUi.SmartTable.Data msg) msg) -> Html.Html msg"
+      },
+      {
+        "name": "state",
+        "comment": " Internal UI widget state, see <http://package.elm-lang.org/packages/evancz/elm-sortable-table/1.0.1/Table#view>\n",
+        "type": "state -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "styles",
+        "comment": " Setup styles for the client\n",
+        "type": "List Css.Snippet"
+      },
+      {
+        "name": "suggestions",
+        "comment": " Suggestions for words that autocomplete should recognize\n",
+        "type": "List String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "switch",
+        "comment": " SearchBar element\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never Basics.Never msg) -> Html.Html msg"
+      },
+      {
+        "name": "tabs",
+        "comment": " Tabs element\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.Tabs.State (NaturalUi.Tabs.Data msg) msg) -> Html.Html msg"
+      },
+      {
+        "name": "target",
+        "comment": " Target icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "title",
+        "comment": " Title attribute\n",
+        "type": "String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "toMsg",
+        "comment": " A'la [elm-sortable-table](http://package.elm-lang.org/packages/evancz/elm-sortable-table/1.0.1/Table#view), this is how components communicate to the outside application. The slight modification is that components always pass back both their new internal state and the new data through this method.\n",
+        "type": "(state -> data -> msg) -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "toggle",
+        "comment": " Toggle element\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.Toggle.State NaturalUi.Toggle.Data msg) -> Html.Html msg"
+      },
+      {
+        "name": "trash",
+        "comment": " Trash icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "tree",
+        "comment": " Tree icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "url",
+        "comment": " Url for links and help sections\n",
+        "type": "String -> NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "variable",
+        "comment": " Variable icon\n",
+        "type": "Html.Html msg"
+      },
+      {
+        "name": "warning",
+        "comment": " Warning theme\n",
+        "type": "NaturalUi.Settings.Setting state data msg"
+      },
+      {
+        "name": "webhook",
+        "comment": " Webhooks icon\n",
+        "type": "Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "NaturalUi.SmartTable",
+    "comment": " Smart table\n\n\n# Types\n\n@docs State, SortState, Data, Row\n\n\n# Methods\n\n@docs getConfig, init, view, styles\n\n",
+    "aliases": [
+      {
+        "name": "Data",
+        "comment": " Data\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ headers : List String, rows : List (NaturalUi.SmartTable.Row msg) }"
+      },
+      {
+        "name": "Row",
+        "comment": " Row\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ cells : List ( String, Html.Html msg ) , isEnabled : Bool , actions : { edit : Maybe.Maybe msg , duplicate : Maybe.Maybe msg , delete : Maybe.Maybe msg } }"
+      },
+      {
+        "name": "SortState",
+        "comment": " Sort state\n",
+        "args": [],
+        "type": "{ columnIndex : Int, isAscending : Bool }"
+      }
+    ],
+    "types": [
+      {
+        "name": "State",
+        "comment": " State\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "getConfig",
+        "comment": " Get configuration from a list of settings\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.SmartTable.State (NaturalUi.SmartTable.Data msg) msg) -> NaturalUi.SmartTable.Config msg"
+      },
+      {
+        "name": "init",
+        "comment": " Init\n",
+        "type": "NaturalUi.SmartTable.State"
+      },
+      {
+        "name": "styles",
+        "comment": " Styles\n",
+        "type": "List Css.Snippet"
+      },
+      {
+        "name": "view",
+        "comment": " View\n",
+        "type": "NaturalUi.SmartTable.Config msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "NaturalUi.ListEditor",
+    "comment": " List editor component\n\n@docs State, Data, getConfig, init, view, styles\n\n",
+    "aliases": [
+      {
+        "name": "Data",
+        "comment": " Data\n",
+        "args": [],
+        "type": "List String"
+      },
+      {
+        "name": "State",
+        "comment": " State\n",
+        "args": [],
+        "type": "{ editing : Maybe.Maybe { index : Int, cursor : Int } , inputFieldsExpanded : Int }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "getConfig",
+        "comment": " Get configuration from a list of settings\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.ListEditor.State NaturalUi.ListEditor.Data msg) -> NaturalUi.ListEditor.Config msg"
+      },
+      {
+        "name": "init",
+        "comment": " Init\n",
+        "type": "NaturalUi.ListEditor.State"
+      },
+      {
+        "name": "styles",
+        "comment": " Styles\n",
+        "type": "List Css.Snippet"
+      },
+      {
+        "name": "view",
+        "comment": " View\n",
+        "type": "NaturalUi.ListEditor.Config msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "NaturalUi.Toggle",
+    "comment": " Toggle component\n\n@docs State, Data, getConfig, view, styles\n\n",
+    "aliases": [
+      {
+        "name": "Data",
+        "comment": " Data\n",
+        "args": [],
+        "type": "{ left : String, right : String, isLeft : Bool }"
+      },
+      {
+        "name": "State",
+        "comment": " State\n",
+        "args": [],
+        "type": "{}"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "getConfig",
+        "comment": " Get configuration from a list of settings\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.Toggle.State NaturalUi.Toggle.Data msg) -> NaturalUi.Toggle.Config msg"
+      },
+      {
+        "name": "styles",
+        "comment": " Styles\n",
+        "type": "List Css.Snippet"
+      },
+      {
+        "name": "view",
+        "comment": " View\n",
+        "type": "NaturalUi.Toggle.Config msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "NaturalUi.Select",
+    "comment": " Select component\n\n@docs Config, view, styles, getConfig\n\n",
+    "aliases": [
+      {
+        "name": "Config",
+        "comment": " Config\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ data : String , help : Maybe.Maybe String , label : String , options : List String , htmlAttrs : List (Html.Attribute msg) , toMsg : Maybe.Maybe (NaturalUi.Select.State -> NaturalUi.Select.Data -> msg) }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "getConfig",
+        "comment": " Get configuration from a list of settings\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.Select.State NaturalUi.Select.Data msg) -> NaturalUi.Select.Config msg"
+      },
+      {
+        "name": "styles",
+        "comment": " Styles\n",
+        "type": "List Css.Snippet"
+      },
+      {
+        "name": "view",
+        "comment": " View\n",
+        "type": "NaturalUi.Select.Config msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "NaturalUi.Sidebar",
+    "comment": " Select component\n\n@docs Data, getConfig, view, styles\n\n",
+    "aliases": [
+      {
+        "name": "Data",
+        "comment": " Data\n",
+        "args": [
+          "msg"
+        ],
+        "type": "{ currentPath : String , linkGroups : List { title : String , links : List { label : String, path : String, icon : Html.Html msg } } }"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "getConfig",
+        "comment": " Get configuration from a list of settings\n",
+        "type": "List (NaturalUi.Settings.Setting Basics.Never (NaturalUi.Sidebar.Data msg) msg) -> NaturalUi.Sidebar.Config msg"
+      },
+      {
+        "name": "styles",
+        "comment": " Styles\n",
+        "type": "List Css.Snippet"
+      },
+      {
+        "name": "view",
+        "comment": " View\n",
+        "type": "NaturalUi.Sidebar.Config msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "NaturalUi.LineChart",
+    "comment": " Line chart element\n\n@docs State, Data, init, getConfig, view, styles\n\n",
+    "aliases": [
+      {
+        "name": "Data",
+        "comment": " Data\n",
+        "args": [],
+        "type": "List ( Float, Float )"
+      }
+    ],
+    "types": [
+      {
+        "name": "State",
+        "comment": " State\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "getConfig",
+        "comment": " Get configuration from a list of settings\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.LineChart.State NaturalUi.LineChart.Data msg) -> NaturalUi.LineChart.Config msg"
+      },
+      {
+        "name": "init",
+        "comment": " Init\n",
+        "type": "NaturalUi.LineChart.State"
+      },
+      {
+        "name": "styles",
+        "comment": " Styles\n",
+        "type": "List Css.Snippet"
+      },
+      {
+        "name": "view",
+        "comment": " View\n",
+        "type": "NaturalUi.LineChart.Config msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "NaturalUi.Tabs",
+    "comment": " Tabs component\n\n@docs State, Data, getConfig, view, styles\n\n",
+    "aliases": [
+      {
+        "name": "Data",
+        "comment": " Data\n",
+        "args": [
+          "msg"
+        ],
+        "type": "List ( String, Html.Html msg )"
+      },
+      {
+        "name": "State",
+        "comment": " State\n",
+        "args": [],
+        "type": "Int"
+      }
+    ],
+    "types": [],
+    "values": [
+      {
+        "name": "getConfig",
+        "comment": " Get configuration from a list of settings\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.Tabs.State (NaturalUi.Tabs.Data msg) msg) -> NaturalUi.Tabs.Config msg"
+      },
+      {
+        "name": "styles",
+        "comment": " Styles\n",
+        "type": "List Css.Snippet"
+      },
+      {
+        "name": "view",
+        "comment": " View\n",
+        "type": "NaturalUi.Tabs.Config msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "NaturalUi.BarChart",
+    "comment": " Bar chart element\n\n@docs State, Data, init, getConfig, view, styles\n\n",
+    "aliases": [
+      {
+        "name": "Data",
+        "comment": " Data\n",
+        "args": [],
+        "type": "List ( String, List Float )"
+      }
+    ],
+    "types": [
+      {
+        "name": "State",
+        "comment": " State\n",
+        "args": [],
+        "cases": []
+      }
+    ],
+    "values": [
+      {
+        "name": "getConfig",
+        "comment": " Get configuration from a list of settings\n",
+        "type": "List (NaturalUi.Settings.Setting NaturalUi.BarChart.State NaturalUi.BarChart.Data msg) -> NaturalUi.BarChart.Config msg"
+      },
+      {
+        "name": "init",
+        "comment": " Init\n",
+        "type": "NaturalUi.BarChart.State"
+      },
+      {
+        "name": "styles",
+        "comment": " Styles\n",
+        "type": "List Css.Snippet"
+      },
+      {
+        "name": "view",
+        "comment": " View\n",
+        "type": "NaturalUi.BarChart.Config msg -> Html.Html msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "NaturalUi.Constants",
+    "comment": " Styling constants\n\n\n# Sizes\n\n@docs headerHeight, footerHeight, sidebarWidth\n\n\n# Colors\n\n@docs black, gray, orange, red, lightRed, lightOrange, lightGray, dark, white, faintBlue, blue, lightBlue\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "black",
+        "comment": " Black color\n",
+        "type": "String"
+      },
+      {
+        "name": "blue",
+        "comment": " Blue color\n",
+        "type": "String"
+      },
+      {
+        "name": "dark",
+        "comment": " Dark color\n",
+        "type": "String"
+      },
+      {
+        "name": "faintBlue",
+        "comment": " Faint blue color\n",
+        "type": "String"
+      },
+      {
+        "name": "footerHeight",
+        "comment": " Footer height\n",
+        "type": "Float"
+      },
+      {
+        "name": "gray",
+        "comment": " Gray color\n",
+        "type": "String"
+      },
+      {
+        "name": "headerHeight",
+        "comment": " Header height\n",
+        "type": "Float"
+      },
+      {
+        "name": "lightBlue",
+        "comment": " Light blue color\n",
+        "type": "String"
+      },
+      {
+        "name": "lightGray",
+        "comment": " Light gray color\n",
+        "type": "String"
+      },
+      {
+        "name": "lightOrange",
+        "comment": " Light orange color\n",
+        "type": "String"
+      },
+      {
+        "name": "lightRed",
+        "comment": " Light red color\n",
+        "type": "String"
+      },
+      {
+        "name": "orange",
+        "comment": " Orange color\n",
+        "type": "String"
+      },
+      {
+        "name": "red",
+        "comment": " Red color\n",
+        "type": "String"
+      },
+      {
+        "name": "sidebarWidth",
+        "comment": " Sidebar width\n",
+        "type": "Float"
+      },
+      {
+        "name": "white",
+        "comment": " White color\n",
+        "type": "String"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
+    "name": "NaturalUi.Mixins",
+    "comment": " Style mixins\n\n\n# Typography\n\n@docs title, heading, regular, regularBolder, label, small\n\n\n# Miscellaneous skin styles\n\n@docs standardBorderRadius, standardBoxShadow\n\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "heading",
+        "comment": " Heading type\n",
+        "type": "List Css.Style"
+      },
+      {
+        "name": "label",
+        "comment": " Label\n",
+        "type": "List Css.Style"
+      },
+      {
+        "name": "regular",
+        "comment": " Regular body type\n",
+        "type": "List Css.Style"
+      },
+      {
+        "name": "regularBolder",
+        "comment": " Regular bolder body type\n",
+        "type": "List Css.Style"
+      },
+      {
+        "name": "small",
+        "comment": " Small type\n",
+        "type": "List Css.Style"
+      },
+      {
+        "name": "standardBorderRadius",
+        "comment": " Standard border radius\n",
+        "type": "Css.Style"
+      },
+      {
+        "name": "standardBoxShadow",
+        "comment": " Standard box shadow\n",
+        "type": "Css.Style"
+      },
+      {
+        "name": "title",
+        "comment": " Title type\n",
+        "type": "List Css.Style"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
